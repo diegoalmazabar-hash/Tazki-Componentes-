@@ -91,6 +91,19 @@ h2{font-size:24px;font-weight:800;margin-bottom:6px}
 .mtable td{padding:11px 14px;border-top:1px solid var(--linea);color:#334155;vertical-align:top}
 .mtable td b{color:#1e293b}
 .mtable tbody tr:hover{background:#f8faff}
+.cmatrix{width:100%;min-width:860px;border-collapse:collapse;background:#fff;border:1px solid var(--linea);border-radius:12px;overflow:hidden;font-size:13px;margin-top:8px}
+.cmatrix th{background:var(--cobalto);color:#fff;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.03em;padding:10px 12px;white-space:nowrap}
+.cmatrix th.tema-h{background:var(--cobalto-d);position:sticky;left:0;z-index:2}
+.cmatrix td{padding:8px 10px;border-top:1px solid var(--linea);border-left:1px solid var(--linea);vertical-align:top}
+.cmatrix td.tema-c{font-weight:700;color:#1e293b;background:var(--cobalto-l);white-space:nowrap;position:sticky;left:0;z-index:1}
+.cmatrix .cell-chip{display:block;font-size:12px;font-weight:600;line-height:1.25;padding:4px 8px;border-radius:6px;margin-bottom:4px}
+.cmatrix .cell-chip:last-child{margin-bottom:0}
+.cmatrix .cell-chip.tofu{background:var(--tofu-bg);color:#1d4ed8}
+.cmatrix .cell-chip.mofu{background:var(--mofu-bg);color:var(--mofu)}
+.cmatrix .cell-chip.bofu{background:var(--bofu-bg);color:var(--bofu)}
+.cmatrix td.empty{color:#cbd5e1;text-align:center}
+.mlegend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--gris);margin:10px 0 22px}
+.mlegend span{display:flex;align-items:center;gap:6px}
 footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:24px}
 @media(max-width:720px){.funnel{grid-template-columns:1fr}.qcard{grid-template-columns:1fr;text-align:left}.qcard .imp{text-align:left}header h1{font-size:26px}}
 </style>
@@ -147,7 +160,16 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
 
 <section id="matriz">
   <h2>Matriz de contenidos</h2>
-  <p class="sub">Cada tema pilar, adaptado a distintos canales y a su etapa de funnel. Filtra por etapa, canal o tema para ver qué producir. En verde, lo de prioridad alta.</p>
+  <p class="sub">Cada tema pilar, adaptado a distintos canales y a su etapa de funnel. Arriba, la cuadrícula con todo por tema y canal de un vistazo; abajo, la lista filtrable con el detalle de cada pieza.</p>
+  <span class="lbl" style="display:block;margin:4px 0">Cuadrícula — todo el contenido por tema y canal</span>
+  <div class="tablewrap"><div id="cmatrix"></div></div>
+  <div class="mlegend">
+    <span><span class="dot" style="background:var(--tofu)"></span> TOFU (atraer)</span>
+    <span><span class="dot" style="background:var(--mofu)"></span> MOFU (convencer)</span>
+    <span><span class="dot" style="background:var(--bofu)"></span> BOFU (convertir)</span>
+    <span>Cada celda = una pieza a producir (el texto indica el formato).</span>
+  </div>
+  <span class="lbl" style="display:block;margin:4px 0 10px">Lista filtrable — detalle de cada pieza</span>
   <div class="filters">
     <div class="fgroup"><span class="flabel">Etapa</span><div class="fbtns" id="f-etapa"></div></div>
     <div class="fgroup"><span class="flabel">Canal</span><div class="fbtns" id="f-canal"></div></div>
@@ -345,13 +367,31 @@ function renderPlan(){
     d.innerHTML=`<div class="when">${p.when}</div><h4>${p.h}</h4><p>${p.p}</p><div class="res">▸ ${p.res}</div>`;
     el.appendChild(d);});
 }
+function renderMatrixGrid(){
+  const canales=uniq(M.map(m=>m.canal));
+  const temas=uniq(M.map(m=>m.tema));
+  let html='<table class="cmatrix"><thead><tr><th class="tema-h">Tema \\ Canal</th>';
+  canales.forEach(c=>{html+=`<th>${c}</th>`;});
+  html+='</tr></thead><tbody>';
+  temas.forEach(t=>{
+    html+=`<tr><td class="tema-c">${t}</td>`;
+    canales.forEach(c=>{
+      const items=M.filter(m=>m.tema===t&&m.canal===c);
+      if(!items.length){html+='<td class="empty">—</td>';return;}
+      html+='<td>'+items.map(m=>`<span class="cell-chip ${stageClass(m.etapa)}" title="${m.titulo.replace(/"/g,'&quot;')}">${m.formato}</span>`).join('')+'</td>';
+    });
+    html+='</tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('cmatrix').innerHTML=html;
+}
 function renderAll(){renderFilters();renderGrid();}
 
 document.querySelectorAll('nav button').forEach(b=>{
   b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
     document.getElementById(b.dataset.go).scrollIntoView({behavior:'smooth'});};
 });
-renderAll();renderQW();renderPlan();
+renderAll();renderMatrixGrid();renderQW();renderPlan();
 </script>
 </body>
 </html>
