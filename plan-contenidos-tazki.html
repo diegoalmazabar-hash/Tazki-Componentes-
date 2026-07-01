@@ -84,6 +84,13 @@ h2{font-size:24px;font-weight:800;margin-bottom:6px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gris);margin-bottom:18px}
 .legend span{display:flex;align-items:center;gap:6px}
 .dot{width:11px;height:11px;border-radius:50%}
+.north{background:var(--cobalto-l);border-radius:8px;padding:10px 12px;margin-top:6px;font-size:14px;font-weight:700;color:var(--cobalto-d)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mtable{width:100%;min-width:640px;border-collapse:collapse;background:#fff;border:1px solid var(--linea);border-radius:12px;overflow:hidden;font-size:14px;margin-top:8px}
+.mtable th{background:var(--cobalto-l);color:var(--cobalto-d);text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:11px 14px;white-space:nowrap}
+.mtable td{padding:11px 14px;border-top:1px solid var(--linea);color:#334155;vertical-align:top}
+.mtable td b{color:#1e293b}
+.mtable tbody tr:hover{background:#f8faff}
 footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:24px}
 @media(max-width:720px){.funnel{grid-template-columns:1fr}.qcard{grid-template-columns:1fr;text-align:left}.qcard .imp{text-align:left}header h1{font-size:26px}}
 </style>
@@ -101,6 +108,7 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <button data-go="matriz">Matriz de contenidos</button>
   <button data-go="quick">Quick wins SEO</button>
   <button data-go="plan">Arranque 90 días</button>
+  <button data-go="medicion">Medición</button>
 </div></nav>
 
 <div class="wrap">
@@ -164,6 +172,57 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <h2>Arranque 90 días (julio–septiembre)</h2>
   <p class="sub">Pensado para un equipo chico: primero recuperas lo que ya tienes, luego lanzas las 3 piezas que convierten, y recién después abres temas nuevos.</p>
   <div class="tl" id="tl"></div>
+</section>
+
+<section id="medicion">
+  <h2>Cómo medimos si funciona</h2>
+  <p class="sub">Publicar es la mitad; la otra mitad es saber qué mover. Este es el tablero de medición: una métrica estrella por etapa y los KPIs que sí sirven de cada canal (blog, YouTube, Instagram, LinkedIn y HubSpot), dejando fuera las métricas de vanidad. HubSpot es la fuente de verdad: es donde el clic se vuelve lead, el lead se vuelve demo y la demo se vuelve venta.</p>
+  <div class="funnel">
+    <div class="stage tofu">
+      <span class="tag">TOFU · ¿Nos encuentran?</span>
+      <h3>Alcance y tráfico</h3>
+      <span class="lbl">Métrica estrella</span>
+      <div class="north">Clics orgánicos + visualizaciones nuevas</div>
+      <span class="lbl">KPIs que sí sirven</span>
+      <div class="chips"><span class="chip">Clics y CTR (Search Console)</span><span class="chip">Vistas + % retención (YouTube)</span><span class="chip">Alcance y guardados (Instagram)</span><span class="chip">Impresiones e interacción (LinkedIn)</span></div>
+      <span class="lbl">Ignora (vanidad)</span><p>Seguidores totales, "me gusta" sueltos, impresiones sin clics.</p>
+    </div>
+    <div class="stage mofu">
+      <span class="tag">MOFU · ¿Dejan el correo?</span>
+      <h3>Interés y captura de leads</h3>
+      <span class="lbl">Métrica estrella</span>
+      <div class="north">Leads nuevos (descargas + inscritos al webinar)</div>
+      <span class="lbl">KPIs que sí sirven</span>
+      <div class="chips"><span class="chip">Formularios enviados (HubSpot)</span><span class="chip">Tasa visita → lead</span><span class="chip">Inscritos y % asistencia webinar</span><span class="chip">MQL generados</span></div>
+      <span class="lbl">Ignora (vanidad)</span><p>Descargas sin correo, tiempo en página sin conversión.</p>
+    </div>
+    <div class="stage bofu">
+      <span class="tag">BOFU · ¿Agendan demo?</span>
+      <h3>Conversión y cierre</h3>
+      <span class="lbl">Métrica estrella</span>
+      <div class="north">Demos agendadas → negocios ganados</div>
+      <span class="lbl">KPIs que sí sirven</span>
+      <div class="chips"><span class="chip">Demos agendadas (HubSpot)</span><span class="chip">Tasa lead → demo → cierre</span><span class="chip">Negocios creados y ganados</span><span class="chip">Ingreso y ciclo de venta</span></div>
+      <span class="lbl">Ignora (vanidad)</span><p>Clics a la landing sin agendamiento, alcance del post BOFU.</p>
+    </div>
+  </div>
+
+  <span class="lbl" style="display:block;margin:26px 0 4px">Qué mirar en cada canal (y dónde)</span>
+  <div class="tablewrap">
+  <table class="mtable">
+    <thead><tr><th>Canal</th><th>Etapa</th><th>Métricas que sirven</th><th>Dónde se lee</th><th>Cada cuánto</th></tr></thead>
+    <tbody>
+      <tr><td><b>Blog / SEO</b></td><td>TOFU→BOFU</td><td>Clics, impresiones, CTR, posición media, descargas de plantillas</td><td>Search Console + HubSpot</td><td>Semanal</td></tr>
+      <tr><td><b>YouTube</b></td><td>TOFU→BOFU</td><td>Impresiones, CTR de miniatura, vistas, % de retención, clics a la plantilla/demo</td><td>YouTube Studio</td><td>Semanal</td></tr>
+      <tr><td><b>Instagram</b></td><td>TOFU</td><td>Alcance, reproducciones de reels, guardados, compartidos, seguidores nuevos</td><td>Instagram Insights</td><td>Quincenal</td></tr>
+      <tr><td><b>LinkedIn</b></td><td>TOFU→MOFU</td><td>Impresiones, tasa de interacción, clics al enlace, visitas a la página de empresa</td><td>LinkedIn Analytics</td><td>Semanal</td></tr>
+      <tr><td><b>Webinar</b></td><td>MOFU→BOFU</td><td>Inscritos, asistentes, % de asistencia, demos pedidas al cierre</td><td>HubSpot</td><td>Por evento</td></tr>
+      <tr><td><b>Landing / producto</b></td><td>BOFU</td><td>Visitas, conversión a demo, contactos generados, origen del lead</td><td>HubSpot</td><td>Semanal</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flow-note"><b>El montaje de medición:</b> cada plataforma tiene su panel nativo (Search Console, YouTube Studio, Instagram Insights, LinkedIn Analytics), pero para verlo TODO junto sin copiar números a mano se conecta un agregador tipo <b>Supermetrics</b> → un Google Sheets o Looker Studio que junta los cinco canales en un solo tablero. <b>HubSpot cierra el círculo:</b> es la única fuente que conecta el contenido con la plata (clic → lead → demo → venta). Regla de oro: un tablero, revisión semanal de 15 minutos, una sola métrica estrella por etapa.</div>
 </section>
 
 <footer>Plan de contenidos Tazki · construido a partir de la investigación de mercado, Google Trends Chile y los rendimientos reales de Search Console. Junio 2026.</footer>
