@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de contenidos Tazki — interactivo</title>
+<style>
+:root{
+  --cobalto:#1f4ed8; --cobalto-d:#173db0; --cobalto-l:#e8f0fe;
+  --tofu:#3b82f6; --tofu-bg:#e8f0fe; --mofu:#d97706; --mofu-bg:#fff4e0;
+  --bofu:#16a34a; --bofu-bg:#e3f4e9; --tinta:#0f172a; --gris:#64748b;
+  --linea:#e2e8f0; --bg:#f6f8fc; --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tinta);line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;padding:46px 0 40px;margin-bottom:8px}
+header .wrap{padding-bottom:0}
+.kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
+header h1{font-size:34px;font-weight:800;margin:8px 0 10px;line-height:1.15}
+header p{font-size:16px;opacity:.92;max-width:760px}
+nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea);margin-bottom:30px}
+nav .wrap{display:flex;gap:6px;padding:10px 20px;overflow-x:auto}
+nav button{border:0;background:transparent;color:var(--gris);font:inherit;font-weight:600;font-size:14px;padding:9px 14px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--cobalto-l);color:var(--cobalto)}
+nav button.on{background:var(--cobalto);color:#fff}
+section{margin-bottom:54px;scroll-margin-top:64px}
+h2{font-size:24px;font-weight:800;margin-bottom:6px}
+.sub{color:var(--gris);margin-bottom:22px;max-width:820px}
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stage{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:22px;position:relative;overflow:hidden}
+.stage:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
+.stage.tofu:before{background:var(--tofu)} .stage.mofu:before{background:var(--mofu)} .stage.bofu:before{background:var(--bofu)}
+.stage .tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:10px}
+.stage.tofu .tag{background:var(--tofu-bg);color:var(--tofu)} .stage.mofu .tag{background:var(--mofu-bg);color:var(--mofu)} .stage.bofu .tag{background:var(--bofu-bg);color:var(--bofu)}
+.stage h3{font-size:18px;margin-bottom:8px}
+.stage .lbl{font-size:12px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;margin-top:14px;display:block}
+.stage p{font-size:14px;color:#334155;margin-top:3px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font-size:12px;background:var(--bg);border:1px solid var(--linea);border-radius:6px;padding:3px 8px;color:#475569}
+.flow-note{margin-top:18px;background:var(--cobalto-l);border-left:4px solid var(--cobalto);padding:14px 18px;border-radius:8px;font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:20px;align-items:flex-end}
+.fgroup{display:flex;flex-direction:column;gap:7px}
+.fgroup .flabel{font-size:12px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em}
+.fbtns{display:flex;flex-wrap:wrap;gap:6px}
+.fbtns button{border:1px solid var(--linea);background:#fff;font:inherit;font-size:13px;font-weight:600;color:#475569;padding:6px 12px;border-radius:20px;cursor:pointer}
+.fbtns button:hover{border-color:var(--cobalto);color:var(--cobalto)}
+.fbtns button.on{background:var(--cobalto);border-color:var(--cobalto);color:#fff}
+.count{font-size:13px;color:var(--gris);margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:9px;transition:.15s}
+.card:hover{box-shadow:0 6px 22px rgba(31,78,216,.10);transform:translateY(-2px)}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px}
+.b-tofu{background:var(--tofu-bg);color:var(--tofu)} .b-mofu{background:var(--mofu-bg);color:var(--mofu)} .b-bofu{background:var(--bofu-bg);color:var(--bofu)}
+.canal{font-size:12px;font-weight:700;color:var(--cobalto);text-transform:uppercase;letter-spacing:.04em}
+.card .titulo{font-size:15px;font-weight:700;line-height:1.35}
+.card .meta{font-size:13px;color:#475569}
+.card .meta b{color:#1e293b;font-weight:700}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:2px;padding-top:9px;border-top:1px solid var(--linea)}
+.cta{font-size:13px;font-weight:700;color:var(--cobalto)}
+.prio{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
+.prio.alta{background:var(--bofu-bg);color:var(--bofu)} .prio.media{background:#fef3c7;color:#b45309} .prio.baja{background:#f1f5f9;color:#64748b}
+.src{font-size:11px;color:#94a3b8;font-style:italic}
+.qw{display:flex;flex-direction:column;gap:10px}
+.qcard{background:#fff;border:1px solid var(--linea);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:160px 1fr 150px;gap:16px;align-items:center}
+.qcard .act{font-weight:800;font-size:14px}
+.qcard.t1 .act{color:var(--mofu)} .qcard.t2 .act{color:var(--cobalto)} .qcard.t3 .act{color:var(--bofu)}
+.qcard .q{font-size:14px}
+.qcard .q .data{font-size:12px;color:var(--gris);margin-top:3px}
+.qcard .q .do{font-size:13px;color:#334155;margin-top:5px}
+.qcard .imp{text-align:right}
+.qcard .imp .lvl{font-weight:800;font-size:14px}
+.qcard .imp .lvl.alto{color:var(--bofu)} .qcard .imp .lvl.medio{color:#b45309}
+.tl{position:relative;padding-left:28px}
+.tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--linea)}
+.tlitem{position:relative;margin-bottom:18px;background:#fff;border:1px solid var(--linea);border-radius:12px;padding:15px 18px}
+.tlitem:hover{border-color:var(--cobalto)}
+.tlitem:before{content:"";position:absolute;left:-25px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--cobalto);border:3px solid #fff;box-shadow:0 0 0 1px var(--linea)}
+.tlitem .when{font-size:12px;font-weight:700;color:var(--cobalto);text-transform:uppercase;letter-spacing:.05em}
+.tlitem h4{font-size:16px;margin:3px 0 6px}
+.tlitem p{font-size:14px;color:#475569}
+.tlitem .res{font-size:13px;color:var(--bofu);font-weight:600;margin-top:6px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gris);margin-bottom:18px}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:50%}
+footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:24px}
+@media(max-width:720px){.funnel{grid-template-columns:1fr}.qcard{grid-template-columns:1fr;text-align:left}.qcard .imp{text-align:left}header h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Plan de contenidos · HSEQ Chile</div>
+    <h1>Plan de contenidos Tazki por funnel y canal</h1>
+    <p>Una vista interactiva del plan: el flujo del funnel, la matriz de contenidos filtrable, los arreglos rápidos que salieron de tu Search Console y el arranque de 90 días. Todo aterrizado en lo que de verdad busca Carlos, el prevencionista.</p>
+  </div>
+</header>
+<nav><div class="wrap">
+  <button class="on" data-go="funnel">Flujo del funnel</button>
+  <button data-go="matriz">Matriz de contenidos</button>
+  <button data-go="quick">Quick wins SEO</button>
+  <button data-go="plan">Arranque 90 días</button>
+</div></nav>
+
+<div class="wrap">
+
+<section id="funnel">
+  <h2>Cómo fluye el funnel</h2>
+  <p class="sub">Carlos (el prevencionista) es el champion: todo el contenido entra por él. La gerencia (el decisor) aparece en MOFU y BOFU con el ángulo de riesgo legal y ROI. Una sola llamada a la acción por pieza.</p>
+  <div class="funnel">
+    <div class="stage tofu">
+      <span class="tag">TOFU · Atraer</span>
+      <h3>"Me cambió la norma / tengo una duda"</h3>
+      <span class="lbl">Qué busca</span><p>Entender una obligación nueva, bajar una plantilla, la charla del día. Con urgencia y poco tiempo.</p>
+      <span class="lbl">Objetivo</span><p>Aparecer cuando Carlos busca la norma y quedarte con el tráfico de SEO.</p>
+      <span class="lbl">Canales</span><div class="chips"><span class="chip">Blog (SEO base)</span><span class="chip">YouTube how-to</span><span class="chip">Instagram</span><span class="chip">LinkedIn</span></div>
+      <span class="lbl">CTA</span><p>Descargar plantilla / leer la guía</p>
+    </div>
+    <div class="stage mofu">
+      <span class="tag">MOFU · Convencer</span>
+      <h3>"Estoy evaluando cómo resolverlo"</h3>
+      <span class="lbl">Qué busca</span><p>Comparar su Excel/papel con algo que le ahorre tiempo y le dé trazabilidad. Quiere el método y la prueba.</p>
+      <span class="lbl">Objetivo</span><p>Demostrar que con Tazki "puede concluir": sacar el reporte sin rearmarlo a mano.</p>
+      <span class="lbl">Canales</span><div class="chips"><span class="chip">Blog (ejemplos/casos)</span><span class="chip">Webinar</span><span class="chip">LinkedIn (decisor)</span><span class="chip">YouTube</span></div>
+      <span class="lbl">CTA</span><p>Ver el ejemplo / inscribirse al webinar / ver caso</p>
+    </div>
+    <div class="stage bofu">
+      <span class="tag">BOFU · Convertir</span>
+      <h3>"Quiero la herramienta / tengo auditoría"</h3>
+      <span class="lbl">Qué busca</span><p>Validez legal, uptime matutino, control de contratistas, reportería al directorio. Gatillo: fiscalización, accidente, quiebre, mandante.</p>
+      <span class="lbl">Objetivo</span><p>Cerrar: mostrar la Ord. 908, la firma electrónica y la reportería que pide la gerencia.</p>
+      <span class="lbl">Canales</span><div class="chips"><span class="chip">Páginas de producto</span><span class="chip">YouTube (demo)</span><span class="chip">LinkedIn</span><span class="chip">Webinar</span></div>
+      <span class="lbl">CTA</span><p>Agendar demo (30 min, sin presentación corporativa)</p>
+    </div>
+  </div>
+  <div class="flow-note"><b>El motor:</b> el blog y YouTube capturan a Carlos por la norma (TOFU) → el webinar y los ejemplos/checklist lo convierten (MOFU) → la página de la Ord. 908 y la demo cierran (BOFU). LinkedIn distribuye y le habla al decisor; Instagram construye marca y recordatorios.</div>
+</section>
+
+<section id="matriz">
+  <h2>Matriz de contenidos</h2>
+  <p class="sub">Cada tema pilar, adaptado a distintos canales y a su etapa de funnel. Filtra por etapa, canal o tema para ver qué producir. En verde, lo de prioridad alta.</p>
+  <div class="filters">
+    <div class="fgroup"><span class="flabel">Etapa</span><div class="fbtns" id="f-etapa"></div></div>
+    <div class="fgroup"><span class="flabel">Canal</span><div class="fbtns" id="f-canal"></div></div>
+    <div class="fgroup"><span class="flabel">Tema</span><div class="fbtns" id="f-tema"></div></div>
+  </div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="quick">
+  <h2>Quick wins de Search Console</h2>
+  <p class="sub">Lo más rentable a corto plazo, sacado de tu data real (tazki.cl, últimos 12 meses, sin marca). Ganar clics sin —casi— contenido nuevo.</p>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--mofu)"></span> 1. Arreglar título</span>
+    <span><span class="dot" style="background:var(--cobalto)"></span> 2. Empujar a página 1</span>
+    <span><span class="dot" style="background:var(--bofu)"></span> 3. Crear página nueva</span>
+  </div>
+  <div class="qw" id="qw"></div>
+</section>
+
+<section id="plan">
+  <h2>Arranque 90 días (julio–septiembre)</h2>
+  <p class="sub">Pensado para un equipo chico: primero recuperas lo que ya tienes, luego lanzas las 3 piezas que convierten, y recién después abres temas nuevos.</p>
+  <div class="tl" id="tl"></div>
+</section>
+
+<footer>Plan de contenidos Tazki · construido a partir de la investigación de mercado, Google Trends Chile y los rendimientos reales de Search Console. Junio 2026.</footer>
+</div>
+
+<script>
+const M=[
+{tema:"IRL / ODI",etapa:"TOFU→BOFU",canal:"Blog",formato:"Optimizar artículo",titulo:"Reescribir título y meta del artículo estrella 'Nueva IRL' para subir el CTR (hoy 0,3%)",kw:"irl, irl que es",cta:"Descargar formato IRL",prio:"alta",src:"GSC: 280 clics, 94k impr"},
+{tema:"IRL / ODI",etapa:"TOFU",canal:"Blog",formato:"Artículo + plantilla",titulo:"ODI o IRL: qué cambió con el DS 44 (dejaste de hacer la ODI sin saberlo)",kw:"odi o irl, que es irl en prevencion",cta:"Descargar formato IRL",prio:"alta",src:"GSC + Trends"},
+{tema:"IRL / ODI",etapa:"TOFU",canal:"YouTube",formato:"Video corto",titulo:"Qué es la IRL del DS 44 en 3 minutos (la ex-ODI)",kw:"irl ds 44",cta:"Link a la plantilla",prio:"media",src:"Trends"},
+{tema:"IRL / ODI",etapa:"TOFU",canal:"LinkedIn",formato:"Carrusel",titulo:"Dejaste de hacer la ODI sin saberlo: ahora es la IRL",kw:"odi → irl",cta:"Leer el artículo",prio:"media",src:"Trends"},
+{tema:"IRL / ODI",etapa:"TOFU",canal:"Instagram",formato:"Reel",titulo:"La ODI cambió de nombre: conoce la IRL en 30 segundos",kw:"awareness",cta:"Link en bio",prio:"baja",src:"Estrategia"},
+{tema:"IRL / ODI",etapa:"BOFU",canal:"Blog",formato:"How-to + demo",titulo:"Cómo dejas firmada la IRL de 50 trabajadores sin papel",kw:"irl prevencion",cta:"Agendar demo",prio:"media",src:"Estrategia"},
+
+{tema:"Software / plataforma",etapa:"BOFU",canal:"Blog",formato:"Página comparativa",titulo:"Software de prevención de riesgos en Chile: qué mirar antes de pagar",kw:"software prevencion riesgos laborales",cta:"Agendar demo",prio:"alta",src:"GSC: cluster 42k impr, pos 16-30"},
+{tema:"Software / plataforma",etapa:"BOFU",canal:"Blog",formato:"Optimizar landing",titulo:"Plataforma vs Excel: qué pasa cuando tienes que cerrar el reporte para la DT",kw:"plataforma de prevencion de riesgos",cta:"Agendar demo",prio:"alta",src:"GSC: pos 2,6 CTR 20%"},
+{tema:"Software / plataforma",etapa:"BOFU",canal:"YouTube",formato:"Demo",titulo:"Toda tu prevención en una plataforma (recorrido de 4 min)",kw:"software prevencion",cta:"Agendar demo",prio:"media",src:"GSC"},
+{tema:"Software / plataforma",etapa:"MOFU",canal:"LinkedIn",formato:"Post decisor",titulo:"Por qué el Excel se rompe a escala (y cuánto te cuesta en horas y multas)",kw:"ROI / gerencia",cta:"Ver caso",prio:"media",src:"ICP decisor"},
+{tema:"Software / plataforma",etapa:"BOFU",canal:"Webinar",formato:"Webinar",titulo:"De Excel a plataforma: cómo migras tu gestión sin morir en el intento",kw:"migración / software",cta:"Agendar demo",prio:"media",src:"Estrategia"},
+
+{tema:"Matriz / MIPER / IPER",etapa:"TOFU",canal:"Blog",formato:"Guía + ejemplo",titulo:"Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno",kw:"matriz de riesgos, que es una matriz",cta:"Descargar plantilla",prio:"alta",src:"Trends +70% / GSC: hueco total"},
+{tema:"Matriz / MIPER / IPER",etapa:"BOFU",canal:"Blog",formato:"Lead magnet",titulo:"Plantilla MIPER editable por rubro (construcción, bodega, comercio)",kw:"matriz iper excel, formato matriz",cta:"Descargar plantilla",prio:"alta",src:"Trends"},
+{tema:"Matriz / MIPER / IPER",etapa:"TOFU",canal:"YouTube",formato:"How-to",titulo:"Arma tu matriz IPER paso a paso (ejemplo real)",kw:"como hacer una matriz de riesgos",cta:"Link a la plantilla",prio:"media",src:"Trends"},
+{tema:"Matriz / MIPER / IPER",etapa:"TOFU",canal:"LinkedIn",formato:"Carrusel",titulo:"5 errores en tu MIPER que el DS 44 multa (62 sanciones en 6 meses)",kw:"miper",cta:"Leer la guía",prio:"media",src:"Investigación normativa"},
+{tema:"Matriz / MIPER / IPER",etapa:"TOFU",canal:"Instagram",formato:"Reel",titulo:"Tu MIPER en 60 segundos",kw:"awareness",cta:"Link en bio",prio:"baja",src:"Estrategia"},
+
+{tema:"Fiscalización / FUF",etapa:"MOFU→BOFU",canal:"Blog",formato:"Checklist (lead magnet)",titulo:"Checklist: lo que la DT te pide tener a mano si te fiscalizan (DS 44 al día)",kw:"fuf ds 44, que pide la inspeccion",cta:"Descargar checklist",prio:"alta",src:"Trends +50% (fuf)"},
+{tema:"Fiscalización / FUF",etapa:"MOFU",canal:"Blog",formato:"Artículo",titulo:"Las infracciones que más multó el DS 44 ($1.004 millones en 6 meses)",kw:"multas direccion del trabajo",cta:"Descargar checklist",prio:"media",src:"Investigación normativa"},
+{tema:"Fiscalización / FUF",etapa:"MOFU",canal:"YouTube",formato:"Video",titulo:"Simulacro: así te revisa un fiscalizador de la DT",kw:"fiscalizacion ds 44",cta:"Descargar checklist",prio:"media",src:"Estrategia"},
+{tema:"Fiscalización / FUF",etapa:"MOFU",canal:"LinkedIn",formato:"Post decisor",titulo:"$1.004 millones en multas: lo que miró el fiscalizador",kw:"compliance / gerencia",cta:"Descargar checklist",prio:"alta",src:"Investigación normativa"},
+{tema:"Fiscalización / FUF",etapa:"MOFU→BOFU",canal:"Webinar",formato:"Webinar",titulo:"Prepárate para una fiscalización DS 44 (en vivo, con checklist)",kw:"fiscalizacion",cta:"Agendar demo",prio:"alta",src:"Estrategia"},
+
+{tema:"EPP + firma (Ord. 908)",etapa:"BOFU",canal:"Blog",formato:"Landing + optimizar",titulo:"¿La firma de entrega de EPP en el celular tiene validez legal? Sí, y aquí está el documento",kw:"control de entrega de epp",cta:"Ver la resolución → demo",prio:"alta",src:"GSC: pos 9,45 / Ord. 908"},
+{tema:"EPP + firma (Ord. 908)",etapa:"BOFU",canal:"Blog",formato:"Lead magnet",titulo:"Kardex / registro de entrega de EPP chileno (plantilla)",kw:"registro de entrega de epp",cta:"Descargar plantilla",prio:"media",src:"Trends / vacío"},
+{tema:"EPP + firma (Ord. 908)",etapa:"BOFU",canal:"YouTube",formato:"Demo",titulo:"Entregar EPP y dejarlo firmado en 15 segundos",kw:"epp firma electronica",cta:"Agendar demo",prio:"media",src:"Estrategia"},
+{tema:"EPP + firma (Ord. 908)",etapa:"BOFU",canal:"LinkedIn",formato:"Post",titulo:"La Ord. 908 de la DT: el documento que puedes descargar y presentar",kw:"validez legal firma",cta:"Ver la resolución",prio:"alta",src:"Moat Tazki"},
+{tema:"EPP + firma (Ord. 908)",etapa:"BOFU",canal:"Instagram",formato:"Reel",titulo:"Papel vs firma electrónica cuando llega la fiscalización",kw:"awareness",cta:"Link en bio",prio:"baja",src:"Estrategia"},
+
+{tema:"Investigación de accidentes",etapa:"MOFU",canal:"Blog",formato:"Ejemplo + plantilla",titulo:"Árbol de causas explicado con un accidente real (paso a paso)",kw:"investigacion de accidentes, arbol de causas",cta:"Descargar plantilla",prio:"media",src:"Trends"},
+{tema:"Investigación de accidentes",etapa:"MOFU",canal:"Blog",formato:"Explicador",titulo:"Accidente grave o fatal: qué reportar y en qué plazo",kw:"accidente laboral plazos",cta:"Leer la guía",prio:"media",src:"Investigación normativa"},
+{tema:"Investigación de accidentes",etapa:"MOFU",canal:"YouTube",formato:"How-to",titulo:"Cómo armar el árbol de causas (ejemplo)",kw:"arbol de causas",cta:"Link a la plantilla",prio:"baja",src:"Estrategia"},
+{tema:"Investigación de accidentes",etapa:"BOFU",canal:"LinkedIn",formato:"Post producto",titulo:"VERA te sugiere las causas y las medidas; tú validas y decides",kw:"investigacion con IA",cta:"Agendar demo",prio:"media",src:"Producto (honesto)"},
+
+{tema:"Charlas / AST / capacitación",etapa:"TOFU",canal:"Blog",formato:"Banco + optimizar",titulo:"Banco de charlas de 5 minutos (descargable) — optimizar página AST/ART (pos 5)",kw:"charla de 5 minutos, ast digital",cta:"Descargar pack",prio:"alta",src:"GSC: ast digital CTR 10%"},
+{tema:"Charlas / AST / capacitación",etapa:"TOFU",canal:"Blog",formato:"Recurso",titulo:"Calendario de charlas de seguridad para todo el año",kw:"charla de seguridad temas",cta:"Descargar calendario",prio:"media",src:"Estrategia"},
+{tema:"Charlas / AST / capacitación",etapa:"TOFU",canal:"Instagram",formato:"Reels semanales",titulo:"Charla de la semana (serie fija)",kw:"awareness recurrente",cta:"Guardar / compartir",prio:"media",src:"Estrategia"},
+{tema:"Charlas / AST / capacitación",etapa:"TOFU",canal:"LinkedIn",formato:"Post",titulo:"AST digital: deja de imprimir el análisis de trabajo seguro",kw:"ast digital",cta:"Explorar la plataforma",prio:"media",src:"GSC"},
+
+{tema:"Contratistas / acreditación",etapa:"BOFU",canal:"Blog",formato:"Landing + optimizar",titulo:"Cómo acreditas que un contratista está al día antes de que entre a faena",kw:"software para contratistas",cta:"Agendar demo",prio:"alta",src:"GSC: pos 33, oportunidad"},
+{tema:"Contratistas / acreditación",etapa:"BOFU",canal:"LinkedIn",formato:"Post decisor",titulo:"Responsabilidad subsidiaria: por qué te multan por el papeleo de tu contratista",kw:"riesgo legal contratistas",cta:"Ver caso",prio:"media",src:"ICP"},
+{tema:"Contratistas / acreditación",etapa:"BOFU",canal:"Webinar",formato:"Webinar",titulo:"Acreditación de contratistas sin perder contratos (B2B2B)",kw:"acreditacion contratistas",cta:"Agendar demo",prio:"media",src:"ICP"},
+
+{tema:"Estacional",etapa:"TOFU→MOFU",canal:"Blog",formato:"Protocolo (nov-feb)",titulo:"Protocolo de golpe de calor para faena a cielo abierto (y cómo registrarlo)",kw:"golpe de calor trabajo, uv",cta:"Descargar protocolo",prio:"media",src:"Estacionalidad (verano)"},
+{tema:"Estacional",etapa:"TOFU",canal:"Instagram",formato:"Pack (septiembre)",titulo:"5 charlas de 5 minutos listas para el Dieciocho",kw:"charla fiestas patrias",cta:"Descargar pack",prio:"media",src:"Estacionalidad (sept)"},
+{tema:"Estacional",etapa:"BOFU",canal:"Blog",formato:"How-to (diciembre)",titulo:"Cómo induces a 50 temporeros de retail en una semana sin perder la firma",kw:"induccion irl temporada",cta:"Agendar demo",prio:"media",src:"Estacionalidad (dic)"},
+];
+
+const QW=[
+{t:"t1",act:"1. Arreglar título",q:"Artículo 'Nueva IRL' (irl, irl que es)",data:"280 clics · 94k impr · CTR 0,3% · pos 6",doit:"Reescribir title + meta para que invite al clic. Apuntar a 'IRL DS 44 / qué es' y desambiguar del 'in real life'.",imp:"Muy alto",cls:"alto"},
+{t:"t1",act:"1. Arreglar título",q:"odi / que es odi",data:"30 clics · 9,5k impr · CTR 0,3% · pos 7",doit:"Mismo título-puente ODI→IRL. Captura al que busca el término viejo.",imp:"Alto",cls:"alto"},
+{t:"t1",act:"1. Arreglar título",q:"que es irl en prevencion de riesgos",data:"7 clics · 1,7k impr · pos 3,6",doit:"Crear/optimizar un H2 con esa pregunta exacta; es la versión limpia con intención de prevención.",imp:"Alto",cls:"alto"},
+{t:"t2",act:"2. Empujar a pág. 1",q:"software prevencion riesgos laborales",data:"1 clic · 2,3k impr · pos 18",doit:"Reforzar la página de software con el término '...riesgos laborales'. Está en página 2.",imp:"Alto",cls:"alto"},
+{t:"t2",act:"2. Empujar a pág. 1",q:"software gestion prevencion riesgos laborales",data:"4 clics · 1,5k impr · pos 16",doit:"Mismo cluster. Enlaza internamente y añade copy con esa variante.",imp:"Alto",cls:"alto"},
+{t:"t2",act:"2. Empujar a pág. 1",q:"control de entrega de epp",data:"5 clics · 747 impr · pos 9,45",doit:"Optimizar la página de EPP (hoy pos 14) — está al borde de página 1.",imp:"Alto",cls:"alto"},
+{t:"t2",act:"2. Empujar a pág. 1",q:"software para contratistas",data:"0 clics · 466 impr · pos 26",doit:"Optimizar la página de contratistas (hoy pos 33, enterrada).",imp:"Medio",cls:"medio"},
+{t:"t3",act:"3. Crear página",q:"matriz de riesgos / MIPER / IPER",data:"2 queries · 67 impr (sin presencia)",doit:"Crear pilar de matriz/MIPER con ejemplo lleno + plantilla. Demanda en Trends y CERO presencia tuya.",imp:"Muy alto",cls:"alto"},
+{t:"t3",act:"3. Crear página",q:"plataforma de prevencion de riesgos",data:"7 clics · pos 2,6 · CTR 20% (emergente)",doit:"Ya estás ganando: dale su propia landing y refuérzala antes de que llegue competencia.",imp:"Alto",cls:"alto"},
+];
+
+const PLAN=[
+{when:"Julio · sem 1-2",h:"Quick wins SEO (sin contenido nuevo)",p:"Reescribir títulos del artículo IRL y de la página de software; optimizar página EPP.",res:"Subir el CTR del activo estrella y recuperar clics que hoy se pierden."},
+{when:"Julio · sem 3-4",h:"Pieza #1: Fiscalización",p:"Checklist de auto-fiscalización (blog + PDF) + post LinkedIn ($1.004M) + carrusel.",res:"Lead magnet capturando correos de Carlos en modo urgente."},
+{when:"Agosto · sem 1-2",h:"Pieza #2: EPP + Ord. 908",p:"Landing de la firma electrónica (Ord. 908) + demo en video + post LinkedIn.",res:"Activo BOFU único que nadie más comunica; deriva a demo."},
+{when:"Agosto · sem 3-4",h:"Pieza #3: ODI→IRL",p:"Ampliar artículo 'ODI o IRL' + plantilla IRL + carrusel + reel.",res:"Captura las dos búsquedas (vieja y nueva) y alimenta el funnel."},
+{when:"Septiembre · sem 1-2",h:"Estacional: Fiestas Patrias",p:"Pack de 5 charlas para el 18 (blog + PDF) + reels en Instagram.",res:"Tráfico TOFU recurrente en el pico de accidentes de septiembre."},
+{when:"Septiembre · sem 3-4",h:"Hueco + primer webinar",p:"Pilar de matriz de riesgos con ejemplo + plantilla; webinar de fiscalización.",res:"Entras a un tema con demanda y cero presencia; primer evento MOFU→BOFU."},
+];
+
+const stageClass=e=>e.includes("BOFU")&&e.includes("TOFU")?"mofu":e.startsWith("TOFU")?"tofu":e.startsWith("MOFU")?"mofu":e.startsWith("BOFU")?"bofu":"mofu";
+const badgeClass=e=>"b-"+stageClass(e);
+const uniq=a=>[...new Set(a)];
+let fE="Todas",fC="Todas",fT="Todos";
+
+function chips(id,vals,cur,cb){
+  const el=document.getElementById(id);el.innerHTML="";
+  vals.forEach(v=>{const b=document.createElement("button");b.textContent=v;if(v===cur)b.className="on";
+    b.onclick=()=>cb(v);el.appendChild(b);});
+}
+function renderFilters(){
+  chips("f-etapa",["Todas","TOFU","MOFU","BOFU"],fE,v=>{fE=v;renderAll();});
+  chips("f-canal",["Todas",...uniq(M.map(m=>m.canal))],fC,v=>{fC=v;renderAll();});
+  chips("f-tema",["Todos",...uniq(M.map(m=>m.tema))],fT,v=>{fT=v;renderAll();});
+}
+function renderGrid(){
+  const g=document.getElementById("grid");g.innerHTML="";
+  const list=M.filter(m=>(fE==="Todas"||m.etapa.includes(fE))&&(fC==="Todas"||m.canal===fC)&&(fT==="Todos"||m.tema===fT));
+  document.getElementById("count").textContent=list.length+" piezas";
+  list.forEach(m=>{
+    const c=document.createElement("div");c.className="card";
+    c.innerHTML=`<div class="top"><span class="canal">${m.canal} · ${m.formato}</span><span class="badge ${badgeClass(m.etapa)}">${m.etapa}</span></div>
+      <div class="titulo">${m.titulo}</div>
+      <div class="meta"><b>Tema:</b> ${m.tema}</div>
+      <div class="meta"><b>Keyword:</b> ${m.kw}</div>
+      <div class="foot"><span class="cta">▸ ${m.cta}</span><span class="prio ${m.prio}">${m.prio.toUpperCase()}</span></div>
+      <div class="src">Origen: ${m.src}</div>`;
+    g.appendChild(c);
+  });
+}
+function renderQW(){
+  const el=document.getElementById("qw");el.innerHTML="";
+  QW.forEach(q=>{const d=document.createElement("div");d.className="qcard "+q.t;
+    d.innerHTML=`<div class="act">${q.act}</div>
+      <div class="q"><div><b>${q.q}</b></div><div class="data">${q.data}</div><div class="do">${q.doit}</div></div>
+      <div class="imp"><div class="lvl ${q.cls}">${q.imp}</div></div>`;
+    el.appendChild(d);});
+}
+function renderPlan(){
+  const el=document.getElementById("tl");el.innerHTML="";
+  PLAN.forEach(p=>{const d=document.createElement("div");d.className="tlitem";
+    d.innerHTML=`<div class="when">${p.when}</div><h4>${p.h}</h4><p>${p.p}</p><div class="res">▸ ${p.res}</div>`;
+    el.appendChild(d);});
+}
+function renderAll(){renderFilters();renderGrid();}
+
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    document.getElementById(b.dataset.go).scrollIntoView({behavior:'smooth'});};
+});
+renderAll();renderQW();renderPlan();
+</script>
+</body>
+</html>
