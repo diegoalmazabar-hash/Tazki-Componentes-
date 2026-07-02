@@ -118,6 +118,29 @@ h2{font-size:24px;font-weight:800;margin-bottom:6px}
 .crate b{color:var(--tinta)}
 .crate.weak{color:#dc2626}
 .crate.weak b{color:#dc2626}
+.dfunnel{display:flex;flex-direction:column;align-items:center;gap:12px;margin:16px 0}
+.dstage{display:flex;gap:8px;align-items:stretch;width:100%}
+.dstage:nth-child(1){max-width:620px}
+.dstage:nth-child(2){max-width:530px}
+.dstage:nth-child(3){max-width:440px}
+.dmain{flex:1;background:linear-gradient(135deg,#f7a13a,#ec7f10);color:#fff;border-radius:10px;padding:14px 20px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 8px rgba(236,127,16,.25)}
+.dmain .dl{font-size:14px;font-weight:700;opacity:.95}
+.dmain .dn{font-size:26px;font-weight:800;line-height:1.05}
+.dsegs{display:flex;flex-direction:column;gap:8px;width:172px;flex-shrink:0}
+.dseg{flex:1;background:#fff4e6;border:1px solid #f7c98a;border-radius:8px;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#9a5a08;font-weight:600}
+.dseg b{color:#7c4708;font-weight:800}
+.dtable{width:100%;min-width:760px;border-collapse:collapse;font-size:13px;margin-top:8px;background:#fff;border:1px solid var(--linea)}
+.dtable th{padding:8px 10px;text-align:center;font-size:12px;font-weight:700;color:#fff}
+.dtable thead tr:first-child th{text-transform:uppercase;letter-spacing:.03em}
+.dtable th.gm{background:var(--tofu)} .dtable th.gc{background:var(--cobalto)} .dtable th.gu{background:var(--cobalto-d)}
+.dtable th.canh{background:var(--mofu)}
+.dtable td{padding:7px 10px;text-align:center;border-top:1px solid var(--linea);color:#334155}
+.dtable td.can{text-align:left;font-weight:700;color:#1e293b;background:#fff7ed;white-space:nowrap}
+.dtable tr.total td{font-weight:800;background:#fff7ed;border-top:2px solid var(--mofu)}
+.dtable td.pos{background:#dcfce7;color:#15803d;font-weight:700}
+.dtable td.neg{background:#fee2e2;color:#b91c1c;font-weight:700}
+.rmeta{font-weight:800}
+.rmeta.g{color:#16a34a} .rmeta.a{color:#b45309} .rmeta.r{color:#dc2626}
 footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:24px}
 @media(max-width:720px){.funnel{grid-template-columns:1fr}.qcard{grid-template-columns:1fr;text-align:left}.qcard .imp{text-align:left}header h1{font-size:26px}}
 </style>
@@ -137,6 +160,7 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <button data-go="plan">Arranque 90 días</button>
   <button data-go="medicion">Medición</button>
   <button data-go="comercial">Funnel comercial</button>
+  <button data-go="dashboard">Dashboard (Nubox)</button>
 </div></nav>
 
 <div class="wrap">
@@ -311,6 +335,22 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   </div>
 </section>
 
+<section id="dashboard">
+  <h2>Dashboard comercial · modelo Nubox</h2>
+  <p class="sub">La estructura del dashboard de Nubox, replicada para Tazki: el embudo con desglose por segmento, el avance vs. meta (r'META con semáforo) y el rendimiento por canal mes a mes. Los números cargados abajo son la <b>referencia de Nubox</b> — se reemplazan por los datos reales de Tazki cuando esté el baseline.</p>
+
+  <span class="lbl" style="display:block;margin:4px 0">Embudo con desglose por segmento</span>
+  <div class="dfunnel" id="dfunnel"></div>
+
+  <span class="lbl" style="display:block;margin:22px 0 4px">Avance vs. meta</span>
+  <div class="tablewrap"><table class="mtable" id="dmeta" style="min-width:auto;max-width:520px"></table></div>
+
+  <span class="lbl" style="display:block;margin:26px 0 4px">Rendimiento por canal (mes a mes)</span>
+  <div class="tablewrap"><div id="dch"></div></div>
+
+  <div class="flow-note" style="margin-top:16px"><b>Cómo se lee:</b> verde = mejora vs. el mes anterior (o meta cumplida); rojo = caída (o bajo la meta). El dashboard se acompaña de una <b>lectura diaria</b> (ej: "133 leads ayer, 70% de Paid Search; 145 MQL's, pick del mes") que explica el porqué detrás del número. Regla de lectura: mirar primero la tasa o el canal en rojo.</div>
+</section>
+
 <footer>Plan de contenidos Tazki · construido a partir de la investigación de mercado, Google Trends Chile y los rendimientos reales de Search Console. Junio 2026.</footer>
 </div>
 
@@ -387,6 +427,56 @@ const PLAN=[
 {when:"Septiembre · sem 3-4",h:"Hueco + primer webinar",p:"Pilar de matriz de riesgos con ejemplo + plantilla; webinar de fiscalización.",res:"Entras a un tema con demanda y cero presencia; primer evento MOFU→BOFU."},
 ];
 
+const DASH_FUNNEL=[
+{l:"Leads",n:"946",segs:[["Empresas","844"],["Contadores","102"]]},
+{l:"MQL's",n:"499",segs:[["Empresas","173"],["Contadores","326"]]},
+{l:"UF's",n:"67,05",segs:[["Empresas","48,75"],["Contadores","27,93"]]},
+];
+const DASH_META=[
+{k:"Leads",total:"946",meta:"915",r:103.3},
+{k:"MQL's",total:"499",meta:"358",r:139.5},
+{k:"UF's",total:"76,68",meta:"88,3",r:86.8},
+{k:"Clientes",total:"42",meta:"44",r:95.1},
+];
+const DASH_CH=[
+{c:"Paid Search",mql:[515,553],close:[10,13],uf:[89.61,97.13]},
+{c:"Paid Social",mql:[182,259],close:[3,9],uf:[10.13,31.23]},
+{c:"Organic Search",mql:[126,147],close:[10,14],uf:[18.89,26.76]},
+{c:"Direct Traffic",mql:[86,111],close:[13,16],uf:[21.24,28.87]},
+{c:"Email Marketing",mql:[102,213],close:[7,3],uf:[12,10.33]},
+{c:"Offline",mql:[108,67],close:[2,5],uf:[3.92,9.09]},
+{c:"Other Campaigns",mql:[41,55],close:[10,4],uf:[5.43,4.27]},
+{c:"Social Media",mql:[14,32],close:[8,5],uf:[1.5,1.68]},
+{c:"Referrals",mql:[31,86],close:[15,1],uf:[6.22,7.57]},
+];
+const DASH_TOTAL={mql:[1205,1523],close:[9,8],uf:[168.94,216.93]};
+
+const fmt=n=>typeof n==="number"?(Math.round(n*100)/100).toString().replace(".",","):n;
+function renderDash(){
+  document.getElementById("dfunnel").innerHTML=DASH_FUNNEL.map(s=>
+    `<div class="dstage"><div class="dmain"><span class="dl">${s.l}</span><span class="dn">${s.n}</span></div>`+
+    `<div class="dsegs">${s.segs.map(g=>`<div class="dseg"><span>${g[0]}</span><b>${g[1]}</b></div>`).join("")}</div></div>`).join("");
+  const rcls=r=>r>=100?"g":r>=90?"a":"r";
+  document.getElementById("dmeta").innerHTML=
+    `<thead><tr><th></th><th>Total</th><th>Meta</th><th>r'META</th></tr></thead><tbody>`+
+    DASH_META.map(m=>`<tr><td><b>${m.k}</b></td><td>${m.total}</td><td>${m.meta}</td><td class="rmeta ${rcls(m.r)}">${m.r}%</td></tr>`).join("")+`</tbody>`;
+  const cell=(txt,sign)=>`<td class="${sign>0?"pos":sign<0?"neg":""}">${txt}</td>`;
+  let rows=DASH_CH.map(c=>{
+    const md=c.mql[1]-c.mql[0], cd=c.close[1]-c.close[0], ud=Math.round((c.uf[1]-c.uf[0])*100)/100;
+    return `<tr><td class="can">${c.c}</td>`+
+      `<td>${c.mql[0]}</td><td>${c.mql[1]}</td>${cell((md>0?"+":"")+md,md)}`+
+      `<td>${c.close[0]}%</td>${cell(c.close[1]+"%",cd)}`+
+      `<td>${fmt(c.uf[0])}</td><td>${fmt(c.uf[1])}</td>${cell((ud>0?"+":"")+fmt(ud),ud)}</tr>`;
+  }).join("");
+  const T=DASH_TOTAL;
+  rows+=`<tr class="total"><td class="can">Total</td><td>${T.mql[0]}</td><td>${T.mql[1]}</td><td>+${T.mql[1]-T.mql[0]}</td>`+
+    `<td>${T.close[0]}%</td><td>${T.close[1]}%</td><td>${fmt(T.uf[0])}</td><td>${fmt(T.uf[1])}</td><td>+${fmt(T.uf[1]-T.uf[0])}</td></tr>`;
+  document.getElementById("dch").innerHTML=
+    `<table class="dtable"><thead><tr><th class="canh" rowspan="2">Canales</th><th class="gm" colspan="3">MQL's</th>`+
+    `<th class="gc" colspan="2">Close Rate</th><th class="gu" colspan="3">UF's</th></tr>`+
+    `<tr><th class="gm">Jul</th><th class="gm">Ago</th><th class="gm">Dif</th><th class="gc">Jul</th><th class="gc">Ago</th>`+
+    `<th class="gu">Jul</th><th class="gu">Ago</th><th class="gu">Dif</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
 const stageClass=e=>e.includes("BOFU")&&e.includes("TOFU")?"mofu":e.startsWith("TOFU")?"tofu":e.startsWith("MOFU")?"mofu":e.startsWith("BOFU")?"bofu":"mofu";
 const badgeClass=e=>"b-"+stageClass(e);
 const uniq=a=>[...new Set(a)];
@@ -455,7 +545,7 @@ document.querySelectorAll('nav button').forEach(b=>{
   b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
     document.getElementById(b.dataset.go).scrollIntoView({behavior:'smooth'});};
 });
-renderAll();renderMatrixGrid();renderQW();renderPlan();
+renderAll();renderMatrixGrid();renderQW();renderPlan();renderDash();
 </script>
 </body>
 </html>
