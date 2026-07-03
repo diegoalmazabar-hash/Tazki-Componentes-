@@ -13,22 +13,47 @@ En HubSpot: **Marketing → SEO**. Creas un **Topic** (tema pilar), le asocias l
 
 ---
 
-## 📅 Calendario mensual sugerido
+## 📅 Modelo de fases (test orgánico → amplificar ganadores)
 
-| Mes | Pilar | Lead magnet | Nota |
+En vez de un pilar por mes, el enfoque es: **sembrar todo en orgánico, dejar que el mercado vote, y amplificar solo lo que tracciona.** El orgánico es el test de mercado gratis.
+
+### 🧪 FASE 1 — Julio · Piloto (1 pilar)
+- Lanzar **solo el Pilar 1 (DS 44 · legal/normativo/fiscalización)**: pillar page + blogs del cluster + **ebook DS 44** + formulario.
+- **Objetivo:** probar el mecanismo completo de punta a punta antes de escalar → ¿rankea el SEO?, ¿el ebook capta leads?, ¿el formulario crea el Lead y el workflow lo pasa a MQL?
+- Es el ensayo. Se corrigen los errores acá, con un solo tema.
+
+### 🌱 FASE 2 — Agosto · Siembra (todos los pilares restantes)
+- Lanzar **Pilares 2 a 6** de una, como **blog + ebook, en orgánico puro** (sin pauta ni amplificación todavía).
+- **Objetivo:** dejar que cada tema respire solo y ver **cuál genera tracción orgánica** por sí mismo.
+- Todos con su lead magnet y formulario, para que cada uno capte leads de forma comparable.
+
+### 📈 FASE 3 — Septiembre a Diciembre · Amplificación por rendimiento
+- **Monitorear en HubSpot** el rendimiento orgánico de cada pilar (ver loop abajo).
+- El/los pilar(es) **ganador(es)** → amplificar con **redes sociales, webinars y contenido estacional/temporal**.
+- Los que no traccionan → se quedan en orgánico, no se invierte más en ellos.
+- El contenido temporal se ajusta a la temporada (ej: golpe de calor en verano, Fiestas Patrias en septiembre, temporeros en diciembre).
+
+### 🔁 Loop de insights (cómo decidir qué amplificar)
+Cada **4–6 semanas**, revisar por pilar en HubSpot:
+| Señal a mirar | Dónde |
+|---|---|
+| Sesiones / visitas orgánicas | HubSpot Analytics + Search Console |
+| Keywords que empiezan a rankear | Search Console |
+| Leads generados (descargas del ebook) | HubSpot (formulario) |
+| Tasa visita → lead | HubSpot |
+| Conversión a MQL / demo | HubSpot |
+
+**Regla de decisión:** el pilar con mejor combinación de **tráfico orgánico + conversión a lead** se lleva la amplificación (redes + webinar + contenido estacional). Se duplica lo que funciona; no se fuerza lo que no.
+
+| Fase | Cuándo | Qué se lanza | Canal |
 |---|---|---|---|
-| **Julio** | 1. Legal, normativo y fiscalización (DS 44) | **Ebook DS 44** | Tu prioridad. Ola de búsquedas por la norma. |
-| **Agosto** | 3. Papeleo y documentación | Pack de formatos | Conecta directo al producto (dolor del papel → plataforma). |
-| **Septiembre** | 2. Reducir accidentes / accidentabilidad | Plantilla investigación de accidentes | **Septiembre es pico de accidentes** en Chile → calza con la estacionalidad. |
-| **Octubre** | 4. Matriz de riesgos (MIPER/IPER) | Plantilla MIPER editable | Alta demanda y **cero presencia tuya** hoy (gran oportunidad SEO). |
-| **Noviembre** | 5. Gestión de contratistas | Checklist acreditación | Ángulo decisor (responsabilidad subsidiaria). |
-| **Diciembre** | 6. Software de prevención (pilar comercial/cierre) | Demo / comparativa | El pilar que conecta y cierra todos los anteriores. |
-
-> Se pueden trabajar **simultáneos** si el equipo da, pero uno al mes es sostenible. Cada pilar nuevo enlaza a los anteriores (racimo que crece).
+| Piloto | Julio | Pilar 1 (DS 44) + ebook | Orgánico (blog + SEO) |
+| Siembra | Agosto | Pilares 2–6 + ebooks | Orgánico (blog + SEO) |
+| Amplificación | Sep–Dic | Los pilares ganadores | Redes, webinar, estacional |
 
 ---
 
-## PILAR 1 — Julio · Cumplimiento legal, normativo y fiscalización (DS 44)
+## PILAR 1 — 🧪 Piloto (Julio) · Cumplimiento legal, normativo y fiscalización (DS 44)
 **Pillar page:** "Guía completa del DS 44: qué exige la nueva ley de prevención en Chile"
 **Head keywords:** ds 44 · decreto supremo 44 · nueva ley prevención de riesgos · reglamento SGSST
 **Etapa:** TOFU → MOFU · **Lead magnet:** 📘 **Ebook DS 44** ("Obligaciones, plazos y cómo cumplir sin ahogarte en papeleo")
@@ -46,7 +71,8 @@ En HubSpot: **Marketing → SEO**. Creas un **Topic** (tema pilar), le asocias l
 
 ---
 
-## PILAR 2 — Septiembre · Reducir accidentes y tasa de accidentabilidad
+## PILAR 2 — 🌱 Siembra (Agosto) · Reducir accidentes y tasa de accidentabilidad
+> Candidato natural a amplificar en **septiembre** (pico de accidentes en Chile) si tracciona en orgánico.
 **Pillar page:** "Cómo reducir la tasa de accidentabilidad en tu empresa: guía práctica"
 **Head keywords:** tasa de accidentabilidad · cómo reducir accidentes laborales · prevención de accidentes
 **Etapa:** TOFU → MOFU · **Lead magnet:** 🧮 **Plantilla de investigación de accidentes + árbol de causas** (o calculadora de tasa)
@@ -62,7 +88,7 @@ En HubSpot: **Marketing → SEO**. Creas un **Topic** (tema pilar), le asocias l
 
 ---
 
-## PILAR 3 — Agosto · Papeleo y documentación de prevención
+## PILAR 3 — 🌱 Siembra (Agosto) · Papeleo y documentación de prevención
 **Pillar page:** "Toda la documentación de prevención que tu empresa debe tener (y cómo dejar de perderla)"
 **Head keywords:** documentación prevención de riesgos · registros prevención de riesgos · formatos prevención
 **Etapa:** TOFU → BOFU (dolor del papeleo → plataforma) · **Lead magnet:** 🗂️ **Pack de formatos/plantillas de prevención**
@@ -80,20 +106,20 @@ En HubSpot: **Marketing → SEO**. Creas un **Topic** (tema pilar), le asocias l
 
 ---
 
-## PILARES CANDIDATOS (meses siguientes)
+## PILARES CANDIDATOS (también se siembran en agosto)
 
-### PILAR 4 — Octubre · Matriz de riesgos (MIPER / IPER)
+### PILAR 4 — 🌱 Siembra (Agosto) · Matriz de riesgos (MIPER / IPER)
 - **Pillar:** "Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno"
 - **Head kw:** matriz de riesgos · miper · matriz iper
 - **Lead magnet:** Plantilla MIPER editable por rubro (construcción, bodega, comercio)
 - **Oportunidad:** Trends +70% y **cero presencia tuya** hoy → hueco total que puedes tomar.
 
-### PILAR 5 — Noviembre · Gestión de contratistas / acreditación
+### PILAR 5 — 🌱 Siembra (Agosto) · Gestión de contratistas / acreditación
 - **Pillar:** "Cómo gestionar y acreditar contratistas sin exponerte a multas"
 - **Head kw:** software para contratistas · acreditación contratistas · responsabilidad subsidiaria
 - **Ángulo:** decisor (riesgo legal). **Lead magnet:** Checklist de acreditación.
 
-### PILAR 6 — Diciembre · Software de prevención (pilar comercial / cierre)
+### PILAR 6 — 🌱 Siembra (Agosto) · Software de prevención (pilar comercial / cierre)
 - **Pillar:** "Software de prevención de riesgos en Chile: qué mirar antes de pagar"
 - **Head kw:** software prevención riesgos laborales · plataforma de prevención de riesgos
 - **Función:** es la **página que cierra**. Todos los demás pilares enlazan hacia acá. Etapa BOFU. CTA: agendar demo.
