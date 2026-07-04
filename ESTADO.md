@@ -2,7 +2,15 @@
 
 > Resumen para retomar el trabajo en cualquier sesión futura de Claude Code.
 > El trabajo estratégico/operativo (HubSpot, análisis, equipo) se sigue en **Cowork**.
-> Esta sesión de Code se usa solo para mantener el **dashboard HTML**.
+> Esta sesión de Code mantiene los **HTML de gestión y dashboard**.
+
+## ⭐ FUENTE DE VERDAD: Documento Maestro (de Cowork)
+`MAESTRO-Maquina-de-Leads-Tazki.pdf` — la guía única y autocontenida (Diego + Axel, 3 jul 2026). Integra baseline real de HubSpot, modelo TOFU/MOFU/BOFU, propiedades, workflows, forms, los 6 pilares, copys, calendario y el backlog (§11). **Cualquier ajuste futuro se alinea a este documento.**
+
+- **`gestion-maquina-leads.html`** — tablero de ejecución generado desde el §11 (41 tareas con checkbox+localStorage, filtros por fase/área/estado, progreso por fase, bloqueo por dependencias, buscador y enlaces a specs).
+- Baseline actualizado (maestro §0, HubSpot ene–jun 2026): TOFU casi inexistente (8 leads en el año), MQL cayendo (54→41→29 abr–jun), 90% de las vistas en la home. Página ebook convierte 16% pero sin tráfico.
+- Decisión clave: **Julio = piloto ebook DS44 punta a punta** (sin meta; agosto fija meta con datos).
+- Deuda técnica: Supermetrics expiró el 1/jul → reconectar Search Console (tarea M4).
 
 ## Archivo principal
 - `plan-contenidos-tazki.html` — dashboard interactivo autocontenido (HTML+CSS+JS en un solo archivo, funciona offline).

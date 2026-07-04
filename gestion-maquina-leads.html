@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máquina de Leads Tazki — Gestión</title>
+<style>
+:root{
+  --cobalto:#1f4ed8; --cobalto-d:#173db0; --cobalto-l:#e8f0fe;
+  --tinta:#0f172a; --gris:#64748b; --linea:#e2e8f0; --bg:#f6f8fc; --card:#ffffff;
+  --ok:#16a34a; --ok-bg:#e3f4e9; --warn:#b45309; --warn-bg:#fef3c7; --lock:#dc2626; --lock-bg:#fee2e2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tinta);line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+header{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;padding:36px 0 30px;margin-bottom:20px}
+.kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
+header h1{font-size:28px;font-weight:800;margin:6px 0 8px}
+header p{font-size:14px;opacity:.92;max-width:720px}
+.gprog{margin-top:18px;background:rgba(255,255,255,.2);border-radius:20px;height:12px;overflow:hidden;max-width:520px}
+.gprog span{display:block;height:100%;background:#fff;border-radius:20px;transition:width .3s}
+.gprog-txt{font-size:13px;font-weight:700;margin-top:7px}
+.toolbar{position:sticky;top:0;z-index:20;background:rgba(246,248,252,.95);backdrop-filter:blur(8px);padding:14px 0;margin-bottom:8px;border-bottom:1px solid var(--linea)}
+.search{width:100%;max-width:100%;border:1px solid var(--linea);border-radius:10px;padding:11px 14px;font:inherit;font-size:15px;margin-bottom:12px;background:#fff}
+.search:focus{outline:none;border-color:var(--cobalto)}
+.fgroup{margin-bottom:8px}
+.fglabel{font-size:11px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;margin-right:8px}
+.chips{display:inline-flex;flex-wrap:wrap;gap:6px;vertical-align:middle}
+.chip{border:1px solid var(--linea);background:#fff;font:inherit;font-size:13px;font-weight:600;color:#475569;padding:5px 11px;border-radius:20px;cursor:pointer}
+.chip:hover{border-color:var(--cobalto);color:var(--cobalto)}
+.chip.on{background:var(--cobalto);border-color:var(--cobalto);color:#fff}
+.phase{margin-bottom:26px}
+.phase-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.phase-h h2{font-size:19px;font-weight:800}
+.phase-prog{flex:1;min-width:160px;max-width:300px;background:var(--linea);border-radius:20px;height:9px;overflow:hidden}
+.phase-prog span{display:block;height:100%;background:var(--cobalto);border-radius:20px;transition:width .3s}
+.phase-count{font-size:13px;font-weight:700;color:var(--gris);white-space:nowrap}
+.task{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:13px 16px;margin-bottom:8px;display:flex;gap:13px;align-items:flex-start;transition:.15s}
+.task:hover{box-shadow:0 4px 16px rgba(31,78,216,.08)}
+.task.done{opacity:.62}
+.task.blocked{border-left:4px solid var(--lock);background:#fffafa}
+.task input[type=checkbox]{width:22px;height:22px;margin-top:2px;accent-color:var(--cobalto);cursor:pointer;flex-shrink:0}
+.task.blocked input[type=checkbox]{accent-color:var(--lock)}
+.tbody{flex:1;min-width:0}
+.tid{display:inline-block;font-size:11px;font-weight:800;background:var(--cobalto-l);color:var(--cobalto-d);padding:2px 7px;border-radius:5px;margin-right:8px}
+.ttext{font-size:15px;font-weight:600;line-height:1.35}
+.task.done .ttext{text-decoration:line-through;text-decoration-color:var(--gris)}
+.tmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
+.b-area{background:#f1f5f9;color:#475569}
+.b-spec{background:var(--cobalto-l);color:var(--cobalto);text-decoration:none}
+.b-spec:hover{background:var(--cobalto);color:#fff}
+.b-lock{background:var(--lock-bg);color:var(--lock)}
+.b-done{background:var(--ok-bg);color:var(--ok)}
+.empty{text-align:center;color:var(--gris);padding:40px;font-size:15px}
+.specs{margin-top:40px;border-top:1px solid var(--linea);padding-top:24px}
+.specs h2{font-size:19px;font-weight:800;margin-bottom:12px}
+.specrow{background:#fff;border:1px solid var(--linea);border-radius:10px;padding:12px 16px;margin-bottom:7px;scroll-margin-top:80px}
+.specrow b{color:var(--cobalto-d)}
+.specrow.hl{border-color:var(--cobalto);box-shadow:0 0 0 2px var(--cobalto-l)}
+.specrow p{font-size:13px;color:#475569;margin-top:3px}
+.tools{display:flex;gap:10px;margin-top:12px}
+.btn{border:1px solid var(--linea);background:#fff;font:inherit;font-size:13px;font-weight:700;color:#475569;padding:7px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--lock);color:var(--lock)}
+footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:22px;margin-top:36px}
+@media(max-width:640px){header h1{font-size:23px}.ttext{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Documento Maestro · §11 Backlog</div>
+    <h1>Máquina de Leads Tazki — Gestión</h1>
+    <p>Tablero de ejecución del plan (topic clusters + funnel + setup HubSpot). Marca cada tarea al completarla — tu avance se guarda solo en este navegador. Las tareas bloqueadas esperan a que se cierre su dependencia.</p>
+    <div class="gprog"><span id="gbar"></span></div>
+    <div class="gprog-txt" id="gtxt"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <input class="search" id="search" placeholder="🔍 Buscar tarea, ID o área…">
+    <div class="fgroup"><span class="fglabel">Fase</span><div class="chips" id="f-fase"></div></div>
+    <div class="fgroup"><span class="fglabel">Área</span><div class="chips" id="f-area"></div></div>
+    <div class="fgroup"><span class="fglabel">Estado</span><div class="chips" id="f-estado"></div></div>
+  </div>
+
+  <div id="board"></div>
+
+  <div class="specs">
+    <h2>Referencia de specs (§)</h2>
+    <div id="specs"></div>
+  </div>
+
+  <div class="tools">
+    <button class="btn" id="reset">↺ Reiniciar mi avance</button>
+  </div>
+
+  <footer>Generado desde el Documento Maestro Máquina de Leads Tazki (§11). Avance guardado localmente en tu navegador · el plan completo está en <b>MAESTRO-Maquina-de-Leads-Tazki.pdf</b>.</footer>
+</div>
+
+<script>
+const TASKS=[
+{id:"F1",fase:"Fundaciones",area:"Propiedades",t:"Crear etapa_de_captacion (dropdown TOFU/MOFU/BOFU)",spec:2,dep:[]},
+{id:"F2",fase:"Fundaciones",area:"Propiedades",t:"Crear pilar_de_origen (dropdown 6 pilares)",spec:2,dep:[]},
+{id:"F3",fase:"Fundaciones",area:"Propiedades",t:"Crear conocia_tazki_antes + instruir a ventas",spec:2,dep:[]},
+{id:"F4",fase:"Fundaciones",area:"Forms",t:"Renombrar forms existentes con convención [ETAPA]",spec:3,dep:[]},
+{id:"F5",fase:"Fundaciones",area:"Forms",t:"Agregar checkbox newsletter al form del ebook",spec:3,dep:[]},
+{id:"F6",fase:"Fundaciones",area:"Forms",t:"Crear form [TOFU] Newsletter",spec:3,dep:[]},
+{id:"F7",fase:"Fundaciones",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"]},
+{id:"F8",fase:"Fundaciones",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"]},
+{id:"F9",fase:"Fundaciones",area:"Workflows",t:"Armar WF2 Entrega Ebook (borrador)",spec:4,dep:["F4"]},
+{id:"F10",fase:"Fundaciones",area:"Workflows",t:"Armar WF3 Alta Newsletter (borrador)",spec:4,dep:["F5","F6"]},
+{id:"F11",fase:"Fundaciones",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"]},
+{id:"F12",fase:"Fundaciones",area:"Workflows",t:"Armar WF5 Estampado SQL + definir criterio MQL→SQL con ventas",spec:4,dep:[]},
+{id:"F13",fase:"Fundaciones",area:"Workflows",t:"Revisión con Axel y activación (orden §4)",spec:4,dep:["F8","F9","F10","F11","F12"]},
+{id:"F14",fase:"Fundaciones",area:"Campañas",t:"Crear Campaign Pilar 1 · DS44 y Pilar 6 · Software",spec:5,dep:[]},
+{id:"F15",fase:"Fundaciones",area:"SEO",t:"Crear Topic DS44 en Marketing → SEO con subtemas",spec:7,dep:[]},
+{id:"C1",fase:"Piloto julio",area:"Contenido",t:"Publicar pillar page DS44",spec:7,dep:["F15"]},
+{id:"C2",fase:"Piloto julio",area:"Contenido",t:"Actualizar post 1.1 ODI/IRL y enlazar a pillar",spec:7,dep:["C1"]},
+{id:"C3",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.3 FUF",spec:7,dep:["C1"]},
+{id:"C4",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.4 Checklist fiscalización",spec:7,dep:["C1"]},
+{id:"C5",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.5 Multas $1.004M",spec:7,dep:["C1"]},
+{id:"C6",fase:"Piloto julio",area:"Contenido",t:"Escribir posts 1.2 y 1.6",spec:7,dep:["C1"]},
+{id:"D1",fase:"Piloto julio",area:"Distribución",t:"Enviar email ebook a Base Email MKT Julio",spec:8,dep:["F7","F13"]},
+{id:"D2",fase:"Piloto julio",area:"Distribución",t:"Instalar CTA newsletter al pie del blog y recursos",spec:8,dep:["F6","F13"]},
+{id:"D3",fase:"Piloto julio",area:"Distribución",t:"Configurar popup home (listo para activar con web nueva)",spec:8,dep:["F7","F13"]},
+{id:"D4",fase:"Piloto julio",area:"Distribución",t:"Newsletter #1 (quincenal) a suscriptores",spec:8,dep:["F10","D2"]},
+{id:"D5",fase:"Piloto julio",area:"Distribución",t:"Newsletter LinkedIn: primer envío con link al ebook",spec:5,dep:["C1"]},
+{id:"M1",fase:"Medición",area:"Reportes",t:"Crear embudo de ciclo de vida en HubSpot",spec:9,dep:["F13"]},
+{id:"M2",fase:"Medición",area:"Reportes",t:"Crear reporte leads por pilar y por canal",spec:9,dep:["F13"]},
+{id:"M3",fase:"Medición",area:"Dashboard",t:"Baseline vivo 18/jul: dashboard con 4 tasas",spec:9,dep:["F13"]},
+{id:"M4",fase:"Medición",area:"Datos",t:"Reconectar Search Console (renovar Supermetrics u otra vía)",spec:9,dep:[]},
+{id:"M5",fase:"Medición",area:"Dashboard",t:"Extender dashboard: leads por pilar + cohortes",spec:9,dep:["M3"]},
+{id:"P6",fase:"Pilar 6",area:"CRO",t:"Optimizar Landing Prev Riesgos (hero, form, un CTA, sin fugas)",spec:7,dep:[]},
+{id:"P6b",fase:"Pilar 6",area:"SEM",t:"Decisión de budget SEM con Axel (tras 2 semanas de mejoras)",spec:0,dep:["P6"]},
+{id:"A1",fase:"Siembra agosto",area:"Contenido",t:"Pilar 2: campaign + topic + pillar + plantilla accidentes + form",spec:7,dep:["F13"]},
+{id:"A2",fase:"Siembra agosto",area:"Contenido",t:"Pilar 3: campaign + topic + pillar + pack formatos + form",spec:7,dep:["F13"]},
+{id:"A3",fase:"Siembra agosto",area:"Contenido",t:"Pilar 4: campaign + topic + pillar + plantilla MIPER + form",spec:7,dep:["F13"]},
+{id:"A4",fase:"Siembra agosto",area:"Contenido",t:"Pilar 5: campaign + topic + pillar + checklist acreditación + form",spec:7,dep:["F13"]},
+{id:"A5",fase:"Siembra agosto",area:"Distribución",t:"Activar popup home (web nueva lista)",spec:8,dep:["D3"]},
+{id:"A6",fase:"Siembra agosto",area:"Medición",t:"Fijar meta de leads de agosto con datos del piloto",spec:10,dep:["M3"]},
+{id:"S1",fase:"Amplificación",area:"Loop",t:"Revisión 4–6 semanas: elegir pilar ganador",spec:9,dep:["M4","A1","A2","A3","A4"]},
+{id:"S2",fase:"Amplificación",area:"Canales",t:"Amplificar ganador: redes + webinar + estacional",spec:9,dep:["S1"]},
+];
+const PHASES=["Fundaciones","Piloto julio","Medición","Pilar 6","Siembra agosto","Amplificación"];
+const SPECS=[
+{n:0,title:"Contexto y baseline",d:"Datos reales HubSpot (ene–jun 2026) y decisiones de la reunión con Axel (2/jul)."},
+{n:1,title:"Modelo de medición TOFU/MOFU/BOFU",d:"Definiciones operativas, reglas de oro y trazabilidad en el tiempo (cohortes)."},
+{n:2,title:"Propiedades a crear en HubSpot",d:"etapa_de_captacion, pilar_de_origen, conocia_tazki_antes + propiedades reutilizadas."},
+{n:3,title:"Forms: convención y especificación",d:"Naming [ETAPA] Nombre · Pilar, forms a renombrar y a crear (newsletter, ebook)."},
+{n:4,title:"Workflows WF1–WF5",d:"Estampado Lead/MQL/SQL, entrega de ebook, alta newsletter. Orden de activación."},
+{n:5,title:"Campañas y convención UTM",d:"Una campaña por pilar + estructura utm_campaign/medium/source."},
+{n:6,title:"Listas activas",d:"Leads TOFU 2026, Suscriptores Newsletter, Clientes activos, Usuarios plataforma, Base Email MKT."},
+{n:7,title:"Los 6 pilares con contenido",d:"Pillar page + cluster posts + lead magnet + CTA, por cada pilar."},
+{n:8,title:"Copys base",d:"Popup home, email a base, email de entrega, bienvenida newsletter, CTA en blog."},
+{n:9,title:"Medición: reportes y loop",d:"Reportes HubSpot, dashboard vivo y loop de amplificación (sep–dic)."},
+{n:10,title:"Calendario julio–diciembre 2026",d:"Entregables semana a semana; baseline vivo 18/jul."},
+{n:11,title:"Backlog estructurado",d:"Esta tabla de tareas — la fuente de este tablero."},
+];
+
+const KEY="tazki_backlog_v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+let fFase="Todas",fArea="Todas",fEstado="Todos",q="";
+
+const done=id=>!!state[id];
+const blocked=t=>t.dep.some(d=>!done(d));
+const estadoDe=t=>done(t.id)?"Hecho":blocked(t)?"Bloqueada":"Pendiente";
+const uniq=a=>[...new Set(a)];
+
+function chips(elId,vals,cur,cb){
+  const el=document.getElementById(elId);el.innerHTML="";
+  vals.forEach(v=>{const b=document.createElement("button");b.className="chip"+(v===cur?" on":"");b.textContent=v;b.onclick=()=>cb(v);el.appendChild(b);});
+}
+function renderFilters(){
+  chips("f-fase",["Todas",...PHASES],fFase,v=>{fFase=v;render();});
+  chips("f-area",["Todas",...uniq(TASKS.map(t=>t.area))],fArea,v=>{fArea=v;render();});
+  chips("f-estado",["Todos","Pendiente","Bloqueada","Hecho"],fEstado,v=>{fEstado=v;render();});
+}
+function matches(t){
+  if(fFase!=="Todas"&&t.fase!==fFase)return false;
+  if(fArea!=="Todas"&&t.area!==fArea)return false;
+  if(fEstado!=="Todos"&&estadoDe(t)!==fEstado)return false;
+  if(q){const s=(t.id+" "+t.t+" "+t.area+" "+t.fase).toLowerCase();if(!s.includes(q))return false;}
+  return true;
+}
+function render(){
+  // global progress
+  const tot=TASKS.length, hechas=TASKS.filter(t=>done(t.id)).length;
+  const pct=Math.round(hechas/tot*100);
+  document.getElementById("gbar").style.width=pct+"%";
+  document.getElementById("gtxt").textContent=`${hechas} de ${tot} tareas completadas · ${pct}%`;
+  const board=document.getElementById("board");board.innerHTML="";
+  let shown=0;
+  PHASES.forEach(ph=>{
+    const all=TASKS.filter(t=>t.fase===ph);
+    const vis=all.filter(matches);
+    if(!vis.length)return;
+    shown+=vis.length;
+    const d=all.filter(t=>done(t.id)).length;
+    const p=Math.round(d/all.length*100);
+    const sec=document.createElement("div");sec.className="phase";
+    sec.innerHTML=`<div class="phase-h"><h2>${ph}</h2><div class="phase-prog"><span style="width:${p}%"></span></div><span class="phase-count">${d}/${all.length}</span></div>`;
+    vis.forEach(t=>{
+      const bl=blocked(t), dn=done(t.id);
+      const row=document.createElement("div");
+      row.className="task"+(dn?" done":"")+(bl&&!dn?" blocked":"");
+      const pend=t.dep.filter(x=>!done(x));
+      const lock=(bl&&!dn)?`<span class="badge b-lock">🔒 espera ${pend.join(", ")}</span>`:"";
+      const depOk=(t.dep.length&&!bl&&!dn)?`<span class="badge b-done">✓ dep. listas</span>`:"";
+      row.innerHTML=`<input type="checkbox" ${dn?"checked":""} data-id="${t.id}">
+        <div class="tbody">
+          <div><span class="tid">${t.id}</span><span class="ttext">${t.t}</span></div>
+          <div class="tmeta">
+            <span class="badge b-area">${t.area}</span>
+            <a class="badge b-spec" href="#spec-${t.spec}">§${t.spec}</a>
+            ${lock}${depOk}
+          </div>
+        </div>`;
+      sec.appendChild(row);
+    });
+    board.appendChild(sec);
+  });
+  if(!shown)board.innerHTML=`<div class="empty">No hay tareas que coincidan con el filtro.</div>`;
+  board.querySelectorAll("input[type=checkbox]").forEach(cb=>{
+    cb.onchange=()=>{const id=cb.dataset.id;if(cb.checked)state[id]=true;else delete state[id];localStorage.setItem(KEY,JSON.stringify(state));render();};
+  });
+}
+function renderSpecs(){
+  const el=document.getElementById("specs");el.innerHTML="";
+  SPECS.forEach(s=>{const d=document.createElement("div");d.className="specrow";d.id="spec-"+s.n;
+    d.innerHTML=`<b>§${s.n} · ${s.title}</b><p>${s.d}</p>`;el.appendChild(d);});
+}
+document.getElementById("search").oninput=e=>{q=e.target.value.trim().toLowerCase();render();};
+document.getElementById("reset").onclick=()=>{if(confirm("¿Borrar todo tu avance marcado? Esto no afecta el plan, solo tus checkboxes.")){state={};localStorage.setItem(KEY,"{}");render();}};
+// resaltar spec al saltar por ancla
+addEventListener("hashchange",()=>{const el=document.querySelector(".specrow.hl");if(el)el.classList.remove("hl");const t=document.getElementById(location.hash.slice(1));if(t&&t.classList.contains("specrow"))t.classList.add("hl");});
+
+renderFilters();renderSpecs();render();
+</script>
+</body>
+</html>
