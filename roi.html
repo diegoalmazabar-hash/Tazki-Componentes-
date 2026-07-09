@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadoras de ROI y riesgo · Tazki</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0C1E50;--cobalt:#1537D1;--powder:#A9C1FF;--off:#FBFBF9;--ink:#0C1E50;--ink2:#5A6178;--ink3:#9098A8;--line:#E4E2EC;--ok:#0a7d4f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#EEF0F4;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px 16px}
+.wrap{max-width:1020px;margin:0 auto}
+h1,h2,h3{letter-spacing:-.02em;font-weight:800}
+.head{background:linear-gradient(150deg,#0A1A45,#16276B 60%,#1537D1 160%);color:#fff;border-radius:20px;padding:30px 32px;position:relative;overflow:hidden}
+.head::before{content:"";position:absolute;width:360px;height:360px;right:-120px;top:-140px;background:radial-gradient(circle,rgba(73,120,230,.4),transparent 70%);border-radius:50%}
+.eyebrow{color:var(--powder);font-weight:800;font-size:12px;letter-spacing:.14em;margin-bottom:10px}
+.head h1{font-size:clamp(24px,4vw,34px);font-weight:900;line-height:1.1}
+.head p{color:var(--powder);margin-top:8px;font-size:15px;font-weight:500;max-width:600px}
+.tabs{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.tab{flex:1;min-width:150px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s}
+.tab .t1{display:block;font-weight:800;font-size:13.5px;color:var(--navy)}
+.tab .t2{display:block;font-weight:500;font-size:11.5px;color:var(--ink3);margin-top:2px}
+.tab.on{border-color:var(--cobalt);background:var(--cobalt)}
+.tab.on .t1{color:#fff}.tab.on .t2{color:var(--powder)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 6px 20px rgba(12,30,80,.05)}
+.card h2{font-size:18px;margin-bottom:4px}
+.card .sub{color:var(--ink3);font-size:13px;margin-bottom:18px}
+label{display:block;font-weight:600;font-size:13.5px;margin:14px 0 6px;color:var(--navy)}
+label .hint{font-weight:500;color:var(--ink3);font-size:12px}
+input,select{width:100%;font-family:inherit;font-size:15px;font-weight:600;color:var(--navy);border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;background:#fff;outline:none;transition:.15s}
+input:focus,select:focus{border-color:var(--cobalt)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.adv{margin-top:18px;border-top:1px dashed var(--line);padding-top:6px}
+.adv summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(--cobalt);padding:10px 0;list-style:none}
+.adv summary::-webkit-details-marker{display:none}
+.adv summary::before{content:"⚙ "}
+.note{background:#FFF6E9;border:1px solid #F4D9A8;border-radius:10px;padding:10px 13px;font-size:12.5px;color:#8a5a12;margin-top:14px}
+.res{background:linear-gradient(160deg,#0C1E50,#16276B);color:#fff;border:none}
+.res h2{color:#fff}
+.big{font-size:clamp(30px,5.4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin:6px 0}
+.big.neg{color:#ff9aa0}
+.reslead{color:var(--powder);font-size:14px;font-weight:600}
+.resnote{color:var(--powder);font-size:12px;font-weight:500;margin-top:6px;opacity:.85}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.kpi{background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:22px;font-weight:800}
+.kpi .l{font-size:12px;color:var(--powder);font-weight:600;margin-top:2px}
+.bd{margin-top:18px;font-size:13.5px}
+.bd .line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.bd .line:last-child{border:none;font-weight:800}
+.bd .pos{color:#86f3b8}.bd .neg{color:#ff9aa0}
+.checks{display:grid;gap:8px;margin-top:6px}
+.chk{display:flex;align-items:flex-start;gap:10px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:.15s}
+.chk:has(input:checked){border-color:var(--ok);background:#F2FBF6}
+.chk input{width:auto;margin-top:3px;accent-color:var(--ok)}
+.chk .cn{font-weight:700;font-size:13.5px;color:var(--navy)}
+.chk .cd{font-weight:500;font-size:11.5px;color:var(--ink3)}
+.tramo{display:inline-block;background:#EDF1FF;color:var(--cobalt);font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px;margin-top:8px}
+details.src{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin-top:18px}
+details.src summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--navy);padding:12px 0;list-style:none}
+details.src summary::-webkit-details-marker{display:none}
+details.src summary::before{content:"📚 "}
+.src ul{margin:6px 0 16px 18px;font-size:13px;color:var(--ink2);line-height:1.6}
+.src b{color:var(--navy)}
+.tag{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;margin-left:6px}
+.tag.g{background:#E7F7EF;color:var(--ok)}.tag.r{background:#fdecea;color:#c0392b}.tag.b{background:#EDF1FF;color:var(--cobalt)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;background:var(--cobalt);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;margin-top:18px}
+.cta small{font-weight:500;font-size:11.5px;color:var(--powder)}
+.disc{color:var(--ink3);font-size:11.5px;text-align:center;margin-top:22px;line-height:1.6}
+.sw{display:flex;align-items:center;gap:8px;margin-top:14px;font-weight:600;font-size:13px;color:var(--navy);cursor:pointer}
+.sw input{width:auto;accent-color:var(--cobalt)}
+.gcard{margin-top:18px}
+.gcard h3{font-size:15.5px;margin:16px 0 6px;color:var(--navy)}
+.gcard p,.gcard li{font-size:13.5px;color:var(--ink2);line-height:1.65}
+.gcard ol,.gcard ul{margin:6px 0 6px 20px}
+.gcard li{margin-bottom:6px}
+.gcard b{color:var(--navy)}
+.formula{background:#F4F6FB;border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:13px;font-weight:700;color:var(--navy);margin:8px 0;line-height:1.7}
+.gq{border-left:3px solid var(--cobalt);padding-left:12px;margin:10px 0;font-size:13.5px;color:var(--ink2);font-style:italic}
+@media(max-width:780px){.grid{grid-template-columns:1fr}.tab{min-width:calc(50% - 4px)}}
+</style></head><body>
+<div style="position:fixed;top:12px;right:12px;z-index:99999;display:flex;gap:8px">
+  <a href="index.html" style="background:#0b0b0b;color:#fff;font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)">Panel MQL &rarr;</a>
+  <a href="maquina-de-leads-tazki.html" style="background:#1f4ed8;color:#fff;font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)">Plan de contenidos &rarr;</a>
+</div>
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">● CALCULADORAS · PREVENCIÓN DE RIESGOS</div>
+    <h1>¿Cuánto vale ordenar tu prevención?</h1>
+    <p>Cuatro calculadoras, cuatro dolores: horas administrativas, exposición a multas de la DT, costo oculto de accidentes y cotización adicional. Todo editable y con fuente.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-t="horas"><span class="t1">⏱ Horas recuperadas</span><span class="t2">Menos papeleo, más terreno</span></button>
+    <button class="tab" data-t="multas"><span class="t1">⚖️ Exposición a multas</span><span class="t2">Fiscalización DT y DS 44</span></button>
+    <button class="tab" data-t="acc"><span class="t1">🩹 Costo de accidentes</span><span class="t2">Lo que tu mutual no cubre</span></button>
+    <button class="tab" data-t="cot"><span class="t1">📉 Cotización adicional</span><span class="t2">Siniestralidad y DS 67</span></button>
+    <button class="tab" data-t="guia"><span class="t1">📖 Guía de uso</span><span class="t2">Cómo funciona y fuentes</span></button>
+  </div>
+
+  <!-- ============ CALC 1: HORAS ============ -->
+  <section id="sec-horas">
+    <div class="grid">
+      <div class="card">
+        <h2>Tu operación</h2>
+        <div class="sub">Responde de memoria, te toma menos de un minuto.</div>
+        <div class="row2">
+          <div><label>Centros de trabajo</label><input id="h_centros" type="number" min="1" value="3"></div>
+          <div><label>Prevencionistas</label><input id="h_prev" type="number" min="1" value="3"></div>
+        </div>
+        <label>Horas/semana en papeleo administrativo <span class="hint">(por prevencionista, tu estimación)</span></label>
+        <input id="h_horas" type="number" min="0" step="0.5" value="8">
+        <label>Sector <span class="hint">(referencia de costo por hora)</span></label>
+        <select id="h_sector">
+          <option value="5000">Servicios / General · $5.000/h</option>
+          <option value="7500">Construcción · $7.500/h</option>
+          <option value="11000">Minería · $11.000/h</option>
+          <option value="custom">Personalizado</option>
+        </select>
+        <details class="adv">
+          <summary>Ajustar supuestos</summary>
+          <label>Costo por hora del prevencionista (CLP) <span class="hint">referencial portales de empleo</span></label>
+          <input id="h_costohora" type="number" min="0" step="100" value="5000">
+          <div class="row2">
+            <div><label>% del papeleo que se automatiza <span class="hint">supuesto, rango 30 a 50</span></label><input id="h_auto" type="number" min="0" max="100" value="40"></div>
+            <div><label>Tarifa por centro/mes (CLP) <span class="hint">pon tu precio real</span></label><input id="h_tarifa" type="number" min="0" step="1000" value="40000"></div>
+          </div>
+          <label>Semanas efectivas al año <span class="hint">descuenta vacaciones, feriados y licencias</span></label>
+          <input id="h_sem" type="number" min="1" max="52" value="46">
+          <div class="note">⚠️ Las <b>horas</b> y el <b>% que se automatiza</b> son tus supuestos: no existe estudio chileno público que los fije. El <b>costo/hora</b> es referencial de portales de empleo (no incluye costo empresa, que sumaría 25% a 40% más). Fuentes abajo.</div>
+        </details>
+      </div>
+      <div class="card res">
+        <h2>Tu retorno estimado</h2>
+        <div class="reslead">Horas de prevención recuperadas al año</div>
+        <div class="big" id="h_horasRec">0 h</div>
+        <div class="resnote">Horas que vuelven al terreno: inspecciones, charlas, cierre de hallazgos.</div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" id="h_neto">$0</div><div class="l">Ahorro neto/año</div></div>
+          <div class="kpi"><div class="v" id="h_roi">0%</div><div class="l">ROI anual</div></div>
+          <div class="kpi"><div class="v" id="h_payback">—</div><div class="l">Se paga solo en</div></div>
+          <div class="kpi"><div class="v" id="h_hsem">0 h</div><div class="l">Horas/semana por prevencionista</div></div>
+        </div>
+        <div class="bd">
+          <div class="line"><span class="pos">＋ Valor de las horas recuperadas</span><span class="pos" id="h_bruto">$0</span></div>
+          <div class="line"><span class="neg">− Costo de Tazki/año</span><span class="neg" id="h_costo">$0</span></div>
+          <div class="line"><span>= Ahorro neto/año</span><span id="h_netoBd">$0</span></div>
+        </div>
+      </div>
+    </div>
+    <details class="src">
+      <summary>Fuentes y supuestos (transparencia)</summary>
+      <ul>
+        <li><b>Horas administrativas</b> <span class="tag r">tu supuesto</span> · No existe estudio chileno público (SUSESO, mutualidades) que mida el tiempo administrativo del prevencionista. Por eso el número lo pones tú. La cifra internacional más citada ("35% más de tiempo administrativo con procesos manuales", HSI GERI 2024, n>1.000) es una encuesta de un proveedor de software, no un estudio independiente.</li>
+        <li><b>Costo por hora</b> <span class="tag g">referencial</span> · Portales de empleo chilenos (2025-2026): prevencionista ~$905.000/mes; costo/hora ≈ sueldo ÷ 180 h. No incluye costo empresa (leyes sociales). Dato autorreportado, no estadística oficial.</li>
+        <li><b>Semanas efectivas: 46</b> <span class="tag g">conservador</span> · Descuenta vacaciones legales, feriados y licencias en vez de usar 52 semanas corridas.</li>
+        <li><b>% que se automatiza y tarifa</b> <span class="tag r">supuesto</span> · Ajústalos a tu caso. Rango conservador recomendado: 30% a 50%.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ CALC 2: MULTAS ============ -->
+  <section id="sec-multas" hidden>
+    <div class="grid">
+      <div class="card">
+        <h2>Tu situación documental</h2>
+        <div class="sub">Marca solo lo que hoy tienes al día, firmado y trazable (lo encontrarías en menos de una hora si llega el inspector).</div>
+        <div class="row2">
+          <div><label>Trabajadores de la empresa</label><input id="m_trab" type="number" min="1" value="120"></div>
+          <div><label>Centros / faenas</label><input id="m_centros" type="number" min="1" value="3"></div>
+        </div>
+        <div class="tramo" id="m_tramo">Mediana empresa (50 a 199)</div>
+        <label style="margin-top:16px">Instrumentos al día y trazables</label>
+        <div class="checks" id="m_checks">
+          <label class="chk"><input type="checkbox" data-n="RIOHS actualizado y entregado"><span><span class="cn">RIOHS actualizado y entregado</span><br><span class="cd">Reglamento interno, art. 153 Código del Trabajo</span></span></label>
+          <label class="chk"><input type="checkbox" data-n="MIPER / matriz de riesgos vigente"><span><span class="cn">MIPER vigente por centro</span><br><span class="cd">Gestión preventiva, DS 44</span></span></label>
+          <label class="chk"><input type="checkbox" data-n="ODI / Derecho a Saber firmada"><span><span class="cn">ODI firmada por cada trabajador</span><br><span class="cd">Obligación de informar, DS 44</span></span></label>
+          <label class="chk"><input type="checkbox" data-n="CPHS constituido con actas"><span><span class="cn">CPHS constituido y con actas</span><br><span class="cd">Comité paritario, Ley 16.744 art. 66</span></span></label>
+          <label class="chk"><input type="checkbox" data-n="Registro firmado de entrega de EPP"><span><span class="cn">Entrega de EPP con registro firmado</span><br><span class="cd">Ley 16.744 art. 68</span></span></label>
+          <label class="chk"><input type="checkbox" data-n="Investigación de accidentes documentada"><span><span class="cn">Investigación de accidentes documentada</span><br><span class="cd">DS 44 y Circular SUSESO</span></span></label>
+        </div>
+        <label class="sw"><input type="checkbox" id="m_xcentros"> Simular fiscalización en todos mis centros</label>
+        <details class="adv">
+          <summary>Ajustar supuestos</summary>
+          <label>Valor UTM (CLP) <span class="hint">SII, julio 2026. Cambia cada mes</span></label>
+          <input id="m_utm" type="number" min="0" step="1" value="71649">
+          <div class="note">⚠️ Cada instrumento sin respaldo se cuenta como <b>una</b> infracción en grado <b>grave</b> (piso) a <b>gravísima</b> (techo) según el Tipificador DT vigente (23-jun-2026). No aplicamos reincidencia ni multas por trabajador afectado, que pueden subir el monto. Es exposición legal, no predicción.</div>
+        </details>
+      </div>
+      <div class="card res">
+        <h2>Tu exposición en una fiscalización</h2>
+        <div class="reslead">Rango legal si te fiscalizan hoy</div>
+        <div class="big" id="m_rango">$0</div>
+        <div class="resnote">Exposición máxima legal según el Tipificador DT. No es una predicción: depende de que te fiscalicen y del grado que asigne el inspector.</div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" id="m_brechas">0</div><div class="l">Instrumentos sin respaldo</div></div>
+          <div class="kpi"><div class="v" id="m_utmkpi">0 UTM</div><div class="l">UTM en juego (grado grave)</div></div>
+        </div>
+        <div class="bd" id="m_bd"></div>
+        <div class="resnote" style="margin-top:14px">💡 29,6% de las fiscalizaciones DT terminan en multa (2022-2025, 380.380 fiscalizaciones). Tazki no elimina el riesgo: reduce la probabilidad de la infracción con trazabilidad y firma electrónica validada por la Resolución N°908 de la DT.</div>
+      </div>
+    </div>
+    <details class="src">
+      <summary>Fuentes y supuestos (transparencia)</summary>
+      <ul>
+        <li><b>Escala de multas</b> <span class="tag g">ley</span> · Art. 506 Código del Trabajo: micro y pequeña 1 a 10 UTM, mediana 2 a 40 UTM, grande 3 a 60 UTM por infracción. Duplicable o triplicable en casos calificados.</li>
+        <li><b>Montos por grado</b> <span class="tag g">oficial</span> · Tipificador de Hechos Infraccionales DT, versión 23-jun-2026 (leve/grave/gravísima): micro 3/4/5 · pequeña 6/8/10 · mediana 24/32/40 · grande 36/48/60 UTM. Incluye capítulo específico para el DS 44. Algunas infracciones se cursan por trabajador afectado (aquí no se aplica: conservador).</li>
+        <li><b>Tamaño de empresa</b> <span class="tag g">ley</span> · Art. 505 bis CT: micro 1 a 9, pequeña 10 a 49, mediana 50 a 199, grande 200 o más trabajadores.</li>
+        <li><b>Valor UTM</b> <span class="tag g">oficial</span> · SII: $71.649 (julio 2026). Actualízalo si usas esta calculadora en otro mes.</li>
+        <li><b>DS 44</b> <span class="tag g">oficial</span> · Vigente desde el 1-feb-2025. No trae multas propias: se sanciona vía art. 506 (DT) y vía Código Sanitario art. 174 (SEREMI de Salud, 0,1 a 1.000 UTM), esta última no incluida en el cálculo.</li>
+        <li><b>Fiscalización DT</b> <span class="tag g">oficial</span> · 380.380 fiscalizaciones 2022-2025; 112.648 con multa (29,6%); $521.718 millones cursados. DT, feb 2026.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ CALC 3: ACCIDENTES ============ -->
+  <section id="sec-acc" hidden>
+    <div class="grid">
+      <div class="card">
+        <h2>Tu accidentabilidad</h2>
+        <div class="sub">Solo el costo que absorbe tu empresa. La atención médica y el subsidio los paga el seguro de la Ley 16.744.</div>
+        <div class="row2">
+          <div><label>Accidentes con licencia al año</label><input id="a_n" type="number" min="0" value="5"></div>
+          <div><label>Sueldo bruto promedio (CLP/mes)</label><input id="a_sueldo" type="number" min="0" step="10000" value="800000"></div>
+        </div>
+        <label>Sector <span class="hint">(define los días perdidos promedio, SUSESO)</span></label>
+        <select id="a_sector">
+          <option value="23.7">Construcción · 23,7 días/accidente</option>
+          <option value="36.7">Minería · 36,7 días/accidente</option>
+          <option value="27.5">Transporte · 27,5 días/accidente</option>
+          <option value="21.7">Industria manufacturera · 21,7 días/accidente</option>
+          <option value="17.9">Comercio · 17,9 días/accidente</option>
+          <option value="19.7">Servicios · 19,7 días/accidente</option>
+          <option value="21.4">Promedio nacional · 21,4 días/accidente</option>
+        </select>
+        <label>Horas de gestión por accidente <span class="hint">investigación, papeleo, comité, reinducción</span></label>
+        <input id="a_hgestion" type="number" min="0" step="1" value="12">
+        <details class="adv">
+          <summary>Ajustar supuestos</summary>
+          <div class="row2">
+            <div><label>Factor de costo indirecto <span class="hint">1,0 = solo productividad</span></label><input id="a_factor" type="number" min="1" max="4" step="0.1" value="1.0"></div>
+            <div><label>Costo/hora prevencionista (CLP)</label><input id="a_costohora" type="number" min="0" step="100" value="5000"></div>
+          </div>
+          <div class="note">⚠️ El <b>factor indirecto</b> (daño a equipos, reemplazo, menor ritmo al volver) viene de la regla internacional del iceberg (Heinrich, 1931), que llega hasta 4:1 pero no tiene medición chilena. Default 1,0: solo contamos la productividad del día perdido. Súbelo solo si tienes datos propios.</div>
+        </details>
+      </div>
+      <div class="card res">
+        <h2>Costo que absorbe tu empresa</h2>
+        <div class="reslead">Costo oculto de tus accidentes al año</div>
+        <div class="big" id="a_total">$0</div>
+        <div class="resnote">Lo que tu mutual no cubre: productividad perdida y horas de gestión. El subsidio del trabajador (SIL) lo paga el seguro, no tu empresa, y por eso no se cuenta aquí.</div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" id="a_dias">0</div><div class="l">Días de trabajo perdidos/año</div></div>
+          <div class="kpi"><div class="v" id="a_hga">0 h</div><div class="l">Horas de gestión/año</div></div>
+        </div>
+        <div class="bd">
+          <div class="line"><span class="neg">− Productividad de días perdidos</span><span class="neg" id="a_prod">$0</span></div>
+          <div class="line"><span class="neg">− Horas de gestión e investigación</span><span class="neg" id="a_gestion">$0</span></div>
+          <div class="line"><span>= Costo oculto/año</span><span id="a_totalBd">$0</span></div>
+        </div>
+        <div class="resnote" style="margin-top:14px">💡 VERA sugiere el árbol de causas y las medidas; tu equipo valida y decide. Reduce las horas de investigación, no la responsabilidad técnica.</div>
+      </div>
+    </div>
+    <details class="src">
+      <summary>Fuentes y supuestos (transparencia)</summary>
+      <ul>
+        <li><b>Días perdidos por accidente del trabajo</b> <span class="tag g">oficial</span> · SUSESO, Estadísticas de Accidentabilidad 2020 (mutualidades, sin trayecto): promedio nacional 21,4 días. Minería 36,7 · Transporte 27,5 · Construcción 23,7 · Manufactura 21,7 · Servicios 19,7 · Comercio 17,9. Dato oficial más reciente con desglose sectorial extraíble.</li>
+        <li><b>Qué paga la mutual</b> <span class="tag g">ley</span> · Ley 16.744: atención médica, subsidios (100% de la base neta desde el día 1), indemnizaciones y pensiones son de cargo del organismo administrador. Por eso esta calculadora no cuenta el sueldo del accidentado.</li>
+        <li><b>Factor indirecto</b> <span class="tag r">internacional, a validar</span> · Regla del iceberg (Heinrich 1931; revisión Manuele/ASSP 2011: el ratio real varía de 1:1 a 20:1 según severidad). No existe medición chilena. Default conservador: 1,0.</li>
+        <li><b>Horas de gestión y costo/hora</b> <span class="tag r">tu supuesto</span> · Ajústalos a tu operación real.</li>
+        <li><b>Contexto</b> <span class="tag g">oficial</span> · Chile 2024: 143.199 accidentes del trabajo, tasa 2,5 por cada 100 protegidos, 154 fallecidos (SUSESO, Informe Anual SST 2024).</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ CALC 4: COTIZACIÓN ============ -->
+  <section id="sec-cot" hidden>
+    <div class="grid">
+      <div class="card">
+        <h2>Tu cotización Ley 16.744</h2>
+        <div class="sub">La cotización adicional depende de tu siniestralidad (DS 67) y se revisa cada 2 años. Menos días perdidos, menor tasa.</div>
+        <label>Masa salarial imponible mensual (CLP) <span class="hint">suma de remuneraciones imponibles</span></label>
+        <input id="c_masa" type="number" min="0" step="1000000" value="100000000">
+        <label>Tu cotización adicional actual (%) <span class="hint">está en la planilla de tu mutual</span></label>
+        <select id="c_tasa">
+          <option value="0">0,00% · sin recargo</option>
+          <option value="0.34">0,34%</option>
+          <option value="0.68" selected>0,68%</option>
+          <option value="1.02">1,02%</option>
+          <option value="1.36">1,36%</option>
+          <option value="1.70">1,70%</option>
+          <option value="2.04">2,04%</option>
+          <option value="2.38">2,38%</option>
+          <option value="2.72">2,72%</option>
+          <option value="3.06">3,06%</option>
+          <option value="3.40">3,40% · tope DS 110</option>
+        </select>
+        <label>Tramos que aspiras a bajar en la próxima evaluación <span class="hint">1 tramo = 0,34 puntos</span></label>
+        <select id="c_tramos">
+          <option value="1" selected>1 tramo (0,34%)</option>
+          <option value="2">2 tramos (0,68%)</option>
+          <option value="3">3 tramos (1,02%)</option>
+        </select>
+        <div class="note">⚠️ Bajar la tasa exige reducir tus días perdidos (tasa de siniestralidad, DS 67) sostenidamente en el período de evaluación. Ningún software lo garantiza por sí solo: esta calculadora muestra el premio si lo logras.</div>
+      </div>
+      <div class="card res">
+        <h2>Tu premio por bajar la siniestralidad</h2>
+        <div class="reslead">Ahorro anual potencial en cotización adicional</div>
+        <div class="big" id="c_ahorro">$0</div>
+        <div class="resnote">Es el ahorro si bajas los tramos seleccionados en tu próxima evaluación DS 67. Potencial, no automático.</div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" id="c_pagohoy">$0</div><div class="l">Pagas hoy al año (adicional)</div></div>
+          <div class="kpi"><div class="v" id="c_tasanueva">0%</div><div class="l">Tasa objetivo</div></div>
+        </div>
+        <div class="bd">
+          <div class="line"><span class="neg">Cotización adicional actual/año</span><span class="neg" id="c_hoyBd">$0</span></div>
+          <div class="line"><span class="pos">Cotización adicional objetivo/año</span><span class="pos" id="c_nuevaBd">$0</span></div>
+          <div class="line"><span>= Ahorro anual potencial</span><span id="c_ahorroBd">$0</span></div>
+        </div>
+        <div class="resnote" style="margin-top:14px">💡 Para bajar la siniestralidad necesitas cerrar hallazgos, investigar accidentes a tiempo y demostrar gestión ante tu mutual. Ahí es donde la trazabilidad pesa.</div>
+      </div>
+    </div>
+    <details class="src">
+      <summary>Fuentes y supuestos (transparencia)</summary>
+      <ul>
+        <li><b>Estructura de la cotización</b> <span class="tag g">ley</span> · Ley 16.744, de cargo del empleador: cotización básica 0,90% + adicional diferenciada 0% a 3,40% según actividad (DS 110), con recargos por siniestralidad efectiva hasta 6,80% (DS 67). Tramos de 0,34 puntos.</li>
+        <li><b>Mecanismo DS 67</b> <span class="tag g">ley</span> · La tasa adicional se recalcula cada 2 años según tu Tasa de Siniestralidad por Incapacidades Temporales (días perdidos por cada 100 trabajadores). Menos días perdidos, tramo más bajo.</li>
+        <li><b>El ahorro es potencial</b> <span class="tag r">condicional</span> · Depende de que efectivamente bajes tus días perdidos en el período evaluado. Aquí no se promete: se dimensiona.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ GUÍA DE USO ============ -->
+  <section id="sec-guia" hidden>
+    <div class="card gcard">
+      <h2>Cómo usar estas calculadoras</h2>
+      <div class="sub">Cinco minutos para dimensionar tus cuatro dolores con números defendibles.</div>
+      <ol>
+        <li><b>Elige la pestaña según lo que quieras dimensionar:</b> horas administrativas, exposición a multas, costo de accidentes o cotización adicional. Son independientes: puedes usar una sola o las cuatro.</li>
+        <li><b>Llena los campos principales de memoria.</b> Están pensados para que no tengas que ir a buscar nada: centros, prevencionistas, trabajadores, accidentes del año pasado.</li>
+        <li><b>Abre "⚙ Ajustar supuestos"</b> en cada calculadora y reemplaza los valores por los tuyos reales (costo/hora, tarifa, UTM del mes). El resultado se recalcula al instante.</li>
+        <li><b>Revisa "📚 Fuentes y supuestos"</b> al pie de cada calculadora: ahí está el respaldo de cada número que usamos.</li>
+        <li><b>Lee los tags:</b> <span class="tag g">ley / oficial / referencial</span> significa dato con fuente verificable; <span class="tag r">tu supuesto / a validar</span> significa que el número lo controlas tú y debes validarlo con tu operación.</li>
+      </ol>
+      <div class="gq">La regla de diseño de esta página: cero cifras inventadas. Todo número es ley, dato oficial con fuente, o un supuesto tuyo declarado como tal. Preferimos un resultado conservador y defendible antes que uno grande e indefendible.</div>
+    </div>
+
+    <div class="card gcard">
+      <h2>⏱ Horas recuperadas</h2>
+      <div class="sub">Qué responde: cuánto valen, en horas y en plata, las horas de papeleo que dejarías de hacer.</div>
+      <h3>La fórmula, paso a paso</h3>
+      <div class="formula">
+        Horas recuperadas/año = prevencionistas × horas de papeleo/semana × semanas efectivas (46) × % que se automatiza<br>
+        Ahorro bruto = horas recuperadas × costo por hora<br>
+        Ahorro neto = ahorro bruto − (centros × tarifa mensual × 12)<br>
+        ROI = ahorro neto ÷ costo anual · Payback = costo anual ÷ (ahorro bruto ÷ 12)
+      </div>
+      <h3>De dónde salen los datos</h3>
+      <ul>
+        <li><b>Costo por hora:</b> referencial de portales de empleo chilenos (2025-2026), sueldo de prevencionista ~$905.000/mes ÷ 180 horas ≈ $5.000/h. Es dato autorreportado, no estadística oficial, y no incluye costo empresa (leyes sociales sumarían 25% a 40%).</li>
+        <li><b>Horas de papeleo y % que se automatiza:</b> los pones tú. No existe estudio chileno público (SUSESO, mutualidades) que mida el tiempo administrativo del prevencionista; preferimos decírtelo antes que inventar un promedio.</li>
+      </ul>
+      <h3>Por qué el resultado es conservador</h3>
+      <ul>
+        <li>Usamos <b>46 semanas efectivas</b> al año (no 52): descontamos vacaciones, feriados y licencias.</li>
+        <li>El % automatizado parte en <b>40%</b> (rango recomendado 30% a 50%), no en promesas de "70%" que circulan sin fuente.</li>
+        <li>El payback se calcula contra el ahorro bruto: responde "¿en cuántos meses las horas recuperadas pagan la plataforma?".</li>
+      </ul>
+    </div>
+
+    <div class="card gcard">
+      <h2>⚖️ Exposición a multas</h2>
+      <div class="sub">Qué responde: a cuánta multa te expones hoy si la DT te fiscaliza y encuentra instrumentos sin respaldo.</div>
+      <h3>La lógica</h3>
+      <p>Marcas cuáles de los 6 instrumentos básicos (RIOHS, MIPER, ODI, CPHS, EPP, investigación de accidentes) tienes al día, firmados y trazables. Cada uno que falta se cuenta como <b>una infracción</b>. Tu número de trabajadores define el tramo de empresa (art. 505 bis CT), y el tramo define el monto por infracción según el Tipificador de la DT.</p>
+      <div class="formula">
+        Tramo: 1-9 micro · 10-49 pequeña · 50-199 mediana · 200+ grande<br>
+        UTM por infracción (grave a gravísima): micro 4-5 · pequeña 8-10 · mediana 32-40 · grande 48-60<br>
+        Exposición = instrumentos sin respaldo × UTM del tramo × valor UTM (× centros, si lo activas)
+      </div>
+      <h3>De dónde salen los datos</h3>
+      <ul>
+        <li><b>Escala legal:</b> art. 506 del Código del Trabajo (micro y pequeña 1 a 10 UTM, mediana 2 a 40, grande 3 a 60 por infracción).</li>
+        <li><b>Montos por grado:</b> Tipificador de Hechos Infraccionales de la DT, versión vigente del 23 de junio de 2026, verificado contra el PDF oficial. Incluye un capítulo específico para el DS 44.</li>
+        <li><b>Valor UTM:</b> SII, $71.649 en julio 2026. Cambia cada mes: actualízalo en los supuestos.</li>
+        <li><b>Contexto de fiscalización:</b> 380.380 fiscalizaciones DT entre 2022 y 2025; 29,6% terminó en multa; $521.718 millones cursados (DT, feb 2026).</li>
+      </ul>
+      <h3>Por qué el resultado es conservador</h3>
+      <ul>
+        <li>Mostramos un <b>rango</b> (grado grave a gravísima), nunca un número seco: el grado lo asigna el inspector.</li>
+        <li>Contamos cada instrumento como <b>una sola</b> infracción. En la práctica algunas se cursan <b>por trabajador afectado</b> y la multa puede duplicarse o triplicarse en casos calificados: la realidad puede ser peor que el número, no mejor.</li>
+        <li>No incluimos la vía sanitaria (SEREMI de Salud, Código Sanitario art. 174: 0,1 a 1.000 UTM), que corre por cuerda separada.</li>
+        <li>Es <b>exposición legal, no predicción</b>: depende de que te fiscalicen. Por eso nunca decimos "vas a pagar esto".</li>
+      </ul>
+    </div>
+
+    <div class="card gcard">
+      <h2>🩹 Costo de accidentes</h2>
+      <div class="sub">Qué responde: cuánto le cuestan a tu empresa los accidentes del año, contando solo lo que la mutual NO cubre.</div>
+      <h3>La lógica</h3>
+      <p>En Chile el seguro de la Ley 16.744 paga la atención médica, el subsidio del trabajador (SIL, 100% de la base neta desde el día 1), las indemnizaciones y pensiones. Eso <b>no</b> lo pagas tú. Lo que sí absorbe tu empresa: la productividad del puesto vacío y las horas de gestión que consume cada accidente.</p>
+      <div class="formula">
+        Días perdidos/año = accidentes × días promedio por accidente de tu sector (SUSESO)<br>
+        Costo de productividad = días perdidos × (sueldo bruto ÷ 30) × factor indirecto<br>
+        Costo de gestión = accidentes × horas de gestión × costo/hora<br>
+        Costo oculto anual = productividad + gestión
+      </div>
+      <h3>De dónde salen los datos</h3>
+      <ul>
+        <li><b>Días perdidos por accidente:</b> SUSESO, Estadísticas de Accidentabilidad 2020 (mutualidades, sin trayecto): promedio nacional 21,4 días; minería 36,7; transporte 27,5; construcción 23,7; manufactura 21,7; servicios 19,7; comercio 17,9. Es el dato oficial más reciente con desglose por sector extraíble.</li>
+        <li><b>Qué paga la mutual:</b> Ley 16.744 (por eso esta calculadora no cuenta el sueldo del accidentado, error común en calculadoras de este tipo).</li>
+        <li><b>Factor indirecto:</b> la regla internacional del "iceberg" (Heinrich 1931) estima costos indirectos de hasta 4 veces el directo, pero la revisión de Manuele (ASSP, 2011) muestra que el ratio real varía de 1:1 a 20:1 según severidad, y <b>no existe medición chilena</b>. Por eso el default es 1,0.</li>
+      </ul>
+      <h3>Por qué el resultado es conservador</h3>
+      <ul>
+        <li>Factor indirecto en <b>1,0</b>: solo contamos la productividad del día perdido. Súbelo únicamente si tienes datos propios de tu operación.</li>
+        <li>No monetizamos dolor, clima laboral ni rotación: cosas reales pero no defendibles con cifra.</li>
+      </ul>
+    </div>
+
+    <div class="card gcard">
+      <h2>📉 Cotización adicional</h2>
+      <div class="sub">Qué responde: cuánta plata hay en juego si tu siniestralidad sube o baja tu tasa de cotización adicional.</div>
+      <h3>La lógica</h3>
+      <p>Además de la cotización básica (0,90%), pagas una <b>cotización adicional</b> de 0% a 3,40% según tu actividad (DS 110), que puede recargarse hasta 6,80% según tu siniestralidad efectiva (DS 67). La tasa se reevalúa <b>cada 2 años</b> en función de tus días perdidos. Menos días perdidos, tramo más bajo.</p>
+      <div class="formula">
+        Pago actual/año = masa salarial imponible × 12 × tasa adicional actual<br>
+        Ahorro potencial/año = masa salarial × 12 × (0,34% × tramos que bajas)
+      </div>
+      <h3>De dónde salen los datos</h3>
+      <ul>
+        <li><b>Estructura de la cotización:</b> Ley 16.744 (básica 0,90%, de cargo del empleador) + DS 110 (adicional por actividad) + DS 67 (recargos y rebajas por siniestralidad, en tramos de 0,34 puntos).</li>
+        <li><b>Tu tasa actual:</b> la sacas de la planilla de tu mutual (ACHS, Mutual de Seguridad, IST) o del ISL.</li>
+      </ul>
+      <h3>Por qué el resultado es conservador</h3>
+      <ul>
+        <li>Lo presentamos como <b>ahorro potencial, no automático</b>: exige bajar tus días perdidos de forma sostenida durante el período de evaluación.</li>
+        <li>Ningún software baja la tasa por sí solo. Lo que sí hace la trazabilidad: cerrar hallazgos a tiempo, investigar accidentes cuando corresponde y demostrar gestión ante la mutual en la evaluación.</li>
+      </ul>
+    </div>
+
+    <div class="card gcard">
+      <h2>📚 De dónde viene la información (metodología)</h2>
+      <div class="sub">Cómo se construyeron estas calculadoras, julio 2026.</div>
+      <h3>El proceso</h3>
+      <ul>
+        <li><b>Investigación con verificación contra fuentes primarias:</b> el PDF oficial del Tipificador DT (23-jun-2026), el SII (valor UTM), SUSESO (informes anuales de seguridad y salud en el trabajo, estadísticas de accidentabilidad), BCN Ley Chile (textos legales: Código del Trabajo, Ley 16.744, DS 44, DS 67, DS 110, Código Sanitario) y la Dirección del Trabajo (estadísticas de fiscalización).</li>
+        <li><b>Regla de cero invención:</b> cuando un dato no existe en fuente pública (ej. las horas administrativas del prevencionista chileno, o el costo indirecto de un accidente medido en Chile), la calculadora te lo dice y te pide el número a ti, en vez de rellenar con una cifra de marketing.</li>
+        <li><b>Sesgo deliberado a la baja:</b> 46 semanas y no 52; factor indirecto 1,0 y no 4; una infracción por instrumento y no por trabajador. Si el resultado igual te parece grande, es porque el problema es grande.</li>
+      </ul>
+      <h3>Qué NO es esta página</h3>
+      <ul>
+        <li><b>No es asesoría legal.</b> Los montos de multa son la escala legal vigente aplicada a tus brechas declaradas; la multa real depende del inspector, del grado y de tu historial.</li>
+        <li><b>No es una predicción.</b> Es una herramienta para dimensionar y conversar con números sobre la mesa: la tuya, la de tu gerencia o la de tu mandante.</li>
+      </ul>
+      <h3>Mantención</h3>
+      <ul>
+        <li>La <b>UTM cambia cada mes</b> (SII): el valor cargado es de julio 2026 y es editable en los supuestos de la calculadora de multas.</li>
+        <li>El <b>Tipificador DT</b> y las estadísticas SUSESO se actualizan periódicamente: las fuentes citadas indican la versión y el año de cada dato.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div style="text-align:center"><a class="cta" href="https://tazki.cl/contactanos/">Agendar demo<small>30 minutos, sin presentación corporativa</small></a></div>
+  <div class="disc">Estimaciones referenciales con fines comerciales. Los resultados dependen de los supuestos que ingreses. Multas y cotizaciones según normativa vigente (art. 506 y 505 bis CT, Tipificador DT 23-jun-2026, Ley 16.744, DS 44, DS 67, DS 110); UTM del SII (julio 2026). Días perdidos según SUSESO. Ninguna cifra de esta página constituye asesoría legal. Versión 2 · julio 2026.</div>
+</div>
+
+<script>
+var $=function(id){return document.getElementById(id)};
+var clp=function(n){return '$'+Math.round(n).toLocaleString('es-CL')};
+var num=function(n){return Math.round(n).toLocaleString('es-CL')};
+
+/* ---- tabs ---- */
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    ['horas','multas','acc','cot','guia'].forEach(function(k){$('sec-'+k).hidden=(k!==b.dataset.t)});
+  });
+});
+
+/* ---- calc 1: horas ---- */
+function calcH(){
+  var centros=+$('h_centros').value||0, prev=+$('h_prev').value||0, horas=+$('h_horas').value||0;
+  var costo=+$('h_costohora').value||0, auto=(+$('h_auto').value||0)/100, tarifa=+$('h_tarifa').value||0, sem=+$('h_sem').value||46;
+  var horasRec=prev*horas*sem*auto;
+  var bruto=horasRec*costo, costoT=centros*tarifa*12, neto=bruto-costoT;
+  var roi=costoT>0?(neto/costoT*100):0, pb=bruto>0?(costoT/(bruto/12)):0;
+  $('h_horasRec').textContent=num(horasRec)+' h';
+  $('h_hsem').textContent=(Math.round(horas*auto*10)/10).toLocaleString('es-CL')+' h';
+  $('h_bruto').textContent='+'+clp(bruto); $('h_costo').textContent='-'+clp(costoT);
+  $('h_netoBd').textContent=clp(neto);
+  var kn=$('h_neto'); kn.textContent=clp(neto); kn.style.color=neto<0?'#ff9aa0':'';
+  $('h_roi').textContent=num(roi)+'%';
+  $('h_payback').textContent=(pb>0&&pb<600)?(pb<1?'<1 mes':Math.round(pb)+(Math.round(pb)==1?' mes':' meses')):'—';
+}
+$('h_sector').addEventListener('change',function(){if(this.value!=='custom'){$('h_costohora').value=this.value;}calcH();});
+$('h_costohora').addEventListener('input',function(){$('h_sector').value='custom';});
+['h_centros','h_prev','h_horas','h_costohora','h_auto','h_tarifa','h_sem'].forEach(function(id){$(id).addEventListener('input',calcH)});
+
+/* ---- calc 2: multas ---- */
+var TIP={micro:{n:'Micro empresa (1 a 9)',g:4,gg:5},peq:{n:'Pequeña empresa (10 a 49)',g:8,gg:10},med:{n:'Mediana empresa (50 a 199)',g:32,gg:40},gra:{n:'Gran empresa (200 o más)',g:48,gg:60}};
+function tramoDe(t){return t<10?TIP.micro:t<50?TIP.peq:t<200?TIP.med:TIP.gra}
+function calcM(){
+  var trab=+$('m_trab').value||1, centros=+$('m_centros').value||1, utm=+$('m_utm').value||0;
+  var tr=tramoDe(trab); $('m_tramo').textContent=tr.n;
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('#m_checks input'));
+  var faltan=boxes.filter(function(c){return !c.checked});
+  var mult=$('m_xcentros').checked?centros:1;
+  var piso=faltan.length*tr.g*utm*mult, techo=faltan.length*tr.gg*utm*mult;
+  $('m_brechas').textContent=faltan.length;
+  $('m_utmkpi').textContent=num(faltan.length*tr.g*mult)+' UTM';
+  $('m_rango').textContent=faltan.length?clp(piso)+' a '+clp(techo):'$0';
+  var bd=$('m_bd'); bd.innerHTML='';
+  faltan.forEach(function(c){
+    var d=document.createElement('div'); d.className='line';
+    d.innerHTML='<span class="neg">'+c.dataset.n+'</span><span class="neg">'+tr.g+' a '+tr.gg+' UTM'+(mult>1?' × '+mult:'')+'</span>';
+    bd.appendChild(d);
+  });
+  if(faltan.length){
+    var t=document.createElement('div'); t.className='line';
+    t.innerHTML='<span>= Exposición total</span><span>'+clp(piso)+' a '+clp(techo)+'</span>';
+    bd.appendChild(t);
+  } else {
+    bd.innerHTML='<div class="line"><span class="pos">✓ Tus 6 instrumentos están trazables. La pregunta es cuántas horas te cuesta mantenerlos así.</span></div>';
+  }
+}
+document.querySelectorAll('#m_checks input').forEach(function(c){c.addEventListener('change',calcM)});
+['m_trab','m_centros','m_utm'].forEach(function(id){$(id).addEventListener('input',calcM)});
+$('m_xcentros').addEventListener('change',calcM);
+
+/* ---- calc 3: accidentes ---- */
+function calcA(){
+  var n=+$('a_n').value||0, sueldo=+$('a_sueldo').value||0, dias=+$('a_sector').value||0;
+  var hg=+$('a_hgestion').value||0, f=+$('a_factor').value||1, ch=+$('a_costohora').value||0;
+  var diasTot=n*dias, costoDia=sueldo/30;
+  var prod=diasTot*costoDia*f, gestion=n*hg*ch, total=prod+gestion;
+  $('a_dias').textContent=num(diasTot);
+  $('a_hga').textContent=num(n*hg)+' h';
+  $('a_prod').textContent='-'+clp(prod); $('a_gestion').textContent='-'+clp(gestion);
+  $('a_total').textContent=clp(total); $('a_totalBd').textContent=clp(total);
+}
+['a_n','a_sueldo','a_hgestion','a_factor','a_costohora'].forEach(function(id){$(id).addEventListener('input',calcA)});
+$('a_sector').addEventListener('change',calcA);
+
+/* ---- calc 4: cotización ---- */
+function calcC(){
+  var masa=+$('c_masa').value||0, tasa=(+$('c_tasa').value||0)/100, tramos=+$('c_tramos').value||1;
+  var bajada=Math.min(tasa,tramos*0.0034);
+  var hoy=masa*12*tasa, nueva=masa*12*(tasa-bajada), ahorro=hoy-nueva;
+  $('c_pagohoy').textContent=clp(hoy);
+  $('c_tasanueva').textContent=((tasa-bajada)*100).toFixed(2).replace('.',',')+'%';
+  $('c_hoyBd').textContent=clp(hoy); $('c_nuevaBd').textContent=clp(nueva);
+  $('c_ahorro').textContent=clp(ahorro); $('c_ahorroBd').textContent=clp(ahorro);
+}
+['c_masa'].forEach(function(id){$(id).addEventListener('input',calcC)});
+['c_tasa','c_tramos'].forEach(function(id){$(id).addEventListener('change',calcC)});
+
+calcH();calcM();calcA();calcC();
+</script>
+</body></html>
