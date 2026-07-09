@@ -106,6 +106,18 @@ table.data tr:last-child td{font-weight:700}
 .calc-out .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.22);font-size:14px}
 .calc-out .row b{font-weight:800}
 @media(max-width:720px){.calc{grid-template-columns:1fr}.calc-out{position:static}}
+/* flujograma */
+.flow{max-width:680px;margin:18px auto 0}
+.fstep{background:#fff;border:1px solid var(--linea);border-left:5px solid var(--cobalto);border-radius:12px;padding:16px 20px;box-shadow:0 2px 10px rgba(31,78,216,.05)}
+.fstep .fhead{display:flex;align-items:center;gap:12px}
+.fstep .fn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--cobalto);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.fstep h3{font-size:16px;font-weight:800}
+.fstep .fdesc{font-size:13px;color:var(--gris);margin:6px 0 0}
+.fstep .fchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.fchip{font-size:12px;background:var(--bg);border:1px solid var(--linea);border-radius:6px;padding:4px 10px;color:#475569;font-weight:600}
+.farrow{text-align:center;color:var(--cobalto);font-size:20px;font-weight:800;padding:5px 0;line-height:1.1}
+.farrow small{display:block;font-size:11px;color:var(--gris);font-weight:600;letter-spacing:.02em}
+.floop{background:var(--bofu-bg);border:1px dashed var(--bofu);color:#15803d;border-radius:10px;padding:11px 16px;text-align:center;font-size:13px;font-weight:600;margin-top:12px}
 .tmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
 .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
 .b-area{background:#f1f5f9;color:#475569}
@@ -130,6 +142,7 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
 </header>
 <nav><div class="wrap">
   <button class="on" data-tab="gestion">✅ Gestión</button>
+  <button data-tab="flujo">🔀 Cómo funciona</button>
   <button data-tab="funnel">📊 Funnel &amp; Baseline</button>
   <button data-tab="pilares">🎯 Pilares</button>
   <button data-tab="medicion">📈 Medición</button>
@@ -150,6 +163,57 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <div class="fgroup"><span class="fglabel">Estado</span><div class="chips" id="f-estado"></div></div>
   <div id="board"></div>
   <button class="btn" id="reset">↺ Reiniciar mi avance</button>
+</section>
+
+<!-- ============ CÓMO FUNCIONA (FLUJO) ============ -->
+<section id="flujo" class="tab">
+  <h2 class="sec">Cómo funciona la máquina</h2>
+  <p class="sub">El recorrido completo, de punta a punta: cómo un desconocido se convierte en lead, en MQL y, ojalá, en cliente — y cómo cada paso queda medido. Los pasos 2 a 4 ocurren de forma automática en HubSpot.</p>
+  <div class="flow">
+
+    <div class="fstep" style="border-left-color:var(--cobalto)">
+      <div class="fhead"><span class="fn">1</span><h3>Atraer</h3></div>
+      <p class="fdesc">El contenido responde lo que el prevencionista busca en Google y lo trae al sitio.</p>
+      <div class="fchips"><span class="fchip">6 pilares</span><span class="fchip">Pillar pages</span><span class="fchip">37 blogs</span><span class="fchip">5 ebooks</span><span class="fchip">SEO</span><span class="fchip">Redes sociales</span><span class="fchip">Email</span></div>
+    </div>
+    <div class="farrow">↓<small>tráfico calificado</small></div>
+
+    <div class="fstep" style="border-left-color:var(--tofu)">
+      <div class="fhead"><span class="fn">2</span><h3>Captar</h3></div>
+      <p class="fdesc">Un formulario convierte la visita en un contacto. La etapa la define la intención del contenido.</p>
+      <div class="fchips"><span class="fchip">[TOFU] Ebook / Newsletter</span><span class="fchip">[MOFU] Calculadora ROI / Contáctanos</span><span class="fchip">[BOFU] Demo</span></div>
+    </div>
+    <div class="farrow">↓<small>nuevo contacto con correo</small></div>
+
+    <div class="fstep" style="border-left-color:#64748b">
+      <div class="fhead"><span class="fn">3</span><h3>Procesar (automático)</h3></div>
+      <p class="fdesc">Los workflows etiquetan y clasifican al contacto solos, sin trabajo manual.</p>
+      <div class="fchips"><span class="fchip">WF1 → Lead</span><span class="fchip">WF4 → MQL</span><span class="fchip">WF5 → SQL</span><span class="fchip">+ pilar_de_origen</span><span class="fchip">+ etapa_de_captacion</span><span class="fchip">+ fechas</span></div>
+    </div>
+    <div class="farrow">↓<small>contacto etiquetado</small></div>
+
+    <div class="fstep" style="border-left-color:var(--mofu)">
+      <div class="fhead"><span class="fn">4</span><h3>Avanzar</h3></div>
+      <p class="fdesc">El contacto sube por el ciclo de vida a medida que muestra más intención.</p>
+      <div class="fchips"><span class="fchip">Lead</span><span class="fchip">→ MQL</span><span class="fchip">→ SQL / Oportunidad</span><span class="fchip">→ Cliente</span></div>
+    </div>
+    <div class="farrow">↓<small>datos en el CRM</small></div>
+
+    <div class="fstep" style="border-left-color:var(--cobalto-d)">
+      <div class="fhead"><span class="fn">5</span><h3>Medir</h3></div>
+      <p class="fdesc">Los reportes leen las etiquetas y muestran qué funciona y qué no.</p>
+      <div class="fchips"><span class="fchip">Embudo por etapa</span><span class="fchip">Leads por pilar</span><span class="fchip">Leads por canal</span><span class="fchip">Cohortes</span><span class="fchip">Baseline 18-jul</span></div>
+    </div>
+    <div class="farrow">↓<small>aprendizajes</small></div>
+
+    <div class="fstep" style="border-left-color:var(--bofu)">
+      <div class="fhead"><span class="fn">6</span><h3>Decidir y amplificar</h3></div>
+      <p class="fdesc">Cada 4–6 semanas se elige el pilar que más tracciona y se le pone más esfuerzo.</p>
+      <div class="fchips"><span class="fchip">Elegir pilar ganador</span><span class="fchip">Redes</span><span class="fchip">Webinar</span><span class="fchip">Contenido estacional</span></div>
+    </div>
+    <div class="floop">↺ El ganador vuelve al paso 1 con más fuerza · lo que no tracciona se queda en orgánico</div>
+
+  </div>
 </section>
 
 <!-- ============ FUNNEL & BASELINE ============ -->
@@ -298,21 +362,21 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
 <script>
 /* ---------- datos backlog (§11) ---------- */
 const TASKS=[
-{id:"F1",fase:"Fundaciones",area:"Propiedades",t:"Crear etapa_de_captacion (dropdown TOFU/MOFU/BOFU)",spec:2,dep:[],d:"Propiedad de contacto tipo desplegable con opciones TOFU, MOFU y BOFU. La escriben los workflows (nunca a mano) para marcar en qué etapa del funnel entró cada contacto."},
-{id:"F2",fase:"Fundaciones",area:"Propiedades",t:"Crear pilar_de_origen (dropdown 6 pilares)",spec:2,dep:[],d:"Propiedad desplegable con los 6 pilares (DS44, Accidentabilidad, Papeleo, MIPER, Contratistas, Software). Identifica de qué tema vino el lead, para desglosar después."},
-{id:"F3",fase:"Fundaciones",area:"Propiedades",t:"Crear conocia_tazki_antes + instruir a ventas",spec:2,dep:[],d:"Propiedad desplegable (Sí por contenido / Sí por referencia / No). La llena ventas en el discovery de los inbound; hay que instruir al equipo para que la registren."},
-{id:"F4",fase:"Fundaciones",area:"Forms",t:"Renombrar forms existentes con convención [ETAPA]",spec:3,dep:[],d:"Aplicar la convención «[ETAPA] Nombre · Pilar» a los formularios actuales (ej: el form del ebook pasa a «[TOFU] Ebook DS44»). Es lo que ordena la medición desde el origen."},
-{id:"F5",fase:"Fundaciones",area:"Forms",t:"Agregar checkbox newsletter al form del ebook",spec:3,dep:[],d:"Sumar al formulario del ebook una casilla «Quiero recibir el newsletter», que marca la propiedad suscripcion_newsletter cuando la activan."},
-{id:"F6",fase:"Fundaciones",area:"Forms",t:"Crear form [TOFU] Newsletter",spec:3,dep:[],d:"Formulario simple de un solo campo (email) para el módulo de suscripción que va al pie de los blogs y en la página de recursos."},
-{id:"F7",fase:"Fundaciones",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"],d:"Crear las listas: Leads TOFU 2026, Suscriptores Newsletter, Clientes activos, Usuarios de plataforma y Base Email MKT Julio (esta última excluye clientes, rebotados y opt-out)."},
-{id:"F8",fase:"Fundaciones",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form TOFU, marca etapa=TOFU, pilar_de_origen, fecha_lead y lifecycle=Lead. Excluye a clientes y usuarios de plataforma. Se deja en borrador."},
-{id:"F9",fase:"Fundaciones",area:"Workflows",t:"Armar WF2 Entrega Ebook (borrador)",spec:4,dep:["F4"],d:"Workflow que envía el email con el ebook al descargarlo y lo reenvía a los 3 días si no lo abrieron."},
-{id:"F10",fase:"Fundaciones",area:"Workflows",t:"Armar WF3 Alta Newsletter (borrador)",spec:4,dep:["F5","F6"],d:"Workflow que inscribe en la lista de suscriptores y envía el email de bienvenida cuando suscripcion_newsletter = Sí."},
-{id:"F11",fase:"Fundaciones",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form MOFU, marca lifecycle=MQL, fecha_mql, etapa=MOFU (si estaba vacía) y avisa al equipo de ventas."},
-{id:"F12",fase:"Fundaciones",area:"Workflows",t:"Armar WF5 Estampado SQL + definir criterio MQL→SQL con ventas",spec:4,dep:[],d:"Workflow que marca lifecycle=SQL cuando se crea un deal o se agenda demo. Antes hay que acordar con ventas el criterio exacto de cuándo un MQL pasa a SQL."},
-{id:"F13",fase:"Fundaciones",area:"Workflows",t:"Revisión con Axel y activación (orden §4)",spec:4,dep:["F8","F9","F10","F11","F12"],d:"Axel revisa los 5 workflows en borrador y se activan en orden (WF2→WF3→WF1→WF4→WF5). Es el paso que habilita casi toda la distribución y la medición."},
-{id:"F14",fase:"Fundaciones",area:"Campañas",t:"Crear Campaign Pilar 1 · DS44 y Pilar 6 · Software",spec:5,dep:[],d:"Crear en HubSpot las campañas de estos dos pilares, para agrupar y medir todos sus contenidos (pillar, blogs, form, emails, posts)."},
-{id:"F15",fase:"Fundaciones",area:"SEO",t:"Crear Topic DS44 en Marketing → SEO con subtemas",spec:7,dep:[],d:"En Marketing → SEO, crear el tema (topic cluster) del DS 44 con sus subtemas, para asociar la pillar page y los 7 blogs."},
+{id:"F1",fase:"Preparación",area:"Propiedades",t:"Crear etapa_de_captacion (dropdown TOFU/MOFU/BOFU)",spec:2,dep:[],d:"Propiedad de contacto tipo desplegable con opciones TOFU, MOFU y BOFU. La escriben los workflows (nunca a mano) para marcar en qué etapa del funnel entró cada contacto."},
+{id:"F2",fase:"Preparación",area:"Propiedades",t:"Crear pilar_de_origen (dropdown 6 pilares)",spec:2,dep:[],d:"Propiedad desplegable con los 6 pilares (DS44, Accidentabilidad, Papeleo, MIPER, Contratistas, Software). Identifica de qué tema vino el lead, para desglosar después."},
+{id:"F3",fase:"Preparación",area:"Propiedades",t:"Crear conocia_tazki_antes + instruir a ventas",spec:2,dep:[],d:"Propiedad desplegable (Sí por contenido / Sí por referencia / No). La llena ventas en el discovery de los inbound; hay que instruir al equipo para que la registren."},
+{id:"F4",fase:"Preparación",area:"Forms",t:"Renombrar forms existentes con convención [ETAPA]",spec:3,dep:[],d:"Aplicar la convención «[ETAPA] Nombre · Pilar» a los formularios actuales (ej: el form del ebook pasa a «[TOFU] Ebook DS44»). Es lo que ordena la medición desde el origen."},
+{id:"F5",fase:"Preparación",area:"Forms",t:"Agregar checkbox newsletter al form del ebook",spec:3,dep:[],d:"Sumar al formulario del ebook una casilla «Quiero recibir el newsletter», que marca la propiedad suscripcion_newsletter cuando la activan."},
+{id:"F6",fase:"Preparación",area:"Forms",t:"Crear form [TOFU] Newsletter",spec:3,dep:[],d:"Formulario simple de un solo campo (email) para el módulo de suscripción que va al pie de los blogs y en la página de recursos."},
+{id:"F7",fase:"Preparación",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"],d:"Crear las listas: Leads TOFU 2026, Suscriptores Newsletter, Clientes activos, Usuarios de plataforma y Base Email MKT Julio (esta última excluye clientes, rebotados y opt-out)."},
+{id:"F8",fase:"Preparación",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form TOFU, marca etapa=TOFU, pilar_de_origen, fecha_lead y lifecycle=Lead. Excluye a clientes y usuarios de plataforma. Se deja en borrador."},
+{id:"F9",fase:"Preparación",area:"Workflows",t:"Armar WF2 Entrega Ebook (borrador)",spec:4,dep:["F4"],d:"Workflow que envía el email con el ebook al descargarlo y lo reenvía a los 3 días si no lo abrieron."},
+{id:"F10",fase:"Preparación",area:"Workflows",t:"Armar WF3 Alta Newsletter (borrador)",spec:4,dep:["F5","F6"],d:"Workflow que inscribe en la lista de suscriptores y envía el email de bienvenida cuando suscripcion_newsletter = Sí."},
+{id:"F11",fase:"Preparación",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form MOFU, marca lifecycle=MQL, fecha_mql, etapa=MOFU (si estaba vacía) y avisa al equipo de ventas."},
+{id:"F12",fase:"Preparación",area:"Workflows",t:"Armar WF5 Estampado SQL + definir criterio MQL→SQL con ventas",spec:4,dep:[],d:"Workflow que marca lifecycle=SQL cuando se crea un deal o se agenda demo. Antes hay que acordar con ventas el criterio exacto de cuándo un MQL pasa a SQL."},
+{id:"F13",fase:"Preparación",area:"Workflows",t:"Revisión con Axel y activación (orden §4)",spec:4,dep:["F8","F9","F10","F11","F12"],d:"Axel revisa los 5 workflows en borrador y se activan en orden (WF2→WF3→WF1→WF4→WF5). Es el paso que habilita casi toda la distribución y la medición."},
+{id:"F14",fase:"Preparación",area:"Campañas",t:"Crear Campaign Pilar 1 · DS44 y Pilar 6 · Software",spec:5,dep:[],d:"Crear en HubSpot las campañas de estos dos pilares, para agrupar y medir todos sus contenidos (pillar, blogs, form, emails, posts)."},
+{id:"F15",fase:"Preparación",area:"SEO",t:"Crear Topic DS44 en Marketing → SEO con subtemas",spec:7,dep:[],d:"En Marketing → SEO, crear el tema (topic cluster) del DS 44 con sus subtemas, para asociar la pillar page y los 7 blogs."},
 {id:"C1",fase:"Piloto julio",area:"Contenido",t:"Publicar pillar page DS44",spec:7,dep:["F15"],d:"Publicar la guía completa del DS 44 (la página pilar), con el enlace de descarga del ebook y una CTA a demo. Es la base de la que cuelgan los 7 blogs."},
 {id:"C2",fase:"Piloto julio",area:"Contenido",t:"Actualizar post 1.1 ODI/IRL y enlazar a pillar",spec:7,dep:["C1"],d:"Actualizar el artículo «ODI o IRL» (que ya rankea con 280+ clics) y enlazarlo a la pillar page del DS 44."},
 {id:"C3",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.3 FUF",spec:7,dep:["C1"],d:"Redactar y publicar el artículo sobre el FUF (formato único de fiscalización) del DS 44; demanda creciente en búsquedas."},
@@ -340,7 +404,7 @@ const TASKS=[
 {id:"S1",fase:"Amplificación",area:"Loop",t:"Revisión 4–6 semanas: elegir pilar ganador",spec:9,dep:["M4","A1","A2","A3","A4"],d:"Cada 4–6 semanas, revisar el rendimiento orgánico de cada pilar (visitas + conversión a lead) y elegir el que más tracciona."},
 {id:"S2",fase:"Amplificación",area:"Canales",t:"Amplificar ganador: redes + webinar + estacional",spec:9,dep:["S1"],d:"Reforzar el pilar ganador con los formatos de mayor esfuerzo: redes sociales, webinar y contenido estacional. Lo que no tracciona se queda en orgánico."},
 ];
-const PHASES=["Fundaciones","Piloto julio","Medición","Pilar 6","Siembra agosto","Amplificación"];
+const PHASES=["Preparación","Piloto julio","Medición","Pilar 6","Siembra agosto","Amplificación"];
 
 /* ---------- datos pilares (§7) ---------- */
 const PILLARS=[
