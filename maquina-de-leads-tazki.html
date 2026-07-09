@@ -91,6 +91,21 @@ table.data tr:last-child td{font-weight:700}
 .tid{display:inline-block;font-size:11px;font-weight:800;background:var(--cobalto-l);color:var(--cobalto-d);padding:2px 7px;border-radius:5px;margin-right:8px}
 .ttext{font-size:15px;font-weight:600}.task.done .ttext{text-decoration:line-through;text-decoration-color:var(--gris)}
 .tdesc{font-size:13px;color:var(--gris);margin-top:5px;line-height:1.45}
+/* calculadora ROI */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;align-items:start}
+.calc-in .field{margin-bottom:15px}
+.calc-in label{display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px}
+.calc-in input[type=number]{width:100%;border:1px solid var(--linea);border-radius:8px;padding:10px 12px;font:inherit;font-size:15px;background:#fff}
+.calc-in input[type=number]:focus{outline:none;border-color:var(--cobalto)}
+.calc-in input[type=range]{width:100%;accent-color:var(--cobalto)}
+.calc-in .rangeval{color:var(--cobalto);font-weight:800}
+.calc-out{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;border-radius:14px;padding:24px;position:sticky;top:70px}
+.calc-out .cap{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:700}
+.calc-out .big{font-size:32px;font-weight:800;line-height:1.1;margin:4px 0 2px}
+.calc-out .sub2{font-size:13px;opacity:.9;margin-bottom:8px}
+.calc-out .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.22);font-size:14px}
+.calc-out .row b{font-weight:800}
+@media(max-width:720px){.calc{grid-template-columns:1fr}.calc-out{position:static}}
 .tmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
 .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
 .b-area{background:#f1f5f9;color:#475569}
@@ -104,10 +119,7 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
 </style>
 </head>
 <body>
-<div style="position:fixed;top:12px;right:12px;z-index:99999;display:flex;gap:8px">
-<a href="index.html" style="background:#0b0b0b;color:#fff;font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)">Panel MQL &rarr;</a>
-<a href="roi.html" style="background:#1537D1;color:#fff;font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)">Calculadora ROI &rarr;</a>
-</div>
+<a href="index.html" style="position:fixed;top:12px;right:12px;z-index:99999;background:#0b0b0b;color:#fff;font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)">Panel MQL &rarr;</a>
 
 <header>
   <div class="wrap">
@@ -121,6 +133,7 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <button data-tab="funnel">📊 Funnel &amp; Baseline</button>
   <button data-tab="pilares">🎯 Pilares</button>
   <button data-tab="medicion">📈 Medición</button>
+  <button data-tab="roi">🧮 Calculadora ROI</button>
 </div></nav>
 
 <div class="wrap">
@@ -255,6 +268,30 @@ footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid v
   <div class="note warn"><b>Prerequisito:</b> reconectar Search Console — Supermetrics expiró el 1/jul (tarea M4). Sin datos de keywords, el loop no puede decidir bien.</div>
 </section>
 
+<section id="roi" class="tab">
+  <h2 class="sec">Calculadora de ROI</h2>
+  <p class="sub">Lead magnet de fondo de funnel (BOFU). Estima cuánto ahorra una empresa al pasar del papel/Excel a una plataforma de prevención. Al usarla o descargar el resultado, el contacto entra por un form <b>[MOFU]</b> y se marca como <b>MQL</b>. Este es un prototipo editable del cálculo.</p>
+  <div class="calc">
+    <div class="calc-in">
+      <div class="field"><label>Personas que hacen gestión de prevención</label><input type="number" id="r-pers" value="3" min="1"></div>
+      <div class="field"><label>Horas por semana en papeleo y registros (por persona)</label><input type="number" id="r-hrs" value="10" min="0"></div>
+      <div class="field"><label>Valor de la hora (CLP)</label><input type="number" id="r-val" value="8000" min="0" step="500"></div>
+      <div class="field"><label>Tiempo que ahorra la plataforma: <span class="rangeval" id="r-pctv">60%</span></label><input type="range" id="r-pct" min="20" max="90" value="60"></div>
+      <div class="field"><label>Costo mensual de la plataforma (CLP · opcional)</label><input type="number" id="r-cost" value="" min="0" step="10000" placeholder="Déjalo vacío si no lo sabes"></div>
+    </div>
+    <div class="calc-out">
+      <div class="cap">Ahorro estimado</div>
+      <div class="big" id="r-year">—</div>
+      <div class="sub2">al año en horas de trabajo</div>
+      <div class="row"><span>Horas ahorradas al mes</span><b id="r-hmonth">—</b></div>
+      <div class="row"><span>Ahorro al mes</span><b id="r-month">—</b></div>
+      <div class="row" id="r-roirow" style="display:none"><span>ROI mensual</span><b id="r-roi">—</b></div>
+      <div class="row" id="r-payrow" style="display:none"><span>Se paga sola en</span><b id="r-pay">—</b></div>
+    </div>
+  </div>
+  <div class="note">Ajusta los supuestos arriba. La estimación considera <b>solo el ahorro de tiempo</b> en documentación; el valor real suele ser mayor si sumas la reducción de multas (DS 44) y de accidentes. Los valores por defecto son referenciales — hay que validarlos con datos reales antes de publicar la calculadora.</div>
+</section>
+
 <footer>Máquina de Leads Tazki · generado desde el Documento Maestro (Diego + Axel). Avance del backlog guardado localmente. Plan completo en <b>MAESTRO-Maquina-de-Leads-Tazki.pdf</b>.</footer>
 </div>
 
@@ -385,6 +422,27 @@ document.querySelectorAll('nav button').forEach(b=>{
     document.querySelectorAll('.tab').forEach(s=>s.style.display='none');
     document.getElementById(b.dataset.tab).style.display='block';window.scrollTo(0,0);};
 });
+
+/* ---------- calculadora ROI ---------- */
+function calcROI(){
+  const g=id=>document.getElementById(id);
+  const pers=+g('r-pers').value||0, hrs=+g('r-hrs').value||0, val=+g('r-val').value||0, pct=+g('r-pct').value||0;
+  const cost=parseFloat(g('r-cost').value);
+  g('r-pctv').textContent=pct+'%';
+  const fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(Math.round(n));
+  const horasMes=pers*hrs*4.33, hAhorro=horasMes*pct/100, ahorroMes=hAhorro*val, ahorroAnio=ahorroMes*12;
+  g('r-year').textContent=fmt(ahorroAnio);
+  g('r-hmonth').textContent=Math.round(hAhorro)+' h';
+  g('r-month').textContent=fmt(ahorroMes);
+  const roirow=g('r-roirow'), payrow=g('r-payrow');
+  if(!isNaN(cost)&&cost>0){
+    g('r-roi').textContent=Math.round((ahorroMes-cost)/cost*100)+'%';roirow.style.display='flex';
+    if(ahorroMes>0){g('r-pay').textContent=(cost/ahorroMes).toFixed(1).replace('.',',')+' meses';payrow.style.display='flex';}
+    else payrow.style.display='none';
+  } else {roirow.style.display='none';payrow.style.display='none';}
+}
+['r-pers','r-hrs','r-val','r-pct','r-cost'].forEach(id=>document.getElementById(id).addEventListener('input',calcROI));
+calcROI();
 
 renderFilters();renderBoard();
 </script>
