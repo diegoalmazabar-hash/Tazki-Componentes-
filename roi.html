@@ -74,6 +74,10 @@ details.src summary::before{content:"📚 "}
 .gcard b{color:var(--navy)}
 .formula{background:#F4F6FB;border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:13px;font-weight:700;color:var(--navy);margin:8px 0;line-height:1.7}
 .gq{border-left:3px solid var(--cobalt);padding-left:12px;margin:10px 0;font-size:13.5px;color:var(--ink2);font-style:italic}
+.gcard a{color:var(--cobalt);font-weight:700;text-decoration:none;word-break:break-word}
+.gcard a:hover{text-decoration:underline}
+.rn{display:inline-block;background:#EDF1FF;color:var(--cobalt);font-weight:800;font-size:11px;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.refs li{margin-bottom:10px}
 @media(max-width:780px){.grid{grid-template-columns:1fr}.tab{min-width:calc(50% - 4px)}}
 </style></head><body>
 <div style="position:fixed;top:12px;right:12px;z-index:99999;display:flex;gap:8px">
@@ -352,6 +356,9 @@ details.src summary::before{content:"📚 "}
         Ahorro neto = ahorro bruto − (centros × tarifa mensual × 12)<br>
         ROI = ahorro neto ÷ costo anual · Payback = costo anual ÷ (ahorro bruto ÷ 12)
       </div>
+      <h3>Base teórica</h3>
+      <p>El método es <b>costeo de horas hombre (HH)</b>: valorar el tiempo liberado al costo de quien lo ejecuta, el mismo criterio con que se presupuesta un proyecto o se cotiza un servicio. ROI y payback usan las definiciones financieras estándar: ROI = beneficio neto ÷ inversión; payback = inversión ÷ flujo mensual de beneficio.</p>
+      <p>Sobre la evidencia del tiempo administrativo: la única encuesta de asociación profesional seria (ASSE, EEUU, 1997) midió que la gestión de seguridad, incluida la documentación, concentra el 56% del tiempo del profesional <span class="rn">ref. 14</span>. La cifra moderna más citada ("35% más de tiempo administrativo con procesos manuales", HSI 2024, n&gt;1.000) es una encuesta encargada por un proveedor de software, no un estudio independiente <span class="rn">ref. 13</span>. Ninguna de las dos es chilena. Por eso esta calculadora no te impone un número: te lo pide.</p>
       <h3>De dónde salen los datos</h3>
       <ul>
         <li><b>Costo por hora:</b> referencial de portales de empleo chilenos (2025-2026), sueldo de prevencionista ~$905.000/mes ÷ 180 horas ≈ $5.000/h. Es dato autorreportado, no estadística oficial, y no incluye costo empresa (leyes sociales sumarían 25% a 40%).</li>
@@ -375,6 +382,9 @@ details.src summary::before{content:"📚 "}
         UTM por infracción (grave a gravísima): micro 4-5 · pequeña 8-10 · mediana 32-40 · grande 48-60<br>
         Exposición = instrumentos sin respaldo × UTM del tramo × valor UTM (× centros, si lo activas)
       </div>
+      <h3>Base teórica</h3>
+      <p>El resultado es <b>exposición, no valor esperado</b>. En gestión de riesgo, el valor esperado de una pérdida se calcula como monto × probabilidad; pero la probabilidad de que <b>tu</b> empresa sea fiscalizada este año no es un dato público, y multiplicar por una probabilidad inventada sería fabricar el resultado. Lo que sí es defendible es la exposición: el monto que la ley permite cursar si la fiscalización ocurre y la infracción se constata.</p>
+      <p>Para eso usamos el instrumento con que el propio inspector gradúa la multa: el Tipificador de Hechos Infraccionales de la DT <span class="rn">ref. 2</span>, aplicado sobre la escala legal del art. 506 del Código del Trabajo <span class="rn">ref. 4</span> y los tramos de tamaño del art. 505 bis <span class="rn">ref. 3</span>. El dato de frecuencia (29,6% de las fiscalizaciones termina en multa <span class="rn">ref. 5</span>) se muestra como contexto, nunca como probabilidad individual de tu empresa.</p>
       <h3>De dónde salen los datos</h3>
       <ul>
         <li><b>Escala legal:</b> art. 506 del Código del Trabajo (micro y pequeña 1 a 10 UTM, mediana 2 a 40, grande 3 a 60 por infracción).</li>
@@ -402,6 +412,9 @@ details.src summary::before{content:"📚 "}
         Costo de gestión = accidentes × horas de gestión × costo/hora<br>
         Costo oculto anual = productividad + gestión
       </div>
+      <h3>Base teórica</h3>
+      <p>La base es la distinción clásica entre <b>costos directos</b> (los asegurados: atención médica, subsidio, indemnizaciones y pensiones, que en Chile cubre el seguro obligatorio de la Ley 16.744 <span class="rn">ref. 9 y 10</span>) y <b>costos indirectos</b> (los no asegurados: productividad del puesto vacío, gestión, reemplazo, daño a equipos). La distinción viene de H.W. Heinrich (1931), que popularizó la metáfora del iceberg con un ratio indirecto:directo de 4:1.</p>
+      <p>La revisión moderna de ese ratio (Manuele, revista Professional Safety de la ASSP, 2011 <span class="rn">ref. 12</span>) mostró que el 4:1 no tiene respaldo empírico sólido: los estudios reales van de 1:1 a 20:1 según severidad e industria, y no existe medición chilena. Conclusión de diseño: el único componente "duro" del cálculo es días perdidos × costo día, usando los días promedio oficiales de SUSESO por sector <span class="rn">ref. 7</span>, y el factor indirecto parte en 1,0 para que el resultado nunca dependa de una teoría discutida.</p>
       <h3>De dónde salen los datos</h3>
       <ul>
         <li><b>Días perdidos por accidente:</b> SUSESO, Estadísticas de Accidentabilidad 2020 (mutualidades, sin trayecto): promedio nacional 21,4 días; minería 36,7; transporte 27,5; construcción 23,7; manufactura 21,7; servicios 19,7; comercio 17,9. Es el dato oficial más reciente con desglose por sector extraíble.</li>
@@ -424,6 +437,9 @@ details.src summary::before{content:"📚 "}
         Pago actual/año = masa salarial imponible × 12 × tasa adicional actual<br>
         Ahorro potencial/año = masa salarial × 12 × (0,34% × tramos que bajas)
       </div>
+      <h3>Base teórica</h3>
+      <p>El mecanismo detrás es la <b>tarificación por experiencia</b> (experience rating), un principio clásico de los seguros: quien accidenta más, paga más, para que el incentivo económico empuje hacia la prevención. En Chile está codificado en el DS 67, que cada 2 años recalcula tu cotización adicional según tu tasa de siniestralidad por incapacidades temporales (días perdidos por cada 100 trabajadores), en tramos de 0,34 puntos porcentuales sobre la base por actividad del DS 110 <span class="rn">ref. 10 y 11</span>.</p>
+      <p>El cálculo de esta pestaña es aritmética directa sobre tu masa salarial: no hay ningún supuesto oculto. El único condicional, y lo decimos en el resultado, es que efectivamente bajes tus días perdidos durante el período de evaluación.</p>
       <h3>De dónde salen los datos</h3>
       <ul>
         <li><b>Estructura de la cotización:</b> Ley 16.744 (básica 0,90%, de cargo del empleador) + DS 110 (adicional por actividad) + DS 67 (recargos y rebajas por siniestralidad, en tramos de 0,34 puntos).</li>
@@ -441,7 +457,7 @@ details.src summary::before{content:"📚 "}
       <div class="sub">Cómo se construyeron estas calculadoras, julio 2026.</div>
       <h3>El proceso</h3>
       <ul>
-        <li><b>Investigación con verificación contra fuentes primarias:</b> el PDF oficial del Tipificador DT (23-jun-2026), el SII (valor UTM), SUSESO (informes anuales de seguridad y salud en el trabajo, estadísticas de accidentabilidad), BCN Ley Chile (textos legales: Código del Trabajo, Ley 16.744, DS 44, DS 67, DS 110, Código Sanitario) y la Dirección del Trabajo (estadísticas de fiscalización).</li>
+        <li><b>Investigación con verificación contra fuentes primarias:</b> el PDF oficial del Tipificador DT (23-jun-2026), el SII (valor UTM), SUSESO (informes anuales de seguridad y salud en el trabajo, estadísticas de accidentabilidad), BCN Ley Chile (textos legales: Código del Trabajo, Ley 16.744, DS 44, DS 67, DS 110, Código Sanitario) y la Dirección del Trabajo (estadísticas de fiscalización). Las referencias completas, con enlace a cada fuente, están en el apartado 🔗 Referencias al final de esta guía.</li>
         <li><b>Regla de cero invención:</b> cuando un dato no existe en fuente pública (ej. las horas administrativas del prevencionista chileno, o el costo indirecto de un accidente medido en Chile), la calculadora te lo dice y te pide el número a ti, en vez de rellenar con una cifra de marketing.</li>
         <li><b>Sesgo deliberado a la baja:</b> 46 semanas y no 52; factor indirecto 1,0 y no 4; una infracción por instrumento y no por trabajador. Si el resultado igual te parece grande, es porque el problema es grande.</li>
       </ul>
@@ -455,6 +471,28 @@ details.src summary::before{content:"📚 "}
         <li>La <b>UTM cambia cada mes</b> (SII): el valor cargado es de julio 2026 y es editable en los supuestos de la calculadora de multas.</li>
         <li>El <b>Tipificador DT</b> y las estadísticas SUSESO se actualizan periódicamente: las fuentes citadas indican la versión y el año de cada dato.</li>
       </ul>
+    </div>
+
+    <div class="card gcard">
+      <h2>🔗 Referencias</h2>
+      <div class="sub">Las fuentes originales, numeradas tal como se citan en esta guía. Todas verificadas en julio 2026.</div>
+      <ol class="refs">
+        <li><b>SII, Valor de la UTM 2026</b> · Servicio de Impuestos Internos. $71.649 en julio 2026. <a href="https://www.sii.cl/valores_y_fechas/utm/utm2026.htm" target="_blank" rel="noopener">sii.cl/valores_y_fechas/utm/utm2026.htm</a></li>
+        <li><b>DT, Tipificador de Hechos Infraccionales y Pauta para Aplicar Multas Administrativas</b> · Dirección del Trabajo, versión del 23 de junio de 2026. Fija los montos por infracción según gravedad y tamaño de empresa; incluye capítulo del DS 44. <a href="https://www.dt.gob.cl/portal/1626/w3-article-108710.html" target="_blank" rel="noopener">dt.gob.cl/portal/1626/w3-article-108710.html</a></li>
+        <li><b>DT, tamaños de empresa (art. 505 bis, Código del Trabajo)</b> · Micro 1 a 9, pequeña 10 a 49, mediana 50 a 199, grande 200 o más trabajadores. <a href="https://www.dt.gob.cl/legislacion/1624/w3-propertyvalue-157380.html" target="_blank" rel="noopener">dt.gob.cl/legislacion/1624/w3-propertyvalue-157380.html</a></li>
+        <li><b>Escala de multas del art. 506, Código del Trabajo</b> · Micro y pequeña 1 a 10 UTM, mediana 2 a 40, grande 3 a 60 por infracción; duplicable o triplicable en casos calificados. Dictamen DT ORD. N°1511: <a href="https://www.dt.gob.cl/legislacion/1624/w3-article-111723.html" target="_blank" rel="noopener">dt.gob.cl/legislacion/1624/w3-article-111723.html</a></li>
+        <li><b>DT, balance de fiscalización 2022-2025</b> · 380.380 fiscalizaciones; 112.648 con multa (29,6%); $521.718 millones cursados. Publicado en febrero de 2026. <a href="https://www.dt.gob.cl/portal/1627/w3-article-128943.html" target="_blank" rel="noopener">dt.gob.cl/portal/1627/w3-article-128943.html</a></li>
+        <li><b>DS 44 (2024), texto oficial</b> · Reglamento sobre gestión preventiva de los riesgos laborales; vigente desde el 1 de febrero de 2025; su art. 77 remite la fiscalización a la DT y las SEREMI de Salud (no crea multas propias). BCN Ley Chile: <a href="https://www.bcn.cl/leychile/navegar?idNorma=1205298" target="_blank" rel="noopener">bcn.cl/leychile/navegar?idNorma=1205298</a></li>
+        <li><b>SUSESO, Estadísticas de Accidentabilidad 2020</b> · Días perdidos promedio por accidente del trabajo, por sector (mutualidades, sin trayecto): nacional 21,4; minería 36,7; transporte 27,5; construcción 23,7; manufactura 21,7; servicios 19,7; comercio 17,9. <a href="https://www.suseso.gob.cl/607/articles-632758_archivo_01.pdf" target="_blank" rel="noopener">suseso.gob.cl/607/articles-632758_archivo_01.pdf</a></li>
+        <li><b>SUSESO, Informe Anual de Seguridad y Salud en el Trabajo 2024</b> · 143.199 accidentes del trabajo; tasa de accidentabilidad 2,5 por cada 100 protegidos; 154 fallecidos. <a href="https://www.suseso.gob.cl/605/w3-article-755195.html" target="_blank" rel="noopener">suseso.gob.cl/605/w3-article-755195.html</a></li>
+        <li><b>SUSESO, Subsidio por Incapacidad Laboral (SIL)</b> · El seguro paga el 100% de la base neta desde el día 1; por eso el sueldo del accidentado no es costo de la empresa. <a href="https://www.suseso.gob.cl/606/w3-article-39991.html" target="_blank" rel="noopener">suseso.gob.cl/606/w3-article-39991.html</a></li>
+        <li><b>DT, cotizaciones del seguro de la Ley 16.744</b> · Básica 0,90% + adicional diferenciada 0% a 3,40% (DS 110), de cargo del empleador. <a href="https://www.dt.gob.cl/portal/1628/w3-article-95301.html" target="_blank" rel="noopener">dt.gob.cl/portal/1628/w3-article-95301.html</a></li>
+        <li><b>ISL, tasas de cotización y recargos (DS 67)</b> · Recargos y rebajas por siniestralidad efectiva, en tramos de 0,34 puntos, con tope 6,80%. <a href="https://isl.gob.cl/cotizaciones/" target="_blank" rel="noopener">isl.gob.cl/cotizaciones/</a></li>
+        <li><b>Manuele, F. "Accident Costs: Rethinking ratios of indirect to direct costs"</b> · Professional Safety, ASSP, 2011. Revisión con arbitraje de pares del ratio de Heinrich: el 4:1 carece de respaldo empírico moderno; el ratio real va de 1:1 a 20:1 según severidad. <a href="https://aeasseincludes.assp.org/professionalsafety/pastissues/056/01/039_047_F2Manuele_0111Z.pdf" target="_blank" rel="noopener">assp.org (PDF)</a></li>
+        <li><b>HSI, Global EHS Readiness Index Report 2024</b> · Encuesta a más de 1.000 decisores EHS: organizaciones con procesos manuales reportan 35% más tiempo administrativo. Encargada por un proveedor de software: se cita como referencia de industria, no como estudio independiente. <a href="https://hsi.com/news/hsi-announces-2024-global-ehs-geri-report" target="_blank" rel="noopener">hsi.com/news/hsi-announces-2024-global-ehs-geri-report</a></li>
+        <li><b>NIOSH / Institute of Medicine, "Safe Work in the 21st Century"</b> · National Academies Press, 2000. Documenta la encuesta de análisis de puesto de la ASSE (1997): la gestión de seguridad concentra el 56% del tiempo del profesional. <a href="https://www.ncbi.nlm.nih.gov/books/NBK225528/" target="_blank" rel="noopener">ncbi.nlm.nih.gov/books/NBK225528</a></li>
+      </ol>
+      <div class="gq">Criterio de citación: preferimos siempre la fuente primaria (el PDF del tipificador, la ley, la estadística oficial) por sobre notas de prensa o blogs. Cuando la única cifra disponible viene de un proveedor con interés comercial (ref. 13), lo decimos explícitamente en vez de disfrazarla de estudio.</div>
     </div>
   </section>
 
