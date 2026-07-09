@@ -346,7 +346,8 @@ const by = (arr, key) => arr.reduce((m, d) => ((m[key(d)] = m[key(d)] || []).pus
 const sum = arr => arr.reduce((s, d) => s + (d.a || 0), 0);
 
 /* ---------- global filter state ---------- */
-const filters = { pipe: '', owner: '', src: '', site: '', from: '', to: '', group: '' };
+const DEFAULT_PIPE = 'Pipeline de ventas';
+const filters = { pipe: DEFAULT_PIPE, owner: '', src: '', site: '', from: '', to: '', group: '' };
 
 function applyFilters() {
   return DEALS.filter(d =>
@@ -701,7 +702,9 @@ const pipes = [...new Set(DEALS.map(d => d.pipe))].sort();
 const owners = [...new Set(DEALS.map(d => d.o))].sort((a,b) => a.localeCompare(b,'es'));
 const srcs = [...new Set(DEALS.map(d => d.src || 'Sin dato'))].sort((a,b) => a.localeCompare(b,'es'));
 const sites = [...new Set(DEALS.map(d => d.site || 'Sin dato'))].sort();
-fillSelect('fPipe', 'Todos los pipelines', pipes).addEventListener('change', e => { filters.pipe = e.target.value; renderAll(); });
+const pipeSel = fillSelect('fPipe', 'Todos los pipelines', pipes);
+if (pipes.includes(DEFAULT_PIPE)) pipeSel.value = DEFAULT_PIPE; else filters.pipe = '';
+pipeSel.addEventListener('change', e => { filters.pipe = e.target.value; renderAll(); });
 fillSelect('fOwner', 'Todos los propietarios', owners).addEventListener('change', e => { filters.owner = e.target.value; renderAll(); });
 fillSelect('fSrc', 'Todas las fuentes', srcs).addEventListener('change', e => { filters.src = e.target.value; renderAll(); });
 fillSelect('fSite', 'Todos los sitios', sites).addEventListener('change', e => { filters.site = e.target.value; renderAll(); });
@@ -729,8 +732,10 @@ presetsEl.addEventListener('click', ev => {
   setPresetActive(p); renderAll();
 });
 document.getElementById('fClear').addEventListener('click', () => {
-  filters.pipe = filters.owner = filters.src = filters.site = filters.from = filters.to = '';
-  ['fPipe','fOwner','fSrc','fSite'].forEach(id => document.getElementById(id).value = '');
+  filters.owner = filters.src = filters.site = filters.from = filters.to = '';
+  filters.pipe = pipes.includes(DEFAULT_PIPE) ? DEFAULT_PIPE : '';
+  ['fOwner','fSrc','fSite'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('fPipe').value = filters.pipe;
   fFrom.value = ''; fTo.value = '';
   setPresetActive('all'); renderAll();
 });
