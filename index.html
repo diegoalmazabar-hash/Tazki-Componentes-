@@ -1,0 +1,758 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><title>Panel de Negocios MQL · Tazki</title>
+<style>
+  :root {
+    --surface: #fcfcfb; --plane: #f6f6f3; --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --c-open: #2a78d6; --c-open-soft: rgba(42,120,214,0.12);
+    --c-won: #008300; --c-won-soft: rgba(0,131,0,0.12);
+    --c-frozen: #eda100; --c-frozen-soft: rgba(237,161,0,0.16);
+    --c-lost: #a3a19a; --c-lost-soft: rgba(163,161,154,0.18);
+    --st-crit: #d03b3b; --st-warn: #b97d00; --st-good: #0ca30c;
+    --seq-1: #86b6ef; --seq-2: #5598e7; --seq-3: #3987e5; --seq-4: #256abf; --seq-5: #1c5cab; --seq-6: #104281;
+    --chip-hover: rgba(11,11,11,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #1a1a19; --plane: #0d0d0d; --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+      --c-open: #3987e5; --c-open-soft: rgba(57,135,229,0.18);
+      --c-won: #1d9e1d; --c-won-soft: rgba(29,158,29,0.16);
+      --c-frozen: #c98500; --c-frozen-soft: rgba(201,133,0,0.20);
+      --c-lost: #6e6d68; --c-lost-soft: rgba(110,109,104,0.25);
+      --st-crit: #e66767; --st-warn: #fab219; --st-good: #0ca30c;
+      --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf; --seq-4: #2a78d6; --seq-5: #3987e5; --seq-6: #5598e7;
+      --chip-hover: rgba(255,255,255,0.07);
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface: #1a1a19; --plane: #0d0d0d; --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+    --c-open: #3987e5; --c-open-soft: rgba(57,135,229,0.18);
+    --c-won: #1d9e1d; --c-won-soft: rgba(29,158,29,0.16);
+    --c-frozen: #c98500; --c-frozen-soft: rgba(201,133,0,0.20);
+    --c-lost: #6e6d68; --c-lost-soft: rgba(110,109,104,0.25);
+    --st-crit: #e66767; --st-warn: #fab219; --st-good: #0ca30c;
+    --seq-1: #184f95; --seq-2: #1c5cab; --seq-3: #256abf; --seq-4: #2a78d6; --seq-5: #3987e5; --seq-6: #5598e7;
+    --chip-hover: rgba(255,255,255,0.07);
+  }
+  :root[data-theme="light"] {
+    --surface: #fcfcfb; --plane: #f6f6f3; --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --c-open: #2a78d6; --c-open-soft: rgba(42,120,214,0.12);
+    --c-won: #008300; --c-won-soft: rgba(0,131,0,0.12);
+    --c-frozen: #eda100; --c-frozen-soft: rgba(237,161,0,0.16);
+    --c-lost: #a3a19a; --c-lost-soft: rgba(163,161,154,0.18);
+    --st-crit: #d03b3b; --st-warn: #b97d00; --st-good: #0ca30c;
+    --seq-1: #86b6ef; --seq-2: #5598e7; --seq-3: #3987e5; --seq-4: #256abf; --seq-5: #1c5cab; --seq-6: #104281;
+    --chip-hover: rgba(11,11,11,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--plane); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 56px; }
+
+  header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 6px; }
+  .top h1 { font-size: 22px; font-weight: 700; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+  .top .src { color: var(--ink-3); font-size: 12.5px; }
+  p.lede { color: var(--ink-2); margin: 0 0 16px; max-width: 72ch; }
+  p.lede strong { color: var(--ink); }
+
+  /* -------- filter bar -------- */
+  .filterbar {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--surface); border: 1px solid var(--ring); border-radius: 10px;
+    padding: 10px 14px; margin-bottom: 14px;
+    display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  .filterbar .flabel { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 700; margin-right: 2px; }
+  .filterbar select, .filterbar input[type="date"] {
+    border: 1px solid var(--ring); background: var(--surface); color: var(--ink);
+    border-radius: 8px; padding: 5px 8px; font-size: 12.5px; font-family: inherit; max-width: 190px;
+  }
+  .filterbar .fgroup { display: inline-flex; align-items: center; gap: 5px; }
+  .filterbar .presets { display: inline-flex; gap: 4px; }
+  .filterbar .pchip {
+    border: 1px solid var(--ring); background: transparent; color: var(--ink-2);
+    border-radius: 99px; padding: 3px 10px; font-size: 12px; cursor: pointer; font-family: inherit;
+  }
+  .filterbar .pchip:hover { background: var(--chip-hover); }
+  .filterbar .pchip.on { background: var(--ink); color: var(--plane); border-color: var(--ink); font-weight: 600; }
+  .filterbar .fcount { margin-left: auto; font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .filterbar .fcount b { color: var(--ink); }
+  .filterbar .clear { border: none; background: none; color: var(--c-open); font-size: 12.5px; cursor: pointer; font-family: inherit; padding: 3px 6px; }
+  .filterbar .clear:hover { text-decoration: underline; }
+  select:focus-visible, input:focus-visible, button:focus-visible { outline: 2px solid var(--c-open); outline-offset: 1px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--ring); border-radius: 10px;
+    padding: 12px 14px 11px; display: flex; flex-direction: column; gap: 2px; min-width: 0;
+  }
+  .kpi .lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .kpi .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .kpi .val { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .kpi .sub { font-size: 12px; color: var(--ink-2); }
+
+  .outcome-bar { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px 16px; margin-bottom: 14px; }
+  .card-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-3); font-weight: 700; margin: 0 0 4px; }
+  .stackbar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; gap: 2px; margin-top: 8px; }
+  .stackbar .seg { min-width: 3px; cursor: default; transition: opacity .12s; }
+  .stackbar .seg:hover { opacity: .82; }
+  .seg-lbl-row { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 9px; font-size: 12px; color: var(--ink-2); }
+  .seg-lbl-row span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .seg-lbl-row i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px 14px; min-width: 0; }
+  .card h2 { font-size: 14.5px; font-weight: 650; margin: 0 0 2px; }
+  .card .sub { font-size: 12px; color: var(--ink-3); margin-bottom: 10px; }
+  .card .foot { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
+  .card code { font-size: 11.5px; background: var(--chip-hover); border-radius: 4px; padding: 1px 4px; }
+  .empty { font-size: 12.5px; color: var(--ink-3); padding: 14px 0; }
+  .chart-scroll { overflow-x: auto; }
+  svg { display: block; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin-top: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  .riskchips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+  .riskchip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--ring); border-radius: 8px; padding: 6px 11px; font-size: 12.5px; color: var(--ink-2); }
+  .riskchip b { color: var(--ink); font-size: 15px; }
+  .riskchip .sq { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+
+  .wowlist { display: flex; flex-direction: column; gap: 6px; }
+  .wowlist details { border: 1px solid var(--ring); border-radius: 8px; padding: 9px 12px; }
+  .wowlist summary { cursor: pointer; font-size: 13px; color: var(--ink-2); list-style: none; display: flex; gap: 8px; align-items: baseline; }
+  .wowlist summary::-webkit-details-marker { display: none; }
+  .wowlist summary .co { font-weight: 650; color: var(--ink); white-space: nowrap; }
+  .wowlist summary .snip { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; flex: 1; }
+  .wowlist summary .more { color: var(--c-open); font-size: 12px; white-space: nowrap; }
+  .wowlist details[open] summary .snip, .wowlist details[open] summary .more { display: none; }
+  .wowlist details p { margin: 6px 0 2px; font-size: 13px; color: var(--ink-2); max-width: 90ch; }
+
+  .tbl-card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 0 4px; }
+  .tbl-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 0 16px 12px; }
+  .tbl-head h2 { font-size: 14.5px; font-weight: 650; margin: 0; margin-right: auto; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid var(--ring); background: transparent; color: var(--ink-2);
+    border-radius: 99px; padding: 4px 12px; font-size: 12.5px; cursor: pointer; font-family: inherit;
+  }
+  .chip:hover { background: var(--chip-hover); }
+  .chip.on { background: var(--ink); color: var(--plane); border-color: var(--ink); font-weight: 600; }
+  .tbl-scroll { overflow-x: auto; max-height: 540px; overflow-y: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  thead th {
+    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--ink-3); font-weight: 650; padding: 7px 14px; border-bottom: 1px solid var(--grid);
+    position: sticky; top: 0; background: var(--surface); z-index: 1; white-space: nowrap;
+  }
+  tbody td { padding: 7px 14px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.dt { color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.ind { color: var(--ink-2); max-width: 160px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  a.deal { color: var(--ink); text-decoration: none; font-weight: 550; }
+  a.deal:hover { text-decoration: underline; text-decoration-color: var(--c-open); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 2px 9px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+  .pill i { width: 6px; height: 6px; border-radius: 50%; }
+  .pill.g-Abierto   { background: var(--c-open-soft); }   .pill.g-Abierto i   { background: var(--c-open); }
+  .pill.g-Ganado    { background: var(--c-won-soft); }    .pill.g-Ganado i    { background: var(--c-won); }
+  .pill.g-Congelado { background: var(--c-frozen-soft); } .pill.g-Congelado i { background: var(--c-frozen); }
+  .pill.g-Perdido   { background: var(--c-lost-soft); }   .pill.g-Perdido i   { background: var(--c-lost); }
+  .count-note { padding: 8px 16px 10px; font-size: 12px; color: var(--ink-3); }
+
+  footer { margin-top: 18px; font-size: 12px; color: var(--ink-3); max-width: 82ch; }
+
+  #tip {
+    position: fixed; pointer-events: none; z-index: 10; display: none;
+    background: var(--ink); color: var(--plane); border-radius: 7px; padding: 7px 10px;
+    font-size: 12px; line-height: 1.4; max-width: 280px; box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  #tip b { font-weight: 650; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Panel de Negocios MQL</h1>
+    <span class="src">Tazki · HubSpot CRM + DiIO · actualizado 9 jul 2026</span>
+  </header>
+  <p class="lede" id="lede"></p>
+
+  <div class="filterbar" id="filterbar">
+    <span class="flabel">Filtros</span>
+    <select id="fPipe" aria-label="Filtrar por pipeline"></select>
+    <select id="fOwner" aria-label="Filtrar por propietario"></select>
+    <select id="fSrc" aria-label="Filtrar por fuente"></select>
+    <select id="fSite" aria-label="Filtrar por sitio web"></select>
+    <span class="fgroup">
+      <input type="date" id="fFrom" aria-label="Desde">
+      <span style="color:var(--ink-3)">–</span>
+      <input type="date" id="fTo" aria-label="Hasta">
+    </span>
+    <span class="presets" id="presets">
+      <button class="pchip on" data-p="all">Todo</button>
+      <button class="pchip" data-p="30">30 días</button>
+      <button class="pchip" data-p="90">90 días</button>
+      <button class="pchip" data-p="month">Este mes</button>
+    </span>
+    <button class="clear" id="fClear">Limpiar</button>
+    <span class="fcount" id="fCount"></span>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="outcome-bar">
+    <p class="card-title" id="outcomeTitle">Resultado de los negocios MQL</p>
+    <div class="stackbar" id="outcomeBar"></div>
+    <div class="seg-lbl-row" id="outcomeLbls"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>MQLs por mes de creación</h2>
+      <div class="sub">Resultado actual de cada cohorte mensual</div>
+      <div class="chart-scroll" id="monthChart"></div>
+      <div class="legend" id="legendMonth"></div>
+    </div>
+    <div class="card">
+      <h2>Pipeline activo por etapa</h2>
+      <div class="sub" id="funnelSub"></div>
+      <div class="chart-scroll" id="funnelChart"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Industrias de los MQL</h2>
+      <div class="sub">Clasificación ISIC nivel 2 del negocio</div>
+      <div class="chart-scroll" id="indChart"></div>
+      <div class="foot" id="indFoot"></div>
+    </div>
+    <div class="card">
+      <h2>Tamaño de empresa</h2>
+      <div class="sub">Rango de trabajadores declarado en el formulario MQL</div>
+      <div class="chart-scroll" id="empChart"></div>
+      <div class="foot" id="empFoot"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Motivos de pérdida</h2>
+      <div class="sub" id="lostSub"></div>
+      <div class="chart-scroll" id="lostChart"></div>
+    </div>
+    <div class="card">
+      <h2>Señales desde DiIO</h2>
+      <div class="sub">Datos que la integración DiIO registra sobre estos negocios</div>
+      <div class="riskchips" id="diioStats"></div>
+      <p class="card-title">Dolores del cliente detectados en reuniones</p>
+      <div class="chart-scroll" id="painChart"></div>
+      <div class="foot" id="diioFoot"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Fuente de tráfico original</h2>
+      <div class="sub">Fuente analítica del contacto que llenó el formulario MQL</div>
+      <div class="chart-scroll" id="srcChart"></div>
+      <div class="foot" id="srcFoot"></div>
+    </div>
+    <div class="card">
+      <h2>Módulos comprometidos</h2>
+      <div class="sub">Módulos incluidos en el compromiso comercial: <code>modulos_comprometidos</code></div>
+      <div class="chart-scroll" id="modChart"></div>
+      <div class="foot" id="modFoot"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2>Detalles de la solución «wow»</h2>
+      <div class="sub">Momento «wow» que espera cada cliente, extraído por DiIO del handoff: <code>detalles_solucion_wow</code></div>
+      <div id="wowList"></div>
+      <div class="foot" id="wowFoot"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2>Negocios por ejecutivo</h2>
+      <div class="sub">Distribución según responsable y resultado</div>
+      <div class="chart-scroll" id="ownerChart"></div>
+      <div class="legend" id="legendOwner"></div>
+    </div>
+  </div>
+
+  <div class="tbl-card">
+    <div class="tbl-head">
+      <h2>Detalle de negocios</h2>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Negocio</th><th>Estado</th><th>Etapa</th><th>Ejecutivo</th>
+            <th>Fuente</th><th>Industria (ISIC)</th><th>Empleados</th>
+            <th class="num">Monto (UF)</th><th>Creado</th><th>Cierre</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="count-note" id="countNote"></div>
+  </div>
+
+  <footer>
+    Fuente: negocios de HubSpot cuyo nombre contiene «MQL» (creados por el flujo de los formularios
+    MQL — Contact Form del sitio, LP y variantes). La mayoría de los negocios no tiene monto
+    informado, por lo que las cifras en UF son un piso, no el total. «Ganado» incluye cierres ganados
+    del pipeline de ventas y clientes en onboarding (Customer Success). La fuente de tráfico y el
+    sitio web provienen de la analítica del contacto asociado; la industria ISIC y el rango de
+    empleados, del negocio. DiIO no crea propiedades propias en HubSpot: escribe en cada negocio las
+    notas de reunión con healthscore, dolores y compromisos detectados en las llamadas.
+  </footer>
+</div>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+const DEALS = [{"n": "Empresas Guzmán y Larraín", "a": 65.0, "s": "Qualified Opportunity", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-05-15", "cl": "2026-10-31", "id": 60270315060, "ind": null, "rng": "1001-5000", "emp": 1200, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "13", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Investigaciones Mineras Geologicas LTDA", "a": 63.0, "s": "Value Proposition", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-05-07", "cl": "2026-07-31", "id": 60108413368, "ind": null, "rng": "501-1000", "emp": 600, "isic": "Extracción de minerales metalíferos", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "11", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Bupa Chile", "a": 50.0, "s": "Value Proposition", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-01-28", "cl": "2026-08-31", "id": 55475464772, "ind": "Farmacéutica", "rng": "5001-10000", "emp": 196, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización", "centros": "10", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "CRCC", "a": 35.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-06-21", "cl": "2026-09-30", "id": 61397192796, "ind": null, "rng": "201-500", "emp": 300, "isic": "Actividades especializadas de construcción", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": "12", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Los Ceibos SpA-", "a": 30.0, "s": "Negotiation", "g": "Abierto", "o": "Cristian Cea", "c": "2026-05-05", "cl": "2026-07-31", "id": 60013601934, "ind": null, "rng": "51-200", "emp": 200, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": "23", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Sacyr Agua", "a": 25.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-06-26", "cl": "2026-08-31", "id": 61681182992, "ind": null, "rng": "51-200", "emp": 200, "isic": "Captación, tratamiento y distribución de agua", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "5", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Superfruit", "a": 23.0, "s": "Qualified Opportunity", "g": "Abierto", "o": "Cristian Cea", "c": "2026-07-07", "cl": "2026-09-30", "id": 62348176902, "ind": null, "rng": "201-500", "emp": 450, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": "6", "wow": null, "mods": "Plan Core;Contratistas;Investigación de accidentes;EPP;Capacitaciones;Insumos y Maquinarias;Reportes Personalizados", "mods_wow": "Plan Core;EPP;Investigación de accidentes;Capacitaciones;Insumos y Maquinarias;Reportes Personalizados", "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Salmones Aysén", "a": 23.0, "s": "Negotiation", "g": "Abierto", "o": "Cristian Cea", "c": "2026-05-15", "cl": "2026-07-31", "id": 60270676002, "ind": null, "rng": "501-1000", "emp": 500, "isic": "Pesca y acuicultura", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "25", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Lureye Generacion", "a": 23.0, "s": "Negotiation", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-05-14", "cl": "2026-07-31", "id": 60253721688, "ind": null, "rng": "501-1000", "emp": 550, "isic": "Fabricación de equipo eléctrico", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas);Bajo control sobre cumplimiento DS 44;Crecimiento de la empresa superó su sistema actual", "centros": "5", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Habita Construcciones S.A:", "a": 22.0, "s": "Negotiation", "g": "Abierto", "o": "Cristian Cea", "c": "2026-05-18", "cl": "2026-07-31", "id": 60327846409, "ind": null, "rng": "201-500", "emp": 500, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "7", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Salfa Mantenciones", "a": 20.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Cristian Cea", "c": "2026-07-06", "cl": "2026-09-30", "id": 62313540901, "ind": null, "rng": "201-500", "emp": 450, "isic": "Actividades de servicios de apoyo para la explotación de minas y canteras", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "4", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "SERVICIOS ENERGETICOS CS ENERGY SPA.", "a": 20.0, "s": "Negotiation", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-05-12", "cl": "2026-07-31", "id": 60181308806, "ind": null, "rng": "201-500", "emp": 400, "isic": "Actividades de servicios de apoyo para la explotación de minas y canteras", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "30", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingel SA", "a": 18.3, "s": "Qualified Opportunity", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-06-23", "cl": "2026-09-30", "id": 61497320080, "ind": null, "rng": "51-200", "emp": 130, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Redes sociales", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Constructora Rucalhue", "a": 18.0, "s": "Negotiation", "g": "Abierto", "o": "Cristian Cea", "c": "2026-06-01", "cl": "2026-07-31", "id": 60807785378, "ind": null, "rng": "51-200", "emp": 144, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Dificultad para gestionar contratistas;Procesos manuales en terreno (firmas, checklists, charlas);Multas, sanciones recientes o fiscalización inesperada;Miedo a multas o sanciones por falta de control", "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": "tazki", "src": "Búsqueda pagada", "site": "soluciones.tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Proteq SPA", "a": 18.0, "s": "Value Proposition", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-04-22", "cl": "2026-08-31", "id": 59456302905, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": "10", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "integral service mechanics", "a": 15.6, "s": "Qualified Prospect", "g": "Abierto", "o": "Cristian Cea", "c": "2026-05-20", "cl": "2026-10-31", "id": 60451581322, "ind": null, "rng": "51-200", "emp": 106, "isic": "Comercio al por mayor y al por menor y reparación de vehículos automotores y motocicletas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": "Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas);Bajo control sobre cumplimiento DS 44;Multas, sanciones recientes o fiscalización inesperada", "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Desarrollo y Optimizacion de Servicios Productivos S.A", "a": 15.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-07-06", "cl": "2026-09-30", "id": 62328511391, "ind": null, "rng": "51-200", "emp": 55, "isic": "Fabricación de productos elaborados de metal, excepto maquinaria y equipo", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Constructora Manifiesta", "a": 15.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-07-04", "cl": "2026-08-03", "id": 62209678694, "ind": null, "rng": "51-200", "emp": 20, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Nicole Manosalva", "a": 15.0, "s": "Negotiation", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-06-17", "cl": "2026-07-31", "id": 61230652580, "ind": null, "rng": "11-50", "emp": 20, "isic": "Actividades especializadas de construcción", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": "9", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "CONSTRUCTORA RIC SPA", "a": 15.0, "s": "Value Proposition", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-06-11", "cl": "2026-08-31", "id": 61028228150, "ind": null, "rng": "11-50", "emp": 50, "isic": "Obras de ingeniería civil", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "15", "wow": null, "mods": null, "mods_wow": null, "fuente2": "BING", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Constructora INSPIRA", "a": 14.0, "s": "Qualified Prospect", "g": "Abierto", "o": "Luciano Pavesi", "c": "2026-06-24", "cl": "2026-09-30", "id": 61542567462, "ind": null, "rng": "11-50", "emp": 50, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": "userId:86817258", "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "SSO CHILE", "a": 12.0, "s": "Negotiation", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-06-22", "cl": "2026-08-31", "id": 61435673127, "ind": null, "rng": "51-200", "emp": 80, "isic": "Fabricación de productos farmacéuticos, sustancias químicas medicinales y productos botánicos de uso farmacéutico", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "4", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Soltec", "a": 10.0, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-04-27", "cl": "2026-07-31", "id": 59721618593, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "profal", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-07-08", "cl": "2026-08-07", "id": 62416467574, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "BING", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form (Nuevo sitio)", "pipe": "Pipeline de ventas"}, {"n": "Transportes contex", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Cristian Cea", "c": "2026-07-08", "cl": "2026-08-07", "id": 62408071197, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form (Nuevo sitio)", "pipe": "Pipeline de ventas"}, {"n": "Gallardo Warden y Compañía Limitada", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-07-06", "cl": "2026-08-05", "id": 62324666747, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "77391549", "src": "Fuentes offline", "site": "tazki.cl", "form": "Importar - usuarios admin (1).xlsx", "pipe": "Pipeline de ventas"}, {"n": "SEI INGENIERIA ELECTROINDUSTRIAL LTDA.", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-07-06", "cl": "2026-08-05", "id": 62307178014, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "70759120", "src": "Fuentes offline", "site": "tazki.cl", "form": "Importacion de contactos.xlsx", "pipe": "Pipeline de ventas"}, {"n": "Acciona Airport Services", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Cristian Cea", "c": "2026-06-24", "cl": "2026-07-24", "id": 61556988797, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Chilexpress", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Cristian Cea", "c": "2026-06-22", "cl": "2026-07-22", "id": 61433779975, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "sistema gestión seguridad laboral", "src": "Búsqueda pagada", "site": "soluciones.tazki.cl", "form": "MQL Form | Contact Form (LP)", "pipe": "Pipeline de ventas"}, {"n": "Grupo SAESA", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-06-17", "cl": "2026-07-17", "id": 61187355832, "ind": null, "rng": null, "emp": null, "isic": "Suministro de electricidad, gas, vapor y aire acondicionado", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": "Falta de trazabilidad / evidencias ante fiscalización;Dificultad para gestionar contratistas;Procesos manuales en terreno (firmas, checklists, charlas);Uso de software, pero no cumple lo esperado", "centros": "8", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Schwager Lácteos y Energía S.A", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Cristian Cea", "c": "2026-06-08", "cl": "2026-07-08", "id": 60963019561, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Logistica Sur Ltda", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Diego Almazabar", "c": "2026-05-29", "cl": "2026-06-28", "id": 60714387351, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "soluciones.tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Andina SPA", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Axel Concha", "c": "2026-05-28", "cl": "2026-06-27", "id": 60696943188, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "soluciones.tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "SLEP", "a": null, "s": "Meeting Set", "g": "Abierto", "o": "Emilio Gonzalez", "c": "2026-05-25", "cl": "2026-09-30", "id": 60628813601, "ind": "Outsorcing", "rng": "1001-5000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas)", "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - SOFTYS", "a": 40.48, "s": "Onboarding", "g": "Ganado", "o": "Nicolas Aravena", "c": "2026-06-23", "cl": "2026-06-11", "id": 61498992163, "ind": null, "rng": "1001-5000", "emp": null, "isic": "Otras industrias manufactureras", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": "Basado en la conversación, el momento \"wow\" esperado por el cliente (específicamente expresado por Nicole Osorio y Romina Cubillos) es lograr tener toda la documentación de sus cuatro empresas contratistas al día, vigente, clara y ordenada en la plataforma, permitiéndoles finalmente tener visibilidad y control sobre el cumplimiento de sus proveedores para reducir riesgos, tras haber operado anteriormente con un sistema manual desorganizado (carpetas en OneDrive) que les impedía saber si estaban en cumplimiento o no.", "mods": "Contratistas;Plan Core", "mods_wow": "Contratistas", "fuente2": null, "src": "Referencias de IA", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "SOFTYS", "a": 40.48, "s": "Closed Won", "g": "Ganado", "o": "Emilio Gonzalez", "c": "2026-05-11", "cl": "2026-05-31", "id": 60178193987, "ind": null, "rng": "1001-5000", "emp": 2500, "isic": "Otras industrias manufactureras", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": "Basado en la conversación, el momento \"wow\" esperado por el cliente (específicamente expresado por Nicole Osorio y Romina Cubillos) es lograr tener toda la documentación de sus cuatro empresas contratistas al día, vigente, clara y ordenada en la plataforma, permitiéndoles finalmente tener visibilidad y control sobre el cumplimiento de sus proveedores para reducir riesgos, tras haber operado anteriormente con un sistema manual desorganizado (carpetas en OneDrive) que les impedía saber si estaban en cumplimiento o no.", "mods": "Contratistas;Plan Core", "mods_wow": "Contratistas", "fuente2": null, "src": "Referencias de IA", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - Ranco Cherries", "a": 25.0, "s": "Onboarding", "g": "Ganado", "o": "Ignacio Norero", "c": "2026-07-06", "cl": "2026-06-30", "id": 62313293739, "ind": null, "rng": "201-500", "emp": null, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "Ranco Cherries", "a": 25.0, "s": "Closed Won", "g": "Ganado", "o": "Emilio Gonzalez", "c": "2026-04-30", "cl": "2026-06-30", "id": 59856154459, "ind": null, "rng": "201-500", "emp": 800, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - Adrian Ampuero Ingenieros", "a": 24.8, "s": "Onboarding", "g": "Ganado", "o": "Fernanda Bravo", "c": "2026-07-06", "cl": "2026-06-30", "id": 62325985393, "ind": null, "rng": "51-200", "emp": null, "isic": "Actividades especializadas de construcción", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": "El momento \"wow\" esperado por el cliente es lograr un control más preciso de la gestión en terreno, específicamente tener digitalizadas las carpetas de los trabajadores con su documentación obligatoria (como inducciones, entrega de EPP, difusión de procedimientos y reglamento) para obtener un porcentaje de cumplimiento inmediato. Esto les permitiría reaccionar rápidamente ante auditorías o fiscalizaciones, evitando no conformidades y agilizando sus procesos de pago con empresas mandantes.", "mods": "EPP;Capacitaciones;Reportes Personalizados;Plan Core", "mods_wow": "EPP;Capacitaciones;Reportes Personalizados", "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "Adrian Ampuero Ingenieros", "a": 24.8, "s": "Closed Won", "g": "Ganado", "o": "Emilio Gonzalez", "c": "2026-04-24", "cl": "2026-06-30", "id": 59632659002, "ind": null, "rng": "51-200", "emp": 200, "isic": "Actividades especializadas de construcción", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": "8", "wow": "El momento \"wow\" esperado por el cliente es lograr un control más preciso de la gestión en terreno, específicamente tener digitalizadas las carpetas de los trabajadores con su documentación obligatoria (como inducciones, entrega de EPP, difusión de procedimientos y reglamento) para obtener un porcentaje de cumplimiento inmediato. Esto les permitiría reaccionar rápidamente ante auditorías o fiscalizaciones, evitando no conformidades y agilizando sus procesos de pago con empresas mandantes.", "mods": "EPP;Capacitaciones;Reportes Personalizados;Plan Core", "mods_wow": "EPP;Capacitaciones;Reportes Personalizados", "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - Ollagua", "a": 17.2, "s": "Onboarding", "g": "Ganado", "o": "Caroline Fuentes", "c": "2026-05-05", "cl": "2026-05-01", "id": 60021302385, "ind": null, "rng": "51-200", "emp": null, "isic": "Extracción de minerales metalíferos", "riesgo": "Crítico", "hs": "4.5", "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "ollagua", "a": 17.2, "s": "Closed Won", "g": "Ganado", "o": "Cristian Cea", "c": "2026-04-02", "cl": "2026-05-01", "id": 58707428631, "ind": null, "rng": "51-200", "emp": 140, "isic": "Fabricación de equipo eléctrico", "riesgo": "Crítico", "hs": "4.5", "perdido_por": null, "dolor": null, "centros": "4", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Vinise", "a": 17.0, "s": "Closed Won", "g": "Ganado", "o": "Cristian Cea", "c": "2026-04-21", "cl": "2026-05-08", "id": 59415671628, "ind": null, "rng": "51-200", "emp": 54, "isic": "Suministro de electricidad, gas, vapor y aire acondicionado", "riesgo": "Crítico", "hs": "5.00", "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - Intersur Limitada", "a": 15.3, "s": "Onboarding", "g": "Ganado", "o": "Sin asignar", "c": "2026-06-25", "cl": "2026-06-30", "id": 61641155996, "ind": null, "rng": "11-50", "emp": null, "isic": "Telecomunicaciones", "riesgo": "Medio", "hs": "4.35", "perdido_por": null, "dolor": null, "centros": null, "wow": "El momento \"wow\" esperado por el cliente es lograr la centralización total de la información en un solo sistema, eliminando el uso de archivos dispersos (Drive, carpetas físicas/digitales, papel) y permitiendo que, ante una fiscalización, toda la documentación esté disponible y sea localizable de manera rápida y eficiente (en \"dos clics\").", "mods": "Plan Core;EPP;MIPER;Reportes Personalizados", "mods_wow": "Plan Core;EPP;MIPER;Capacitaciones;Reportes Personalizados", "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "Intersur Limitada", "a": 15.3, "s": "Closed Won", "g": "Ganado", "o": "Emilio Gonzalez", "c": "2026-06-12", "cl": "2026-06-30", "id": 61047422294, "ind": null, "rng": "11-50", "emp": 48, "isic": "Telecomunicaciones", "riesgo": "Medio", "hs": "4.35", "perdido_por": null, "dolor": null, "centros": "1", "wow": "El momento \"wow\" esperado por el cliente es lograr la centralización total de la información en un solo sistema, eliminando el uso de archivos dispersos (Drive, carpetas físicas/digitales, papel) y permitiendo que, ante una fiscalización, toda la documentación esté disponible y sea localizable de manera rápida y eficiente (en \"dos clics\").", "mods": "Plan Core;EPP;MIPER;Reportes Personalizados", "mods_wow": "Plan Core;EPP;MIPER;Capacitaciones;Reportes Personalizados", "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "(Clientes) - redes patagonia austral", "a": 15.0, "s": "Onboarding", "g": "Ganado", "o": "Noliany Manvel", "c": "2026-05-12", "cl": "2026-05-12", "id": 60216674431, "ind": null, "rng": "51-200", "emp": null, "isic": "Pesca y acuicultura", "riesgo": "Crítico", "hs": "5", "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Clientes (Customer Success)"}, {"n": "redes patagonia austral", "a": 15.0, "s": "Closed Won", "g": "Ganado", "o": "Cristian Cea", "c": "2026-04-20", "cl": "2026-05-12", "id": 59391906930, "ind": null, "rng": "51-200", "emp": 150, "isic": "Pesca y acuicultura", "riesgo": "Crítico", "hs": "5", "perdido_por": null, "dolor": null, "centros": "1", "wow": "El momento \"wow\" esperado por el cliente (Sebastián Rivera y Vianey) se centra en la optimización de tiempos y procesos en su gestión de prevención de riesgos. De manera explícita, el cliente espera que en 30 días la plataforma cumpla sus expectativas logrando: 1. Avance documental: Tener correctamente vinculada toda la información administrativa, operacional y técnica (requisitos legales y programas internos) dentro del software. 2. Control y trazabilidad de EPP: Lograr un control eficiente en la entrega de Elementos de Protección Personal y ropa de trabajo por puesto de trabajo, asegurando que se cumpla la entrega jerárquica y evitando errores de inventario o desabastecimiento por ausencias. 3. Eficiencia operativa: Pasar de una gestión manual (en papel y presencial) a una operativa y automatizada al 100% a través de la plataforma, permitiendo una visión estratégica de la gestión y optimizando las horas hombre (HH) de las jefaturas.", "mods": null, "mods_wow": "EPP;MIPER;Capacitaciones;Reportes Personalizados", "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Flesan Minería", "a": 100.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-04-23", "cl": "2026-09-30", "id": 59537524738, "ind": null, "rng": "501-1000", "emp": 700, "isic": "Explotación de otras minas y canteras", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Nestlé", "a": 40.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-10-31", "id": 58653829999, "ind": null, "rng": "201-500", "emp": 280, "isic": "Elaboración de productos alimenticios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Scania Chile", "a": 30.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-05-20", "cl": "2026-08-31", "id": 60428687391, "ind": null, "rng": "201-500", "emp": 200, "isic": "Comercio al por mayor y al por menor y reparación de vehículos automotores y motocicletas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": "23", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Gesvial", "a": 30.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-04-07", "cl": "2026-07-31", "id": 58890250334, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "BMP", "a": 25.0, "s": "Frozen", "g": "Congelado", "o": "Emilio Gonzalez", "c": "2026-05-28", "cl": "2026-11-30", "id": 60693765757, "ind": "Construcción", "rng": "201-500", "emp": 40, "isic": "Actividades de servicios de información", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas)", "centros": "4", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingeniería en Plásticos Membrantec S.A.", "a": 20.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-04-01", "cl": "2026-07-31", "id": 58649419273, "ind": null, "rng": "201-500", "emp": 235, "isic": "Extracción de minerales metalíferos", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Héctor Vega Zuñiga Ltda", "a": 20.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-05-31", "id": 58654464690, "ind": null, "rng": "201-500", "emp": 400, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "GREPSA HABITACIONAL", "a": 20.0, "s": "Frozen", "g": "Congelado", "o": "Emilio Gonzalez", "c": "2026-03-11", "cl": "2026-07-31", "id": 57892314537, "ind": null, "rng": "51-200", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Agrolomas", "a": 19.8, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-30", "cl": "2026-04-30", "id": 58561634448, "ind": null, "rng": "51-200", "emp": 140, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Aguasan Ltda", "a": 15.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-04-10", "cl": "2026-05-31", "id": 59080479349, "ind": null, "rng": "51-200", "emp": 120, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": "5", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "SIGMA S.A.", "a": 15.0, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-25", "cl": "2026-06-30", "id": 58329954434, "ind": null, "rng": "51-200", "emp": 140, "isic": "Extracción de minerales metalíferos", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ceprever", "a": 12.0, "s": "Frozen", "g": "Congelado", "o": "Emilio Gonzalez", "c": "2026-06-09", "cl": "2026-07-09", "id": 61007499370, "ind": null, "rng": "1-10", "emp": 115, "isic": "Actividades de servicios de información", "riesgo": "Medio", "hs": null, "perdido_por": null, "dolor": "Falta de trazabilidad / evidencias ante fiscalización;Dificultad para gestionar contratistas;Procesos manuales en terreno (firmas, checklists, charlas);Bajo control sobre cumplimiento DS 44", "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Ingeniería y Construcción VAlMAR LTDA", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-05-28", "cl": "2026-06-27", "id": 60689345541, "ind": null, "rng": "201-500", "emp": 200, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Dificultad para gestionar contratistas;Procesos manuales en terreno (firmas, checklists, charlas);Miedo a multas o sanciones por falta de control", "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Abastibletec", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-05-22", "cl": "2026-06-21", "id": 60544694290, "ind": null, "rng": "51-200", "emp": 100, "isic": "Suministro de electricidad, gas, vapor y aire acondicionado", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Cerveceria Centro americana,s.a.", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-04-12", "cl": "2026-05-12", "id": 59124244250, "ind": null, "rng": "1001-5000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Transportes Santa Alberta", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-30", "cl": "2026-04-29", "id": 58558264097, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "GEOTEC", "a": null, "s": "Frozen", "g": "Congelado", "o": "Emilio Gonzalez", "c": "2026-03-19", "cl": "2026-04-18", "id": 58135989650, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Sociedad Industrial Romeral S.A", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-12", "cl": "2026-04-11", "id": 57940402448, "ind": null, "rng": "201-500", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Abastible tec", "a": null, "s": "Frozen", "g": "Congelado", "o": "Tomás Oyarzún", "c": "2026-03-11", "cl": "2026-04-10", "id": 57894110563, "ind": null, "rng": "51-200", "emp": null, "isic": "Suministro de electricidad, gas, vapor y aire acondicionado", "riesgo": "Crítico", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Villalobos e Hijos Ltda", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-10", "cl": "2026-04-09", "id": 57857609586, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "plan de acción", "a": null, "s": "Frozen", "g": "Congelado", "o": "Cristian Cea", "c": "2026-03-05", "cl": "2026-04-04", "id": 57591400290, "ind": null, "rng": "201-500", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": null, "dolor": null, "centros": "5", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "UNO Desarrollos Constructivos", "a": 31.5, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-18", "cl": "2026-04-02", "id": 56525044778, "ind": null, "rng": "201-500", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "Congelamiento proyecto digitalización (Tazki)", "dolor": null, "centros": "7", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Chile Normas", "a": 30.0, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-23", "cl": "2026-03-10", "id": 56905523279, "ind": "Outsorcing", "rng": "11-50", "emp": null, "isic": "Actividades de empleo", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Dificultad para gestionar contratistas;Procesos manuales en terreno (firmas, checklists, charlas)", "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Hy-tech Drilling", "a": 30.0, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-10", "cl": "2026-05-04", "id": 55928993429, "ind": null, "rng": "201-500", "emp": null, "isic": "Actividades de servicios de apoyo para la explotación de minas y canteras", "riesgo": "Crítico", "hs": null, "perdido_por": "Estan detenidos sin proyectos", "dolor": null, "centros": "4", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Sociedad de Servicios Go", "a": 20.0, "s": "Closed Lost", "g": "Perdido", "o": "David Chacón", "c": "2026-03-08", "cl": "2026-04-23", "id": 57763324261, "ind": null, "rng": "51-200", "emp": 152, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": "10", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Chilepanel", "a": 18.0, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-06-11", "cl": "2026-07-01", "id": 61032236087, "ind": null, "rng": "201-500", "emp": 250, "isic": "Producción de madera y fabricación de productos de madera y corcho, excepto muebles fabricación de artículos de paja y de materiales trenzables", "riesgo": "Medio", "hs": null, "perdido_por": "Desarrollo especifico", "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas)", "centros": "10", "wow": null, "mods": null, "mods_wow": null, "fuente2": "plataforma prevención de riesgos", "src": "Búsqueda pagada", "site": "soluciones.tazki.cl", "form": "MQL Form | Contact Form (LP)", "pipe": "Pipeline de ventas"}, {"n": "Superfruit", "a": 18.0, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-18", "cl": "2026-03-04", "id": 56606334645, "ind": null, "rng": "51-200", "emp": null, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": "La gerencia no esta abierta a la implementación de un software. Tampoco tienen software de RRHH, por lo que prevención no es una prioridad.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingersoll Rand", "a": 15.0, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-27", "cl": "2026-06-18", "id": 59701874051, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Vanderlande Industries", "a": 15.0, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-21", "cl": "2026-06-17", "id": 59414176560, "ind": null, "rng": "51-200", "emp": 180, "isic": "Transporte por vía terrestre y transporte por tuberías", "riesgo": "Medio", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Dragados", "a": 13.0, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-11", "cl": "2026-05-29", "id": 60175067478, "ind": null, "rng": "51-200", "emp": 300, "isic": "Extracción de minerales metalíferos", "riesgo": "Crítico", "hs": null, "perdido_por": "Congelado por el momento", "dolor": null, "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Valopes", "a": 12.5, "s": "Closed Lost", "g": "Perdido", "o": "Luciano Pavesi", "c": "2026-06-02", "cl": "2026-07-07", "id": 60810480050, "ind": null, "rng": "1-10", "emp": 6, "isic": "Actividades de oficinas principales actividades de consultoría de gestión", "riesgo": "Bajo", "hs": null, "perdido_por": "Sin presupuesto", "dolor": "Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas)", "centros": "24", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "CJB Electricidad y Servicios Spa", "a": 12.0, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-06-02", "cl": "2026-06-11", "id": 60800070945, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Aguas San Isidro", "a": 12.0, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-30", "cl": "", "id": 58555416925, "ind": null, "rng": "51-200", "emp": 180, "isic": "Captación, tratamiento y distribución de agua", "riesgo": "Crítico", "hs": null, "perdido_por": "Se fueron con la competencia", "dolor": null, "centros": "14", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "GAS Services", "a": 10.0, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-26", "cl": "2026-03-17", "id": 57110535426, "ind": null, "rng": "11-50", "emp": null, "isic": "Extracción de petróleo crudo y gas natural", "riesgo": "Crítico", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": "2", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ramco", "a": 8.0, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-03", "cl": "2026-02-26", "id": 55465597540, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Congelado por el momento", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "MAQSUR MAQUINARIAS S.A.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Luciano Pavesi", "c": "2026-07-08", "cl": "2026-07-08", "id": 62402673469, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "77391549", "src": "Fuentes offline", "site": "tazki.cl", "form": "Importar - usuarios admin (1).xlsx", "pipe": "Pipeline de ventas"}, {"n": "Almagro", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-07-08", "cl": "2026-07-08", "id": 62399387967, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form (Nuevo sitio)", "pipe": "Pipeline de ventas"}, {"n": "SD Servicios Integrales spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Luciano Pavesi", "c": "2026-07-02", "cl": "2026-07-07", "id": 62136718644, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "software sst", "src": "Búsqueda pagada", "site": "soluciones.tazki.cl", "form": "MQL Form | Contact Form (LP)", "pipe": "Pipeline de ventas"}, {"n": "Heineken Planta Orizaba", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-07-01", "cl": "2026-07-03", "id": 62050742690, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era quien tomaba la decisión", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Santolaya", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-06-25", "cl": "2026-06-25", "id": 61587331958, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form (LP)", "pipe": "Pipeline de ventas"}, {"n": "Sheraton Santiago", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-06-22", "cl": "2026-07-06", "id": 61435940152, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "fundacion chinquihue", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-06-18", "cl": "2026-06-22", "id": 61287373497, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "70759120", "src": "Fuentes offline", "site": "tazki.cl", "form": "Importacion de contactos.xlsx", "pipe": "Pipeline de ventas"}, {"n": "Security spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-06-16", "cl": "2026-06-16", "id": 61136292990, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Insalect Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-06-16", "cl": "2026-06-16", "id": 61132788007, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era el minuto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "PRC SA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Luciano Pavesi", "c": "2026-06-15", "cl": "2026-07-07", "id": 61108012817, "ind": null, "rng": null, "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No le interesa", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "GOOGLE", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "MARAYA LOGISTIC", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Luciano Pavesi", "c": "2026-06-04", "cl": "2026-06-04", "id": 60849194114, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": "YAHOO", "src": "Búsqueda orgánica", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "ByM", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-06-02", "cl": "2026-06-10", "id": 60789002792, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": "MQL Form | Contact Form", "pipe": "Pipeline de ventas"}, {"n": "Grupo Altex", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-26", "cl": "2026-06-16", "id": 60652312426, "ind": null, "rng": "1001-5000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era el minuto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Kape SpA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-22", "cl": "2026-05-22", "id": 60537256546, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Innergy", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-21", "cl": "2026-05-25", "id": 60457346375, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Comercial Austral Chile spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-20", "cl": "2026-05-20", "id": 60434199455, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Soc com e ind body e hijos Ltda", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-20", "cl": "2026-06-01", "id": 60384987421, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Spotless", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-19", "cl": "2026-05-19", "id": 60401201245, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Andes Green", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-19", "cl": "2026-05-19", "id": 60347553072, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingenieria y montajes electricos Kape spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-19", "cl": "2026-05-25", "id": 60347486492, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Insaelec", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-18", "cl": "2026-05-19", "id": 60332531314, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Katemu", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-18", "cl": "2026-05-25", "id": 60329093041, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "ASEAMOS SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-18", "cl": "2026-05-18", "id": 60327775595, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ebco", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-18", "cl": "2026-05-18", "id": 60326193560, "ind": null, "rng": "5001-10000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "SOCOVI S.A", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-15", "cl": "2026-05-20", "id": 60271929712, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "RANDSTAD", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-14", "cl": "2026-05-15", "id": 60258205096, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Pesco", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-14", "cl": "2026-05-14", "id": 60250283115, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Cerloc", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-11", "cl": "2026-06-01", "id": 60200665430, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Olitel", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-09", "cl": "2026-05-13", "id": 60158018907, "ind": null, "rng": "201-500", "emp": null, "isic": "Telecomunicaciones", "riesgo": "Medio", "hs": "5", "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": "El momento \"wow\" esperado por el cliente, definido como el éxito en la implementación a 30 días, consiste en: * Tener control de los EPP (incluyendo la funcionalidad de asignación por kit según el cargo). * Tener control de las actividades en terreno (saber qué se está haciendo y qué no). * Tener un buen control de los accidentes y sus análisis. * Contar con registros de capacitaciones y un plan de capacitación cargado en la plataforma. * Haber avanzado significativamente en todos estos puntos.", "mods": "Investigación de accidentes;EPP;Capacitaciones;Insumos y Maquinarias", "mods_wow": "Investigación de accidentes;EPP;Capacitaciones;Insumos y Maquinarias", "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ecasa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-06", "cl": "2026-05-06", "id": 60052571730, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Fleischmann sa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-05-06", "cl": "2026-05-06", "id": 60051327592, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ebco", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-05-05", "cl": "2026-05-05", "id": 60038434621, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Empresas Rio Yelcho", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-05-05", "cl": "2026-05-13", "id": 60032580496, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Coopelan Ltda.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-05-04", "cl": "2026-05-05", "id": 59981062003, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Desarrollo de solución in-house", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Orion", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-29", "cl": "2026-04-29", "id": 59805048734, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "WERK EST SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-27", "cl": "2026-05-04", "id": 59724438595, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Jaziel spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-25", "cl": "2026-04-29", "id": 59685941846, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "MEDLOG BOLIVIA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-24", "cl": "2026-04-29", "id": 59651993940, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "korvik chile", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-24", "cl": "2026-04-27", "id": 59639428634, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Isometrika", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-23", "cl": "2026-05-12", "id": 59480253744, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Se fueron con la competencia", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "jyj", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-23", "cl": "2026-04-23", "id": 59485360194, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Los Glaciares S.A.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-22", "cl": "2026-04-29", "id": 59429709462, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No le interesa", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Enfragen/Prime Energia", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-22", "cl": "2026-05-05", "id": 59430931817, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Se fueron con la competencia", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Nayton", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-21", "cl": "2026-04-22", "id": 59393860399, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Naytor", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-21", "cl": "2026-04-29", "id": 59390755414, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "iseg", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-15", "cl": "2026-04-22", "id": 59230832912, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Real Estate Services S.A.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-14", "cl": "2026-04-30", "id": 59176915856, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era el minuto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Falabella", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-14", "cl": "2026-04-15", "id": 59168826551, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Ingal SpA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-14", "cl": "2026-04-22", "id": 59168384024, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Movilpark", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-14", "cl": "2026-05-04", "id": 59158236085, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "sace ingenieria", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-13", "cl": "2026-04-20", "id": 59137179965, "ind": null, "rng": "11-50", "emp": 48, "isic": "Fabricación de productos de informática, de electrónica y de óptica", "riesgo": "Crítico", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": "8", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Almagron", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-13", "cl": "2026-04-13", "id": 59146781243, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Almagro", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-13", "cl": "2026-04-13", "id": 59146379319, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "human capital group", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-09", "cl": "2026-04-22", "id": 59030475378, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Orbit Garant", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-09", "cl": "2026-04-22", "id": 59019103342, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": "5.0", "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Emtercom", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-07", "cl": "2026-04-22", "id": 58917642268, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Independiente", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-07", "cl": "2026-05-29", "id": 58897502006, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Streat burger", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-07", "cl": "2026-04-22", "id": 58866865664, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingemetal", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-07", "cl": "2026-04-22", "id": 58894156133, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Integra-T", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Emilio Gonzalez", "c": "2026-04-06", "cl": "2026-05-29", "id": 58878247856, "ind": null, "rng": "51-200", "emp": null, "isic": "Enseñanza", "riesgo": "Bajo", "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Grupo Empresas Chilquinta", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-05", "cl": "2026-04-20", "id": 58851996478, "ind": null, "rng": "1001-5000", "emp": 4000, "isic": "Suministro de electricidad, gas, vapor y aire acondicionado", "riesgo": "Crítico", "hs": null, "perdido_por": "Congelamiento proyecto digitalización (Tazki)", "dolor": null, "centros": "11", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Falabella copiapo", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-03", "cl": "2026-04-06", "id": 58807024292, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "METSO", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-02", "cl": "2026-04-02", "id": 58679971891, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Cooperhill SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-04-02", "cl": "2026-04-02", "id": 58678742884, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ankara Soluciones", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-04-01", "id": 58651659913, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Privada", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-04-01", "id": 58644213060, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "CGE", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-04-06", "id": 58636396698, "ind": null, "rng": "201-500", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Acl", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-31", "cl": "2026-03-31", "id": 58632448893, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Transportes SAE", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-27", "cl": "2026-04-01", "id": 58508371282, "ind": null, "rng": "201-500", "emp": 327, "isic": "Transporte por vía terrestre y transporte por tuberías", "riesgo": "Medio", "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": "6", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Promo Import", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-27", "cl": "2026-03-31", "id": 58509465426, "ind": null, "rng": "1001-5000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "HSBT", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-27", "cl": "2026-03-31", "id": 58472894493, "ind": null, "rng": "11-50", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Municipalidad de San Pedro de Jujuy", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-24", "cl": "2026-04-15", "id": 58318559024, "ind": null, "rng": "1001-5000", "emp": null, "isic": "Administración pública y defensa planes de seguridad social de afiliación obligatoria", "riesgo": "Medio", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "CONSTRUCTORA INGAL SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-24", "cl": "2026-04-22", "id": 58302881417, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "CNA Chile Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-24", "cl": "2026-03-30", "id": 58264448396, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Instituto de seguridad del trabajo", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-23", "cl": "2026-04-01", "id": 58251964789, "ind": null, "rng": "501-1000", "emp": 550, "isic": "Fabricación de productos de caucho y de plástico", "riesgo": "Crítico", "hs": null, "perdido_por": "No se cambia de Mutualidad", "dolor": null, "centros": "1", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "R y d", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-23", "cl": "2026-03-23", "id": 58247862044, "ind": null, "rng": "501-1000", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "HGS", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-20", "cl": "2026-03-20", "id": 58201143451, "ind": null, "rng": "1-10", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Privada", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-19", "cl": "2026-03-19", "id": 58180010674, "ind": null, "rng": "51-200", "emp": null, "isic": null, "riesgo": null, "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "CONSTRUCTORA ALFREDO JARA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-18", "cl": "2026-03-19", "id": 58138101805, "ind": null, "rng": "201-500", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": "3", "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ebco", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-17", "cl": "2026-03-17", "id": 58061789362, "ind": null, "rng": "5001-10000", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Muresi", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-16", "cl": "2026-03-17", "id": 58053816607, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Touchmedia", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-13", "cl": "2026-03-24", "id": 57992926764, "ind": null, "rng": "11-50", "emp": null, "isic": "Publicidad y estudios de mercado", "riesgo": "Bajo", "hs": null, "perdido_por": "No se presenta a las reunión agendadas", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Insprotel Ltda.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-13", "cl": "2026-03-13", "id": 57977391792, "ind": null, "rng": "51-200", "emp": null, "isic": "Telecomunicaciones", "riesgo": "Medio", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Fedir Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-11", "cl": "2026-03-11", "id": 57904664389, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No le interesa", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Fedir Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-10", "cl": "2026-03-11", "id": 57899975187, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Fedir Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-10", "cl": "2026-03-11", "id": 57886071590, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Aldabe SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-08", "cl": "2026-03-09", "id": 57762252407, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Comercial sur service", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-03", "cl": "2026-03-04", "id": 57502036229, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Foto Aventura", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-03-02", "cl": "2026-03-04", "id": 57344268035, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "DLP", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-03-02", "cl": "2026-03-05", "id": 57305218648, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Agroadvance", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-27", "cl": "2026-03-02", "id": 57132781378, "ind": null, "rng": "11-50", "emp": null, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": "Es asesor y finalmente quería tener más información de como el le podía ofrecer a sus clientes un sistema con Tazki.", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Agrícola Huillinco SpA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-27", "cl": "2026-03-05", "id": 57154686515, "ind": null, "rng": "51-200", "emp": null, "isic": "Agricultura, ganadería, caza y actividades de servicios conexas", "riesgo": "Medio", "hs": null, "perdido_por": "Congelamiento proyecto digitalización (Tazki)", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Servicios Red Brothers SpA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-26", "cl": "2026-02-26", "id": 57047777595, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Alcatrans", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-25", "cl": "2026-03-04", "id": 57033912221, "ind": null, "rng": "11-50", "emp": null, "isic": "Almacenamiento y actividades de apoyo al transporte", "riesgo": "Bajo", "hs": null, "perdido_por": "No se presenta a las reunión agendadas", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Pesco", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-25", "cl": "2026-02-25", "id": 57018793793, "ind": null, "rng": "201-500", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Ingetec Ltda", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-24", "cl": "2026-02-24", "id": 56936503688, "ind": null, "rng": "1-10", "emp": null, "isic": "Actividades de arquitectura e ingeniería ensayos y análisis técnicos", "riesgo": "Bajo", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Fedir spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-02-23", "cl": "2026-02-23", "id": 56907682379, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Achs", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Karen Jara", "c": "2026-02-23", "cl": "2026-03-17", "id": 56875970150, "ind": null, "rng": "5001-10000", "emp": null, "isic": "Actividades de atención de la salud humana", "riesgo": "Bajo", "hs": null, "perdido_por": "No le interesa", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Su Ksa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-18", "cl": "2026-03-10", "id": 56562833226, "ind": "Construcción", "rng": "51-200", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "No contesta", "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas);Multas, sanciones recientes o fiscalización inesperada;Miedo a multas o sanciones por falta de control", "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "HACESOR SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-18", "cl": "2026-02-26", "id": 56565219196, "ind": null, "rng": "51-200", "emp": null, "isic": "Otras actividades profesionales, científicas y técnicas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Délano Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-02-16", "cl": "2026-02-19", "id": 56440016778, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": "Gestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización", "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Contratista NM Spa", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-16", "cl": "2026-02-16", "id": 56363143048, "ind": null, "rng": "1-10", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Comercial sur Service", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-02-11", "cl": "2026-02-12", "id": 56027788673, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "ksb chile s.a", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-02-06", "cl": "2026-02-06", "id": 55571732282, "ind": null, "rng": "201-500", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No era lo qie necesitaba", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Constructora Carlo Gárate", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-02-06", "cl": "2026-02-12", "id": 55577340225, "ind": null, "rng": "11-50", "emp": null, "isic": "Construcción de edificios", "riesgo": "Crítico", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Falabella Retail", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-02-05", "cl": "2026-02-06", "id": 55630590233, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por menor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Es cliente y buscaba soporte", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "ASESORÍA EN PREVENCIÓN DE RIESGOS HÉCTOR OYARZÚN MUÑOZ E.I.R.L.", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-02-03", "cl": "2026-02-12", "id": 55391210063, "ind": null, "rng": "1-10", "emp": null, "isic": "Otras actividades profesionales, científicas y técnicas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Búsqueda orgánica", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Prevelchile", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Cristian Cea", "c": "2026-01-30", "cl": "2026-02-09", "id": 55110561397, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "Sin presupuesto", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Hola", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Tomás Oyarzún", "c": "2026-01-28", "cl": "2026-01-29", "id": 54953689968, "ind": null, "rng": "1-10", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No le interesa", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Alex Chacon Ltda", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Camilo Álvarez", "c": "2026-01-28", "cl": "2026-01-28", "id": 54838919042, "ind": null, "rng": "11-50", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Tráfico directo", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Waski", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Axel Concha", "c": "2026-01-27", "cl": "2026-01-27", "id": 54649270594, "ind": null, "rng": "5001-10000", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "tazki.cl", "form": null, "pipe": "Pipeline de ventas"}, {"n": "Axel Concha SPA", "a": null, "s": "Closed Lost", "g": "Perdido", "o": "Axel Concha", "c": "2026-01-23", "cl": "2026-01-23", "id": 54335091262, "ind": null, "rng": "5001-10000", "emp": null, "isic": "Comercio al por mayor, excepto el de vehículos automotores y motocicletas", "riesgo": "Bajo", "hs": null, "perdido_por": "No contesta", "dolor": null, "centros": null, "wow": null, "mods": null, "mods_wow": null, "fuente2": null, "src": "Fuentes offline", "site": "otros", "form": null, "pipe": "Pipeline de ventas"}];
+
+const HS = id => `https://app.hubspot.com/contacts/50744593/record/0-3/${id}`;
+const GROUPS = ['Ganado','Abierto','Congelado','Perdido'];
+const GC = { Ganado:'var(--c-won)', Abierto:'var(--c-open)', Congelado:'var(--c-frozen)', Perdido:'var(--c-lost)' };
+const RAMP = ['var(--seq-1)','var(--seq-2)','var(--seq-3)','var(--seq-4)','var(--seq-5)','var(--seq-6)'];
+const nf = new Intl.NumberFormat('es-CL', {maximumFractionDigits: 1});
+const nf0 = new Intl.NumberFormat('es-CL', {maximumFractionDigits: 0});
+const uf = v => v == null ? '—' : nf.format(v);
+const MESES = {'01':'ene','02':'feb','03':'mar','04':'abr','05':'may','06':'jun','07':'jul','08':'ago','09':'sep','10':'oct','11':'nov','12':'dic'};
+const fmtDate = s => !s ? '—' : `${s.slice(8,10)} ${MESES[s.slice(5,7)]}`;
+const fmtMonth = m => `${MESES[m.slice(5,7)]} ${m.slice(2,4)}'`;
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const by = (arr, key) => arr.reduce((m, d) => ((m[key(d)] = m[key(d)] || []).push(d), m), {});
+const sum = arr => arr.reduce((s, d) => s + (d.a || 0), 0);
+
+/* ---------- global filter state ---------- */
+const filters = { pipe: '', owner: '', src: '', site: '', from: '', to: '', group: '' };
+
+function applyFilters() {
+  return DEALS.filter(d =>
+    (!filters.pipe  || d.pipe === filters.pipe) &&
+    (!filters.owner || d.o === filters.owner) &&
+    (!filters.src   || (d.src || 'Sin dato') === filters.src) &&
+    (!filters.site  || (d.site || 'Sin dato') === filters.site) &&
+    (!filters.from  || d.c >= filters.from) &&
+    (!filters.to    || d.c <= filters.to)
+  );
+}
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById('tip');
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.style.display = 'block';
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + 12, y = ev.clientY - h - 10;
+  if (x + w > innerWidth - 8) x = ev.clientX - w - 12;
+  if (y < 8) y = ev.clientY + 14;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+function hideTip() { tip.style.display = 'none'; }
+function bindTips(root) {
+  root.querySelectorAll('[data-tip]').forEach(el => {
+    el.addEventListener('mousemove', ev => showTip(el.dataset.tip, ev));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+
+/* ---------- generic horizontal bars ---------- */
+function hbars(elId, rows, opts) {
+  const el = document.getElementById(elId);
+  if (!rows.length) { el.innerHTML = '<div class="empty">Sin datos con los filtros actuales.</div>'; return; }
+  const { fill = 'var(--seq-4)', minW = 380, padL = 190, padR = 60, extra = () => '' } = opts || {};
+  const rowH = 30, W = 520, H = rows.length * rowH + 6;
+  const max = Math.max(...rows.map(r => r.n));
+  const bw = W - padL - padR;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:${minW}px" role="img">`;
+  rows.forEach((r, i) => {
+    const y = i * rowH + 4, h = 18;
+    const w = Math.max(r.n / max * bw, 3);
+    const f = typeof fill === 'function' ? fill(r, i) : fill;
+    s += `<text x="${padL - 10}" y="${y + h/2 + 4}" text-anchor="end" font-size="11.5" fill="var(--ink-2)">${esc(r.lbl)}</text>`;
+    s += `<rect x="${padL}" y="${y}" width="${w}" height="${h}" rx="4" fill="${f}" tabindex="0" data-tip="${esc(r.tip || `<b>${r.lbl}</b><br>${r.n} negocios`)}"></rect>`;
+    s += `<text x="${padL + w + 7}" y="${y + h/2 + 4}" font-size="12" font-weight="600" fill="var(--ink)">${r.n}</text>${extra(r, y, h, padL, w)}`;
+  });
+  s += `<line x1="${padL}" y1="0" x2="${padL}" y2="${H}" stroke="var(--baseline)" stroke-width="1"/></svg>`;
+  el.innerHTML = s; bindTips(el);
+}
+
+/* ---------- sections (each takes the filtered array F) ---------- */
+function renderLede(F) {
+  const g = by(F, d => d.g);
+  const nOpen = (g.Abierto||[]).length, nWon = (g.Ganado||[]).length, nLost = (g.Perdido||[]).length;
+  const wr = (nWon + nLost) ? nWon / (nWon + nLost) * 100 : 0;
+  document.getElementById('lede').innerHTML =
+    `<strong>${F.length} negocios</strong> MQL en la vista actual (de ${DEALS.length} totales). ` +
+    `<strong>${nOpen} abiertos</strong> por <strong>${nf.format(sum(g.Abierto||[]))} UF</strong>, ` +
+    `<strong>${nWon} ganados</strong> y conversión de cierre de <strong>${nf.format(wr)}%</strong>. ` +
+    `Usa los filtros para acotar por pipeline, propietario, fechas, fuente o sitio.`;
+}
+
+function renderKpis(F) {
+  const g = by(F, d => d.g);
+  const A = g.Abierto||[], W = g.Ganado||[], L = g.Perdido||[], Z = g.Congelado||[];
+  const wr = (W.length + L.length) ? W.length / (W.length + L.length) * 100 : 0;
+  const kpis = [
+    {lbl: 'MQLs en vista', val: F.length, sub: F.length === DEALS.length ? 'sin filtros' : `de ${DEALS.length} totales`},
+    {lbl: 'Abiertos', val: A.length, sub: nf.format(sum(A)) + ' UF en pipeline', c: 'var(--c-open)'},
+    {lbl: 'Ganados', val: W.length, sub: nf.format(sum(W)) + ' UF cerradas', c: 'var(--c-won)'},
+    {lbl: 'Congelados', val: Z.length, sub: 'prospección en pausa', c: 'var(--c-frozen)'},
+    {lbl: 'Perdidos', val: L.length, sub: F.length ? nf0.format(L.length / F.length * 100) + '% de la vista' : '—', c: 'var(--c-lost)'},
+    {lbl: 'Conversión', val: nf.format(wr) + '%', sub: 'ganados / cerrados'},
+  ];
+  document.getElementById('kpis').innerHTML = kpis.map(k => `
+    <div class="kpi">
+      <span class="lbl">${k.c ? `<i class="dot" style="background:${k.c}"></i>` : ''}${k.lbl}</span>
+      <span class="val">${k.val}</span>
+      <span class="sub">${k.sub}</span>
+    </div>`).join('');
+}
+
+function renderOutcome(F) {
+  const g = by(F, d => d.g);
+  document.getElementById('outcomeTitle').textContent = `Resultado de los ${F.length} negocios en vista`;
+  const ob = document.getElementById('outcomeBar');
+  const lb = document.getElementById('outcomeLbls');
+  if (!F.length) { ob.innerHTML = ''; lb.innerHTML = '<span class="empty">Sin datos con los filtros actuales.</span>'; return; }
+  ob.innerHTML = GROUPS.filter(gr => (g[gr]||[]).length).map(gr => {
+    const n = g[gr].length, pct = n / F.length * 100;
+    return `<div class="seg" tabindex="0" style="flex:${n};background:${GC[gr]}"
+      data-tip="<b>${gr}</b><br>${n} negocios · ${nf.format(pct)}%<br>${nf.format(sum(g[gr]))} UF informadas"></div>`;
+  }).join('');
+  lb.innerHTML = GROUPS.filter(gr => (g[gr]||[]).length).map(gr =>
+    `<span><i style="background:${GC[gr]}"></i>${gr} · ${g[gr].length} (${nf0.format(g[gr].length / F.length * 100)}%)</span>`).join('');
+  bindTips(ob);
+}
+
+function renderMonthly(F) {
+  const el = document.getElementById('monthChart');
+  if (!F.length) { el.innerHTML = '<div class="empty">Sin datos con los filtros actuales.</div>'; return; }
+  const months = [...new Set(F.map(d => d.c.slice(0,7)))].sort();
+  const data = months.map(m => {
+    const ds = F.filter(d => d.c.slice(0,7) === m);
+    const o = {m, total: ds.length};
+    GROUPS.forEach(gr => o[gr] = ds.filter(d => d.g === gr).length);
+    return o;
+  });
+  const W = 520, H = 210, padL = 30, padB = 24, padT = 16;
+  const step = Math.max(Math.ceil(Math.max(...data.map(d => d.total)) / 40) * 10, 5);
+  const max = Math.ceil(Math.max(...data.map(d => d.total)) / step) * step || step;
+  const plotH = H - padB - padT, plotW = W - padL - 8;
+  const colW = Math.min(44, Math.max(plotW / months.length - 14, 8));
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:420px" role="img" aria-label="MQLs por mes según resultado">`;
+  for (let t = 0; t <= max; t += step) {
+    const y = padT + plotH - t / max * plotH;
+    s += `<line x1="${padL}" y1="${y}" x2="${W-4}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${padL - 6}" y="${y + 3.5}" text-anchor="end" font-size="10.5" fill="var(--ink-3)">${t}</text>`;
+  }
+  data.forEach((d, i) => {
+    const cx = padL + (i + 0.5) * plotW / months.length;
+    let y = padT + plotH;
+    [...GROUPS].reverse().forEach(gr => {
+      if (!d[gr]) return;
+      const h = d[gr] / max * plotH;
+      y -= h;
+      s += `<rect x="${cx - colW/2}" y="${y + 1}" width="${colW}" height="${Math.max(h - 2, 1.5)}" rx="2" fill="${GC[gr]}" tabindex="0"
+        data-tip="<b>${fmtMonth(d.m)}</b> · ${gr}<br>${d[gr]} de ${d.total} MQLs"></rect>`;
+    });
+    s += `<text x="${cx}" y="${y - 5}" text-anchor="middle" font-size="11" font-weight="600" fill="var(--ink)">${d.total}</text>`;
+    s += `<text x="${cx}" y="${H - 7}" text-anchor="middle" font-size="11" fill="var(--ink-3)">${fmtMonth(d.m)}</text>`;
+  });
+  s += `<line x1="${padL}" y1="${padT + plotH}" x2="${W-4}" y2="${padT + plotH}" stroke="var(--baseline)" stroke-width="1"/></svg>`;
+  el.innerHTML = s; bindTips(el);
+}
+
+function renderFunnel(F) {
+  const open = F.filter(d => d.g === 'Abierto');
+  document.getElementById('funnelSub').textContent =
+    `${open.length} negocios abiertos · monto en UF donde está informado`;
+  const ORDER = ['Meeting Set','Qualified Prospect','Qualified Opportunity','Value Proposition','Negotiation','Audit'];
+  const rows = ORDER.map((st, i) => {
+    const ds = open.filter(d => d.s === st);
+    return { lbl: st, n: ds.length, i, ufTxt: nf0.format(sum(ds)),
+      tip: `<b>${st}</b><br>${ds.length} negocios abiertos<br>${nf.format(sum(ds))} UF informadas` };
+  }).filter(x => x.n > 0);
+  hbars('funnelChart', rows, {
+    fill: r => RAMP[r.i] || 'var(--seq-6)', padL: 150, padR: 100,
+    extra: (r, y, h, padL, w) => `<text x="${padL + w + 26}" y="${y + h/2 + 4}" font-size="11" fill="var(--ink-3)">· ${r.ufTxt} UF</text>`
+  });
+}
+
+const ISIC_SHORT = {
+  'Comercio al por mayor, excepto el de vehículos automotores y motocicletas': 'Comercio al por mayor',
+  'Agricultura, ganadería, caza y actividades de servicios conexas': 'Agricultura y ganadería',
+  'Extracción de minerales metalíferos': 'Minería metalífera',
+  'Suministro de electricidad, gas, vapor y aire acondicionado': 'Electricidad y gas',
+  'Actividades especializadas de construcción': 'Construcción especializada',
+  'Actividades de servicios de apoyo para la explotación de minas y canteras': 'Servicios mineros',
+};
+function renderIndustries(F) {
+  const withInd = F.filter(d => d.isic);
+  const counts = {};
+  withInd.forEach(d => counts[d.isic] = (counts[d.isic] || 0) + 1);
+  const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]);
+  const top = sorted.slice(0, 9).map(([k, n]) => ({
+    lbl: ISIC_SHORT[k] || (k.length > 26 ? k.slice(0, 25) + '…' : k), n,
+    tip: `<b>${k}</b><br>${n} negocios (${nf.format(n / withInd.length * 100)}% de los con dato)` }));
+  const restN = sorted.slice(9).reduce((s, [,n]) => s + n, 0);
+  if (restN) top.push({ lbl: `Otras (${sorted.length - 9} industrias)`, n: restN,
+    tip: `<b>Otras industrias</b><br>${restN} negocios en ${sorted.length - 9} rubros distintos` });
+  hbars('indChart', top, { fill: 'var(--seq-4)' });
+  document.getElementById('indFoot').textContent = F.length ?
+    `Con dato: ${withInd.length} de ${F.length} negocios en vista (${nf0.format(withInd.length / F.length * 100)}%).` : '';
+}
+
+function renderEmployees(F) {
+  const ORDER = ['1-10','11-50','51-200','201-500','501-1000','1001-5000','5001-10000','Más de 10.001'];
+  const LBL = {'501-1000':'501-1.000','1001-5000':'1.001-5.000','5001-10000':'5.001-10.000'};
+  const withR = F.filter(d => d.rng);
+  const rows = ORDER.map((r, i) => {
+    const ds = withR.filter(d => d.rng === r);
+    return { lbl: (LBL[r] || r) + ' trab.', n: ds.length, i,
+      tip: `<b>${LBL[r] || r} trabajadores</b><br>${ds.length} negocios · ${nf.format(sum(ds))} UF informadas` };
+  }).filter(r => r.n > 0);
+  hbars('empChart', rows, { fill: r => RAMP[Math.min(Math.floor(r.i * 6 / 8), 5)], padL: 150 });
+  document.getElementById('empFoot').textContent = F.length ?
+    `Con dato: ${withR.length} de ${F.length} negocios en vista.` : '';
+}
+
+function renderLost(F) {
+  const lost = F.filter(d => d.g === 'Perdido');
+  document.getElementById('lostSub').innerHTML =
+    `Los ${lost.length} negocios perdidos en vista, según <code>motivo_de_negocio_perdido</code>`;
+  const withM = lost.filter(d => d.perdido_por);
+  const norm = s => {
+    const t = s.trim();
+    if (/^congela/i.test(t)) return 'Proyecto congelado';
+    if (/no se presenta/i.test(t)) return 'No asistió a la reunión';
+    if (/asesor/i.test(t)) return 'Era asesor, no comprador';
+    return t.length > 40 ? t.slice(0, 39) + '…' : t;
+  };
+  const counts = {};
+  withM.forEach(d => { const k = norm(d.perdido_por); counts[k] = (counts[k] || 0) + 1; });
+  const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]);
+  const top = sorted.slice(0, 8).map(([k, n]) => ({ lbl: k, n,
+    tip: `<b>${k}</b><br>${n} de ${withM.length} negocios perdidos (${nf.format(n / withM.length * 100)}%)` }));
+  const restN = sorted.slice(8).reduce((s, [,n]) => s + n, 0);
+  if (restN) top.push({ lbl: `Otros motivos`, n: restN, tip: `<b>Otros motivos</b><br>${restN} negocios` });
+  hbars('lostChart', top, { fill: 'var(--c-lost)' });
+}
+
+function renderDiio(F) {
+  const risk = { 'Crítico': 0, 'Medio': 0, 'Bajo': 0 };
+  F.forEach(d => { if (d.riesgo in risk) risk[d.riesgo]++; });
+  const hsDeals = F.filter(d => d.hs != null);
+  const hsAvg = hsDeals.length ? hsDeals.reduce((s,d) => s + parseFloat(d.hs), 0) / hsDeals.length : 0;
+  const notes = F.filter(d => d.dolor || d.hs != null).length;
+  document.getElementById('diioStats').innerHTML = `
+    <span class="riskchip"><span class="sq" style="background:var(--st-crit)"></span>Riesgo crítico <b>${risk['Crítico']}</b></span>
+    <span class="riskchip"><span class="sq" style="background:var(--st-warn)"></span>Riesgo medio <b>${risk['Medio']}</b></span>
+    <span class="riskchip"><span class="sq" style="background:var(--st-good)"></span>Riesgo bajo <b>${risk['Bajo']}</b></span>
+    <span class="riskchip">Healthscore reuniones <b>${hsDeals.length ? nf.format(hsAvg) : '—'}</b>/5 · ${hsDeals.length} negocios</span>`;
+  const pains = {};
+  F.forEach(d => { if (d.dolor) d.dolor.split(';').forEach(x => {
+    const k = x.trim(); if (k) pains[k] = (pains[k] || 0) + 1; }); });
+  const SHORT = {
+    'Falta de trazabilidad / evidencias ante fiscalización': 'Falta de trazabilidad ante fiscalización',
+    'Procesos manuales en terreno (firmas, checklists, charlas)': 'Procesos manuales en terreno',
+    'Gestión documental desordenada (Excel / carpetas / papel)': 'Gestión documental desordenada',
+    'Multas, sanciones recientes o fiscalización inesperada': 'Multas o fiscalización reciente',
+    'Miedo a multas o sanciones por falta de control': 'Miedo a multas por falta de control',
+    'Crecimiento de la empresa superó su sistema actual': 'Crecimiento superó su sistema',
+    'Uso de software, pero no cumple lo esperado': 'Su software actual no cumple',
+  };
+  const rows = Object.entries(pains).sort((a,b) => b[1] - a[1]).map(([k, n]) => ({
+    lbl: SHORT[k] || k, n, tip: `<b>${k}</b><br>Detectado por DiIO en ${n} negocios` }));
+  hbars('painChart', rows, { fill: 'var(--seq-3)', padL: 235, minW: 420 });
+  document.getElementById('diioFoot').textContent =
+    `DiIO cargó notas de reunión con healthscore, dolores y compromisos en ${notes} negocios de la vista. El nivel de riesgo proviene del scoring del CRM.`;
+}
+
+function renderSource(F) {
+  const withS = F.filter(d => d.src);
+  const counts = {};
+  withS.forEach(d => counts[d.src] = (counts[d.src] || 0) + 1);
+  const rows = Object.entries(counts).sort((a,b) => b[1] - a[1]).map(([k, n]) => ({
+    lbl: k, n, tip: `<b>${k}</b><br>${n} negocios (${nf.format(n / withS.length * 100)}%)` }));
+  hbars('srcChart', rows, { fill: 'var(--seq-4)', padL: 170 });
+  document.getElementById('srcFoot').textContent = F.length ?
+    `Con dato: ${withS.length} de ${F.length} negocios en vista (fuente original del contacto asociado).` : '';
+}
+
+function renderModules(F) {
+  const withM = F.filter(d => d.mods);
+  const seen = new Set(), uniq = [];
+  withM.forEach(d => { const k = d.n.replace('(Clientes) - ',''); if (!seen.has(k)) { seen.add(k); uniq.push(d); } });
+  const counts = {};
+  uniq.forEach(d => d.mods.split(';').forEach(x => {
+    const k = x.trim(); if (k) counts[k] = (counts[k] || 0) + 1; }));
+  const rows = Object.entries(counts).sort((a,b) => b[1] - a[1]).map(([k, n]) => ({
+    lbl: k, n, tip: `<b>${k}</b><br>Comprometido en ${n} de ${uniq.length} negocios con dato` }));
+  hbars('modChart', rows, { fill: 'var(--seq-3)', padL: 170 });
+  document.getElementById('modFoot').textContent =
+    `Informado en ${uniq.length} negocios de la vista (los que llegaron a compromiso comercial).`;
+}
+
+function renderWow(F) {
+  const seen = new Set(), items = [];
+  F.forEach(d => {
+    if (!d.wow || seen.has(d.wow)) return;
+    seen.add(d.wow);
+    items.push({ co: d.n.replace('(Clientes) - ','').replace('(Sales Pipeline) - ','').replace('MQL | ',''), txt: d.wow });
+  });
+  const el = document.getElementById('wowList');
+  el.innerHTML = items.length ? `<div class="wowlist">` + items.map(it => `
+    <details>
+      <summary><span class="co">${esc(it.co)}</span><span class="snip">${esc(it.txt)}</span><span class="more">ver más</span></summary>
+      <p>${esc(it.txt)}</p>
+    </details>`).join('') + `</div>` : '<div class="empty">Sin datos con los filtros actuales.</div>';
+  document.getElementById('wowFoot').textContent = items.length ?
+    `DiIO extrajo el momento «wow» en ${items.length} negocios de la vista (reuniones de handoff grabadas). Haz clic para leer el texto completo.` : '';
+}
+
+function renderOwners(F) {
+  const el = document.getElementById('ownerChart');
+  if (!F.length) { el.innerHTML = '<div class="empty">Sin datos con los filtros actuales.</div>'; return; }
+  const oc = by(F, d => d.o);
+  let rows = Object.entries(oc).map(([o, ds]) => ({o, ds, n: ds.length})).sort((a,b) => b.n - a.n);
+  const top = rows.filter(r => r.n >= 3);
+  const rest = rows.filter(r => r.n < 3);
+  if (rest.length) top.push({o: `Otros (${rest.length} personas)`, ds: rest.flatMap(r => r.ds), n: rest.reduce((s,r) => s + r.n, 0)});
+  const W = 1040, rowH = 32, padL = 168, padR = 46, H = top.length * rowH + 6;
+  const max = Math.max(...top.map(r => r.n));
+  const bw = W - padL - padR;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:640px" role="img" aria-label="Negocios por ejecutivo según resultado">`;
+  top.forEach((r, i) => {
+    const y = i * rowH + 4, h = 19;
+    let x = padL;
+    s += `<text x="${padL - 10}" y="${y + h/2 + 4}" text-anchor="end" font-size="12" fill="var(--ink-2)">${esc(r.o)}</text>`;
+    GROUPS.forEach(gr => {
+      const n = r.ds.filter(d => d.g === gr).length;
+      if (!n) return;
+      const w = n / max * bw;
+      s += `<rect x="${x + 1}" y="${y}" width="${Math.max(w - 2, 1.5)}" height="${h}" rx="2" fill="${GC[gr]}" tabindex="0"
+        data-tip="<b>${esc(r.o)}</b> · ${gr}<br>${n} de ${r.n} negocios"></rect>`;
+      x += w;
+    });
+    s += `<text x="${x + 8}" y="${y + h/2 + 4}" font-size="12" font-weight="600" fill="var(--ink)">${r.n}</text>`;
+  });
+  s += `<line x1="${padL}" y1="0" x2="${padL}" y2="${H}" stroke="var(--baseline)" stroke-width="1"/></svg>`;
+  el.innerHTML = s; bindTips(el);
+}
+
+function renderTable(F) {
+  const rows = F.filter(d => !filters.group || d.g === filters.group);
+  document.getElementById('tbody').innerHTML = rows.map(d => `
+    <tr>
+      <td><a class="deal" href="${HS(d.id)}" target="_blank" rel="noopener">${esc(d.n)}</a></td>
+      <td><span class="pill g-${d.g}"><i></i>${d.g}</span></td>
+      <td style="color:var(--ink-2)">${esc(d.s)}${d.g === 'Perdido' && d.perdido_por ? `<div style="font-size:11.5px;color:var(--ink-3)">${esc(d.perdido_por.slice(0,48))}</div>` : ''}</td>
+      <td style="color:var(--ink-2)">${esc(d.o)}</td>
+      <td style="color:var(--ink-2);white-space:nowrap">${d.src ? esc(d.src) : '—'}</td>
+      <td class="ind" title="${d.isic ? esc(d.isic) : ''}">${d.isic ? esc(d.isic) : '—'}</td>
+      <td style="color:var(--ink-2);white-space:nowrap">${d.rng ? esc(d.rng) : (d.emp != null ? d.emp : '—')}</td>
+      <td class="num">${uf(d.a)}</td>
+      <td class="dt">${fmtDate(d.c)}</td>
+      <td class="dt">${fmtDate(d.cl)}</td>
+    </tr>`).join('') || `<tr><td colspan="10" style="color:var(--ink-3)">Sin negocios con este filtro.</td></tr>`;
+  const withAmt = rows.filter(d => d.a != null);
+  document.getElementById('countNote').textContent =
+    `${rows.length} negocios · ${nf.format(sum(rows))} UF informadas en ${withAmt.length} de ellos. El nombre abre el registro en HubSpot.`;
+}
+
+/* ---------- render everything ---------- */
+function renderAll() {
+  const F = applyFilters();
+  document.getElementById('fCount').innerHTML = `<b>${F.length}</b> de ${DEALS.length} negocios`;
+  renderLede(F); renderKpis(F); renderOutcome(F); renderMonthly(F); renderFunnel(F);
+  renderIndustries(F); renderEmployees(F); renderLost(F); renderDiio(F);
+  renderSource(F); renderModules(F); renderWow(F); renderOwners(F); renderTable(F);
+}
+
+/* ---------- filter controls ---------- */
+function fillSelect(id, label, values) {
+  const el = document.getElementById(id);
+  el.innerHTML = `<option value="">${label}</option>` + values.map(v => `<option>${esc(v)}</option>`).join('');
+  return el;
+}
+const pipes = [...new Set(DEALS.map(d => d.pipe))].sort();
+const owners = [...new Set(DEALS.map(d => d.o))].sort((a,b) => a.localeCompare(b,'es'));
+const srcs = [...new Set(DEALS.map(d => d.src || 'Sin dato'))].sort((a,b) => a.localeCompare(b,'es'));
+const sites = [...new Set(DEALS.map(d => d.site || 'Sin dato'))].sort();
+fillSelect('fPipe', 'Todos los pipelines', pipes).addEventListener('change', e => { filters.pipe = e.target.value; renderAll(); });
+fillSelect('fOwner', 'Todos los propietarios', owners).addEventListener('change', e => { filters.owner = e.target.value; renderAll(); });
+fillSelect('fSrc', 'Todas las fuentes', srcs).addEventListener('change', e => { filters.src = e.target.value; renderAll(); });
+fillSelect('fSite', 'Todos los sitios', sites).addEventListener('change', e => { filters.site = e.target.value; renderAll(); });
+
+const fFrom = document.getElementById('fFrom'), fTo = document.getElementById('fTo');
+const presetsEl = document.getElementById('presets');
+function setPresetActive(p) {
+  presetsEl.querySelectorAll('.pchip').forEach(c => c.classList.toggle('on', c.dataset.p === p));
+}
+fFrom.addEventListener('change', () => { filters.from = fFrom.value; setPresetActive(''); renderAll(); });
+fTo.addEventListener('change', () => { filters.to = fTo.value; setPresetActive(''); renderAll(); });
+presetsEl.addEventListener('click', ev => {
+  const b = ev.target.closest('.pchip'); if (!b) return;
+  const p = b.dataset.p;
+  const today = new Date();
+  const iso = dt => dt.toISOString().slice(0,10);
+  if (p === 'all') { filters.from = ''; filters.to = ''; }
+  else if (p === 'month') {
+    filters.from = iso(new Date(today.getFullYear(), today.getMonth(), 1)); filters.to = iso(today);
+  } else {
+    const dt = new Date(today); dt.setDate(dt.getDate() - parseInt(p, 10));
+    filters.from = iso(dt); filters.to = iso(today);
+  }
+  fFrom.value = filters.from; fTo.value = filters.to;
+  setPresetActive(p); renderAll();
+});
+document.getElementById('fClear').addEventListener('click', () => {
+  filters.pipe = filters.owner = filters.src = filters.site = filters.from = filters.to = '';
+  ['fPipe','fOwner','fSrc','fSite'].forEach(id => document.getElementById(id).value = '');
+  fFrom.value = ''; fTo.value = '';
+  setPresetActive('all'); renderAll();
+});
+
+/* table group chips */
+const chipsEl = document.getElementById('chips');
+const CHIP_OPTS = [['','Todos'],['Abierto','Abiertos'],['Ganado','Ganados'],['Congelado','Congelados'],['Perdido','Perdidos']];
+filters.group = 'Abierto';
+chipsEl.innerHTML = CHIP_OPTS.map(([v, l]) =>
+  `<button class="chip${v === filters.group ? ' on' : ''}" data-v="${v}">${l}</button>`).join('');
+chipsEl.addEventListener('click', ev => {
+  const b = ev.target.closest('.chip'); if (!b) return;
+  filters.group = b.dataset.v;
+  chipsEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.dataset.v === filters.group));
+  renderTable(applyFilters());
+});
+
+/* legends (static) */
+const legendHTML = GROUPS.map(gr => `<span><i style="background:${GC[gr]}"></i>${gr}</span>`).join('');
+document.getElementById('legendMonth').innerHTML = legendHTML;
+document.getElementById('legendOwner').innerHTML = legendHTML;
+
+renderAll();
+</script>
+</body></html>
