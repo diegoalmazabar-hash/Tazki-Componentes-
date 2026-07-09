@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máquina de Leads Tazki</title>
+<style>
+:root{
+  --cobalto:#1f4ed8; --cobalto-d:#173db0; --cobalto-l:#e8f0fe;
+  --tofu:#3b82f6; --tofu-bg:#e8f0fe; --mofu:#d97706; --mofu-bg:#fff4e0;
+  --bofu:#16a34a; --bofu-bg:#e3f4e9; --tinta:#0f172a; --gris:#64748b;
+  --linea:#e2e8f0; --bg:#f6f8fc; --card:#ffffff;
+  --ok:#16a34a; --ok-bg:#e3f4e9; --lock:#dc2626; --lock-bg:#fee2e2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tinta);line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+header{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;padding:34px 0 28px}
+.kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
+header h1{font-size:28px;font-weight:800;margin:6px 0 8px}
+header p{font-size:14px;opacity:.92;max-width:740px}
+nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea);margin-bottom:26px}
+nav .wrap{display:flex;gap:6px;padding:10px 20px;overflow-x:auto}
+nav button{border:0;background:transparent;color:var(--gris);font:inherit;font-weight:600;font-size:14px;padding:9px 15px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--cobalto-l);color:var(--cobalto)}
+nav button.on{background:var(--cobalto);color:#fff}
+.tab{display:none}
+h2.sec{font-size:23px;font-weight:800;margin-bottom:6px}
+.sub{color:var(--gris);margin-bottom:20px;max-width:820px}
+.lbl{font-size:12px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;display:block}
+/* tablas */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{width:100%;min-width:640px;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--linea);border-radius:12px;margin-top:8px}
+table.data th{background:var(--cobalto);color:#fff;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.03em;padding:10px 12px;white-space:nowrap}
+table.data td{padding:9px 12px;border-top:1px solid var(--linea);color:#334155;vertical-align:top}
+table.data td.k{font-weight:700;color:#1e293b;background:#fafbff;white-space:nowrap}
+table.data tr:last-child td{font-weight:700}
+.note{background:var(--cobalto-l);border-left:4px solid var(--cobalto);padding:14px 18px;border-radius:8px;font-size:14px;margin-top:16px}
+.note.warn{background:#fff4e0;border-left-color:var(--mofu)}
+/* stage cards */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.stage{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+.stage:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
+.stage.tofu:before{background:var(--tofu)}.stage.mofu:before{background:var(--mofu)}.stage.bofu:before{background:var(--bofu)}
+.stage .tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:10px}
+.stage.tofu .tag{background:var(--tofu-bg);color:var(--tofu)}.stage.mofu .tag{background:var(--mofu-bg);color:var(--mofu)}.stage.bofu .tag{background:var(--bofu-bg);color:var(--bofu)}
+.stage h3{font-size:17px;margin-bottom:8px}
+.stage p{font-size:14px;color:#334155;margin-top:3px}
+.stage .lbl{margin-top:12px}
+/* conversion funnel */
+.cfunnel{display:flex;flex-direction:column;align-items:center;gap:0;margin:16px 0}
+.cstage{color:#fff;border-radius:9px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;max-width:560px}
+.cstage b{font-size:15px}.cstage span{display:block;font-size:12px;opacity:.92;font-weight:500}
+.cstage .cval{font-size:12px;font-weight:700;white-space:nowrap;background:rgba(255,255,255,.22);padding:4px 9px;border-radius:6px}
+.crate{font-size:12px;font-weight:700;color:var(--gris);text-align:center;padding:6px 0}.crate b{color:var(--tinta)}
+/* pillar cards */
+.pillar{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:20px;margin-bottom:14px}
+.pillar .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.pillar h3{font-size:18px;font-weight:800}
+.pillar .est{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.est.piloto{background:var(--tofu-bg);color:var(--tofu)}.est.siembra{background:var(--bofu-bg);color:var(--bofu)}.est.existe{background:var(--mofu-bg);color:var(--mofu)}
+.pillar .meta{font-size:13px;color:#475569;margin-top:8px}.pillar .meta b{color:#1e293b}
+.pillar .lm{background:var(--cobalto-l);border-radius:8px;padding:8px 12px;margin-top:10px;font-size:13px;font-weight:600;color:var(--cobalto-d)}
+.pillar ul{margin:10px 0 0 2px;list-style:none}
+.pillar li{font-size:13px;color:#334155;padding:5px 0;border-top:1px dashed var(--linea);display:flex;gap:8px;align-items:baseline}
+.pillar li .n{font-weight:800;color:var(--cobalto);font-size:12px;flex-shrink:0}
+.pillar li .et{font-size:10px;font-weight:800;padding:1px 6px;border-radius:4px;flex-shrink:0}
+.et.TOFU{background:var(--tofu-bg);color:var(--tofu)}.et.MOFU{background:var(--mofu-bg);color:var(--mofu)}.et.BOFU{background:var(--bofu-bg);color:var(--bofu)}
+/* backlog board */
+.gprog{background:var(--linea);border-radius:20px;height:11px;overflow:hidden;max-width:520px;margin-top:6px}
+.gprog span{display:block;height:100%;background:var(--cobalto);border-radius:20px;transition:width .3s}
+.gprog-txt{font-size:13px;font-weight:700;margin:7px 0 16px;color:var(--gris)}
+.search{width:100%;border:1px solid var(--linea);border-radius:10px;padding:11px 14px;font:inherit;font-size:15px;margin-bottom:12px;background:#fff}
+.search:focus{outline:none;border-color:var(--cobalto)}
+.fgroup{margin-bottom:8px}
+.fglabel{font-size:11px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;margin-right:8px}
+.chips{display:inline-flex;flex-wrap:wrap;gap:6px;vertical-align:middle}
+.chip{border:1px solid var(--linea);background:#fff;font:inherit;font-size:13px;font-weight:600;color:#475569;padding:5px 11px;border-radius:20px;cursor:pointer}
+.chip:hover{border-color:var(--cobalto);color:var(--cobalto)}.chip.on{background:var(--cobalto);border-color:var(--cobalto);color:#fff}
+.phase{margin:18px 0 22px}
+.phase-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.phase-h h3{font-size:18px;font-weight:800}
+.phase-prog{flex:1;min-width:140px;max-width:280px;background:var(--linea);border-radius:20px;height:9px;overflow:hidden}
+.phase-prog span{display:block;height:100%;background:var(--cobalto);border-radius:20px;transition:width .3s}
+.phase-count{font-size:13px;font-weight:700;color:var(--gris);white-space:nowrap}
+.task{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:12px 15px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start}
+.task.done{opacity:.6}.task.blocked{border-left:4px solid var(--lock);background:#fffafa}
+.task input[type=checkbox]{width:21px;height:21px;margin-top:2px;accent-color:var(--cobalto);cursor:pointer;flex-shrink:0}
+.task.blocked input[type=checkbox]{accent-color:var(--lock)}
+.tbody{flex:1;min-width:0}
+.tid{display:inline-block;font-size:11px;font-weight:800;background:var(--cobalto-l);color:var(--cobalto-d);padding:2px 7px;border-radius:5px;margin-right:8px}
+.ttext{font-size:15px;font-weight:600}.task.done .ttext{text-decoration:line-through;text-decoration-color:var(--gris)}
+.tdesc{font-size:13px;color:var(--gris);margin-top:5px;line-height:1.45}
+/* calculadora ROI */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;align-items:start}
+.calc-in .field{margin-bottom:15px}
+.calc-in label{display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px}
+.calc-in input[type=number]{width:100%;border:1px solid var(--linea);border-radius:8px;padding:10px 12px;font:inherit;font-size:15px;background:#fff}
+.calc-in input[type=number]:focus{outline:none;border-color:var(--cobalto)}
+.calc-in input[type=range]{width:100%;accent-color:var(--cobalto)}
+.calc-in .rangeval{color:var(--cobalto);font-weight:800}
+.calc-out{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;border-radius:14px;padding:24px;position:sticky;top:70px}
+.calc-out .cap{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:700}
+.calc-out .big{font-size:32px;font-weight:800;line-height:1.1;margin:4px 0 2px}
+.calc-out .sub2{font-size:13px;opacity:.9;margin-bottom:8px}
+.calc-out .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.22);font-size:14px}
+.calc-out .row b{font-weight:800}
+@media(max-width:720px){.calc{grid-template-columns:1fr}.calc-out{position:static}}
+/* flujograma */
+.flow{max-width:680px;margin:18px auto 0}
+.fstep{background:#fff;border:1px solid var(--linea);border-left:5px solid var(--cobalto);border-radius:12px;padding:16px 20px;box-shadow:0 2px 10px rgba(31,78,216,.05)}
+.fstep .fhead{display:flex;align-items:center;gap:12px}
+.fstep .fn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--cobalto);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.fstep h3{font-size:16px;font-weight:800}
+.fstep .fdesc{font-size:13px;color:var(--gris);margin:6px 0 0}
+.fstep .fchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.fchip{font-size:12px;background:var(--bg);border:1px solid var(--linea);border-radius:6px;padding:4px 10px;color:#475569;font-weight:600}
+.farrow{text-align:center;color:var(--cobalto);font-size:20px;font-weight:800;padding:5px 0;line-height:1.1}
+.farrow small{display:block;font-size:11px;color:var(--gris);font-weight:600;letter-spacing:.02em}
+.floop{background:var(--bofu-bg);border:1px dashed var(--bofu);color:#15803d;border-radius:10px;padding:11px 16px;text-align:center;font-size:13px;font-weight:600;margin-top:12px}
+.tmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px}
+.b-area{background:#f1f5f9;color:#475569}
+.b-spec{background:var(--cobalto-l);color:var(--cobalto)}
+.b-lock{background:var(--lock-bg);color:var(--lock)}.b-done{background:var(--ok-bg);color:var(--ok)}
+.empty{text-align:center;color:var(--gris);padding:36px;font-size:15px}
+.btn{border:1px solid var(--linea);background:#fff;font:inherit;font-size:13px;font-weight:700;color:#475569;padding:7px 14px;border-radius:8px;cursor:pointer;margin-top:12px}
+.btn:hover{border-color:var(--lock);color:var(--lock)}
+footer{color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea);padding-top:22px;margin-top:36px}
+@media(max-width:720px){.stages{grid-template-columns:1fr}header h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Documento Maestro · Diego + Axel · jul 2026</div>
+    <h1>Máquina de Leads Tazki</h1>
+    <p>Herramienta única de ejecución y medición: el backlog de tareas, el modelo de funnel con el baseline real, los 6 pilares de contenido y el sistema de medición. Todo derivado del documento maestro.</p>
+  </div>
+</header>
+<nav><div class="wrap">
+  <button class="on" data-tab="gestion">✅ Gestión</button>
+  <button data-tab="flujo">🔀 Cómo funciona</button>
+  <button data-tab="funnel">📊 Funnel &amp; Baseline</button>
+  <button data-tab="pilares">🎯 Pilares</button>
+  <button data-tab="medicion">📈 Medición</button>
+  <button data-tab="roi">🧮 Calculadora ROI</button>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ GESTIÓN ============ -->
+<section id="gestion" class="tab" style="display:block">
+  <h2 class="sec">Gestión — backlog de ejecución (§11)</h2>
+  <p class="sub">Las 41 tareas para montar la máquina. Marca al completar (se guarda en tu navegador). Las bloqueadas esperan a que se cierre su dependencia.</p>
+  <div class="gprog"><span id="gbar"></span></div>
+  <div class="gprog-txt" id="gtxt"></div>
+  <input class="search" id="search" placeholder="🔍 Buscar tarea, ID o área…">
+  <div class="fgroup"><span class="fglabel">Fase</span><div class="chips" id="f-fase"></div></div>
+  <div class="fgroup"><span class="fglabel">Área</span><div class="chips" id="f-area"></div></div>
+  <div class="fgroup"><span class="fglabel">Estado</span><div class="chips" id="f-estado"></div></div>
+  <div id="board"></div>
+  <button class="btn" id="reset">↺ Reiniciar mi avance</button>
+</section>
+
+<!-- ============ CÓMO FUNCIONA (FLUJO) ============ -->
+<section id="flujo" class="tab">
+  <h2 class="sec">Cómo funciona la máquina</h2>
+  <p class="sub">El recorrido completo, de punta a punta: cómo un desconocido se convierte en lead, en MQL y, ojalá, en cliente — y cómo cada paso queda medido. Los pasos 2 a 4 ocurren de forma automática en HubSpot.</p>
+  <div class="flow">
+
+    <div class="fstep" style="border-left-color:var(--cobalto)">
+      <div class="fhead"><span class="fn">1</span><h3>Atraer</h3></div>
+      <p class="fdesc">El contenido responde lo que el prevencionista busca en Google y lo trae al sitio.</p>
+      <div class="fchips"><span class="fchip">6 pilares</span><span class="fchip">Pillar pages</span><span class="fchip">37 blogs</span><span class="fchip">5 ebooks</span><span class="fchip">SEO</span><span class="fchip">Redes sociales</span><span class="fchip">Email</span></div>
+    </div>
+    <div class="farrow">↓<small>tráfico calificado</small></div>
+
+    <div class="fstep" style="border-left-color:var(--tofu)">
+      <div class="fhead"><span class="fn">2</span><h3>Captar</h3></div>
+      <p class="fdesc">Un formulario convierte la visita en un contacto. La etapa la define la intención del contenido.</p>
+      <div class="fchips"><span class="fchip">[TOFU] Ebook / Newsletter</span><span class="fchip">[MOFU] Calculadora ROI / Contáctanos</span><span class="fchip">[BOFU] Demo</span></div>
+    </div>
+    <div class="farrow">↓<small>nuevo contacto con correo</small></div>
+
+    <div class="fstep" style="border-left-color:#64748b">
+      <div class="fhead"><span class="fn">3</span><h3>Procesar (automático)</h3></div>
+      <p class="fdesc">Los workflows etiquetan y clasifican al contacto solos, sin trabajo manual.</p>
+      <div class="fchips"><span class="fchip">WF1 → Lead</span><span class="fchip">WF4 → MQL</span><span class="fchip">WF5 → SQL</span><span class="fchip">+ pilar_de_origen</span><span class="fchip">+ etapa_de_captacion</span><span class="fchip">+ fechas</span></div>
+    </div>
+    <div class="farrow">↓<small>contacto etiquetado</small></div>
+
+    <div class="fstep" style="border-left-color:var(--mofu)">
+      <div class="fhead"><span class="fn">4</span><h3>Avanzar</h3></div>
+      <p class="fdesc">El contacto sube por el ciclo de vida a medida que muestra más intención.</p>
+      <div class="fchips"><span class="fchip">Lead</span><span class="fchip">→ MQL</span><span class="fchip">→ SQL / Oportunidad</span><span class="fchip">→ Cliente</span></div>
+    </div>
+    <div class="farrow">↓<small>datos en el CRM</small></div>
+
+    <div class="fstep" style="border-left-color:var(--cobalto-d)">
+      <div class="fhead"><span class="fn">5</span><h3>Medir</h3></div>
+      <p class="fdesc">Los reportes leen las etiquetas y muestran qué funciona y qué no.</p>
+      <div class="fchips"><span class="fchip">Embudo por etapa</span><span class="fchip">Leads por pilar</span><span class="fchip">Leads por canal</span><span class="fchip">Cohortes</span><span class="fchip">Baseline 18-jul</span></div>
+    </div>
+    <div class="farrow">↓<small>aprendizajes</small></div>
+
+    <div class="fstep" style="border-left-color:var(--bofu)">
+      <div class="fhead"><span class="fn">6</span><h3>Decidir y amplificar</h3></div>
+      <p class="fdesc">Cada 4–6 semanas se elige el pilar que más tracciona y se le pone más esfuerzo.</p>
+      <div class="fchips"><span class="fchip">Elegir pilar ganador</span><span class="fchip">Redes</span><span class="fchip">Webinar</span><span class="fchip">Contenido estacional</span></div>
+    </div>
+    <div class="floop">↺ El ganador vuelve al paso 1 con más fuerza · lo que no tracciona se queda en orgánico</div>
+
+  </div>
+</section>
+
+<!-- ============ FUNNEL & BASELINE ============ -->
+<section id="funnel" class="tab">
+  <h2 class="sec">Funnel &amp; Baseline</h2>
+  <p class="sub">El modelo de medición TOFU/MOFU/BOFU (§1) y la foto real de dónde parte Tazki (§0, HubSpot ene–jun 2026).</p>
+
+  <span class="lbl">Baseline real · HubSpot ene–jun 2026</span>
+  <div class="tablewrap">
+    <table class="data">
+      <thead><tr><th>Métrica</th><th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Vistas web</td><td>7.794</td><td>28.981</td><td>35.207</td><td>38.026</td><td>41.554</td><td>42.723</td></tr>
+        <tr><td class="k">Submissions (forms)</td><td>10</td><td>57</td><td>58</td><td>73</td><td>47</td><td>89</td></tr>
+        <tr><td class="k">Leads (ebook/news)</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>6</td></tr>
+        <tr><td class="k">MQL (MQL form)</td><td>7</td><td>26</td><td>43</td><td>54</td><td>41</td><td>29</td></tr>
+        <tr><td class="k">SQL</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td class="k">Cierres ganados</td><td>27</td><td>31</td><td>24</td><td>26</td><td>43</td><td>43</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn"><b>Diagnóstico:</b> la captura funciona (página ebook convierte 16%), pero no tiene tráfico (25 vistas vs 79.110 de la home en may–jun). El TOFU casi no existe (8 leads en el año). Los MQL caen desde abril (54→41→29). El 90% de las vistas se concentra en la home. <b>→ El foco de julio es alimentar el TOFU.</b></div>
+
+  <span class="lbl" style="margin-top:28px">Modelo de medición (§1)</span>
+  <div class="stages">
+    <div class="stage tofu">
+      <span class="tag">TOFU</span><h3>Se interesó en contenido</h3>
+      <p>Consume contenido educativo. Aún no quiere hablar con nadie.</p>
+      <span class="lbl">Cómo se captura</span><p>Form de lead magnet (ebook, plantilla, calculadora) o suscripción al newsletter.</p>
+      <span class="lbl">Lifecycle</span><p>Lead</p>
+    </div>
+    <div class="stage mofu">
+      <span class="tag">MOFU</span><h3>Levantó la mano</h3>
+      <p>Consume contenido de decisión o pide contacto.</p>
+      <span class="lbl">Cómo se captura</span><p>MQL form (contáctanos + LPs) o descarga BOFU-cercana (checklist acreditación).</p>
+      <span class="lbl">Lifecycle</span><p>MQL</p>
+    </div>
+    <div class="stage bofu">
+      <span class="tag">BOFU</span><h3>Proceso comercial activo</h3>
+      <p>Está en conversación de venta.</p>
+      <span class="lbl">Cómo se captura</span><p>Demo agendada / deal creado en pipeline de ventas. Cierre = deal ganado (Customer).</p>
+      <span class="lbl">Lifecycle</span><p>SQL → Opportunity → Customer</p>
+    </div>
+  </div>
+
+  <span class="lbl" style="margin-top:28px">Embudo de conversión · baseline vivo al 18-jul</span>
+  <div class="cfunnel">
+    <div class="cstage" style="background:var(--cobalto)"><div><b>Tráfico</b><span>Sesiones · orgánico + SEM</span></div><span class="cval">18-jul</span></div>
+    <div class="crate">▼ tráfico → lead &nbsp;<b>—%</b></div>
+    <div class="cstage" style="background:var(--tofu)"><div><b>Lead (TOFU)</b><span>Ebook / newsletter</span></div><span class="cval">18-jul</span></div>
+    <div class="crate">▼ lead → MQL &nbsp;<b>—%</b></div>
+    <div class="cstage" style="background:var(--mofu)"><div><b>MQL (MOFU)</b><span>MQL form / LPs</span></div><span class="cval">18-jul</span></div>
+    <div class="crate">▼ MQL → SQL &nbsp;<b>—%</b></div>
+    <div class="cstage" style="background:#ea7c0b"><div><b>SQL / Oportunidad</b><span>Demo / deal creado</span></div><span class="cval">18-jul</span></div>
+    <div class="crate">▼ oportunidad → cierre &nbsp;<b>—%</b></div>
+    <div class="cstage" style="background:var(--bofu)"><div><b>Cierre</b><span>Deal ganado · Customer</span></div><span class="cval">18-jul</span></div>
+  </div>
+
+  <div class="note"><b>Reglas de oro (§1):</b> ① las fechas se estampan solo si están vacías (se preserva la primera conversión); ② el lifecycle nunca retrocede; ③ ninguna propiedad de medición se llena a mano — todo por workflow; ④ todo form nuevo nace con prefijo de etapa y pilar. <b>Cohortes:</b> un lead de julio que llega a SQL en 2027 conserva ambas fechas → se puede medir cuántos avanzan y en cuánto tiempo.</div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section id="pilares" class="tab">
+  <h2 class="sec">Los 6 pilares (§7)</h2>
+  <p class="sub">Cada pilar = pillar page (head keyword, TOFU→BOFU) + cluster posts (long-tail, enlazan a la pillar) + lead magnet con form [TOFU] + CTA a demo. Todos enlazan al Pilar 6.</p>
+  <div id="pillars"></div>
+</section>
+
+<!-- ============ MEDICIÓN ============ -->
+<section id="medicion" class="tab">
+  <h2 class="sec">Medición (§9)</h2>
+  <p class="sub">Los reportes que se arman en HubSpot y el loop de amplificación que decide qué pilar escalar.</p>
+
+  <span class="lbl">Reportes en HubSpot (§9.1)</span>
+  <div class="tablewrap">
+    <table class="data">
+      <thead><tr><th>Reporte</th><th>Cómo</th><th>Qué responde</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Embudo de ciclo de vida</td><td>Informes → Embudos → Contactos (Lead→MQL→SQL→Cliente)</td><td>Tasas de conversión etapa a etapa, por mes</td></tr>
+        <tr><td class="k">Leads por pilar</td><td>Contactos por pilar_de_origen, agrupado por mes de fecha_lead</td><td>Qué pilar genera leads (loop fase 3)</td></tr>
+        <tr><td class="k">Leads por canal</td><td>Contactos por hs_analytics_source + UTM</td><td>Qué canal trae leads (popup vs email vs LinkedIn)</td></tr>
+        <tr><td class="k">Rendimiento de campañas</td><td>Marketing → Campañas</td><td>Contactos e influencia por pilar</td></tr>
+        <tr><td class="k">Cohortes lead→MQL</td><td>Contactos con fecha_lead en mes X que tienen fecha_mql</td><td>Cuántos avanzan y en cuánto tiempo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <span class="lbl" style="margin-top:28px">Formularios por etapa de funnel</span>
+  <p class="sub" style="margin-top:6px">La etapa la define la intención del contenido, no el formato. Cada formulario nace con su prefijo de etapa, que determina qué workflow lo procesa y en qué lifecycle cae el contacto. Así el origen queda registrado y se puede desglosar.</p>
+  <div class="tablewrap">
+    <table class="data">
+      <thead><tr><th>Contenido / oferta</th><th>Prefijo del form</th><th>Workflow</th><th>Lifecycle</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Ebook educativo (DS44, accidentes…)</td><td>[TOFU]</td><td>WF1</td><td>Lead</td></tr>
+        <tr><td class="k">Suscripción al newsletter</td><td>[TOFU]</td><td>WF1</td><td>Lead</td></tr>
+        <tr><td class="k">Checklist / contenido BOFU-cercano</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
+        <tr><td class="k">Calculadora ROI / comparativa software</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
+        <tr><td class="k">Form «contáctanos» / solicitar demo</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
+        <tr><td class="k">Demo agendada / deal creado</td><td>[BOFU]</td><td>WF5</td><td>SQL</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>Cómo se desglosa el origen:</b> cada lead queda etiquetado con tres propiedades — <b>pilar_de_origen</b> (el tema), <b>etapa_de_captacion</b> (TOFU/MOFU/BOFU) y <b>first_conversion_event_name</b> (el formulario exacto que convirtió). Con esas tres, los reportes y el baseline se pueden filtrar por etapa, por pilar y por la pieza precisa. <b>Decisión pendiente con ventas:</b> qué ofertas cuentan como Lead y cuáles como MQL (por ejemplo, si la calculadora ROI genera un MQL directo o un Lead de alta intención).</div>
+
+  <span class="lbl" style="margin-top:28px">Loop de amplificación · cada 4–6 semanas (sep–dic, §9.3)</span>
+  <div class="stages" style="grid-template-columns:1fr 1fr">
+    <div class="stage tofu">
+      <span class="tag">Señales por pilar</span><h3>Qué se mira</h3>
+      <p>Sesiones orgánicas (HubSpot + Search Console), keywords que rankean, leads del lead magnet, tasa visita→lead, conversión a MQL/demo.</p>
+    </div>
+    <div class="stage bofu">
+      <span class="tag">Regla de decisión</span><h3>Qué se amplifica</h3>
+      <p>El pilar con mejor <b>tráfico orgánico + conversión a lead</b> se lleva la amplificación (redes, webinar, contenido estacional). Lo que no tracciona se queda en orgánico.</p>
+    </div>
+  </div>
+  <div class="note warn"><b>Prerequisito:</b> reconectar Search Console — Supermetrics expiró el 1/jul (tarea M4). Sin datos de keywords, el loop no puede decidir bien.</div>
+</section>
+
+<section id="roi" class="tab">
+  <h2 class="sec">Calculadora de ROI</h2>
+  <p class="sub">Lead magnet de fondo de funnel (BOFU). Estima cuánto ahorra una empresa al pasar del papel/Excel a una plataforma de prevención. Al usarla o descargar el resultado, el contacto entra por un form <b>[MOFU]</b> y se marca como <b>MQL</b>. Este es un prototipo editable del cálculo.</p>
+  <div class="calc">
+    <div class="calc-in">
+      <div class="field"><label>Personas que hacen gestión de prevención</label><input type="number" id="r-pers" value="3" min="1"></div>
+      <div class="field"><label>Horas por semana en papeleo y registros (por persona)</label><input type="number" id="r-hrs" value="10" min="0"></div>
+      <div class="field"><label>Valor de la hora (CLP)</label><input type="number" id="r-val" value="8000" min="0" step="500"></div>
+      <div class="field"><label>Tiempo que ahorra la plataforma: <span class="rangeval" id="r-pctv">60%</span></label><input type="range" id="r-pct" min="20" max="90" value="60"></div>
+      <div class="field"><label>Costo mensual de la plataforma (CLP · opcional)</label><input type="number" id="r-cost" value="" min="0" step="10000" placeholder="Déjalo vacío si no lo sabes"></div>
+    </div>
+    <div class="calc-out">
+      <div class="cap">Ahorro estimado</div>
+      <div class="big" id="r-year">—</div>
+      <div class="sub2">al año en horas de trabajo</div>
+      <div class="row"><span>Horas ahorradas al mes</span><b id="r-hmonth">—</b></div>
+      <div class="row"><span>Ahorro al mes</span><b id="r-month">—</b></div>
+      <div class="row" id="r-roirow" style="display:none"><span>ROI mensual</span><b id="r-roi">—</b></div>
+      <div class="row" id="r-payrow" style="display:none"><span>Se paga sola en</span><b id="r-pay">—</b></div>
+    </div>
+  </div>
+  <div class="note">Ajusta los supuestos arriba. La estimación considera <b>solo el ahorro de tiempo</b> en documentación; el valor real suele ser mayor si sumas la reducción de multas (DS 44) y de accidentes. Los valores por defecto son referenciales — hay que validarlos con datos reales antes de publicar la calculadora.</div>
+</section>
+
+<footer>Máquina de Leads Tazki · generado desde el Documento Maestro (Diego + Axel). Avance del backlog guardado localmente. Plan completo en <b>MAESTRO-Maquina-de-Leads-Tazki.pdf</b>.</footer>
+</div>
+
+<script>
+/* ---------- datos backlog (§11) ---------- */
+const TASKS=[
+{id:"F1",fase:"Preparación",area:"Propiedades",t:"Crear etapa_de_captacion (dropdown TOFU/MOFU/BOFU)",spec:2,dep:[],d:"Propiedad de contacto tipo desplegable con opciones TOFU, MOFU y BOFU. La escriben los workflows (nunca a mano) para marcar en qué etapa del funnel entró cada contacto."},
+{id:"F2",fase:"Preparación",area:"Propiedades",t:"Crear pilar_de_origen (dropdown 6 pilares)",spec:2,dep:[],d:"Propiedad desplegable con los 6 pilares (DS44, Accidentabilidad, Papeleo, MIPER, Contratistas, Software). Identifica de qué tema vino el lead, para desglosar después."},
+{id:"F3",fase:"Preparación",area:"Propiedades",t:"Crear conocia_tazki_antes + instruir a ventas",spec:2,dep:[],d:"Propiedad desplegable (Sí por contenido / Sí por referencia / No). La llena ventas en el discovery de los inbound; hay que instruir al equipo para que la registren."},
+{id:"F4",fase:"Preparación",area:"Forms",t:"Renombrar forms existentes con convención [ETAPA]",spec:3,dep:[],d:"Aplicar la convención «[ETAPA] Nombre · Pilar» a los formularios actuales (ej: el form del ebook pasa a «[TOFU] Ebook DS44»). Es lo que ordena la medición desde el origen."},
+{id:"F5",fase:"Preparación",area:"Forms",t:"Agregar checkbox newsletter al form del ebook",spec:3,dep:[],d:"Sumar al formulario del ebook una casilla «Quiero recibir el newsletter», que marca la propiedad suscripcion_newsletter cuando la activan."},
+{id:"F6",fase:"Preparación",area:"Forms",t:"Crear form [TOFU] Newsletter",spec:3,dep:[],d:"Formulario simple de un solo campo (email) para el módulo de suscripción que va al pie de los blogs y en la página de recursos."},
+{id:"F7",fase:"Preparación",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"],d:"Crear las listas: Leads TOFU 2026, Suscriptores Newsletter, Clientes activos, Usuarios de plataforma y Base Email MKT Julio (esta última excluye clientes, rebotados y opt-out)."},
+{id:"F8",fase:"Preparación",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form TOFU, marca etapa=TOFU, pilar_de_origen, fecha_lead y lifecycle=Lead. Excluye a clientes y usuarios de plataforma. Se deja en borrador."},
+{id:"F9",fase:"Preparación",area:"Workflows",t:"Armar WF2 Entrega Ebook (borrador)",spec:4,dep:["F4"],d:"Workflow que envía el email con el ebook al descargarlo y lo reenvía a los 3 días si no lo abrieron."},
+{id:"F10",fase:"Preparación",area:"Workflows",t:"Armar WF3 Alta Newsletter (borrador)",spec:4,dep:["F5","F6"],d:"Workflow que inscribe en la lista de suscriptores y envía el email de bienvenida cuando suscripcion_newsletter = Sí."},
+{id:"F11",fase:"Preparación",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form MOFU, marca lifecycle=MQL, fecha_mql, etapa=MOFU (si estaba vacía) y avisa al equipo de ventas."},
+{id:"F12",fase:"Preparación",area:"Workflows",t:"Armar WF5 Estampado SQL + definir criterio MQL→SQL con ventas",spec:4,dep:[],d:"Workflow que marca lifecycle=SQL cuando se crea un deal o se agenda demo. Antes hay que acordar con ventas el criterio exacto de cuándo un MQL pasa a SQL."},
+{id:"F13",fase:"Preparación",area:"Workflows",t:"Revisión con Axel y activación (orden §4)",spec:4,dep:["F8","F9","F10","F11","F12"],d:"Axel revisa los 5 workflows en borrador y se activan en orden (WF2→WF3→WF1→WF4→WF5). Es el paso que habilita casi toda la distribución y la medición."},
+{id:"F14",fase:"Preparación",area:"Campañas",t:"Crear Campaign Pilar 1 · DS44 y Pilar 6 · Software",spec:5,dep:[],d:"Crear en HubSpot las campañas de estos dos pilares, para agrupar y medir todos sus contenidos (pillar, blogs, form, emails, posts)."},
+{id:"F15",fase:"Preparación",area:"SEO",t:"Crear Topic DS44 en Marketing → SEO con subtemas",spec:7,dep:[],d:"En Marketing → SEO, crear el tema (topic cluster) del DS 44 con sus subtemas, para asociar la pillar page y los 7 blogs."},
+{id:"C1",fase:"Piloto julio",area:"Contenido",t:"Publicar pillar page DS44",spec:7,dep:["F15"],d:"Publicar la guía completa del DS 44 (la página pilar), con el enlace de descarga del ebook y una CTA a demo. Es la base de la que cuelgan los 7 blogs."},
+{id:"C2",fase:"Piloto julio",area:"Contenido",t:"Actualizar post 1.1 ODI/IRL y enlazar a pillar",spec:7,dep:["C1"],d:"Actualizar el artículo «ODI o IRL» (que ya rankea con 280+ clics) y enlazarlo a la pillar page del DS 44."},
+{id:"C3",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.3 FUF",spec:7,dep:["C1"],d:"Redactar y publicar el artículo sobre el FUF (formato único de fiscalización) del DS 44; demanda creciente en búsquedas."},
+{id:"C4",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.4 Checklist fiscalización",spec:7,dep:["C1"],d:"Redactar «Qué te pide la DT si te fiscalizan», un artículo accionable con CTA fuerte al ebook."},
+{id:"C5",fase:"Piloto julio",area:"Contenido",t:"Escribir post 1.5 Multas $1.004M",spec:7,dep:["C1"],d:"Redactar el artículo sobre las infracciones más multadas del DS 44 ($1.004M en 6 meses), enfocado al decisor y el riesgo legal."},
+{id:"C6",fase:"Piloto julio",area:"Contenido",t:"Escribir posts 1.2 y 1.6",spec:7,dep:["C1"],d:"Redactar «Qué es la IRL y cómo hacerla» y «Plazos del DS 44: qué reportar y cuándo»."},
+{id:"D1",fase:"Piloto julio",area:"Distribución",t:"Enviar email ebook a Base Email MKT Julio",spec:8,dep:["F7","F13"],d:"Enviar el email de invitación al ebook a la lista Base Email MKT Julio (base limpia: sin clientes, usuarios ni rebotados). Un solo CTA, sin mención de demo."},
+{id:"D2",fase:"Piloto julio",area:"Distribución",t:"Instalar CTA newsletter al pie del blog y recursos",spec:8,dep:["F6","F13"],d:"Instalar el módulo de suscripción al newsletter al pie de cada post de blog y en la página de recursos. Nunca en landings, soluciones ni industrias."},
+{id:"D3",fase:"Piloto julio",area:"Distribución",t:"Configurar popup home (listo para activar con web nueva)",spec:8,dep:["F7","F13"],d:"Dejar configurado el popup del ebook para la home (aparece al 50% de scroll o 20 s; excluye clientes). Queda listo, se activa cuando esté la web nueva."},
+{id:"D4",fase:"Piloto julio",area:"Distribución",t:"Newsletter #1 (quincenal) a suscriptores",spec:8,dep:["F10","D2"],d:"Preparar y enviar el primer newsletter quincenal a la lista de suscriptores."},
+{id:"D5",fase:"Piloto julio",area:"Distribución",t:"Newsletter LinkedIn: primer envío con link al ebook",spec:5,dep:["C1"],d:"Publicar el primer envío del newsletter de LinkedIn con el enlace al ebook (usar la UTM del Pilar 1)."},
+{id:"M1",fase:"Medición",area:"Reportes",t:"Crear embudo de ciclo de vida en HubSpot",spec:9,dep:["F13"],d:"Crear el reporte de embudo (Lead→MQL→SQL→Cliente) para ver las tasas de conversión de una etapa a la siguiente, mes a mes."},
+{id:"M2",fase:"Medición",area:"Reportes",t:"Crear reporte leads por pilar y por canal",spec:9,dep:["F13"],d:"Crear los reportes de leads agrupados por pilar_de_origen y por fuente/canal (UTM), para saber qué tema y qué canal traen más leads."},
+{id:"M3",fase:"Medición",area:"Dashboard",t:"Baseline vivo 18/jul: dashboard con 4 tasas",spec:9,dep:["F13"],d:"Registrar la foto inicial del funnel con las 4 tasas de conversión al 18 de julio. Es el punto de partida contra el que se compara todo."},
+{id:"M4",fase:"Medición",area:"Datos",t:"Reconectar Search Console (renovar Supermetrics u otra vía)",spec:9,dep:[],d:"Renovar Supermetrics (venció el 1/jul) o buscar otra vía para recuperar los datos de keywords y tráfico orgánico. Sin esto, el loop de amplificación no puede decidir."},
+{id:"M5",fase:"Medición",area:"Dashboard",t:"Extender dashboard: leads por pilar + cohortes",spec:9,dep:["M3"],d:"Sumar al dashboard las vistas de leads por pilar y el análisis de cohortes (de los leads de un mes, cuántos llegan a MQL y en cuánto tiempo)."},
+{id:"P6",fase:"Pilar 6",area:"CRO",t:"Optimizar Landing Prev Riesgos (hero, form, un CTA, sin fugas)",spec:7,dep:[],d:"Mejorar la landing que recibe el SEM (438 vistas / 84% rebote): hero con claim y prueba (Ord. 908), formulario visible sin scroll, un solo CTA y quitar fugas de navegación."},
+{id:"P6b",fase:"Pilar 6",area:"SEM",t:"Decisión de budget SEM con Axel (tras 2 semanas de mejoras)",spec:0,dep:["P6"],d:"Con Axel, después de 2 semanas de mejoras a la landing, decidir si se sube el presupuesto de SEM (hoy está congelado)."},
+{id:"A1",fase:"Siembra agosto",area:"Contenido",t:"Pilar 2: campaign + topic + pillar + ebook accidentabilidad + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 2 (Accidentabilidad): campaña, topic SEO, pillar page, ebook y su formulario [TOFU]."},
+{id:"A2",fase:"Siembra agosto",area:"Contenido",t:"Pilar 3: campaign + topic + pillar + ebook documentación + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 3 (Papeleo/documentación): campaña, topic SEO, pillar page, ebook y su formulario."},
+{id:"A3",fase:"Siembra agosto",area:"Contenido",t:"Pilar 4: campaign + topic + pillar + ebook MIPER + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 4 (MIPER): campaña, topic SEO, pillar page, ebook y su formulario. Gran oportunidad: alta demanda y cero presencia actual."},
+{id:"A4",fase:"Siembra agosto",area:"Contenido",t:"Pilar 5: campaign + topic + pillar + ebook contratistas + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 5 (Contratistas): campaña, topic SEO, pillar page, ebook y su formulario. Ángulo decisor (responsabilidad subsidiaria)."},
+{id:"A5",fase:"Siembra agosto",area:"Distribución",t:"Activar popup home (web nueva lista)",spec:8,dep:["D3"],d:"Activar el popup del ebook en la home una vez que la web nueva esté publicada."},
+{id:"A6",fase:"Siembra agosto",area:"Medición",t:"Fijar meta de leads de agosto con datos del piloto",spec:10,dep:["M3"],d:"Con los datos reales del piloto de julio, definir la meta de leads para agosto (recién ahí se pone número, no antes)."},
+{id:"S1",fase:"Amplificación",area:"Loop",t:"Revisión 4–6 semanas: elegir pilar ganador",spec:9,dep:["M4","A1","A2","A3","A4"],d:"Cada 4–6 semanas, revisar el rendimiento orgánico de cada pilar (visitas + conversión a lead) y elegir el que más tracciona."},
+{id:"S2",fase:"Amplificación",area:"Canales",t:"Amplificar ganador: redes + webinar + estacional",spec:9,dep:["S1"],d:"Reforzar el pilar ganador con los formatos de mayor esfuerzo: redes sociales, webinar y contenido estacional. Lo que no tracciona se queda en orgánico."},
+];
+const PHASES=["Preparación","Piloto julio","Medición","Pilar 6","Siembra agosto","Amplificación"];
+
+/* ---------- datos pilares (§7) ---------- */
+const PILLARS=[
+{n:"Pilar 1 · Cumplimiento legal DS 44",est:"piloto",estl:"🧪 Piloto julio",page:"Guía completa del DS 44: qué exige la nueva ley de prevención en Chile",kw:"ds 44 · decreto supremo 44 · nueva ley prevención de riesgos · reglamento SGSST",lm:"📘 Ebook DS44 «Obligaciones, plazos y cómo cumplir sin ahogarte en papeleo» → form [TOFU] Ebook DS44",posts:[["1.1","ODI o IRL: qué cambió con el DS 44","TOFU"],["1.2","Qué es la IRL del DS 44 y cómo hacerla","TOFU"],["1.3","FUF: el formato único de fiscalización del DS 44","MOFU"],["1.4","Checklist: qué te pide la DT si te fiscalizan","MOFU"],["1.5","Las infracciones que más multó el DS 44 ($1.004M)","MOFU"],["1.6","Plazos del DS 44: qué reportar y cuándo","TOFU"],["1.7","DS 44 vs DS 40: qué cambió realmente","TOFU"]]},
+{n:"Pilar 2 · Reducir accidentabilidad",est:"siembra",estl:"🌱 Agosto (amplificar sep)",page:"Cómo reducir la tasa de accidentabilidad en tu empresa: guía práctica",kw:"tasa de accidentabilidad · cómo reducir accidentes laborales · prevención de accidentes",lm:"📘 Ebook «Cómo reducir la accidentabilidad» (incluye árbol de causas) → form [TOFU] Ebook Accidentabilidad",posts:[["2.1","Cómo se calcula la tasa de accidentabilidad, con ejemplo","TOFU"],["2.2","Investigación de accidentes: árbol de causas paso a paso","MOFU"],["2.3","Accidente grave o fatal: qué hacer y en qué plazo","TOFU"],["2.4","IRL: identificar peligros antes del accidente","MOFU"],["2.5","Los 5 accidentes más comunes por rubro y cómo prevenirlos","TOFU"],["2.6","Indicadores que sí predicen accidentes: leading vs lagging","MOFU"],["2.7","Cómo VERA sugiere causas y medidas; tu equipo valida","BOFU"]]},
+{n:"Pilar 3 · Papeleo y documentación",est:"siembra",estl:"🌱 Agosto",page:"Toda la documentación de prevención que tu empresa debe tener (y cómo dejar de perderla)",kw:"documentación prevención de riesgos · registros prevención de riesgos · formatos prevención",lm:"📘 Ebook «Documentación y registros de prevención» (con formatos incluidos) → form [TOFU] Ebook Documentación",posts:[["3.1","Registro de entrega de EPP con validez legal","BOFU"],["3.2","La Ord. 908: firma electrónica de EPP con validez legal (el moat)","BOFU"],["3.3","Kardex de EPP: plantilla y cómo llevarlo","MOFU"],["3.4","Charlas de 5 minutos: cómo registrarlas y respaldarlas","TOFU"],["3.5","AST/ART digital: deja de imprimir el análisis de trabajo seguro","MOFU"],["3.6","Cómo acreditar documentos de contratistas antes de faena","BOFU"],["3.7","Cuánto tiempo pierdes al año en papeleo y cómo digitalizarlo","MOFU"]]},
+{n:"Pilar 4 · Matriz de riesgos MIPER",est:"siembra",estl:"🌱 Agosto",page:"Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno",kw:"matriz de riesgos · miper · matriz iper — oportunidad: Trends +70% y cero presencia actual",lm:"📘 Ebook «Cómo elaborar la matriz MIPER» (con plantilla incluida) → form [TOFU] Ebook MIPER",posts:[["4.1","MIPER vs IPER: diferencias y cuál te pide la norma","TOFU"],["4.2","Cómo llenar la MIPER paso a paso, con ejemplo real","TOFU"],["4.3","Los errores más comunes al evaluar riesgos en la matriz","MOFU"],["4.4","MIPER por rubro: construcción, bodega y comercio","TOFU"],["4.5","De la matriz al plan: cómo pasar de identificar a controlar","MOFU"],["4.6","Cómo mantener la MIPER viva sin rehacerla cada año","MOFU"]]},
+{n:"Pilar 5 · Gestión de contratistas",est:"siembra",estl:"🌱 Agosto",page:"Cómo gestionar y acreditar contratistas sin exponerte a multas",kw:"software para contratistas · acreditación contratistas · responsabilidad subsidiaria (ángulo decisor)",lm:"📘 Ebook «Acreditación de contratistas» (con lista de verificación incluida) → form [TOFU] Ebook Contratistas",posts:[["5.1","Responsabilidad subsidiaria y solidaria: qué arriesga la mandante","TOFU"],["5.2","Los documentos que debes exigirle a un contratista antes de faena","MOFU"],["5.3","Cómo auditar el cumplimiento documental de tus contratistas","MOFU"],["5.4","Ley de subcontratación: obligaciones de la empresa principal","TOFU"],["5.5","Control de ingreso a faena: del papel al registro digital","MOFU"],["5.6","Qué mirar en un software de control de contratistas","BOFU"]]},
+{n:"Pilar 6 · Software de prevención (comercial, cierra)",est:"existe",estl:"⚡ Ya existe",page:"Software de prevención de riesgos en Chile: qué mirar antes de pagar",kw:"software prevención riesgos laborales · plataforma de prevención de riesgos — BOFU, CTA único: agendar demo",lm:"🎯 Trabajo de julio: optimizar la Landing Prev Riesgos (438 vistas / 8 subs / 84% rebote) — hero con claim + prueba (Ord. 908), form sin scroll, un CTA, sin fugas",posts:[["6.1","Excel vs software de prevención: cuándo el Excel deja de alcanzar","MOFU"],["6.2","Cuánto cuesta un software de prevención en Chile y de qué depende","BOFU"],["6.3","Firma electrónica con validez legal: qué exigirle a tu software","BOFU"],["6.4","Checklist para evaluar plataformas de prevención antes de la demo","BOFU"]]},
+];
+
+/* ---------- render pilares ---------- */
+document.getElementById("pillars").innerHTML=PILLARS.map(p=>`
+  <div class="pillar">
+    <div class="ph"><h3>${p.n}</h3><span class="est ${p.est}">${p.estl}</span></div>
+    <div class="meta"><b>Pillar page:</b> “${p.page}”</div>
+    <div class="meta"><b>Head keywords:</b> ${p.kw}</div>
+    <div class="lm">${p.lm}</div>
+    <span class="lbl" style="margin-top:12px">Cluster posts</span>
+    <ul>${p.posts.map(x=>`<li><span class="n">${x[0]}</span><span class="et ${x[2]}">${x[2]}</span><span>${x[1]}</span></li>`).join("")}</ul>
+  </div>`).join("");
+
+/* ---------- backlog board ---------- */
+const KEY="tazki_maquina_v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+let fFase="Todas",fArea="Todas",fEstado="Todos",q="";
+const done=id=>!!state[id];
+const blocked=t=>t.dep.some(d=>!done(d));
+const estadoDe=t=>done(t.id)?"Hecho":blocked(t)?"Bloqueada":"Pendiente";
+const uniq=a=>[...new Set(a)];
+function chips(elId,vals,cur,cb){const el=document.getElementById(elId);el.innerHTML="";
+  vals.forEach(v=>{const b=document.createElement("button");b.className="chip"+(v===cur?" on":"");b.textContent=v;b.onclick=()=>cb(v);el.appendChild(b);});}
+function renderFilters(){
+  chips("f-fase",["Todas",...PHASES],fFase,v=>{fFase=v;renderBoard();});
+  chips("f-area",["Todas",...uniq(TASKS.map(t=>t.area))],fArea,v=>{fArea=v;renderBoard();});
+  chips("f-estado",["Todos","Pendiente","Bloqueada","Hecho"],fEstado,v=>{fEstado=v;renderBoard();});
+}
+function matches(t){
+  if(fFase!=="Todas"&&t.fase!==fFase)return false;
+  if(fArea!=="Todas"&&t.area!==fArea)return false;
+  if(fEstado!=="Todos"&&estadoDe(t)!==fEstado)return false;
+  if(q){const s=(t.id+" "+t.t+" "+t.area+" "+t.fase).toLowerCase();if(!s.includes(q))return false;}
+  return true;
+}
+function renderBoard(){
+  const tot=TASKS.length,hechas=TASKS.filter(t=>done(t.id)).length,pct=Math.round(hechas/tot*100);
+  document.getElementById("gbar").style.width=pct+"%";
+  document.getElementById("gtxt").textContent=`${hechas} de ${tot} tareas · ${pct}%`;
+  const board=document.getElementById("board");board.innerHTML="";let shown=0;
+  PHASES.forEach(ph=>{
+    const all=TASKS.filter(t=>t.fase===ph),vis=all.filter(matches);
+    if(!vis.length)return;shown+=vis.length;
+    const d=all.filter(t=>done(t.id)).length,p=Math.round(d/all.length*100);
+    const sec=document.createElement("div");sec.className="phase";
+    sec.innerHTML=`<div class="phase-h"><h3>${ph}</h3><div class="phase-prog"><span style="width:${p}%"></span></div><span class="phase-count">${d}/${all.length}</span></div>`;
+    vis.forEach(t=>{
+      const bl=blocked(t),dn=done(t.id),pend=t.dep.filter(x=>!done(x));
+      const lock=(bl&&!dn)?`<span class="badge b-lock">🔒 espera ${pend.join(", ")}</span>`:"";
+      const depOk=(t.dep.length&&!bl&&!dn)?`<span class="badge b-done">✓ dep. listas</span>`:"";
+      const row=document.createElement("div");row.className="task"+(dn?" done":"")+(bl&&!dn?" blocked":"");
+      row.innerHTML=`<input type="checkbox" ${dn?"checked":""} data-id="${t.id}">
+        <div class="tbody"><div><span class="tid">${t.id}</span><span class="ttext">${t.t}</span></div>
+        ${t.d?`<div class="tdesc">${t.d}</div>`:""}
+        <div class="tmeta"><span class="badge b-area">${t.area}</span><span class="badge b-spec">§${t.spec}</span>${lock}${depOk}</div></div>`;
+      sec.appendChild(row);
+    });
+    board.appendChild(sec);
+  });
+  if(!shown)board.innerHTML=`<div class="empty">No hay tareas que coincidan con el filtro.</div>`;
+  board.querySelectorAll("input[type=checkbox]").forEach(cb=>{
+    cb.onchange=()=>{const id=cb.dataset.id;if(cb.checked)state[id]=true;else delete state[id];localStorage.setItem(KEY,JSON.stringify(state));renderBoard();};});
+}
+document.getElementById("search").oninput=e=>{q=e.target.value.trim().toLowerCase();renderBoard();};
+document.getElementById("reset").onclick=()=>{if(confirm("¿Borrar tu avance marcado? No afecta el plan, solo tus checkboxes.")){state={};localStorage.setItem(KEY,"{}");renderBoard();}};
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    document.querySelectorAll('.tab').forEach(s=>s.style.display='none');
+    document.getElementById(b.dataset.tab).style.display='block';window.scrollTo(0,0);};
+});
+
+/* ---------- calculadora ROI ---------- */
+function calcROI(){
+  const g=id=>document.getElementById(id);
+  const pers=+g('r-pers').value||0, hrs=+g('r-hrs').value||0, val=+g('r-val').value||0, pct=+g('r-pct').value||0;
+  const cost=parseFloat(g('r-cost').value);
+  g('r-pctv').textContent=pct+'%';
+  const fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(Math.round(n));
+  const horasMes=pers*hrs*4.33, hAhorro=horasMes*pct/100, ahorroMes=hAhorro*val, ahorroAnio=ahorroMes*12;
+  g('r-year').textContent=fmt(ahorroAnio);
+  g('r-hmonth').textContent=Math.round(hAhorro)+' h';
+  g('r-month').textContent=fmt(ahorroMes);
+  const roirow=g('r-roirow'), payrow=g('r-payrow');
+  if(!isNaN(cost)&&cost>0){
+    g('r-roi').textContent=Math.round((ahorroMes-cost)/cost*100)+'%';roirow.style.display='flex';
+    if(ahorroMes>0){g('r-pay').textContent=(cost/ahorroMes).toFixed(1).replace('.',',')+' meses';payrow.style.display='flex';}
+    else payrow.style.display='none';
+  } else {roirow.style.display='none';payrow.style.display='none';}
+}
+['r-pers','r-hrs','r-val','r-pct','r-cost'].forEach(id=>document.getElementById(id).addEventListener('input',calcROI));
+calcROI();
+
+renderFilters();renderBoard();
+</script>
+</body>
+</html>
