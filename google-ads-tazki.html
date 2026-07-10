@@ -1,0 +1,236 @@
+<!doctype html><html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medición y Control · Google Ads · Tazki</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cobalto:#1f4ed8; --cobalto-d:#173db0; --cobalto-l:#e8f0fe;
+  --tinta:#0f172a; --gris:#64748b; --gris2:#94a3b8;
+  --linea:#e2e8f0; --bg:#f6f8fc; --card:#ffffff;
+  --ok:#16a34a; --ok-bg:#e3f4e9; --warn:#d97706; --warn-bg:#fff4e0;
+  --crit:#dc2626; --crit-bg:#fee2e2;
+  --c1:#1f4ed8; --c2:#3b82f6; --c3:#94a3b8;
+}
+@media (prefers-color-scheme: dark){
+  :root{--tinta:#f1f5f9;--gris:#94a3b8;--gris2:#64748b;--linea:#1e293b;--bg:#0b1120;--card:#111a2e;--cobalto-l:#16223d;--ok-bg:#0e2a1a;--warn-bg:#2a1f0a;--crit-bg:#2a1010;}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tinta);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 80px}
+header{background:linear-gradient(135deg,var(--cobalto),var(--cobalto-d));color:#fff;padding:30px 0 26px}
+header .wrap{padding-bottom:0}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700}
+header h1{font-size:27px;font-weight:800;margin:6px 0 6px;letter-spacing:-.02em}
+header p{font-size:13.5px;opacity:.92;max-width:680px}
+.meta{margin-top:14px;font-size:12px;opacity:.8;display:flex;gap:18px;flex-wrap:wrap}
+.meta b{opacity:1;font-weight:700}
+nav{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--linea);margin-bottom:26px}
+nav .wrap{display:flex;gap:4px;padding:9px 20px;overflow-x:auto}
+nav a{color:var(--gris);font-weight:600;font-size:13.5px;padding:8px 14px;border-radius:8px;text-decoration:none;white-space:nowrap}
+nav a:hover{background:var(--cobalto-l);color:var(--cobalto)}
+nav a.on{background:var(--cobalto);color:#fff}
+h2.sec{font-size:19px;font-weight:800;margin:30px 0 4px;letter-spacing:-.01em}
+.sub{color:var(--gris);font-size:13px;margin-bottom:16px}
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.kpi{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:16px 18px}
+.kpi .lbl{font-size:11.5px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.04em}
+.kpi .val{font-size:26px;font-weight:800;margin-top:4px;letter-spacing:-.02em}
+.kpi .hint{font-size:12px;color:var(--gris2);margin-top:2px}
+/* tabla */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--linea);border-radius:12px;margin-top:8px}
+table{width:100%;min-width:720px;border-collapse:collapse;font-size:13px;background:var(--card)}
+th{background:var(--cobalto);color:#fff;text-align:right;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;padding:11px 12px;white-space:nowrap;font-weight:700}
+th:first-child{text-align:left}
+td{padding:10px 12px;border-top:1px solid var(--linea);text-align:right;white-space:nowrap}
+td:first-child{text-align:left;font-weight:700}
+tr:last-child td{font-weight:800;background:var(--cobalto-l)}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.pill.act{background:var(--ok-bg);color:var(--ok)}
+.pill.pau{background:var(--crit-bg);color:var(--crit)}
+.bar{display:inline-block;height:7px;border-radius:4px;vertical-align:middle;margin-right:6px}
+/* chart */
+.chartcard{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:20px 22px;margin-top:8px}
+svg{width:100%;height:auto;display:block}
+.leg{display:flex;gap:16px;margin-top:10px;font-size:12px;color:var(--gris);flex-wrap:wrap}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+/* notas / recomendaciones */
+.note{background:var(--cobalto-l);border-left:4px solid var(--cobalto);padding:13px 16px;border-radius:8px;font-size:13.5px;margin-top:12px}
+.note.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+.note.crit{background:var(--crit-bg);border-left-color:var(--crit)}
+.note b{font-weight:700}
+.reco{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:16px 18px;margin-top:12px}
+.reco h4{font-size:14.5px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.reco p{font-size:13px;color:var(--gris);margin-bottom:2px}
+.tag{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
+.tag.alta{background:var(--crit-bg);color:var(--crit)}
+.tag.media{background:var(--warn-bg);color:var(--warn)}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.check{list-style:none;margin-top:8px}
+.check li{padding:9px 0 9px 30px;border-top:1px solid var(--linea);font-size:13.5px;position:relative}
+.check li:before{content:"";position:absolute;left:4px;top:12px;width:15px;height:15px;border:2px solid var(--gris2);border-radius:4px}
+.check li.done{color:var(--gris);text-decoration:line-through}
+.check li.done:before{background:var(--ok);border-color:var(--ok)}
+.foot{margin-top:30px;font-size:11.5px;color:var(--gris2);text-align:center}
+</style></head>
+<body>
+<header><div class="wrap">
+  <div class="kicker">Growth · Tazki</div>
+  <h1>Medición y Control · Google Ads</h1>
+  <p>Panel de la cuenta 376-642-6817. Gasto, conversiones y cuota de subasta por campaña, con recomendaciones accionables.</p>
+  <div class="meta" id="meta"></div>
+</div></header>
+
+<nav><div class="wrap">
+  <a href="index.html">Panel MQL</a>
+  <a href="google-ads-tazki.html" class="on">Google Ads</a>
+  <a href="maquina-de-leads-tazki.html">Plan de contenidos</a>
+  <a href="roi.html">Calculadora ROI</a>
+</div></nav>
+
+<div class="wrap">
+
+  <h2 class="sec">Resumen últimos 30 días</h2>
+  <div class="sub" id="rangesub"></div>
+  <div class="kpis" id="kpis"></div>
+
+  <h2 class="sec">Tendencia diaria</h2>
+  <div class="sub">Gasto (barras) y clics (línea) por día. Revela días de mayor consumo y caídas.</div>
+  <div class="chartcard"><div id="chart"></div>
+    <div class="leg"><span><i class="dot" style="background:var(--c2)"></i>Gasto diario (CLP)</span><span><i class="dot" style="background:var(--cobalto-d)"></i>Clics</span></div>
+  </div>
+
+  <h2 class="sec">Rendimiento por campaña</h2>
+  <div class="sub">Cuota de impresiones (IS) = % de veces que apareciste de las que podías. "Perdido" te dice por qué no apareciste: por presupuesto o por ranking.</div>
+  <div class="tablewrap"><table id="camptable"></table></div>
+  <div class="note" id="campnote"></div>
+
+  <h2 class="sec">Recomendaciones</h2>
+  <div class="sub">Generadas a partir de los datos de arriba. Revisar y aprobar antes de ejecutar.</div>
+  <div id="recos"></div>
+
+  <h2 class="sec">Checklist de pendientes</h2>
+  <ul class="check" id="checklist"></ul>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+// ====== DATOS (se actualizan aquí; luego automatizable vía GitHub Actions) ======
+const DATA = {"generated": "2026-07-09", "range": "2026-06-09 a 2026-07-08 (últimos 30 días)", "totals": {"cost": 736874, "clicks": 801, "impr": 9985, "conv": 3, "ctr": 8.02, "cpc": 920}, "campaigns": {"Marca - v2": {"cost": 125773, "clicks": 326, "impr": 2811, "conv": 0, "ctr": 11.6, "cpc": 386, "is": 13.5, "budget_lost": 60.0, "rank_lost": 28.2}, "Operativa": {"cost": 86835, "clicks": 42, "impr": 660, "conv": 1, "ctr": 6.36, "cpc": 2068, "is": 39.4, "budget_lost": 5.5, "rank_lost": 55.0}, "Contratistas": {"cost": 87730, "clicks": 91, "impr": 760, "conv": 0, "ctr": 11.97, "cpc": 964, "is": 42.4, "budget_lost": 30.8, "rank_lost": 26.8}, "Prevención de Riesgos": {"cost": 199696, "clicks": 157, "impr": 2316, "conv": 1, "ctr": 6.78, "cpc": 1272, "is": 49.7, "budget_lost": 28.8, "rank_lost": 21.6}, "HSEQ": {"cost": 125687, "clicks": 112, "impr": 2513, "conv": 1, "ctr": 4.46, "cpc": 1122, "is": 54.7, "budget_lost": 20.8, "rank_lost": 24.5}, "Fiscalización DT": {"cost": 32058, "clicks": 23, "impr": 245, "conv": 0, "ctr": 9.39, "cpc": 1394, "is": 10.1, "budget_lost": 85.6, "rank_lost": 9.4}, "SST/HSEQ": {"cost": 79094, "clicks": 50, "impr": 680, "conv": 0, "ctr": 7.35, "cpc": 1582, "is": 38.4, "budget_lost": 47.5, "rank_lost": 14.1}}, "daily": [{"d": "2026-06-09", "cost": 28730, "clicks": 21, "conv": 0}, {"d": "2026-06-10", "cost": 30254, "clicks": 16, "conv": 0}, {"d": "2026-06-11", "cost": 25610, "clicks": 20, "conv": 1}, {"d": "2026-06-12", "cost": 14309, "clicks": 12, "conv": 0}, {"d": "2026-06-13", "cost": 0, "clicks": 0, "conv": 0}, {"d": "2026-06-14", "cost": 1870, "clicks": 5, "conv": 0}, {"d": "2026-06-15", "cost": 9000, "clicks": 24, "conv": 0}, {"d": "2026-06-16", "cost": 9000, "clicks": 24, "conv": 0}, {"d": "2026-06-17", "cost": 4960, "clicks": 13, "conv": 0}, {"d": "2026-06-18", "cost": 20225, "clicks": 25, "conv": 0}, {"d": "2026-06-19", "cost": 20837, "clicks": 26, "conv": 0}, {"d": "2026-06-20", "cost": 19265, "clicks": 18, "conv": 0}, {"d": "2026-06-21", "cost": 29816, "clicks": 26, "conv": 0}, {"d": "2026-06-22", "cost": 39122, "clicks": 46, "conv": 1}, {"d": "2026-06-23", "cost": 35795, "clicks": 42, "conv": 0}, {"d": "2026-06-24", "cost": 31328, "clicks": 35, "conv": 0}, {"d": "2026-06-25", "cost": 31504, "clicks": 36, "conv": 0}, {"d": "2026-06-26", "cost": 30218, "clicks": 32, "conv": 0}, {"d": "2026-06-27", "cost": 18944, "clicks": 19, "conv": 0}, {"d": "2026-06-28", "cost": 13975, "clicks": 14, "conv": 0}, {"d": "2026-06-29", "cost": 25069, "clicks": 24, "conv": 0}, {"d": "2026-06-30", "cost": 20484, "clicks": 29, "conv": 0}, {"d": "2026-07-01", "cost": 33506, "clicks": 37, "conv": 0}, {"d": "2026-07-02", "cost": 35257, "clicks": 40, "conv": 1}, {"d": "2026-07-03", "cost": 33280, "clicks": 38, "conv": 0}, {"d": "2026-07-04", "cost": 20047, "clicks": 25, "conv": 0}, {"d": "2026-07-05", "cost": 40804, "clicks": 31, "conv": 0}, {"d": "2026-07-06", "cost": 44255, "clicks": 47, "conv": 0}, {"d": "2026-07-07", "cost": 40874, "clicks": 44, "conv": 0}, {"d": "2026-07-08", "cost": 28536, "clicks": 32, "conv": 0}]};
+
+// Estado real de campañas (definido manualmente según lo ejecutado el 9 jul)
+const STATUS = {
+  "Marca - v2": "activa",
+  "SST/HSEQ": "activa",
+  "Contratistas": "pausada",
+  "Prevención de Riesgos": "pausada",
+  "HSEQ": "pausada",
+  "Fiscalización DT": "pausada",
+  "Operativa": "pausada"
+};
+const ORDER = ["SST/HSEQ","Marca - v2","Contratistas","Prevención de Riesgos","HSEQ","Fiscalización DT","Operativa"];
+
+const clp = n => "$"+Math.round(n).toLocaleString("es-CL");
+const pct = n => n.toFixed(1)+"%";
+
+// meta
+document.getElementById("meta").innerHTML =
+  `<div>Actualizado: <b>${DATA.generated}</b></div><div>Cuenta: <b>376-642-6817</b></div><div>Moneda: <b>CLP</b></div>`;
+document.getElementById("rangesub").textContent = "Período: "+DATA.range;
+
+// KPIs
+const t = DATA.totals;
+const activeCost = Object.entries(DATA.campaigns).filter(([c])=>STATUS[c]==="activa").reduce((a,[,v])=>a+v.cost,0);
+document.getElementById("kpis").innerHTML = [
+  ["Gasto total 30d", clp(t.cost), "toda la cuenta"],
+  ["Clics", t.clicks.toLocaleString("es-CL"), "CTR "+t.ctr+"%"],
+  ["Conversiones", t.conv, "en Google Ads"],
+  ["CPC promedio", clp(t.cpc), "por clic"],
+  ["Gasto campañas activas", clp(activeCost), "Marca + Núcleo"],
+  ["Umbral Smart Bidding", t.conv+" / 20", "faltan "+(20-t.conv)+" conv."],
+].map(k=>`<div class="kpi"><div class="lbl">${k[0]}</div><div class="val">${k[1]}</div><div class="hint">${k[2]}</div></div>`).join("");
+
+// Chart (SVG barras gasto + linea clics)
+(function(){
+  const d = DATA.daily;
+  const W=1000,H=260,pad={l:8,r:8,t:16,b:28};
+  const iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+  const maxCost=Math.max(...d.map(x=>x.cost))*1.1;
+  const maxClk=Math.max(...d.map(x=>x.clicks))*1.3;
+  const bw=iw/d.length;
+  let bars="",line="",dots="",xlabels="";
+  d.forEach((x,i)=>{
+    const bh=x.cost/maxCost*ih;
+    const bx=pad.l+i*bw+bw*0.18, by=pad.t+ih-bh;
+    bars+=`<rect x="${bx}" y="${by}" width="${bw*0.64}" height="${bh}" rx="2" fill="var(--c2)" opacity="0.85"/>`;
+    const cx=pad.l+i*bw+bw/2, cy=pad.t+ih-(x.clicks/maxClk*ih);
+    line+=(i?"L":"M")+cx+" "+cy+" ";
+    dots+=`<circle cx="${cx}" cy="${cy}" r="3" fill="var(--cobalto-d)"/>`;
+    if(i%3===0||i===d.length-1){const dd=x.d.slice(5);xlabels+=`<text x="${cx}" y="${H-8}" font-size="10" fill="var(--gris)" text-anchor="middle">${dd}</text>`;}
+  });
+  document.getElementById("chart").innerHTML=
+    `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${bars}<path d="${line}" fill="none" stroke="var(--cobalto-d)" stroke-width="2.2"/>${dots}${xlabels}</svg>`;
+})();
+
+// Tabla campañas
+(function(){
+  const rows = ORDER.filter(c=>DATA.campaigns[c]).map(c=>{
+    const v=DATA.campaigns[c], st=STATUS[c]||"pausada";
+    const isBar = `<span class="bar" style="width:${Math.max(v.is*0.6,3)}px;background:var(--cobalto)"></span>`;
+    return `<tr>
+      <td>${c} <span class="pill ${st==='activa'?'act':'pau'}">${st}</span></td>
+      <td>${clp(v.cost)}</td><td>${v.clicks}</td><td>${v.conv}</td>
+      <td>${v.ctr}%</td><td>${clp(v.cpc)}</td>
+      <td>${isBar}${v.is}%</td><td>${v.budget_lost}%</td><td>${v.rank_lost}%</td>
+    </tr>`;
+  }).join("");
+  const tot=DATA.totals;
+  document.getElementById("camptable").innerHTML=
+    `<thead><tr><th>Campaña</th><th>Gasto</th><th>Clics</th><th>Conv</th><th>CTR</th><th>CPC</th><th>Cuota impr.</th><th>Perd. presup.</th><th>Perd. rank</th></tr></thead>
+     <tbody>${rows}<tr><td>TOTAL</td><td>${clp(tot.cost)}</td><td>${tot.clicks}</td><td>${tot.conv}</td><td>${tot.ctr}%</td><td>${clp(tot.cpc)}</td><td>—</td><td>—</td><td>—</td></tr></tbody>`;
+})();
+
+// Nota de campaña: Marca pierde por presupuesto?
+(function(){
+  const m=DATA.campaigns["Marca - v2"];
+  if(m && m.budget_lost>40){
+    document.getElementById("campnote").className="note warn";
+    document.getElementById("campnote").innerHTML=`<b>Marca pierde ${m.budget_lost}% de impresiones por presupuesto.</b> Con tráfico ya limpio, es señal para evaluar subir su presupuesto de $4.000 (checkpoint acordado con Axel).`;
+  } else {
+    document.getElementById("campnote").innerHTML=`El Núcleo SST/HSEQ concentra el gasto de las campañas activas. Marca opera con presupuesto acotado a la espera del checkpoint.`;
+  }
+})();
+
+// Recomendaciones automáticas
+(function(){
+  const r=[];
+  const conv=DATA.totals.conv;
+  if(conv<20) r.push(["alta","Tracking antes que Smart Bidding","La cuenta tiene "+conv+" conversiones registradas. El Núcleo está en Maximizar Conversiones optimizando sin señal. Cerrar GCLID (José) y OCI sobre etapa real de pipeline (Axel) es prioridad #1."]);
+  const m=DATA.campaigns["Marca - v2"];
+  if(m && m.budget_lost>40) r.push(["media","Evaluar subir presupuesto de Marca","Marca pierde "+m.budget_lost+"% de impresiones por presupuesto con tráfico limpio. Candidata a subir de $4.000 a $6.000 según checkpoint."]);
+  r.push(["media","Verificación de identidad del anunciante","Deadline 21 jul. La completa Felipe como organización (Tazki, no persona). Sin esto la cuenta se detiene."]);
+  r.push(["ok","Diagnóstico de landings","Pedido por Felipe. Con CTR sano ("+DATA.totals.ctr+"%) pero pocas conversiones, revisar embudo post-clic: bug del formulario con teléfonos chilenos es el sospechoso."]);
+  document.getElementById("recos").innerHTML=r.map(x=>
+    `<div class="reco"><h4><span class="tag ${x[0]}">${x[0]==='alta'?'Prioridad alta':x[0]==='media'?'Prioridad media':'Seguimiento'}</span> ${x[1]}</h4><p>${x[2]}</p></div>`).join("");
+})();
+
+// Checklist
+(function(){
+  const items=[
+    ["done","Consolidar a 2 campañas activas (Marca + Núcleo)"],
+    ["done","Pausar Prevención, HSEQ, Contratistas y Fiscalización DT"],
+    ["done","Cargar negativas de competidores (fuga zyght/codelco)"],
+    ["done","Subir Núcleo a $24.000 (primer tramo)"],
+    ["","Segundo tramo Núcleo a $34.500 (≈13 jul)"],
+    ["","Verificación identidad como organización (Felipe, tope 21 jul)"],
+    ["","Tracking GCLID (José) + OCI sobre SQL (Axel)"],
+    ["","Diagnóstico de landings + bug formulario"],
+    ["","Checkpoint Marca 9-10 jul: ¿subir a $6.000?"],
+  ];
+  document.getElementById("checklist").innerHTML=items.map(i=>`<li class="${i[0]}">${i[1]}</li>`).join("");
+})();
+
+document.getElementById("foot").textContent="Datos vía Supermetrics · Actualizado "+DATA.generated+" · Panel interno de Growth Tazki";
+</script>
+</body></html>
