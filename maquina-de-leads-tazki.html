@@ -182,6 +182,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   <button data-tab="funnel">📊 Funnel &amp; Baseline</button>
   <button data-tab="pilares">🎯 Pilares</button>
   <button data-tab="medicion">📈 Medición</button>
+  <button data-tab="blog">📝 Rendimiento del blog</button>
   <button data-tab="roi">🧮 Calculadora ROI</button>
 </div></nav>
 
@@ -368,6 +369,26 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   <div class="note warn"><b>Prerequisito:</b> reconectar Search Console — Supermetrics expiró el 1/jul (tarea M4). Sin datos de keywords, el loop no puede decidir bien.</div>
 </section>
 
+<section id="blog" class="tab">
+  <h2 class="sec">Rendimiento del blog</h2>
+  <p class="sub">Rendimiento real de los artículos del blog (<code>tazki.cl/blog</code>, <code>/recursos</code> y casos de éxito) desde HubSpot: visitas, conversiones y qué artículos generan leads. Datos de los últimos 30 días · actualizado <span id="blog-upd"></span>.</p>
+
+  <div id="blog-kpis" class="stages" style="grid-template-columns:repeat(4,1fr);margin-bottom:22px"></div>
+
+  <span class="lbl">Artículos más vistos y su conversión</span>
+  <div class="tablewrap">
+    <table class="data">
+      <thead><tr><th>Artículo</th><th>Sección</th><th>Visitas</th><th>Envíos</th><th>Leads</th><th>Rebote</th><th>Tiempo</th></tr></thead>
+      <tbody id="blog-rows"></tbody>
+    </table>
+  </div>
+
+  <span class="lbl" style="margin-top:24px">Recomendaciones de optimización (SEO / HubSpot)</span>
+  <div id="blog-recs"></div>
+
+  <div class="note warn" style="margin-top:20px"><b>Falta la fuente de tráfico orgánico por artículo.</b> HubSpot da visitas y conversiones, pero el desglose orgánico (clics de Google, palabras clave, posición) vive en <b>Google Search Console</b>, que hoy está <b>desconectado</b> en Supermetrics (expiró el 1/jul). Al reconectarlo, agrego a esta sección: clics orgánicos, impresiones, posición media y las keywords por las que rankea cada artículo.</div>
+</section>
+
 <section id="roi" class="tab">
   <h2 class="sec">Calculadora de ROI</h2>
   <p class="sub">Lead magnet de fondo de funnel (BOFU). Estima cuánto ahorra una empresa al pasar del papel/Excel a una plataforma de prevención. Al usarla o descargar el resultado, el contacto entra por un form <b>[MOFU]</b> y se marca como <b>MQL</b>. Este es un prototipo editable del cálculo.</p>
@@ -545,6 +566,56 @@ function calcROI(){
 calcROI();
 
 renderFilters();renderBoard();
+
+/* ---------- Rendimiento del blog ---------- */
+const BLOG = {"posts": [{"id": "216185175900", "t": "Control operacional en 80 sucursales, con gestión autónoma y trazabilidad centralizada", "u": "https://tazki.cl/casos-de-exito/control-operacional-en-80-sucursales-con-gestión-autónoma-y-trazabilidad-centralizada", "cat": "Caso de éxito", "v": 52, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 42}, {"id": "216048041479", "t": "DS 44, un año después", "u": "https://tazki.cl/recursos/ds-44-un-año-después", "cat": "Recursos", "v": 47, "s": 5, "c": 2, "l": 2, "b": 0.67, "tpp": 109}, {"id": "216648024605", "t": "Inspecciones de seguridad: cómo digitalizar checklists, autorizaciones y reportes en terreno", "u": "https://tazki.cl/blog/inspecciones-de-seguridad-digitales-checklists-firmas-y-reportabilidad", "cat": "Blog", "v": 34, "s": 0, "c": 0, "l": 0, "b": 0.83, "tpp": 97}, {"id": "216048041317", "t": "Obligación de Informar (ODI) vs Información de los Riesgos Laborales (IRL)", "u": "https://tazki.cl/blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion", "cat": "Blog", "v": 33, "s": 0, "c": 0, "l": 0, "b": 0.89, "tpp": 194}, {"id": "216648025162", "t": "Cómo Falabella Retail ahorró 326 días de trabajo con Tazki", "u": "https://tazki.cl/casos-de-exito/como-falabella-retail-ahorro-326-dias-de-trabajo-con-tazki", "cat": "Caso de éxito", "v": 9, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 60}, {"id": "216607598644", "t": "Inducciones laborales: cómo digitalizar la ODI, el reglamento y la firma antes del primer día", "u": "https://tazki.cl/blog/inducciones-laborales-digitales", "cat": "Blog", "v": 7, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 14}, {"id": "216648005673", "t": "ART/AST y charla diaria: análisis de riesgos digital para tareas críticas", "u": "https://tazki.cl/blog/art-ast-charla-diaria-digital", "cat": "Blog", "v": 4, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 12}, {"id": "216050743464", "t": "[PRUEBA] Ya puedes agendar Inspecciones desde el celular sin conexión a internet", "u": "https://tazki.cl/comunicados/prueba-ya-puedes-agendar-inspecciones", "cat": "Comunicado", "v": 2, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 196}], "totals": {"views": 188, "subs": 5, "contacts": 2, "leads": 2, "n": 8, "prev_views": 62}, "updated": "10 jul 2026", "hasSearchConsole": false};
+(function(){
+  if(!document.getElementById('blog-rows')) return;
+  const nf=new Intl.NumberFormat('es-CL');
+  const t=BLOG.totals, mom=t.prev_views?Math.round((t.views-t.prev_views)/t.prev_views*100):null;
+  document.getElementById('blog-upd').textContent=BLOG.updated;
+  const kpis=[
+    {n:nf.format(t.views),l:'Visitas al blog',s:mom!=null?(mom>=0?'▲ +':'▼ ')+mom+'% vs mes previo':'30 días',cls:'tofu'},
+    {n:nf.format(t.subs),l:'Envíos de formulario',s:'desde artículos',cls:'mofu'},
+    {n:nf.format(t.leads),l:'Leads generados',s:t.contacts+' contactos nuevos',cls:'bofu'},
+    {n:nf.format(t.n),l:'Artículos con tráfico',s:'publicados y activos',cls:'tofu'},
+  ];
+  document.getElementById('blog-kpis').innerHTML=kpis.map(k=>`
+    <div class="stage ${k.cls}"><div style="font-size:30px;font-weight:800;line-height:1">${k.n}</div>
+      <div class="lbl" style="margin-top:6px">${k.l}</div>
+      <p style="font-size:12.5px;margin-top:2px">${k.s}</p></div>`).join('');
+
+  const secCol={'Blog':'var(--tofu)','Recursos':'var(--mofu)','Caso de éxito':'var(--bofu)','Comunicado':'var(--gris)'};
+  const posts=[...BLOG.posts].sort((a,b)=>b.v-a.v);
+  document.getElementById('blog-rows').innerHTML=posts.map(p=>{
+    const bpct=p.b!=null?Math.round(p.b*100)+'%':'—';
+    const bcls=p.b!=null&&p.b>=0.8?'color:var(--lock);font-weight:700':'';
+    const mins=Math.floor(p.tpp/60), secs=p.tpp%60, tt=mins?`${mins}m ${secs}s`:`${secs}s`;
+    return `<tr>
+      <td class="k" style="max-width:280px;white-space:normal"><a href="${p.u}" target="_blank" rel="noopener" style="color:var(--cobalto);text-decoration:none">${p.t}</a></td>
+      <td><span style="font-size:11px;font-weight:700;color:#fff;background:${secCol[p.cat]||'var(--gris)'};padding:2px 8px;border-radius:20px;white-space:nowrap">${p.cat}</span></td>
+      <td style="font-weight:700">${nf.format(p.v)}</td>
+      <td>${p.s||'—'}</td>
+      <td style="${p.l?'color:var(--bofu);font-weight:700':''}">${p.l||'—'}</td>
+      <td style="${bcls}">${bpct}</td>
+      <td style="color:var(--gris)">${tt}</td>
+    </tr>`;}).join('');
+
+  // recomendaciones derivadas de los datos
+  const recs=[];
+  const best=posts.filter(p=>p.l>0).sort((a,b)=>b.l-a.l)[0];
+  if(best) recs.push({t:`Potencia tu mejor convertidor: "${best.t}"`,d:`Genera ${best.l} lead(s) con solo ${best.v} visitas — la mejor tasa del blog. Recomendación: crea 2-3 artículos satélite sobre el mismo tema (DS 44 / normativa), enlázalos a este, y súbele el CTA a un lead magnet BOFU. En HubSpot: revisa el título SEO y meta-descripción para captar más búsquedas de "ds 44".`,c:'bofu'});
+  const leaky=posts.filter(p=>p.v>=25&&p.l===0&&p.b!=null&&p.b>=0.8);
+  if(leaky.length) recs.push({t:`${leaky.length} artículos con tráfico pero 0 leads y rebote alto`,d:`"${leaky.map(p=>p.t.slice(0,40)).join('", "')}" reciben visitas pero rebotan >80% sin convertir. Recomendación: inserta un CTA visible y un formulario/lead magnet relacionado a media página, y agrega enlazado interno hacia la calculadora de ROI o "Agendar demo".`,c:'mofu'});
+  recs.push({t:'Aprovecha el módulo de SEO de HubSpot',d:'En HubSpot → Marketing → SEO, agrupa tus artículos en un "topic cluster" alrededor de un pilar (ej. "Software de prevención de riesgos") y enlaza todos los artículos a esa página pilar. Eso concentra autoridad y mejora el ranking orgánico de todo el grupo.',c:'tofu'});
+  recs.push({t:'Conecta Search Console para medir el orgánico real',d:'Sin Search Console no sabemos por qué keywords te encuentran ni tu posición en Google. Reconéctalo en Supermetrics (expiró el 1/jul) y te agrego a esta sección los clics orgánicos, impresiones y queries por artículo — ahí es donde están las oportunidades SEO reales.',c:'mofu'});
+  const rc={bofu:'var(--bofu)',mofu:'var(--mofu)',tofu:'var(--tofu)'};
+  document.getElementById('blog-recs').innerHTML=recs.map((r,i)=>`
+    <div class="pillar" style="border-left:5px solid ${rc[r.c]}">
+      <div class="ph"><h3 style="font-size:16px">${i+1}. ${r.t}</h3></div>
+      <p style="font-size:14px;color:#334155;margin-top:6px">${r.d}</p>
+    </div>`).join('');
+})();
 </script>
 </body>
 </html>
