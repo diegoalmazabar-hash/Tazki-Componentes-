@@ -117,6 +117,27 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .copyb.done{color:var(--st-good);border-color:var(--st-good)}
   footer{margin-top:18px;font-size:12px;color:var(--ink-3);max-width:82ch}
   #tip{position:fixed;pointer-events:none;z-index:10;display:none;background:var(--ink);color:var(--plane);border-radius:7px;padding:7px 10px;font-size:12px;line-height:1.4;max-width:260px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .tabs{display:flex;gap:6px;margin-bottom:14px;border-bottom:1px solid var(--grid);flex-wrap:wrap}
+  .tabs .tab{border:none;background:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-3);padding:8px 14px 10px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tabs .tab:hover{color:var(--ink-2)}
+  .tabs .tab.on{color:var(--ink);border-bottom-color:var(--c-spend)}
+  .fbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .fbar input[type=search]{border:1px solid var(--ring);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:13px;font-family:inherit;min-width:180px}
+  .fbar select{border:1px solid var(--ring);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 8px;font-size:12.5px;font-family:inherit}
+  .pchip{border:1px solid var(--ring);background:transparent;color:var(--ink-2);border-radius:99px;padding:4px 11px;font-size:12.5px;cursor:pointer;font-family:inherit}
+  .pchip:hover{background:var(--chip-hover)}
+  .pchip.on{background:var(--ink);color:var(--plane);border-color:var(--ink);font-weight:600}
+  .fcount{margin-left:auto;font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;white-space:nowrap}
+  .tag.competidor{background:rgba(208,59,59,.14);color:var(--st-crit)}
+  .tag.informacional{background:rgba(185,125,0,.16);color:var(--st-warn)}
+  .tag.ok{background:rgba(12,163,12,.13);color:var(--st-good)}
+  .qs{display:inline-block;min-width:20px;text-align:center;font-weight:700;border-radius:5px;padding:1px 5px;font-size:11.5px}
+  .qs.lo{background:rgba(208,59,59,.16);color:var(--st-crit)} .qs.mid{background:rgba(185,125,0,.16);color:var(--st-warn)} .qs.hi{background:rgba(12,163,12,.14);color:var(--st-good)}
+  .tbl-scroll{overflow:auto;max-height:560px}
+  .tbl-scroll thead th{position:sticky;top:0;background:var(--surface);z-index:1}
+  .copywrap{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
+  pre.live{margin:0;background:var(--plane);border:1px solid var(--ring);border-radius:7px;padding:10px 12px;font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-2)}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -127,6 +148,12 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   </header>
   <p class="lede" id="lede"></p>
 
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-tab="resumen">Resumen</button>
+    <button class="tab" data-tab="keywords">Keywords y términos</button>
+  </div>
+
+  <section id="tab-resumen">
   <div class="kpis" id="kpis"></div>
 
   <div class="card">
@@ -154,6 +181,66 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     <div id="props"></div>
     <div class="foot">Estas propuestas se regeneran a diario con los datos frescos. El bloque copiable es autoexplicativo: incluye el contexto y la consulta sugerida.</div>
   </div>
+  </section>
+
+  <section id="tab-keywords" hidden>
+    <div class="kpis" id="kwKpis"></div>
+
+    <div class="card" style="border-color:rgba(208,59,59,.35)">
+      <h2>🔴 Candidatos a palabra negativa</h2>
+      <div class="sub">Términos de búsqueda que gastan sin convertir: marcas de competidores e búsquedas informacionales. Revísalos y, los que confirmes, pídele a una sesión con Supermetrics que los agregue como negativas.</div>
+      <div class="chart-scroll"><table>
+        <thead><tr><th>Término buscado</th><th>Tipo</th><th>Campaña</th><th class="num">Clics</th><th class="num">Costo (CLP)</th></tr></thead>
+        <tbody id="negBody"></tbody>
+      </table></div>
+      <div class="copywrap" style="margin-top:12px"><span class="sub" style="margin:0">Bloque para copiar a otra sesión (agregar negativas)</span><button class="pchip" id="copyNeg">Copiar</button></div>
+      <pre class="live" id="negBlock"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Términos de búsqueda · últimos 30 días</h2>
+      <div class="sub">Lo que la gente realmente escribió en Google. Filtra por texto, campaña o tipo.</div>
+      <div class="fbar">
+        <input type="search" id="stSearch" placeholder="Buscar término o keyword…" aria-label="Buscar término">
+        <select id="stCamp" aria-label="Filtrar por campaña"></select>
+        <span class="pchip on" data-stf="all" role="button">Todos</span>
+        <span class="pchip" data-stf="clk" role="button">Con clics</span>
+        <span class="pchip" data-stf="competidor" role="button">Competidor</span>
+        <span class="pchip" data-stf="informacional" role="button">Informacional</span>
+        <span class="fcount" id="stCount"></span>
+      </div>
+      <div class="tbl-scroll"><table>
+        <thead><tr><th>Término buscado</th><th>Tipo</th><th>Keyword que lo activó</th><th>Campaña</th><th class="num">Impr.</th><th class="num">Clics</th><th class="num">Costo</th><th class="num">Conv.</th></tr></thead>
+        <tbody id="stBody"></tbody>
+      </table></div>
+      <div class="foot" id="stFoot"></div>
+    </div>
+
+    <div class="card">
+      <h2>Keywords · últimos 30 días</h2>
+      <div class="sub">Tus palabras clave con rendimiento y quality score. QS 1-3 en rojo (caro y mal posicionado).</div>
+      <div class="fbar">
+        <input type="search" id="kwSearch" placeholder="Buscar keyword…" aria-label="Buscar keyword">
+        <select id="kwCamp" aria-label="Filtrar por campaña"></select>
+        <span class="pchip on" data-kwf="all" role="button">Todas</span>
+        <span class="pchip" data-kwf="loqs" role="button">QS bajo (1-3)</span>
+        <span class="pchip" data-kwf="noconv" role="button">Gasta sin convertir</span>
+        <span class="fcount" id="kwCount"></span>
+      </div>
+      <div class="tbl-scroll"><table>
+        <thead><tr><th>Keyword</th><th>Campaña</th><th class="num">QS</th><th class="num">Impr.</th><th class="num">Clics</th><th class="num">CTR</th><th class="num">Costo</th><th class="num">Conv.</th></tr></thead>
+        <tbody id="kwBody"></tbody>
+      </table></div>
+      <div class="foot" id="kwFoot"></div>
+    </div>
+
+    <div class="card">
+      <h2>¿Necesitas un rango de fechas específico?</h2>
+      <div class="sub">Este panel muestra los últimos 30 días. Para cualquier otro rango (día a día, semana, mes puntual), copia este bloque y pídelo a una sesión con Supermetrics en vivo.</div>
+      <div class="copywrap"><span class="sub" style="margin:0">Bloque para consulta en vivo</span><button class="pchip" id="copyLive">Copiar</button></div>
+      <pre class="live" id="liveBlock"></pre>
+    </div>
+  </section>
 
   <footer id="foot"></footer>
 </div>
@@ -161,6 +248,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
 <script>
 const ADS = {"daily": [["2026-06-10", 240, 16, 30254.3393, 0], ["2026-06-11", 314, 20, 25609.9568, 1], ["2026-06-12", 59, 12, 14309.325, 0], ["2026-06-13", 2, 0, 0, 0], ["2026-06-14", 45, 5, 1870, 0], ["2026-06-15", 169, 24, 9000, 0], ["2026-06-16", 211, 24, 9000, 0], ["2026-06-17", 129, 13, 4960.0488, 0], ["2026-06-18", 317, 25, 20225.0126, 0], ["2026-06-19", 316, 26, 20837, 0], ["2026-06-20", 322, 18, 19265.131, 0], ["2026-06-21", 312, 26, 29815.7965, 0], ["2026-06-22", 657, 46, 39121.8192, 1], ["2026-06-23", 490, 42, 35795, 0], ["2026-06-24", 687, 35, 31328.1426, 0], ["2026-06-25", 421, 36, 31504.2095, 0], ["2026-06-26", 491, 32, 30218, 0], ["2026-06-27", 253, 19, 18944, 0], ["2026-06-28", 201, 14, 13975, 0], ["2026-06-29", 267, 24, 25069, 0], ["2026-06-30", 300, 29, 20484.3813, 0], ["2026-07-01", 484, 37, 33505.8789, 0], ["2026-07-02", 469, 40, 35257, 1], ["2026-07-03", 404, 38, 33280, 0], ["2026-07-04", 209, 25, 20046.6296, 0], ["2026-07-05", 393, 31, 40804.0416, 0], ["2026-07-06", 546, 47, 44254.6788, 0], ["2026-07-07", 627, 44, 40874.2833, 0], ["2026-07-08", 398, 32, 28536, 0], ["2026-07-09", 11, 1, 100, 0]], "camps": [["Tazki - Marca - Search  - v2", 2772, 320, 122374.2094, 0, 0.1154, 382.4194], ["Tazki - HSEQ - Search", 2513, 112, 125687.4183, 1, 0.0446, 1122.2091], ["Tazki - Prevención de Riesgos - Search", 2324, 157, 199696.1794, 1, 0.0676, 1271.9502], ["Tazki - Contratistas - Search", 760, 91, 87730.3422, 0, 0.1197, 964.0697], ["Tazki - SST/HSEQ - Search", 683, 51, 79193.5921, 0, 0.0747, 1552.8155], ["Tazki - Operativa - Search", 447, 27, 61504.9335, 1, 0.0604, 2277.9605], ["Tazki - Fiscalización DT - Search", 245, 23, 32058, 0, 0.0939, 1393.8261]], "prev": {"imp": 2496, "clk": 198, "cost": 156422.7652, "conv": 1}, "cur": {"imp": 9744, "clk": 781, "cost": 708244.6748, "conv": 3}, "account": "Tazki Ads Manager", "updated": "10 jul 2026", "currency": "CLP"};
+const TERMS_DATA = {"terms": [{"t": "tazki", "camp": "Marca", "kw": "tazki", "imp": 1839, "clk": 197, "cost": 74122, "conv": 0, "cls": "ok"}, {"t": "tazki app", "camp": "Marca", "kw": "tazki app", "imp": 387, "clk": 41, "cost": 16536, "conv": 0, "cls": "ok"}, {"t": "tazky", "camp": "Marca", "kw": "tazki", "imp": 142, "clk": 12, "cost": 4535, "conv": 0, "cls": "ok"}, {"t": "hse reporting", "camp": "HSEQ", "kw": "plataforma hse", "imp": 119, "clk": 3, "cost": 3255, "conv": 0, "cls": "ok"}, {"t": "inspeccion del trabajo", "camp": "Fiscalización DT", "kw": "inspección del trabajo", "imp": 116, "clk": 14, "cost": 20254, "conv": 0, "cls": "ok"}, {"t": "zyght codelco", "camp": "HSEQ", "kw": "plataforma hse", "imp": 116, "clk": 4, "cost": 4759, "conv": 0, "cls": "competidor"}, {"t": "hseq", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 103, "clk": 3, "cost": 3349, "conv": 0, "cls": "ok"}, {"t": "zyght codelco", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 95, "clk": 2, "cost": 2859, "conv": 0, "cls": "competidor"}, {"t": "tazki app", "camp": "SST/HSEQ", "kw": "plataforma prevención de riesgos", "imp": 93, "clk": 12, "cost": 15496, "conv": 0, "cls": "ok"}, {"t": "ohsas 18001", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 79, "clk": 1, "cost": 1176, "conv": 0, "cls": "informacional"}, {"t": "zyght codelco", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 69, "clk": 2, "cost": 2343, "conv": 0, "cls": "competidor"}, {"t": "zyght codelco", "camp": "HSEQ", "kw": "software hse", "imp": 69, "clk": 3, "cost": 3493, "conv": 0, "cls": "competidor"}, {"t": "tazki app", "camp": "HSEQ", "kw": "software seguridad laboral", "imp": 64, "clk": 2, "cost": 2333, "conv": 0, "cls": "ok"}, {"t": "tazki pass", "camp": "Marca", "kw": "tazki", "imp": 57, "clk": 6, "cost": 2532, "conv": 0, "cls": "ok"}, {"t": "zyght codelco", "camp": "HSEQ", "kw": "software hseq", "imp": 55, "clk": 3, "cost": 3510, "conv": 0, "cls": "competidor"}, {"t": "tazki app com", "camp": "Marca", "kw": "tazki app", "imp": 49, "clk": 10, "cost": 3765, "conv": 0, "cls": "ok"}, {"t": "45001", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 46, "clk": 2, "cost": 2286, "conv": 0, "cls": "informacional"}, {"t": "tazki app", "camp": "Prevención de Riesgos", "kw": "app prevención de riesgos", "imp": 42, "clk": 8, "cost": 10608, "conv": 0, "cls": "ok"}, {"t": "inspección del trabajo", "camp": "Fiscalización DT", "kw": "inspección del trabajo", "imp": 41, "clk": 3, "cost": 3964, "conv": 0, "cls": "ok"}, {"t": "tazki cl", "camp": "Marca", "kw": "tazki chile", "imp": 35, "clk": 4, "cost": 1577, "conv": 0, "cls": "ok"}, {"t": "dashboard sst", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 30, "clk": 5, "cost": 6845, "conv": 0, "cls": "ok"}, {"t": "tazki ebco", "camp": "Marca", "kw": "tazki", "imp": 29, "clk": 5, "cost": 1663, "conv": 0, "cls": "ok"}, {"t": "trinorma iso 9001 iso 14001 e iso 45001", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 28, "clk": 2, "cost": 2210, "conv": 0, "cls": "informacional"}, {"t": "zyght codelco", "camp": "SST/HSEQ", "kw": "software hse", "imp": 27, "clk": 2, "cost": 3729, "conv": 0, "cls": "competidor"}, {"t": "worklite app", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 24, "clk": 2, "cost": 2973, "conv": 0, "cls": "competidor"}, {"t": "direccion del trabajo", "camp": "Fiscalización DT", "kw": "dirección del trabajo", "imp": 20, "clk": 2, "cost": 2922, "conv": 0, "cls": "ok"}, {"t": "empresas contratistas mineras", "camp": "Contratistas", "kw": "contratistas minería", "imp": 20, "clk": 2, "cost": 1982, "conv": 0, "cls": "ok"}, {"t": "foco en obra prevencion", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 19, "clk": 3, "cost": 4394, "conv": 0, "cls": "competidor"}, {"t": "tazki app descargar", "camp": "Marca", "kw": "tazki app", "imp": 19, "clk": 6, "cost": 2325, "conv": 0, "cls": "ok"}, {"t": "pronexo chile", "camp": "Contratistas", "kw": "control de contratistas", "imp": 18, "clk": 4, "cost": 3889, "conv": 0, "cls": "competidor"}, {"t": "sat contratistas", "camp": "Contratistas", "kw": "acreditación de contratistas", "imp": 18, "clk": 3, "cost": 2861, "conv": 0, "cls": "competidor"}, {"t": "portal contratistas", "camp": "Contratistas", "kw": "plataforma de contratistas", "imp": 17, "clk": 4, "cost": 3832, "conv": 0, "cls": "ok"}, {"t": "zyght hseq technology", "camp": "HSEQ", "kw": "software hse", "imp": 17, "clk": 2, "cost": 2351, "conv": 0, "cls": "competidor"}, {"t": "sistema de gestión de seguridad y salud en el trabajo", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 16, "clk": 2, "cost": 2524, "conv": 0, "cls": "ok"}, {"t": "hsec reporting", "camp": "HSEQ", "kw": "plataforma hse", "imp": 12, "clk": 1, "cost": 1143, "conv": 0, "cls": "ok"}, {"t": "sistemas integrados de gestión iso 9001 iso 14001 iso 45001", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 12, "clk": 2, "cost": 2359, "conv": 0, "cls": "informacional"}, {"t": "woken app", "camp": "HSEQ", "kw": "software hse", "imp": 12, "clk": 1, "cost": 1179, "conv": 0, "cls": "competidor"}, {"t": "contratista construccion", "camp": "Contratistas", "kw": "contratistas construcción", "imp": 11, "clk": 1, "cost": 982, "conv": 0, "cls": "ok"}, {"t": "descargar tazki", "camp": "Marca", "kw": "tazki", "imp": 11, "clk": 3, "cost": 1191, "conv": 0, "cls": "ok"}, {"t": "sistema de gestion de seguridad y salud en el trabajo", "camp": "Operativa", "kw": "sistema gestión seguridad laboral", "imp": 11, "clk": 1, "cost": 2755, "conv": 0, "cls": "ok"}, {"t": "control contratistas previred", "camp": "Contratistas", "kw": "control de contratistas", "imp": 10, "clk": 3, "cost": 2908, "conv": 0, "cls": "ok"}, {"t": "iso 9001 14001 y 45001", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 10, "clk": 1, "cost": 1042, "conv": 0, "cls": "informacional"}, {"t": "megaprevencion cl", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 10, "clk": 1, "cost": 1464, "conv": 0, "cls": "competidor"}, {"t": "sat contratista", "camp": "Contratistas", "kw": "acreditación de contratistas", "imp": 10, "clk": 1, "cost": 988, "conv": 0, "cls": "competidor"}, {"t": "sst", "camp": "SST/HSEQ", "kw": "sistema de gestión de seguridad y salud en el trabajo", "imp": 10, "clk": 1, "cost": 1845, "conv": 0, "cls": "ok"}, {"t": "dashboard sst", "camp": "HSEQ", "kw": "software gestión sst", "imp": 9, "clk": 1, "cost": 1190, "conv": 0, "cls": "ok"}, {"t": "infocontrol chile", "camp": "Contratistas", "kw": "control de contratistas", "imp": 9, "clk": 2, "cost": 1830, "conv": 0, "cls": "competidor"}, {"t": "iso 45001 sistema de gestión de seguridad y salud en el trabajo", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 9, "clk": 3, "cost": 3240, "conv": 0, "cls": "informacional"}, {"t": "subcontrataley chile", "camp": "Contratistas", "kw": "plataforma de contratistas", "imp": 9, "clk": 1, "cost": 978, "conv": 0, "cls": "competidor"}, {"t": "prevsis cbb", "camp": "HSEQ", "kw": "software seguridad laboral", "imp": 8, "clk": 1, "cost": 1185, "conv": 0, "cls": "competidor"}, {"t": "sistema de seguridad y salud en el trabajo", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 8, "clk": 3, "cost": 3385, "conv": 1, "cls": "ok"}, {"t": "software iso 9001", "camp": "HSEQ", "kw": "software calidad y seguridad", "imp": 8, "clk": 1, "cost": 332, "conv": 0, "cls": "informacional"}, {"t": "contratistas mineras", "camp": "Contratistas", "kw": "contratistas minería", "imp": 7, "clk": 1, "cost": 983, "conv": 0, "cls": "ok"}, {"t": "prevsis cbb", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 7, "clk": 2, "cost": 2867, "conv": 0, "cls": "competidor"}, {"t": "prevsis transelec", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 7, "clk": 1, "cost": 1487, "conv": 0, "cls": "competidor"}, {"t": "pronexo chile", "camp": "Contratistas", "kw": "plataforma de contratistas", "imp": 7, "clk": 2, "cost": 1995, "conv": 0, "cls": "competidor"}, {"t": "seleria", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 7, "clk": 1, "cost": 1387, "conv": 0, "cls": "competidor"}, {"t": "software de prevencion de riesgos", "camp": "HSEQ", "kw": "software seguridad laboral", "imp": 7, "clk": 2, "cost": 2021, "conv": 0, "cls": "ok"}, {"t": "zyght codelco ingreso", "camp": "HSEQ", "kw": "software seguridad laboral", "imp": 7, "clk": 1, "cost": 1199, "conv": 0, "cls": "competidor"}, {"t": "achs gestion contratistas", "camp": "Contratistas", "kw": "plataforma de contratistas", "imp": 6, "clk": 1, "cost": 959, "conv": 0, "cls": "competidor"}, {"t": "geovictoria web", "camp": "HSEQ", "kw": "software gestión sst", "imp": 6, "clk": 1, "cost": 1162, "conv": 0, "cls": "competidor"}, {"t": "iso 45001 sistema de gestión de seguridad y salud en el trabajo", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 6, "clk": 1, "cost": 369, "conv": 0, "cls": "informacional"}, {"t": "que significa hseq", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 6, "clk": 1, "cost": 1141, "conv": 0, "cls": "informacional"}, {"t": "tazki cl", "camp": "SST/HSEQ", "kw": "plataforma prevención de riesgos", "imp": 6, "clk": 1, "cost": 1863, "conv": 0, "cls": "ok"}, {"t": "tazki descargar", "camp": "SST/HSEQ", "kw": "plataforma prevención de riesgos", "imp": 6, "clk": 2, "cost": 3765, "conv": 0, "cls": "ok"}, {"t": "zyght codelco", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 6, "clk": 2, "cost": 2867, "conv": 0, "cls": "competidor"}, {"t": "control contratistas", "camp": "Contratistas", "kw": "control de contratistas", "imp": 5, "clk": 2, "cost": 1947, "conv": 0, "cls": "ok"}, {"t": "dirección del trabajo", "camp": "Fiscalización DT", "kw": "dirección del trabajo", "imp": 5, "clk": 1, "cost": 654, "conv": 0, "cls": "ok"}, {"t": "gestion hseq", "camp": "HSEQ", "kw": "sistema gestión hseq", "imp": 5, "clk": 1, "cost": 1178, "conv": 0, "cls": "ok"}, {"t": "portalcontratista", "camp": "Contratistas", "kw": "plataforma de contratistas", "imp": 5, "clk": 1, "cost": 967, "conv": 0, "cls": "ok"}, {"t": "safety culture", "camp": "HSEQ", "kw": "software seguridad laboral", "imp": 5, "clk": 1, "cost": 1118, "conv": 0, "cls": "competidor"}, {"t": "zyght sqm", "camp": "Prevención de Riesgos", "kw": "plataforma prevención de riesgos", "imp": 5, "clk": 1, "cost": 1497, "conv": 0, "cls": "competidor"}, {"t": "software de prevencion de riesgos", "camp": "Operativa", "kw": "software prevención de riesgos", "imp": 3, "clk": 1, "cost": 11651, "conv": 0, "cls": "ok"}, {"t": "software sst", "camp": "HSEQ", "kw": "software sst", "imp": 4, "clk": 1, "cost": 1118, "conv": 0, "cls": "ok"}, {"t": "sst dashboard", "camp": "HSEQ", "kw": "software sst", "imp": 4, "clk": 2, "cost": 2344, "conv": 0, "cls": "ok"}, {"t": "www safetyculture", "camp": "HSEQ", "kw": "software calidad y seguridad", "imp": 4, "clk": 1, "cost": 1177, "conv": 0, "cls": "competidor"}, {"t": "infocontrol plataforma", "camp": "Contratistas", "kw": "control de contratistas", "imp": 4, "clk": 2, "cost": 1950, "conv": 0, "cls": "competidor"}, {"t": "listado de empresas contratistas mineras", "camp": "Contratistas", "kw": "contratistas minería", "imp": 4, "clk": 2, "cost": 1952, "conv": 0, "cls": "ok"}, {"t": "medicap sst", "camp": "SST/HSEQ", "kw": "software gestión sst", "imp": 4, "clk": 1, "cost": 1894, "conv": 0, "cls": "competidor"}, {"t": "empresas contratistas de mineria", "camp": "Contratistas", "kw": "contratistas minería", "imp": 4, "clk": 1, "cost": 981, "conv": 0, "cls": "ok"}, {"t": "gestión de seguridad y salud en el trabajo", "camp": "Prevención de Riesgos", "kw": "sistema gestión seguridad laboral", "imp": 4, "clk": 2, "cost": 2532, "conv": 0, "cls": "ok"}, {"t": "ssoma chile", "camp": "HSEQ", "kw": "software hse", "imp": 3, "clk": 1, "cost": 1167, "conv": 0, "cls": "competidor"}, {"t": "contratistas mineros", "camp": "Contratistas", "kw": "contratistas minería", "imp": 3, "clk": 2, "cost": 1937, "conv": 0, "cls": "ok"}, {"t": "safe culture", "camp": "Operativa", "kw": "sistema gestión seguridad laboral", "imp": 3, "clk": 1, "cost": 1756, "conv": 0, "cls": "competidor"}, {"t": "software prevencion de riesgos", "camp": "Prevención de Riesgos", "kw": "software prevención de riesgos", "imp": 4, "clk": 0, "cost": 0, "conv": 0, "cls": "ok"}], "kws": [{"kw": "tazki", "mt": "Phrase", "camp": "Marca", "st": "enabled", "qs": 5, "imp": 2200, "clk": 237, "cost": 89303, "conv": 0}, {"kw": "sistema gestión seguridad laboral", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": null, "imp": 1408, "clk": 86, "cost": 106205, "conv": 1}, {"kw": "sistema gestión hseq", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 1072, "clk": 44, "cost": 48888, "conv": 0}, {"kw": "plataforma prevención de riesgos", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": null, "imp": 517, "clk": 42, "cost": 56080, "conv": 0}, {"kw": "tazki app", "mt": "Phrase", "camp": "Marca", "st": "enabled", "qs": 5, "imp": 503, "clk": 71, "cost": 28338, "conv": 0}, {"kw": "software hse", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": 5, "imp": 353, "clk": 16, "cost": 18521, "conv": 0}, {"kw": "software seguridad laboral", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": 3, "imp": 279, "clk": 12, "cost": 13816, "conv": 0}, {"kw": "plataforma hse", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 278, "clk": 11, "cost": 12633, "conv": 0}, {"kw": "sistema de gestión de seguridad y salud en el trabajo", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": 1, "imp": 261, "clk": 11, "cost": 18737, "conv": 0}, {"kw": "software prevención de riesgos", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": 5, "imp": 208, "clk": 5, "cost": 7368, "conv": 0}, {"kw": "software gestión sst", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 202, "clk": 12, "cost": 13366, "conv": 0}, {"kw": "inspección del trabajo", "mt": "Phrase", "camp": "Fiscalización DT", "st": "enabled", "qs": 3, "imp": 195, "clk": 18, "cost": 25685, "conv": 0}, {"kw": "plataforma de contratistas", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": null, "imp": 180, "clk": 18, "cost": 17378, "conv": 0}, {"kw": "plataforma prevención de riesgos", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 155, "clk": 28, "cost": 39464, "conv": 0}, {"kw": "software calidad y seguridad", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 148, "clk": 8, "cost": 8551, "conv": 0}, {"kw": "control de contratistas", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": 5, "imp": 145, "clk": 25, "cost": 24243, "conv": 0}, {"kw": "sistema gestión seguridad laboral", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": null, "imp": 143, "clk": 12, "cost": 19271, "conv": 0}, {"kw": "contratistas minería", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": null, "imp": 138, "clk": 21, "cost": 20414, "conv": 0}, {"kw": "plataforma prevención de riesgos", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": 3, "imp": 110, "clk": 7, "cost": 14555, "conv": 1}, {"kw": "gestión de contratistas", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": 3, "imp": 100, "clk": 6, "cost": 5887, "conv": 0}, {"kw": "app prevención de riesgos", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": 7, "imp": 92, "clk": 19, "cost": 26167, "conv": 0}, {"kw": "sistema gestión seguridad laboral", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 77, "clk": 1, "cost": 735, "conv": 0}, {"kw": "software hseq", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 77, "clk": 3, "cost": 3510, "conv": 0}, {"kw": "software hse", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": 5, "imp": 66, "clk": 3, "cost": 2790, "conv": 0}, {"kw": "contratistas construcción", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": null, "imp": 60, "clk": 8, "cost": 7212, "conv": 0}, {"kw": "documentos contratistas", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": null, "imp": 55, "clk": 8, "cost": 7774, "conv": 0}, {"kw": "software hse", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 53, "clk": 3, "cost": 5576, "conv": 0}, {"kw": "acreditación de contratistas", "mt": "Phrase", "camp": "Contratistas", "st": "enabled", "qs": null, "imp": 45, "clk": 5, "cost": 4822, "conv": 0}, {"kw": "tazki chile", "mt": "Phrase", "camp": "Marca", "st": "enabled", "qs": 10, "imp": 45, "clk": 6, "cost": 2361, "conv": 0}, {"kw": "software seguridad ocupacional", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": null, "imp": 44, "clk": 2, "cost": 846, "conv": 0}, {"kw": "dirección del trabajo", "mt": "Phrase", "camp": "Fiscalización DT", "st": "enabled", "qs": 1, "imp": 42, "clk": 5, "cost": 6373, "conv": 0}, {"kw": "sistema gestión hseq", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 42, "clk": 4, "cost": 7181, "conv": 0}, {"kw": "software de prevención de riesgos laborales", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": null, "imp": 42, "clk": 1, "cost": 309, "conv": 0}, {"kw": "plataforma hse", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 41, "clk": 1, "cost": 1878, "conv": 0}, {"kw": "software sst", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": 5, "imp": 39, "clk": 4, "cost": 4617, "conv": 1}, {"kw": "plataforma sgi", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 38, "clk": 1, "cost": 1192, "conv": 0}, {"kw": "sistema gestión hseq", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": null, "imp": 35, "clk": 0, "cost": 0, "conv": 0}, {"kw": "software prevención de riesgos", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": 8, "imp": 25, "clk": 2, "cost": 17962, "conv": 0}, {"kw": "app prevención de riesgos", "mt": "Phrase", "camp": "Operativa", "st": "enabled", "qs": 5, "imp": 20, "clk": 2, "cost": 2462, "conv": 0}, {"kw": "software gestión sst", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 17, "clk": 1, "cost": 1894, "conv": 0}, {"kw": "sistema sgi", "mt": "Phrase", "camp": "Operativa", "st": "removed", "qs": null, "imp": 16, "clk": 1, "cost": 4465, "conv": 0}, {"kw": "plataforma tazki", "mt": "Phrase", "camp": "Marca", "st": "enabled", "qs": 7, "imp": 15, "clk": 4, "cost": 1578, "conv": 0}, {"kw": "software iso 45001", "mt": "Phrase", "camp": "HSEQ", "st": "enabled", "qs": null, "imp": 9, "clk": 1, "cost": 594, "conv": 0}, {"kw": "software prevención de riesgos", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 8, "clk": 1, "cost": 1882, "conv": 0}, {"kw": "tazki software", "mt": "Phrase", "camp": "Marca", "st": "enabled", "qs": null, "imp": 7, "clk": 2, "cost": 794, "conv": 0}, {"kw": "software de prevención de riesgos laborales", "mt": "Phrase", "camp": "SST/HSEQ", "st": "enabled", "qs": null, "imp": 3, "clk": 1, "cost": 1847, "conv": 0}, {"kw": "prevención de riesgos chile software", "mt": "Phrase", "camp": "Prevención de Riesgos", "st": "enabled", "qs": null, "imp": 13, "clk": 2, "cost": 2721, "conv": 0}], "updated": "10 jul 2026", "stats": {"comp_n": 32, "comp_cost": 69267, "comp_clk": 56, "info_n": 9, "info_cost": 14155, "info_clk": 14, "term_total": 85, "kw_total": 47}};
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
 const nf1 = new Intl.NumberFormat('es-CL',{maximumFractionDigits:1});
 const clp = v => '$' + nf.format(v);
@@ -298,6 +386,98 @@ document.getElementById('foot').innerHTML =
   `Fuente: Google Ads (cuenta ${ADS.account}, id 3766426817) vía Supermetrics · moneda CLP. Los importes de Google Ads pueden diferir de la facturación final. ` +
   `Las conversiones «en Ads» solo cuentan lo rastreado dentro de Google Ads; las conversiones de negocio reales (MQL, negocios ganados) viven en HubSpot y se ven en el Panel MQL. ` +
   `Este panel se actualiza a diario junto con el resto del Growth Hub.`;
+
+/* ============ PESTAÑA KEYWORDS Y TÉRMINOS ============ */
+const tabs=document.getElementById('tabs');
+tabs.addEventListener('click',ev=>{const b=ev.target.closest('.tab');if(!b)return;
+  tabs.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));
+  document.getElementById('tab-resumen').hidden=b.dataset.tab!=='resumen';
+  document.getElementById('tab-keywords').hidden=b.dataset.tab!=='keywords';});
+
+const TERMS=TERMS_DATA.terms, KWS=TERMS_DATA.kws, TS=TERMS_DATA.stats;
+const TAGLBL={competidor:'Competidor',informacional:'Informacional',ok:'Comercial'};
+
+/* KPIs de la pestaña */
+document.getElementById('kwKpis').innerHTML=[
+  {lbl:'Términos analizados',val:nf.format(TS.term_total),sub:'con clics · 30 días'},
+  {lbl:'Gasto en competidores',val:clp(TS.comp_cost),sub:`${TS.comp_n} términos · ${TS.comp_clk} clics`,c:'var(--st-crit)'},
+  {lbl:'Gasto informacional',val:clp(TS.info_cost),sub:`${TS.info_n} términos sin intención`,c:'var(--st-warn)'},
+  {lbl:'Keywords activas',val:nf.format(TS.kw_total),sub:`${KWS.filter(k=>k.qs&&k.qs<=3).length} con QS bajo`},
+].map(k=>`<div class="kpi"><span class="lbl">${k.c?`<i class="dot" style="background:${k.c}"></i>`:''}${k.lbl}</span><span class="val">${k.val}</span><span class="sub">${k.sub}</span></div>`).join('');
+
+const CAMPS=[...new Set([...TERMS.map(t=>t.camp),...KWS.map(k=>k.camp)])].sort();
+function fillCampSel(id){const el=document.getElementById(id);el.innerHTML='<option value="">Todas las campañas</option>'+CAMPS.map(c=>`<option>${esc(c)}</option>`).join('');}
+fillCampSel('stCamp');fillCampSel('kwCamp');
+
+/* --- candidatos a negativa --- */
+const negs=TERMS.filter(t=>t.cls!=='ok'&&t.clk>0).sort((a,b)=>b.cost-a.cost);
+document.getElementById('negBody').innerHTML=negs.map(t=>`<tr>
+  <td class="camp">${esc(t.t)}</td><td><span class="tag ${t.cls}">${TAGLBL[t.cls]}</span></td>
+  <td style="color:var(--ink-2)">${esc(t.camp)}</td><td class="num">${t.clk}</td><td class="num">${nf.format(t.cost)}</td></tr>`).join('')
+  || '<tr><td colspan="5" style="color:var(--ink-3)">Sin candidatos hoy.</td></tr>';
+const negListado=[...new Set(negs.map(t=>t.t))];
+document.getElementById('negBlock').textContent=
+`Contexto: cuenta Google Ads "${ADS.account}" (id 3766426817) de Tazki, gestionada vía Supermetrics.
+Objetivo: agregar palabras clave negativas para dejar de gastar en términos irrelevantes (marcas de competidores y búsquedas informacionales sin intención de compra) detectados en los últimos 30 días.
+Términos candidatos (${negListado.length}, ${clp(negs.reduce((s,t)=>s+t.cost,0))} CLP en el período):
+${negListado.map(t=>'  - '+t).join('\n')}
+Pedido: (1) Revisa cada término y confírmame cuáles son efectivamente irrelevantes para Tazki. (2) Para los confirmados, agrégalos como palabras clave negativas a nivel de campaña o de lista compartida en Google Ads (vía las herramientas de gestión de Supermetrics), evitando bloquear términos de marca propia o comerciales legítimos. (3) Reporta qué negativas quedaron aplicadas y en qué nivel.`;
+document.getElementById('copyNeg').addEventListener('click',()=>{navigator.clipboard.writeText(document.getElementById('negBlock').textContent).then(()=>{const b=document.getElementById('copyNeg');b.textContent='Copiado ✓';setTimeout(()=>b.textContent='Copiar',1800);});});
+
+/* --- tabla términos con filtros --- */
+let stF={q:'',camp:'',f:'all'};
+function renderST(){
+  let rows=TERMS.filter(t=>(!stF.camp||t.camp===stF.camp)
+    &&(!stF.q||t.t.toLowerCase().includes(stF.q)||t.kw.toLowerCase().includes(stF.q))
+    &&(stF.f==='all'||(stF.f==='clk'?t.clk>0:t.cls===stF.f)));
+  rows.sort((a,b)=>b.cost-a.cost);
+  document.getElementById('stBody').innerHTML=rows.map(t=>`<tr>
+    <td class="camp">${esc(t.t)}</td><td><span class="tag ${t.cls}">${TAGLBL[t.cls]}</span></td>
+    <td style="color:var(--ink-2)">${esc(t.kw)}</td><td style="color:var(--ink-3);font-size:12px">${esc(t.camp)}</td>
+    <td class="num">${nf.format(t.imp)}</td><td class="num">${t.clk}</td><td class="num">${nf.format(t.cost)}</td>
+    <td class="num" style="${t.conv?'color:var(--st-good);font-weight:600':''}">${t.conv}</td></tr>`).join('')
+    || '<tr><td colspan="8" style="color:var(--ink-3)">Sin términos con este filtro.</td></tr>';
+  document.getElementById('stCount').textContent=`${rows.length} de ${TERMS.length}`;
+  document.getElementById('stFoot').textContent=`${rows.length} términos · ${clp(rows.reduce((s,t)=>s+t.cost,0))} CLP · ${rows.reduce((s,t)=>s+t.clk,0)} clics en la vista.`;
+}
+document.getElementById('stSearch').addEventListener('input',e=>{stF.q=e.target.value.toLowerCase().trim();renderST();});
+document.getElementById('stCamp').addEventListener('change',e=>{stF.camp=e.target.value;renderST();});
+document.querySelectorAll('[data-stf]').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('[data-stf]').forEach(x=>x.classList.toggle('on',x===c));stF.f=c.dataset.stf;renderST();}));
+renderST();
+
+/* --- tabla keywords con filtros --- */
+let kwF={q:'',camp:'',f:'all'};
+function qsCls(q){return q==null?'':q<=3?'lo':q<=6?'mid':'hi';}
+function renderKW(){
+  let rows=KWS.filter(k=>(!kwF.camp||k.camp===kwF.camp)
+    &&(!kwF.q||k.kw.toLowerCase().includes(kwF.q))
+    &&(kwF.f==='all'||(kwF.f==='loqs'?(k.qs&&k.qs<=3):(k.cost>0&&k.conv===0))));
+  rows.sort((a,b)=>b.cost-a.cost);
+  document.getElementById('kwBody').innerHTML=rows.map(k=>`<tr>
+    <td class="camp">${esc(k.kw)}</td><td style="color:var(--ink-3);font-size:12px">${esc(k.camp)}</td>
+    <td class="num">${k.qs!=null?`<span class="qs ${qsCls(k.qs)}">${k.qs}</span>`:'<span style="color:var(--ink-3)">—</span>'}</td>
+    <td class="num">${nf.format(k.imp)}</td><td class="num">${k.clk}</td><td class="num">${k.imp?nf1.format(k.clk/k.imp*100)+'%':'—'}</td>
+    <td class="num">${nf.format(k.cost)}</td><td class="num" style="${k.conv?'color:var(--st-good);font-weight:600':''}">${k.conv}</td></tr>`).join('')
+    || '<tr><td colspan="8" style="color:var(--ink-3)">Sin keywords con este filtro.</td></tr>';
+  document.getElementById('kwCount').textContent=`${rows.length} de ${KWS.length}`;
+  document.getElementById('kwFoot').textContent=`${rows.length} keywords · ${clp(rows.reduce((s,k)=>s+k.cost,0))} CLP en la vista.`;
+}
+document.getElementById('kwSearch').addEventListener('input',e=>{kwF.q=e.target.value.toLowerCase().trim();renderKW();});
+document.getElementById('kwCamp').addEventListener('change',e=>{kwF.camp=e.target.value;renderKW();});
+document.querySelectorAll('[data-kwf]').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('[data-kwf]').forEach(x=>x.classList.toggle('on',x===c));kwF.f=c.dataset.kwf;renderKW();}));
+renderKW();
+
+/* --- bloque consulta en vivo --- */
+document.getElementById('liveBlock').textContent=
+`Contexto: cuenta Google Ads "${ADS.account}" (id 3766426817) de Tazki vía Supermetrics (ds_id AW).
+Pedido: extrae el reporte de TÉRMINOS DE BÚSQUEDA (y/o KEYWORDS) para el rango de fechas [INDICA AQUÍ: ej. 2026-07-01 a 2026-07-07].
+- Términos: fields Searchterm,Campaignname,Keyword,Matchtype,Impressions,Clicks,Cost,Conversions (report SearchTermView), settings {"exclude_invalid_accounts":true}.
+- Keywords: fields Keyword,Matchtype,Campaignname,Keywordstatus,Qualityscore,Impressions,Clicks,Cost,Conversions, settings {"exclude_invalid_accounts":true}.
+Usa data_query + get_async_query_results (poll hasta completed). Los importes están en CLP.
+Devuélveme una tabla ordenada por costo y marca los candidatos a palabra negativa (competidores e informacionales que gastan sin convertir).`;
+document.getElementById('copyLive').addEventListener('click',()=>{navigator.clipboard.writeText(document.getElementById('liveBlock').textContent).then(()=>{const b=document.getElementById('copyLive');b.textContent='Copiado ✓';setTimeout(()=>b.textContent='Copiar',1800);});});
 </script>
 
 </body></html>
