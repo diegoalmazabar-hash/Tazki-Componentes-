@@ -1,0 +1,6 @@
+{
+  "_doc": "Palabras negativas ya aplicadas en Google Ads. La rutina del Panel Google Ads lee 'roots' y marca esos terminos como 'ya bloqueado'. Al aplicar una negativa, agregar aqui su raiz (ej 'zyght'), campanas y fecha, y commitear.",
+  "roots": [],
+  "detalle": [],
+  "updated": ""
+}
