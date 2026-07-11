@@ -373,9 +373,13 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   <h2 class="sec">Rendimiento del blog</h2>
   <p class="sub">Rendimiento real de los artículos del blog (<code>tazki.cl/blog</code>, <code>/recursos</code> y casos de éxito) desde HubSpot: visitas, conversiones y qué artículos generan leads. Datos de los últimos 30 días · actualizado <span id="blog-upd"></span>.</p>
 
-  <div id="blog-kpis" class="stages" style="grid-template-columns:repeat(4,1fr);margin-bottom:22px"></div>
+  <span class="lbl">Tráfico y conversión del blog · HubSpot</span>
+  <div id="blog-kpis" class="stages" style="grid-template-columns:repeat(4,1fr);margin:10px 0 22px"></div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:8px" class="blog-2col">
+  <span class="lbl">Presencia en Google · Search Console (30 días)</span>
+  <div id="blog-seokpis" class="stages" style="grid-template-columns:repeat(4,1fr);margin:10px 0 22px"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px" class="blog-2col">
     <div>
       <span class="lbl">Fuente de tráfico del sitio · GA4</span>
       <div id="blog-channels" style="margin-top:10px"></div>
@@ -386,10 +390,22 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     </div>
   </div>
 
-  <span class="lbl" style="margin-top:24px">Artículos: visitas, conversión y posición en Google</span>
+  <span class="lbl">Oportunidades SEO por tema · dónde ya apareces en Google</span>
+  <p class="sub" style="margin:4px 0 12px">Impresiones = veces que un artículo tuyo apareció en Google para búsquedas <b>no-marca</b> (de categoría/problema, sin "tazki"). Muchas impresiones con pocos clics = estás en la página pero abajo; subir de posición o mejorar el título convierte esa visibilidad en visitas.</p>
+  <div id="blog-clusters" style="margin-bottom:22px"></div>
+
+  <span class="lbl">Top búsquedas no-marca donde apareces</span>
+  <div class="tablewrap" style="margin-bottom:22px">
+    <table class="data">
+      <thead><tr><th>Búsqueda en Google</th><th>Impresiones</th><th>Clics</th><th>CTR</th><th>Posición</th></tr></thead>
+      <tbody id="blog-kwrows"></tbody>
+    </table>
+  </div>
+
+  <span class="lbl">Artículos: visitas, conversión, engagement y posición en Google</span>
   <div class="tablewrap">
     <table class="data">
-      <thead><tr><th>Artículo</th><th>Sección</th><th>Visitas</th><th>Leads</th><th>Rebote</th><th>Posición Google</th></tr></thead>
+      <thead><tr><th>Artículo</th><th>Sección</th><th>Visitas</th><th>Leads</th><th>Rebote</th><th>Tiempo</th><th>Impr. Google</th><th>Posición</th></tr></thead>
       <tbody id="blog-rows"></tbody>
     </table>
   </div>
@@ -577,22 +593,44 @@ calcROI();
 renderFilters();renderBoard();
 
 /* ---------- Rendimiento del blog ---------- */
-const BLOG = {"posts": [{"id": "216185175900", "t": "Control operacional en 80 sucursales, con gestión autónoma y trazabilidad centralizada", "u": "https://tazki.cl/casos-de-exito/control-operacional-en-80-sucursales-con-gestión-autónoma-y-trazabilidad-centralizada", "cat": "Caso de éxito", "v": 52, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 42, "pos": null, "imp": null}, {"id": "216048041479", "t": "DS 44, un año después", "u": "https://tazki.cl/recursos/ds-44-un-año-después", "cat": "Recursos", "v": 47, "s": 5, "c": 2, "l": 2, "b": 0.67, "tpp": 109, "pos": 8.0, "imp": 30}, {"id": "216648024605", "t": "Inspecciones de seguridad: cómo digitalizar checklists, autorizaciones y reportes en terreno", "u": "https://tazki.cl/blog/inspecciones-de-seguridad-digitales-checklists-firmas-y-reportabilidad", "cat": "Blog", "v": 34, "s": 0, "c": 0, "l": 0, "b": 0.83, "tpp": 97, "pos": 10.0, "imp": 33}, {"id": "216048041317", "t": "Obligación de Informar (ODI) vs Información de los Riesgos Laborales (IRL)", "u": "https://tazki.cl/blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion", "cat": "Blog", "v": 33, "s": 0, "c": 0, "l": 0, "b": 0.89, "tpp": 194, "pos": 9.7, "imp": 142}, {"id": "216648025162", "t": "Cómo Falabella Retail ahorró 326 días de trabajo con Tazki", "u": "https://tazki.cl/casos-de-exito/como-falabella-retail-ahorro-326-dias-de-trabajo-con-tazki", "cat": "Caso de éxito", "v": 9, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 60, "pos": 16.5, "imp": 115}, {"id": "216607598644", "t": "Inducciones laborales: cómo digitalizar la ODI, el reglamento y la firma antes del primer día", "u": "https://tazki.cl/blog/inducciones-laborales-digitales", "cat": "Blog", "v": 7, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 14, "pos": 10.5, "imp": 39}, {"id": "216648005673", "t": "ART/AST y charla diaria: análisis de riesgos digital para tareas críticas", "u": "https://tazki.cl/blog/art-ast-charla-diaria-digital", "cat": "Blog", "v": 4, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 12, "pos": 4.2, "imp": 37}, {"id": "216050743464", "t": "[PRUEBA] Ya puedes agendar Inspecciones desde el celular sin conexión a internet", "u": "https://tazki.cl/comunicados/prueba-ya-puedes-agendar-inspecciones", "cat": "Comunicado", "v": 2, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 196, "pos": null, "imp": null}], "totals": {"views": 188, "subs": 5, "contacts": 2, "leads": 2, "n": 8, "prev_views": 62}, "updated": "10 jul 2026", "hasSearchConsole": true, "channels": [["Búsqueda orgánica", 2514, 1521, 0.65], ["Directo", 1224, 664, 0.634], ["Email", 183, 147, 0.62], ["Búsqueda pagada", 35, 32, 0.43], ["Social orgánico", 11, 10, 0.36], ["Referral", 9, 4, 0.78], ["Sin asignar", 7, 7, 0], ["Asistente IA", 1, 1, 1], ["Cross-network", 1, 1, 1]], "tot_sessions": 3985, "brand_clicks": 32003, "nonbrand_kw": [{"q": "software prevencion de riesgos", "clk": 3, "imp": 244, "pos": 16.0, "ctr": 1.2}]};
+const BLOG = {"posts": [{"id": "216185175900", "t": "Control operacional en 80 sucursales, con gestión autónoma y trazabilidad centralizada", "u": "https://tazki.cl/casos-de-exito/control-operacional-en-80-sucursales-con-gestión-autónoma-y-trazabilidad-centralizada", "cat": "Caso de éxito", "v": 52, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 42, "pos": null, "imp": null}, {"id": "216048041479", "t": "DS 44, un año después", "u": "https://tazki.cl/recursos/ds-44-un-año-después", "cat": "Recursos", "v": 47, "s": 5, "c": 2, "l": 2, "b": 0.67, "tpp": 109, "pos": 8.0, "imp": 30}, {"id": "216648024605", "t": "Inspecciones de seguridad: cómo digitalizar checklists, autorizaciones y reportes en terreno", "u": "https://tazki.cl/blog/inspecciones-de-seguridad-digitales-checklists-firmas-y-reportabilidad", "cat": "Blog", "v": 34, "s": 0, "c": 0, "l": 0, "b": 0.83, "tpp": 97, "pos": 10.0, "imp": 33}, {"id": "216048041317", "t": "Obligación de Informar (ODI) vs Información de los Riesgos Laborales (IRL)", "u": "https://tazki.cl/blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion", "cat": "Blog", "v": 33, "s": 0, "c": 0, "l": 0, "b": 0.89, "tpp": 194, "pos": 9.7, "imp": 142}, {"id": "216648025162", "t": "Cómo Falabella Retail ahorró 326 días de trabajo con Tazki", "u": "https://tazki.cl/casos-de-exito/como-falabella-retail-ahorro-326-dias-de-trabajo-con-tazki", "cat": "Caso de éxito", "v": 9, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 60, "pos": 16.5, "imp": 115}, {"id": "216607598644", "t": "Inducciones laborales: cómo digitalizar la ODI, el reglamento y la firma antes del primer día", "u": "https://tazki.cl/blog/inducciones-laborales-digitales", "cat": "Blog", "v": 7, "s": 0, "c": 0, "l": 0, "b": 1.0, "tpp": 14, "pos": 10.5, "imp": 39}, {"id": "216648005673", "t": "ART/AST y charla diaria: análisis de riesgos digital para tareas críticas", "u": "https://tazki.cl/blog/art-ast-charla-diaria-digital", "cat": "Blog", "v": 4, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 12, "pos": 4.2, "imp": 37}, {"id": "216050743464", "t": "[PRUEBA] Ya puedes agendar Inspecciones desde el celular sin conexión a internet", "u": "https://tazki.cl/comunicados/prueba-ya-puedes-agendar-inspecciones", "cat": "Comunicado", "v": 2, "s": 0, "c": 0, "l": 0, "b": null, "tpp": 196, "pos": null, "imp": null}], "totals": {"views": 188, "subs": 5, "contacts": 2, "leads": 2, "n": 8, "prev_views": 62}, "updated": "11 jul 2026", "hasSearchConsole": true, "channels": [["Búsqueda orgánica", 2514, 1521, 0.65], ["Directo", 1224, 664, 0.634], ["Email", 183, 147, 0.62], ["Búsqueda pagada", 35, 32, 0.43], ["Social orgánico", 11, 10, 0.36], ["Referral", 9, 4, 0.78], ["Sin asignar", 7, 7, 0], ["Asistente IA", 1, 1, 1], ["Cross-network", 1, 1, 1]], "tot_sessions": 3985, "brand_clicks": 32508, "nonbrand_kw": [{"q": "irl", "clk": 0, "imp": 1598, "pos": 8.5, "ctr": 0.0}, {"q": "software prevencion de riesgos", "clk": 3, "imp": 276, "pos": 20.9, "ctr": 1.1}, {"q": "irl que es", "clk": 1, "imp": 79, "pos": 9.1, "ctr": 1.3}, {"q": "entrega de epp", "clk": 1, "imp": 73, "pos": 15.3, "ctr": 1.4}, {"q": "app prevención de riesgos", "clk": 1, "imp": 66, "pos": 18.0, "ctr": 1.5}, {"q": "miper", "clk": 2, "imp": 56, "pos": 12.7, "ctr": 3.6}, {"q": "software prevencion", "clk": 1, "imp": 56, "pos": 25.6, "ctr": 1.8}, {"q": "irl que es prevencion", "clk": 0, "imp": 50, "pos": 7.5, "ctr": 0.0}, {"q": "irl significado", "clk": 0, "imp": 47, "pos": 6.2, "ctr": 0.0}, {"q": "irl prevencion", "clk": 0, "imp": 46, "pos": 8.0, "ctr": 0.0}, {"q": "art seguridad", "clk": 0, "imp": 40, "pos": 6.9, "ctr": 0.0}, {"q": "irl chile", "clk": 0, "imp": 33, "pos": 8.9, "ctr": 0.0}, {"q": "irl prevención de riesgos", "clk": 0, "imp": 29, "pos": 6.7, "ctr": 0.0}, {"q": "irl en prevencion", "clk": 0, "imp": 26, "pos": 7.3, "ctr": 0.0}], "nonbrand_clicks": 13, "nonbrand_imp": 2915, "clusters": [{"name": "IRL / ODI", "imp": 2179, "clk": 1, "nq": 26, "pos": 3.8}, {"name": "Software prevención", "imp": 398, "clk": 5, "nq": 3, "pos": 18.0}, {"name": "EPP", "imp": 134, "clk": 3, "nq": 7, "pos": 4.7}, {"name": "ART / AST", "imp": 91, "clk": 1, "nq": 5, "pos": 2.7}, {"name": "MIPER / Matriz", "imp": 57, "clk": 3, "nq": 2, "pos": 10.0}, {"name": "Contratistas", "imp": 33, "clk": 0, "nq": 6, "pos": 20.2}, {"name": "Hallazgos / Inspección", "imp": 23, "clk": 0, "nq": 1, "pos": 37.9}], "org_clicks": 32521, "org_imp": 46963, "avg_pos": 1.9};
 (function(){
   if(!document.getElementById('blog-rows')) return;
   const nf=new Intl.NumberFormat('es-CL');
   const t=BLOG.totals, mom=t.prev_views?Math.round((t.views-t.prev_views)/t.prev_views*100):null;
   document.getElementById('blog-upd').textContent=BLOG.updated;
-  const kpis=[
-    {n:nf.format(t.views),l:'Visitas al blog',s:mom!=null?(mom>=0?'▲ +':'▼ ')+mom+'% vs mes previo':'30 días',cls:'tofu'},
-    {n:nf.format(t.subs),l:'Envíos de formulario',s:'desde artículos',cls:'mofu'},
-    {n:nf.format(t.leads),l:'Leads generados',s:t.contacts+' contactos nuevos',cls:'bofu'},
-    {n:nf.format(t.n),l:'Artículos con tráfico',s:'publicados y activos',cls:'tofu'},
-  ];
-  document.getElementById('blog-kpis').innerHTML=kpis.map(k=>`
-    <div class="stage ${k.cls}"><div style="font-size:30px;font-weight:800;line-height:1">${k.n}</div>
-      <div class="lbl" style="margin-top:6px">${k.l}</div>
-      <p style="font-size:12.5px;margin-top:2px">${k.s}</p></div>`).join('');
+
+  function posBadge(pos){
+    if(pos==null) return '<span style="color:var(--gris)">—</span>';
+    const p=Math.round(pos*10)/10;
+    let col='var(--bofu)';
+    if(pos<=3){col='var(--lock)';} else if(pos<=10){col='var(--tofu)';} else {col='var(--gris)';}
+    const pg=pos<=10?'pág. 1':pos<=20?'pág. 2':'pág. 3+';
+    return `<span style="font-weight:700;color:${col}">${p}</span> <span style="font-size:11px;color:var(--gris)">${pg}</span>`;
+  }
+  const card=(n,l,s,cls)=>`<div class="stage ${cls}"><div style="font-size:28px;font-weight:800;line-height:1">${n}</div>
+      <div class="lbl" style="margin-top:6px">${l}</div><p style="font-size:12.5px;margin-top:2px">${s}</p></div>`;
+
+  /* ---- KPIs blog (HubSpot) ---- */
+  document.getElementById('blog-kpis').innerHTML=[
+    card(nf.format(t.views),'Visitas al blog',mom!=null?(mom>=0?'▲ +':'▼ ')+mom+'% vs mes previo':'30 días','tofu'),
+    card(nf.format(t.subs),'Envíos de formulario','desde artículos','mofu'),
+    card(nf.format(t.leads),'Leads generados',t.contacts+' contactos nuevos','bofu'),
+    card(nf.format(t.n),'Artículos con tráfico','publicados y activos','tofu'),
+  ].join('');
+
+  /* ---- KPIs SEO / Google (Search Console) ---- */
+  const seoEl=document.getElementById('blog-seokpis');
+  if(seoEl && BLOG.hasSearchConsole){
+    const brand=BLOG.brand_clicks||0, nbc=BLOG.nonbrand_clicks||0, org=BLOG.org_clicks||(brand+nbc);
+    const bpct=org?Math.round(brand/org*100):0;
+    seoEl.innerHTML=[
+      card(nf.format(org),'Clics orgánicos','desde Google · 30 días','tofu'),
+      card(nf.format(BLOG.org_imp||0),'Impresiones en Google','veces que apareciste','mofu'),
+      card((BLOG.avg_pos!=null?String(BLOG.avg_pos).replace('.',','):'—'),'Posición media','en resultados de Google','bofu'),
+      card(bpct+'%','Búsquedas de marca',nf.format(brand)+' de '+nf.format(org)+' clics','tofu'),
+    ].join('');
+  } else if(seoEl){ seoEl.parentNode.removeChild(seoEl.previousElementSibling); seoEl.parentNode.removeChild(seoEl); }
 
   /* ---- Fuente de tráfico del sitio (GA4) ---- */
   const chEl=document.getElementById('blog-channels');
@@ -605,7 +643,7 @@ const BLOG = {"posts": [{"id": "216185175900", "t": "Control operacional en 80 s
       return `<div style="margin-bottom:9px">
         <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px">
           <span style="font-weight:600">${c[0]}</span>
-          <span style="color:var(--gris)">${nf.format(c[1])} sesiones · <b style="color:var(--ink)">${pct}%</b></span></div>
+          <span style="color:var(--gris)">${nf.format(c[1])} ses. · <b style="color:var(--ink)">${pct}%</b></span></div>
         <div style="height:8px;background:var(--linea);border-radius:20px;overflow:hidden">
           <div style="height:100%;width:${pct}%;background:${col};border-radius:20px"></div></div></div>`;
     }).join('')+`<p style="font-size:12px;color:var(--gris);margin-top:8px">${nf.format(tot)} sesiones totales · 30 días · GA4</p>`;
@@ -615,55 +653,79 @@ const BLOG = {"posts": [{"id": "216185175900", "t": "Control operacional en 80 s
   const brEl=document.getElementById('blog-brand');
   if(brEl){
     if(BLOG.hasSearchConsole){
-      const brand=BLOG.brand_clicks||0;
-      const nb=BLOG.nonbrand_kw||[];
-      const nbClicks=nb.reduce((a,k)=>a+(k.clk||0),0);
+      const brand=BLOG.brand_clicks||0, nbClicks=BLOG.nonbrand_clicks||0;
       const total=brand+nbClicks, bpct=total?Math.round(brand/total*100):0, npct=100-bpct;
       brEl.innerHTML=`
-        <div style="display:flex;height:26px;border-radius:6px;overflow:hidden;margin-bottom:6px">
-          <div style="width:${bpct}%;background:var(--cobalto);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">${bpct}%</div>
-          <div style="width:${Math.max(npct,3)}%;background:var(--bofu);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">${npct||'<1'}%</div></div>
+        <div style="display:flex;height:30px;border-radius:6px;overflow:hidden;margin-bottom:8px">
+          <div style="width:${bpct}%;background:var(--cobalto);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">Marca ${bpct}%</div>
+          <div style="width:${Math.max(npct,4)}%;background:var(--bofu);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">${npct||'<1'}%</div></div>
         <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:12px">
-          <span><b style="color:var(--cobalto)">${nf.format(brand)}</b> clics de marca ("tazki")</span>
-          <span><b style="color:var(--bofu)">${nf.format(nbClicks)}</b> no-marca</span></div>
-        <div class="note warn" style="margin:0">Casi todo tu orgánico (${bpct}%) es gente que ya te busca por nombre. El blog aún <b>no captura búsquedas de categoría/problema</b> — ahí está el crecimiento.</div>
-        ${nb.length?`<div style="margin-top:12px"><span class="lbl">Keywords no-marca que ya rankean</span>
-          <table class="data" style="margin-top:6px"><thead><tr><th>Búsqueda</th><th>Clics</th><th>Impr.</th><th>Pos.</th></tr></thead>
-          <tbody>${nb.slice(0,8).map(k=>`<tr><td class="k" style="white-space:normal">${k.q}</td><td>${nf.format(k.clk)}</td><td>${nf.format(k.imp)}</td><td>${posBadge(k.pos)}</td></tr>`).join('')}</tbody></table></div>`:''}`;
+          <span><b style="color:var(--cobalto)">${nf.format(brand)}</b> clics buscando "tazki"</span>
+          <span><b style="color:var(--bofu)">${nf.format(nbClicks)}</b> de categoría/problema</span></div>
+        <div class="note warn" style="margin:0">Casi todo tu orgánico (${bpct}%) es gente que ya te busca por nombre. Tienes <b>${nf.format(BLOG.nonbrand_imp||0)} impresiones</b> en búsquedas de problema pero apenas ${nf.format(nbClicks)} clics — ahí está el crecimiento sin explotar.</div>`;
     } else {
       brEl.innerHTML=`<div class="note warn" style="margin:0">Search Console no conectado — sin datos de keywords orgánicas ni posición en Google.</div>`;
     }
   }
 
-  function posBadge(pos){
-    if(pos==null) return '<span style="color:var(--gris)">—</span>';
-    const p=Math.round(pos*10)/10;
-    let col='var(--bofu)', txt=p;
-    if(pos<=3){col='var(--lock)';} else if(pos<=10){col='var(--tofu)';} else {col='var(--gris)';}
-    const pg=pos<=10?'pág. 1':pos<=20?'pág. 2':'pág. 3+';
-    return `<span style="font-weight:700;color:${col}">${p}</span> <span style="font-size:11px;color:var(--gris)">${pg}</span>`;
+  /* ---- Oportunidades SEO por tema (clusters) ---- */
+  const clEl=document.getElementById('blog-clusters');
+  if(clEl){
+    const cl=BLOG.clusters||[];
+    if(cl.length){
+      const max=Math.max(...cl.map(c=>c.imp));
+      clEl.innerHTML=cl.map(c=>{
+        const w=Math.round(c.imp/max*100);
+        const hot=c.pos<=10&&c.clk<=1&&c.imp>=100;
+        return `<div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:4px">
+            <span style="font-weight:700">${c.name}${hot?' <span style="font-size:11px;color:#fff;background:var(--bofu);padding:1px 7px;border-radius:20px;font-weight:700">oportunidad caliente</span>':''}</span>
+            <span style="color:var(--gris)">${nf.format(c.imp)} impr. · ${nf.format(c.clk)} clics · mejor pos. ${String(c.pos).replace('.',',')}</span></div>
+          <div style="height:14px;background:var(--linea);border-radius:20px;overflow:hidden">
+            <div style="height:100%;width:${w}%;background:${hot?'var(--bofu)':'var(--cobalto)'};border-radius:20px"></div></div>
+          <p style="font-size:11.5px;color:var(--gris);margin-top:2px">${c.nq} búsquedas distintas</p></div>`;
+      }).join('');
+    } else { clEl.innerHTML=`<div class="note" style="margin:0">Sin datos de Search Console para agrupar por tema.</div>`; }
   }
 
+  /* ---- Tabla de búsquedas no-marca ---- */
+  const kwEl=document.getElementById('blog-kwrows');
+  if(kwEl){
+    const kw=BLOG.nonbrand_kw||[];
+    kwEl.innerHTML=kw.length?kw.map(k=>`<tr>
+      <td class="k" style="white-space:normal">${k.q}</td>
+      <td style="font-weight:700">${nf.format(k.imp)}</td>
+      <td style="${k.clk?'color:var(--bofu);font-weight:700':'color:var(--gris)'}">${nf.format(k.clk)}</td>
+      <td style="color:var(--gris)">${String(k.ctr).replace('.',',')}%</td>
+      <td>${posBadge(k.pos)}</td></tr>`).join('')
+      :`<tr><td colspan="5" style="color:var(--gris)">Sin datos de Search Console.</td></tr>`;
+  }
+
+  /* ---- Tabla de artículos ---- */
   const secCol={'Blog':'var(--tofu)','Recursos':'var(--mofu)','Caso de éxito':'var(--bofu)','Comunicado':'var(--gris)'};
   const posts=[...BLOG.posts].sort((a,b)=>b.v-a.v);
   document.getElementById('blog-rows').innerHTML=posts.map(p=>{
     const bpct=p.b!=null?Math.round(p.b*100)+'%':'—';
     const bcls=p.b!=null&&p.b>=0.8?'color:var(--lock);font-weight:700':'';
+    const mins=Math.floor((p.tpp||0)/60), secs=(p.tpp||0)%60, tt=p.tpp?(mins?`${mins}m ${secs}s`:`${secs}s`):'—';
     return `<tr>
-      <td class="k" style="max-width:280px;white-space:normal"><a href="${p.u}" target="_blank" rel="noopener" style="color:var(--cobalto);text-decoration:none">${p.t}</a></td>
+      <td class="k" style="max-width:260px;white-space:normal"><a href="${p.u}" target="_blank" rel="noopener" style="color:var(--cobalto);text-decoration:none">${p.t}</a></td>
       <td><span style="font-size:11px;font-weight:700;color:#fff;background:${secCol[p.cat]||'var(--gris)'};padding:2px 8px;border-radius:20px;white-space:nowrap">${p.cat}</span></td>
       <td style="font-weight:700">${nf.format(p.v)}</td>
       <td style="${p.l?'color:var(--bofu);font-weight:700':''}">${p.l||'—'}</td>
       <td style="${bcls}">${bpct}</td>
+      <td style="color:var(--gris)">${tt}</td>
+      <td>${p.imp!=null?nf.format(p.imp):'—'}</td>
       <td>${posBadge(p.pos)}</td>
     </tr>`;}).join('');
 
-  // recomendaciones derivadas de los datos
+  /* ---- Recomendaciones ---- */
   const recs=[];
+  const topcl=(BLOG.clusters||[]).filter(c=>c.pos<=10&&c.clk<=2&&c.imp>=100).sort((a,b)=>b.imp-a.imp)[0];
+  if(topcl) recs.push({t:`Rescata el clúster "${topcl.name}": ${nf.format(topcl.imp)} impresiones y casi 0 clics`,d:`Ya apareces en Google (mejor posición ${String(topcl.pos).replace('.',',')}, ${topcl.nq} búsquedas distintas) pero la gente no hace clic. Suele ser el <b>título SEO y la meta-descripción</b> que no coinciden con lo que busca. Recomendación en HubSpot: edita el artículo que rankea para estas búsquedas, pon el término exacto ("IRL", "información de riesgos laborales", "ODS 44") en el título H1 y en la etiqueta title, y escribe una meta-descripción que responda la duda en una línea. Solo subir el CTR aquí puede duplicar tu tráfico no-marca.`,c:'bofu'});
   if(BLOG.hasSearchConsole){
-    const brand=BLOG.brand_clicks||0, nbClicks=(BLOG.nonbrand_kw||[]).reduce((a,k)=>a+(k.clk||0),0);
-    const bpct=(brand+nbClicks)?Math.round(brand/(brand+nbClicks)*100):0;
-    recs.push({t:`El ${bpct}% de tu orgánico es de marca — ataca las búsquedas de problema`,d:`Recibes ${nf.format(brand)} clics de gente que busca "tazki" y solo ${nf.format(nbClicks)} de búsquedas de categoría/problema. El blog ya rankea en pág. 1-2 para términos como "software prevención de riesgos" (pos. 16) con impresiones pero casi sin clics: está a punto de despegar. Recomendación: elige 3-4 keywords de problema (DS 44, MIPER, checklist de inspección, ODI) y crea/optimiza un artículo por cada una con ese término exacto en H1, URL y meta-descripción.`,c:'tofu'});
+    const brand=BLOG.brand_clicks||0, org=BLOG.org_clicks||0, bpct=org?Math.round(brand/org*100):0;
+    recs.push({t:`El ${bpct}% de tu orgánico es de marca — falta demanda de categoría`,d:`De ${nf.format(org)} clics orgánicos, ${nf.format(brand)} son de gente que ya escribe "tazki". El blog rankea para términos de problema (software de prevención, MIPER, EPP, contratistas) pero en posiciones 15-25. Recomendación: elige 3-4 keywords de problema con volumen y crea/optimiza un artículo por cada una — es la vía para que te descubra quien todavía no te conoce.`,c:'tofu'});
   }
   const best=posts.filter(p=>p.l>0).sort((a,b)=>b.l-a.l)[0];
   if(best) recs.push({t:`Potencia tu mejor convertidor: "${best.t}"`,d:`Genera ${best.l} lead(s) con solo ${best.v} visitas — la mejor tasa del blog. Recomendación: crea 2-3 artículos satélite sobre el mismo tema (DS 44 / normativa), enlázalos a este, y súbele el CTA a un lead magnet BOFU. En HubSpot: revisa el título SEO y meta-descripción para captar más búsquedas de "ds 44".`,c:'bofu'});
