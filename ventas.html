@@ -207,10 +207,27 @@ const PIECES={
 };
 const ICP_DESC={core:"Core — alto riesgo, +500",expandido:"Expandido — alto riesgo, 200–500",enterprise:"Enterprise Controlado — red distribuida",contratistas:"Contratistas — cumplir ante el mandante"};
 
+// piezas propias por industria (bucket -> [folder, NombreArchivo, [ppt,broch,flyer]])
+const INDPZ={
+ "Minería":["mineria","Mineria",["5,6 MB","1,2 MB","308 KB"]],
+ "Construcción":["construccion","Construccion",["5,5 MB","1,2 MB","272 KB"]],
+ "Manufactura":["manufactura","Manufactura",["5,5 MB","1,2 MB","272 KB"]],
+ "Energía / Servicios básicos":["energia","Energia",["5,5 MB","1,2 MB","233 KB"]],
+ "Transporte / Logística":["transporte","Transporte",["5,5 MB","1,2 MB","276 KB"]],
+ "Agro / Pesca":["agro","Agro",["5,5 MB","1,2 MB","276 KB"]],
+ "Comercio / Retail":["comercio","Comercio",["5,5 MB","1,1 MB","244 KB"]],
+ "Salud":["salud","Salud",["5,5 MB","1,1 MB","246 KB"]],
+ "Telecom / TI / Servicios":["telecom","Telecom",["5,5 MB","1,2 MB","243 KB"]],
+};
 function pickICP(bucket,size,cont){
   if(cont) return 'contratistas';
   if(META[bucket] && META[bucket][2]) return 'enterprise';
   return size==='l' ? 'core' : 'expandido';
+}
+function pickPiece(bucket,size,cont){
+  if(!cont && INDPZ[bucket]) return {pz:INDPZ[bucket],industry:true,desc:"hecho para "+META[bucket][0]};
+  const k=pickICP(bucket,size,cont);
+  return {pz:PIECES[k],industry:false,desc:"perfil "+ICP_DESC[k]};
 }
 const nf=n=>new Intl.NumberFormat('es-CL').format(n);
 
@@ -218,7 +235,7 @@ function render(){
   const bucket=document.getElementById('fInd').value, size=document.getElementById('fSize').value, cont=document.getElementById('fCont').checked;
   const R=document.getElementById('result');
   if(!bucket||!size){ R.className=''; R.innerHTML=''; return; }
-  const d=IND[bucket]||{}, m=META[bucket], key=pickICP(bucket,size,cont), pz=PIECES[key];
+  const d=IND[bucket]||{}, m=META[bucket], _pp=pickPiece(bucket,size,cont), pz=_pp.pz;
   const emphSet=new Set((d.emph&&d.emph.length)?d.emph:["Inducciones","Capacitaciones","EPP","Investigación de accidentes"]);
   const thin=!d.emph||!d.emph.length;
 
@@ -265,7 +282,7 @@ function render(){
    ${thin?'<div class="note amber" style="margin-top:12px">ℹ️ Este rubro tiene pocos negocios cerrados en tu CRM, así que el énfasis de módulos usa un patrón general. Los dolores y clientes que se muestran sí son reales.</div>':''}
 
    <div class="sec-t">📥 Piezas para descargar</div>
-   <p class="icpnote">Por tamaño y tipo, el material recomendado es el del perfil <b>${ICP_DESC[key]}</b>. Los 12 módulos aparecen en la presentación; se destacan los que este rubro más contrata.</p>
+   <p class="icpnote">${_pp.industry?`Material <b>${_pp.desc}</b> — con el lenguaje, los dolores y los clientes reales de este rubro.`:`Por tamaño y tipo, el material recomendado es el del <b>${_pp.desc}</b>.`} Los 12 módulos aparecen en la presentación; se destacan los que este rubro más contrata.</p>
    ${dl}
 
    <div class="sec-t">Los dolores reales de ${m[0]}</div>
