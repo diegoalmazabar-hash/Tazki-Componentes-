@@ -217,15 +217,15 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
     <div class="fstep" style="border-left-color:var(--tofu)">
       <div class="fhead"><span class="fn">2</span><h3>Captar</h3></div>
-      <p class="fdesc">Un formulario convierte la visita en un contacto. La etapa la define la intención del contenido.</p>
-      <div class="fchips"><span class="fchip">[TOFU] Ebook / Newsletter</span><span class="fchip">[MOFU] Calculadora ROI / Contáctanos</span><span class="fchip">[BOFU] Demo</span></div>
+      <p class="fdesc">Un formulario convierte la visita en un contacto. Ahora solo hay dos: el <b>Form de Leads</b> y el <b>Form MQL clásico</b>.</p>
+      <div class="fchips"><span class="fchip">Form de Leads → Ebook · Newsletter · Webinar · Calculadora ROI</span><span class="fchip">Form MQL clásico → Contáctanos · Demo</span></div>
     </div>
     <div class="farrow">↓<small>nuevo contacto con correo</small></div>
 
     <div class="fstep" style="border-left-color:#64748b">
       <div class="fhead"><span class="fn">3</span><h3>Procesar (automático)</h3></div>
       <p class="fdesc">Los workflows etiquetan y clasifican al contacto solos, sin trabajo manual.</p>
-      <div class="fchips"><span class="fchip">WF1 → Lead</span><span class="fchip">WF4 → MQL</span><span class="fchip">WF5 → SQL</span><span class="fchip">+ pilar_de_origen</span><span class="fchip">+ etapa_de_captacion</span><span class="fchip">+ fechas</span></div>
+      <div class="fchips"><span class="fchip">Form de Leads → WF1 → Lead</span><span class="fchip">Form MQL → WF4 → MQL</span><span class="fchip">Deal → WF5 → SQL</span><span class="fchip">+ pilar_de_origen</span><span class="fchip">+ tipo_de_oferta</span><span class="fchip">+ fechas</span></div>
     </div>
     <div class="farrow">↓<small>contacto etiquetado</small></div>
 
@@ -256,7 +256,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 <!-- ============ FUNNEL & BASELINE ============ -->
 <section id="funnel" class="tab">
   <h2 class="sec">Funnel &amp; Baseline</h2>
-  <p class="sub">El modelo de medición TOFU/MOFU/BOFU (§1) y la foto real de dónde parte Tazki (§0, HubSpot ene–jun 2026).</p>
+  <p class="sub">El modelo de medición por lifecycle (Lead → MQL → SQL → Cliente) y la foto real de dónde parte Tazki (HubSpot ene–jun 2026). La captación se simplifica a <b>dos formularios</b>: el <b>Form de Leads</b> (ebook, newsletter, webinar y calculadora ROI → Lead) y el <b>Form MQL clásico</b> (contáctanos / demo → MQL).</p>
 
   <span class="lbl">Baseline real · HubSpot ene–jun 2026</span>
   <div class="tablewrap">
@@ -272,50 +272,51 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
       </tbody>
     </table>
   </div>
-  <div class="note warn"><b>Diagnóstico:</b> la captura funciona (página ebook convierte 16%), pero no tiene tráfico (25 vistas vs 79.110 de la home en may–jun). El TOFU casi no existe (8 leads en el año). Los MQL caen desde abril (54→41→29). El 90% de las vistas se concentra en la home. <b>→ El foco de julio es alimentar el TOFU.</b></div>
+  <div class="note warn"><b>Diagnóstico:</b> la captura funciona (página ebook convierte 16%), pero no tiene tráfico (25 vistas vs 79.110 de la home en may–jun). Los leads casi no existen (8 en el año). Los MQL caen desde abril (54→41→29). El 90% de las vistas se concentra en la home. <b>→ El foco de julio es alimentar la generación de leads (Form de Leads).</b></div>
 
-  <span class="lbl" style="margin-top:28px">Modelo de medición (§1)</span>
+  <span class="lbl" style="margin-top:28px">Modelo de medición · dos formularios</span>
   <div class="stages">
     <div class="stage tofu">
-      <span class="tag">TOFU</span><h3>Se interesó en contenido</h3>
-      <p>Consume contenido educativo. Aún no quiere hablar con nadie.</p>
-      <span class="lbl">Cómo se captura</span><p>Form de lead magnet (ebook, plantilla, calculadora) o suscripción al newsletter.</p>
+      <span class="tag">Form de Leads</span><h3>Se convirtió en lead</h3>
+      <p>Dejó su correo a cambio de contenido o de una herramienta. Un solo formulario para todas estas ofertas.</p>
+      <span class="lbl">Ofertas que lo usan</span><p>Ebook · Newsletter · Webinar · Calculadora ROI.</p>
       <span class="lbl">Lifecycle</span><p>Lead</p>
     </div>
     <div class="stage mofu">
-      <span class="tag">MOFU</span><h3>Levantó la mano</h3>
-      <p>Consume contenido de decisión o pide contacto.</p>
-      <span class="lbl">Cómo se captura</span><p>MQL form (contáctanos + LPs) o descarga BOFU-cercana (checklist acreditación).</p>
+      <span class="tag">Form MQL clásico</span><h3>Levantó la mano</h3>
+      <p>Pide hablar con Tazki: es el formulario clásico de MQL, de alta intención comercial.</p>
+      <span class="lbl">Ofertas que lo usan</span><p>Contáctanos · Solicitar demo (LPs de producto).</p>
       <span class="lbl">Lifecycle</span><p>MQL</p>
     </div>
     <div class="stage bofu">
-      <span class="tag">BOFU</span><h3>Proceso comercial activo</h3>
-      <p>Está en conversación de venta.</p>
-      <span class="lbl">Cómo se captura</span><p>Demo agendada / deal creado en pipeline de ventas. Cierre = deal ganado (Customer).</p>
+      <span class="tag">Proceso comercial</span><h3>Entró al pipeline</h3>
+      <p>Ya no es un formulario: lo abre ventas al agendar demo o crear el negocio.</p>
+      <span class="lbl">Cómo se captura</span><p>Demo agendada / deal creado. Cierre = deal ganado (Customer).</p>
       <span class="lbl">Lifecycle</span><p>SQL → Opportunity → Customer</p>
     </div>
   </div>
+  <div class="note"><b>Por qué dos formularios:</b> tener solo el <b>Form de Leads</b> y el <b>Form MQL</b> hace la medición limpia — todo envío del primero es un Lead y todo envío del segundo un MQL, sin ambigüedad de etapas. Para saber <i>qué</i> oferta convirtió (ebook, newsletter, webinar o calculadora) se usa la propiedad <b>tipo_de_oferta</b>, no formularios distintos.</div>
 
   <span class="lbl" style="margin-top:28px">Embudo de conversión · baseline vivo al 18-jul</span>
   <div class="cfunnel">
     <div class="cstage" style="background:var(--cobalto)"><div><b>Tráfico</b><span>Sesiones · orgánico + SEM</span></div><span class="cval">18-jul</span></div>
     <div class="crate">▼ tráfico → lead &nbsp;<b>—%</b></div>
-    <div class="cstage" style="background:var(--tofu)"><div><b>Lead (TOFU)</b><span>Ebook / newsletter</span></div><span class="cval">18-jul</span></div>
+    <div class="cstage" style="background:var(--tofu)"><div><b>Lead</b><span>Form de Leads · ebook/news/webinar/ROI</span></div><span class="cval">18-jul</span></div>
     <div class="crate">▼ lead → MQL &nbsp;<b>—%</b></div>
-    <div class="cstage" style="background:var(--mofu)"><div><b>MQL (MOFU)</b><span>MQL form / LPs</span></div><span class="cval">18-jul</span></div>
+    <div class="cstage" style="background:var(--mofu)"><div><b>MQL</b><span>Form MQL clásico</span></div><span class="cval">18-jul</span></div>
     <div class="crate">▼ MQL → SQL &nbsp;<b>—%</b></div>
     <div class="cstage" style="background:#ea7c0b"><div><b>SQL / Oportunidad</b><span>Demo / deal creado</span></div><span class="cval">18-jul</span></div>
     <div class="crate">▼ oportunidad → cierre &nbsp;<b>—%</b></div>
     <div class="cstage" style="background:var(--bofu)"><div><b>Cierre</b><span>Deal ganado · Customer</span></div><span class="cval">18-jul</span></div>
   </div>
 
-  <div class="note"><b>Reglas de oro (§1):</b> ① las fechas se estampan solo si están vacías (se preserva la primera conversión); ② el lifecycle nunca retrocede; ③ ninguna propiedad de medición se llena a mano — todo por workflow; ④ todo form nuevo nace con prefijo de etapa y pilar. <b>Cohortes:</b> un lead de julio que llega a SQL en 2027 conserva ambas fechas → se puede medir cuántos avanzan y en cuánto tiempo.</div>
+  <div class="note"><b>Reglas de oro:</b> ① las fechas se estampan solo si están vacías (se preserva la primera conversión); ② el lifecycle nunca retrocede; ③ ninguna propiedad de medición se llena a mano — todo por workflow; ④ solo existen dos formularios (Form de Leads → Lead, Form MQL → MQL); cada envío guarda el pilar y el tipo de oferta. <b>Cohortes:</b> un lead de julio que llega a SQL en 2027 conserva ambas fechas → se puede medir cuántos avanzan y en cuánto tiempo.</div>
 </section>
 
 <!-- ============ PILARES ============ -->
 <section id="pilares" class="tab">
   <h2 class="sec">Los 6 pilares (§7)</h2>
-  <p class="sub">Cada pilar = pillar page (head keyword, TOFU→BOFU) + cluster posts (long-tail, enlazan a la pillar) + lead magnet con form [TOFU] + CTA a demo. Todos enlazan al Pilar 6.</p>
+  <p class="sub">Cada pilar = pillar page (head keyword) + cluster posts (long-tail, enlazan a la pillar) + lead magnet con el <b>Form de Leads</b> + CTA a demo (Form MQL). Todos enlazan al Pilar 6.</p>
   <div id="pillars"></div>
 </section>
 
@@ -338,22 +339,19 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     </table>
   </div>
 
-  <span class="lbl" style="margin-top:28px">Formularios por etapa de funnel</span>
-  <p class="sub" style="margin-top:6px">La etapa la define la intención del contenido, no el formato. Cada formulario nace con su prefijo de etapa, que determina qué workflow lo procesa y en qué lifecycle cae el contacto. Así el origen queda registrado y se puede desglosar.</p>
+  <span class="lbl" style="margin-top:28px">Los dos formularios</span>
+  <p class="sub" style="margin-top:6px">Toda la captación se hace con dos formularios. Cada uno tiene un workflow y un lifecycle fijos, así la medición no depende de etapas ni prefijos: lo que entra por el Form de Leads es un Lead y lo que entra por el Form MQL es un MQL.</p>
   <div class="tablewrap">
     <table class="data">
-      <thead><tr><th>Contenido / oferta</th><th>Prefijo del form</th><th>Workflow</th><th>Lifecycle</th></tr></thead>
+      <thead><tr><th>Formulario</th><th>Ofertas que lo usan</th><th>Workflow</th><th>Lifecycle</th></tr></thead>
       <tbody>
-        <tr><td class="k">Ebook educativo (DS44, accidentes…)</td><td>[TOFU]</td><td>WF1</td><td>Lead</td></tr>
-        <tr><td class="k">Suscripción al newsletter</td><td>[TOFU]</td><td>WF1</td><td>Lead</td></tr>
-        <tr><td class="k">Checklist / contenido BOFU-cercano</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
-        <tr><td class="k">Calculadora ROI / comparativa software</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
-        <tr><td class="k">Form «contáctanos» / solicitar demo</td><td>[MOFU]</td><td>WF4</td><td>MQL</td></tr>
-        <tr><td class="k">Demo agendada / deal creado</td><td>[BOFU]</td><td>WF5</td><td>SQL</td></tr>
+        <tr><td class="k">Form de Leads</td><td>Ebook · Newsletter · Webinar · Calculadora ROI</td><td>WF1</td><td>Lead</td></tr>
+        <tr><td class="k">Form MQL clásico</td><td>Contáctanos · Solicitar demo (LPs de producto)</td><td>WF4</td><td>MQL</td></tr>
+        <tr><td class="k" style="color:var(--gris)">— (sin formulario)</td><td>Demo agendada / deal creado en el pipeline</td><td>WF5</td><td>SQL</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="note"><b>Cómo se desglosa el origen:</b> cada lead queda etiquetado con tres propiedades — <b>pilar_de_origen</b> (el tema), <b>etapa_de_captacion</b> (TOFU/MOFU/BOFU) y <b>first_conversion_event_name</b> (el formulario exacto que convirtió). Con esas tres, los reportes y el baseline se pueden filtrar por etapa, por pilar y por la pieza precisa. <b>Decisión pendiente con ventas:</b> qué ofertas cuentan como Lead y cuáles como MQL (por ejemplo, si la calculadora ROI genera un MQL directo o un Lead de alta intención).</div>
+  <div class="note"><b>Cómo se desglosa el origen:</b> cada contacto queda etiquetado con tres propiedades — <b>pilar_de_origen</b> (el tema), <b>tipo_de_oferta</b> (ebook / newsletter / webinar / calculadora ROI) y <b>first_conversion_event_name</b> (el envío exacto que convirtió). Con esas tres, los reportes se pueden filtrar por formulario, por pilar y por la pieza precisa — sin necesidad de crear formularios distintos por etapa.</div>
 
   <span class="lbl" style="margin-top:28px">Loop de amplificación · cada 4–6 semanas (sep–dic, §9.3)</span>
   <div class="stages" style="grid-template-columns:1fr 1fr">
@@ -457,7 +455,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
 <section id="roi" class="tab">
   <h2 class="sec">Calculadora de ROI</h2>
-  <p class="sub">Lead magnet de fondo de funnel (BOFU). Estima cuánto ahorra una empresa al pasar del papel/Excel a una plataforma de prevención. Al usarla o descargar el resultado, el contacto entra por un form <b>[MOFU]</b> y se marca como <b>MQL</b>. Este es un prototipo editable del cálculo.</p>
+  <p class="sub">Lead magnet de intención media-alta. Estima cuánto ahorra una empresa al pasar del papel/Excel a una plataforma de prevención. Al usarla o descargar el resultado, el contacto entra por el <b>Form de Leads</b> y se marca como <b>Lead</b> (con tipo_de_oferta = Calculadora ROI). Este es un prototipo editable del cálculo.</p>
   <div class="calc">
     <div class="calc-in">
       <div class="field"><label>Personas que hacen gestión de prevención</label><input type="number" id="r-pers" value="3" min="1"></div>
@@ -485,17 +483,17 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 <script>
 /* ---------- datos backlog (§11) ---------- */
 const TASKS=[
-{id:"F1",fase:"Preparación",area:"Propiedades",t:"Crear etapa_de_captacion (dropdown TOFU/MOFU/BOFU)",spec:2,dep:[],d:"Propiedad de contacto tipo desplegable con opciones TOFU, MOFU y BOFU. La escriben los workflows (nunca a mano) para marcar en qué etapa del funnel entró cada contacto."},
+{id:"F1",fase:"Preparación",area:"Propiedades",t:"Crear tipo_de_oferta (dropdown Ebook/Newsletter/Webinar/Calculadora ROI)",spec:2,dep:[],d:"Propiedad de contacto tipo desplegable con las ofertas del Form de Leads (Ebook, Newsletter, Webinar, Calculadora ROI). La escriben los workflows (nunca a mano) para saber qué oferta convirtió a cada lead. Reemplaza al antiguo etapa_de_captacion: ya no se mide por TOFU/MOFU/BOFU sino por formulario (Lead vs MQL) y por oferta."},
 {id:"F2",fase:"Preparación",area:"Propiedades",t:"Crear pilar_de_origen (dropdown 6 pilares)",spec:2,dep:[],d:"Propiedad desplegable con los 6 pilares (DS44, Accidentabilidad, Papeleo, MIPER, Contratistas, Software). Identifica de qué tema vino el lead, para desglosar después."},
 {id:"F3",fase:"Preparación",area:"Propiedades",t:"Crear conocia_tazki_antes + instruir a ventas",spec:2,dep:[],d:"Propiedad desplegable (Sí por contenido / Sí por referencia / No). La llena ventas en el discovery de los inbound; hay que instruir al equipo para que la registren."},
-{id:"F4",fase:"Preparación",area:"Forms",t:"Renombrar forms existentes con convención [ETAPA]",spec:3,dep:[],d:"Aplicar la convención «[ETAPA] Nombre · Pilar» a los formularios actuales (ej: el form del ebook pasa a «[TOFU] Ebook DS44»). Es lo que ordena la medición desde el origen."},
-{id:"F5",fase:"Preparación",area:"Forms",t:"Agregar checkbox newsletter al form del ebook",spec:3,dep:[],d:"Sumar al formulario del ebook una casilla «Quiero recibir el newsletter», que marca la propiedad suscripcion_newsletter cuando la activan."},
-{id:"F6",fase:"Preparación",area:"Forms",t:"Crear form [TOFU] Newsletter",spec:3,dep:[],d:"Formulario simple de un solo campo (email) para el módulo de suscripción que va al pie de los blogs y en la página de recursos."},
-{id:"F7",fase:"Preparación",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"],d:"Crear las listas: Leads TOFU 2026, Suscriptores Newsletter, Clientes activos, Usuarios de plataforma y Base Email MKT Julio (esta última excluye clientes, rebotados y opt-out)."},
-{id:"F8",fase:"Preparación",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form TOFU, marca etapa=TOFU, pilar_de_origen, fecha_lead y lifecycle=Lead. Excluye a clientes y usuarios de plataforma. Se deja en borrador."},
+{id:"F4",fase:"Preparación",area:"Forms",t:"Consolidar todo en 2 formularios: Form de Leads y Form MQL",spec:3,dep:[],d:"Dejar un único Form de Leads (ebook, newsletter, webinar y calculadora ROI → Lead) y el Form MQL clásico (contáctanos/demo → MQL). Migrar los formularios actuales a estos dos y marcar el tipo_de_oferta en cada envío. Se acabó la convención de prefijos [TOFU]/[MOFU]/[BOFU]."},
+{id:"F5",fase:"Preparación",area:"Forms",t:"Agregar checkbox newsletter al Form de Leads",spec:3,dep:["F4"],d:"Sumar al Form de Leads una casilla «Quiero recibir el newsletter», que marca la propiedad suscripcion_newsletter cuando la activan."},
+{id:"F6",fase:"Preparación",area:"Forms",t:"Variante mínima del Form de Leads para suscripción newsletter",spec:3,dep:["F4"],d:"Versión de un solo campo (email) del Form de Leads para el módulo de suscripción al pie de los blogs y en recursos; marca tipo_de_oferta = Newsletter. No es un formulario nuevo, es el mismo Form de Leads en modo suscripción."},
+{id:"F7",fase:"Preparación",area:"Listas",t:"Crear las 5 listas activas",spec:6,dep:["F1"],d:"Crear las listas: Leads 2026, Suscriptores Newsletter, Clientes activos, Usuarios de plataforma y Base Email MKT Julio (esta última excluye clientes, rebotados y opt-out)."},
+{id:"F8",fase:"Preparación",area:"Workflows",t:"Armar WF1 Estampado Lead (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar el Form de Leads, marca lifecycle=Lead, tipo_de_oferta, pilar_de_origen y fecha_lead. Excluye a clientes y usuarios de plataforma. Se deja en borrador."},
 {id:"F9",fase:"Preparación",area:"Workflows",t:"Armar WF2 Entrega Ebook (borrador)",spec:4,dep:["F4"],d:"Workflow que envía el email con el ebook al descargarlo y lo reenvía a los 3 días si no lo abrieron."},
 {id:"F10",fase:"Preparación",area:"Workflows",t:"Armar WF3 Alta Newsletter (borrador)",spec:4,dep:["F5","F6"],d:"Workflow que inscribe en la lista de suscriptores y envía el email de bienvenida cuando suscripcion_newsletter = Sí."},
-{id:"F11",fase:"Preparación",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar un form MOFU, marca lifecycle=MQL, fecha_mql, etapa=MOFU (si estaba vacía) y avisa al equipo de ventas."},
+{id:"F11",fase:"Preparación",area:"Workflows",t:"Armar WF4 Estampado MQL (borrador)",spec:4,dep:["F1","F2","F4"],d:"Workflow que, al enviar el Form MQL clásico, marca lifecycle=MQL, fecha_mql, pilar_de_origen y avisa al equipo de ventas."},
 {id:"F12",fase:"Preparación",area:"Workflows",t:"Armar WF5 Estampado SQL + definir criterio MQL→SQL con ventas",spec:4,dep:[],d:"Workflow que marca lifecycle=SQL cuando se crea un deal o se agenda demo. Antes hay que acordar con ventas el criterio exacto de cuándo un MQL pasa a SQL."},
 {id:"F13",fase:"Preparación",area:"Workflows",t:"Revisión con Axel y activación (orden §4)",spec:4,dep:["F8","F9","F10","F11","F12"],d:"Axel revisa los 5 workflows en borrador y se activan en orden (WF2→WF3→WF1→WF4→WF5). Es el paso que habilita casi toda la distribución y la medición."},
 {id:"F14",fase:"Preparación",area:"Campañas",t:"Crear Campaign Pilar 1 · DS44 y Pilar 6 · Software",spec:5,dep:[],d:"Crear en HubSpot las campañas de estos dos pilares, para agrupar y medir todos sus contenidos (pillar, blogs, form, emails, posts)."},
@@ -518,7 +516,7 @@ const TASKS=[
 {id:"M5",fase:"Medición",area:"Dashboard",t:"Extender dashboard: leads por pilar + cohortes",spec:9,dep:["M3"],d:"Sumar al dashboard las vistas de leads por pilar y el análisis de cohortes (de los leads de un mes, cuántos llegan a MQL y en cuánto tiempo)."},
 {id:"P6",fase:"Pilar 6",area:"CRO",t:"Optimizar Landing Prev Riesgos (hero, form, un CTA, sin fugas)",spec:7,dep:[],d:"Mejorar la landing que recibe el SEM (438 vistas / 84% rebote): hero con claim y prueba (Ord. 908), formulario visible sin scroll, un solo CTA y quitar fugas de navegación."},
 {id:"P6b",fase:"Pilar 6",area:"SEM",t:"Decisión de budget SEM con Axel (tras 2 semanas de mejoras)",spec:0,dep:["P6"],d:"Con Axel, después de 2 semanas de mejoras a la landing, decidir si se sube el presupuesto de SEM (hoy está congelado)."},
-{id:"A1",fase:"Siembra agosto",area:"Contenido",t:"Pilar 2: campaign + topic + pillar + ebook accidentabilidad + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 2 (Accidentabilidad): campaña, topic SEO, pillar page, ebook y su formulario [TOFU]."},
+{id:"A1",fase:"Siembra agosto",area:"Contenido",t:"Pilar 2: campaign + topic + pillar + ebook accidentabilidad + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 2 (Accidentabilidad): campaña, topic SEO, pillar page, ebook conectado al Form de Leads."},
 {id:"A2",fase:"Siembra agosto",area:"Contenido",t:"Pilar 3: campaign + topic + pillar + ebook documentación + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 3 (Papeleo/documentación): campaña, topic SEO, pillar page, ebook y su formulario."},
 {id:"A3",fase:"Siembra agosto",area:"Contenido",t:"Pilar 4: campaign + topic + pillar + ebook MIPER + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 4 (MIPER): campaña, topic SEO, pillar page, ebook y su formulario. Gran oportunidad: alta demanda y cero presencia actual."},
 {id:"A4",fase:"Siembra agosto",area:"Contenido",t:"Pilar 5: campaign + topic + pillar + ebook contratistas + form",spec:7,dep:["F13"],d:"Montar completo el Pilar 5 (Contratistas): campaña, topic SEO, pillar page, ebook y su formulario. Ángulo decisor (responsabilidad subsidiaria)."},
@@ -531,11 +529,11 @@ const PHASES=["Preparación","Piloto julio","Medición","Pilar 6","Siembra agost
 
 /* ---------- datos pilares (§7) ---------- */
 const PILLARS=[
-{n:"Pilar 1 · Cumplimiento legal DS 44",est:"piloto",estl:"🧪 Piloto julio",page:"Guía completa del DS 44: qué exige la nueva ley de prevención en Chile",kw:"ds 44 · decreto supremo 44 · nueva ley prevención de riesgos · reglamento SGSST",lm:"📘 Ebook DS44 «Obligaciones, plazos y cómo cumplir sin ahogarte en papeleo» → form [TOFU] Ebook DS44",posts:[["1.1","ODI o IRL: qué cambió con el DS 44","TOFU"],["1.2","Qué es la IRL del DS 44 y cómo hacerla","TOFU"],["1.3","FUF: el formato único de fiscalización del DS 44","MOFU"],["1.4","Checklist: qué te pide la DT si te fiscalizan","MOFU"],["1.5","Las infracciones que más multó el DS 44 ($1.004M)","MOFU"],["1.6","Plazos del DS 44: qué reportar y cuándo","TOFU"],["1.7","DS 44 vs DS 40: qué cambió realmente","TOFU"]]},
-{n:"Pilar 2 · Reducir accidentabilidad",est:"siembra",estl:"🌱 Agosto (amplificar sep)",page:"Cómo reducir la tasa de accidentabilidad en tu empresa: guía práctica",kw:"tasa de accidentabilidad · cómo reducir accidentes laborales · prevención de accidentes",lm:"📘 Ebook «Cómo reducir la accidentabilidad» (incluye árbol de causas) → form [TOFU] Ebook Accidentabilidad",posts:[["2.1","Cómo se calcula la tasa de accidentabilidad, con ejemplo","TOFU"],["2.2","Investigación de accidentes: árbol de causas paso a paso","MOFU"],["2.3","Accidente grave o fatal: qué hacer y en qué plazo","TOFU"],["2.4","IRL: identificar peligros antes del accidente","MOFU"],["2.5","Los 5 accidentes más comunes por rubro y cómo prevenirlos","TOFU"],["2.6","Indicadores que sí predicen accidentes: leading vs lagging","MOFU"],["2.7","Cómo VERA sugiere causas y medidas; tu equipo valida","BOFU"]]},
-{n:"Pilar 3 · Papeleo y documentación",est:"siembra",estl:"🌱 Agosto",page:"Toda la documentación de prevención que tu empresa debe tener (y cómo dejar de perderla)",kw:"documentación prevención de riesgos · registros prevención de riesgos · formatos prevención",lm:"📘 Ebook «Documentación y registros de prevención» (con formatos incluidos) → form [TOFU] Ebook Documentación",posts:[["3.1","Registro de entrega de EPP con validez legal","BOFU"],["3.2","La Ord. 908: firma electrónica de EPP con validez legal (el moat)","BOFU"],["3.3","Kardex de EPP: plantilla y cómo llevarlo","MOFU"],["3.4","Charlas de 5 minutos: cómo registrarlas y respaldarlas","TOFU"],["3.5","AST/ART digital: deja de imprimir el análisis de trabajo seguro","MOFU"],["3.6","Cómo acreditar documentos de contratistas antes de faena","BOFU"],["3.7","Cuánto tiempo pierdes al año en papeleo y cómo digitalizarlo","MOFU"]]},
-{n:"Pilar 4 · Matriz de riesgos MIPER",est:"siembra",estl:"🌱 Agosto",page:"Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno",kw:"matriz de riesgos · miper · matriz iper — oportunidad: Trends +70% y cero presencia actual",lm:"📘 Ebook «Cómo elaborar la matriz MIPER» (con plantilla incluida) → form [TOFU] Ebook MIPER",posts:[["4.1","MIPER vs IPER: diferencias y cuál te pide la norma","TOFU"],["4.2","Cómo llenar la MIPER paso a paso, con ejemplo real","TOFU"],["4.3","Los errores más comunes al evaluar riesgos en la matriz","MOFU"],["4.4","MIPER por rubro: construcción, bodega y comercio","TOFU"],["4.5","De la matriz al plan: cómo pasar de identificar a controlar","MOFU"],["4.6","Cómo mantener la MIPER viva sin rehacerla cada año","MOFU"]]},
-{n:"Pilar 5 · Gestión de contratistas",est:"siembra",estl:"🌱 Agosto",page:"Cómo gestionar y acreditar contratistas sin exponerte a multas",kw:"software para contratistas · acreditación contratistas · responsabilidad subsidiaria (ángulo decisor)",lm:"📘 Ebook «Acreditación de contratistas» (con lista de verificación incluida) → form [TOFU] Ebook Contratistas",posts:[["5.1","Responsabilidad subsidiaria y solidaria: qué arriesga la mandante","TOFU"],["5.2","Los documentos que debes exigirle a un contratista antes de faena","MOFU"],["5.3","Cómo auditar el cumplimiento documental de tus contratistas","MOFU"],["5.4","Ley de subcontratación: obligaciones de la empresa principal","TOFU"],["5.5","Control de ingreso a faena: del papel al registro digital","MOFU"],["5.6","Qué mirar en un software de control de contratistas","BOFU"]]},
+{n:"Pilar 1 · Cumplimiento legal DS 44",est:"piloto",estl:"🧪 Piloto julio",page:"Guía completa del DS 44: qué exige la nueva ley de prevención en Chile",kw:"ds 44 · decreto supremo 44 · nueva ley prevención de riesgos · reglamento SGSST",lm:"📘 Ebook DS44 «Obligaciones, plazos y cómo cumplir sin ahogarte en papeleo» → Form de Leads · Ebook DS44",posts:[["1.1","ODI o IRL: qué cambió con el DS 44","TOFU"],["1.2","Qué es la IRL del DS 44 y cómo hacerla","TOFU"],["1.3","FUF: el formato único de fiscalización del DS 44","MOFU"],["1.4","Checklist: qué te pide la DT si te fiscalizan","MOFU"],["1.5","Las infracciones que más multó el DS 44 ($1.004M)","MOFU"],["1.6","Plazos del DS 44: qué reportar y cuándo","TOFU"],["1.7","DS 44 vs DS 40: qué cambió realmente","TOFU"]]},
+{n:"Pilar 2 · Reducir accidentabilidad",est:"siembra",estl:"🌱 Agosto (amplificar sep)",page:"Cómo reducir la tasa de accidentabilidad en tu empresa: guía práctica",kw:"tasa de accidentabilidad · cómo reducir accidentes laborales · prevención de accidentes",lm:"📘 Ebook «Cómo reducir la accidentabilidad» (incluye árbol de causas) → Form de Leads · Ebook Accidentabilidad",posts:[["2.1","Cómo se calcula la tasa de accidentabilidad, con ejemplo","TOFU"],["2.2","Investigación de accidentes: árbol de causas paso a paso","MOFU"],["2.3","Accidente grave o fatal: qué hacer y en qué plazo","TOFU"],["2.4","IRL: identificar peligros antes del accidente","MOFU"],["2.5","Los 5 accidentes más comunes por rubro y cómo prevenirlos","TOFU"],["2.6","Indicadores que sí predicen accidentes: leading vs lagging","MOFU"],["2.7","Cómo VERA sugiere causas y medidas; tu equipo valida","BOFU"]]},
+{n:"Pilar 3 · Papeleo y documentación",est:"siembra",estl:"🌱 Agosto",page:"Toda la documentación de prevención que tu empresa debe tener (y cómo dejar de perderla)",kw:"documentación prevención de riesgos · registros prevención de riesgos · formatos prevención",lm:"📘 Ebook «Documentación y registros de prevención» (con formatos incluidos) → Form de Leads · Ebook Documentación",posts:[["3.1","Registro de entrega de EPP con validez legal","BOFU"],["3.2","La Ord. 908: firma electrónica de EPP con validez legal (el moat)","BOFU"],["3.3","Kardex de EPP: plantilla y cómo llevarlo","MOFU"],["3.4","Charlas de 5 minutos: cómo registrarlas y respaldarlas","TOFU"],["3.5","AST/ART digital: deja de imprimir el análisis de trabajo seguro","MOFU"],["3.6","Cómo acreditar documentos de contratistas antes de faena","BOFU"],["3.7","Cuánto tiempo pierdes al año en papeleo y cómo digitalizarlo","MOFU"]]},
+{n:"Pilar 4 · Matriz de riesgos MIPER",est:"siembra",estl:"🌱 Agosto",page:"Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno",kw:"matriz de riesgos · miper · matriz iper — oportunidad: Trends +70% y cero presencia actual",lm:"📘 Ebook «Cómo elaborar la matriz MIPER» (con plantilla incluida) → Form de Leads · Ebook MIPER",posts:[["4.1","MIPER vs IPER: diferencias y cuál te pide la norma","TOFU"],["4.2","Cómo llenar la MIPER paso a paso, con ejemplo real","TOFU"],["4.3","Los errores más comunes al evaluar riesgos en la matriz","MOFU"],["4.4","MIPER por rubro: construcción, bodega y comercio","TOFU"],["4.5","De la matriz al plan: cómo pasar de identificar a controlar","MOFU"],["4.6","Cómo mantener la MIPER viva sin rehacerla cada año","MOFU"]]},
+{n:"Pilar 5 · Gestión de contratistas",est:"siembra",estl:"🌱 Agosto",page:"Cómo gestionar y acreditar contratistas sin exponerte a multas",kw:"software para contratistas · acreditación contratistas · responsabilidad subsidiaria (ángulo decisor)",lm:"📘 Ebook «Acreditación de contratistas» (con lista de verificación incluida) → Form de Leads · Ebook Contratistas",posts:[["5.1","Responsabilidad subsidiaria y solidaria: qué arriesga la mandante","TOFU"],["5.2","Los documentos que debes exigirle a un contratista antes de faena","MOFU"],["5.3","Cómo auditar el cumplimiento documental de tus contratistas","MOFU"],["5.4","Ley de subcontratación: obligaciones de la empresa principal","TOFU"],["5.5","Control de ingreso a faena: del papel al registro digital","MOFU"],["5.6","Qué mirar en un software de control de contratistas","BOFU"]]},
 {n:"Pilar 6 · Software de prevención (comercial, cierra)",est:"existe",estl:"⚡ Ya existe",page:"Software de prevención de riesgos en Chile: qué mirar antes de pagar",kw:"software prevención riesgos laborales · plataforma de prevención de riesgos — BOFU, CTA único: agendar demo",lm:"🎯 Trabajo de julio: optimizar la Landing Prev Riesgos (438 vistas / 8 subs / 84% rebote) — hero con claim + prueba (Ord. 908), form sin scroll, un CTA, sin fugas",posts:[["6.1","Excel vs software de prevención: cuándo el Excel deja de alcanzar","MOFU"],["6.2","Cuánto cuesta un software de prevención en Chile y de qué depende","BOFU"],["6.3","Firma electrónica con validez legal: qué exigirle a tu software","BOFU"],["6.4","Checklist para evaluar plataformas de prevención antes de la demo","BOFU"]]},
 ];
 
