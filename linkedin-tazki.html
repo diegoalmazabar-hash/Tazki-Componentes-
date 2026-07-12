@@ -279,7 +279,8 @@ function drawChart(){
 }
 
 const liFrom=document.getElementById('liFrom'), liTo=document.getElementById('liTo');
-liFrom.min=DMIN; liFrom.max=DMAX; liTo.min=DMIN; liTo.max=DMAX;
+const DMAXSEL=(()=>{const d=new Date(DMAX+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+6);return d.toISOString().slice(0,10);})();
+liFrom.min=DMIN; liFrom.max=DMAXSEL; liTo.min=DMIN; liTo.max=DMAXSEL;
 function setPreset(months){
   if(months===0){ S.from=DMIN; }
   else { const d=new Date(DMAX); d.setMonth(d.getMonth()-months); S.from=d.toISOString().slice(0,10); if(S.from<DMIN)S.from=DMIN; }

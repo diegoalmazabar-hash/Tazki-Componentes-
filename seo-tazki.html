@@ -297,7 +297,8 @@ function drawChart(){
   el.querySelectorAll('[data-tip]').forEach(x=>{x.addEventListener('mousemove',e=>showTip(x.dataset.tip,e));x.addEventListener('mouseleave',hideTip);});
 }
 const seoFrom=document.getElementById('seoFrom'),seoTo=document.getElementById('seoTo');
-seoFrom.min=DMIN;seoFrom.max=DMAX;seoTo.min=DMIN;seoTo.max=DMAX;
+const DMAXSEL=(()=>{const d=new Date(DMAX+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+6);return d.toISOString().slice(0,10);})();
+seoFrom.min=DMIN;seoFrom.max=DMAXSEL;seoTo.min=DMIN;seoTo.max=DMAXSEL;
 function setPreset(months){
   if(months===0){S.from=DMIN;}
   else{const d=new Date(DMAX);d.setMonth(d.getMonth()-months);S.from=d.toISOString().slice(0,10);if(S.from<DMIN)S.from=DMIN;}
