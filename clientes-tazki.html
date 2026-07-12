@@ -153,7 +153,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     <h2>Evolución mensual</h2>
     <div class="sub">Cartera de clientes (HubSpot) y actividad de postventa (DiIO) por mes. Elige la métrica y el rango. <b>Julio es un mes en curso.</b></div>
     <div class="seg" id="metricSeg">
-      <button data-m="nuevos" class="on">Nuevos clientes</button>
+      <button data-m="nuevos" class="on">Negocios ganados</button>
       <button data-m="monto">Monto ganado</button>
       <button data-m="reuniones_cs">Reuniones postventa</button>
       <button data-m="sent_cs">Sentimiento postventa</button>
@@ -225,7 +225,7 @@ const CLI = {
     {"ds": "2026-07-01", "lab": "jul 26", "nuevos": 0,  "monto": 0,      "reuniones_cs": 62, "sent_cs": 2.89, "cur": true}
   ],
   "metric_labels": {
-    "nuevos": "Nuevos clientes",
+    "nuevos": "Negocios ganados",
     "monto": "Monto ganado (UF)",
     "reuniones_cs": "Reuniones postventa",
     "sent_cs": "Sentimiento postventa (/3)"
@@ -313,7 +313,7 @@ function renderHead(pts){
     return;
   }
   const tot=vp.reduce((a,p)=>a+p[m],0);
-  const unit=m==='monto'?'UF ganadas':m==='reuniones_cs'?'reuniones de postventa':'nuevos clientes';
+  const unit=m==='monto'?'UF ganadas':m==='reuniones_cs'?'reuniones de postventa':m==='sent_cs'?'sentimiento (suma)':'negocios ganados';
   const fmt=m==='monto'?nf1:nf;
   head.innerHTML=`<div><div class="n">${fmt.format(tot)}</div><div class="l">${unit} en el rango</div></div>`+
     `<div><div class="n">${fmt.format(tot/vp.length)}</div><div class="l">promedio por mes</div></div>`;
