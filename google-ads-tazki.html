@@ -113,6 +113,10 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .legend i{width:10px;height:10px;border-radius:3px;flex:none}
   table{border-collapse:collapse;width:100%;font-size:13px}
   thead th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:0.07em;color:var(--ink-3);font-weight:650;padding:7px 12px;border-bottom:1px solid var(--grid);white-space:nowrap}
+  thead th.kwsort{cursor:pointer;user-select:none}
+  thead th.kwsort:hover{color:var(--ink)}
+  thead th.kwsort.act{color:var(--ac,#1f4ed8)}
+  thead th .sar{font-weight:700}
   tbody td{padding:7px 12px;border-bottom:1px solid var(--grid)}
   tbody tr:last-child td{border-bottom:none}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
@@ -253,7 +257,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
     <div class="card">
       <h2 id="kwTitle">Keywords · últimos 30 días</h2>
-      <div class="sub">Tus palabras clave con rendimiento y quality score. QS 1-3 en rojo (caro y mal posicionado).</div>
+      <div class="sub">Estas son <b>tus</b> palabras clave (por las que pujas en Google Ads). <b>Haz clic en «Clics» o «Costo»</b> para ordenar y ver cuáles traen tráfico; si una gasta y <b>no convierte</b> (Conv. = 0), es candidata a pausar. Usa el chip «Gasta sin convertir» para aislarlas. Esto es distinto de «Términos de búsqueda» (arriba), que es lo que la gente realmente escribió en Google.</div>
       <div class="fbar">
         <input type="search" id="kwSearch" placeholder="Buscar keyword…" aria-label="Buscar keyword">
         <select id="kwCamp" aria-label="Filtrar por campaña"></select>
@@ -263,7 +267,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
         <span class="fcount" id="kwCount"></span>
       </div>
       <div class="tbl-scroll"><table>
-        <thead><tr><th>Keyword</th><th>Campaña</th><th class="num">QS</th><th class="num">Impr.</th><th class="num">Clics</th><th class="num">CTR</th><th class="num">Costo</th><th class="num">Conv.</th></tr></thead>
+        <thead><tr><th>Keyword</th><th>Campaña</th><th class="num kwsort" data-col="qs">QS<span class="sar"></span></th><th class="num kwsort" data-col="imp">Impr.<span class="sar"></span></th><th class="num kwsort" data-col="clk">Clics<span class="sar"></span></th><th class="num">CTR</th><th class="num kwsort" data-col="cost">Costo<span class="sar"></span></th><th class="num kwsort" data-col="conv">Conv.<span class="sar"></span></th></tr></thead>
         <tbody id="kwBody"></tbody>
       </table></div>
       <div class="foot" id="kwFoot"></div>
@@ -537,12 +541,15 @@ document.querySelectorAll('[data-stf]').forEach(c=>c.addEventListener('click',()
 
 /* --- tabla keywords con filtros --- */
 let kwF={q:'',camp:'',f:'all'};
+let kwSort={col:'clk',dir:-1};
 function qsCls(q){return q==null?'':q<=3?'lo':q<=6?'mid':'hi';}
 function renderKW(){
   let rows=KWS.filter(k=>(!kwF.camp||k.camp===kwF.camp)
     &&(!kwF.q||k.kw.toLowerCase().includes(kwF.q))
     &&(kwF.f==='all'||(kwF.f==='loqs'?(k.qs&&k.qs<=3):(k.cost>0&&k.conv===0))));
-  rows.sort((a,b)=>b.cost-a.cost);
+  const sc=kwSort.col, sd=kwSort.dir;
+  rows.sort((a,b)=>{let av=a[sc],bv=b[sc];av=(av==null?-1:av);bv=(bv==null?-1:bv);return (av-bv)*sd;});
+  document.querySelectorAll('.kwsort').forEach(h=>{const s=h.querySelector('.sar');if(s)s.textContent=(h.dataset.col===sc)?(sd<0?' ↓':' ↑'):'';h.classList.toggle('act',h.dataset.col===sc);});
   document.getElementById('kwBody').innerHTML=rows.map(k=>`<tr>
     <td class="camp">${esc(k.kw)}</td><td style="color:var(--ink-3);font-size:12px">${esc(k.camp)}</td>
     <td class="num">${k.qs!=null?`<span class="qs ${qsCls(k.qs)}">${k.qs}</span>`:'<span style="color:var(--ink-3)">—</span>'}</td>
@@ -556,6 +563,8 @@ document.getElementById('kwSearch').addEventListener('input',e=>{kwF.q=e.target.
 document.getElementById('kwCamp').addEventListener('change',e=>{kwF.camp=e.target.value;renderKW();});
 document.querySelectorAll('[data-kwf]').forEach(c=>c.addEventListener('click',()=>{
   document.querySelectorAll('[data-kwf]').forEach(x=>x.classList.toggle('on',x===c));kwF.f=c.dataset.kwf;renderKW();}));
+document.querySelectorAll('.kwsort').forEach(h=>h.addEventListener('click',()=>{
+  const c=h.dataset.col; if(kwSort.col===c){kwSort.dir=-kwSort.dir;} else {kwSort.col=c;kwSort.dir=-1;} renderKW();}));
 
 /* --- filtro de fecha real (día a día) --- */
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
