@@ -44,37 +44,37 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 (function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'index','google-ads-tazki.html':'google-ads','embudo-tazki.html':'embudo','linkedin-tazki.html':'linkedin','seo-tazki.html':'seo','ga4-tazki.html':'ga4','conversaciones-tazki.html':'conversaciones','clientes-tazki.html':'clientes','maquina-de-leads-tazki.html':'maquina','roi.html':'roi','ventas.html':'ventas','':'index'};var cur=map[f]||'index';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
 </script>
 <!-- FIN MENU LATERAL TAZKI -->
-<title>Conversaciones · Inteligencia comercial (DiIO) · Tazki</title>
+<title>Clientes · Cartera y salud · Tazki</title>
 <style>
   :root{
     --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
     --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,0.10);
-    --ac:#e11d48; --ac-2:#f43f5e; --ac-soft:#ffe4e6;
-    --c-conv:#e11d48; --c-perf:#0d9488; --c-sent:#7c3aed; --c-odds:#2563eb;
+    --ac:#16a34a; --ac-2:#22c55e; --ac-soft:#dcfce7;
+    --c-nuevos:#16a34a; --c-monto:#2563eb; --c-reun:#7c3aed; --c-sent:#0d9488;
     --st-good:#0ca30c; --st-crit:#d03b3b;
     --lv-alta:#d03b3b; --lv-alta-bg:#fde8e8; --lv-media:#c2740a; --lv-media-bg:#fdf0dc; --lv-baja:#0d9488; --lv-baja-bg:#d9f2ef;
   }
   @media (prefers-color-scheme:dark){:root{
     --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
     --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,0.10);
-    --ac:#fb7185; --ac-2:#fda4af; --ac-soft:#4c0519;
-    --c-conv:#fb7185; --c-perf:#14b8a6; --c-sent:#a78bfa; --c-odds:#60a5fa;
+    --ac:#22c55e; --ac-2:#4ade80; --ac-soft:#052e16;
+    --c-nuevos:#22c55e; --c-monto:#60a5fa; --c-reun:#a78bfa; --c-sent:#2dd4bf;
     --st-good:#0ca30c; --st-crit:#e66767;
     --lv-alta:#f28b8b; --lv-alta-bg:#3a1414; --lv-media:#e0a458; --lv-media-bg:#3a2a12; --lv-baja:#5fd6c8; --lv-baja-bg:#0f2f2c;
   }}
   :root[data-theme="dark"]{
     --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
     --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,0.10);
-    --ac:#fb7185; --ac-2:#fda4af; --ac-soft:#4c0519;
-    --c-conv:#fb7185; --c-perf:#14b8a6; --c-sent:#a78bfa; --c-odds:#60a5fa;
+    --ac:#22c55e; --ac-2:#4ade80; --ac-soft:#052e16;
+    --c-nuevos:#22c55e; --c-monto:#60a5fa; --c-reun:#a78bfa; --c-sent:#2dd4bf;
     --st-good:#0ca30c; --st-crit:#e66767;
     --lv-alta:#f28b8b; --lv-alta-bg:#3a1414; --lv-media:#e0a458; --lv-media-bg:#3a2a12; --lv-baja:#5fd6c8; --lv-baja-bg:#0f2f2c;
   }
   :root[data-theme="light"]{
     --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
     --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,0.10);
-    --ac:#e11d48; --ac-2:#f43f5e; --ac-soft:#ffe4e6;
-    --c-conv:#e11d48; --c-perf:#0d9488; --c-sent:#7c3aed; --c-odds:#2563eb;
+    --ac:#16a34a; --ac-2:#22c55e; --ac-soft:#dcfce7;
+    --c-nuevos:#16a34a; --c-monto:#2563eb; --c-reun:#7c3aed; --c-sent:#0d9488;
     --st-good:#0ca30c; --st-crit:#d03b3b;
     --lv-alta:#d03b3b; --lv-alta-bg:#fde8e8; --lv-media:#c2740a; --lv-media-bg:#fdf0dc; --lv-baja:#0d9488; --lv-baja-bg:#d9f2ef;
   }
@@ -93,8 +93,6 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .kpi .dot{width:8px;height:8px;border-radius:50%;flex:none}
   .kpi .val{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;font-variant-numeric:tabular-nums}
   .kpi .sub{font-size:12px;color:var(--ink-2)}
-  .kpi .var{font-size:12px;font-weight:700}
-  .kpi .up{color:var(--st-good)} .kpi .down{color:var(--st-crit)} .kpi .flat{color:var(--ink-3)}
   .card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin-bottom:14px;min-width:0}
   .card h2{font-size:14.5px;font-weight:650;margin:0 0 2px}
   .card .sub{font-size:12px;color:var(--ink-3);margin-bottom:10px}
@@ -113,16 +111,23 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .chart-scroll{overflow-x:auto}
   svg{display:block}
   svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
-  /* barras horizontales tipos de reunión */
+  /* barras horizontales tramos MRR */
   .pbs{display:flex;flex-direction:column;gap:9px}
-  .pbrow{display:grid;grid-template-columns:190px 1fr 46px;align-items:center;gap:10px}
+  .pbrow{display:grid;grid-template-columns:170px 1fr 78px;align-items:center;gap:10px}
   .pbrow .nm{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pbrow .nm small{display:block;font-size:11px;font-weight:500;color:var(--ink-3)}
   .pbrow .tk{background:var(--ac-soft);border-radius:6px;height:20px;overflow:hidden}
-  .pbrow .tk i{display:block;height:100%;background:var(--c-conv);border-radius:6px}
+  .pbrow .tk i{display:block;height:100%;background:var(--ac);border-radius:6px}
   .pbrow .vv{text-align:right;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
-  @media(max-width:520px){.pbrow{grid-template-columns:130px 1fr 42px}}
-  /* dolores / objeciones */
-  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:520px){.pbrow{grid-template-columns:120px 1fr 64px}}
+  /* pulso de salud tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .tile{border:1px solid var(--ring);border-radius:10px;padding:12px 14px;background:var(--plane);display:flex;flex-direction:column;gap:2px}
+  .tile .n{font-size:22px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .tile .l{font-size:11.5px;color:var(--ink-3)}
+  .tile.good .n{color:var(--st-good)} .tile.warn .n{color:var(--lv-media)}
+  /* twocol / temas */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
   @media(max-width:760px){.twocol{grid-template-columns:1fr}}
   .themes{display:flex;flex-direction:column;gap:8px}
   .theme{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--ring);border-radius:9px;background:var(--plane)}
@@ -131,13 +136,14 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .chip.alta{color:var(--lv-alta);background:var(--lv-alta-bg)}
   .chip.media{color:var(--lv-media);background:var(--lv-media-bg)}
   .chip.baja{color:var(--lv-baja);background:var(--lv-baja-bg)}
-  #diioTip{position:fixed;pointer-events:none;background:#0f172a;color:#fff;font-size:12px;padding:7px 10px;border-radius:7px;display:none;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:240px}
+  .churnbig{font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--lv-media);line-height:1;font-variant-numeric:tabular-nums}
+  #cliTip{position:fixed;pointer-events:none;background:#0f172a;color:#fff;font-size:12px;padding:7px 10px;border-radius:7px;display:none;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:240px}
   .note{font-size:12px;color:var(--ink-3);background:var(--surface);border:1px dashed var(--ring);border-radius:9px;padding:10px 13px;margin-top:4px}
   .note b{color:var(--ink-2)}
 </style>
 
 <div class="wrap">
-  <header class="top"><h1><span class="lgb">💬</span> Conversaciones · Inteligencia comercial (DiIO) · Tazki</h1></header>
+  <header class="top"><h1><span class="lgb">🏥</span> Clientes · Cartera y salud · Tazki</h1></header>
   <div class="src" id="src"></div>
   <p class="lede" id="lede"></p>
 
@@ -145,192 +151,188 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
   <div class="card">
     <h2>Evolución mensual</h2>
-    <div class="sub">Conversaciones de venta y postventa analizadas por DiIO. Elige la métrica y el rango de meses. <b>Julio es un mes en curso.</b></div>
+    <div class="sub">Cartera de clientes (HubSpot) y actividad de postventa (DiIO) por mes. Elige la métrica y el rango. <b>Julio es un mes en curso.</b></div>
     <div class="seg" id="metricSeg">
-      <button data-m="conv" class="on">Conversaciones</button>
-      <button data-m="perf">Performance</button>
-      <button data-m="sent">Sentimiento</button>
-      <button data-m="odds">Prob. éxito</button>
+      <button data-m="nuevos" class="on">Nuevos clientes</button>
+      <button data-m="monto">Monto ganado</button>
+      <button data-m="reuniones_cs">Reuniones postventa</button>
+      <button data-m="sent_cs">Sentimiento postventa</button>
     </div>
     <div class="ctrls">
-      <label>Desde <input type="date" id="diioFrom"></label>
-      <label>Hasta <input type="date" id="diioTo"></label>
+      <label>Desde <input type="date" id="cliFrom"></label>
+      <label>Hasta <input type="date" id="cliTo"></label>
       <div class="seg mb0" id="presetSeg"><button data-p="3">3m</button><button data-p="6">6m</button><button data-p="12" class="on">12m</button><button data-p="0">Todo</button></div>
     </div>
-    <div class="headstat" id="diioHead"></div>
-    <div class="chart-scroll" id="diioChart"></div>
-    <div class="foot" id="diioNote"></div>
+    <div class="headstat" id="cliHead"></div>
+    <div class="chart-scroll" id="cliChart"></div>
+    <div class="foot" id="cliNote"></div>
   </div>
 
   <div class="card">
-    <h2>Conversaciones por tipo · últimos 90 días</h2>
-    <div class="sub">Distribución por tipo de reunión analizada (playbook). Barra proporcional al número de conversaciones.</div>
-    <div class="pbs" id="pbs"></div>
+    <h2>Distribución de MRR por tramo</h2>
+    <div class="sub">Clientes activos agrupados por su MRR mensual (en UF). Barra proporcional al MRR sumado del tramo.</div>
+    <div class="pbs" id="mrrDist"></div>
+    <div class="foot" id="mrrNote"></div>
   </div>
 
   <div class="twocol">
     <div class="card">
-      <h2>Dolores recurrentes del cliente</h2>
-      <div class="sub">Temas de dolor (customer pains) más mencionados por los clientes, agregados y anonimizados.</div>
-      <div class="themes" id="pains"></div>
+      <h2>Pulso de salud (postventa)</h2>
+      <div class="sub" id="saludSub"></div>
+      <div class="tiles" id="saludTiles"></div>
     </div>
     <div class="card">
-      <h2>Objeciones más frecuentes</h2>
-      <div class="sub">Objeciones recurrentes en el proceso comercial, agregadas y anonimizadas.</div>
-      <div class="themes" id="objs"></div>
+      <h2>Churn</h2>
+      <div class="sub">Clientes perdidos registrados en HubSpot.</div>
+      <div id="churnBox"></div>
     </div>
   </div>
 
   <div class="card">
+    <h2>Temas recurrentes de clientes</h2>
+    <div class="sub">Dolores y áreas de mejora más mencionados por clientes existentes en postventa y onboarding, agregados y anonimizados (últimos 90 días).</div>
+    <div class="themes" id="temas"></div>
+  </div>
+
+  <div class="card">
     <h2>Sobre este panel</h2>
-    <div class="note">Datos <b>agregados del equipo</b> obtenidos con <b>DiIO</b>, la herramienta de inteligencia de conversaciones y reuniones de venta de Tazki. Cada conversación se puntúa en tres escalas: <b>performance</b> del ejecutivo (1 a 10), <b>sentimiento</b> del cliente (1 a 3, donde 3 es positivo) y <b>probabilidad de éxito</b> del negocio (1 a 5). Los KPI del mes se comparan con el mes anterior; <b>julio es un mes en curso</b>, por lo que su conteo de conversaciones aún está incompleto frente a junio. Los dolores y objeciones son <b>temas anonimizados</b> sintetizados a partir de las conversaciones de los últimos 90 días. Por privacidad, y dado que este repositorio es público, <b>no se muestran nombres de ejecutivos, clientes ni empresas</b>, solo totales, promedios y tendencias del equipo.</div>
+    <div class="note">La <b>cartera</b> (clientes activos, MRR, ARR, ticket, churn y tramos de MRR) proviene de <b>HubSpot</b>. La <b>salud</b> se <b>deriva de las conversaciones de postventa y onboarding</b> analizadas por <b>DiIO</b> (sentimiento del cliente en escala 1 a 3, reuniones, detractores y frustración detectada), de forma <b>agregada</b>. HubSpot <b>aún no mantiene un health score por cliente ni fechas de renovación cargadas</b>, por eso esos campos no se muestran. El MRR solo está cargado para una parte de los clientes activos, por lo que los tramos reflejan únicamente a quienes tienen monto registrado. Por privacidad, y dado que este repositorio es público, <b>no se muestran nombres de clientes, empresas ni ejecutivos</b>: solo totales, promedios, distribuciones y temas anonimizados.</div>
   </div>
 </div>
-<div id="diioTip"></div>
+<div id="cliTip"></div>
 
 <script>
-const DIIO = {
-  "domain": "Conversaciones · DiIO",
+const CLI = {
+  "domain": "Clientes · Cartera y salud",
   "updated": "12 jul 2026",
   "account": "TAZKI",
   "kpi": {
-    "conv": 126,
-    "convP": 219,
-    "perf": 8.02,
-    "perfP": 8.0,
-    "sent": 2.93,
-    "sentP": 2.92,
-    "odds": 4.49,
-    "oddsP": 4.66,
-    "ventas_share": 47.8,
-    "total6m": 580
+    "clientes": 28,
+    "mrr_uf": 192.58,
+    "arr_uf": 2310.96,
+    "ticket_uf": 6.88,
+    "sent_cs": 2.87,
+    "frustracion_pct": 8.5,
+    "churn": 1
   },
   "monthly": [
-    {"ds": "2026-01-01", "lab": "ene 26", "conv": 5,   "perf": 7.40, "sent": 3.00, "odds": 4.00},
-    {"ds": "2026-02-01", "lab": "feb 26", "conv": 16,  "perf": 7.76, "sent": 3.00, "odds": 4.19},
-    {"ds": "2026-03-01", "lab": "mar 26", "conv": 33,  "perf": 7.41, "sent": 2.88, "odds": 3.94},
-    {"ds": "2026-04-01", "lab": "abr 26", "conv": 86,  "perf": 7.67, "sent": 2.92, "odds": 4.34},
-    {"ds": "2026-05-01", "lab": "may 26", "conv": 95,  "perf": 7.74, "sent": 2.89, "odds": 4.37},
-    {"ds": "2026-06-01", "lab": "jun 26", "conv": 219, "perf": 8.00, "sent": 2.92, "odds": 4.66},
-    {"ds": "2026-07-01", "lab": "jul 26", "conv": 126, "perf": 8.02, "sent": 2.93, "odds": 4.49, "cur": true}
+    {"ds": "2026-01-01", "lab": "ene 26", "nuevos": 12, "monto": 200.32, "reuniones_cs": 0,  "sent_cs": null},
+    {"ds": "2026-02-01", "lab": "feb 26", "nuevos": 6,  "monto": 233.13, "reuniones_cs": 0,  "sent_cs": null},
+    {"ds": "2026-03-01", "lab": "mar 26", "nuevos": 5,  "monto": 165.42, "reuniones_cs": 0,  "sent_cs": null},
+    {"ds": "2026-04-01", "lab": "abr 26", "nuevos": 19, "monto": 413.94, "reuniones_cs": 0,  "sent_cs": null},
+    {"ds": "2026-05-01", "lab": "may 26", "nuevos": 12, "monto": 197.08, "reuniones_cs": 5,  "sent_cs": 2.40},
+    {"ds": "2026-06-01", "lab": "jun 26", "nuevos": 9,  "monto": 145.89, "reuniones_cs": 75, "sent_cs": 2.88},
+    {"ds": "2026-07-01", "lab": "jul 26", "nuevos": 0,  "monto": 0,      "reuniones_cs": 62, "sent_cs": 2.89, "cur": true}
   ],
   "metric_labels": {
-    "conv": "Conversaciones",
-    "perf": "Performance (/10)",
-    "sent": "Sentimiento (/3)",
-    "odds": "Prob. éxito (/5)"
+    "nuevos": "Nuevos clientes",
+    "monto": "Monto ganado (UF)",
+    "reuniones_cs": "Reuniones postventa",
+    "sent_cs": "Sentimiento postventa (/3)"
   },
-  "playbooks": [
-    {"name": "Reunión de ventas", "n": 238},
-    {"name": "Onboarding · Capacitación", "n": 77},
-    {"name": "Seguimiento", "n": 52},
-    {"name": "Postventa", "n": 39},
-    {"name": "Handoff", "n": 29},
-    {"name": "Onboarding · Status", "n": 26},
-    {"name": "Interna del equipo", "n": 25},
-    {"name": "Onboarding · Kick-off", "n": 5},
-    {"name": "Venta (mensajes)", "n": 4},
-    {"name": "Prospección", "n": 3}
+  "mrr_dist": [
+    {"tramo": "0–3 UF",   "clientes": 0, "mrr": 0},
+    {"tramo": "3–6 UF",   "clientes": 0, "mrr": 0},
+    {"tramo": "6–10 UF",  "clientes": 1, "mrr": 9},
+    {"tramo": "10–20 UF", "clientes": 6, "mrr": 95.58},
+    {"tramo": "20+ UF",   "clientes": 2, "mrr": 88}
   ],
-  "pains": [
-    {"theme": "Gestión documental en papel y Excel disperso, sin repositorio único", "level": "alta"},
-    {"theme": "Falta de trazabilidad y control de EPP (inventario y entrega por cargo)", "level": "alta"},
-    {"theme": "Alta carga administrativa manual que resta tiempo al trabajo en terreno", "level": "alta"},
-    {"theme": "Riesgo de incumplimiento ante fiscalizaciones y auditorías", "level": "alta"},
-    {"theme": "Dificultad para capacitar y obtener firmas de trabajadores en terreno", "level": "media"},
-    {"theme": "Resistencia al cambio y baja alfabetización digital del personal", "level": "media"}
-  ],
-  "objections": [
-    {"theme": "Falta de tiempo y disponibilidad de agenda para implementar", "level": "alta"},
-    {"theme": "Resistencia al cambio del personal operativo en terreno", "level": "alta"},
-    {"theme": "Integración con sistemas existentes y dependencia del área de TI", "level": "alta"},
-    {"theme": "Precio y presupuesto (sin partida asignada o referencias previas)", "level": "media"},
-    {"theme": "Comparación con competidor o desarrollo interno propio", "level": "media"},
-    {"theme": "Funcionalidades faltantes o límites de la plataforma", "level": "media"}
+  "mrr_dist_note": "9 de los 28 clientes activos tienen MRR cargado en HubSpot (192,58 UF en total). Los 19 restantes están sin monto registrado, por eso no aparecen en los tramos.",
+  "salud": {
+    "reuniones_cs": 142,
+    "sentimiento": 2.87,
+    "detractores": 0,
+    "frustracion": 12,
+    "periodo": "últimos 90 días"
+  },
+  "churn": {
+    "total": 1,
+    "motivos": []
+  },
+  "temas": [
+    {"theme": "Fallas técnicas, inestabilidad y problemas recurrentes de acceso a la plataforma", "level": "alta"},
+    {"theme": "Soporte lento, poco resolutivo y sin trazabilidad clara de tickets", "level": "alta"},
+    {"theme": "Baja adopción por capacitación insuficiente y resistencia al cambio de los usuarios", "level": "alta"},
+    {"theme": "Carga administrativa manual y duplicidad de tareas por falta de cargas masivas", "level": "media"},
+    {"theme": "Integraciones faltantes o complejas con sistemas externos (nómina, mutuales, BI)", "level": "media"},
+    {"theme": "Reportería limitada y permisos/funcionalidades insuficientes para casos específicos", "level": "media"}
   ]
 };
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
 const nf1 = new Intl.NumberFormat('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1});
 const nf2 = new Intl.NumberFormat('es-CL',{minimumFractionDigits:2,maximumFractionDigits:2});
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const ML = DIIO.metric_labels;
-const K = DIIO.kpi;
+const ML = CLI.metric_labels;
+const K = CLI.kpi;
 
-document.getElementById('src').textContent = `Tazki · Inteligencia de conversaciones (DiIO) · cuenta ${DIIO.account} · actualizado ${DIIO.updated}`;
-
-/* variación porcentual (para conversaciones) */
-function pctTag(c,p,goodUp,neutral){
-  if(p==null||p===0) return '<span class="var flat">—</span>';
-  const v=(c-p)/p*100; const good=goodUp?v>=0:v<0;
-  const cls=neutral?'flat':(Math.abs(v)<0.5?'flat':good?'up':'down');
-  return `<span class="var ${cls}">${v>=0?'▲':'▼'}${nf1.format(Math.abs(v))}%</span>`;
-}
-/* variación absoluta (para performance / sentimiento / prob. éxito) */
-function deltaTag(c,p){
-  if(p==null) return '<span class="var flat">—</span>';
-  const d=c-p; const cls=Math.abs(d)<0.005?'flat':d>0?'up':'down';
-  return `<span class="var ${cls}">${d>=0?'▲':'▼'}${nf2.format(Math.abs(d))}</span>`;
-}
+document.getElementById('src').textContent = `Tazki · Cartera (HubSpot) + salud de postventa (DiIO) · cuenta ${CLI.account} · actualizado ${CLI.updated}`;
 
 document.getElementById('lede').innerHTML =
-  `En <strong>julio</strong> (mes en curso) el equipo lleva <strong>${nf.format(K.conv)} conversaciones</strong> analizadas por DiIO, con una <strong>performance media de ${nf1.format(K.perf)}/10</strong>, <strong>sentimiento ${nf1.format(K.sent)}/3</strong> y <strong>probabilidad de éxito ${nf1.format(K.odds)}/5</strong>. El <strong>${nf1.format(K.ventas_share)}%</strong> de las conversaciones de los últimos 90 días son reuniones de venta. En los últimos 6 meses se acumulan <strong>${nf.format(K.total6m)} conversaciones</strong> analizadas.`;
+  `Tazki tiene <strong>${nf.format(K.clientes)} clientes activos</strong> con un <strong>MRR de ${nf2.format(K.mrr_uf)} UF</strong> (ARR ≈ <strong>${nf.format(K.arr_uf)} UF</strong>) y un <strong>ticket promedio de ${nf2.format(K.ticket_uf)} UF</strong>. En los <strong>últimos 90 días</strong> el sentimiento medio de postventa es <strong>${nf1.format(K.sent_cs)}/3</strong>, con frustración detectada en el <strong>${nf1.format(K.frustracion_pct)}%</strong> de las reuniones y <strong>${nf.format(K.churn)} churn</strong> registrado. La cartera viene de HubSpot; la salud se deriva de las conversaciones de postventa y onboarding analizadas por DiIO.`;
 
 const kpis=[
-  {lbl:'Conversaciones',val:nf.format(K.conv),sub:'julio · mes en curso',c:'var(--c-conv)',v:pctTag(K.conv,K.convP,true,true)},
-  {lbl:'Performance',val:nf1.format(K.perf),sub:'promedio del mes · escala /10',c:'var(--c-perf)',v:deltaTag(K.perf,K.perfP)},
-  {lbl:'Sentimiento',val:nf1.format(K.sent),sub:'escala /3 · 3 = positivo',c:'var(--c-sent)',v:deltaTag(K.sent,K.sentP)},
-  {lbl:'Prob. éxito',val:nf1.format(K.odds),sub:'promedio del mes · escala /5',c:'var(--c-odds)',v:deltaTag(K.odds,K.oddsP)},
-  {lbl:'% Reuniones de venta',val:nf1.format(K.ventas_share)+'%',sub:'de conversaciones · 90 días',c:'var(--ac)',v:''},
-  {lbl:'Total 6 meses',val:nf.format(K.total6m),sub:'conversaciones analizadas',c:'var(--ink-3)',v:''},
+  {lbl:'Clientes activos',val:nf.format(K.clientes),sub:'estado Activo · HubSpot',c:'var(--c-nuevos)'},
+  {lbl:'MRR',val:nf2.format(K.mrr_uf)+' UF',sub:'ingreso recurrente mensual',c:'var(--ac)'},
+  {lbl:'ARR',val:nf.format(K.arr_uf)+' UF',sub:'MRR × 12',c:'var(--c-monto)'},
+  {lbl:'Ticket promedio',val:nf2.format(K.ticket_uf)+' UF',sub:'MRR / clientes activos',c:'var(--c-reun)'},
+  {lbl:'Sentimiento postventa',val:nf1.format(K.sent_cs),sub:'escala /3 · 3 = positivo · 90 días',c:'var(--c-sent)'},
+  {lbl:'Frustración CS',val:nf1.format(K.frustracion_pct)+'%',sub:'reuniones con frustración · 90 días',c:'var(--st-crit)'},
 ];
 document.getElementById('kpis').innerHTML=kpis.map(k=>`
   <div class="kpi"><span class="lbl">${k.c?`<i class="dot" style="background:${k.c}"></i>`:''}${k.lbl}</span>
-  <span class="val">${k.val} ${k.v||''}</span><span class="sub">${k.sub}</span></div>`).join('');
+  <span class="val">${k.val}</span><span class="sub">${k.sub}</span></div>`).join('');
 
 /* tooltip */
-const tip=document.getElementById('diioTip');
+const tip=document.getElementById('cliTip');
 function showTip(h,ev){tip.innerHTML=h;tip.style.display='block';const w=tip.offsetWidth,hh=tip.offsetHeight;let x=ev.clientX+12,y=ev.clientY-hh-10;if(x+w>innerWidth-8)x=ev.clientX-w-12;if(y<8)y=ev.clientY+14;tip.style.left=x+'px';tip.style.top=y+'px';}
 function hideTip(){tip.style.display='none';}
 
 /* ---- gráfico métrica × fechas (solo mensual) ---- */
 const METRIC={
-  conv:{color:'var(--c-conv)',type:'bar', fmt:v=>nf.format(v)},
-  perf:{color:'var(--c-perf)',type:'line',fmt:v=>nf1.format(v)},
-  sent:{color:'var(--c-sent)',type:'line',fmt:v=>nf1.format(v)},
-  odds:{color:'var(--c-odds)',type:'line',fmt:v=>nf1.format(v)},
+  nuevos:{color:'var(--c-nuevos)',type:'bar', fmt:v=>nf.format(v)},
+  monto:{color:'var(--c-monto)',type:'bar', fmt:v=>nf1.format(v)},
+  reuniones_cs:{color:'var(--c-reun)',type:'bar', fmt:v=>nf.format(v)},
+  sent_cs:{color:'var(--c-sent)',type:'line',fmt:v=>nf1.format(v)},
 };
-const S={metric:'conv',from:null,to:null};
-const allDs=DIIO.monthly.map(p=>p.ds).sort();
+const S={metric:'nuevos',from:null,to:null};
+const allDs=CLI.monthly.map(p=>p.ds).sort();
 const DMIN=allDs[0],DMAX=allDs[allDs.length-1];
-const series=()=>DIIO.monthly.filter(p=>(!S.from||p.ds>=S.from)&&(!S.to||p.ds<=S.to));
+const inRange=p=>(!S.from||p.ds>=S.from)&&(!S.to||p.ds<=S.to);
+const series=()=>CLI.monthly.filter(inRange);
+const valid=(pts,m)=>pts.filter(p=>p[m]!==null&&p[m]!==undefined);
 
 function renderHead(pts){
-  const m=S.metric,cfg=METRIC[m],head=document.getElementById('diioHead');
-  if(!pts.length){head.innerHTML='';return;}
-  if(m==='conv'){
-    const tot=pts.reduce((a,p)=>a+p.conv,0);
-    head.innerHTML=`<div><div class="n">${nf.format(tot)}</div><div class="l">conversaciones en el rango</div></div>`+
-      `<div><div class="n">${nf.format(Math.round(tot/pts.length))}</div><div class="l">promedio por mes</div></div>`;
+  const m=S.metric,head=document.getElementById('cliHead');
+  const vp=valid(pts,m);
+  if(!vp.length){head.innerHTML='';return;}
+  if(m==='sent_cs'){
+    const tc=vp.reduce((a,p)=>a+(p.reuniones_cs||0),0)||1;
+    const avg=vp.reduce((a,p)=>a+p.sent_cs*(p.reuniones_cs||0),0)/tc;
+    head.innerHTML=`<div><div class="n">${nf1.format(avg)}</div><div class="l">sentimiento medio · ponderado</div></div>`+
+      `<div><div class="n">${nf.format(tc)}</div><div class="l">reuniones de postventa</div></div>`;
     return;
   }
-  const tc=pts.reduce((a,p)=>a+p.conv,0)||1;
-  const avg=pts.reduce((a,p)=>a+p[m]*p.conv,0)/tc;
-  head.innerHTML=`<div><div class="n">${nf1.format(avg)}</div><div class="l">${ML[m].toLowerCase()} · promedio del rango</div></div>`+
-    `<div><div class="n">${nf.format(tc)}</div><div class="l">conversaciones en el rango</div></div>`;
+  const tot=vp.reduce((a,p)=>a+p[m],0);
+  const unit=m==='monto'?'UF ganadas':m==='reuniones_cs'?'reuniones de postventa':'nuevos clientes';
+  const fmt=m==='monto'?nf1:nf;
+  head.innerHTML=`<div><div class="n">${fmt.format(tot)}</div><div class="l">${unit} en el rango</div></div>`+
+    `<div><div class="n">${fmt.format(tot/vp.length)}</div><div class="l">promedio por mes</div></div>`;
 }
 
 function drawChart(){
-  const pts=series(),m=S.metric,cfg=METRIC[m],n=pts.length;
+  const pts=series(),m=S.metric,cfg=METRIC[m];
   renderHead(pts);
-  const el=document.getElementById('diioChart');
-  document.getElementById('diioNote').textContent =
-    m==='conv'?'Conversaciones analizadas por mes (barras). Julio es un mes en curso.'
-    :m==='perf'?'Performance media del ejecutivo, escala 1-10 (línea).'
-    :m==='sent'?'Sentimiento medio del cliente, escala 1-3 donde 3 es positivo (línea).'
-    :'Probabilidad de éxito media del negocio, escala 1-5 (línea).';
+  const el=document.getElementById('cliChart');
+  document.getElementById('cliNote').textContent =
+    m==='nuevos'?'Negocios cerrados ganados por mes en HubSpot (barras). Julio es un mes en curso.'
+    :m==='monto'?'Monto ganado (valor de contrato, en UF) por mes en HubSpot (barras).'
+    :m==='reuniones_cs'?'Reuniones de postventa y onboarding analizadas por DiIO por mes (barras). El registro empieza en mayo.'
+    :'Sentimiento medio del cliente en postventa, escala 1-3 donde 3 es positivo (línea). El registro empieza en mayo.';
+  const dpts=cfg.type==='line'?valid(pts,m):pts;
+  const n=dpts.length;
   if(!n){el.innerHTML='<p class="sub">Sin datos en el rango.</p>';return;}
   const W=1000,H=250,padL=54,padR=20,padT=18,padB=36;
-  const vals=pts.map(p=>p[m]);
+  const vals=dpts.map(p=>p[m]);
   let lo=Math.min(...vals),hi=Math.max(...vals);
   let minV,maxV;
   if(cfg.type==='line'){const pad=Math.max(0.2,(hi-lo)*0.25||0.5);minV=Math.max(0,lo-pad);maxV=hi+pad;}
@@ -342,58 +344,84 @@ function drawChart(){
   for(let t=0;t<=4;t++){const val=minV+(maxV-minV)*t/4;const y=Y(val);
     s+=`<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--grid)"/>`;
     s+=`<text x="${padL-8}" y="${y+3.5}" text-anchor="end" font-size="10" fill="var(--ink-3)">${cfg.fmt(val)}</text>`;}
-  const tipFor=p=>`<b>${esc(p.lab)}${p.cur?' · en curso':''}</b><br>Conversaciones: ${nf.format(p.conv)}<br>Performance: ${nf1.format(p.perf)}/10 · Sentimiento: ${nf1.format(p.sent)}/3<br>Prob. éxito: ${nf1.format(p.odds)}/5`;
+  const tipFor=p=>`<b>${esc(p.lab)}${p.cur?' · en curso':''}</b><br>Nuevos: ${nf.format(p.nuevos)} · Monto: ${nf1.format(p.monto)} UF<br>Reuniones postventa: ${nf.format(p.reuniones_cs)}${p.sent_cs!=null?`<br>Sentimiento: ${nf1.format(p.sent_cs)}/3`:''}`;
   if(cfg.type==='bar'){
     const bw=Math.min(46,plotW/n-8);
-    pts.forEach((p,i)=>{const yy=Y(p[m]);
+    dpts.forEach((p,i)=>{const yy=Y(p[m]);
       s+=`<rect x="${X(i)-bw/2}" y="${yy}" width="${Math.max(bw,2)}" height="${Math.max(y0-yy,1)}" rx="3" fill="${cfg.color}"${p.cur?' opacity="0.6"':''} tabindex="0" data-tip="${tipFor(p)}"></rect>`;});
   }else{
-    const pp=pts.map((p,i)=>[X(i),Y(p[m])]);
+    const pp=dpts.map((p,i)=>[X(i),Y(p[m])]);
     if(pp.length>1)s+=`<polyline points="${pp.map(q=>q.join(',')).join(' ')}" fill="none" stroke="${cfg.color}" stroke-width="2.5"/>`;
-    pp.forEach((q,i)=>{s+=`<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${cfg.color}" tabindex="0" data-tip="${tipFor(pts[i])}"></circle>`;});
+    pp.forEach((q,i)=>{s+=`<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${cfg.color}" tabindex="0" data-tip="${tipFor(dpts[i])}"></circle>`;});
   }
   const step=Math.ceil(n/12);
-  pts.forEach((p,i)=>{if(i%step===0||i===n-1){s+=`<text x="${X(i)}" y="${H-10}" text-anchor="middle" font-size="9.5" fill="var(--ink-3)">${esc(p.lab)}</text>`;}});
+  dpts.forEach((p,i)=>{if(i%step===0||i===n-1){s+=`<text x="${X(i)}" y="${H-10}" text-anchor="middle" font-size="9.5" fill="var(--ink-3)">${esc(p.lab)}</text>`;}});
   s+=`<line x1="${padL}" y1="${y0}" x2="${W-padR}" y2="${y0}" stroke="var(--baseline)"/></svg>`;
   el.innerHTML=s;
   el.querySelectorAll('[data-tip]').forEach(x=>{x.addEventListener('mousemove',e=>showTip(x.dataset.tip,e));x.addEventListener('mouseleave',hideTip);});
 }
-const diioFrom=document.getElementById('diioFrom'),diioTo=document.getElementById('diioTo');
+const cliFrom=document.getElementById('cliFrom'),cliTo=document.getElementById('cliTo');
 const DMAXSEL=(()=>{const d=new Date(DMAX+'T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+1);d.setUTCDate(0);return d.toISOString().slice(0,10);})();
-diioFrom.min=DMIN;diioFrom.max=DMAXSEL;diioTo.min=DMIN;diioTo.max=DMAXSEL;
+cliFrom.min=DMIN;cliFrom.max=DMAXSEL;cliTo.min=DMIN;cliTo.max=DMAXSEL;
 function setPreset(months){
   if(months===0){S.from=DMIN;}
   else{const d=new Date(DMAX);d.setMonth(d.getMonth()-months);S.from=d.toISOString().slice(0,10);if(S.from<DMIN)S.from=DMIN;}
-  S.to=DMAX;diioFrom.value=S.from;diioTo.value=S.to;
+  S.to=DMAX;cliFrom.value=S.from;cliTo.value=S.to;
   document.querySelectorAll('#presetSeg button').forEach(b=>b.classList.toggle('on',+b.dataset.p===months));
   drawChart();
 }
 document.querySelectorAll('#metricSeg button').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('#metricSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');S.metric=b.dataset.m;drawChart();}));
 document.querySelectorAll('#presetSeg button').forEach(b=>b.addEventListener('click',()=>setPreset(+b.dataset.p)));
-function onManual(){let f=diioFrom.value||DMIN,t=diioTo.value||DMAX;if(f>t){const x=f;f=t;t=x;diioFrom.value=f;diioTo.value=t;}S.from=f;S.to=t;document.querySelectorAll('#presetSeg button').forEach(x=>x.classList.remove('on'));drawChart();}
-diioFrom.addEventListener('change',onManual);diioTo.addEventListener('change',onManual);
+function onManual(){let f=cliFrom.value||DMIN,t=cliTo.value||DMAX;if(f>t){const x=f;f=t;t=x;cliFrom.value=f;cliTo.value=t;}S.from=f;S.to=t;document.querySelectorAll('#presetSeg button').forEach(x=>x.classList.remove('on'));drawChart();}
+cliFrom.addEventListener('change',onManual);cliTo.addEventListener('change',onManual);
 setPreset(12);
 
-/* ---- conversaciones por tipo (playbooks) ---- */
+/* ---- distribución MRR por tramo ---- */
 (function(){
-  const rows=(DIIO.playbooks||[]).slice().sort((a,b)=>b.n-a.n);
-  const mx=rows.length?rows[0].n:1;
-  document.getElementById('pbs').innerHTML=rows.map(r=>`
-    <div class="pbrow"><span class="nm" title="${esc(r.name)}">${esc(r.name)}</span>
-    <span class="tk"><i style="width:${Math.max(3,r.n/mx*100)}%"></i></span>
-    <span class="vv">${nf.format(r.n)}</span></div>`).join('')
+  const rows=CLI.mrr_dist||[];
+  const mx=Math.max(1,...rows.map(r=>r.mrr));
+  document.getElementById('mrrDist').innerHTML=rows.map(r=>`
+    <div class="pbrow"><span class="nm">${esc(r.tramo)}<small>${nf.format(r.clientes)} ${r.clientes===1?'cliente':'clientes'}</small></span>
+    <span class="tk"><i style="width:${r.mrr>0?Math.max(3,r.mrr/mx*100):0}%"></i></span>
+    <span class="vv">${nf1.format(r.mrr)} UF</span></div>`).join('')
     ||'<div class="sub">Sin datos.</div>';
+  document.getElementById('mrrNote').textContent=CLI.mrr_dist_note||'';
 })();
 
-/* ---- dolores y objeciones ---- */
-function renderThemes(id,arr){
-  document.getElementById(id).innerHTML=(arr||[]).map(t=>`
+/* ---- pulso de salud ---- */
+(function(){
+  const h=CLI.salud||{};
+  document.getElementById('saludSub').textContent=`Derivado de las conversaciones de postventa y onboarding (DiIO), ${h.periodo||''}.`;
+  const tiles=[
+    {n:nf1.format(h.sentimiento)+' /3',l:'Sentimiento medio del cliente',cls:'good'},
+    {n:nf.format(h.reuniones_cs),l:'Reuniones de postventa analizadas',cls:''},
+    {n:nf.format(h.detractores),l:'Detractores detectados',cls:'good'},
+    {n:nf.format(h.frustracion),l:'Reuniones con frustración detectada',cls:'warn'},
+  ];
+  document.getElementById('saludTiles').innerHTML=tiles.map(t=>`
+    <div class="tile ${t.cls}"><span class="n">${t.n}</span><span class="l">${t.l}</span></div>`).join('');
+})();
+
+/* ---- churn ---- */
+(function(){
+  const c=CLI.churn||{total:0,motivos:[]};
+  let html=`<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><span class="churnbig">${nf.format(c.total)}</span><span class="sub" style="margin:0">${c.total===1?'cliente perdido':'clientes perdidos'} · histórico registrado</span></div>`;
+  if(c.motivos&&c.motivos.length){
+    html+='<div class="themes">'+c.motivos.map(mo=>`<div class="theme"><span class="tx">${esc(mo.motivo)}</span><span class="chip media">${nf.format(mo.n)}</span></div>`).join('')+'</div>';
+  }else{
+    html+='<div class="note" style="margin-top:6px">Sin detalle de motivo registrado en HubSpot para el churn actual.</div>';
+  }
+  document.getElementById('churnBox').innerHTML=html;
+})();
+
+/* ---- temas recurrentes ---- */
+(function(){
+  const arr=CLI.temas||[];
+  document.getElementById('temas').innerHTML=arr.map(t=>`
     <div class="theme"><span class="tx">${esc(t.theme)}</span><span class="chip ${esc(t.level)}">${esc(t.level)}</span></div>`).join('')
     ||'<div class="sub">Sin datos.</div>';
-}
-renderThemes('pains',DIIO.pains);
-renderThemes('objs',DIIO.objections);
+})();
 </script>
 
 </body></html>
