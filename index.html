@@ -1,4 +1,46 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<!-- MENU LATERAL TAZKI -->
+<style>
+#tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
+#tzMenuBtn span,#tzMenuBtn span:before,#tzMenuBtn span:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.2s}
+#tzMenuBtn span:before{position:absolute;top:-6px}#tzMenuBtn span:after{position:absolute;top:6px}
+#tzSide{position:fixed;top:0;left:0;height:100%;width:270px;background:#0f1b34;color:#fff;z-index:100001;transform:translateX(-100%);transition:transform .22s ease;box-shadow:4px 0 24px rgba(0,0,0,.35);display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif}
+#tzSide.open{transform:translateX(0)}
+#tzOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100000;opacity:0;pointer-events:none;transition:.22s}
+#tzOverlay.open{opacity:1;pointer-events:auto}
+#tzSide .th{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+#tzSide .th .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ea8e0;font-weight:700}
+#tzSide .th .t{font-size:19px;font-weight:800;margin-top:3px}
+#tzSide nav{padding:12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+#tzSide a{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;color:#cdd8ef;text-decoration:none;font-size:14.5px;font-weight:600;transition:.15s}
+#tzSide a:hover{background:rgba(255,255,255,.08);color:#fff}
+#tzSide a.on{background:#1f4ed8;color:#fff}
+#tzSide a .ic{width:22px;text-align:center;font-size:16px}
+#tzSide .cl{padding:16px 22px;font-size:11px;color:#6b7ba0;border-top:1px solid rgba(255,255,255,.1)}
+#tzSide .x{position:absolute;top:16px;right:16px;background:none;border:none;color:#8ea8e0;font-size:22px;cursor:pointer;line-height:1}
+</style>
+<button id="tzMenuBtn" onclick="tzToggle()" aria-label="Menú"><span></span></button>
+<div id="tzOverlay" onclick="tzToggle()"></div>
+<aside id="tzSide">
+  <button class="x" onclick="tzToggle()">&times;</button>
+  <div class="th"><div class="k">Growth · Tazki</div><div class="t">Paneles</div></div>
+  <nav>
+    <a href="index.html" data-p="index"><span class="ic">📊</span> Panel MQL</a>
+    <a href="google-ads-tazki.html" data-p="google-ads"><span class="ic">🎯</span> Google Ads</a>
+    <a href="linkedin-tazki.html" data-p="linkedin"><span class="ic">💼</span> LinkedIn</a>
+    <a href="seo-tazki.html" data-p="seo"><span class="ic">🔍</span> SEO · Buscadores</a>
+    <a href="maquina-de-leads-tazki.html" data-p="maquina"><span class="ic">🧲</span> Plan de contenidos</a>
+    <a href="roi.html" data-p="roi"><span class="ic">🧮</span> Calculadora ROI</a>
+    <a href="ventas.html" data-p="ventas"><span class="ic">🗂️</span> Assets para Ventas</a>
+  </nav>
+  <div class="cl">Panel interno · datos vía HubSpot y Supermetrics</div>
+</aside>
+<script>
+function tzToggle(){document.getElementById('tzSide').classList.toggle('open');document.getElementById('tzOverlay').classList.toggle('open');}
+(function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'index','google-ads-tazki.html':'google-ads','linkedin-tazki.html':'linkedin','seo-tazki.html':'seo','maquina-de-leads-tazki.html':'maquina','roi.html':'roi','ventas.html':'ventas','':'index'};var cur=map[f]||'index';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
+</script>
+<!-- FIN MENU LATERAL TAZKI -->
+
 <title>Panel de Negocios MQL · Tazki</title>
 <style>
   :root {
