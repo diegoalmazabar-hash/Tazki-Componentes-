@@ -554,11 +554,14 @@ document.querySelectorAll('[data-kwf]').forEach(c=>c.addEventListener('click',()
   document.querySelectorAll('[data-kwf]').forEach(x=>x.classList.toggle('on',x===c));kwF.f=c.dataset.kwf;renderKW();}));
 
 /* --- selector de período (7/14/30 días) --- */
-function paintKw(w){CURW=w;TERMS=WIN[w].terms;KWS=WIN[w].kws;TS=WIN[w].stats;
+function paintKw(w){if(!WIN[w])w='30';CURW=w;TERMS=WIN[w].terms;KWS=WIN[w].kws;TS=WIN[w].stats;
   paintKpis();paintNeg();renderST();renderKW();
   const st=document.getElementById('stTitle'),kt=document.getElementById('kwTitle');
   if(st)st.textContent='Términos de búsqueda · últimos '+WLBL[w];
   if(kt)kt.textContent='Keywords · últimos '+WLBL[w];}
+/* oculta períodos sin datos (resiliencia si la data trae solo 30d) */
+document.querySelectorAll('#kwWin [data-w]').forEach(b=>{if(!WIN[b.dataset.w])b.style.display='none';});
+if(!WIN['7']&&!WIN['14']){const kw=document.getElementById('kwWin');if(kw)kw.style.display='none';}
 document.querySelectorAll('#kwWin [data-w]').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('#kwWin [data-w]').forEach(x=>x.classList.toggle('on',x===b));
   paintKw(b.dataset.w);}));
