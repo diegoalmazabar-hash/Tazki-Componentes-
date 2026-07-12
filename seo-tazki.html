@@ -1,0 +1,348 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<!-- MENU LATERAL TAZKI -->
+<style>
+#tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
+#tzMenuBtn span,#tzMenuBtn span:before,#tzMenuBtn span:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.2s}
+#tzMenuBtn span:before{position:absolute;top:-6px}#tzMenuBtn span:after{position:absolute;top:6px}
+#tzSide{position:fixed;top:0;left:0;height:100%;width:270px;background:#0f1b34;color:#fff;z-index:100001;transform:translateX(-100%);transition:transform .22s ease;box-shadow:4px 0 24px rgba(0,0,0,.35);display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif}
+#tzSide.open{transform:translateX(0)}
+#tzOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100000;opacity:0;pointer-events:none;transition:.22s}
+#tzOverlay.open{opacity:1;pointer-events:auto}
+#tzSide .th{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+#tzSide .th .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ea8e0;font-weight:700}
+#tzSide .th .t{font-size:19px;font-weight:800;margin-top:3px}
+#tzSide nav{padding:12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+#tzSide a{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;color:#cdd8ef;text-decoration:none;font-size:14.5px;font-weight:600;transition:.15s}
+#tzSide a:hover{background:rgba(255,255,255,.08);color:#fff}
+#tzSide a.on{background:#1f4ed8;color:#fff}
+#tzSide a .ic{width:22px;text-align:center;font-size:16px}
+#tzSide .cl{padding:16px 22px;font-size:11px;color:#6b7ba0;border-top:1px solid rgba(255,255,255,.1)}
+#tzSide .x{position:absolute;top:16px;right:16px;background:none;border:none;color:#8ea8e0;font-size:22px;cursor:pointer;line-height:1}
+</style>
+<button id="tzMenuBtn" onclick="tzToggle()" aria-label="Menú"><span></span></button>
+<div id="tzOverlay" onclick="tzToggle()"></div>
+<aside id="tzSide">
+  <button class="x" onclick="tzToggle()">&times;</button>
+  <div class="th"><div class="k">Growth · Tazki</div><div class="t">Paneles</div></div>
+  <nav>
+    <a href="index.html" data-p="index"><span class="ic">📊</span> Panel MQL</a>
+    <a href="google-ads-tazki.html" data-p="google-ads"><span class="ic">🎯</span> Google Ads</a>
+    <a href="linkedin-tazki.html" data-p="linkedin"><span class="ic">💼</span> LinkedIn</a>
+    <a href="seo-tazki.html" data-p="seo"><span class="ic">🔍</span> SEO · Buscadores</a>
+    <a href="maquina-de-leads-tazki.html" data-p="maquina"><span class="ic">🧲</span> Plan de contenidos</a>
+    <a href="roi.html" data-p="roi"><span class="ic">🧮</span> Calculadora ROI</a>
+    <a href="ventas.html" data-p="ventas"><span class="ic">🗂️</span> Assets para Ventas</a>
+  </nav>
+  <div class="cl">Panel interno · datos vía HubSpot y Supermetrics</div>
+</aside>
+<script>
+function tzToggle(){document.getElementById('tzSide').classList.toggle('open');document.getElementById('tzOverlay').classList.toggle('open');}
+(function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'index','google-ads-tazki.html':'google-ads','linkedin-tazki.html':'linkedin','seo-tazki.html':'seo','maquina-de-leads-tazki.html':'maquina','roi.html':'roi','ventas.html':'ventas','':'index'};var cur=map[f]||'index';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
+</script>
+<!-- FIN MENU LATERAL TAZKI -->
+<title>Panel SEO · Buscadores · Tazki</title>
+<style>
+  :root{
+    --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,0.10);
+    --se:#0d9488; --se-2:#14b8a6; --se-soft:#cdeeea;
+    --c-imp:#0d9488; --c-clk:#2a78d6; --c-pos:#7b57d6; --c-ctr:#b97d00;
+    --st-good:#0ca30c; --st-crit:#d03b3b;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,0.10);
+    --se:#14b8a6; --se-2:#2dd4bf; --se-soft:#123f3a;
+    --c-imp:#14b8a6; --c-clk:#3987e5; --c-pos:#9b7ce6; --c-ctr:#fab219;
+    --st-good:#0ca30c; --st-crit:#e66767;
+  }}
+  :root[data-theme="dark"]{
+    --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,0.10);
+    --se:#14b8a6; --se-2:#2dd4bf; --se-soft:#123f3a;
+    --c-imp:#14b8a6; --c-clk:#3987e5; --c-pos:#9b7ce6; --c-ctr:#fab219;
+    --st-good:#0ca30c; --st-crit:#e66767;
+  }
+  :root[data-theme="light"]{
+    --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,0.10);
+    --se:#0d9488; --se-2:#14b8a6; --se-soft:#cdeeea;
+    --c-imp:#0d9488; --c-clk:#2a78d6; --c-pos:#7b57d6; --c-ctr:#b97d00;
+    --st-good:#0ca30c; --st-crit:#d03b3b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--plane);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 56px}
+  header.top{padding-left:54px;margin-bottom:2px}
+  .top h1{font-size:22px;font-weight:700;margin:0;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px}
+  .top .lgb{background:var(--se);color:#fff;font-size:14px;font-weight:700;border-radius:7px;padding:2px 8px}
+  .src{color:var(--ink-3);font-size:12.5px;padding-left:54px}
+  p.lede{color:var(--ink-2);margin:6px 0 22px;max-width:80ch}
+  p.lede strong{color:var(--ink)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:16px}
+  .kpi{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:12px 14px 11px;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .kpi .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-3);font-weight:600;display:flex;align-items:center;gap:6px}
+  .kpi .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .kpi .val{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;font-variant-numeric:tabular-nums}
+  .kpi .sub{font-size:12px;color:var(--ink-2)}
+  .kpi .var{font-size:12px;font-weight:700}
+  .kpi .up{color:var(--st-good)} .kpi .down{color:var(--st-crit)} .kpi .flat{color:var(--ink-3)}
+  .card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin-bottom:14px;min-width:0}
+  .card h2{font-size:14.5px;font-weight:650;margin:0 0 2px}
+  .card .sub{font-size:12px;color:var(--ink-3);margin-bottom:10px}
+  .card .foot{font-size:12px;color:var(--ink-3);margin-top:8px}
+  .seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ring);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg.mb0{margin-bottom:0}
+  .seg button{appearance:none;border:0;border-left:1px solid var(--ring);background:var(--surface);color:var(--ink-2);font:inherit;font-size:12.5px;padding:7px 13px;cursor:pointer}
+  .seg button:first-child{border-left:0}
+  .seg button.on{background:var(--se);color:#fff;font-weight:600}
+  .ctrls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:10px}
+  .ctrls label{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2)}
+  .ctrls input[type=date]{border:1px solid var(--ring);border-radius:8px;padding:6px 9px;font:inherit;font-size:12.5px;background:var(--surface);color:var(--ink);color-scheme:light dark}
+  .headstat{display:flex;flex-wrap:wrap;gap:22px;margin:2px 0 12px}
+  .headstat .n{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .headstat .l{font-size:11.5px;color:var(--ink-3)}
+  .chart-scroll{overflow-x:auto}
+  svg{display:block}
+  svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .movers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:680px){.movers{grid-template-columns:1fr}}
+  .mv h3{font-size:13px;margin:0 0 8px;display:flex;align-items:center;gap:7px}
+  .mv .row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--ring)}
+  .mv .q{flex:1;min-width:0;font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mv .d{font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .mv .pos{color:var(--ink-3)}
+  .up-c{color:var(--st-good);font-weight:700} .down-c{color:var(--st-crit);font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ring)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600;cursor:pointer;user-select:none}
+  th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.q{font-weight:600;color:var(--ink);max-width:340px;overflow:hidden;text-overflow:ellipsis}
+  .fbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+  .fbar input[type=search]{flex:1;min-width:180px;border:1px solid var(--ring);border-radius:8px;padding:7px 10px;font:inherit;font-size:13px;background:var(--surface);color:var(--ink)}
+  .fcount{font-size:12px;color:var(--ink-3)}
+  #seoTip{position:fixed;pointer-events:none;background:#0f172a;color:#fff;font-size:12px;padding:7px 10px;border-radius:7px;display:none;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:230px}
+  .note{font-size:12px;color:var(--ink-3);background:var(--surface);border:1px dashed var(--ring);border-radius:9px;padding:10px 13px;margin-top:4px}
+</style>
+
+<div class="wrap">
+  <header class="top"><h1><span class="lgb">🔍</span> Panel SEO · Buscadores · Tazki</h1></header>
+  <div class="src" id="src"></div>
+  <p class="lede" id="lede"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card">
+    <h2>Evolución del posicionamiento</h2>
+    <div class="sub">Rendimiento orgánico del sitio (sin la marca "tazki"). Elige la métrica, <b>semana a semana</b> / <b>mes a mes</b> y el rango de fechas.</div>
+    <div class="seg" id="metricSeg">
+      <button data-m="imp" class="on">Impresiones</button>
+      <button data-m="clk">Clics</button>
+      <button data-m="pos">Posición</button>
+      <button data-m="ctr">CTR</button>
+    </div>
+    <div class="ctrls">
+      <div class="seg mb0" id="granSeg"><button data-g="weekly" class="on">Semana a semana</button><button data-g="monthly">Mes a mes</button></div>
+      <label>Desde <input type="date" id="seoFrom"></label>
+      <label>Hasta <input type="date" id="seoTo"></label>
+      <div class="seg mb0" id="presetSeg"><button data-p="3">3m</button><button data-p="6" class="on">6m</button><button data-p="12">12m</button><button data-p="0">Todo</button></div>
+    </div>
+    <div class="headstat" id="seoHead"></div>
+    <div class="chart-scroll" id="seoChart"></div>
+    <div class="foot" id="posNote"></div>
+  </div>
+
+  <div class="card">
+    <h2>Movimientos · 28 días vs 28 previos</h2>
+    <div class="sub">Qué palabras clave (no-marca) ganaron o perdieron más. "Pos." = cambio de posición (menor es mejor); ▲ = subió en el ranking.</div>
+    <div class="movers">
+      <div class="mv"><h3>📈 Subieron</h3><div id="gainers"></div></div>
+      <div class="mv"><h3>📉 Bajaron</h3><div id="losers"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Palabras clave · últimos 28 días</h2>
+    <div class="sub">Todas las búsquedas no-marca por las que aparece el sitio. Busca y ordena haciendo clic en las columnas.</div>
+    <div class="fbar">
+      <input type="search" id="kwSearch" placeholder="Buscar palabra clave…" aria-label="Buscar">
+      <span class="fcount" id="kwCount"></span>
+    </div>
+    <div class="chart-scroll"><table>
+      <thead><tr>
+        <th data-sort="q">Palabra clave</th>
+        <th class="num" data-sort="imp">Impres.</th>
+        <th class="num" data-sort="clk">Clics</th>
+        <th class="num" data-sort="ctr">CTR</th>
+        <th class="num" data-sort="pos">Posición</th>
+      </tr></thead>
+      <tbody id="kwBody"></tbody>
+    </table></div>
+    <div class="foot" id="kwFoot"></div>
+  </div>
+
+  <div class="card">
+    <h2>Sobre este panel</h2>
+    <div class="note">Datos de <b>Google Search Console</b> (dominios tazki.cl y soluciones.tazki.cl) vía Supermetrics, actualizados a diario. Muestra el rendimiento <b>real (no-marca)</b>: se excluyen las búsquedas de "tazki" y sus variantes mal escritas, para que veas cómo posicionas por temas de prevención, no por tu propio nombre. La <b>posición</b> es el promedio en Google (1 = arriba de todo); bajarla es mejorar. Cada 3 días te llega un resumen por chat con lo que subió y bajó.</div>
+  </div>
+</div>
+<div id="seoTip"></div>
+
+<script>
+const SEO = {"domain": "tazki.cl + soluciones.tazki.cl", "updated": "12 jul 2026", "kpi": {"kw": 431, "kwP": 440, "imp": 5559, "impP": 6359, "clk": 11, "clkP": 25, "pos": 11.4, "posP": 9.9, "ctr": 0.2, "ctrP": 0.4}, "weekly": [{"ds": "2026-01-05", "lab": "5 ene", "imp": 645, "clk": 1, "pos": 30.5, "ctr": 0.2}, {"ds": "2026-01-12", "lab": "12 ene", "imp": 6461, "clk": 36, "pos": 22.1, "ctr": 0.6}, {"ds": "2026-01-19", "lab": "19 ene", "imp": 6127, "clk": 30, "pos": 20.7, "ctr": 0.5}, {"ds": "2026-01-26", "lab": "26 ene", "imp": 5533, "clk": 32, "pos": 22.3, "ctr": 0.6}, {"ds": "2026-02-02", "lab": "2 feb", "imp": 4588, "clk": 41, "pos": 21.6, "ctr": 0.9}, {"ds": "2026-02-09", "lab": "9 feb", "imp": 4198, "clk": 38, "pos": 22.4, "ctr": 0.9}, {"ds": "2026-02-16", "lab": "16 feb", "imp": 3523, "clk": 34, "pos": 20.5, "ctr": 1.0}, {"ds": "2026-02-23", "lab": "23 feb", "imp": 3333, "clk": 41, "pos": 21.1, "ctr": 1.2}, {"ds": "2026-03-02", "lab": "2 mar", "imp": 3317, "clk": 43, "pos": 14.5, "ctr": 1.3}, {"ds": "2026-03-09", "lab": "9 mar", "imp": 2816, "clk": 32, "pos": 12.6, "ctr": 1.1}, {"ds": "2026-03-16", "lab": "16 mar", "imp": 3233, "clk": 39, "pos": 12.7, "ctr": 1.2}, {"ds": "2026-03-23", "lab": "23 mar", "imp": 3031, "clk": 32, "pos": 12.6, "ctr": 1.1}, {"ds": "2026-03-30", "lab": "30 mar", "imp": 2522, "clk": 35, "pos": 11.9, "ctr": 1.4}, {"ds": "2026-04-06", "lab": "6 abr", "imp": 2883, "clk": 49, "pos": 10.6, "ctr": 1.7}, {"ds": "2026-04-13", "lab": "13 abr", "imp": 2370, "clk": 59, "pos": 12.4, "ctr": 2.5}, {"ds": "2026-04-20", "lab": "20 abr", "imp": 1394, "clk": 51, "pos": 17.5, "ctr": 3.7}, {"ds": "2026-04-27", "lab": "27 abr", "imp": 1717, "clk": 42, "pos": 17.0, "ctr": 2.4}, {"ds": "2026-05-04", "lab": "4 may", "imp": 2369, "clk": 68, "pos": 19.0, "ctr": 2.9}, {"ds": "2026-05-11", "lab": "11 may", "imp": 2163, "clk": 53, "pos": 16.1, "ctr": 2.5}, {"ds": "2026-05-18", "lab": "18 may", "imp": 1505, "clk": 40, "pos": 11.2, "ctr": 2.7}, {"ds": "2026-05-25", "lab": "25 may", "imp": 1686, "clk": 48, "pos": 8.8, "ctr": 2.8}, {"ds": "2026-06-01", "lab": "1 jun", "imp": 2040, "clk": 64, "pos": 8.9, "ctr": 3.1}, {"ds": "2026-06-08", "lab": "8 jun", "imp": 1434, "clk": 62, "pos": 10.0, "ctr": 4.3}, {"ds": "2026-06-15", "lab": "15 jun", "imp": 1529, "clk": 36, "pos": 10.0, "ctr": 2.4}, {"ds": "2026-06-22", "lab": "22 jun", "imp": 1275, "clk": 37, "pos": 10.3, "ctr": 2.9}, {"ds": "2026-06-29", "lab": "29 jun", "imp": 1299, "clk": 39, "pos": 11.1, "ctr": 3.0}, {"ds": "2026-07-06", "lab": "6 jul", "imp": 1819, "clk": 48, "pos": 13.1, "ctr": 2.6, "cur": true}], "monthly": [{"ds": "2025-07-01", "lab": "jul 25", "imp": 10590, "clk": 52, "pos": 40.1, "ctr": 0.5}, {"ds": "2025-08-01", "lab": "ago 25", "imp": 16577, "clk": 91, "pos": 37.9, "ctr": 0.5}, {"ds": "2025-09-01", "lab": "sep 25", "imp": 15830, "clk": 114, "pos": 21.4, "ctr": 0.7}, {"ds": "2025-10-01", "lab": "oct 25", "imp": 21462, "clk": 157, "pos": 12.9, "ctr": 0.7}, {"ds": "2025-11-01", "lab": "nov 25", "imp": 19300, "clk": 188, "pos": 13.9, "ctr": 1.0}, {"ds": "2025-12-01", "lab": "dic 25", "imp": 20486, "clk": 151, "pos": 22.7, "ctr": 0.7}, {"ds": "2026-01-01", "lab": "ene 26", "imp": 25675, "clk": 135, "pos": 22.3, "ctr": 0.5}, {"ds": "2026-02-01", "lab": "feb 26", "imp": 15959, "clk": 154, "pos": 21.9, "ctr": 1.0}, {"ds": "2026-03-01", "lab": "mar 26", "imp": 13737, "clk": 167, "pos": 13.3, "ctr": 1.2}, {"ds": "2026-04-01", "lab": "abr 26", "imp": 9398, "clk": 214, "pos": 13.1, "ctr": 2.3}, {"ds": "2026-05-01", "lab": "may 26", "imp": 8169, "clk": 211, "pos": 14.6, "ctr": 2.6}, {"ds": "2026-06-01", "lab": "jun 26", "imp": 6652, "clk": 209, "pos": 9.7, "ctr": 3.1}, {"ds": "2026-07-01", "lab": "jul 26", "imp": 2744, "clk": 77, "pos": 12.6, "ctr": 2.8, "cur": true}], "metric_labels": {"imp": "Impresiones", "clk": "Clics", "pos": "Posición", "ctr": "CTR (%)"}, "keywords": [{"q": "irl", "clk": 0, "imp": 1567, "pos": 8.6, "ctr": 0.0}, {"q": "odi", "clk": 0, "imp": 362, "pos": 5.6, "ctr": 0.0}, {"q": "software prevencion de riesgos", "clk": 3, "imp": 268, "pos": 22.7, "ctr": 1.1}, {"q": "que es el irl", "clk": 0, "imp": 126, "pos": 8.4, "ctr": 0.0}, {"q": "que es la irl", "clk": 0, "imp": 110, "pos": 7.2, "ctr": 0.0}, {"q": "que significa irl", "clk": 0, "imp": 92, "pos": 11.0, "ctr": 0.0}, {"q": "que es irl", "clk": 0, "imp": 81, "pos": 9.5, "ctr": 0.0}, {"q": "terraservice", "clk": 1, "imp": 80, "pos": 7.3, "ctr": 1.2}, {"q": "miper", "clk": 2, "imp": 77, "pos": 12.6, "ctr": 2.6}, {"q": "irl que es", "clk": 1, "imp": 72, "pos": 9.5, "ctr": 1.4}, {"q": "entrega de epp", "clk": 1, "imp": 70, "pos": 15.5, "ctr": 1.4}, {"q": "que es el irl en prevencion de riesgos", "clk": 0, "imp": 65, "pos": 5.0, "ctr": 0.0}, {"q": "odi o irl", "clk": 0, "imp": 60, "pos": 3.8, "ctr": 0.0}, {"q": "software equipos menores", "clk": 0, "imp": 58, "pos": 33.7, "ctr": 0.0}, {"q": "software prevencion", "clk": 0, "imp": 57, "pos": 27.2, "ctr": 0.0}, {"q": "app prevención de riesgos", "clk": 1, "imp": 56, "pos": 14.9, "ctr": 1.8}, {"q": "que es irl en chile", "clk": 0, "imp": 51, "pos": 8.4, "ctr": 0.0}, {"q": "que significa irl en prevencion", "clk": 0, "imp": 51, "pos": 5.8, "ctr": 0.0}, {"q": "irl que es prevencion", "clk": 0, "imp": 47, "pos": 7.4, "ctr": 0.0}, {"q": "que es irl en seguridad", "clk": 0, "imp": 47, "pos": 8.5, "ctr": 0.0}, {"q": "irl significado", "clk": 0, "imp": 43, "pos": 7.2, "ctr": 0.0}, {"q": "irl prevencion", "clk": 0, "imp": 39, "pos": 7.3, "ctr": 0.0}, {"q": "que significa odi", "clk": 0, "imp": 38, "pos": 5.3, "ctr": 0.0}, {"q": "software de prevencion de riesgos", "clk": 0, "imp": 36, "pos": 1.2, "ctr": 0.0}, {"q": "art seguridad", "clk": 0, "imp": 35, "pos": 6.9, "ctr": 0.0}, {"q": "software control de contratistas", "clk": 0, "imp": 35, "pos": 22.3, "ctr": 0.0}, {"q": "que es la irl en prevencion de riesgos", "clk": 0, "imp": 33, "pos": 6.9, "ctr": 0.0}, {"q": "registro irl", "clk": 0, "imp": 33, "pos": 5.5, "ctr": 0.0}, {"q": "sistema de gestión contratistas", "clk": 0, "imp": 33, "pos": 37.9, "ctr": 0.0}, {"q": "irl chile", "clk": 0, "imp": 31, "pos": 8.8, "ctr": 0.0}, {"q": "software prevencion de riesgos laborales", "clk": 0, "imp": 31, "pos": 13.8, "ctr": 0.0}, {"q": "software prevención de riesgos laborales", "clk": 0, "imp": 31, "pos": 19.7, "ctr": 0.0}, {"q": "que es odi", "clk": 0, "imp": 30, "pos": 6.3, "ctr": 0.0}, {"q": "software gestión de contratistas", "clk": 0, "imp": 30, "pos": 23.4, "ctr": 0.0}, {"q": "software para prevencion de riesgos", "clk": 0, "imp": 30, "pos": 1.3, "ctr": 0.0}, {"q": "que es un irl en prevencion de riesgos", "clk": 0, "imp": 29, "pos": 6.0, "ctr": 0.0}, {"q": "irl prevención de riesgos", "clk": 0, "imp": 28, "pos": 6.5, "ctr": 0.0}, {"q": "que es una irl en prevención", "clk": 0, "imp": 27, "pos": 6.5, "ctr": 0.0}, {"q": "la odi", "clk": 0, "imp": 26, "pos": 7.8, "ctr": 0.0}, {"q": "que es art en seguridad", "clk": 0, "imp": 26, "pos": 6.6, "ctr": 0.0}, {"q": "software riesgos laborales", "clk": 0, "imp": 26, "pos": 11.2, "ctr": 0.0}, {"q": "que es un irl", "clk": 0, "imp": 25, "pos": 10.6, "ctr": 0.0}, {"q": "software epp", "clk": 1, "imp": 24, "pos": 4.6, "ctr": 4.2}, {"q": "que es el irl en prevencion", "clk": 0, "imp": 24, "pos": 7.6, "ctr": 0.0}, {"q": "software para contratistas", "clk": 0, "imp": 24, "pos": 8.2, "ctr": 0.0}, {"q": "irl ds 44", "clk": 0, "imp": 22, "pos": 11.5, "ctr": 0.0}, {"q": "irl que significa", "clk": 0, "imp": 22, "pos": 9.0, "ctr": 0.0}, {"q": "irl documento", "clk": 0, "imp": 21, "pos": 8.0, "ctr": 0.0}, {"q": "irl en prevencion", "clk": 0, "imp": 21, "pos": 6.5, "ctr": 0.0}, {"q": "irl información de riesgos laborales", "clk": 0, "imp": 21, "pos": 7.1, "ctr": 0.0}, {"q": "irl seguridad", "clk": 0, "imp": 21, "pos": 5.8, "ctr": 0.0}, {"q": "irl prevencionista de riesgos", "clk": 0, "imp": 20, "pos": 3.7, "ctr": 0.0}, {"q": "que es irl en prevencion de riesgos", "clk": 0, "imp": 20, "pos": 7.2, "ctr": 0.0}, {"q": "software gestion prevencion riesgos laborales", "clk": 0, "imp": 20, "pos": 5.3, "ctr": 0.0}, {"q": "charla irl", "clk": 0, "imp": 18, "pos": 7.2, "ctr": 0.0}, {"q": "hallazgos", "clk": 0, "imp": 18, "pos": 39.3, "ctr": 0.0}, {"q": "informacion de riesgos laborales irl", "clk": 0, "imp": 18, "pos": 8.3, "ctr": 0.0}, {"q": "irl laboral", "clk": 0, "imp": 18, "pos": 4.9, "ctr": 0.0}, {"q": "odi que es", "clk": 0, "imp": 18, "pos": 9.4, "ctr": 0.0}, {"q": "irl en chile", "clk": 0, "imp": 17, "pos": 8.8, "ctr": 0.0}, {"q": "irl en seguridad", "clk": 0, "imp": 17, "pos": 9.0, "ctr": 0.0}, {"q": "odi chile", "clk": 0, "imp": 17, "pos": 7.0, "ctr": 0.0}, {"q": "control contratistas", "clk": 0, "imp": 16, "pos": 42.1, "ctr": 0.0}, {"q": "control de entrega de epp", "clk": 0, "imp": 16, "pos": 10.4, "ctr": 0.0}, {"q": "informacion de riesgos laborales", "clk": 0, "imp": 16, "pos": 6.9, "ctr": 0.0}, {"q": "software gestión documental para contratistas", "clk": 0, "imp": 16, "pos": 15.1, "ctr": 0.0}, {"q": "art que es seguridad", "clk": 0, "imp": 15, "pos": 6.7, "ctr": 0.0}, {"q": "ast o art", "clk": 0, "imp": 15, "pos": 2.7, "ctr": 0.0}, {"q": "odi prevencion de riesgos", "clk": 0, "imp": 15, "pos": 10.5, "ctr": 0.0}, {"q": "que es el odi", "clk": 0, "imp": 15, "pos": 11.3, "ctr": 0.0}, {"q": "ast art", "clk": 0, "imp": 14, "pos": 7.2, "ctr": 0.0}, {"q": "blog epp 61", "clk": 0, "imp": 12, "pos": 4.9, "ctr": 0.0}, {"q": "irl riesgos laborales", "clk": 0, "imp": 12, "pos": 7.9, "ctr": 0.0}, {"q": "que significa irl en chile", "clk": 0, "imp": 12, "pos": 9.8, "ctr": 0.0}, {"q": "app prevencion riesgos laborales", "clk": 0, "imp": 11, "pos": 8.5, "ctr": 0.0}, {"q": "irl en prevencion de riesgos", "clk": 0, "imp": 11, "pos": 9.4, "ctr": 0.0}, {"q": "irl prevencion de riesgos", "clk": 0, "imp": 11, "pos": 8.1, "ctr": 0.0}, {"q": "software de consignación eléctrica", "clk": 0, "imp": 11, "pos": 77.4, "ctr": 0.0}, {"q": "software gestión documental para subcontratistas", "clk": 0, "imp": 11, "pos": 14.2, "ctr": 0.0}, {"q": "software prevencion riesgos laborales", "clk": 0, "imp": 11, "pos": 3.6, "ctr": 0.0}, {"q": "hesq", "clk": 0, "imp": 10, "pos": 16.8, "ctr": 0.0}, {"q": "i.r.l", "clk": 0, "imp": 10, "pos": 5.7, "ctr": 0.0}, {"q": "logo suralis", "clk": 0, "imp": 10, "pos": 9.0, "ctr": 0.0}, {"q": "que es la odi", "clk": 0, "imp": 10, "pos": 5.5, "ctr": 0.0}, {"q": "que significa miper", "clk": 0, "imp": 10, "pos": 9.1, "ctr": 0.0}, {"q": "art en seguridad", "clk": 0, "imp": 9, "pos": 8.8, "ctr": 0.0}, {"q": "odi que significa", "clk": 0, "imp": 9, "pos": 6.1, "ctr": 0.0}, {"q": "que es una irl", "clk": 0, "imp": 9, "pos": 2.2, "ctr": 0.0}, {"q": "qué es el irl", "clk": 0, "imp": 9, "pos": 7.0, "ctr": 0.0}, {"q": "qué significa irl", "clk": 0, "imp": 9, "pos": 7.0, "ctr": 0.0}, {"q": "registro entrega epp", "clk": 0, "imp": 9, "pos": 9.2, "ctr": 0.0}, {"q": "software de inspeccion", "clk": 0, "imp": 9, "pos": 20.0, "ctr": 0.0}, {"q": "epp", "clk": 0, "imp": 8, "pos": 55.2, "ctr": 0.0}, {"q": "ki dt", "clk": 0, "imp": 8, "pos": 3.3, "ctr": 0.0}, {"q": "plataforma de seguridad programar tareas controlar hallazgos", "clk": 0, "imp": 8, "pos": 10.8, "ctr": 0.0}, {"q": "que es un odi", "clk": 0, "imp": 8, "pos": 9.5, "ctr": 0.0}, {"q": "gestión documental contratistas", "clk": 0, "imp": 7, "pos": 25.6, "ctr": 0.0}, {"q": "inventario epp", "clk": 0, "imp": 7, "pos": 32.0, "ctr": 0.0}, {"q": "que es una irl en prevencion", "clk": 0, "imp": 7, "pos": 4.1, "ctr": 0.0}, {"q": "escritorio.ebco", "clk": 0, "imp": 6, "pos": 8.2, "ctr": 0.0}, {"q": "falabella trabajadores", "clk": 0, "imp": 6, "pos": 35.7, "ctr": 0.0}, {"q": "gestion pec", "clk": 0, "imp": 6, "pos": 8.7, "ctr": 0.0}, {"q": "gestión de epp", "clk": 0, "imp": 6, "pos": 11.7, "ctr": 0.0}, {"q": "gestión documental de contratistas", "clk": 0, "imp": 6, "pos": 26.2, "ctr": 0.0}, {"q": "irl odi", "clk": 0, "imp": 6, "pos": 4.3, "ctr": 0.0}, {"q": "irl significado en prevención de riesgos", "clk": 0, "imp": 6, "pos": 6.2, "ctr": 0.0}, {"q": "matriz de riesgos ds 44 excel", "clk": 0, "imp": 6, "pos": 8.8, "ctr": 0.0}, {"q": "qué significa odi", "clk": 0, "imp": 6, "pos": 5.5, "ctr": 0.0}, {"q": "significado de odi", "clk": 0, "imp": 6, "pos": 3.3, "ctr": 0.0}, {"q": "software contratistas", "clk": 0, "imp": 6, "pos": 30.5, "ctr": 0.0}, {"q": "software control de epp gratis", "clk": 0, "imp": 6, "pos": 5.2, "ctr": 0.0}, {"q": "software para gestionar subcontratos", "clk": 0, "imp": 6, "pos": 36.5, "ctr": 0.0}, {"q": "ast digital", "clk": 0, "imp": 5, "pos": 7.8, "ctr": 0.0}, {"q": "carpeta de arranque", "clk": 0, "imp": 5, "pos": 64.6, "ctr": 0.0}, {"q": "charla 5 minutos mutual pdf", "clk": 0, "imp": 5, "pos": 16.2, "ctr": 0.0}, {"q": "documento irl", "clk": 0, "imp": 5, "pos": 6.0, "ctr": 0.0}, {"q": "escritorio ebco", "clk": 0, "imp": 5, "pos": 9.2, "ctr": 0.0}, {"q": "gestion de insumos", "clk": 0, "imp": 5, "pos": 4.4, "ctr": 0.0}, {"q": "informacion riesgos laborales", "clk": 0, "imp": 5, "pos": 8.0, "ctr": 0.0}, {"q": "irl administrativo", "clk": 0, "imp": 5, "pos": 17.4, "ctr": 0.0}, {"q": "oddi", "clk": 0, "imp": 5, "pos": 2.0, "ctr": 0.0}, {"q": "oddi tonti oddi", "clk": 0, "imp": 5, "pos": 4.0, "ctr": 0.0}, {"q": "odi bara", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "odi osa", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "odi significado", "clk": 0, "imp": 5, "pos": 2.4, "ctr": 0.0}, {"q": "que es el irl decreto 44", "clk": 0, "imp": 5, "pos": 6.6, "ctr": 0.0}, {"q": "que es una odi", "clk": 0, "imp": 5, "pos": 11.0, "ctr": 0.0}, {"q": "registro entrega de epp", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "software para control de contratistas", "clk": 0, "imp": 5, "pos": 20.2, "ctr": 0.0}, {"q": "software para gestion de riesgos", "clk": 0, "imp": 5, "pos": 2.4, "ctr": 0.0}, {"q": "software prevención de riesgos laborales gratis", "clk": 0, "imp": 5, "pos": 4.2, "ctr": 0.0}, {"q": "art ast", "clk": 0, "imp": 4, "pos": 3.0, "ctr": 0.0}, {"q": "charla diaria", "clk": 0, "imp": 4, "pos": 45.8, "ctr": 0.0}, {"q": "control de entrega de epp excel", "clk": 0, "imp": 4, "pos": 7.8, "ctr": 0.0}, {"q": "control de epp", "clk": 0, "imp": 4, "pos": 3.8, "ctr": 0.0}, {"q": "entrega de equipos de protección personal", "clk": 0, "imp": 4, "pos": 9.8, "ctr": 0.0}, {"q": "erp para empresas de seguridad privada", "clk": 0, "imp": 4, "pos": 88.8, "ctr": 0.0}, {"q": "gestion documental contratistas", "clk": 0, "imp": 4, "pos": 24.0, "ctr": 0.0}, {"q": "gestion documental de contratistas", "clk": 0, "imp": 4, "pos": 20.2, "ctr": 0.0}, {"q": "hombre de 39 años", "clk": 0, "imp": 4, "pos": 16.0, "ctr": 0.0}, {"q": "inventario de epp", "clk": 0, "imp": 4, "pos": 39.0, "ctr": 0.0}, {"q": "irl com", "clk": 0, "imp": 4, "pos": 10.8, "ctr": 0.0}, {"q": "irl decreto 44", "clk": 0, "imp": 4, "pos": 13.2, "ctr": 0.0}, {"q": "irl?", "clk": 0, "imp": 4, "pos": 5.5, "ctr": 0.0}, {"q": "logo ebco", "clk": 0, "imp": 4, "pos": 12.5, "ctr": 0.0}, {"q": "o.d.i", "clk": 0, "imp": 4, "pos": 6.8, "ctr": 0.0}, {"q": "obligacion de informar", "clk": 0, "imp": 4, "pos": 33.0, "ctr": 0.0}, {"q": "que es el art en seguridad", "clk": 0, "imp": 4, "pos": 7.0, "ctr": 0.0}, {"q": "que es el irl ds 44", "clk": 0, "imp": 4, "pos": 6.8, "ctr": 0.0}, {"q": "que es irl?", "clk": 0, "imp": 4, "pos": 1.2, "ctr": 0.0}], "gainers": [{"q": "software prevencion de riesgos", "imp": 268, "impP": 190, "dimp": 78, "pos": 22.7, "posP": 7.3, "dpos": -15.4}, {"q": "miper", "imp": 77, "impP": 0, "dimp": 77, "pos": 12.6, "posP": null, "dpos": null}, {"q": "que es el irl en prevencion de riesgos", "imp": 65, "impP": 22, "dimp": 43, "pos": 5.0, "posP": 5.1, "dpos": 0.1}, {"q": "entrega de epp", "imp": 70, "impP": 39, "dimp": 31, "pos": 15.5, "posP": 8.7, "dpos": -6.8}, {"q": "software de prevencion de riesgos", "imp": 36, "impP": 7, "dimp": 29, "pos": 1.2, "posP": 1.6, "dpos": 0.4}, {"q": "que es el irl", "imp": 126, "impP": 98, "dimp": 28, "pos": 8.4, "posP": 6.2, "dpos": -2.2}, {"q": "que es la irl", "imp": 110, "impP": 82, "dimp": 28, "pos": 7.2, "posP": 7.8, "dpos": 0.6}, {"q": "software control de contratistas", "imp": 35, "impP": 8, "dimp": 27, "pos": 22.3, "posP": 16.6, "dpos": -5.7}, {"q": "software gestión de contratistas", "imp": 30, "impP": 4, "dimp": 26, "pos": 23.4, "posP": 25.0, "dpos": 1.6}, {"q": "la odi", "imp": 26, "impP": 2, "dimp": 24, "pos": 7.8, "posP": 6.0, "dpos": -1.8}, {"q": "que es una irl en prevención", "imp": 27, "impP": 7, "dimp": 20, "pos": 6.5, "posP": 6.4, "dpos": -0.1}, {"q": "software para contratistas", "imp": 24, "impP": 6, "dimp": 18, "pos": 8.2, "posP": 4.0, "dpos": -4.2}], "losers": [{"q": "que significa irl", "imp": 92, "impP": 210, "dimp": -118, "pos": 11.0, "posP": 10.6, "dpos": -0.3}, {"q": "que es el irl en prevencion", "imp": 24, "impP": 112, "dimp": -88, "pos": 7.6, "posP": 6.9, "dpos": -0.7}, {"q": "irl que significa", "imp": 22, "impP": 90, "dimp": -68, "pos": 9.0, "posP": 8.2, "dpos": -0.8}, {"q": "irl", "imp": 1567, "impP": 1632, "dimp": -65, "pos": 8.6, "posP": 7.3, "dpos": -1.2}, {"q": "software riesgos laborales", "imp": 26, "impP": 85, "dimp": -59, "pos": 11.2, "posP": 18.1, "dpos": 7.0}, {"q": "que es irl en prevencion de riesgos", "imp": 20, "impP": 77, "dimp": -57, "pos": 7.2, "posP": 6.4, "dpos": -0.9}, {"q": "irl prevencion", "imp": 39, "impP": 95, "dimp": -56, "pos": 7.3, "posP": 7.1, "dpos": -0.2}, {"q": "software prevencion riesgos laborales", "imp": 11, "impP": 62, "dimp": -51, "pos": 3.6, "posP": 5.8, "dpos": 2.2}, {"q": "ast seguridad", "imp": 0, "impP": 50, "dimp": -50, "pos": null, "posP": 9.4, "dpos": null}, {"q": "irl ds 44", "imp": 22, "impP": 64, "dimp": -42, "pos": 11.5, "posP": 7.3, "dpos": -4.2}, {"q": "app prevencion riesgos laborales", "imp": 11, "impP": 48, "dimp": -37, "pos": 8.5, "posP": 9.2, "dpos": 0.7}, {"q": "software gestion prl", "imp": 2, "impP": 35, "dimp": -33, "pos": 51.0, "posP": 57.4, "dpos": 6.4}]};
+const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
+const nf1 = new Intl.NumberFormat('es-CL',{maximumFractionDigits:1});
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ML = SEO.metric_labels;
+const K = SEO.kpi;
+
+document.getElementById('src').textContent = `Tazki · Google Search Console (${SEO.domain}) vía Supermetrics · actualizado ${SEO.updated}`;
+
+const varOf=(c,p)=>(p!==0&&p!=null)?(c-p)/p*100:null;
+function varTag(c,p,goodUp){
+  const v=varOf(c,p); if(v==null) return '<span class="var flat">—</span>';
+  const good=goodUp?v>=0:v<0; const cls=Math.abs(v)<0.5?'flat':good?'up':'down';
+  return `<span class="var ${cls}">${v>=0?'▲':'▼'}${nf1.format(Math.abs(v))}%</span>`;
+}
+// posición: mejora cuando BAJA el número. delta absoluto con flecha correcta.
+function posTag(c,p){
+  if(p==null) return '<span class="var flat">—</span>';
+  const d=p-c; // positivo = mejoró (posición bajó de p a c)
+  if(Math.abs(d)<0.1) return '<span class="var flat">—</span>';
+  return `<span class="var ${d>0?'up':'down'}">${d>0?'▲':'▼'}${nf1.format(Math.abs(d))}</span>`;
+}
+document.getElementById('lede').innerHTML =
+  `En los últimos 28 días el sitio tuvo <strong>${nf.format(K.imp)} impresiones</strong> y <strong>${nf.format(K.clk)} clics</strong> por búsquedas <strong>no-marca</strong>, con <strong>${nf.format(K.kw)} palabras clave</strong> activas y una posición promedio de <strong>${nf1.format(K.pos)}</strong>. Las variaciones comparan con los 28 días previos.`;
+
+const kpis=[
+  {lbl:'Palabras clave',val:nf.format(K.kw),sub:'no-marca con impresiones',c:'var(--se)',v:varTag(K.kw,K.kwP,true)},
+  {lbl:'Impresiones',val:nf.format(K.imp),sub:'últimos 28 días',c:'var(--c-imp)',v:varTag(K.imp,K.impP,true)},
+  {lbl:'Clics',val:nf.format(K.clk),sub:'últimos 28 días',c:'var(--c-clk)',v:varTag(K.clk,K.clkP,true)},
+  {lbl:'Posición promedio',val:nf1.format(K.pos),sub:'menor = mejor',c:'var(--c-pos)',v:posTag(K.pos,K.posP)},
+  {lbl:'CTR',val:nf1.format(K.ctr)+'%',sub:'clics / impresiones',v:varTag(K.ctr,K.ctrP,true)},
+];
+document.getElementById('kpis').innerHTML=kpis.map(k=>`
+  <div class="kpi"><span class="lbl">${k.c?`<i class="dot" style="background:${k.c}"></i>`:''}${k.lbl}</span>
+  <span class="val">${k.val} ${k.v||''}</span><span class="sub">${k.sub}</span></div>`).join('');
+
+/* tooltip */
+const tip=document.getElementById('seoTip');
+function showTip(h,ev){tip.innerHTML=h;tip.style.display='block';const w=tip.offsetWidth,hh=tip.offsetHeight;let x=ev.clientX+12,y=ev.clientY-hh-10;if(x+w>innerWidth-8)x=ev.clientX-w-12;if(y<8)y=ev.clientY+14;tip.style.left=x+'px';tip.style.top=y+'px';}
+function hideTip(){tip.style.display='none';}
+
+/* ---- gráfico métrica × granularidad × fechas ---- */
+const METRIC={
+  imp:{color:'var(--c-imp)',type:'bar',inv:false,fmt:v=>nf.format(v)},
+  clk:{color:'var(--c-clk)',type:'bar',inv:false,fmt:v=>nf.format(v)},
+  pos:{color:'var(--c-pos)',type:'line',inv:true,fmt:v=>nf1.format(v)},
+  ctr:{color:'var(--c-ctr)',type:'line',inv:false,fmt:v=>nf1.format(v)+'%'},
+};
+const S={metric:'imp',gran:'weekly',from:null,to:null};
+const allDs=[...SEO.weekly,...SEO.monthly].map(p=>p.ds).sort();
+const DMIN=allDs[0],DMAX=allDs[allDs.length-1];
+const series=()=>{const a=(S.gran==='weekly'?SEO.weekly:SEO.monthly);return a.filter(p=>(!S.from||p.ds>=S.from)&&(!S.to||p.ds<=S.to));};
+const gword=()=>S.gran==='weekly'?'semana':'mes';
+
+function renderHead(pts){
+  const m=S.metric,head=document.getElementById('seoHead');
+  if(!pts.length){head.innerHTML='';return;}
+  if(m==='pos'||m==='ctr'){
+    const ti=pts.reduce((a,p)=>a+p.imp,0);
+    const avg=m==='pos'?pts.reduce((a,p)=>a+p.pos*p.imp,0)/(ti||1):pts.reduce((a,p)=>a+p.clk,0)/(ti||1)*100;
+    const first=pts[0][m],last=pts[pts.length-1][m];
+    const d=m==='pos'?(first-last):(last-first);
+    head.innerHTML=`<div><div class="n">${nf1.format(m==='pos'?avg:avg)}${m==='ctr'?'%':''}</div><div class="l">${m==='pos'?'posición promedio del rango':'CTR promedio del rango'}</div></div>`+
+      `<div><div class="n ${d>0?'up-c':(d<0?'down-c':'')}">${d>0?'▲':(d<0?'▼':'')}${nf1.format(Math.abs(d))}${m==='ctr'?' pts':''}</div><div class="l">${m==='pos'?'mejora de posición (inicio→fin)':'cambio de CTR (inicio→fin)'}</div></div>`;
+    return;
+  }
+  const tot=pts.reduce((a,p)=>a+p[m],0);
+  head.innerHTML=`<div><div class="n">${nf.format(tot)}</div><div class="l">${ML[m].toLowerCase()} en el rango</div></div>`+
+    `<div><div class="n">${nf.format(Math.round(tot/pts.length))}</div><div class="l">promedio por ${gword()}</div></div>`;
+}
+
+function drawChart(){
+  const pts=series(),m=S.metric,cfg=METRIC[m],n=pts.length;
+  renderHead(pts);
+  const el=document.getElementById('seoChart');
+  document.getElementById('posNote').textContent = m==='pos' ? 'Eje invertido: más arriba = mejor posición (más cerca del #1).' : '';
+  if(!n){el.innerHTML='<p class="sub">Sin datos en el rango.</p>';return;}
+  const W=1000,H=250,padL=54,padR=20,padT=18,padB=36;
+  const vals=pts.map(p=>p[m]);
+  let lo=Math.min(...vals),hi=Math.max(...vals);
+  let minV,maxV;
+  if(cfg.type==='line'){const pad=Math.max(0.2,(hi-lo)*0.2||1);minV=lo-pad;maxV=hi+pad;}
+  else{minV=0;maxV=Math.max(1,hi);}
+  const plotW=W-padL-padR,plotH=H-padT-padB,y0=padT+plotH,span=(maxV-minV)||1;
+  // inv=true (posición): valor bajo debe ir ARRIBA
+  const Y=v=>cfg.inv ? padT+(v-minV)/span*plotH : y0-(v-minV)/span*plotH;
+  const X=i=>padL+(i+0.5)*plotW/n;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:${Math.max(700,n*26)}px" role="img" aria-label="${ML[m]} por ${gword()}">`;
+  for(let t=0;t<=4;t++){const val=minV+(maxV-minV)*t/4;const y=Y(val);
+    s+=`<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--grid)"/>`;
+    s+=`<text x="${padL-8}" y="${y+3.5}" text-anchor="end" font-size="10" fill="var(--ink-3)">${cfg.fmt(val)}</text>`;}
+  const tipFor=p=>`<b>${esc(p.lab)}</b><br>${ML[m]}: ${cfg.fmt(p[m])}<br>Impres.: ${nf.format(p.imp)} · Clics: ${p.clk} · Pos.: ${nf1.format(p.pos)}`;
+  if(cfg.type==='bar'){
+    const bw=Math.min(30,plotW/n-5);
+    pts.forEach((p,i)=>{const yy=Y(p[m]);
+      s+=`<rect x="${X(i)-bw/2}" y="${yy}" width="${Math.max(bw,2)}" height="${Math.max(y0-yy,1)}" rx="3" fill="${cfg.color}" tabindex="0" data-tip="${tipFor(p)}"></rect>`;});
+  }else{
+    const pp=pts.map((p,i)=>[X(i),Y(p[m])]);
+    s+=`<polyline points="${pp.map(q=>q.join(',')).join(' ')}" fill="none" stroke="${cfg.color}" stroke-width="2.5"/>`;
+    pp.forEach((q,i)=>{s+=`<circle cx="${q[0]}" cy="${q[1]}" r="3.5" fill="${cfg.color}" tabindex="0" data-tip="${tipFor(pts[i])}"></circle>`;});
+  }
+  const step=Math.ceil(n/12);
+  pts.forEach((p,i)=>{if(i%step===0||i===n-1){s+=`<text x="${X(i)}" y="${H-10}" text-anchor="middle" font-size="9.5" fill="var(--ink-3)">${esc(p.lab)}</text>`;}});
+  s+=`<line x1="${padL}" y1="${y0}" x2="${W-padR}" y2="${y0}" stroke="var(--baseline)"/></svg>`;
+  el.innerHTML=s;
+  el.querySelectorAll('[data-tip]').forEach(x=>{x.addEventListener('mousemove',e=>showTip(x.dataset.tip,e));x.addEventListener('mouseleave',hideTip);});
+}
+const seoFrom=document.getElementById('seoFrom'),seoTo=document.getElementById('seoTo');
+seoFrom.min=DMIN;seoFrom.max=DMAX;seoTo.min=DMIN;seoTo.max=DMAX;
+function setPreset(months){
+  if(months===0){S.from=DMIN;}
+  else{const d=new Date(DMAX);d.setMonth(d.getMonth()-months);S.from=d.toISOString().slice(0,10);if(S.from<DMIN)S.from=DMIN;}
+  S.to=DMAX;seoFrom.value=S.from;seoTo.value=S.to;
+  document.querySelectorAll('#presetSeg button').forEach(b=>b.classList.toggle('on',+b.dataset.p===months));
+  drawChart();
+}
+document.querySelectorAll('#metricSeg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#metricSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');S.metric=b.dataset.m;drawChart();}));
+document.querySelectorAll('#granSeg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#granSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');S.gran=b.dataset.g;drawChart();}));
+document.querySelectorAll('#presetSeg button').forEach(b=>b.addEventListener('click',()=>setPreset(+b.dataset.p)));
+function onManual(){let f=seoFrom.value||DMIN,t=seoTo.value||DMAX;if(f>t){const x=f;f=t;t=x;seoFrom.value=f;seoTo.value=t;}S.from=f;S.to=t;document.querySelectorAll('#presetSeg button').forEach(x=>x.classList.remove('on'));drawChart();}
+seoFrom.addEventListener('change',onManual);seoTo.addEventListener('change',onManual);
+setPreset(6);
+
+/* ---- movimientos ---- */
+function mvRow(x,up){
+  const dp=x.dpos; // positivo = mejoró posición
+  const posbit = (dp==null||Math.abs(dp)<0.1)?'<span class="pos">pos —</span>':
+    `<span class="${dp>0?'up-c':'down-c'}">${dp>0?'▲':'▼'}${nf1.format(Math.abs(dp))} pos</span>`;
+  const di=x.dimp;
+  const impbit = `<span class="${di>=0?'up-c':'down-c'}">${di>=0?'+':''}${nf.format(di)} impr.</span>`;
+  return `<div class="row"><span class="q" title="${esc(x.q)}">${esc(x.q)}</span><span class="d">${posbit} · ${impbit}</span></div>`;
+}
+document.getElementById('gainers').innerHTML=(SEO.gainers||[]).map(x=>mvRow(x,true)).join('')||'<div class="row"><span class="pos">Sin datos suficientes.</span></div>';
+document.getElementById('losers').innerHTML=(SEO.losers||[]).map(x=>mvRow(x,false)).join('')||'<div class="row"><span class="pos">Sin datos suficientes.</span></div>';
+
+/* ---- tabla keywords ---- */
+let kwF='',kwSort='imp',kwDir=-1;
+function renderKW(){
+  let rows=(SEO.keywords||[]).filter(k=>!kwF||k.q.toLowerCase().includes(kwF));
+  rows.sort((a,b)=>{const av=a[kwSort],bv=b[kwSort];if(kwSort==='q')return kwDir*String(av).localeCompare(String(bv));return kwDir*(av-bv);});
+  document.getElementById('kwBody').innerHTML=rows.map(k=>`<tr>
+    <td class="q" title="${esc(k.q)}">${esc(k.q)}</td>
+    <td class="num">${nf.format(k.imp)}</td><td class="num">${nf.format(k.clk)}</td>
+    <td class="num">${nf1.format(k.ctr)}%</td><td class="num">${nf1.format(k.pos)}</td></tr>`).join('')
+    ||'<tr><td colspan="5" style="color:var(--ink-3)">Sin resultados.</td></tr>';
+  document.getElementById('kwCount').textContent=`${rows.length} de ${(SEO.keywords||[]).length}`;
+  document.getElementById('kwFoot').textContent=`${rows.length} palabras clave · ${nf.format(rows.reduce((s,k)=>s+k.imp,0))} impresiones · ${nf.format(rows.reduce((s,k)=>s+k.clk,0))} clics en la vista.`;
+}
+document.getElementById('kwSearch').addEventListener('input',e=>{kwF=e.target.value.toLowerCase().trim();renderKW();});
+document.querySelectorAll('th[data-sort]').forEach(th=>th.addEventListener('click',()=>{
+  const s=th.dataset.sort; if(kwSort===s)kwDir*=-1; else{kwSort=s;kwDir=(s==='q'||s==='pos')?1:-1;} renderKW();}));
+renderKW();
+</script>
+
+</body></html>
