@@ -373,7 +373,8 @@ function applyRange(fromD,toD){
     (p?`Las variaciones comparan contra los ${len} días previos.`:`Rango demasiado al inicio de la serie para comparar con un período previo.`);
 }
 const drFrom=document.getElementById('drFrom'), drTo=document.getElementById('drTo');
-drFrom.min=DMIN; drFrom.max=DMAX; drTo.min=DMIN; drTo.max=DMAX;
+const DMAXSEL=(()=>{const t=new Date().toISOString().slice(0,10);return t>DMAX?t:DMAX;})();
+drFrom.min=DMIN; drFrom.max=DMAXSEL; drTo.min=DMIN; drTo.max=DMAXSEL;
 drFrom.value=DMIN; drTo.value=DMAX;
 function setPreset(days){
   const fromIdx=Math.max(0,daily.length-days);
