@@ -184,43 +184,128 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
 
 <script>
 const D = {
-  "updated": "12 jul 2026",
+  "updated": "13 jul 2026",
   "account": "Tazki",
   "funnel": [
-    {"stage": "Lead", "n": 13770},
-    {"stage": "MQL", "n": 2090},
-    {"stage": "SQL", "n": 2061},
-    {"stage": "Oportunidad", "n": 2051},
-    {"stage": "Cliente", "n": 144}
+    {
+      "stage": "Lead",
+      "n": 13770
+    },
+    {
+      "stage": "MQL",
+      "n": 2090
+    },
+    {
+      "stage": "SQL",
+      "n": 2061
+    },
+    {
+      "stage": "Oportunidad",
+      "n": 2051
+    },
+    {
+      "stage": "Cliente",
+      "n": 144
+    }
   ],
   "conv": [
-    {"from": "Lead", "to": "MQL", "pct": 15.2},
-    {"from": "MQL", "to": "SQL", "pct": 98.6},
-    {"from": "SQL", "to": "Oportunidad", "pct": 99.5},
-    {"from": "Oportunidad", "to": "Cliente", "pct": 7.0}
+    {
+      "from": "Lead",
+      "to": "MQL",
+      "pct": 15.2
+    },
+    {
+      "from": "MQL",
+      "to": "SQL",
+      "pct": 98.6
+    },
+    {
+      "from": "SQL",
+      "to": "Oportunidad",
+      "pct": 99.5
+    },
+    {
+      "from": "Oportunidad",
+      "to": "Cliente",
+      "pct": 7.0
+    }
   ],
   "kpi": {
     "mql_total": 47,
     "lead_mql_pct": 15.2,
     "mql_sql_pct": 98.6,
     "win_pct": 7.0,
-    "cpm_total": 229028,
+    "cpm_total": 229165,
     "paid_share_pct": 8.5
   },
   "monthly": [
-    {"ds": "2026-03-01", "lab": "mar 26", "mql": 0, "mql_paid": 0, "spend": 79675, "cpm": null},
-    {"ds": "2026-04-01", "lab": "abr 26", "mql": 0, "mql_paid": 0, "spend": 0, "cpm": null},
-    {"ds": "2026-05-01", "lab": "may 26", "mql": 1, "mql_paid": 0, "spend": 2534, "cpm": null},
-    {"ds": "2026-06-01", "lab": "jun 26", "mql": 28, "mql_paid": 3, "spend": 555220, "cpm": 185073},
-    {"ds": "2026-07-01", "lab": "jul 26", "mql": 18, "mql_paid": 1, "spend": 278684, "cpm": 278684, "cur": true}
+    {
+      "ds": "2026-03-01",
+      "lab": "mar 26",
+      "mql": 0,
+      "mql_paid": 0,
+      "spend": 79675,
+      "cpm": null
+    },
+    {
+      "ds": "2026-04-01",
+      "lab": "abr 26",
+      "mql": 0,
+      "mql_paid": 0,
+      "spend": 0,
+      "cpm": null
+    },
+    {
+      "ds": "2026-05-01",
+      "lab": "may 26",
+      "mql": 1,
+      "mql_paid": 0,
+      "spend": 2534,
+      "cpm": null
+    },
+    {
+      "ds": "2026-06-01",
+      "lab": "jun 26",
+      "mql": 28,
+      "mql_paid": 3,
+      "spend": 555220,
+      "cpm": 185073
+    },
+    {
+      "ds": "2026-07-01",
+      "lab": "jul 26",
+      "mql": 18,
+      "mql_paid": 1,
+      "spend": 279233,
+      "cpm": 279233,
+      "cur": true
+    }
   ],
   "by_source": [
-    {"src": "Búsqueda orgánica", "mql": 29},
-    {"src": "Tráfico directo", "mql": 7},
-    {"src": "Fuentes offline", "mql": 5},
-    {"src": "Búsqueda pagada", "mql": 4},
-    {"src": "Redes sociales", "mql": 1},
-    {"src": "Referencias", "mql": 1}
+    {
+      "src": "Búsqueda orgánica",
+      "mql": 29
+    },
+    {
+      "src": "Tráfico directo",
+      "mql": 7
+    },
+    {
+      "src": "Fuentes offline",
+      "mql": 5
+    },
+    {
+      "src": "Búsqueda pagada",
+      "mql": 4
+    },
+    {
+      "src": "Redes sociales",
+      "mql": 1
+    },
+    {
+      "src": "Referencias",
+      "mql": 1
+    }
   ],
   "metric_labels": {
     "mql": "MQL nuevos",
