@@ -71,7 +71,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--plane);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:900px;margin:0 auto;padding:30px 20px 64px}
+  .wrap{max-width:920px;margin:0 auto;padding:30px 20px 64px}
   header.top{padding-left:54px}
   .top h1{font-size:24px;font-weight:800;margin:0;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
   .top .lgb{background:var(--ac);color:#fff;font-size:16px;border-radius:8px;padding:3px 9px}
@@ -80,106 +80,136 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   p.lede strong{color:var(--ink)}
   .dl{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:13.5px;text-decoration:none;padding:9px 16px;border-radius:9px;margin:0 0 22px}
   .dl:hover{filter:brightness(1.08)}
-  h2{font-size:19px;font-weight:800;margin:30px 0 4px;display:flex;align-items:center;gap:9px}
-  h2 .n{background:var(--ac-soft);color:var(--ac);width:27px;height:27px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:none}
-  h2.sub{font-size:16px;margin-top:22px}
+  h2{font-size:19px;font-weight:800;margin:32px 0 6px;display:flex;align-items:center;gap:9px}
+  h2 .n{background:var(--ac);color:#fff;width:27px;height:27px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:none}
   .card{background:var(--surface);border:1px solid var(--ring);border-radius:13px;padding:16px 18px;margin:12px 0}
   .p{font-size:14px;color:var(--ink-2);margin:6px 0}
   .p strong{color:var(--ink)}
-  ul{margin:8px 0;padding-left:20px}
+  ul,ol{margin:8px 0;padding-left:22px}
   li{margin:5px 0;font-size:14px;color:var(--ink-2)}
   li strong{color:var(--ink)}
+  /* screenshots */
+  .shot{margin:10px 0 6px;border:1px solid var(--ring);border-radius:11px;overflow:hidden;background:var(--surface)}
+  .shot img{display:block;width:100%;height:auto}
+  .legend{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin:8px 0 4px}
+  @media(max-width:620px){.legend{grid-template-columns:1fr}}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2)}
+  .legend .b{flex:none;width:22px;height:22px;border-radius:50%;color:#fff;font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+  .legend .b.r{background:#e11d48}.legend .b.o{background:#ea580c}
+  .legend .li b{color:var(--ink)}
+  /* recipes */
+  .recipe{border:1px solid var(--ring);border-left:4px solid var(--ac);border-radius:10px;padding:13px 16px;margin:11px 0;background:var(--surface)}
+  .recipe .q{font-weight:800;font-size:14.5px;color:var(--ink);display:flex;gap:8px;align-items:flex-start}
+  .recipe .q .qi{color:var(--ac)}
+  .recipe ol{margin:8px 0 2px}
+  .recipe .path{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+  .recipe .path b{color:var(--ac)}
   .panel{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
   .panel:last-child{border-bottom:none}
   .panel .ic{font-size:22px;flex:none;width:34px;height:34px;border-radius:9px;background:var(--ac-soft);display:flex;align-items:center;justify-content:center}
-  .panel .b{min-width:0}
-  .panel .t{font-weight:800;font-size:15px;color:var(--ink)}
+  .panel .b{min-width:0}.panel .t{font-weight:800;font-size:15px;color:var(--ink)}
   .panel .d{font-size:13.5px;color:var(--ink-2);margin-top:2px}
-  .panel .u{font-size:12.5px;color:var(--ink-3);margin-top:4px}
-  .panel .u b{color:var(--ac)}
+  .panel .u{font-size:12.5px;color:var(--ink-3);margin-top:4px}.panel .u b{color:var(--ac)}
   .tip{background:var(--ac-soft);border-radius:10px;padding:12px 15px;font-size:13.5px;color:var(--ink-2);margin:10px 0}
   .tip b{color:var(--ink)}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
-  .mini{background:var(--surface);border:1px solid var(--ring);border-radius:11px;padding:12px 14px}
-  .mini .mt{font-weight:700;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:7px}
-  .mini .md{font-size:12.5px;color:var(--ink-2);margin-top:3px}
   code{background:var(--ac-soft);color:var(--ac);padding:1px 6px;border-radius:5px;font-size:12.5px}
   .foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
 </style>
 
 <div class="wrap">
-  <header class="top"><h1><span class="lgb">📖</span> Manual de uso · Growth Hub</h1></header>
-  <div class="src">Tazki · Guía rápida de todo lo que hace tu panel de control · actualizado 13 de julio de 2026</div>
-  <p class="lede">El <strong>Growth Hub</strong> es tu tablero de control de marketing, ventas y clientes. Reúne en un solo lugar los datos de <strong>HubSpot</strong>, <strong>Supermetrics</strong> (Google Ads, GA4, Search Console, LinkedIn) y <strong>DiIO</strong>, y <strong>se actualiza solo todos los días</strong>. No tienes que tocar nada: entras, miras y decides.</p>
-  <a class="dl" href="descargas/Tazki_Manual_Growth_Hub.pdf" download>⬇ Descargar este manual (PDF)</a>
+  <header class="top"><h1><span class="lgb">📖</span> Cómo usar el Growth Hub</h1></header>
+  <div class="src">Tazki · Guía práctica paso a paso · actualizado 13 de julio de 2026</div>
+  <p class="lede">Esta guía te muestra <strong>cómo usar</strong> tu panel de control: dónde tocar, qué mirar y cómo responder las preguntas del día a día. No hay que configurar nada — el Hub se actualiza solo todos los días con datos de <strong>HubSpot</strong>, <strong>Supermetrics</strong> y <strong>DiIO</strong>.</p>
+  <a class="dl" href="descargas/Tazki_Manual_Growth_Hub.pdf" download>⬇ Descargar esta guía (PDF)</a>
 
-  <h2><span class="n">1</span> Cómo entrar y navegar</h2>
+  <h2><span class="n">1</span> Lo primero: entrar y moverte</h2>
   <div class="card">
-    <p class="p">El Hub vive en tu sitio de GitHub Pages. La <strong>página de inicio</strong> (la raíz del sitio) es la <strong>Portada</strong>, con tarjetas hacia cada sección.</p>
-    <ul>
-      <li>Arriba a la izquierda hay un botón <strong>☰</strong>: ábrelo para ver el <strong>menú lateral</strong> con todas las secciones.</li>
-      <li>Toca cualquier entrada del menú para ir a ese panel. Funciona igual en el computador y en el celular.</li>
-      <li>Cada panel es una página independiente que se puede compartir por su enlace.</li>
-    </ul>
+    <ol>
+      <li>Entra a la dirección del Hub. Lo primero que ves es la <strong>Portada</strong> (Inicio), con una tarjeta por cada panel.</li>
+      <li>Toca cualquier tarjeta para abrir ese panel — o abre el <strong>menú lateral</strong> con el botón <strong>☰</strong> de arriba a la izquierda para saltar entre secciones.</li>
+      <li>Funciona igual en computador y en celular. Cada panel tiene su propio enlace, así que lo puedes compartir.</li>
+    </ol>
   </div>
 
-  <h2><span class="n">2</span> Los paneles, uno por uno</h2>
+  <h2><span class="n">2</span> El gráfico que se repite en casi todos los paneles</h2>
   <div class="card">
-    <div class="panel"><div class="ic">🏠</div><div class="b"><div class="t">Inicio (Portada)</div><div class="d">La entrada al Hub. Tarjetas hacia cada panel, agrupadas por Adquisición, Conversión, Clientes y Herramientas.</div></div></div>
-    <div class="panel"><div class="ic">📊</div><div class="b"><div class="t">Panel MQL</div><div class="d">Tus negocios calificados (MQL): fuente de tráfico, etapa, salud (semáforo) y dolor detectado de cada uno. Tiene filtros globales para segmentar.</div><div class="u">Para: revisar el pipeline y de dónde vienen los buenos leads · <b>se actualiza cada día 12:00</b></div></div></div>
-    <div class="panel"><div class="ic">🎯</div><div class="b"><div class="t">Google Ads</div><div class="d">Inversión, clics y conversiones. En la pestaña <strong>Keywords y términos</strong> puedes filtrar por un <strong>día o rango exacto</strong>, ver qué buscó la gente, ordenar las keywords por clics/costo, y detectar candidatas a palabra negativa (competidores e informacionales que gastan sin convertir).</div><div class="u">Para: decidir qué keywords mantener/pausar y controlar el gasto · <b>diario 12:30</b></div></div></div>
-    <div class="panel"><div class="ic">💵</div><div class="b"><div class="t">Conversión</div><div class="d">El embudo Lead → MQL → SQL → Oportunidad → Cliente, con el % que se cae en cada paso, más el <strong>costo por MQL</strong> pagado y qué % de MQL viene de pago.</div><div class="u">Para: ver dónde se traba la conversión y cuánto cuesta un lead · <b>diario 12:55</b></div></div></div>
-    <div class="panel"><div class="ic">🌐</div><div class="b"><div class="t">Tráfico web (GA4)</div><div class="d">Sesiones, usuarios, interacción y páginas del sitio, con desglose por canal y dispositivo.</div><div class="u">Para: entender de dónde llega el tráfico · <b>diario 13:05</b> · ⚠️ GA4 empezó a medir el 7-jul-2026, la serie se irá llenando sola</div></div></div>
-    <div class="panel"><div class="ic">🔍</div><div class="b"><div class="t">SEO · Buscadores</div><div class="d">Posicionamiento real <strong>sin la marca</strong> (Search Console): palabras clave, impresiones, clics y posición. Muestra qué términos subieron y cuáles bajaron.</div><div class="u">Para: medir el SEO orgánico real · <b>diario 12:50</b> + un insight cada 3 días</div></div></div>
-    <div class="panel"><div class="ic">💼</div><div class="b"><div class="t">LinkedIn</div><div class="d">Seguidores e impresiones de la página, semana a semana y mes a mes.</div><div class="u">Para: seguir el crecimiento en LinkedIn · <b>diario 12:15</b></div></div></div>
-    <div class="panel"><div class="ic">💬</div><div class="b"><div class="t">Conversaciones (DiIO)</div><div class="d">Inteligencia de las reuniones de venta: nº de conversaciones, performance del equipo, sentimiento del cliente y probabilidad de éxito, más los dolores y objeciones más frecuentes. <strong>Todo agregado, sin nombres.</strong></div><div class="u">Para: ver cómo va el equipo comercial y qué frena a los clientes · <b>diario 13:20</b></div></div></div>
-    <div class="panel"><div class="ic">🏥</div><div class="b"><div class="t">Clientes · Salud</div><div class="d">Tu cartera: clientes activos, MRR (UF), ARR, ticket promedio, distribución de MRR, churn, y el "pulso de salud" derivado de las conversaciones de postventa.</div><div class="u">Para: cuidar a los clientes actuales · <b>diario 13:35</b></div></div></div>
-    <div class="panel"><div class="ic">🗺️</div><div class="b"><div class="t">Benchmark</div><div class="d">Mapa del mercado de la competencia (Zyght, Prevsis, Foco en Obra, DataScope, etc.), matriz comparativa Tazki vs rivales, demanda de búsqueda y "voz del mercado" desde tu CRM. Se puede <strong>descargar en PDF</strong>.</div><div class="u">Para: preparar ventas y posicionamiento · uso interno</div></div></div>
-    <div class="panel"><div class="ic">🧲</div><div class="b"><div class="t">Plan de contenidos</div><div class="d">Qué publicar (los formularios de captura ya están creados) y el rendimiento del blog.</div><div class="u">Para: ordenar la creación de contenido · <b>diario 13:30</b></div></div></div>
-    <div class="panel"><div class="ic">🧮</div><div class="b"><div class="t">Calculadora ROI</div><div class="d">Herramienta para estimarle el retorno a un prospecto en una reunión.</div><div class="u">Para: usar en la venta</div></div></div>
-    <div class="panel"><div class="ic">🗂️</div><div class="b"><div class="t">Assets para Ventas</div><div class="d">Material descargable por industria: <strong>Presentación (PPTX), Brochure y Flyer (PDF)</strong>, con los dolores, módulos y clientes reales de cada rubro. Incluye un <strong>personalizador de prompt</strong> para pedirle a una IA una versión a la medida.</div><div class="u">Para: llegar a cada reunión con material del rubro exacto</div></div></div>
-  </div>
-
-  <h2><span class="n">3</span> Cómo leer los gráficos</h2>
-  <div class="card">
-    <p class="p">Casi todos los paneles tienen el mismo gráfico de evolución. Se maneja con 3 controles:</p>
-    <div class="grid2">
-      <div class="mini"><div class="mt">📈 Selector de métrica</div><div class="md">Los botones de arriba cambian qué se grafica (p.ej. sesiones, clics, performance, MRR).</div></div>
-      <div class="mini"><div class="mt">🗓️ Presets de fecha</div><div class="md"><code>3m</code> <code>6m</code> <code>12m</code> <code>Todo</code> acotan el período con un toque.</div></div>
-      <div class="mini"><div class="mt">🎚️ Desde / Hasta</div><div class="md">Para un rango exacto, elige las fechas en los calendarios.</div></div>
-      <div class="mini"><div class="mt">🔎 Filtros y tablas</div><div class="md">En Google Ads y otros, usa el buscador y los chips (p.ej. "Gasta sin convertir") y haz clic en las columnas para ordenar.</div></div>
+    <p class="p">Casi todos los paneles tienen el mismo gráfico de evolución. Se maneja con estos 4 controles:</p>
+    <div class="shot"><img src="manual-img/grafico_anotado.png" alt="Controles del gráfico señalizados"></div>
+    <div class="legend">
+      <div class="li"><span class="b o">1</span><div><b>Métrica</b> — elige qué se grafica (sesiones, clics, MRR, performance…). El gráfico cambia al instante.</div></div>
+      <div class="li"><span class="b o">2</span><div><b>Semana / Mes</b> — cambia si ves la evolución semana a semana o mes a mes.</div></div>
+      <div class="li"><span class="b o">3</span><div><b>Atajos de período</b> — <code>3m</code> <code>6m</code> <code>12m</code> <code>Todo</code> acotan el rango con un toque.</div></div>
+      <div class="li"><span class="b o">4</span><div><b>Desde / Hasta</b> — para un rango exacto, elige las dos fechas en los calendarios.</div></div>
     </div>
+    <div class="tip">💡 Una vez que entiendes estos 4 botones, sabes usar el gráfico de Google Ads, GA4, SEO, LinkedIn, Conversión, Clientes y Conversaciones — son todos iguales.</div>
   </div>
 
-  <h2><span class="n">4</span> Lo que trabaja solo por ti</h2>
+  <h2><span class="n">3</span> Cómo usar el panel de Google Ads (el que más se toca)</h2>
   <div class="card">
-    <p class="p">El Hub tiene <strong>automatizaciones (rutinas)</strong> que corren todos los días sin que hagas nada:</p>
-    <ul>
-      <li><strong>Actualización diaria</strong> de cada panel entre las <strong>12:00 y 13:35</strong> (hora Chile ~08:00–09:35).</li>
-      <li><strong>Resumen ejecutivo semanal</strong>: cada <strong>lunes en la mañana</strong> te llega por chat un digest con lo bueno, lo que hay que vigilar y una recomendación.</li>
-      <li><strong>Alertas proactivas</strong>: un chequeo diario que <strong>solo te escribe si algo se sale de lo normal</strong> (gasto disparado, MQL en cero, frustración de un cliente, churn nuevo, gasto en competidores, caída de SEO).</li>
-    </ul>
-    <div class="tip">💬 <b>Lo que te llega al chat:</b> el resumen de los lunes y las alertas cuando corresponda. El resto lo revisas cuando quieras entrando al Hub.</div>
+    <p class="p">En la pestaña <strong>Keywords y términos</strong> está lo importante para controlar el gasto:</p>
+    <div class="shot"><img src="manual-img/ads_anotado.png" alt="Panel de Google Ads señalizado"></div>
+    <div class="legend">
+      <div class="li"><span class="b r">1</span><div>Entra a la pestaña <b>Keywords y términos</b>.</div></div>
+      <div class="li"><span class="b r">2</span><div><b>Atajos de fecha</b>: Hoy · Ayer+hoy · 7 · 14 · 30 días.</div></div>
+      <div class="li"><span class="b r">3</span><div><b>Desde / Hasta</b>: un día o rango exacto (todo se recalcula para ese período).</div></div>
+    </div>
+    <p class="p">Más abajo, la tabla de <strong>Candidatos a palabra negativa</strong> te muestra los términos de competidores e informacionales que gastan sin convertir — esos son los que conviene bloquear.</p>
   </div>
 
-  <h2><span class="n">5</span> De dónde salen los datos (y privacidad)</h2>
+  <h2><span class="n">4</span> Recetas: "si quieres X, haz esto"</h2>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Ver cuánto gasté en Google Ads un día específico</div>
+    <ol><li>Abre <strong>Google Ads</strong> → pestaña <strong>Keywords y términos</strong>.</li><li>En <strong>FECHAS</strong>, pon el mismo día en <strong>Desde</strong> y <strong>Hasta</strong> (o usa "Hoy").</li><li>Mira las tarjetas de arriba (gasto, términos) y la tabla, ya recalculadas para ese día.</li></ol>
+    <div class="path"><b>Google Ads → Keywords y términos → FECHAS</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Saber qué keywords cortar (traen clics pero no convierten)</div>
+    <ol><li>En <strong>Google Ads → Keywords y términos</strong>, baja a la tabla <strong>Keywords</strong>.</li><li>Haz clic en la columna <strong>Clics</strong> para ordenarlas de mayor a menor.</li><li>Mira las que tienen <strong>Conv. = 0</strong> y costo alto, o usa el chip <strong>"Gasta sin convertir"</strong>: esas son candidatas a pausar.</li></ol>
+    <div class="path"><b>Google Ads → Keywords → ordenar por Clics / chip "Gasta sin convertir"</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Ver dónde se me caen los leads y cuánto cuesta un MQL</div>
+    <ol><li>Abre <strong>Conversión</strong>.</li><li>En el <strong>embudo</strong>, cada barra muestra el % que pasa a la siguiente etapa y el % que se cae.</li><li>El KPI <strong>Costo por MQL</strong> te dice cuánto cuesta cada lead calificado de pago.</li></ol>
+    <div class="path"><b>Conversión → Embudo + KPI Costo por MQL</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Ver si el SEO va mejorando (sin contar la marca)</div>
+    <ol><li>Abre <strong>SEO · Buscadores</strong>.</li><li>Revisa las tarjetas de palabras que <strong>subieron</strong> y las que <strong>bajaron</strong> de posición.</li><li>Cada 3 días te llega además un insight automático con el avance.</li></ol>
+    <div class="path"><b>SEO · Buscadores → Suben / Bajan</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Revisar la salud de un cliente / la cartera</div>
+    <ol><li>Abre <strong>Clientes · Salud</strong>.</li><li>Arriba: clientes activos, MRR, ticket promedio.</li><li>Abajo: el <strong>pulso de salud</strong> (sentimiento de postventa, señales de frustración) y el churn.</li></ol>
+    <div class="path"><b>Clientes · Salud</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Preparar material para una reunión de un rubro</div>
+    <ol><li>Abre <strong>Assets para Ventas</strong>.</li><li>Elige la <strong>industria</strong> y el <strong>tamaño</strong> de la empresa.</li><li>Descarga la <strong>Presentación (PPTX)</strong>, el <strong>Brochure</strong> o el <strong>Flyer</strong> — vienen con los dolores y clientes reales de ese rubro.</li><li>¿Quieres una versión a medida? Usa el <strong>personalizador de prompt</strong>: elige los ajustes y copia el prompt para pedírselo a una IA.</li></ol>
+    <div class="path"><b>Assets para Ventas → elige industria y tamaño → Descargar</b></div></div>
+
+  <div class="recipe"><div class="q"><span class="qi">▸</span> Entender a la competencia antes de una venta</div>
+    <ol><li>Abre <strong>Benchmark</strong>.</li><li>Mira la <strong>matriz comparativa</strong> (Tazki vs cada rival) y los perfiles de cada competidor.</li><li>Descárgalo en PDF con el botón <strong>⬇ Descargar PDF</strong> para llevarlo a la reunión.</li></ol>
+    <div class="path"><b>Benchmark → matriz + Descargar PDF</b></div></div>
+
+  <h2><span class="n">5</span> Qué es cada panel (referencia rápida)</h2>
   <div class="card">
-    <ul>
-      <li><strong>HubSpot</strong>: negocios, MQL, contactos, cartera de clientes y churn.</li>
-      <li><strong>Supermetrics</strong>: Google Ads, Google Analytics 4, Search Console y LinkedIn.</li>
-      <li><strong>DiIO</strong>: inteligencia de las conversaciones/reuniones de venta.</li>
-    </ul>
-    <div class="tip">🔒 <b>Privacidad:</b> el repositorio es público, por eso los paneles sensibles (Conversaciones, Clientes y Benchmark) muestran los datos <b>agregados y anonimizados</b> — sin nombres de ejecutivos ni de clientes. Si prefieres, se puede mover el Hub a un repositorio privado.</div>
+    <div class="panel"><div class="ic">🏠</div><div class="b"><div class="t">Inicio</div><div class="d">La portada con acceso a todo.</div></div></div>
+    <div class="panel"><div class="ic">📊</div><div class="b"><div class="t">Panel MQL</div><div class="d">Tus negocios calificados: fuente, etapa, salud (semáforo) y dolor. Con filtros globales.</div><div class="u"><b>diario 12:00</b></div></div></div>
+    <div class="panel"><div class="ic">🎯</div><div class="b"><div class="t">Google Ads</div><div class="d">Inversión, keywords y términos de búsqueda, filtrable por día. Candidatas a negativa.</div><div class="u"><b>diario 12:30</b></div></div></div>
+    <div class="panel"><div class="ic">💵</div><div class="b"><div class="t">Conversión</div><div class="d">Embudo Lead→Cliente y costo por MQL.</div><div class="u"><b>diario 12:55</b></div></div></div>
+    <div class="panel"><div class="ic">🌐</div><div class="b"><div class="t">Tráfico web (GA4)</div><div class="d">Sesiones, canales, páginas y dispositivos.</div><div class="u"><b>diario 13:05</b> · GA4 mide desde el 7-jul-2026</div></div></div>
+    <div class="panel"><div class="ic">🔍</div><div class="b"><div class="t">SEO · Buscadores</div><div class="d">Posicionamiento no-marca (Search Console): qué sube y qué baja.</div><div class="u"><b>diario 12:50</b> + insight cada 3 días</div></div></div>
+    <div class="panel"><div class="ic">💼</div><div class="b"><div class="t">LinkedIn</div><div class="d">Seguidores e impresiones semana a semana.</div><div class="u"><b>diario 12:15</b></div></div></div>
+    <div class="panel"><div class="ic">💬</div><div class="b"><div class="t">Conversaciones (DiIO)</div><div class="d">Performance, sentimiento y objeciones del equipo comercial. Agregado, sin nombres.</div><div class="u"><b>diario 13:20</b></div></div></div>
+    <div class="panel"><div class="ic">🏥</div><div class="b"><div class="t">Clientes · Salud</div><div class="d">Cartera, MRR, churn y pulso de salud de postventa.</div><div class="u"><b>diario 13:35</b></div></div></div>
+    <div class="panel"><div class="ic">🗺️</div><div class="b"><div class="t">Benchmark</div><div class="d">Competencia: mapa, matriz y voz del mercado. Descargable en PDF.</div></div></div>
+    <div class="panel"><div class="ic">🧲</div><div class="b"><div class="t">Plan de contenidos</div><div class="d">Qué publicar y rendimiento del blog.</div><div class="u"><b>diario 13:30</b></div></div></div>
+    <div class="panel"><div class="ic">🧮</div><div class="b"><div class="t">Calculadora ROI</div><div class="d">Para estimarle el retorno a un prospecto.</div></div></div>
+    <div class="panel"><div class="ic">🗂️</div><div class="b"><div class="t">Assets para Ventas</div><div class="d">Piezas descargables por industria + personalizador de prompt.</div></div></div>
   </div>
 
-  <h2><span class="n">6</span> 3 cosas que harían los paneles aún mejores</h2>
+  <h2><span class="n">6</span> Lo que llega solo a tu chat</h2>
   <div class="card">
     <ul>
-      <li><strong>GA4 · marcar un "evento clave"</strong> (formulario enviado) → el panel de Tráfico empezará a medir conversiones reales.</li>
-      <li><strong>HubSpot · completar el MRR</strong> de todos los clientes (hoy solo 9 de 28 lo tienen) → la cartera queda fiel.</li>
-      <li><strong>HubSpot · llenar "nivel de riesgo cliente"</strong> → el panel de Clientes gana un health score real por cuenta.</li>
+      <li><strong>Resumen ejecutivo semanal</strong> — cada <strong>lunes en la mañana</strong>: lo bueno, lo que hay que vigilar y una recomendación.</li>
+      <li><strong>Alertas</strong> — un chequeo diario que <strong>solo te escribe si algo se sale de lo normal</strong> (gasto disparado, MQL en cero, frustración de un cliente, churn nuevo, gasto en competidores, caída de SEO).</li>
     </ul>
+    <div class="tip">🔒 <b>Privacidad:</b> el repositorio es público, por eso Conversaciones, Clientes y Benchmark muestran los datos <b>agregados y sin nombres</b>. Si prefieres, se puede mover el Hub a un repositorio privado — solo dímelo.</div>
   </div>
 
   <h2><span class="n">7</span> ¿Necesitas un cambio?</h2>
@@ -187,7 +217,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     <p class="p">No tienes que editar nada tú. <strong>Escríbeme por chat</strong> lo que necesites — un panel nuevo, un ajuste, refrescar el benchmark, cargar negativos en Google Ads, o mover el Hub a privado — y lo dejo hecho y publicado.</p>
   </div>
 
-  <div class="foot">Growth Hub · Tazki · panel interno. Datos vía HubSpot, Supermetrics y DiIO. Este manual describe el estado del Hub a la fecha indicada arriba.</div>
+  <div class="foot">Growth Hub · Tazki · panel interno. Datos vía HubSpot, Supermetrics y DiIO. Guía actualizada a la fecha indicada arriba.</div>
 </div>
 
 </body></html>
