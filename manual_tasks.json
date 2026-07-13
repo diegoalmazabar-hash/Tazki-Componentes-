@@ -1,0 +1,12 @@
+[
+  {
+    "prio": "media",
+    "area": "LinkedIn",
+    "icono": "💼",
+    "titulo": "Publicar post en LinkedIn sobre el IRL",
+    "accion": "Genera el post con el prompt (en primera persona, como si escribiera Diego/Axel) y publícalo. Refuerza el contenido IRL del blog y trae tráfico y leads.",
+    "link": "linkedin-tazki.html",
+    "metric": "Impresiones y seguidores de LinkedIn",
+    "meta": 3
+  }
+]
