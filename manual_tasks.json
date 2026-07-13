@@ -8,5 +8,45 @@
     "link": "linkedin-tazki.html",
     "metric": "Impresiones y seguidores de LinkedIn",
     "meta": 3
+  },
+  {
+    "prio": "alta",
+    "area": "SEO",
+    "icono": "🏷️",
+    "titulo": "Agregar título a las 6 páginas que no lo tienen (HubSpot SEO)",
+    "accion": "En HubSpot → Content → SEO → Recomendaciones (filtra Rol = Especialista en Marketing): agrega un título claro, con la keyword, a las 6 páginas sin título. Alto impacto, bajo esfuerzo.",
+    "link": "seo-tazki.html",
+    "metric": "CTR e impresiones (Search Console)",
+    "meta": 3
+  },
+  {
+    "prio": "alta",
+    "area": "SEO",
+    "icono": "👯",
+    "titulo": "Resolver el contenido duplicado en 6 páginas (HubSpot SEO)",
+    "accion": "Revisa las 6 páginas que HubSpot marca como duplicadas (incluye el post IRL /blog vs sin /blog): consolida el contenido o corrige el canonical para no competir contigo mismo.",
+    "link": "seo-tazki.html",
+    "metric": "Posición e impresiones (Search Console)",
+    "meta": 3
+  },
+  {
+    "prio": "media",
+    "area": "SEO",
+    "icono": "📝",
+    "titulo": "Agregar metadescripción a las 6 páginas que faltan (HubSpot SEO)",
+    "accion": "En HubSpot → SEO → Recomendaciones: escribe una metadescripción atractiva (≤155 caracteres) para las 6 páginas sin meta. Sube el CTR.",
+    "link": "seo-tazki.html",
+    "metric": "CTR (Search Console)",
+    "meta": 3
+  },
+  {
+    "prio": "media",
+    "area": "SEO",
+    "icono": "🔠",
+    "titulo": "Agregar una etiqueta H1 a las 6 páginas que faltan (HubSpot SEO)",
+    "accion": "En HubSpot → SEO → Recomendaciones: asegura al menos un H1 con la keyword principal en las 6 páginas sin H1. Ayuda a que Google y el lector entiendan el contenido.",
+    "link": "seo-tazki.html",
+    "metric": "Posición (Search Console)",
+    "meta": 3
   }
 ]
