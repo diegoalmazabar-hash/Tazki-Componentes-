@@ -1,0 +1,377 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cápsulas de Video · Tazki</title></head><body>
+<!-- MENU LATERAL TAZKI -->
+<style>
+#tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
+#tzMenuBtn span,#tzMenuBtn span:before,#tzMenuBtn span:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.2s}
+#tzMenuBtn span:before{position:absolute;top:-6px}#tzMenuBtn span:after{position:absolute;top:6px}
+#tzSide{position:fixed;top:0;left:0;height:100%;width:270px;background:#0f1b34;color:#fff;z-index:100001;transform:translateX(-100%);transition:transform .22s ease;box-shadow:4px 0 24px rgba(0,0,0,.35);display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif}
+#tzSide.open{transform:translateX(0)}
+#tzOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100000;opacity:0;pointer-events:none;transition:.22s}
+#tzOverlay.open{opacity:1;pointer-events:auto}
+#tzSide .th{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+#tzSide .th .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ea8e0;font-weight:700}
+#tzSide .th .t{font-size:19px;font-weight:800;margin-top:3px}
+#tzSide nav{padding:12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+#tzSide a{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;color:#cdd8ef;text-decoration:none;font-size:14.5px;font-weight:600;transition:.15s}
+#tzSide a:hover{background:rgba(255,255,255,.08);color:#fff}
+#tzSide a.on{background:#1f4ed8;color:#fff}
+#tzSide a .ic{width:22px;text-align:center;font-size:16px}
+#tzSide .cl{padding:16px 22px;font-size:11px;color:#6b7ba0;border-top:1px solid rgba(255,255,255,.1)}
+#tzSide .x{position:absolute;top:16px;right:16px;background:none;border:none;color:#8ea8e0;font-size:22px;cursor:pointer;line-height:1}
+</style>
+<button id="tzMenuBtn" onclick="tzToggle()" aria-label="Menú"><span></span></button>
+<div id="tzOverlay" onclick="tzToggle()"></div>
+<aside id="tzSide">
+  <button class="x" onclick="tzToggle()">&times;</button>
+  <div class="th"><div class="k">Growth · Tazki</div><div class="t">Paneles</div></div>
+  <nav>
+    <a href="index.html" data-p="inicio"><span class="ic">🏠</span> Inicio</a>
+    <a href="manual-tazki.html" data-p="manual"><span class="ic">📖</span> Manual de uso</a>
+    <a href="recomendaciones-tazki.html" data-p="recomendaciones"><span class="ic">💡</span> Recomendaciones</a>
+    <a href="bitacora-tazki.html" data-p="bitacora"><span class="ic">📋</span> Bitácora · Baseline</a>
+    <a href="mql-tazki.html" data-p="mql"><span class="ic">📊</span> Panel MQL</a>
+    <a href="google-ads-tazki.html" data-p="google-ads"><span class="ic">🎯</span> Google Ads</a>
+    <a href="embudo-tazki.html" data-p="embudo"><span class="ic">💵</span> Conversión</a>
+    <a href="linkedin-tazki.html" data-p="linkedin"><span class="ic">💼</span> LinkedIn</a>
+    <a href="seo-tazki.html" data-p="seo"><span class="ic">🔍</span> SEO · Buscadores</a>
+    <a href="ga4-tazki.html" data-p="ga4"><span class="ic">🌐</span> Tráfico web</a>
+    <a href="conversaciones-tazki.html" data-p="conversaciones"><span class="ic">💬</span> Conversaciones</a>
+    <a href="benchmark-tazki.html" data-p="benchmark"><span class="ic">🗺️</span> Benchmark</a>
+    <a href="maquina-de-leads-tazki.html" data-p="maquina"><span class="ic">🧲</span> Plan de contenidos</a>
+    <a href="calendario-tazki.html" data-p="calendario"><span class="ic">🗓️</span> Calendario</a>
+    <a href="capsulas-tazki.html" data-p="capsulas"><span class="ic">🎬</span> Cápsulas de Video</a>
+    <a href="roi.html" data-p="roi"><span class="ic">🧮</span> Calculadora ROI</a>
+    <a href="ventas.html" data-p="ventas"><span class="ic">🗂️</span> Assets para Ventas</a>
+  </nav>
+  <div class="cl">Panel interno · datos vía HubSpot y Supermetrics</div>
+</aside>
+<script>
+function tzToggle(){document.getElementById('tzSide').classList.toggle('open');document.getElementById('tzOverlay').classList.toggle('open');}
+(function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'inicio','manual-tazki.html':'manual','recomendaciones-tazki.html':'recomendaciones','bitacora-tazki.html':'bitacora','mql-tazki.html':'mql','google-ads-tazki.html':'google-ads','embudo-tazki.html':'embudo','linkedin-tazki.html':'linkedin','seo-tazki.html':'seo','ga4-tazki.html':'ga4','conversaciones-tazki.html':'conversaciones','benchmark-tazki.html':'benchmark','maquina-de-leads-tazki.html':'maquina','calendario-tazki.html':'calendario','capsulas-tazki.html':'capsulas','roi.html':'roi','ventas.html':'ventas','':'inicio'};var cur=map[f]||'inicio';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
+</script>
+<!-- GATE TAZKI -->
+<div id="tzGate" style="position:fixed;inset:0;z-index:200000;background:linear-gradient(160deg,#0f1b34,#1f4ed8);display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif">
+  <form id="tzGateForm" style="background:#fff;padding:34px 28px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45);width:300px;max-width:90vw;text-align:center">
+    <div style="font-size:30px;margin-bottom:8px">🔒</div>
+    <div style="font-weight:800;font-size:18px;color:#0f1b34">Growth Hub · Tazki</div>
+    <div style="font-size:12.5px;color:#586079;margin:4px 0 18px">Acceso interno</div>
+    <input id="tzGatePass" type="password" placeholder="Contraseña" autocomplete="current-password" style="width:100%;padding:11px 12px;border:1px solid #d6dcec;border-radius:9px;font-size:14px;margin-bottom:10px;box-sizing:border-box">
+    <button type="submit" style="width:100%;padding:11px;background:#1f4ed8;color:#fff;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer">Entrar</button>
+    <div id="tzGateErr" style="color:#d03b3b;font-size:12px;margin-top:9px;visibility:hidden">Contraseña incorrecta</div>
+  </form>
+</div>
+<script>
+(function(){var KEY="tz_hub_auth",H=952746836;
+function hash(s){var x=0;for(var i=0;i<s.length;i++){x=(x*31+s.charCodeAt(i))>>>0;}return x;}
+var g=document.getElementById("tzGate");
+if(!g)return;
+if(sessionStorage.getItem(KEY)==="1"){g.parentNode.removeChild(g);return;}
+var f=document.getElementById("tzGateForm");
+f.addEventListener("submit",function(e){e.preventDefault();
+var v=document.getElementById("tzGatePass").value;
+if(hash(v)===H){sessionStorage.setItem(KEY,"1");g.parentNode.removeChild(g);}
+else{document.getElementById("tzGateErr").style.visibility="visible";}});
+setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus();},80);})();
+</script>
+<!-- FIN GATE TAZKI -->
+<!-- FIN MENU LATERAL TAZKI -->
+<style>
+  :root{
+    --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --ring:rgba(11,11,11,0.10);
+    --ac:#7c3aed; --ac-2:#8b5cf6; --ac-soft:#ede9fe;
+    --st-good:#16a34a; --st-crit:#d03b3b; --st-pend:#a16207;
+    --chip:#f0efec;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --ring:rgba(255,255,255,0.10);
+    --ac:#a78bfa; --ac-2:#c4b5fd; --ac-soft:#2e1065;
+    --st-good:#4ade80; --st-crit:#e66767; --st-pend:#d4a017;
+    --chip:#161615;
+  }}
+  :root[data-theme="dark"]{
+    --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --ring:rgba(255,255,255,0.10);
+    --ac:#a78bfa; --ac-2:#c4b5fd; --ac-soft:#2e1065;
+    --st-good:#4ade80; --st-crit:#e66767; --st-pend:#d4a017;
+    --chip:#161615;
+  }
+  :root[data-theme="light"]{
+    --surface:#fcfcfb; --plane:#f6f6f3; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --ring:rgba(11,11,11,0.10);
+    --ac:#7c3aed; --ac-2:#8b5cf6; --ac-soft:#ede9fe;
+    --st-good:#16a34a; --st-crit:#d03b3b; --st-pend:#a16207;
+    --chip:#f0efec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--plane);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 64px}
+  header.top{padding-left:54px;margin-bottom:2px}
+  .top h1{font-size:22px;font-weight:700;margin:0;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px}
+  .top .lgb{background:var(--ac);color:#fff;font-size:14px;font-weight:700;border-radius:7px;padding:2px 8px}
+  .src{color:var(--ink-3);font-size:12.5px;padding-left:54px}
+  p.lede{color:var(--ink-2);margin:6px 0 18px;max-width:82ch}
+  p.lede strong{color:var(--ink)}
+  .card{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:16px 18px;margin-bottom:16px;min-width:0}
+  .card h2{font-size:15px;font-weight:700;margin:0 0 3px;display:flex;align-items:center;gap:8px}
+  .card .sub{font-size:12.5px;color:var(--ink-3);margin-bottom:12px}
+  /* contador */
+  .counter{display:inline-flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:14px}
+  .ctr{background:var(--plane);border:1px solid var(--ring);border-radius:9px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink-2)}
+  .ctr b{font-size:18px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+  .ctr .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  /* grid modulos */
+  .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .mod{border:1px solid var(--ring);border-radius:11px;padding:13px 14px;display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--surface);transition:.15s}
+  .mod.done{border-color:var(--ac);box-shadow:inset 0 0 0 1px var(--ac)}
+  .mod .mh{display:flex;align-items:flex-start;gap:9px}
+  .mod .mi{font-size:20px;flex:none;line-height:1}
+  .mod .mt{font-size:14px;font-weight:700;color:var(--ink);line-height:1.25}
+  .mod .md{font-size:12px;color:var(--ink-3);line-height:1.4;flex:1}
+  .tgl{appearance:none;border:1px solid var(--ring);background:var(--plane);color:var(--ink-2);font:inherit;font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:9px;cursor:pointer;text-align:left;display:flex;align-items:center;gap:7px;transition:.15s;width:100%}
+  .tgl:hover{border-color:var(--ac)}
+  .tgl.on{background:var(--ac);border-color:var(--ac);color:#fff}
+  /* generador */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+  .fld label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700;margin-bottom:5px}
+  .fld select{width:100%;border:1px solid var(--ring);border-radius:8px;padding:9px 11px;font:inherit;font-size:13.5px;background:var(--plane);color:var(--ink);color-scheme:light dark}
+  .btn{appearance:none;border:1px solid var(--ring);background:var(--surface);color:var(--ink);font:inherit;font-size:13px;font-weight:600;padding:9px 14px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .btn:hover{border-color:var(--ac);color:var(--ac)}
+  .btn.primary{background:var(--ac);border-color:var(--ac);color:#fff}
+  .btn.primary:hover{background:var(--ac-2);border-color:var(--ac-2);color:#fff}
+  .genbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .promptbox{margin-top:14px}
+  .promptbox label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700;margin-bottom:5px}
+  .promptbox textarea{width:100%;border:1px solid var(--ring);border-radius:8px;padding:11px 13px;font:inherit;font-size:12.5px;line-height:1.5;background:var(--plane);color:var(--ink);resize:vertical;min-height:220px}
+  .promptbar{display:flex;align-items:center;gap:12px;margin-top:9px}
+  .copyok{font-size:12px;font-weight:700;color:var(--st-good);opacity:0;transition:.2s}
+  .copyok.show{opacity:1}
+  .promptnote{font-size:12px;color:var(--ink-2);background:var(--ac-soft);border:1px dashed var(--ring);border-radius:9px;padding:9px 12px;margin:12px 0 2px;line-height:1.45}
+  .promptnote b{color:var(--ink)}
+  /* flujo */
+  .flow{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+  .step{display:flex;gap:12px;align-items:flex-start}
+  .step .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .step .stx{font-size:13.5px;color:var(--ink-2);padding-top:2px}
+  .step .stx b{color:var(--ink)}
+  .drivebtn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;border:none;border-radius:9px;padding:10px 16px;font-size:13.5px;font-weight:700;text-decoration:none}
+  .drivebtn:hover{background:var(--ac-2)}
+  .note{font-size:12.5px;color:var(--ink-2);background:var(--surface);border:1px dashed var(--ring);border-radius:9px;padding:11px 14px;margin-top:2px}
+  .note b{color:var(--ink)}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;font-size:13px;font-weight:600;padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.25s;z-index:80}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(max-width:640px){
+    .wrap{padding:22px 12px 60px}
+    header.top{padding-left:52px}
+    .src{padding-left:52px}
+  }
+</style>
+
+<div class="wrap">
+  <header class="top"><h1><span class="lgb">🎬</span> Cápsulas de Video</h1></header>
+  <div class="src">Growth · Tazki · convierte las demos grabadas del software en videos cápsula · herramienta editable</div>
+  <p class="lede">Convierte las <strong>demos grabadas del software (DiIO)</strong> en cápsulas informativas. Marca qué módulos ya tienen video, genera el guion del que falta, y sube los frames a tu Drive.</p>
+
+  <!-- COBERTURA -->
+  <div class="card">
+    <h2>🎞️ Cobertura por módulo</h2>
+    <div class="sub">Marca cada módulo cuando ya tenga su cápsula lista. El estado se guarda en este navegador (localStorage).</div>
+    <div class="counter" id="counter">
+      <div class="ctr"><span class="dot" style="background:var(--st-good)"></span>Con video: <b id="cDone">0</b></div>
+      <div class="ctr"><span class="dot" style="background:var(--st-pend)"></span>Pendientes: <b id="cPend">10</b></div>
+    </div>
+    <div class="mods" id="mods"></div>
+  </div>
+
+  <!-- GENERADOR -->
+  <div class="card">
+    <h2>✨ Generador de guion de cápsula</h2>
+    <div class="sub">Elige el módulo y el enfoque; el generador arma un prompt listo para pegar en Claude o Cloud Design y que escriba el guion de la cápsula.</div>
+    <div class="grid2">
+      <div class="fld"><label for="gMod">Módulo</label><select id="gMod"></select></div>
+      <div class="fld"><label for="gDur">Duración</label><select id="gDur">
+        <option value="30s">30s</option><option value="60s" selected>60s</option><option value="90s">90s</option>
+      </select></div>
+      <div class="fld"><label for="gEst">Estilo</label><select id="gEst">
+        <option value="Tour rápido">Tour rápido</option>
+        <option value="Paso a paso">Paso a paso</option>
+        <option value="Problema→Solución">Problema→Solución</option>
+      </select></div>
+      <div class="fld"><label for="gPub">Público</label><select id="gPub">
+        <option value="Prospecto">Prospecto</option>
+        <option value="Cliente en onboarding">Cliente en onboarding</option>
+        <option value="Redes sociales">Redes sociales</option>
+      </select></div>
+    </div>
+    <div class="genbar">
+      <button class="btn primary" id="genBtn" type="button">✨ Generar prompt</button>
+    </div>
+    <div class="promptbox">
+      <div class="promptnote">Este texto es el <b>prompt</b>: cópialo y pégalo en Claude o Cloud Design para que redacte el guion completo de la cápsula.</div>
+      <label for="promptText">Prompt generado</label>
+      <textarea id="promptText" readonly placeholder="Pulsa «✨ Generar prompt» para armar el texto según los selects de arriba."></textarea>
+      <div class="promptbar">
+        <button class="btn" id="copyBtn" type="button">📋 Copiar</button>
+        <span class="copyok" id="copyOk">Copiado ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLUJO -->
+  <div class="card">
+    <h2>🧭 Flujo de trabajo</h2>
+    <div class="sub">De la demo grabada a la cápsula publicada, en cinco pasos.</div>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><div class="stx"><b>Genera el guion</b> acá con el generador de arriba.</div></div>
+      <div class="step"><div class="n">2</div><div class="stx"><b>Baja de DiIO la demo</b> del módulo (Claude te pasa el índice privado de cuáles).</div></div>
+      <div class="step"><div class="n">3</div><div class="stx"><b>Saca frames clave</b> y súbelos a tu carpeta de Drive.</div></div>
+      <div class="step"><div class="n">4</div><div class="stx"><b>Claude analiza los frames + el transcript</b> y te devuelve el guion final.</div></div>
+      <div class="step"><div class="n">5</div><div class="stx"><b>Editas</b> y publicas la cápsula.</div></div>
+    </div>
+    <a class="drivebtn" href="https://drive.google.com/drive/folders/1p9nnESyQBUPyOsHX3hiibQDCRJ2OVIC7" target="_blank" rel="noopener">📁 Abrir carpeta de Drive</a>
+    <div class="note" style="margin-top:14px">El <b>índice privado</b> (qué demo corresponde a cada cliente/empresa) vive aparte en Drive. Este panel es <b>público-seguro</b>: no contiene nombres de clientes, empresas ni personas.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id);};
+var LS_KEY="tz_capsulas_cobertura_v1";
+
+/* Módulos: id estable + icono + nombre + qué muestra */
+var MODULES=[
+  {id:"doc",       ic:"📄", name:"Gestión documental",                    show:"Repositorio central de documentos con versiones, vencimientos y alertas."},
+  {id:"contrat",   ic:"👷", name:"Contratistas",                          show:"Alta de empresas contratistas y control de sus documentos y acreditaciones."},
+  {id:"capac",     ic:"🎓", name:"Capacitaciones e inducciones",          show:"Programación de cursos, registro de asistencia y certificados."},
+  {id:"insp",      ic:"🔎", name:"Inspecciones y hallazgos",              show:"Checklists de terreno, levantamiento de hallazgos y seguimiento de cierres."},
+  {id:"epp",       ic:"🦺", name:"EPP",                                    show:"Entrega y control de elementos de protección personal por trabajador."},
+  {id:"accid",     ic:"🤖", name:"Investigación de accidentes con IA",     show:"Análisis de causas asistido por IA y generación del informe de accidente."},
+  {id:"miper",     ic:"⚠️", name:"Matriz de riesgo (MIPER)",              show:"Identificación de peligros, evaluación de riesgos y medidas de control."},
+  {id:"report",    ic:"📊", name:"Reportes y dashboards",                 show:"Indicadores de prevención en tiempo real y reportes exportables."},
+  {id:"firma",     ic:"✍️", name:"Firma electrónica DT (IRL/ODI)",        show:"Firma electrónica de IRL y ODI válida ante la Dirección del Trabajo."},
+  {id:"offline",   ic:"📶", name:"Modo offline / terreno",                show:"Trabajo sin conexión en terreno con sincronización posterior."}
+];
+
+/* ---------- Cobertura + localStorage ---------- */
+function loadState(){
+  var s={};
+  try{var raw=localStorage.getItem(LS_KEY);if(raw){var d=JSON.parse(raw);if(d&&typeof d==="object")s=d;}}catch(e){}
+  return s;
+}
+function saveState(s){try{localStorage.setItem(LS_KEY,JSON.stringify(s));}catch(e){}}
+
+function renderMods(){
+  var s=loadState();
+  var html=MODULES.map(function(m){
+    var on=!!s[m.id];
+    var lbl=on?"✅ Ya tiene video":"⬜ Pendiente";
+    return '<div class="mod'+(on?' done':'')+'" data-id="'+m.id+'">'+
+      '<div class="mh"><span class="mi">'+m.ic+'</span>'+
+      '<div><div class="mt">'+m.name+'</div></div></div>'+
+      '<div class="md">'+m.show+'</div>'+
+      '<button type="button" class="tgl'+(on?' on':'')+'" data-tgl="'+m.id+'">'+lbl+'</button>'+
+    '</div>';
+  }).join("");
+  $("mods").innerHTML=html;
+  updateCounter(s);
+}
+function updateCounter(s){
+  s=s||loadState();
+  var done=0;
+  MODULES.forEach(function(m){if(s[m.id])done++;});
+  $("cDone").textContent=done;
+  $("cPend").textContent=(MODULES.length-done);
+}
+function toggleMod(id){
+  var s=loadState();
+  s[id]=!s[id];
+  if(!s[id])delete s[id];
+  saveState(s);
+  renderMods();
+}
+$("mods").addEventListener("click",function(e){
+  var t=e.target.closest("[data-tgl]");
+  if(!t)return;
+  toggleMod(t.getAttribute("data-tgl"));
+});
+
+/* ---------- Generador de prompt ---------- */
+function fillModSelect(){
+  $("gMod").innerHTML=MODULES.map(function(m){
+    return '<option value="'+m.id+'">'+m.ic+' '+m.name+'</option>';
+  }).join("");
+}
+
+var DUR_TOMAS={"30s":"3-4 tomas","60s":"5-7 tomas","90s":"8-10 tomas"};
+var EST_DESC={
+  "Tour rápido":"un recorrido ágil que muestra las pantallas y funciones más potentes del módulo, sin detenerse en detalles operativos.",
+  "Paso a paso":"un tutorial ordenado que sigue la secuencia real de uso, mostrando cada acción en pantalla en el orden en que se hace.",
+  "Problema→Solución":"parte de un dolor concreto del prevencionista o la empresa, y muestra cómo el módulo lo resuelve en pantalla."
+};
+var PUB_DESC={
+  "Prospecto":"una persona que aún no es cliente y está evaluando el software; el tono debe despertar interés y mostrar valor rápido, sin jerga interna.",
+  "Cliente en onboarding":"un cliente que ya contrató y está aprendiendo a usar el módulo; el tono debe ser claro, guía y da confianza en el uso diario.",
+  "Redes sociales":"audiencia amplia en LinkedIn/Instagram; el tono debe ser dinámico, con gancho fuerte en los primeros segundos y apto para ver sin sonido."
+};
+
+function buildPrompt(){
+  var m=MODULES.find(function(x){return x.id===$("gMod").value;})||MODULES[0];
+  var dur=$("gDur").value;
+  var est=$("gEst").value;
+  var pub=$("gPub").value;
+  var tomas=DUR_TOMAS[dur]||"varias tomas";
+
+  var p="";
+  p+="Actúa como guionista de video marketing para Tazki, un software chileno de prevención de riesgos / HSEQ ";
+  p+="que ayuda a prevencionistas y empresas a cumplir el DS 44 y la Ley 16.744. ";
+  p+="Necesito el guion de una CÁPSULA DE VIDEO informativa hecha a partir de una demo grabada del software (módulo DiIO).\n\n";
+  p+="MÓDULO: "+m.name+".\n";
+  p+="QUÉ SE MUESTRA EN PANTALLA: "+m.show+"\n";
+  p+="DURACIÓN OBJETIVO: "+dur+" (apunta a unas "+tomas+").\n";
+  p+="ESTILO: "+est+" — "+EST_DESC[est]+"\n";
+  p+="PÚBLICO: "+pub+" — "+PUB_DESC[pub]+"\n\n";
+  p+="Escribe el guion en español (Chile), con lenguaje claro para prevención de riesgos. Devuélveme exactamente estas secciones:\n";
+  p+="1) GANCHO INICIAL (primeros 3 segundos): una frase que enganche a un "+pub.toLowerCase()+" y deje claro de qué trata.\n";
+  p+="2) GUION NARRADO TOMA POR TOMA: para cada toma indica [QUÉ SE VE EN PANTALLA] y [NARRACIÓN/VOZ EN OFF], ajustado al estilo \""+est+"\" y a la duración de "+dur+".\n";
+  p+="3) TEXTOS / OVERLAYS SUGERIDOS: los rótulos en pantalla para cada momento clave (pensados para verse sin sonido si el público es de redes).\n";
+  p+="4) CTA FINAL: cierre con llamada a la acción apropiada para un "+pub.toLowerCase()+".\n\n";
+  p+="Reglas: no inventes funciones que no correspondan a \""+m.name+"\"; respeta el tono del estilo y del público; mantén el ritmo para que quepa en "+dur+".";
+  return p;
+}
+
+$("genBtn").addEventListener("click",function(){
+  $("promptText").value=buildPrompt();
+  toast("Prompt generado");
+});
+
+/* ---------- Copiar ---------- */
+function copyPrompt(){
+  var txt=$("promptText").value;
+  if(!txt){toast("Primero genera el prompt");return;}
+  var ok=function(){$("copyOk").classList.add("show");toast("Copiado ✓");setTimeout(function(){$("copyOk").classList.remove("show");},2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(ok).catch(function(){fallbackCopy(txt,ok);});
+  }else fallbackCopy(txt,ok);
+}
+function fallbackCopy(txt,ok){
+  var ta=$("promptText");ta.removeAttribute("readonly");ta.focus();ta.select();
+  try{document.execCommand("copy");ok();}catch(e){toast("Copia manual: selecciona y Ctrl+C");}
+  ta.setAttribute("readonly","readonly");
+}
+$("copyBtn").addEventListener("click",copyPrompt);
+
+/* ---------- Toast ---------- */
+var toastT=null;
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove("show");},2200);}
+
+/* ---------- Init ---------- */
+fillModSelect();
+renderMods();
+})();
+</script>
+
+</body></html>
