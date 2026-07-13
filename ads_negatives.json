@@ -1,6 +1,264 @@
 {
-  "_doc": "Palabras negativas ya aplicadas en Google Ads. La rutina del Panel Google Ads lee 'roots' y marca esos terminos como 'ya bloqueado'. Al aplicar una negativa, agregar aqui su raiz (ej 'zyght'), campanas y fecha, y commitear.",
-  "roots": [],
-  "detalle": [],
-  "updated": ""
+ "roots": [
+  "como funciona",
+  "curso",
+  "ejemplo",
+  "foco en obra",
+  "geovictoria",
+  "gratis",
+  "infocontrol",
+  "iso 45001",
+  "medicap",
+  "megaprevencion",
+  "metodologia gema",
+  "prevsis",
+  "programa preventivo",
+  "pronexo",
+  "que es",
+  "que es hseq",
+  "que es tazki",
+  "safe culture",
+  "safety culture",
+  "safetyculture",
+  "sat contratista",
+  "seleria",
+  "subcontrataley",
+  "tutorial",
+  "woken",
+  "word",
+  "worklite",
+  "zyght"
+ ],
+ "detalle": [
+  {
+   "root": "como funciona",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "curso",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "ejemplo",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "foco en obra",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "geovictoria",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "gratis",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "infocontrol",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "iso 45001",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "medicap",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "megaprevencion",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "metodologia gema",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "prevsis",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "programa preventivo",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "pronexo",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "que es",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "que es hseq",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "que es tazki",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "safe culture",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "safety culture",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "safetyculture",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "sat contratista",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "seleria",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "subcontrataley",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "tutorial",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "woken",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "word",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "worklite",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  },
+  {
+   "root": "zyght",
+   "campanas": [
+    "Tazki - Marca - Search - v2",
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-11"
+  }
+ ],
+ "campanas_activas": [
+  "Tazki - Marca - Search - v2",
+  "Tazki - SST/HSEQ - Search"
+ ],
+ "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
+ "updated": "13 jul 2026"
 }
