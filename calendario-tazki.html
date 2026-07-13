@@ -220,6 +220,7 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
       <div class="actions">
         <button class="btn primary" id="newBtn">+ <span class="tx">Nuevo</span></button>
         <button class="btn" id="genBtn">✨ <span class="tx">Generar plan</span></button>
+        <button class="btn" id="clrBtn" title="Borra las piezas generadas por 'Generar plan' de este mes">🗑️ <span class="tx">Borrar plan</span></button>
         <div class="seg" id="viewSeg"><button data-v="cal" class="on">Calendario</button><button data-v="ag">Agenda</button></div>
         <button class="btn" id="expBtn">⬇ <span class="tx">Exportar</span></button>
         <button class="btn" id="impBtn">⬆ <span class="tx">Importar</span></button>
@@ -644,6 +645,18 @@ function generarPlan(){
   toast(`Plan generado: ${added.length} piezas en ${MES[curM]}`);
 }
 
+/* ---- Borrar el plan generado del mes actual ---- */
+function borrarPlan(){
+  const pre=`${curY}-${String(curM+1).padStart(2,'0')}`;
+  const gen=items.filter(it=>it.date&&it.date.startsWith(pre)&&(it.status==='plan'||it.topic==='Plan sugerido'));
+  if(!gen.length){toast('No hay piezas del plan generado en '+MES[curM]);return;}
+  if(!confirm(`¿Borrar las ${gen.length} pieza(s) generadas por "Generar plan" en ${MES[curM]} ${curY}? Las piezas que tú creaste o editaste no se tocan.`))return;
+  const ids=new Set(gen.map(g=>g.id));
+  items=items.filter(it=>!ids.has(it.id));
+  save();renderMonth();
+  toast(`Borradas ${gen.length} piezas del plan en ${MES[curM]}`);
+}
+
 /* ---- Export / Import ---- */
 function exportJson(){
   const data={app:'tazki_calendario',v:1,exported:new Date().toISOString(),items};
@@ -678,6 +691,7 @@ $('nextM').onclick=()=>{curM++;if(curM>11){curM=0;curY++;}renderMonth();};
 $('todayBtn').onclick=()=>{curY=now.getFullYear();curM=now.getMonth();renderMonth();};
 $('newBtn').onclick=()=>openModal(null,null);
 $('genBtn').onclick=generarPlan;
+$('clrBtn').onclick=borrarPlan;
 $('expBtn').onclick=exportJson;
 $('impBtn').onclick=()=>$('impFile').click();
 $('impFile').onchange=e=>{if(e.target.files[0]){importJson(e.target.files[0]);e.target.value='';}};
