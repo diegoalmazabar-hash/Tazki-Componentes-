@@ -182,6 +182,15 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .mright{display:flex;gap:8px}
   .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;font-size:13px;font-weight:600;padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.25s;z-index:80}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .promptnote{font-size:12px;color:var(--ink-2);background:var(--ac-soft);border:1px dashed var(--ring);border-radius:9px;padding:8px 11px;margin:12px 0 4px;line-height:1.4}
+  .promptnote b{color:var(--ink)}
+  .promptbox{display:none;margin-top:10px}
+  .promptbox.open{display:block}
+  .promptbox label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700;margin-bottom:4px}
+  .promptbox textarea{width:100%;border:1px solid var(--ring);border-radius:8px;padding:9px 11px;font:inherit;font-size:12.5px;line-height:1.45;background:var(--plane);color:var(--ink);resize:vertical;min-height:120px}
+  .promptbar{display:flex;align-items:center;gap:10px;margin-top:7px}
+  .copyok{font-size:12px;font-weight:700;color:var(--st-pub,var(--s-pub));opacity:0;transition:.2s}
+  .copyok.show{opacity:1}
   @media(max-width:640px){
     .wrap{padding:22px 12px 60px}
     header.top{padding-left:52px}
@@ -246,13 +255,23 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     </div>
     <div class="frow">
       <div class="fld"><label>Estado</label><select id="f_status"></select></div>
-      <div class="fld"><label>Tema / tipo</label><input type="text" id="f_topic" placeholder="Opcional"></div>
+      <div class="fld"><label>Tema o palabra clave (opcional)</label><input type="text" id="f_topic" placeholder="Ej: matriz de riesgos MIPER"></div>
     </div>
     <div class="fld"><label>Nota o link</label><input type="text" id="f_note" placeholder="Opcional (URL, brief, responsable…)"></div>
     <label class="chk"><input type="checkbox" id="f_lead"> Es imán de leads</label>
+    <div class="promptnote">✨ <b>Genera un prompt</b> y pégalo en Claude u otra IA para crear el contenido.</div>
+    <div class="promptbox" id="promptBox">
+      <label>Prompt para IA (según el canal)</label>
+      <textarea id="promptText" readonly rows="7" placeholder="Pulsa «Generar prompt»"></textarea>
+      <div class="promptbar">
+        <button class="btn" id="copyPromptBtn" type="button">📋 Copiar</button>
+        <span class="copyok" id="copyOk">Copiado ✓</span>
+      </div>
+    </div>
     <div class="mfoot">
       <button class="del" id="delBtn" style="visibility:hidden">Borrar</button>
       <div class="mright">
+        <button class="btn" id="genPromptBtn" type="button">✨ Generar prompt</button>
         <button class="btn" id="cancelBtn">Cancelar</button>
         <button class="btn primary" id="saveBtn">Guardar</button>
       </div>
@@ -305,9 +324,16 @@ const IDEAS=[
   {titulo:'Ebook: Guía DS 44 para prevencionistas', canal:'ebook', grupo:'Lead magnets'},
   {titulo:'Ebook: Checklist para una fiscalización de la DT', canal:'ebook', grupo:'Lead magnets'},
   {titulo:'Webinar: Digitalizar la prevención en terreno en 30 días', canal:'webinar', grupo:'Lead magnets'},
-  {titulo:'Newsletter mensual: novedades + tips', canal:'newsletter', grupo:'Lead magnets'}
+  {titulo:'Newsletter mensual: novedades + tips', canal:'newsletter', grupo:'Lead magnets'},
+  /* ---- Pilares de contenido (desde «Plan de contenidos» · máquina de leads) ---- */
+  {titulo:'Guía completa del DS 44: qué exige la nueva ley de prevención en Chile', canal:'blog', grupo:'Pilar', kw:'ds 44 · nueva ley prevención de riesgos'},
+  {titulo:'Cómo reducir la tasa de accidentabilidad en tu empresa: guía práctica', canal:'blog', grupo:'Pilar', kw:'tasa de accidentabilidad · cómo reducir accidentes laborales'},
+  {titulo:'Toda la documentación de prevención que tu empresa debe tener (y cómo dejar de perderla)', canal:'blog', grupo:'Pilar', kw:'documentación prevención de riesgos · registros prevención de riesgos'},
+  {titulo:'Cómo hacer una matriz de riesgos (MIPER) según el DS 44, con ejemplo lleno', canal:'blog', grupo:'Pilar', kw:'matriz de riesgos · miper · matriz iper'},
+  {titulo:'Cómo gestionar y acreditar contratistas sin exponerte a multas', canal:'blog', grupo:'Pilar', kw:'software para contratistas · acreditación contratistas'},
+  {titulo:'Software de prevención de riesgos en Chile: qué mirar antes de pagar', canal:'blog', grupo:'Pilar', kw:'software prevención riesgos laborales · plataforma de prevención de riesgos'}
 ];
-const GROUPS=['Educativo/SEO','Casos de éxito','Comparativa','Producto','Lead magnets'];
+const GROUPS=['Educativo/SEO','Casos de éxito','Comparativa','Producto','Lead magnets','Pilar'];
 
 /* ---- Estado ---- */
 let items=[];
@@ -462,12 +488,87 @@ function nextFreeDate(){
 function addIdea(idx){
   const i=IDEAS[idx];if(!i)return;
   const date=nextFreeDate();
-  const it={id:uid(),title:i.titulo,channel:i.canal,date,status:'idea',topic:i.grupo,note:'',lead:LEAD_CH.has(i.canal)};
+  const it={id:uid(),title:i.titulo,channel:i.canal,date,status:'idea',topic:i.kw||i.grupo,note:'',lead:LEAD_CH.has(i.canal)};
   items.push(it);save();
   // saltar al mes de la fecha creada
   const p=date.split('-').map(Number);curY=p[0];curM=p[1]-1;
   renderMonth();
   toast(`Agregada: ${i.titulo}`);
+}
+
+/* ---- Generador de prompts por canal ---- */
+const TAZKI_CTX="Contexto: Tazki es un software chileno de prevención de riesgos / gestión SST (HSEQ) que digitaliza la prevención en terreno (inducciones, capacitaciones, EPP, hallazgos, contratistas, investigación de accidentes) con firma electrónica con respaldo de la Dirección del Trabajo (Ord. 908). Público: prevencionistas, jefes de SST y gerentes de operaciones en Chile. Tono cercano y profesional, español de Chile. No inventes cifras ni casos: si faltan datos, deja un placeholder [DATO].";
+function genPrompt(item){
+  const T=(item&&item.title||'').trim()||'[TÍTULO]';
+  const kw=(item&&item.topic||'').trim();
+  const note=(item&&item.note||'').trim();
+  const ch=item&&item.channel||'blog';
+  let base='';
+  switch(ch){
+    case 'blog':
+      base=`Escribe un artículo de blog SEO para Tazki sobre: «${T}».`+
+        (kw?` Palabra clave objetivo: «${kw}», úsala en el título, el primer párrafo y los subtítulos.`:'')+
+        ` Estructura: titular atractivo, introducción que parta del dolor, 3-5 secciones con subtítulos (H2), ejemplos prácticos del mundo de la prevención, y cierre con llamado a la acción (agendar demo o descargar el recurso). Extensión ~800-1200 palabras.`;
+      break;
+    case 'linkedin':
+      base=`Escribe un post de LinkedIn para Tazki sobre: «${T}».`+
+        (kw?` Enfoque / tema: «${kw}».`:'')+
+        ` Empieza con un gancho de 1-2 líneas, desarrolla con valor concreto para prevencionistas, usa frases cortas y saltos de línea, máximo un par de emojis, y cierra con una pregunta o CTA. Máx ~1300 caracteres.`;
+      break;
+    case 'instagram':
+      base=`Crea el contenido de un carrusel de Instagram (6-8 slides) para Tazki sobre: «${T}».`+
+        (kw?` Tema clave: «${kw}».`:'')+
+        ` Entrega el texto de cada slide (título + idea) y al final el caption con 5-8 hashtags relevantes de prevención de riesgos y SST en Chile. Alternativa: si prefieres reel, entrega el guion (hook de 3s, desarrollo, CTA).`;
+      break;
+    case 'youtube':
+      base=`Escribe el guion de un video de YouTube (~3-5 min) para Tazki sobre: «${T}».`+
+        (kw?` Tema / palabra clave: «${kw}».`:'')+
+        ` Incluye gancho inicial, desarrollo por secciones (con nota de qué se muestra en pantalla) y CTA final. Añade además un título optimizado para búsqueda y la descripción del video.`;
+      break;
+    case 'webinar':
+      base=`Arma la estructura de un webinar para Tazki sobre: «${T}».`+
+        (kw?` Tema central: «${kw}».`:'')+
+        ` Incluye título, objetivo, público, agenda por bloques con minutos, puntos clave de cada bloque, momento de demo sugerido, y CTA de cierre para captar leads.`;
+      break;
+    case 'ebook':
+      base=`Crea el esquema (outline) de un ebook/guía descargable de Tazki sobre: «${T}».`+
+        (kw?` Tema / palabra clave: «${kw}».`:'')+
+        ` Incluye título, subtítulo, público objetivo, tabla de contenidos (capítulos con 2-3 bullets cada uno) y una idea de formulario/CTA para usarlo como imán de leads.`;
+      break;
+    case 'newsletter':
+      base=`Escribe la newsletter mensual de Tazki con tema destacado: «${T}».`+
+        (kw?` Palabra clave / eje: «${kw}».`:'')+
+        ` Incluye asunto atractivo, saludo, una sección destacada, 2-3 novedades o tips cortos y un CTA. Tono cercano.`;
+      break;
+    default:
+      base=`Crea contenido sobre «${T}» para Tazki`+(kw?` (tema: «${kw}»)`:'')+`. Adáptalo al canal ${ch}.`;
+  }
+  if(note)base+=` Contexto adicional del brief: ${note}.`;
+  return base+"\n\n"+TAZKI_CTX;
+}
+/* item "en vivo" según el formulario del modal (para generar aunque no se haya guardado) */
+function currentFormItem(){
+  return {title:$('f_title').value.trim(),channel:$('f_channel').value,topic:$('f_topic').value.trim(),note:$('f_note').value.trim()};
+}
+function showPrompt(){
+  const it=currentFormItem();
+  if(!it.title){$('f_title').focus();toast('Ponle un título para generar el prompt');return;}
+  $('promptText').value=genPrompt(it);
+  $('promptBox').classList.add('open');
+  $('copyOk').classList.remove('show');
+  const ta=$('promptText');ta.scrollTop=0;
+}
+function copyPrompt(){
+  const txt=$('promptText').value;
+  if(!txt)return;
+  const ok=()=>{$('copyOk').classList.add('show');toast('Copiado ✓');setTimeout(()=>$('copyOk').classList.remove('show'),2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(ok).catch(()=>{fallbackCopy(txt,ok);});
+  }else fallbackCopy(txt,ok);
+}
+function fallbackCopy(txt,ok){
+  const ta=$('promptText');ta.focus();ta.select();
+  try{document.execCommand('copy');ok();}catch(e){toast('Copia manual: selecciona y Ctrl+C');}
 }
 
 /* ---- Modal CRUD ---- */
@@ -485,6 +586,7 @@ function openModal(item,presetDate){
   $('f_lead').checked=item?!!item.lead:LEAD_CH.has('blog');
   syncLead();
   $('delBtn').style.visibility=item?'visible':'hidden';
+  $('promptBox').classList.remove('open');$('promptText').value='';$('copyOk').classList.remove('show');
   $('ov').classList.add('open');
   setTimeout(()=>$('f_title').focus(),30);
 }
@@ -585,6 +687,8 @@ $('ideas').onclick=e=>{const b=e.target.closest('.add');if(!b)return;addIdea(+b.
 $('cancelBtn').onclick=closeModal;
 $('saveBtn').onclick=saveModal;
 $('delBtn').onclick=deleteItem;
+$('genPromptBtn').onclick=showPrompt;
+$('copyPromptBtn').onclick=copyPrompt;
 $('f_channel').onchange=syncLead;
 $('ov').addEventListener('click',e=>{if(e.target.id==='ov')closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('ov').classList.contains('open'))closeModal();});
