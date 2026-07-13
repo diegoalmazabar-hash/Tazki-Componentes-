@@ -1,0 +1,5 @@
+# Archivos temporales de trabajo (plantillas, datos intermedios, checkers).
+# El sitio real se publica en la rama gh-pages; esto es solo scratch.
+scratchpad/
+*.pyc
+__pycache__/
