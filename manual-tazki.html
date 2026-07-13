@@ -1,0 +1,193 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<!-- MENU LATERAL TAZKI -->
+<style>
+#tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
+#tzMenuBtn span,#tzMenuBtn span:before,#tzMenuBtn span:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.2s}
+#tzMenuBtn span:before{position:absolute;top:-6px}#tzMenuBtn span:after{position:absolute;top:6px}
+#tzSide{position:fixed;top:0;left:0;height:100%;width:270px;background:#0f1b34;color:#fff;z-index:100001;transform:translateX(-100%);transition:transform .22s ease;box-shadow:4px 0 24px rgba(0,0,0,.35);display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif}
+#tzSide.open{transform:translateX(0)}
+#tzOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100000;opacity:0;pointer-events:none;transition:.22s}
+#tzOverlay.open{opacity:1;pointer-events:auto}
+#tzSide .th{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+#tzSide .th .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ea8e0;font-weight:700}
+#tzSide .th .t{font-size:19px;font-weight:800;margin-top:3px}
+#tzSide nav{padding:12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+#tzSide a{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;color:#cdd8ef;text-decoration:none;font-size:14.5px;font-weight:600;transition:.15s}
+#tzSide a:hover{background:rgba(255,255,255,.08);color:#fff}
+#tzSide a.on{background:#1f4ed8;color:#fff}
+#tzSide a .ic{width:22px;text-align:center;font-size:16px}
+#tzSide .cl{padding:16px 22px;font-size:11px;color:#6b7ba0;border-top:1px solid rgba(255,255,255,.1)}
+#tzSide .x{position:absolute;top:16px;right:16px;background:none;border:none;color:#8ea8e0;font-size:22px;cursor:pointer;line-height:1}
+</style>
+<button id="tzMenuBtn" onclick="tzToggle()" aria-label="Menú"><span></span></button>
+<div id="tzOverlay" onclick="tzToggle()"></div>
+<aside id="tzSide">
+  <button class="x" onclick="tzToggle()">&times;</button>
+  <div class="th"><div class="k">Growth · Tazki</div><div class="t">Paneles</div></div>
+  <nav>
+    <a href="index.html" data-p="inicio"><span class="ic">🏠</span> Inicio</a>
+    <a href="manual-tazki.html" data-p="manual"><span class="ic">📖</span> Manual de uso</a>
+    <a href="mql-tazki.html" data-p="mql"><span class="ic">📊</span> Panel MQL</a>
+    <a href="google-ads-tazki.html" data-p="google-ads"><span class="ic">🎯</span> Google Ads</a>
+    <a href="embudo-tazki.html" data-p="embudo"><span class="ic">💵</span> Conversión</a>
+    <a href="linkedin-tazki.html" data-p="linkedin"><span class="ic">💼</span> LinkedIn</a>
+    <a href="seo-tazki.html" data-p="seo"><span class="ic">🔍</span> SEO · Buscadores</a>
+    <a href="ga4-tazki.html" data-p="ga4"><span class="ic">🌐</span> Tráfico web</a>
+    <a href="conversaciones-tazki.html" data-p="conversaciones"><span class="ic">💬</span> Conversaciones</a>
+    <a href="clientes-tazki.html" data-p="clientes"><span class="ic">🏥</span> Clientes · Salud</a>
+    <a href="benchmark-tazki.html" data-p="benchmark"><span class="ic">🗺️</span> Benchmark</a>
+    <a href="maquina-de-leads-tazki.html" data-p="maquina"><span class="ic">🧲</span> Plan de contenidos</a>
+    <a href="roi.html" data-p="roi"><span class="ic">🧮</span> Calculadora ROI</a>
+    <a href="ventas.html" data-p="ventas"><span class="ic">🗂️</span> Assets para Ventas</a>
+  </nav>
+  <div class="cl">Panel interno · datos vía HubSpot y Supermetrics</div>
+</aside>
+<script>
+function tzToggle(){document.getElementById('tzSide').classList.toggle('open');document.getElementById('tzOverlay').classList.toggle('open');}
+(function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'inicio','manual-tazki.html':'manual','mql-tazki.html':'mql','google-ads-tazki.html':'google-ads','embudo-tazki.html':'embudo','linkedin-tazki.html':'linkedin','seo-tazki.html':'seo','ga4-tazki.html':'ga4','conversaciones-tazki.html':'conversaciones','clientes-tazki.html':'clientes','benchmark-tazki.html':'benchmark','maquina-de-leads-tazki.html':'maquina','roi.html':'roi','ventas.html':'ventas','':'inicio'};var cur=map[f]||'inicio';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
+</script>
+<!-- FIN MENU LATERAL TAZKI -->
+<title>Manual de uso · Growth Hub · Tazki</title>
+<style>
+  :root{
+    --ac:#1f4ed8; --ac-2:#3b82f6; --ac-soft:#e7edfd;
+    --surface:#ffffff; --plane:#f5f6f8; --ink:#0f1b34; --ink-2:#48546c; --ink-3:#8a93a6;
+    --ring:rgba(15,27,52,.10); --line:#e7e9ef;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ac:#3b82f6; --ac-2:#60a5fa; --ac-soft:#12224a;
+    --surface:#161a22; --plane:#0d0f14; --ink:#f3f5f9; --ink-2:#c0c7d4; --ink-3:#8a93a6;
+    --ring:rgba(255,255,255,.10); --line:#262b36;
+  }}
+  :root[data-theme="dark"]{
+    --ac:#3b82f6; --ac-2:#60a5fa; --ac-soft:#12224a;
+    --surface:#161a22; --plane:#0d0f14; --ink:#f3f5f9; --ink-2:#c0c7d4; --ink-3:#8a93a6;
+    --ring:rgba(255,255,255,.10); --line:#262b36;
+  }
+  :root[data-theme="light"]{
+    --ac:#1f4ed8; --ac-2:#3b82f6; --ac-soft:#e7edfd;
+    --surface:#ffffff; --plane:#f5f6f8; --ink:#0f1b34; --ink-2:#48546c; --ink-3:#8a93a6;
+    --ring:rgba(15,27,52,.10); --line:#e7e9ef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--plane);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:30px 20px 64px}
+  header.top{padding-left:54px}
+  .top h1{font-size:24px;font-weight:800;margin:0;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+  .top .lgb{background:var(--ac);color:#fff;font-size:16px;border-radius:8px;padding:3px 9px}
+  .src{color:var(--ink-3);font-size:12.5px;padding-left:54px;margin-top:3px}
+  p.lede{color:var(--ink-2);margin:8px 0 18px;font-size:15.5px}
+  p.lede strong{color:var(--ink)}
+  .dl{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;font-weight:700;font-size:13.5px;text-decoration:none;padding:9px 16px;border-radius:9px;margin:0 0 22px}
+  .dl:hover{filter:brightness(1.08)}
+  h2{font-size:19px;font-weight:800;margin:30px 0 4px;display:flex;align-items:center;gap:9px}
+  h2 .n{background:var(--ac-soft);color:var(--ac);width:27px;height:27px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:none}
+  h2.sub{font-size:16px;margin-top:22px}
+  .card{background:var(--surface);border:1px solid var(--ring);border-radius:13px;padding:16px 18px;margin:12px 0}
+  .p{font-size:14px;color:var(--ink-2);margin:6px 0}
+  .p strong{color:var(--ink)}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:5px 0;font-size:14px;color:var(--ink-2)}
+  li strong{color:var(--ink)}
+  .panel{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .panel:last-child{border-bottom:none}
+  .panel .ic{font-size:22px;flex:none;width:34px;height:34px;border-radius:9px;background:var(--ac-soft);display:flex;align-items:center;justify-content:center}
+  .panel .b{min-width:0}
+  .panel .t{font-weight:800;font-size:15px;color:var(--ink)}
+  .panel .d{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+  .panel .u{font-size:12.5px;color:var(--ink-3);margin-top:4px}
+  .panel .u b{color:var(--ac)}
+  .tip{background:var(--ac-soft);border-radius:10px;padding:12px 15px;font-size:13.5px;color:var(--ink-2);margin:10px 0}
+  .tip b{color:var(--ink)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .mini{background:var(--surface);border:1px solid var(--ring);border-radius:11px;padding:12px 14px}
+  .mini .mt{font-weight:700;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:7px}
+  .mini .md{font-size:12.5px;color:var(--ink-2);margin-top:3px}
+  code{background:var(--ac-soft);color:var(--ac);padding:1px 6px;border-radius:5px;font-size:12.5px}
+  .foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+  <header class="top"><h1><span class="lgb">📖</span> Manual de uso · Growth Hub</h1></header>
+  <div class="src">Tazki · Guía rápida de todo lo que hace tu panel de control · actualizado 13 de julio de 2026</div>
+  <p class="lede">El <strong>Growth Hub</strong> es tu tablero de control de marketing, ventas y clientes. Reúne en un solo lugar los datos de <strong>HubSpot</strong>, <strong>Supermetrics</strong> (Google Ads, GA4, Search Console, LinkedIn) y <strong>DiIO</strong>, y <strong>se actualiza solo todos los días</strong>. No tienes que tocar nada: entras, miras y decides.</p>
+  <a class="dl" href="descargas/Tazki_Manual_Growth_Hub.pdf" download>⬇ Descargar este manual (PDF)</a>
+
+  <h2><span class="n">1</span> Cómo entrar y navegar</h2>
+  <div class="card">
+    <p class="p">El Hub vive en tu sitio de GitHub Pages. La <strong>página de inicio</strong> (la raíz del sitio) es la <strong>Portada</strong>, con tarjetas hacia cada sección.</p>
+    <ul>
+      <li>Arriba a la izquierda hay un botón <strong>☰</strong>: ábrelo para ver el <strong>menú lateral</strong> con todas las secciones.</li>
+      <li>Toca cualquier entrada del menú para ir a ese panel. Funciona igual en el computador y en el celular.</li>
+      <li>Cada panel es una página independiente que se puede compartir por su enlace.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">2</span> Los paneles, uno por uno</h2>
+  <div class="card">
+    <div class="panel"><div class="ic">🏠</div><div class="b"><div class="t">Inicio (Portada)</div><div class="d">La entrada al Hub. Tarjetas hacia cada panel, agrupadas por Adquisición, Conversión, Clientes y Herramientas.</div></div></div>
+    <div class="panel"><div class="ic">📊</div><div class="b"><div class="t">Panel MQL</div><div class="d">Tus negocios calificados (MQL): fuente de tráfico, etapa, salud (semáforo) y dolor detectado de cada uno. Tiene filtros globales para segmentar.</div><div class="u">Para: revisar el pipeline y de dónde vienen los buenos leads · <b>se actualiza cada día 12:00</b></div></div></div>
+    <div class="panel"><div class="ic">🎯</div><div class="b"><div class="t">Google Ads</div><div class="d">Inversión, clics y conversiones. En la pestaña <strong>Keywords y términos</strong> puedes filtrar por un <strong>día o rango exacto</strong>, ver qué buscó la gente, ordenar las keywords por clics/costo, y detectar candidatas a palabra negativa (competidores e informacionales que gastan sin convertir).</div><div class="u">Para: decidir qué keywords mantener/pausar y controlar el gasto · <b>diario 12:30</b></div></div></div>
+    <div class="panel"><div class="ic">💵</div><div class="b"><div class="t">Conversión</div><div class="d">El embudo Lead → MQL → SQL → Oportunidad → Cliente, con el % que se cae en cada paso, más el <strong>costo por MQL</strong> pagado y qué % de MQL viene de pago.</div><div class="u">Para: ver dónde se traba la conversión y cuánto cuesta un lead · <b>diario 12:55</b></div></div></div>
+    <div class="panel"><div class="ic">🌐</div><div class="b"><div class="t">Tráfico web (GA4)</div><div class="d">Sesiones, usuarios, interacción y páginas del sitio, con desglose por canal y dispositivo.</div><div class="u">Para: entender de dónde llega el tráfico · <b>diario 13:05</b> · ⚠️ GA4 empezó a medir el 7-jul-2026, la serie se irá llenando sola</div></div></div>
+    <div class="panel"><div class="ic">🔍</div><div class="b"><div class="t">SEO · Buscadores</div><div class="d">Posicionamiento real <strong>sin la marca</strong> (Search Console): palabras clave, impresiones, clics y posición. Muestra qué términos subieron y cuáles bajaron.</div><div class="u">Para: medir el SEO orgánico real · <b>diario 12:50</b> + un insight cada 3 días</div></div></div>
+    <div class="panel"><div class="ic">💼</div><div class="b"><div class="t">LinkedIn</div><div class="d">Seguidores e impresiones de la página, semana a semana y mes a mes.</div><div class="u">Para: seguir el crecimiento en LinkedIn · <b>diario 12:15</b></div></div></div>
+    <div class="panel"><div class="ic">💬</div><div class="b"><div class="t">Conversaciones (DiIO)</div><div class="d">Inteligencia de las reuniones de venta: nº de conversaciones, performance del equipo, sentimiento del cliente y probabilidad de éxito, más los dolores y objeciones más frecuentes. <strong>Todo agregado, sin nombres.</strong></div><div class="u">Para: ver cómo va el equipo comercial y qué frena a los clientes · <b>diario 13:20</b></div></div></div>
+    <div class="panel"><div class="ic">🏥</div><div class="b"><div class="t">Clientes · Salud</div><div class="d">Tu cartera: clientes activos, MRR (UF), ARR, ticket promedio, distribución de MRR, churn, y el "pulso de salud" derivado de las conversaciones de postventa.</div><div class="u">Para: cuidar a los clientes actuales · <b>diario 13:35</b></div></div></div>
+    <div class="panel"><div class="ic">🗺️</div><div class="b"><div class="t">Benchmark</div><div class="d">Mapa del mercado de la competencia (Zyght, Prevsis, Foco en Obra, DataScope, etc.), matriz comparativa Tazki vs rivales, demanda de búsqueda y "voz del mercado" desde tu CRM. Se puede <strong>descargar en PDF</strong>.</div><div class="u">Para: preparar ventas y posicionamiento · uso interno</div></div></div>
+    <div class="panel"><div class="ic">🧲</div><div class="b"><div class="t">Plan de contenidos</div><div class="d">Qué publicar (los formularios de captura ya están creados) y el rendimiento del blog.</div><div class="u">Para: ordenar la creación de contenido · <b>diario 13:30</b></div></div></div>
+    <div class="panel"><div class="ic">🧮</div><div class="b"><div class="t">Calculadora ROI</div><div class="d">Herramienta para estimarle el retorno a un prospecto en una reunión.</div><div class="u">Para: usar en la venta</div></div></div>
+    <div class="panel"><div class="ic">🗂️</div><div class="b"><div class="t">Assets para Ventas</div><div class="d">Material descargable por industria: <strong>Presentación (PPTX), Brochure y Flyer (PDF)</strong>, con los dolores, módulos y clientes reales de cada rubro. Incluye un <strong>personalizador de prompt</strong> para pedirle a una IA una versión a la medida.</div><div class="u">Para: llegar a cada reunión con material del rubro exacto</div></div></div>
+  </div>
+
+  <h2><span class="n">3</span> Cómo leer los gráficos</h2>
+  <div class="card">
+    <p class="p">Casi todos los paneles tienen el mismo gráfico de evolución. Se maneja con 3 controles:</p>
+    <div class="grid2">
+      <div class="mini"><div class="mt">📈 Selector de métrica</div><div class="md">Los botones de arriba cambian qué se grafica (p.ej. sesiones, clics, performance, MRR).</div></div>
+      <div class="mini"><div class="mt">🗓️ Presets de fecha</div><div class="md"><code>3m</code> <code>6m</code> <code>12m</code> <code>Todo</code> acotan el período con un toque.</div></div>
+      <div class="mini"><div class="mt">🎚️ Desde / Hasta</div><div class="md">Para un rango exacto, elige las fechas en los calendarios.</div></div>
+      <div class="mini"><div class="mt">🔎 Filtros y tablas</div><div class="md">En Google Ads y otros, usa el buscador y los chips (p.ej. "Gasta sin convertir") y haz clic en las columnas para ordenar.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="n">4</span> Lo que trabaja solo por ti</h2>
+  <div class="card">
+    <p class="p">El Hub tiene <strong>automatizaciones (rutinas)</strong> que corren todos los días sin que hagas nada:</p>
+    <ul>
+      <li><strong>Actualización diaria</strong> de cada panel entre las <strong>12:00 y 13:35</strong> (hora Chile ~08:00–09:35).</li>
+      <li><strong>Resumen ejecutivo semanal</strong>: cada <strong>lunes en la mañana</strong> te llega por chat un digest con lo bueno, lo que hay que vigilar y una recomendación.</li>
+      <li><strong>Alertas proactivas</strong>: un chequeo diario que <strong>solo te escribe si algo se sale de lo normal</strong> (gasto disparado, MQL en cero, frustración de un cliente, churn nuevo, gasto en competidores, caída de SEO).</li>
+    </ul>
+    <div class="tip">💬 <b>Lo que te llega al chat:</b> el resumen de los lunes y las alertas cuando corresponda. El resto lo revisas cuando quieras entrando al Hub.</div>
+  </div>
+
+  <h2><span class="n">5</span> De dónde salen los datos (y privacidad)</h2>
+  <div class="card">
+    <ul>
+      <li><strong>HubSpot</strong>: negocios, MQL, contactos, cartera de clientes y churn.</li>
+      <li><strong>Supermetrics</strong>: Google Ads, Google Analytics 4, Search Console y LinkedIn.</li>
+      <li><strong>DiIO</strong>: inteligencia de las conversaciones/reuniones de venta.</li>
+    </ul>
+    <div class="tip">🔒 <b>Privacidad:</b> el repositorio es público, por eso los paneles sensibles (Conversaciones, Clientes y Benchmark) muestran los datos <b>agregados y anonimizados</b> — sin nombres de ejecutivos ni de clientes. Si prefieres, se puede mover el Hub a un repositorio privado.</div>
+  </div>
+
+  <h2><span class="n">6</span> 3 cosas que harían los paneles aún mejores</h2>
+  <div class="card">
+    <ul>
+      <li><strong>GA4 · marcar un "evento clave"</strong> (formulario enviado) → el panel de Tráfico empezará a medir conversiones reales.</li>
+      <li><strong>HubSpot · completar el MRR</strong> de todos los clientes (hoy solo 9 de 28 lo tienen) → la cartera queda fiel.</li>
+      <li><strong>HubSpot · llenar "nivel de riesgo cliente"</strong> → el panel de Clientes gana un health score real por cuenta.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">7</span> ¿Necesitas un cambio?</h2>
+  <div class="card">
+    <p class="p">No tienes que editar nada tú. <strong>Escríbeme por chat</strong> lo que necesites — un panel nuevo, un ajuste, refrescar el benchmark, cargar negativos en Google Ads, o mover el Hub a privado — y lo dejo hecho y publicado.</p>
+  </div>
+
+  <div class="foot">Growth Hub · Tazki · panel interno. Datos vía HubSpot, Supermetrics y DiIO. Este manual describe el estado del Hub a la fecha indicada arriba.</div>
+</div>
+
+</body></html>
