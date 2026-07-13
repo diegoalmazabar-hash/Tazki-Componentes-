@@ -1,0 +1,30 @@
+[
+  {
+    "date": "13 jul 2026",
+    "area": "Google Ads",
+    "titulo": "Palabras clave negativas de competidores aplicadas",
+    "key": "3fc3a4c3d0",
+    "nota": "11-13 jul: negativas de competidores e informacionales cargadas en las 2 campañas activas."
+  },
+  {
+    "date": "13 jul 2026",
+    "area": "Landing",
+    "titulo": "Claim de exclusividad DT corregido",
+    "key": "c4e3875475",
+    "nota": "'Único software con resolución DT' → 'La DT validó nuestra firma (Ord. N°908)' en prevención y marca."
+  },
+  {
+    "date": "13 jul 2026",
+    "area": "Landing",
+    "titulo": "Pruebas A/B configuradas",
+    "key": "02e1fd74fd",
+    "nota": "A/B nativo de HubSpot en las 2 landings de campaña (mismo URL, 50/50)."
+  },
+  {
+    "date": "13 jul 2026",
+    "area": "Medición",
+    "titulo": "Clarity conectado",
+    "key": "79ed56ee05",
+    "nota": "Microsoft Clarity midiendo comportamiento de las landings."
+  }
+]

@@ -124,6 +124,72 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   .note{font-size:12px;color:var(--ink-3);background:var(--surface);border:1px dashed var(--ring);border-radius:9px;padding:10px 13px;margin-top:18px}
   .note b{color:var(--ink-2)}
   @media(max-width:520px){.rec{padding:13px 13px;gap:10px}.rec .ico{font-size:19px;width:24px}}
+
+  /* ---- Secciones ---- */
+  .sec-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:26px 0 12px}
+  .sec-h h2{font-size:16px;font-weight:750;margin:0;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px}
+  .sec-h .count{font-size:12.5px;color:var(--ink-2);font-weight:600}
+  .sec-h .count b{color:var(--ink)}
+  .sec-sub{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px}
+
+  /* ---- Metas del mes ---- */
+  .metas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .meta{background:var(--surface);border:1px solid var(--ring);border-top:3px solid var(--ac);border-radius:12px;padding:14px 15px 15px;display:flex;flex-direction:column;gap:8px;min-width:0}
+  .meta .mh{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .meta .mtag{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac);background:var(--ac-soft);border-radius:999px;padding:3px 9px;flex:none}
+  .meta .mdate{font-size:11px;font-weight:700;color:var(--ink-2);background:var(--plane);border:1px solid var(--ring);border-radius:999px;padding:2px 8px;flex:none}
+  .meta .mt{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35}
+  .meta .mm{font-size:12px;color:var(--ink-2)}
+  .meta .mm b{color:var(--ink)}
+  .meta .track{position:relative;height:8px;border-radius:999px;background:var(--plane);border:1px solid var(--ring);overflow:hidden;margin-top:2px}
+  .meta .track .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--ac),var(--ac-2));border-radius:999px}
+  .meta .track .mk{position:absolute;top:-3px;width:2px;height:14px;background:var(--ink-3);opacity:.5}
+  .meta .bao{display:flex;justify-content:space-between;gap:6px;font-size:11px}
+  .meta .bao .c{display:flex;flex-direction:column;gap:1px;min-width:0}
+  .meta .bao .c.r{text-align:right;align-items:flex-end}
+  .meta .bao .k{color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;font-weight:600;font-size:9.5px}
+  .meta .bao .v{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+  .meta .bao .v.ac-v{color:var(--ac)}
+  .meta .est{font-size:11px;font-weight:700;border-radius:999px;padding:2px 9px;align-self:flex-start}
+  .est.en-marcha{color:var(--pr-media);background:var(--pr-media-bg)}
+  .est.por-empezar{color:var(--pr-baja);background:var(--pr-baja-bg)}
+  .est.listo{color:#1a7f37;background:#dcfce7}
+  @media (prefers-color-scheme:dark){.est.listo{color:#7ee2a0;background:#123321}}
+
+  /* ---- Contador pendientes/hechas ---- */
+  .counter{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-2);font-weight:600}
+  .counter b{color:var(--ink)}
+  .counter .sep{color:var(--baseline)}
+
+  /* ---- Tarea con casilla ---- */
+  .rec.task{gap:11px}
+  .rec .ckbox{flex:none;margin-top:1px}
+  .rec .ckbox input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid var(--baseline);border-radius:7px;cursor:pointer;position:relative;background:var(--plane);transition:.12s;flex:none;display:block}
+  .rec .ckbox input:hover{border-color:var(--ac)}
+  .rec .ckbox input:checked{background:var(--ac);border-color:var(--ac)}
+  .rec .ckbox input:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .rec.done-local .titulo{text-decoration:line-through;color:var(--ink-3)}
+  .rec.done-local .accion{opacity:.55}
+  .rec.done-local .ico{opacity:.5}
+  .rec .metatag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ac);background:var(--ac-soft);border-radius:999px;padding:3px 8px;flex:none;display:inline-flex;align-items:center;gap:3px}
+  .rec .metatag.gen{color:var(--ink-3);background:var(--plane)}
+  .rec .mide{font-size:12px;color:var(--ink-2);margin-top:6px;display:flex;gap:6px;align-items:flex-start}
+  .rec .mide .lb{font-weight:700;color:var(--ink-2);flex:none}
+  .rec .mide .lb .em{opacity:.9}
+
+  /* ---- Historial de cumplimiento ---- */
+  .hist{display:flex;flex-direction:column;gap:16px;margin-top:2px}
+  .hist .day{display:flex;flex-direction:column;gap:8px}
+  .hist .daylbl{font-size:12px;font-weight:800;letter-spacing:.02em;color:var(--ac);display:flex;align-items:center;gap:8px}
+  .hist .daylbl::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ac);flex:none}
+  .hist .items{display:flex;flex-direction:column;gap:8px;padding-left:4px;border-left:2px solid var(--ring);margin-left:4px}
+  .hlog{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:11px 13px;margin-left:10px;display:flex;gap:11px;align-items:flex-start}
+  .hlog .chk{flex:none;color:#1a7f37;font-size:16px;font-weight:800;line-height:1.3}
+  @media (prefers-color-scheme:dark){.hlog .chk{color:#7ee2a0}}
+  .hlog .hbody{flex:1;min-width:0}
+  .hlog .htop{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:3px}
+  .hlog .htit{font-size:13.5px;font-weight:700;color:var(--ink)}
+  .hlog .hnota{font-size:12.5px;color:var(--ink-2)}
 </style>
 
 <div class="wrap">
@@ -134,15 +200,29 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
   <div class="kpis" id="kpis"></div>
   <div class="banner" id="banner"></div>
 
+  <div class="sec-h"><h2>🎯 Metas del mes · julio</h2></div>
+  <p class="sec-sub">El plan de acción se organiza alrededor de estas metas. Cada tarea de abajo aporta a una de ellas.</p>
+  <div class="metas" id="metas"></div>
+
+  <div class="sec-h">
+    <h2>✅ Plan de acción · pendientes</h2>
+    <span class="counter" id="counter"></span>
+  </div>
   <div class="filters" id="filters"></div>
 
   <div class="recs" id="recs"></div>
+
+  <div class="note">✅ Cuando completes tareas, dime cuáles marcaste y las dejo permanentes en el Historial (para que queden en el documento y no solo en tu navegador).</div>
+
+  <div class="sec-h"><h2>🗓️ Historial de cumplimiento</h2><span class="count" id="histcount"></span></div>
+  <p class="sec-sub">Bitácora de logros: lo que ya se completó, fechado. Lo más reciente arriba.</p>
+  <div class="hist" id="hist"></div>
 
   <div class="note">Generado automáticamente a partir de los datos de los paneles del Hub; se actualiza a diario. Las cifras vienen de <b>HubSpot</b>, <b>Supermetrics</b> y <b>DiIO</b>. Por privacidad, y dado que este repositorio es público, no se muestran nombres de clientes, empresas ni personas.</div>
 </div>
 
 <script>
-const REC = {"updated": "13 jul 2026", "resumen": {"alta": 5, "media": 11, "baja": 0, "total": 16}, "recs": [{"prio": "alta", "area": "Google Ads", "icono": "🚫", "titulo": "Gastas en 11 términos de competidores/informacionales NUEVOS sin convertir (~$13.255 CLP; los ya bloqueados no cuentan)", "accion": "Revisa si son de campañas activas y agrégalos como palabras negativas (ver candidatos en Google Ads).", "link": "google-ads-tazki.html"}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'irl' perdió 155 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'irl' (título, encabezados, datos).", "link": "seo-tazki.html"}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'que significa irl' perdió 132 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'que significa irl' (título, encabezados, datos).", "link": "seo-tazki.html"}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'que es el irl en prevencion' perdió 90 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'que es el irl en prevencion' (título, encabezados, datos).", "link": "seo-tazki.html"}, {"prio": "alta", "area": "SEO", "icono": "🎯", "titulo": "'software prevencion de riesgos' tiene 270 impresiones pero está en posición 22.9", "accion": "Optimiza el contenido para 'software prevencion de riesgos' y súbela al top 10.", "link": "seo-tazki.html"}, {"prio": "media", "area": "Blog", "icono": "📝", "titulo": "El post 'ART/AST y charla diaria: análisis de riesgos digital para tareas críticas' tiene solo 4 vistas", "accion": "Optimízalo (SEO on-page) o promuévelo en LinkedIn.", "link": "maquina-de-leads-tazki.html"}, {"prio": "media", "area": "Blog", "icono": "📝", "titulo": "El post 'Inducciones laborales: cómo digitalizar la ODI, el reglamento y la firma antes del primer día' tiene solo 9 vistas", "accion": "Optimízalo (SEO on-page) o promuévelo en LinkedIn.", "link": "maquina-de-leads-tazki.html"}, {"prio": "media", "area": "Conversaciones", "icono": "💬", "titulo": "La objeción 'Dudas sobre la validez legal y el flujo de la firma digital, y necesidad de dispositivos o equipos adicionales' aparece seguido en las ventas", "accion": "Crea contenido que la responda y agrégalo al Calendario.", "link": "conversaciones-tazki.html"}, {"prio": "media", "area": "Conversaciones", "icono": "💬", "titulo": "La objeción 'Restricciones presupuestarias y falta de referencias de precio para justificar la inversión' aparece seguido en las ventas", "accion": "Crea contenido que la responda y agrégalo al Calendario.", "link": "conversaciones-tazki.html"}, {"prio": "media", "area": "Conversión", "icono": "🔻", "titulo": "El mayor salto del embudo es Oportunidad→Cliente (se cae 93%)", "accion": "Revisa ese paso: ¿faltan reuniones o seguimiento?", "link": "embudo-tazki.html"}, {"prio": "media", "area": "GA4", "icono": "🌐", "titulo": "GA4 marca 0 conversiones (no hay evento clave configurado)", "accion": "Marca un evento clave (formulario enviado) en GA4 para medir conversiones.", "link": "ga4-tazki.html"}, {"prio": "media", "area": "Google Ads", "icono": "💸", "titulo": "8 keywords con Quality Score bajo (1-3) están caras", "accion": "Mejora la relevancia anuncio/landing o pausa esas keywords.", "link": "google-ads-tazki.html"}, {"prio": "media", "area": "SEO", "icono": "🎯", "titulo": "'miper' tiene 89 impresiones pero está en posición 12.5", "accion": "Optimiza el contenido para 'miper' y súbela al top 10.", "link": "seo-tazki.html"}, {"prio": "media", "area": "SEO", "icono": "🎯", "titulo": "'que significa irl' tiene 82 impresiones pero está en posición 11.1", "accion": "Optimiza el contenido para 'que significa irl' y súbela al top 10.", "link": "seo-tazki.html"}, {"prio": "media", "area": "SEO", "icono": "📈", "titulo": "'miper' está creciendo (+89 impresiones)", "accion": "Crea contenido adicional / clúster sobre 'miper'.", "link": "seo-tazki.html"}, {"prio": "media", "area": "SEO", "icono": "🧭", "titulo": "La posición no-marca promedio empeoró (de 10 a 11.6)", "accion": "Revisa en el panel SEO los términos que más cayeron.", "link": "seo-tazki.html"}]};
+const REC = {"updated": "13 jul 2026", "resumen": {"alta": 5, "media": 11, "baja": 0, "total": 16, "hechas": 4}, "metas": [{"id": 1, "titulo": "Baseline del funnel vivo", "como_se_mide": "Funnel Lead→…→Cliente congelado y vivo", "fecha": "18 jul", "baseline": "Sin baseline", "actual": "En marcha (baseline en la Bitácora)", "objetivo": "Baseline publicado y vivo", "estado": "en marcha", "b_n": null, "a_n": null, "o_n": null}, {"id": 2, "titulo": "Mover la tasa más floja del funnel", "como_se_mide": "La peor tasa de conversión del embudo, mejorada vs baseline", "fecha": "31 jul", "baseline": "Oportunidad→Cliente: 7,0%", "actual": "7,0%", "objetivo": "Mejorarla vs baseline", "estado": "por empezar", "b_n": 7.0, "a_n": 7.0, "o_n": null}, {"id": 3, "titulo": "Revertir la caída de SEO: de 97 a ≥150 keywords rankeadas", "como_se_mide": "Nº de keywords rankeadas (posición e impresiones > 0)", "fecha": "31 jul", "baseline": "97 keywords", "actual": "por medir", "objetivo": "≥150 keywords", "estado": "por empezar", "b_n": 97, "a_n": null, "o_n": 150}], "recs": [{"prio": "alta", "area": "Google Ads", "icono": "🚫", "titulo": "Gastas en 11 términos de competidores/informacionales NUEVOS sin convertir (~$13.255 CLP; los ya bloqueados no cuentan)", "accion": "Revisa si son de campañas activas y agrégalos como palabras negativas (ver candidatos en Google Ads).", "link": "google-ads-tazki.html", "key": "dc7e078184", "metric": "Conversiones · CTR · cuota de impresiones", "meta": "general"}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'irl' perdió 155 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'irl' (título, encabezados, datos).", "link": "seo-tazki.html", "key": "33e9f69ceb", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'que significa irl' perdió 132 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'que significa irl' (título, encabezados, datos).", "link": "seo-tazki.html", "key": "9f1667cc68", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "alta", "area": "SEO", "icono": "📉", "titulo": "El contenido de 'que es el irl en prevencion' perdió 90 impresiones", "accion": "Refresca/actualiza el artículo que cubre 'que es el irl en prevencion' (título, encabezados, datos).", "link": "seo-tazki.html", "key": "bd56145a35", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "alta", "area": "SEO", "icono": "🎯", "titulo": "'software prevencion de riesgos' tiene 270 impresiones pero está en posición 22.9", "accion": "Optimiza el contenido para 'software prevencion de riesgos' y súbela al top 10.", "link": "seo-tazki.html", "key": "03352919b1", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "media", "area": "Blog", "icono": "📝", "titulo": "El post 'ART/AST y charla diaria: análisis de riesgos digital para tareas críticas' tiene solo 4 vistas", "accion": "Optimízalo (SEO on-page) o promuévelo en LinkedIn.", "link": "maquina-de-leads-tazki.html", "key": "5b699fc3e9", "metric": "Vistas del post", "meta": "general"}, {"prio": "media", "area": "Blog", "icono": "📝", "titulo": "El post 'Inducciones laborales: cómo digitalizar la ODI, el reglamento y la firma antes del primer día' tiene solo 9 vistas", "accion": "Optimízalo (SEO on-page) o promuévelo en LinkedIn.", "link": "maquina-de-leads-tazki.html", "key": "ac0be02e72", "metric": "Vistas del post", "meta": "general"}, {"prio": "media", "area": "Conversaciones", "icono": "💬", "titulo": "La objeción 'Dudas sobre la validez legal y el flujo de la firma digital, y necesidad de dispositivos o equipos adicionales' aparece seguido en las ventas", "accion": "Crea contenido que la responda y agrégalo al Calendario.", "link": "conversaciones-tazki.html", "key": "0c73db5404", "metric": "Objeciones en reuniones", "meta": "general"}, {"prio": "media", "area": "Conversaciones", "icono": "💬", "titulo": "La objeción 'Restricciones presupuestarias y falta de referencias de precio para justificar la inversión' aparece seguido en las ventas", "accion": "Crea contenido que la responda y agrégalo al Calendario.", "link": "conversaciones-tazki.html", "key": "4cd835fd5e", "metric": "Objeciones en reuniones", "meta": "general"}, {"prio": "media", "area": "Conversión", "icono": "🔻", "titulo": "El mayor salto del embudo es Oportunidad→Cliente (se cae 93%)", "accion": "Revisa ese paso: ¿faltan reuniones o seguimiento?", "link": "embudo-tazki.html", "key": "00bf094c15", "metric": "Tasa de conversión del embudo · costo por MQL", "meta": 2}, {"prio": "media", "area": "GA4", "icono": "🌐", "titulo": "GA4 marca 0 conversiones (no hay evento clave configurado)", "accion": "Marca un evento clave (formulario enviado) en GA4 para medir conversiones.", "link": "ga4-tazki.html", "key": "bf3a35bc19", "metric": "Conversiones GA4", "meta": 2}, {"prio": "media", "area": "Google Ads", "icono": "💸", "titulo": "8 keywords con Quality Score bajo (1-3) están caras", "accion": "Mejora la relevancia anuncio/landing o pausa esas keywords.", "link": "google-ads-tazki.html", "key": "11607132a9", "metric": "Conversiones · CTR · cuota de impresiones", "meta": "general"}, {"prio": "media", "area": "SEO", "icono": "🎯", "titulo": "'miper' tiene 89 impresiones pero está en posición 12.5", "accion": "Optimiza el contenido para 'miper' y súbela al top 10.", "link": "seo-tazki.html", "key": "2579a43951", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "media", "area": "SEO", "icono": "🎯", "titulo": "'que significa irl' tiene 82 impresiones pero está en posición 11.1", "accion": "Optimiza el contenido para 'que significa irl' y súbela al top 10.", "link": "seo-tazki.html", "key": "c3ad536fc7", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "media", "area": "SEO", "icono": "📈", "titulo": "'miper' está creciendo (+89 impresiones)", "accion": "Crea contenido adicional / clúster sobre 'miper'.", "link": "seo-tazki.html", "key": "4a503c2d96", "metric": "Posición no-marca · impresiones · clics", "meta": 3}, {"prio": "media", "area": "SEO", "icono": "🧭", "titulo": "La posición no-marca promedio empeoró (de 10 a 11.6)", "accion": "Revisa en el panel SEO los términos que más cayeron.", "link": "seo-tazki.html", "key": "ab8abf9a09", "metric": "Posición no-marca · impresiones · clics", "meta": 3}], "done": [{"date": "13 jul 2026", "area": "Google Ads", "titulo": "Palabras clave negativas de competidores aplicadas", "key": "3fc3a4c3d0", "nota": "11-13 jul: negativas de competidores e informacionales cargadas en las 2 campañas activas."}, {"date": "13 jul 2026", "area": "Landing", "titulo": "Claim de exclusividad DT corregido", "key": "c4e3875475", "nota": "'Único software con resolución DT' → 'La DT validó nuestra firma (Ord. N°908)' en prevención y marca."}, {"date": "13 jul 2026", "area": "Landing", "titulo": "Pruebas A/B configuradas", "key": "02e1fd74fd", "nota": "A/B nativo de HubSpot en las 2 landings de campaña (mismo URL, 50/50)."}, {"date": "13 jul 2026", "area": "Medición", "titulo": "Clarity conectado", "key": "79ed56ee05", "nota": "Microsoft Clarity midiendo comportamiento de las landings."}]};
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const R = REC.resumen;
@@ -167,6 +247,48 @@ const PR_LABEL={alta:'Alta',media:'Media',baja:'Baja'};
 const areas=[...new Set(REC.recs.map(r=>r.area))];
 const state={prio:'todas',area:'todas'};
 
+// ---- localStorage: casilla por rec.key ----
+function lsChecked(k){ try{return localStorage.getItem(k)==='1';}catch(e){return false;} }
+function lsSet(k,v){ try{ if(v){localStorage.setItem(k,'1');}else{localStorage.removeItem(k);} }catch(e){} }
+
+function updateCounter(){
+  const tot=REC.recs.length;
+  let hechas=0; REC.recs.forEach(r=>{ if(lsChecked(r.key)) hechas++; });
+  const pend=tot-hechas;
+  const el=document.getElementById('counter');
+  if(el) el.innerHTML=`Pendientes: <b>${pend}</b> <span class="sep">·</span> Hechas: <b>${hechas}</b>`;
+}
+
+// ---- Metas del mes ----
+function renderMetas(){
+  const box=document.getElementById('metas');
+  const metas=REC.metas||[];
+  if(!metas.length){box.innerHTML='';return;}
+  box.innerHTML=metas.map(m=>{
+    const st=(m.estado||'').toLowerCase();
+    const estCls=st==='en marcha'?'en-marcha':(st==='listo'?'listo':'por-empezar');
+    let bar='';
+    if(typeof m.b_n==='number' && typeof m.o_n==='number'){
+      const span=m.o_n-m.b_n;
+      let fillPct=0;
+      if(typeof m.a_n==='number' && span) fillPct=Math.max(0,Math.min(100,((m.a_n-m.b_n)/span)*100));
+      bar=`<div class="track"><div class="fill" style="width:${fillPct}%"></div></div>`;
+    }
+    return `<div class="meta">
+      <div class="mh"><span class="mtag">Meta ${m.id}</span><span class="mdate">📅 ${esc(m.fecha)}</span></div>
+      <div class="mt">${esc(m.titulo)}</div>
+      <div class="mm"><b>Cómo se mide:</b> ${esc(m.como_se_mide)}</div>
+      ${bar}
+      <div class="bao">
+        <div class="c"><span class="k">Baseline</span><span class="v">${esc(m.baseline)}</span></div>
+        <div class="c"><span class="k">Actual</span><span class="v ac-v">${esc(m.actual)}</span></div>
+        <div class="c r"><span class="k">Objetivo</span><span class="v">${esc(m.objetivo)}</span></div>
+      </div>
+      <span class="est ${estCls}">${esc(m.estado)}</span>
+    </div>`;
+  }).join('');
+}
+
 function buildFilters(){
   const prios=['todas','alta','media','baja'];
   let h='<span class="flabel">Prioridad</span><div class="fg" data-k="prio">'+
@@ -184,26 +306,69 @@ function buildFilters(){
   });
 }
 
+function metaTag(m){
+  if(m==='general'||m===undefined||m===null||m==='')
+    return '<span class="metatag gen">🎯 General</span>';
+  return `<span class="metatag">🎯 Meta ${esc(m)}</span>`;
+}
+
 function render(){
   const list=REC.recs.filter(r=>(state.prio==='todas'||r.prio===state.prio)&&(state.area==='todas'||r.area===state.area));
   const box=document.getElementById('recs');
-  if(!list.length){box.innerHTML='<div class="empty">No hay recomendaciones con estos filtros.</div>';return;}
-  box.innerHTML=list.map(r=>`
-    <div class="rec">
+  if(!list.length){box.innerHTML='<div class="empty">No hay recomendaciones con estos filtros.</div>';updateCounter();return;}
+  box.innerHTML=list.map(r=>{
+    const done=lsChecked(r.key);
+    return `
+    <div class="rec task ${done?'done-local':''}" data-key="${esc(r.key)}">
+      <label class="ckbox"><input type="checkbox" ${done?'checked':''} aria-label="Marcar tarea hecha"></label>
       <div class="ico">${r.icono}</div>
       <div class="body">
         <div class="chips">
           <span class="chip pr-${r.prio}">${PR_LABEL[r.prio]}</span>
           <span class="chip area">${esc(r.area)}</span>
+          ${metaTag(r.meta)}
         </div>
         <div class="titulo">${esc(r.titulo)}</div>
         <div class="accion"><span class="ck">✓</span><span><b>${esc(r.accion)}</b></span></div>
+        <div class="mide"><span class="lb"><span class="em">📏</span> Te mide:</span><span>${esc(r.metric||'—')}</span></div>
         <div class="link"><a href="${esc(r.link)}">Ver panel →</a></div>
+      </div>
+    </div>`;}).join('');
+  box.querySelectorAll('.rec.task').forEach(row=>{
+    const key=row.getAttribute('data-key');
+    const cb=row.querySelector('input[type=checkbox]');
+    cb.addEventListener('change',()=>{
+      lsSet(key,cb.checked);
+      row.classList.toggle('done-local',cb.checked);
+      updateCounter();
+    });
+  });
+  updateCounter();
+}
+
+// ---- Historial de cumplimiento (agrupado por fecha, más reciente arriba) ----
+function renderHist(){
+  const done=REC.done||[];
+  const hc=document.getElementById('histcount');
+  if(hc) hc.textContent=done.length?`${done.length} completada${done.length===1?'':'s'}`:'';
+  const box=document.getElementById('hist');
+  if(!done.length){box.innerHTML='<div class="empty">Aún no hay tareas en el historial.</div>';return;}
+  const groups=[]; const idx={};
+  done.forEach(d=>{const dt=d.date||'—'; if(!(dt in idx)){idx[dt]=groups.length; groups.push({date:dt,items:[]});} groups[idx[dt]].items.push(d);});
+  box.innerHTML=groups.map(g=>`
+    <div class="day">
+      <div class="daylbl">${esc(g.date)}</div>
+      <div class="items">
+        ${g.items.map(it=>`<div class="hlog"><span class="chk">✔</span><div class="hbody">
+          <div class="htop"><span class="chip area">${esc(it.area)}</span><span class="htit">${esc(it.titulo)}</span></div>
+          <div class="hnota">${esc(it.nota||'')}</div></div></div>`).join('')}
       </div>
     </div>`).join('');
 }
 
+renderMetas();
 buildFilters();
 render();
+renderHist();
 </script>
 </body></html>
