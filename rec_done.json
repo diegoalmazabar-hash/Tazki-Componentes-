@@ -1,6 +1,13 @@
 [
   {
     "date": "13 jul 2026",
+    "area": "SEO",
+    "titulo": "Post IRL: título y meta optimizados para CTR",
+    "key": "a548933ec5",
+    "nota": "Diego actualizó título, meta e intro del post IRL en HubSpot para mejorar el CTR (Meta 3). Marcado manualmente."
+  },
+  {
+    "date": "13 jul 2026",
     "area": "Google Ads",
     "titulo": "Palabras clave negativas de competidores aplicadas",
     "key": "3fc3a4c3d0",
