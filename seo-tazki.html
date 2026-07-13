@@ -191,6 +191,59 @@ function tzToggle(){document.getElementById('tzSide').classList.toggle('open');d
     <div class="foot" id="kwFoot"></div>
   </div>
 
+
+  <!-- SEOREAL:START -->
+  <div class="card" id="seoRealCard">
+    <h2>🎯 Keywords reales (sin marca)</h2>
+    <div class="sub">Baseline propio (Meta 3): posición, impresiones y CTR de las palabras clave <b>no-marca</b> — se excluye "tazki/taski" y sus errores de tipeo. Datos Search Console, últimos 28 días.</div>
+    <div class="kpis" id="srKpis"></div>
+    <div class="movers" style="margin-top:6px">
+      <div class="mv" style="min-width:0">
+        <h3>✍️ Mejorar CTR <span style="color:var(--ink-3);font-weight:500">· mucha impresión, poco clic</span></h3>
+        <div class="chart-scroll"><table id="srCtr"></table></div>
+      </div>
+      <div class="mv" style="min-width:0">
+        <h3>⬆️ Empujar posición <span style="color:var(--ink-3);font-weight:500">· casi en el top</span></h3>
+        <div class="chart-scroll"><table id="srPos"></table></div>
+      </div>
+    </div>
+    <div class="note" id="srNote"></div>
+  </div>
+  <script>
+  (function(){
+    const D={"updated": "13 jul 2026", "baseline": {"n_keywords": 461, "impresiones_total": 5771, "clics_total": 13, "ctr": 0.23, "posicion_media": 11.6}, "ctr_ops": [{"q": "irl", "impr": 1600, "clk": 0, "ctr": 0.0, "pos": 8.6}, {"q": "odi", "impr": 365, "clk": 0, "ctr": 0.0, "pos": 5.6}, {"q": "que es el irl", "impr": 127, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que es la irl", "impr": 111, "clk": 0, "ctr": 0.0, "pos": 7.2}, {"q": "que significa irl", "impr": 92, "clk": 0, "ctr": 0.0, "pos": 11.0}, {"q": "que es irl", "impr": 82, "clk": 0, "ctr": 0.0, "pos": 9.4}, {"q": "irl que es", "impr": 72, "clk": 1, "ctr": 1.39, "pos": 9.5}, {"q": "entrega de epp", "impr": 70, "clk": 1, "ctr": 1.43, "pos": 15.5}, {"q": "que es el irl en prevencion de riesgos", "impr": 65, "clk": 0, "ctr": 0.0, "pos": 5.0}, {"q": "odi o irl", "impr": 63, "clk": 0, "ctr": 0.0, "pos": 3.8}], "pos_ops": [{"q": "irl", "impr": 1600, "clk": 0, "ctr": 0.0, "pos": 8.6}, {"q": "que es el irl", "impr": 127, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que significa irl", "impr": 92, "clk": 0, "ctr": 0.0, "pos": 11.0}, {"q": "miper", "impr": 89, "clk": 2, "ctr": 2.25, "pos": 12.5}, {"q": "que es irl", "impr": 82, "clk": 0, "ctr": 0.0, "pos": 9.4}, {"q": "irl que es", "impr": 72, "clk": 1, "ctr": 1.39, "pos": 9.5}, {"q": "entrega de epp", "impr": 70, "clk": 1, "ctr": 1.43, "pos": 15.5}, {"q": "app prevención de riesgos", "impr": 56, "clk": 1, "ctr": 1.79, "pos": 14.9}, {"q": "que es irl en chile", "impr": 52, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que es irl en seguridad", "impr": 47, "clk": 0, "ctr": 0.0, "pos": 8.5}], "nota": "Solo keywords no-marca; excluye 'tazki/taski' y errores de tipeo. Datos Search Console últimos 28 días."};
+    const f0=new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
+    const f1=new Intl.NumberFormat('es-CL',{maximumFractionDigits:1});
+    const f2=new Intl.NumberFormat('es-CL',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const b=D.baseline||{};
+    const kpis=[
+      {lbl:'Palabras clave',val:f0.format(b.n_keywords),sub:'no-marca con impresiones',c:'var(--se)'},
+      {lbl:'Posición media',val:f1.format(b.posicion_media),sub:'ponderada · menor = mejor',c:'var(--c-pos)'},
+      {lbl:'Impresiones',val:f0.format(b.impresiones_total),sub:'últimos 28 días',c:'var(--c-imp)'},
+      {lbl:'CTR',val:f2.format(b.ctr)+'%',sub:b.clics_total+' clics / '+f0.format(b.impresiones_total)+' impr.',c:'var(--c-ctr)'},
+    ];
+    document.getElementById('srKpis').innerHTML=kpis.map(k=>`
+      <div class="kpi"><span class="lbl"><i class="dot" style="background:${k.c}"></i>${k.lbl}</span>
+      <span class="val">${k.val}</span><span class="sub">${k.sub}</span></div>`).join('');
+    function tbl(rows,accion){
+      const head=`<thead><tr><th>Palabra clave</th><th class="num">Impres.</th><th class="num">CTR</th><th class="num">Pos.</th><th>Acción sugerida</th></tr></thead>`;
+      const body=(rows&&rows.length)?rows.map(r=>`<tr>
+        <td class="q" title="${e(r.q)}">${e(r.q)}</td>
+        <td class="num">${f0.format(r.impr)}</td>
+        <td class="num">${f2.format(r.ctr)}%</td>
+        <td class="num">${f1.format(r.pos)}</td>
+        <td style="color:var(--ink-2)">${accion}</td></tr>`).join('')
+        :`<tr><td colspan="5" style="color:var(--ink-3)">Sin oportunidades en el rango.</td></tr>`;
+      return head+'<tbody>'+body+'</tbody>';
+    }
+    document.getElementById('srCtr').innerHTML=tbl(D.ctr_ops,'Reescribir título / meta description');
+    document.getElementById('srPos').innerHTML=tbl(D.pos_ops,'Reforzar / optimizar el contenido');
+    document.getElementById('srNote').innerHTML=e(D.nota)+' · Baseline fijado el '+e(D.updated)+'.';
+  })();
+  </script>
+<!-- SEOREAL:END -->
+
   <div class="card">
     <h2>Sobre este panel</h2>
     <div class="note">Datos de <b>Google Search Console</b> (dominios tazki.cl y soluciones.tazki.cl) vía Supermetrics, actualizados a diario. Muestra el rendimiento <b>real (no-marca)</b>: se excluyen las búsquedas de "tazki" y sus variantes mal escritas, para que veas cómo posicionas por temas de prevención, no por tu propio nombre. La <b>posición</b> es el promedio en Google (1 = arriba de todo); bajarla es mejorar. Cada 3 días te llega un resumen por chat con lo que subió y bajó.</div>
