@@ -488,7 +488,7 @@ function nextFreeDate(){
 function addIdea(idx){
   const i=IDEAS[idx];if(!i)return;
   const date=nextFreeDate();
-  const it={id:uid(),title:i.titulo,channel:i.canal,date,status:'idea',topic:i.kw||i.grupo,note:'',lead:LEAD_CH.has(i.canal)};
+  const it={id:uid(),title:i.titulo,channel:i.canal,date,status:'idea',topic:i.kw||'',note:'',lead:LEAD_CH.has(i.canal)};
   items.push(it);save();
   // saltar al mes de la fecha creada
   const p=date.split('-').map(Number);curY=p[0];curM=p[1]-1;
