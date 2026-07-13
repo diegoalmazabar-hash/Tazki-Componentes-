@@ -4,9 +4,10 @@
     "area": "SEO",
     "meta": 3,
     "titulo": "Post IRL: título y meta optimizados para CTR",
-    "check": "sc_page_title_nonempty",
+    "check": "sc_page_title_changed",
     "url": "https://tazki.cl/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion/",
     "top_query": "irl",
-    "done_note": "Detectado en Search Console: la página del post IRL ya tiene título/meta (el 13 jul estaban vacíos)."
+    "baseline_title": "Obligación de Informar (ODI) vs Información de los Riesgos Laborales (IRL)",
+    "done_note": "Detectado en Search Console: cambiaste el título del post IRL para mejorar el CTR (Meta 3)."
   }
 ]
