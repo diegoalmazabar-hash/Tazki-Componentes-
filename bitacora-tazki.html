@@ -162,15 +162,25 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
 
   <div class="kpis" id="kpis"></div>
 
+  <div class="card" style="border-left:4px solid #475569">
+    <h2 style="margin-top:0">👀 Cómo leer esto en 10 segundos</h2>
+    <div class="sub" style="font-size:14px;line-height:1.6">
+      Este panel te dice <strong>si tus cambios están funcionando</strong>. Mezcla 2 tipos de dato a propósito:<br>
+      · <strong>🔒 Congelado</strong> — el <strong>baseline</strong> y el <strong>registro de cambios</strong>: la foto de partida de hoy. No cambia; es tu punto de comparación.<br>
+      · <strong>🔄 Vivo</strong> — el <strong>comportamiento en Clarity</strong>: se actualiza a diario.<br>
+      No hay nada que hacer acá — es de <strong>lectura</strong>. Su valor aparece con el tiempo: vuelve en unos días y compara el <em>antes</em> (congelado) con el <em>ahora</em>.
+    </div>
+  </div>
+
   <div class="card">
-    <h2>Comportamiento de landings · Microsoft Clarity</h2>
+    <h2>Comportamiento de landings · Microsoft Clarity <span style="font-size:12px;font-weight:700;color:#0369a1;background:#e0f2fe;padding:3px 9px;border-radius:999px;vertical-align:middle;margin-left:6px">🔄 Se actualiza a diario</span></h2>
     <div class="sub" id="clSub"></div>
     <div class="lgrid" id="landings"></div>
     <div class="foot" id="clFoot"></div>
   </div>
 
   <div class="card">
-    <h2>Baseline congelado</h2>
+    <h2>Baseline congelado <span style="font-size:12px;font-weight:700;color:#475569;background:#e2e8f0;padding:3px 9px;border-radius:999px;vertical-align:middle;margin-left:6px">🔒 Foto de partida · no cambia</span></h2>
     <div class="sub">Métricas base capturadas hoy para medir el efecto de los cambios de aquí en adelante. Cada valor queda fechado con su fuente.</div>
     <div class="chart-scroll"><table>
       <thead><tr><th>Métrica</th><th class="num">Valor</th><th>Fecha</th><th>Fuente</th></tr></thead>
