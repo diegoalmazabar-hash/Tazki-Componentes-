@@ -222,19 +222,19 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
 <script>
 const DIIO = {
   "domain": "Conversaciones · DiIO",
-  "updated": "13 jul 2026",
+  "updated": "14 jul 2026",
   "account": "TAZKI",
   "kpi": {
-    "conv": 126,
+    "conv": 146,
     "convP": 219,
     "perf": 8.01,
-    "perfP": 8.00,
+    "perfP": 7.99,
     "sent": 2.93,
     "sentP": 2.92,
-    "odds": 4.49,
-    "oddsP": 4.66,
-    "ventas_share": 47.6,
-    "total6m": 575
+    "odds": 4.50,
+    "oddsP": 4.65,
+    "ventas_share": 47.2,
+    "total6m": 595
   },
   "monthly": [
     {"ds": "2026-01-01", "lab": "ene 26", "conv": 5,   "perf": 7.40, "sent": 3.00, "odds": 4.00},
@@ -242,8 +242,8 @@ const DIIO = {
     {"ds": "2026-03-01", "lab": "mar 26", "conv": 33,  "perf": 7.41, "sent": 2.88, "odds": 3.94},
     {"ds": "2026-04-01", "lab": "abr 26", "conv": 86,  "perf": 7.67, "sent": 2.92, "odds": 4.34},
     {"ds": "2026-05-01", "lab": "may 26", "conv": 95,  "perf": 7.74, "sent": 2.89, "odds": 4.37},
-    {"ds": "2026-06-01", "lab": "jun 26", "conv": 219, "perf": 8.00, "sent": 2.92, "odds": 4.66},
-    {"ds": "2026-07-01", "lab": "jul 26", "conv": 126, "perf": 8.01, "sent": 2.93, "odds": 4.49, "cur": true}
+    {"ds": "2026-06-01", "lab": "jun 26", "conv": 219, "perf": 7.99, "sent": 2.92, "odds": 4.65},
+    {"ds": "2026-07-01", "lab": "jul 26", "conv": 146, "perf": 8.01, "sent": 2.93, "odds": 4.50, "cur": true}
   ],
   "metric_labels": {
     "conv": "Conversaciones",
@@ -252,32 +252,32 @@ const DIIO = {
     "odds": "Prob. éxito (/5)"
   },
   "playbooks": [
-    {"name": "Reunión de ventas", "n": 236},
-    {"name": "Onboarding · Capacitación", "n": 77},
-    {"name": "Seguimiento", "n": 52},
-    {"name": "Postventa", "n": 39},
+    {"name": "Reunión de ventas", "n": 242},
+    {"name": "Onboarding · Capacitación", "n": 82},
+    {"name": "Seguimiento", "n": 54},
+    {"name": "Postventa", "n": 41},
     {"name": "Handoff", "n": 29},
-    {"name": "Onboarding · Status", "n": 26},
+    {"name": "Onboarding · Status", "n": 27},
     {"name": "Interna del equipo", "n": 25},
-    {"name": "Onboarding · Kick-off", "n": 5},
+    {"name": "Onboarding · Kick-off", "n": 6},
     {"name": "Venta (mensajes)", "n": 4},
     {"name": "Prospección", "n": 3}
   ],
   "pains": [
-    {"theme": "Sobrecarga administrativa y procesos manuales que generan pérdida de tiempo y retrabajo", "level": "alta"},
-    {"theme": "Dependencia del papel y documentación dispersa, sin repositorio digital centralizado", "level": "alta"},
-    {"theme": "Control y registro deficiente de entrega de EPP y obtención de firmas", "level": "alta"},
-    {"theme": "Exposición a fiscalizaciones recurrentes y dudas sobre trazabilidad y validez legal de los registros", "level": "media"},
-    {"theme": "Dificultad para supervisar trabajadores en terreno y gestionar la documentación de contratistas", "level": "media"},
-    {"theme": "Gestión ineficiente de capacitaciones, hallazgos e indicadores HSEQ sin sistema unificado", "level": "media"}
+    {"theme": "Dependencia de procesos manuales y en papel que generan una alta carga administrativa e ineficiencia operativa", "level": "alta"},
+    {"theme": "Información dispersa y falta de centralización documental, fragmentada en múltiples carpetas, planillas y plataformas", "level": "alta"},
+    {"theme": "Riesgo de incumplimiento legal y vulnerabilidad ante fiscalizaciones por falta de trazabilidad y respaldo documental", "level": "alta"},
+    {"theme": "Gestión deficiente del control, entrega y seguimiento de los elementos de protección personal (EPP)", "level": "media"},
+    {"theme": "Ausencia de indicadores centralizados y dificultad para extraer reportes y datos flexibles para análisis", "level": "media"},
+    {"theme": "Resistencia al cambio y baja alfabetización digital del personal operativo en terreno frente a nuevas herramientas", "level": "baja"}
   ],
   "objections": [
-    {"theme": "Dudas sobre la validez legal y el flujo de la firma digital, y necesidad de dispositivos o equipos adicionales", "level": "alta"},
-    {"theme": "Restricciones presupuestarias y falta de referencias de precio para justificar la inversión", "level": "alta"},
-    {"theme": "Resistencia cultural al cambio y limitaciones tecnológicas de los usuarios en terreno", "level": "alta"},
-    {"theme": "Falta de tiempo y alta carga laboral para evaluar o implementar la solución", "level": "media"},
-    {"theme": "Necesidad de integración con sistemas existentes (ERP y organismos externos)", "level": "media"},
-    {"theme": "Procesos internos de aprobación con múltiples decisores", "level": "baja"}
+    {"theme": "Falta de tiempo, personal y recursos internos para dedicar a la implementación y la carga inicial de datos", "level": "alta"},
+    {"theme": "Preocupación por la seguridad y confidencialidad de los datos, con exigencias de ciberseguridad y firma de NDA", "level": "alta"},
+    {"theme": "Fallas técnicas recurrentes e inestabilidad de la plataforma, con retrocesos de configuraciones tras las actualizaciones", "level": "alta"},
+    {"theme": "Desorden de la información existente que dificulta definir y planificar la migración y carga inicial de datos", "level": "media"},
+    {"theme": "Duplicidad de esfuerzos y dudas sobre la integración con los sistemas y software que ya utilizan", "level": "media"},
+    {"theme": "Decisiones internas pendientes y dependencia de terceros o áreas externas para poder avanzar en el proceso", "level": "baja"}
   ]
 };
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
