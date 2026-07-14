@@ -217,59 +217,6 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     <div class="foot" id="kwFoot"></div>
   </div>
 
-
-  <!-- SEOREAL:START -->
-  <div class="card" id="seoRealCard">
-    <h2>🎯 Keywords reales (sin marca)</h2>
-    <div class="sub">Baseline propio (Meta 3): posición, impresiones y CTR de las palabras clave <b>no-marca</b> — se excluye "tazki/taski" y sus errores de tipeo. Datos Search Console, últimos 28 días.</div>
-    <div class="kpis" id="srKpis"></div>
-    <div class="movers" style="margin-top:6px">
-      <div class="mv" style="min-width:0">
-        <h3>✍️ Mejorar CTR <span style="color:var(--ink-3);font-weight:500">· mucha impresión, poco clic</span></h3>
-        <div class="chart-scroll"><table id="srCtr"></table></div>
-      </div>
-      <div class="mv" style="min-width:0">
-        <h3>⬆️ Empujar posición <span style="color:var(--ink-3);font-weight:500">· casi en el top</span></h3>
-        <div class="chart-scroll"><table id="srPos"></table></div>
-      </div>
-    </div>
-    <div class="note" id="srNote"></div>
-  </div>
-  <script>
-  (function(){
-    const D={"updated": "13 jul 2026", "baseline": {"n_keywords": 461, "impresiones_total": 5771, "clics_total": 13, "ctr": 0.23, "posicion_media": 11.6}, "ctr_ops": [{"q": "irl", "impr": 1600, "clk": 0, "ctr": 0.0, "pos": 8.6}, {"q": "odi", "impr": 365, "clk": 0, "ctr": 0.0, "pos": 5.6}, {"q": "que es el irl", "impr": 127, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que es la irl", "impr": 111, "clk": 0, "ctr": 0.0, "pos": 7.2}, {"q": "que significa irl", "impr": 92, "clk": 0, "ctr": 0.0, "pos": 11.0}, {"q": "que es irl", "impr": 82, "clk": 0, "ctr": 0.0, "pos": 9.4}, {"q": "irl que es", "impr": 72, "clk": 1, "ctr": 1.39, "pos": 9.5}, {"q": "entrega de epp", "impr": 70, "clk": 1, "ctr": 1.43, "pos": 15.5}, {"q": "que es el irl en prevencion de riesgos", "impr": 65, "clk": 0, "ctr": 0.0, "pos": 5.0}, {"q": "odi o irl", "impr": 63, "clk": 0, "ctr": 0.0, "pos": 3.8}], "pos_ops": [{"q": "irl", "impr": 1600, "clk": 0, "ctr": 0.0, "pos": 8.6}, {"q": "que es el irl", "impr": 127, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que significa irl", "impr": 92, "clk": 0, "ctr": 0.0, "pos": 11.0}, {"q": "miper", "impr": 89, "clk": 2, "ctr": 2.25, "pos": 12.5}, {"q": "que es irl", "impr": 82, "clk": 0, "ctr": 0.0, "pos": 9.4}, {"q": "irl que es", "impr": 72, "clk": 1, "ctr": 1.39, "pos": 9.5}, {"q": "entrega de epp", "impr": 70, "clk": 1, "ctr": 1.43, "pos": 15.5}, {"q": "app prevención de riesgos", "impr": 56, "clk": 1, "ctr": 1.79, "pos": 14.9}, {"q": "que es irl en chile", "impr": 52, "clk": 0, "ctr": 0.0, "pos": 8.4}, {"q": "que es irl en seguridad", "impr": 47, "clk": 0, "ctr": 0.0, "pos": 8.5}], "nota": "Solo keywords no-marca; excluye 'tazki/taski' y errores de tipeo. Datos Search Console últimos 28 días."};
-    const f0=new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
-    const f1=new Intl.NumberFormat('es-CL',{maximumFractionDigits:1});
-    const f2=new Intl.NumberFormat('es-CL',{minimumFractionDigits:2,maximumFractionDigits:2});
-    const e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    const b=D.baseline||{};
-    const kpis=[
-      {lbl:'Palabras clave',val:f0.format(b.n_keywords),sub:'no-marca con impresiones',c:'var(--se)'},
-      {lbl:'Posición media',val:f1.format(b.posicion_media),sub:'ponderada · menor = mejor',c:'var(--c-pos)'},
-      {lbl:'Impresiones',val:f0.format(b.impresiones_total),sub:'últimos 28 días',c:'var(--c-imp)'},
-      {lbl:'CTR',val:f2.format(b.ctr)+'%',sub:b.clics_total+' clics / '+f0.format(b.impresiones_total)+' impr.',c:'var(--c-ctr)'},
-    ];
-    document.getElementById('srKpis').innerHTML=kpis.map(k=>`
-      <div class="kpi"><span class="lbl"><i class="dot" style="background:${k.c}"></i>${k.lbl}</span>
-      <span class="val">${k.val}</span><span class="sub">${k.sub}</span></div>`).join('');
-    function tbl(rows,accion){
-      const head=`<thead><tr><th>Palabra clave</th><th class="num">Impres.</th><th class="num">CTR</th><th class="num">Pos.</th><th>Acción sugerida</th></tr></thead>`;
-      const body=(rows&&rows.length)?rows.map(r=>`<tr>
-        <td class="q" title="${e(r.q)}">${e(r.q)}</td>
-        <td class="num">${f0.format(r.impr)}</td>
-        <td class="num">${f2.format(r.ctr)}%</td>
-        <td class="num">${f1.format(r.pos)}</td>
-        <td style="color:var(--ink-2)">${accion}</td></tr>`).join('')
-        :`<tr><td colspan="5" style="color:var(--ink-3)">Sin oportunidades en el rango.</td></tr>`;
-      return head+'<tbody>'+body+'</tbody>';
-    }
-    document.getElementById('srCtr').innerHTML=tbl(D.ctr_ops,'Reescribir título / meta description');
-    document.getElementById('srPos').innerHTML=tbl(D.pos_ops,'Reforzar / optimizar el contenido');
-    document.getElementById('srNote').innerHTML=e(D.nota)+' · Baseline fijado el '+e(D.updated)+'.';
-  })();
-  </script>
-<!-- SEOREAL:END -->
-
   <div class="card">
     <h2>Sobre este panel</h2>
     <div class="note">Datos de <b>Google Search Console</b> (dominios tazki.cl y soluciones.tazki.cl) vía Supermetrics, actualizados a diario. Muestra el rendimiento <b>real (no-marca)</b>: se excluyen las búsquedas de "tazki" y sus variantes mal escritas, para que veas cómo posicionas por temas de prevención, no por tu propio nombre. La <b>posición</b> es el promedio en Google (1 = arriba de todo); bajarla es mejorar. Cada 3 días te llega un resumen por chat con lo que subió y bajó.</div>
@@ -278,7 +225,1626 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
 <div id="seoTip"></div>
 
 <script>
-const SEO = {"domain": "tazki.cl + soluciones.tazki.cl", "updated": "13 jul 2026", "kpi": {"kw": 431, "kwP": 440, "imp": 5486, "impP": 6347, "clk": 10, "clkP": 24, "pos": 11.6, "posP": 10.0, "ctr": 0.2, "ctrP": 0.4}, "weekly": [{"ds": "2026-01-12", "lab": "12 ene", "imp": 6461, "clk": 36, "pos": 22.1, "ctr": 0.6}, {"ds": "2026-01-19", "lab": "19 ene", "imp": 6127, "clk": 30, "pos": 20.7, "ctr": 0.5}, {"ds": "2026-01-26", "lab": "26 ene", "imp": 5533, "clk": 32, "pos": 22.3, "ctr": 0.6}, {"ds": "2026-02-02", "lab": "2 feb", "imp": 4588, "clk": 41, "pos": 21.6, "ctr": 0.9}, {"ds": "2026-02-09", "lab": "9 feb", "imp": 4198, "clk": 38, "pos": 22.4, "ctr": 0.9}, {"ds": "2026-02-16", "lab": "16 feb", "imp": 3523, "clk": 34, "pos": 20.5, "ctr": 1.0}, {"ds": "2026-02-23", "lab": "23 feb", "imp": 3333, "clk": 41, "pos": 21.1, "ctr": 1.2}, {"ds": "2026-03-02", "lab": "2 mar", "imp": 3317, "clk": 43, "pos": 14.5, "ctr": 1.3}, {"ds": "2026-03-09", "lab": "9 mar", "imp": 2816, "clk": 32, "pos": 12.6, "ctr": 1.1}, {"ds": "2026-03-16", "lab": "16 mar", "imp": 3233, "clk": 39, "pos": 12.7, "ctr": 1.2}, {"ds": "2026-03-23", "lab": "23 mar", "imp": 3031, "clk": 32, "pos": 12.6, "ctr": 1.1}, {"ds": "2026-03-30", "lab": "30 mar", "imp": 2522, "clk": 35, "pos": 11.9, "ctr": 1.4}, {"ds": "2026-04-06", "lab": "6 abr", "imp": 2883, "clk": 49, "pos": 10.6, "ctr": 1.7}, {"ds": "2026-04-13", "lab": "13 abr", "imp": 2370, "clk": 59, "pos": 12.4, "ctr": 2.5}, {"ds": "2026-04-20", "lab": "20 abr", "imp": 1394, "clk": 51, "pos": 17.5, "ctr": 3.7}, {"ds": "2026-04-27", "lab": "27 abr", "imp": 1717, "clk": 42, "pos": 17.0, "ctr": 2.4}, {"ds": "2026-05-04", "lab": "4 may", "imp": 2369, "clk": 68, "pos": 19.0, "ctr": 2.9}, {"ds": "2026-05-11", "lab": "11 may", "imp": 2163, "clk": 53, "pos": 16.1, "ctr": 2.5}, {"ds": "2026-05-18", "lab": "18 may", "imp": 1505, "clk": 40, "pos": 11.2, "ctr": 2.7}, {"ds": "2026-05-25", "lab": "25 may", "imp": 1686, "clk": 48, "pos": 8.8, "ctr": 2.8}, {"ds": "2026-06-01", "lab": "1 jun", "imp": 2040, "clk": 64, "pos": 8.9, "ctr": 3.1}, {"ds": "2026-06-08", "lab": "8 jun", "imp": 1434, "clk": 62, "pos": 10.0, "ctr": 4.3}, {"ds": "2026-06-15", "lab": "15 jun", "imp": 1529, "clk": 36, "pos": 10.0, "ctr": 2.4}, {"ds": "2026-06-22", "lab": "22 jun", "imp": 1275, "clk": 37, "pos": 10.3, "ctr": 2.9}, {"ds": "2026-06-29", "lab": "29 jun", "imp": 1299, "clk": 39, "pos": 11.1, "ctr": 3.0}, {"ds": "2026-07-06", "lab": "6 jul", "imp": 1975, "clk": 48, "pos": 13.3, "ctr": 2.4}, {"ds": "2026-07-13", "lab": "13 jul", "imp": 6, "clk": 0, "pos": 15.7, "ctr": 0.0, "cur": true}], "monthly": [{"ds": "2025-07-01", "lab": "jul 25", "imp": 10201, "clk": 51, "pos": 39.7, "ctr": 0.5}, {"ds": "2025-08-01", "lab": "ago 25", "imp": 16577, "clk": 91, "pos": 37.9, "ctr": 0.5}, {"ds": "2025-09-01", "lab": "sep 25", "imp": 15830, "clk": 114, "pos": 21.4, "ctr": 0.7}, {"ds": "2025-10-01", "lab": "oct 25", "imp": 21462, "clk": 157, "pos": 12.9, "ctr": 0.7}, {"ds": "2025-11-01", "lab": "nov 25", "imp": 19300, "clk": 188, "pos": 13.9, "ctr": 1.0}, {"ds": "2025-12-01", "lab": "dic 25", "imp": 20486, "clk": 151, "pos": 22.7, "ctr": 0.7}, {"ds": "2026-01-01", "lab": "ene 26", "imp": 25675, "clk": 135, "pos": 22.3, "ctr": 0.5}, {"ds": "2026-02-01", "lab": "feb 26", "imp": 15959, "clk": 154, "pos": 21.9, "ctr": 1.0}, {"ds": "2026-03-01", "lab": "mar 26", "imp": 13737, "clk": 167, "pos": 13.3, "ctr": 1.2}, {"ds": "2026-04-01", "lab": "abr 26", "imp": 9398, "clk": 214, "pos": 13.1, "ctr": 2.3}, {"ds": "2026-05-01", "lab": "may 26", "imp": 8169, "clk": 211, "pos": 14.6, "ctr": 2.6}, {"ds": "2026-06-01", "lab": "jun 26", "imp": 6652, "clk": 209, "pos": 9.7, "ctr": 3.1}, {"ds": "2026-07-01", "lab": "jul 26", "imp": 2904, "clk": 77, "pos": 12.8, "ctr": 2.7, "cur": true}], "metric_labels": {"imp": "Impresiones", "clk": "Clics", "pos": "Posición", "ctr": "CTR (%)"}, "keywords": [{"q": "irl", "clk": 0, "imp": 1518, "pos": 8.6, "ctr": 0.0}, {"q": "odi", "clk": 0, "imp": 354, "pos": 5.7, "ctr": 0.0}, {"q": "software prevencion de riesgos", "clk": 3, "imp": 270, "pos": 22.9, "ctr": 1.1}, {"q": "que es el irl", "clk": 0, "imp": 124, "pos": 8.5, "ctr": 0.0}, {"q": "que es la irl", "clk": 0, "imp": 104, "pos": 7.2, "ctr": 0.0}, {"q": "miper", "clk": 2, "imp": 89, "pos": 12.5, "ctr": 2.2}, {"q": "que significa irl", "clk": 0, "imp": 82, "pos": 11.1, "ctr": 0.0}, {"q": "que es irl", "clk": 0, "imp": 79, "pos": 9.4, "ctr": 0.0}, {"q": "terraservice", "clk": 1, "imp": 77, "pos": 7.4, "ctr": 1.3}, {"q": "irl que es", "clk": 1, "imp": 69, "pos": 9.8, "ctr": 1.4}, {"q": "entrega de epp", "clk": 0, "imp": 67, "pos": 15.7, "ctr": 0.0}, {"q": "que es el irl en prevencion de riesgos", "clk": 0, "imp": 62, "pos": 4.8, "ctr": 0.0}, {"q": "odi o irl", "clk": 0, "imp": 61, "pos": 3.8, "ctr": 0.0}, {"q": "software prevencion", "clk": 0, "imp": 61, "pos": 25.5, "ctr": 0.0}, {"q": "software equipos menores", "clk": 0, "imp": 60, "pos": 33.7, "ctr": 0.0}, {"q": "app prevención de riesgos", "clk": 1, "imp": 54, "pos": 14.0, "ctr": 1.9}, {"q": "que significa irl en prevencion", "clk": 0, "imp": 50, "pos": 5.7, "ctr": 0.0}, {"q": "que es irl en chile", "clk": 0, "imp": 49, "pos": 8.5, "ctr": 0.0}, {"q": "irl que es prevencion", "clk": 0, "imp": 47, "pos": 7.4, "ctr": 0.0}, {"q": "que es irl en seguridad", "clk": 0, "imp": 45, "pos": 8.6, "ctr": 0.0}, {"q": "irl significado", "clk": 0, "imp": 42, "pos": 7.3, "ctr": 0.0}, {"q": "que significa odi", "clk": 0, "imp": 39, "pos": 5.3, "ctr": 0.0}, {"q": "irl prevencion", "clk": 0, "imp": 37, "pos": 7.0, "ctr": 0.0}, {"q": "software control de contratistas", "clk": 0, "imp": 37, "pos": 22.9, "ctr": 0.0}, {"q": "software de prevencion de riesgos", "clk": 0, "imp": 37, "pos": 1.2, "ctr": 0.0}, {"q": "la odi", "clk": 0, "imp": 36, "pos": 8.1, "ctr": 0.0}, {"q": "sistema de gestión contratistas", "clk": 0, "imp": 36, "pos": 38.0, "ctr": 0.0}, {"q": "art seguridad", "clk": 0, "imp": 34, "pos": 6.9, "ctr": 0.0}, {"q": "software para prevencion de riesgos", "clk": 0, "imp": 34, "pos": 1.2, "ctr": 0.0}, {"q": "software prevención de riesgos laborales", "clk": 0, "imp": 34, "pos": 20.5, "ctr": 0.0}, {"q": "registro irl", "clk": 0, "imp": 33, "pos": 5.7, "ctr": 0.0}, {"q": "software prevencion de riesgos laborales", "clk": 0, "imp": 33, "pos": 14.2, "ctr": 0.0}, {"q": "irl chile", "clk": 0, "imp": 32, "pos": 8.5, "ctr": 0.0}, {"q": "software gestión de contratistas", "clk": 0, "imp": 32, "pos": 24.0, "ctr": 0.0}, {"q": "que es odi", "clk": 0, "imp": 31, "pos": 6.5, "ctr": 0.0}, {"q": "que es la irl en prevencion de riesgos", "clk": 0, "imp": 30, "pos": 6.6, "ctr": 0.0}, {"q": "que es un irl en prevencion de riesgos", "clk": 0, "imp": 29, "pos": 6.0, "ctr": 0.0}, {"q": "que es una irl en prevención", "clk": 0, "imp": 29, "pos": 6.6, "ctr": 0.0}, {"q": "que es art en seguridad", "clk": 0, "imp": 26, "pos": 6.9, "ctr": 0.0}, {"q": "software para contratistas", "clk": 0, "imp": 26, "pos": 8.1, "ctr": 0.0}, {"q": "irl prevención de riesgos", "clk": 0, "imp": 25, "pos": 6.4, "ctr": 0.0}, {"q": "software riesgos laborales", "clk": 0, "imp": 25, "pos": 9.6, "ctr": 0.0}, {"q": "que es un irl", "clk": 0, "imp": 24, "pos": 9.4, "ctr": 0.0}, {"q": "software epp", "clk": 1, "imp": 23, "pos": 4.5, "ctr": 4.3}, {"q": "irl ds 44", "clk": 0, "imp": 22, "pos": 11.5, "ctr": 0.0}, {"q": "que es el irl en prevencion", "clk": 0, "imp": 22, "pos": 7.5, "ctr": 0.0}, {"q": "irl documento", "clk": 0, "imp": 21, "pos": 7.5, "ctr": 0.0}, {"q": "irl información de riesgos laborales", "clk": 0, "imp": 21, "pos": 7.1, "ctr": 0.0}, {"q": "irl seguridad", "clk": 0, "imp": 21, "pos": 5.8, "ctr": 0.0}, {"q": "hallazgos", "clk": 0, "imp": 20, "pos": 42.6, "ctr": 0.0}, {"q": "irl en prevencion", "clk": 0, "imp": 20, "pos": 6.3, "ctr": 0.0}, {"q": "software gestion prevencion riesgos laborales", "clk": 0, "imp": 19, "pos": 5.3, "ctr": 0.0}, {"q": "charla irl", "clk": 0, "imp": 18, "pos": 7.2, "ctr": 0.0}, {"q": "control contratistas", "clk": 0, "imp": 18, "pos": 43.4, "ctr": 0.0}, {"q": "informacion de riesgos laborales irl", "clk": 0, "imp": 18, "pos": 8.3, "ctr": 0.0}, {"q": "irl prevencionista de riesgos", "clk": 0, "imp": 18, "pos": 3.9, "ctr": 0.0}, {"q": "irl en seguridad", "clk": 0, "imp": 17, "pos": 9.0, "ctr": 0.0}, {"q": "irl laboral", "clk": 0, "imp": 17, "pos": 5.1, "ctr": 0.0}, {"q": "irl que significa", "clk": 0, "imp": 17, "pos": 9.2, "ctr": 0.0}, {"q": "que es irl en prevencion de riesgos", "clk": 0, "imp": 17, "pos": 7.1, "ctr": 0.0}, {"q": "control de entrega de epp", "clk": 0, "imp": 16, "pos": 10.4, "ctr": 0.0}, {"q": "informacion de riesgos laborales", "clk": 0, "imp": 16, "pos": 6.9, "ctr": 0.0}, {"q": "software gestión documental para contratistas", "clk": 0, "imp": 16, "pos": 15.4, "ctr": 0.0}, {"q": "art que es seguridad", "clk": 0, "imp": 15, "pos": 6.7, "ctr": 0.0}, {"q": "ast art", "clk": 0, "imp": 15, "pos": 7.7, "ctr": 0.0}, {"q": "irl en chile", "clk": 0, "imp": 15, "pos": 8.5, "ctr": 0.0}, {"q": "odi chile", "clk": 0, "imp": 15, "pos": 6.7, "ctr": 0.0}, {"q": "que es el odi", "clk": 0, "imp": 15, "pos": 11.3, "ctr": 0.0}, {"q": "odi prevencion de riesgos", "clk": 0, "imp": 14, "pos": 10.5, "ctr": 0.0}, {"q": "ast o art", "clk": 0, "imp": 13, "pos": 2.9, "ctr": 0.0}, {"q": "odi que es", "clk": 0, "imp": 13, "pos": 8.4, "ctr": 0.0}, {"q": "que significa irl en chile", "clk": 0, "imp": 13, "pos": 9.9, "ctr": 0.0}, {"q": "blog epp 61", "clk": 0, "imp": 12, "pos": 4.9, "ctr": 0.0}, {"q": "que significa miper", "clk": 0, "imp": 12, "pos": 9.6, "ctr": 0.0}, {"q": "software gestión documental para subcontratistas", "clk": 0, "imp": 12, "pos": 13.9, "ctr": 0.0}, {"q": "app prevencion riesgos laborales", "clk": 0, "imp": 11, "pos": 8.5, "ctr": 0.0}, {"q": "irl en prevencion de riesgos", "clk": 0, "imp": 11, "pos": 9.5, "ctr": 0.0}, {"q": "irl riesgos laborales", "clk": 0, "imp": 11, "pos": 7.6, "ctr": 0.0}, {"q": "software prevencion riesgos laborales", "clk": 0, "imp": 11, "pos": 3.6, "ctr": 0.0}, {"q": "ki dt", "clk": 0, "imp": 10, "pos": 3.6, "ctr": 0.0}, {"q": "logo suralis", "clk": 0, "imp": 10, "pos": 9.0, "ctr": 0.0}, {"q": "que es la odi", "clk": 0, "imp": 10, "pos": 5.5, "ctr": 0.0}, {"q": "qué es el irl", "clk": 0, "imp": 10, "pos": 7.3, "ctr": 0.0}, {"q": "art en seguridad", "clk": 0, "imp": 9, "pos": 8.8, "ctr": 0.0}, {"q": "hesq", "clk": 0, "imp": 9, "pos": 18.4, "ctr": 0.0}, {"q": "i.r.l", "clk": 0, "imp": 9, "pos": 6.0, "ctr": 0.0}, {"q": "irl prevencion de riesgos", "clk": 0, "imp": 9, "pos": 8.1, "ctr": 0.0}, {"q": "plataforma de seguridad programar tareas controlar hallazgos", "clk": 0, "imp": 9, "pos": 10.8, "ctr": 0.0}, {"q": "que es una irl", "clk": 0, "imp": 9, "pos": 2.2, "ctr": 0.0}, {"q": "qué significa irl", "clk": 0, "imp": 9, "pos": 7.0, "ctr": 0.0}, {"q": "registro entrega epp", "clk": 0, "imp": 9, "pos": 9.2, "ctr": 0.0}, {"q": "epp", "clk": 0, "imp": 8, "pos": 55.2, "ctr": 0.0}, {"q": "que es un odi", "clk": 0, "imp": 8, "pos": 9.5, "ctr": 0.0}, {"q": "carpeta de arranque", "clk": 0, "imp": 7, "pos": 64.7, "ctr": 0.0}, {"q": "gestión de epp", "clk": 0, "imp": 7, "pos": 11.7, "ctr": 0.0}, {"q": "gestión documental contratistas", "clk": 0, "imp": 7, "pos": 25.6, "ctr": 0.0}, {"q": "inventario epp", "clk": 0, "imp": 7, "pos": 32.0, "ctr": 0.0}, {"q": "odi que significa", "clk": 0, "imp": 7, "pos": 6.1, "ctr": 0.0}, {"q": "que es una irl en prevencion", "clk": 0, "imp": 7, "pos": 4.1, "ctr": 0.0}, {"q": "software contratistas", "clk": 0, "imp": 7, "pos": 31.4, "ctr": 0.0}, {"q": "software de inspeccion", "clk": 0, "imp": 7, "pos": 21.3, "ctr": 0.0}, {"q": "software para gestionar subcontratos", "clk": 0, "imp": 7, "pos": 36.1, "ctr": 0.0}, {"q": "gestión documental de contratistas", "clk": 0, "imp": 6, "pos": 26.2, "ctr": 0.0}, {"q": "irl odi", "clk": 0, "imp": 6, "pos": 4.3, "ctr": 0.0}, {"q": "irl significado en prevención de riesgos", "clk": 0, "imp": 6, "pos": 6.2, "ctr": 0.0}, {"q": "matriz de riesgos ds 44 excel", "clk": 0, "imp": 6, "pos": 8.8, "ctr": 0.0}, {"q": "qué significa odi", "clk": 0, "imp": 6, "pos": 5.5, "ctr": 0.0}, {"q": "significado de odi", "clk": 0, "imp": 6, "pos": 3.3, "ctr": 0.0}, {"q": "software control de epp gratis", "clk": 0, "imp": 6, "pos": 5.2, "ctr": 0.0}, {"q": "software de consignación eléctrica", "clk": 0, "imp": 6, "pos": 72.3, "ctr": 0.0}, {"q": "software para gestion de riesgos", "clk": 0, "imp": 6, "pos": 2.8, "ctr": 0.0}, {"q": "software prevención de riesgos laborales gratis", "clk": 0, "imp": 6, "pos": 4.3, "ctr": 0.0}, {"q": "ast digital", "clk": 0, "imp": 5, "pos": 7.8, "ctr": 0.0}, {"q": "charla 5 minutos mutual pdf", "clk": 0, "imp": 5, "pos": 16.2, "ctr": 0.0}, {"q": "escritorio.ebco", "clk": 0, "imp": 5, "pos": 8.2, "ctr": 0.0}, {"q": "falabella trabajadores", "clk": 0, "imp": 5, "pos": 34.6, "ctr": 0.0}, {"q": "gestion de insumos", "clk": 0, "imp": 5, "pos": 4.4, "ctr": 0.0}, {"q": "gestion documental de contratistas", "clk": 0, "imp": 5, "pos": 20.0, "ctr": 0.0}, {"q": "gestion pec", "clk": 0, "imp": 5, "pos": 8.2, "ctr": 0.0}, {"q": "informacion riesgos laborales", "clk": 0, "imp": 5, "pos": 8.0, "ctr": 0.0}, {"q": "oddi", "clk": 0, "imp": 5, "pos": 2.0, "ctr": 0.0}, {"q": "oddi tonti oddi", "clk": 0, "imp": 5, "pos": 4.0, "ctr": 0.0}, {"q": "odi bara", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "odi osa", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "odi significado", "clk": 0, "imp": 5, "pos": 2.4, "ctr": 0.0}, {"q": "que es el irl decreto 44", "clk": 0, "imp": 5, "pos": 6.6, "ctr": 0.0}, {"q": "que es el irl ds 44", "clk": 0, "imp": 5, "pos": 10.2, "ctr": 0.0}, {"q": "registro entrega de epp", "clk": 0, "imp": 5, "pos": 7.0, "ctr": 0.0}, {"q": "software para control de contratistas", "clk": 0, "imp": 5, "pos": 20.2, "ctr": 0.0}, {"q": "sst mutual", "clk": 0, "imp": 5, "pos": 9.2, "ctr": 0.0}, {"q": "art ast", "clk": 0, "imp": 4, "pos": 3.0, "ctr": 0.0}, {"q": "ast prevencion de riesgos", "clk": 0, "imp": 4, "pos": 48.5, "ctr": 0.0}, {"q": "charla diaria", "clk": 0, "imp": 4, "pos": 45.8, "ctr": 0.0}, {"q": "control de entrega de epp excel", "clk": 0, "imp": 4, "pos": 7.8, "ctr": 0.0}, {"q": "control de epp", "clk": 0, "imp": 4, "pos": 3.8, "ctr": 0.0}, {"q": "control documental contratistas", "clk": 0, "imp": 4, "pos": 26.5, "ctr": 0.0}, {"q": "cotalker", "clk": 0, "imp": 4, "pos": 59.5, "ctr": 0.0}, {"q": "documento irl", "clk": 0, "imp": 4, "pos": 2.8, "ctr": 0.0}, {"q": "entrega de equipos de protección personal", "clk": 0, "imp": 4, "pos": 9.8, "ctr": 0.0}, {"q": "erp para empresas de seguridad privada", "clk": 0, "imp": 4, "pos": 88.8, "ctr": 0.0}, {"q": "escritorio ebco", "clk": 0, "imp": 4, "pos": 9.0, "ctr": 0.0}, {"q": "gestion documental contratistas", "clk": 0, "imp": 4, "pos": 24.0, "ctr": 0.0}, {"q": "hombre de 39 años", "clk": 0, "imp": 4, "pos": 16.0, "ctr": 0.0}, {"q": "inventario de epp", "clk": 0, "imp": 4, "pos": 39.0, "ctr": 0.0}, {"q": "irl com", "clk": 0, "imp": 4, "pos": 10.8, "ctr": 0.0}, {"q": "irl decreto 44", "clk": 0, "imp": 4, "pos": 13.2, "ctr": 0.0}, {"q": "irl?", "clk": 0, "imp": 4, "pos": 5.5, "ctr": 0.0}, {"q": "logo ebco", "clk": 0, "imp": 4, "pos": 12.5, "ctr": 0.0}, {"q": "o.d.i", "clk": 0, "imp": 4, "pos": 6.8, "ctr": 0.0}, {"q": "obligacion de informar", "clk": 0, "imp": 4, "pos": 33.0, "ctr": 0.0}], "gainers": [{"q": "miper", "imp": 89, "impP": 0, "dimp": 89, "pos": 12.5, "posP": null, "dpos": null}, {"q": "software prevencion de riesgos", "imp": 270, "impP": 192, "dimp": 78, "pos": 22.9, "posP": 7.8, "dpos": -15.1}, {"q": "que es el irl en prevencion de riesgos", "imp": 62, "impP": 25, "dimp": 37, "pos": 4.8, "posP": 5.8, "dpos": 1.0}, {"q": "la odi", "imp": 36, "impP": 0, "dimp": 36, "pos": 8.1, "posP": null, "dpos": null}, {"q": "que es el irl", "imp": 124, "impP": 91, "dimp": 33, "pos": 8.5, "posP": 6.1, "dpos": -2.4}, {"q": "software control de contratistas", "imp": 37, "impP": 8, "dimp": 29, "pos": 22.9, "posP": 16.6, "dpos": -6.3}, {"q": "software de prevencion de riesgos", "imp": 37, "impP": 8, "dimp": 29, "pos": 1.2, "posP": 1.6, "dpos": 0.5}, {"q": "software gestión de contratistas", "imp": 32, "impP": 4, "dimp": 28, "pos": 24.0, "posP": 25.0, "dpos": 1.0}, {"q": "entrega de epp", "imp": 67, "impP": 42, "dimp": 25, "pos": 15.7, "posP": 8.8, "dpos": -6.9}, {"q": "que es una irl en prevención", "imp": 29, "impP": 7, "dimp": 22, "pos": 6.6, "posP": 6.4, "dpos": -0.1}, {"q": "software para contratistas", "imp": 26, "impP": 5, "dimp": 21, "pos": 8.1, "posP": 3.8, "dpos": -4.3}, {"q": "que es la irl", "imp": 104, "impP": 87, "dimp": 17, "pos": 7.2, "posP": 7.8, "dpos": 0.6}], "losers": [{"q": "irl", "imp": 1518, "impP": 1673, "dimp": -155, "pos": 8.6, "posP": 7.2, "dpos": -1.4}, {"q": "que significa irl", "imp": 82, "impP": 214, "dimp": -132, "pos": 11.1, "posP": 10.6, "dpos": -0.5}, {"q": "que es el irl en prevencion", "imp": 22, "impP": 112, "dimp": -90, "pos": 7.5, "posP": 7.0, "dpos": -0.5}, {"q": "irl que significa", "imp": 17, "impP": 95, "dimp": -78, "pos": 9.2, "posP": 8.2, "dpos": -1.0}, {"q": "irl prevencion", "imp": 37, "impP": 92, "dimp": -55, "pos": 7.0, "posP": 7.1, "dpos": 0.0}, {"q": "que es irl en prevencion de riesgos", "imp": 17, "impP": 72, "dimp": -55, "pos": 7.1, "posP": 6.3, "dpos": -0.7}, {"q": "software riesgos laborales", "imp": 25, "impP": 78, "dimp": -53, "pos": 9.6, "posP": 19.0, "dpos": 9.4}, {"q": "software prevencion riesgos laborales", "imp": 11, "impP": 57, "dimp": -46, "pos": 3.6, "posP": 6.1, "dpos": 2.5}, {"q": "ast seguridad", "imp": 0, "impP": 44, "dimp": -44, "pos": null, "posP": 9.4, "dpos": null}, {"q": "irl ds 44", "imp": 22, "impP": 61, "dimp": -39, "pos": 11.5, "posP": 7.6, "dpos": -3.9}, {"q": "escritorio ebco", "imp": 4, "impP": 39, "dimp": -35, "pos": 9.0, "posP": 8.8, "dpos": -0.2}, {"q": "app prevencion riesgos laborales", "imp": 11, "impP": 46, "dimp": -35, "pos": 8.5, "posP": 9.4, "dpos": 0.9}]};
+const SEO = {
+  "domain": "tazki.cl + soluciones.tazki.cl",
+  "updated": "14 jul 2026",
+  "kpi": {
+    "kw": 438,
+    "kwP": 441,
+    "imp": 5437,
+    "impP": 6404,
+    "clk": 10,
+    "clkP": 20,
+    "pos": 11.9,
+    "posP": 9.9,
+    "ctr": 0.2,
+    "ctrP": 0.3
+  },
+  "weekly": [
+    {
+      "ds": "2026-01-12",
+      "lab": "12 ene",
+      "imp": 5556,
+      "clk": 23,
+      "pos": 22.5,
+      "ctr": 0.4
+    },
+    {
+      "ds": "2026-01-19",
+      "lab": "19 ene",
+      "imp": 6127,
+      "clk": 30,
+      "pos": 20.7,
+      "ctr": 0.5
+    },
+    {
+      "ds": "2026-01-26",
+      "lab": "26 ene",
+      "imp": 5533,
+      "clk": 32,
+      "pos": 22.3,
+      "ctr": 0.6
+    },
+    {
+      "ds": "2026-02-02",
+      "lab": "2 feb",
+      "imp": 4588,
+      "clk": 41,
+      "pos": 21.6,
+      "ctr": 0.9
+    },
+    {
+      "ds": "2026-02-09",
+      "lab": "9 feb",
+      "imp": 4198,
+      "clk": 38,
+      "pos": 22.4,
+      "ctr": 0.9
+    },
+    {
+      "ds": "2026-02-16",
+      "lab": "16 feb",
+      "imp": 3523,
+      "clk": 34,
+      "pos": 20.5,
+      "ctr": 1.0
+    },
+    {
+      "ds": "2026-02-23",
+      "lab": "23 feb",
+      "imp": 3333,
+      "clk": 41,
+      "pos": 21.1,
+      "ctr": 1.2
+    },
+    {
+      "ds": "2026-03-02",
+      "lab": "2 mar",
+      "imp": 3317,
+      "clk": 43,
+      "pos": 14.5,
+      "ctr": 1.3
+    },
+    {
+      "ds": "2026-03-09",
+      "lab": "9 mar",
+      "imp": 2816,
+      "clk": 32,
+      "pos": 12.6,
+      "ctr": 1.1
+    },
+    {
+      "ds": "2026-03-16",
+      "lab": "16 mar",
+      "imp": 3233,
+      "clk": 39,
+      "pos": 12.7,
+      "ctr": 1.2
+    },
+    {
+      "ds": "2026-03-23",
+      "lab": "23 mar",
+      "imp": 3031,
+      "clk": 32,
+      "pos": 12.6,
+      "ctr": 1.1
+    },
+    {
+      "ds": "2026-03-30",
+      "lab": "30 mar",
+      "imp": 2522,
+      "clk": 35,
+      "pos": 11.9,
+      "ctr": 1.4
+    },
+    {
+      "ds": "2026-04-06",
+      "lab": "6 abr",
+      "imp": 2883,
+      "clk": 49,
+      "pos": 10.6,
+      "ctr": 1.7
+    },
+    {
+      "ds": "2026-04-13",
+      "lab": "13 abr",
+      "imp": 2370,
+      "clk": 59,
+      "pos": 12.4,
+      "ctr": 2.5
+    },
+    {
+      "ds": "2026-04-20",
+      "lab": "20 abr",
+      "imp": 1394,
+      "clk": 51,
+      "pos": 17.5,
+      "ctr": 3.7
+    },
+    {
+      "ds": "2026-04-27",
+      "lab": "27 abr",
+      "imp": 1717,
+      "clk": 42,
+      "pos": 17.0,
+      "ctr": 2.4
+    },
+    {
+      "ds": "2026-05-04",
+      "lab": "4 may",
+      "imp": 2369,
+      "clk": 68,
+      "pos": 19.0,
+      "ctr": 2.9
+    },
+    {
+      "ds": "2026-05-11",
+      "lab": "11 may",
+      "imp": 2163,
+      "clk": 53,
+      "pos": 16.1,
+      "ctr": 2.5
+    },
+    {
+      "ds": "2026-05-18",
+      "lab": "18 may",
+      "imp": 1505,
+      "clk": 40,
+      "pos": 11.2,
+      "ctr": 2.7
+    },
+    {
+      "ds": "2026-05-25",
+      "lab": "25 may",
+      "imp": 1686,
+      "clk": 48,
+      "pos": 8.8,
+      "ctr": 2.8
+    },
+    {
+      "ds": "2026-06-01",
+      "lab": "1 jun",
+      "imp": 2040,
+      "clk": 64,
+      "pos": 8.9,
+      "ctr": 3.1
+    },
+    {
+      "ds": "2026-06-08",
+      "lab": "8 jun",
+      "imp": 1434,
+      "clk": 62,
+      "pos": 10.0,
+      "ctr": 4.3
+    },
+    {
+      "ds": "2026-06-15",
+      "lab": "15 jun",
+      "imp": 1529,
+      "clk": 36,
+      "pos": 10.0,
+      "ctr": 2.4
+    },
+    {
+      "ds": "2026-06-22",
+      "lab": "22 jun",
+      "imp": 1275,
+      "clk": 37,
+      "pos": 10.3,
+      "ctr": 2.9
+    },
+    {
+      "ds": "2026-06-29",
+      "lab": "29 jun",
+      "imp": 1299,
+      "clk": 39,
+      "pos": 11.1,
+      "ctr": 3.0
+    },
+    {
+      "ds": "2026-07-06",
+      "lab": "6 jul",
+      "imp": 1977,
+      "clk": 48,
+      "pos": 13.3,
+      "ctr": 2.4
+    },
+    {
+      "ds": "2026-07-13",
+      "lab": "13 jul",
+      "imp": 287,
+      "clk": 3,
+      "pos": 12.4,
+      "ctr": 1.0,
+      "cur": true
+    }
+  ],
+  "monthly": [
+    {
+      "ds": "2025-07-01",
+      "lab": "jul 25",
+      "imp": 10008,
+      "clk": 50,
+      "pos": 40.0,
+      "ctr": 0.5
+    },
+    {
+      "ds": "2025-08-01",
+      "lab": "ago 25",
+      "imp": 16577,
+      "clk": 91,
+      "pos": 37.9,
+      "ctr": 0.5
+    },
+    {
+      "ds": "2025-09-01",
+      "lab": "sep 25",
+      "imp": 15830,
+      "clk": 114,
+      "pos": 21.4,
+      "ctr": 0.7
+    },
+    {
+      "ds": "2025-10-01",
+      "lab": "oct 25",
+      "imp": 21462,
+      "clk": 157,
+      "pos": 12.9,
+      "ctr": 0.7
+    },
+    {
+      "ds": "2025-11-01",
+      "lab": "nov 25",
+      "imp": 19300,
+      "clk": 188,
+      "pos": 13.9,
+      "ctr": 1.0
+    },
+    {
+      "ds": "2025-12-01",
+      "lab": "dic 25",
+      "imp": 20486,
+      "clk": 151,
+      "pos": 22.7,
+      "ctr": 0.7
+    },
+    {
+      "ds": "2026-01-01",
+      "lab": "ene 26",
+      "imp": 25675,
+      "clk": 135,
+      "pos": 22.3,
+      "ctr": 0.5
+    },
+    {
+      "ds": "2026-02-01",
+      "lab": "feb 26",
+      "imp": 15959,
+      "clk": 154,
+      "pos": 21.9,
+      "ctr": 1.0
+    },
+    {
+      "ds": "2026-03-01",
+      "lab": "mar 26",
+      "imp": 13737,
+      "clk": 167,
+      "pos": 13.3,
+      "ctr": 1.2
+    },
+    {
+      "ds": "2026-04-01",
+      "lab": "abr 26",
+      "imp": 9398,
+      "clk": 214,
+      "pos": 13.1,
+      "ctr": 2.3
+    },
+    {
+      "ds": "2026-05-01",
+      "lab": "may 26",
+      "imp": 8169,
+      "clk": 211,
+      "pos": 14.6,
+      "ctr": 2.6
+    },
+    {
+      "ds": "2026-06-01",
+      "lab": "jun 26",
+      "imp": 6652,
+      "clk": 209,
+      "pos": 9.7,
+      "ctr": 3.1
+    },
+    {
+      "ds": "2026-07-01",
+      "lab": "jul 26",
+      "imp": 3189,
+      "clk": 80,
+      "pos": 12.7,
+      "ctr": 2.5,
+      "cur": true
+    }
+  ],
+  "metric_labels": {
+    "imp": "Impresiones",
+    "clk": "Clics",
+    "pos": "Posición",
+    "ctr": "CTR (%)"
+  },
+  "keywords": [
+    {
+      "q": "irl",
+      "clk": 0,
+      "imp": 1424,
+      "pos": 9.1,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi",
+      "clk": 0,
+      "imp": 341,
+      "pos": 5.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevencion de riesgos",
+      "clk": 2,
+      "imp": 270,
+      "pos": 23.4,
+      "ctr": 0.7
+    },
+    {
+      "q": "miper",
+      "clk": 2,
+      "imp": 135,
+      "pos": 12.4,
+      "ctr": 1.5
+    },
+    {
+      "q": "que es el irl",
+      "clk": 0,
+      "imp": 126,
+      "pos": 8.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es la irl",
+      "clk": 0,
+      "imp": 100,
+      "pos": 7.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "entrega de epp",
+      "clk": 0,
+      "imp": 73,
+      "pos": 14.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es irl",
+      "clk": 0,
+      "imp": 73,
+      "pos": 9.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "terraservice",
+      "clk": 1,
+      "imp": 69,
+      "pos": 7.2,
+      "ctr": 1.4
+    },
+    {
+      "q": "odi o irl",
+      "clk": 0,
+      "imp": 64,
+      "pos": 4.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "que significa irl",
+      "clk": 0,
+      "imp": 64,
+      "pos": 12.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl que es",
+      "clk": 1,
+      "imp": 63,
+      "pos": 9.7,
+      "ctr": 1.6
+    },
+    {
+      "q": "software equipos menores",
+      "clk": 0,
+      "imp": 63,
+      "pos": 33.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevencion",
+      "clk": 0,
+      "imp": 62,
+      "pos": 23.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es el irl en prevencion de riesgos",
+      "clk": 0,
+      "imp": 61,
+      "pos": 4.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "app prevención de riesgos",
+      "clk": 1,
+      "imp": 52,
+      "pos": 13.3,
+      "ctr": 1.9
+    },
+    {
+      "q": "que es irl en chile",
+      "clk": 0,
+      "imp": 51,
+      "pos": 8.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es irl en seguridad",
+      "clk": 0,
+      "imp": 50,
+      "pos": 8.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "que significa irl en prevencion",
+      "clk": 0,
+      "imp": 48,
+      "pos": 5.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl que es prevencion",
+      "clk": 0,
+      "imp": 47,
+      "pos": 7.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "la odi",
+      "clk": 0,
+      "imp": 47,
+      "pos": 7.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "que significa odi",
+      "clk": 0,
+      "imp": 41,
+      "pos": 5.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "software control de contratistas",
+      "clk": 0,
+      "imp": 40,
+      "pos": 24.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl significado",
+      "clk": 0,
+      "imp": 37,
+      "pos": 7.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "sistema de gestión contratistas",
+      "clk": 0,
+      "imp": 37,
+      "pos": 38.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "software de prevencion de riesgos",
+      "clk": 0,
+      "imp": 37,
+      "pos": 1.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevención de riesgos laborales",
+      "clk": 0,
+      "imp": 36,
+      "pos": 21.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "software para prevencion de riesgos",
+      "clk": 0,
+      "imp": 35,
+      "pos": 1.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevencion de riesgos laborales",
+      "clk": 0,
+      "imp": 35,
+      "pos": 14.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "art seguridad",
+      "clk": 0,
+      "imp": 34,
+      "pos": 6.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl chile",
+      "clk": 0,
+      "imp": 34,
+      "pos": 8.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "registro irl",
+      "clk": 0,
+      "imp": 34,
+      "pos": 5.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "software gestión de contratistas",
+      "clk": 0,
+      "imp": 33,
+      "pos": 25.1,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es la irl en prevencion de riesgos",
+      "clk": 0,
+      "imp": 31,
+      "pos": 6.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es odi",
+      "clk": 0,
+      "imp": 30,
+      "pos": 6.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl prevencion",
+      "clk": 0,
+      "imp": 28,
+      "pos": 5.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es un irl en prevencion de riesgos",
+      "clk": 0,
+      "imp": 28,
+      "pos": 5.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es una irl en prevención",
+      "clk": 0,
+      "imp": 28,
+      "pos": 6.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "software para contratistas",
+      "clk": 0,
+      "imp": 27,
+      "pos": 8.1,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es art en seguridad",
+      "clk": 0,
+      "imp": 26,
+      "pos": 6.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl prevención de riesgos",
+      "clk": 0,
+      "imp": 25,
+      "pos": 6.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "software riesgos laborales",
+      "clk": 0,
+      "imp": 25,
+      "pos": 9.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "software epp",
+      "clk": 1,
+      "imp": 24,
+      "pos": 4.5,
+      "ctr": 4.2
+    },
+    {
+      "q": "irl ds 44",
+      "clk": 0,
+      "imp": 24,
+      "pos": 12.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl en prevencion",
+      "clk": 0,
+      "imp": 24,
+      "pos": 6.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl seguridad",
+      "clk": 0,
+      "imp": 23,
+      "pos": 5.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es un irl",
+      "clk": 0,
+      "imp": 23,
+      "pos": 9.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl información de riesgos laborales",
+      "clk": 0,
+      "imp": 22,
+      "pos": 7.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "control contratistas",
+      "clk": 0,
+      "imp": 20,
+      "pos": 43.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es el irl en prevencion",
+      "clk": 0,
+      "imp": 20,
+      "pos": 7.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "software gestion prevencion riesgos laborales",
+      "clk": 0,
+      "imp": 19,
+      "pos": 5.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "charla irl",
+      "clk": 0,
+      "imp": 18,
+      "pos": 7.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "hallazgos",
+      "clk": 0,
+      "imp": 18,
+      "pos": 41.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "informacion de riesgos laborales irl",
+      "clk": 0,
+      "imp": 18,
+      "pos": 8.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl documento",
+      "clk": 0,
+      "imp": 18,
+      "pos": 8.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es irl en prevencion de riesgos",
+      "clk": 0,
+      "imp": 18,
+      "pos": 7.1,
+      "ctr": 0.0
+    },
+    {
+      "q": "informacion de riesgos laborales",
+      "clk": 0,
+      "imp": 17,
+      "pos": 7.1,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl en seguridad",
+      "clk": 0,
+      "imp": 17,
+      "pos": 9.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl prevencionista de riesgos",
+      "clk": 0,
+      "imp": 17,
+      "pos": 4.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "software gestión documental para contratistas",
+      "clk": 0,
+      "imp": 17,
+      "pos": 15.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl laboral",
+      "clk": 0,
+      "imp": 16,
+      "pos": 5.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "art que es seguridad",
+      "clk": 0,
+      "imp": 15,
+      "pos": 6.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "control de entrega de epp",
+      "clk": 0,
+      "imp": 15,
+      "pos": 10.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl en chile",
+      "clk": 0,
+      "imp": 15,
+      "pos": 8.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "que significa miper",
+      "clk": 0,
+      "imp": 15,
+      "pos": 9.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "ast art",
+      "clk": 0,
+      "imp": 14,
+      "pos": 7.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl que significa",
+      "clk": 0,
+      "imp": 14,
+      "pos": 9.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi chile",
+      "clk": 0,
+      "imp": 14,
+      "pos": 6.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es el odi",
+      "clk": 0,
+      "imp": 14,
+      "pos": 11.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "contacto odi",
+      "clk": 0,
+      "imp": 13,
+      "pos": 2.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "ast o art",
+      "clk": 0,
+      "imp": 13,
+      "pos": 2.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "que significa irl en chile",
+      "clk": 0,
+      "imp": 13,
+      "pos": 9.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "blog epp 61",
+      "clk": 0,
+      "imp": 12,
+      "pos": 4.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl riesgos laborales",
+      "clk": 0,
+      "imp": 12,
+      "pos": 7.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi prevencion de riesgos",
+      "clk": 0,
+      "imp": 12,
+      "pos": 10.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "software gestión documental para subcontratistas",
+      "clk": 0,
+      "imp": 12,
+      "pos": 13.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "app prevencion riesgos laborales",
+      "clk": 0,
+      "imp": 11,
+      "pos": 8.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "ki dt",
+      "clk": 0,
+      "imp": 11,
+      "pos": 3.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi que es",
+      "clk": 0,
+      "imp": 11,
+      "pos": 8.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevencion riesgos laborales",
+      "clk": 0,
+      "imp": 11,
+      "pos": 3.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "art en seguridad",
+      "clk": 0,
+      "imp": 10,
+      "pos": 8.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl en prevencion de riesgos",
+      "clk": 0,
+      "imp": 10,
+      "pos": 9.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl prevencion de riesgos",
+      "clk": 0,
+      "imp": 10,
+      "pos": 8.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "logo suralis",
+      "clk": 0,
+      "imp": 10,
+      "pos": 9.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "carpeta de arranque",
+      "clk": 0,
+      "imp": 9,
+      "pos": 64.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "hesq",
+      "clk": 0,
+      "imp": 9,
+      "pos": 18.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi que significa",
+      "clk": 0,
+      "imp": 9,
+      "pos": 6.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "plataforma de seguridad programar tareas controlar hallazgos",
+      "clk": 0,
+      "imp": 9,
+      "pos": 10.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es la odi",
+      "clk": 0,
+      "imp": 9,
+      "pos": 5.9,
+      "ctr": 0.0
+    },
+    {
+      "q": "qué es el irl",
+      "clk": 0,
+      "imp": 9,
+      "pos": 7.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "qué significa irl",
+      "clk": 0,
+      "imp": 9,
+      "pos": 7.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "registro entrega epp",
+      "clk": 0,
+      "imp": 9,
+      "pos": 9.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "epp",
+      "clk": 0,
+      "imp": 8,
+      "pos": 55.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestión de epp",
+      "clk": 0,
+      "imp": 8,
+      "pos": 11.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es un odi",
+      "clk": 0,
+      "imp": 8,
+      "pos": 9.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "software contratistas",
+      "clk": 0,
+      "imp": 8,
+      "pos": 31.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "software para gestionar subcontratos",
+      "clk": 0,
+      "imp": 8,
+      "pos": 36.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestión documental contratistas",
+      "clk": 0,
+      "imp": 7,
+      "pos": 25.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "inventario epp",
+      "clk": 0,
+      "imp": 7,
+      "pos": 32.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl significado en prevención de riesgos",
+      "clk": 0,
+      "imp": 7,
+      "pos": 6.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "qué significa odi",
+      "clk": 0,
+      "imp": 7,
+      "pos": 5.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "software de inspeccion",
+      "clk": 0,
+      "imp": 7,
+      "pos": 21.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "ast digital",
+      "clk": 0,
+      "imp": 6,
+      "pos": 6.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestión documental de contratistas",
+      "clk": 0,
+      "imp": 6,
+      "pos": 26.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "i.r.l",
+      "clk": 0,
+      "imp": 6,
+      "pos": 7.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl odi",
+      "clk": 0,
+      "imp": 6,
+      "pos": 4.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "matriz de riesgos ds 44 excel",
+      "clk": 0,
+      "imp": 6,
+      "pos": 8.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es art en mineria",
+      "clk": 0,
+      "imp": 6,
+      "pos": 9.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es una irl",
+      "clk": 0,
+      "imp": 6,
+      "pos": 2.7,
+      "ctr": 0.0
+    },
+    {
+      "q": "significado de odi",
+      "clk": 0,
+      "imp": 6,
+      "pos": 3.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "software control de epp gratis",
+      "clk": 0,
+      "imp": 6,
+      "pos": 5.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "software de consignación eléctrica",
+      "clk": 0,
+      "imp": 6,
+      "pos": 72.3,
+      "ctr": 0.0
+    },
+    {
+      "q": "software sst",
+      "clk": 0,
+      "imp": 6,
+      "pos": 4.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "charla 5 minutos mutual pdf",
+      "clk": 0,
+      "imp": 5,
+      "pos": 16.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "control de entrega de epp excel",
+      "clk": 0,
+      "imp": 5,
+      "pos": 7.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "documento irl",
+      "clk": 0,
+      "imp": 5,
+      "pos": 2.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "escritorio.ebco",
+      "clk": 0,
+      "imp": 5,
+      "pos": 8.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "falabella trabajadores",
+      "clk": 0,
+      "imp": 5,
+      "pos": 34.6,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestion documental de contratistas",
+      "clk": 0,
+      "imp": 5,
+      "pos": 20.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestion pec",
+      "clk": 0,
+      "imp": 5,
+      "pos": 8.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "informacion riesgos laborales",
+      "clk": 0,
+      "imp": 5,
+      "pos": 8.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "oddi",
+      "clk": 0,
+      "imp": 5,
+      "pos": 2.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "oddi tonti oddi",
+      "clk": 0,
+      "imp": 5,
+      "pos": 4.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi bara",
+      "clk": 0,
+      "imp": 5,
+      "pos": 7.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi osa",
+      "clk": 0,
+      "imp": 5,
+      "pos": 7.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "que es una irl en prevencion",
+      "clk": 0,
+      "imp": 5,
+      "pos": 4.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "registro entrega de epp",
+      "clk": 0,
+      "imp": 5,
+      "pos": 7.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "software para control de contratistas",
+      "clk": 0,
+      "imp": 5,
+      "pos": 20.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "software para gestion de riesgos",
+      "clk": 0,
+      "imp": 5,
+      "pos": 3.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "software prevención de riesgos laborales gratis",
+      "clk": 0,
+      "imp": 5,
+      "pos": 4.4,
+      "ctr": 0.0
+    },
+    {
+      "q": "sst mutual",
+      "clk": 0,
+      "imp": 5,
+      "pos": 9.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "art ast",
+      "clk": 0,
+      "imp": 4,
+      "pos": 3.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "ast prevencion de riesgos",
+      "clk": 0,
+      "imp": 4,
+      "pos": 48.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "charla diaria",
+      "clk": 0,
+      "imp": 4,
+      "pos": 45.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "control documental contratistas",
+      "clk": 0,
+      "imp": 4,
+      "pos": 26.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "entrega de equipos de protección personal",
+      "clk": 0,
+      "imp": 4,
+      "pos": 9.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "entrega epp",
+      "clk": 0,
+      "imp": 4,
+      "pos": 34.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "erp para empresas de seguridad privada",
+      "clk": 0,
+      "imp": 4,
+      "pos": 88.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestion de insumos",
+      "clk": 0,
+      "imp": 4,
+      "pos": 3.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "gestion documental contratistas",
+      "clk": 0,
+      "imp": 4,
+      "pos": 24.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "hombre de 39 años",
+      "clk": 0,
+      "imp": 4,
+      "pos": 16.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "inventario de epp",
+      "clk": 0,
+      "imp": 4,
+      "pos": 39.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl com",
+      "clk": 0,
+      "imp": 4,
+      "pos": 10.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "irl decreto 44",
+      "clk": 0,
+      "imp": 4,
+      "pos": 13.2,
+      "ctr": 0.0
+    },
+    {
+      "q": "ley 16.744",
+      "clk": 0,
+      "imp": 4,
+      "pos": 38.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "logo ebco",
+      "clk": 0,
+      "imp": 4,
+      "pos": 12.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "o.d.i",
+      "clk": 0,
+      "imp": 4,
+      "pos": 6.8,
+      "ctr": 0.0
+    },
+    {
+      "q": "obligacion de informar",
+      "clk": 0,
+      "imp": 4,
+      "pos": 33.0,
+      "ctr": 0.0
+    },
+    {
+      "q": "odi significado",
+      "clk": 0,
+      "imp": 4,
+      "pos": 2.5,
+      "ctr": 0.0
+    },
+    {
+      "q": "plataforma de prevencion de riesgos",
+      "clk": 0,
+      "imp": 4,
+      "pos": 6.5,
+      "ctr": 0.0
+    }
+  ],
+  "gainers": [
+    {
+      "q": "miper",
+      "imp": 135,
+      "impP": null,
+      "dimp": 135,
+      "pos": 12.4,
+      "posP": null,
+      "dpos": null
+    },
+    {
+      "q": "software prevencion de riesgos",
+      "imp": 270,
+      "impP": 195,
+      "dimp": 75,
+      "pos": 23.4,
+      "posP": 8.1,
+      "dpos": -15.2
+    },
+    {
+      "q": "la odi",
+      "imp": 47,
+      "impP": 1,
+      "dimp": 46,
+      "pos": 7.9,
+      "posP": 11.0,
+      "dpos": 3.1
+    },
+    {
+      "q": "que es el irl",
+      "imp": 126,
+      "impP": 84,
+      "dimp": 42,
+      "pos": 8.7,
+      "posP": 5.7,
+      "dpos": -2.9
+    },
+    {
+      "q": "que es el irl en prevencion de riesgos",
+      "imp": 61,
+      "impP": 25,
+      "dimp": 36,
+      "pos": 4.7,
+      "posP": 6.4,
+      "dpos": 1.7
+    },
+    {
+      "q": "software control de contratistas",
+      "imp": 40,
+      "impP": 9,
+      "dimp": 31,
+      "pos": 24.2,
+      "posP": 15.8,
+      "dpos": -8.4
+    },
+    {
+      "q": "entrega de epp",
+      "imp": 73,
+      "impP": 43,
+      "dimp": 30,
+      "pos": 14.3,
+      "posP": 10.8,
+      "dpos": -3.5
+    },
+    {
+      "q": "software gestión de contratistas",
+      "imp": 33,
+      "impP": 5,
+      "dimp": 28,
+      "pos": 25.1,
+      "posP": 22.0,
+      "dpos": -3.1
+    },
+    {
+      "q": "software de prevencion de riesgos",
+      "imp": 37,
+      "impP": 9,
+      "dimp": 28,
+      "pos": 1.2,
+      "posP": 1.6,
+      "dpos": 0.4
+    },
+    {
+      "q": "software para contratistas",
+      "imp": 27,
+      "impP": 5,
+      "dimp": 22,
+      "pos": 8.1,
+      "posP": 3.8,
+      "dpos": -4.3
+    },
+    {
+      "q": "que es una irl en prevención",
+      "imp": 28,
+      "impP": 8,
+      "dimp": 20,
+      "pos": 6.5,
+      "posP": 6.8,
+      "dpos": 0.3
+    },
+    {
+      "q": "control contratistas",
+      "imp": 20,
+      "impP": null,
+      "dimp": 20,
+      "pos": 43.3,
+      "posP": null,
+      "dpos": null
+    }
+  ],
+  "losers": [
+    {
+      "q": "irl",
+      "imp": 1424,
+      "impP": 1768,
+      "dimp": -344,
+      "pos": 9.1,
+      "posP": 6.9,
+      "dpos": -2.2
+    },
+    {
+      "q": "que significa irl",
+      "imp": 64,
+      "impP": 225,
+      "dimp": -161,
+      "pos": 12.7,
+      "posP": 10.2,
+      "dpos": -2.5
+    },
+    {
+      "q": "que es el irl en prevencion",
+      "imp": 20,
+      "impP": 110,
+      "dimp": -90,
+      "pos": 7.4,
+      "posP": 7.1,
+      "dpos": -0.3
+    },
+    {
+      "q": "irl que significa",
+      "imp": 14,
+      "impP": 95,
+      "dimp": -81,
+      "pos": 9.5,
+      "posP": 8.2,
+      "dpos": -1.3
+    },
+    {
+      "q": "irl prevencion",
+      "imp": 28,
+      "impP": 90,
+      "dimp": -62,
+      "pos": 5.6,
+      "posP": 7.2,
+      "dpos": 1.6
+    },
+    {
+      "q": "software riesgos laborales",
+      "imp": 25,
+      "impP": 74,
+      "dimp": -49,
+      "pos": 9.6,
+      "posP": 18.3,
+      "dpos": 8.7
+    },
+    {
+      "q": "que es irl en prevencion de riesgos",
+      "imp": 18,
+      "impP": 61,
+      "dimp": -43,
+      "pos": 7.1,
+      "posP": 6.0,
+      "dpos": -1.1
+    },
+    {
+      "q": "software prevencion riesgos laborales",
+      "imp": 11,
+      "impP": 53,
+      "dimp": -42,
+      "pos": 3.6,
+      "posP": 6.2,
+      "dpos": 2.5
+    },
+    {
+      "q": "que es irl",
+      "imp": 73,
+      "impP": 113,
+      "dimp": -40,
+      "pos": 9.5,
+      "posP": 6.2,
+      "dpos": -3.3
+    },
+    {
+      "q": "ast seguridad",
+      "imp": 0,
+      "impP": 37,
+      "dimp": -37,
+      "pos": null,
+      "posP": 9.2,
+      "dpos": null
+    },
+    {
+      "q": "escritorio ebco",
+      "imp": 3,
+      "impP": 40,
+      "dimp": -37,
+      "pos": 8.0,
+      "posP": 8.9,
+      "dpos": 0.9
+    },
+    {
+      "q": "irl ds 44",
+      "imp": 24,
+      "impP": 59,
+      "dimp": -35,
+      "pos": 12.6,
+      "posP": 7.7,
+      "dpos": -4.9
+    }
+  ]
+};
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
 const nf1 = new Intl.NumberFormat('es-CL',{maximumFractionDigits:1});
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
