@@ -229,7 +229,9 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
   .legend i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
 
   .riskchips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
-  .riskchip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--ring); border-radius: 8px; padding: 6px 11px; font-size: 12.5px; color: var(--ink-2); }
+  .riskchip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--ring); border-radius: 8px; padding: 6px 11px; font-size: 12.5px; color: var(--ink-2); background: var(--surface); font-family: inherit; cursor: pointer; transition: .15s; }
+  .riskchip:hover { border-color: var(--ink-3); }
+  .riskchip.on { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink) inset; color: var(--ink); font-weight: 600; }
   .riskchip b { color: var(--ink); font-size: 15px; }
   .riskchip .sq { width: 9px; height: 9px; border-radius: 2px; flex: none; }
 
@@ -375,7 +377,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
       <div class="sub" id="semSub"></div>
       <div class="riskchips" id="semStats"></div>
       <div id="semList"></div>
-      <div class="foot">🔴 Rojo: más de 10 días en Meeting Set, cotización creada sin salir de Meeting Set, en Meeting Set sin tarea futura, más de 15 días en cualquier etapa, más de 40 días abierto, o fecha de cierre vencida («se fue»). 🟡 Amarillo: sin tarea futura programada en el resto de las etapas. 🟢 Verde: al día. Haz clic en una fila para ver la última nota registrada.</div>
+      <div class="foot">🔴 Rojo: más de 10 días en Meeting Set, con cotización sin salir de Meeting Set, en Meeting Set sin tarea futura, más de 7 días por reagendar (o reagendado sin nueva fecha), más de 15 días en cualquier etapa, más de 40 días abierto, o fecha de cierre vencida («se fue»). 🟡 Amarillo: negocio por reagendar, o sin tarea futura en el resto de las etapas. 🟢 Verde: al día. Haz clic en un color para desplegar esos negocios, y en una fila para ver la última nota.</div>
     </div>
   </div>
 
@@ -653,7 +655,7 @@ function renderStages(F) {
   const open = F.filter(d => d.g === 'Abierto');
   document.getElementById('funnelSub').textContent =
     `${open.length} negocios abiertos · monto en UF donde está informado`;
-  const ORDER = ['Meeting Set','Qualified Prospect','Qualified Opportunity','Value Proposition','Negotiation','Audit'];
+  const ORDER = ['Meeting Set','Reagendar','Qualified Prospect','Qualified Opportunity','Value Proposition','Negotiation','Audit'];
   const rows = ORDER.map((st, i) => {
     const ds = open.filter(d => d.s === st);
     return { lbl: st, n: ds.length, i, ufTxt: nf0.format(sum(ds)),
@@ -828,7 +830,7 @@ function renderOwners(F) {
 }
 
 /* ---------- funnel MQL ---------- */
-const STAGE_ORD = {'Meeting Set':1,'Qualified Prospect':2,'Qualified Opportunity':3,'Value Proposition':4,'Negotiation':5,'Audit':5};
+const STAGE_ORD = {'Meeting Set':1,'Reagendar':1,'Qualified Prospect':2,'Qualified Opportunity':3,'Value Proposition':4,'Negotiation':5,'Audit':5};
 const FUNNEL_STAGES = [
   { k:'mql', lbl:'MQL creado',            fill:'var(--seq-1)', date: d => d.c,     ord: 0 },
   { k:'ms',  lbl:'Meeting Set',           fill:'var(--seq-2)', date: d => d.f_ms,  ord: 1 },
@@ -943,44 +945,64 @@ function semaforoEval(d, days, todayIso) {
   const hasFuture = !!(d.prox_act && d.prox_act > todayIso);
   const slipped = !!(d.cl && d.cl < todayIso);
   const enMS = d.s === 'Meeting Set';
+  const enReag = d.s === 'Reagendar';
+  const temprano = enMS || enReag;
   const red = [], yellow = [];
   if (enMS && dStage > 10) red.push(`${dStage} días en Meeting Set (>10)`);
-  if (enMS && d.cot) red.push('cotización creada pero sigue en Meeting Set');
-  if (enMS && !hasFuture) red.push('en Meeting Set sin tarea futura');
+  if (enReag && dStage > 7) red.push(`${dStage} días por reagendar (>7)`);
+  if (enMS && d.cot) red.push('con cotización y sigue en Meeting Set');
+  if (temprano && !hasFuture) red.push(enReag ? 'por reagendar sin nueva fecha agendada' : 'en Meeting Set sin tarea futura');
   if (dOpen > 40) red.push(`${dOpen} días abierto (>40)`);
-  if (!enMS && dStage > 15) red.push(`${dStage} días en ${d.s} (>15)`);
+  if (!temprano && dStage > 15) red.push(`${dStage} días en ${d.s} (>15)`);
   if (slipped) red.push(`se fue: cierre estimado vencido (${fmtDate(d.cl)})`);
-  if (!enMS && !hasFuture) yellow.push('sin tarea futura programada');
+  if (enReag && !red.length) yellow.push('negocio por reagendar — coordinar nueva fecha');
+  if (!temprano && !hasFuture) yellow.push('sin tarea futura programada');
   const color = red.length ? 'rojo' : yellow.length ? 'ambar' : 'verde';
   return { dOpen, dStage, hasFuture, color, motivos: red.length ? red : yellow };
 }
 
+let SEM_OPEN = [], SEM_COLOR = 'rojo';
+const SEM_COLORVAR = { rojo: 'var(--st-crit)', ambar: 'var(--c-frozen)', verde: 'var(--st-good)' };
 function renderSemaforo(F) {
   const today = new Date();
   const todayIso = today.toISOString().slice(0,10);
   const days = s => Math.max(0, Math.floor((today - new Date(s + 'T12:00:00')) / 86400000));
   const RANK = { rojo: 0, ambar: 1, verde: 2 };
-  const COLOR = { rojo: 'var(--st-crit)', ambar: 'var(--c-frozen)', verde: 'var(--st-good)' };
-  const open = F.filter(d => d.g === 'Abierto')
+  SEM_OPEN = F.filter(d => d.g === 'Abierto')
     .map(d => ({ ...d, sem: semaforoEval(d, days, todayIso), dAct: d.act ? days(d.act) : null }))
     .sort((a,b) => RANK[a.sem.color] - RANK[b.sem.color] || b.sem.dOpen - a.sem.dOpen);
-  document.getElementById('semSub').textContent =
-    `${open.length} negocios abiertos en la vista, evaluados con las reglas de salud del pipeline · cada fila muestra el motivo, la última actividad y la última nota`;
   const c = { rojo: 0, ambar: 0, verde: 0 };
-  open.forEach(d => c[d.sem.color]++);
+  SEM_OPEN.forEach(d => c[d.sem.color]++);
+  document.getElementById('semSub').textContent =
+    `${SEM_OPEN.length} negocios abiertos en la vista · haz clic en un color para desplegar esos negocios`;
   document.getElementById('semStats').innerHTML = `
-    <span class="riskchip"><span class="sq" style="background:var(--st-crit)"></span>Rojo <b>${c.rojo}</b></span>
-    <span class="riskchip"><span class="sq" style="background:var(--c-frozen)"></span>Amarillo <b>${c.ambar}</b></span>
-    <span class="riskchip"><span class="sq" style="background:var(--st-good)"></span>Verde <b>${c.verde}</b></span>`;
+    <button type="button" class="riskchip" data-color="rojo" onclick="selSem('rojo')"><span class="sq" style="background:var(--st-crit)"></span>Rojo <b>${c.rojo}</b></button>
+    <button type="button" class="riskchip" data-color="ambar" onclick="selSem('ambar')"><span class="sq" style="background:var(--c-frozen)"></span>Amarillo <b>${c.ambar}</b></button>
+    <button type="button" class="riskchip" data-color="verde" onclick="selSem('verde')"><span class="sq" style="background:var(--st-good)"></span>Verde <b>${c.verde}</b></button>`;
+  if (!c[SEM_COLOR]) SEM_COLOR = c.rojo ? 'rojo' : c.ambar ? 'ambar' : c.verde ? 'verde' : 'rojo';
+  paintSemList();
+}
+function selSem(color) {
+  SEM_COLOR = (SEM_COLOR === color) ? null : color;
+  paintSemList();
+}
+function paintSemList() {
+  document.querySelectorAll('#semStats .riskchip').forEach(ch =>
+    ch.classList.toggle('on', ch.dataset.color === SEM_COLOR));
   const el = document.getElementById('semList');
-  if (!open.length) { el.innerHTML = '<div class="empty">Sin negocios abiertos con los filtros actuales.</div>'; return; }
-  el.innerHTML = `<div class="semlist">` + open.map(d => {
-    const color = COLOR[d.sem.color];
+  if (!SEM_OPEN.length) { el.innerHTML = '<div class="empty">Sin negocios abiertos con los filtros actuales.</div>'; return; }
+  if (!SEM_COLOR) { el.innerHTML = '<div class="empty">Elige un color arriba para ver esos negocios.</div>'; return; }
+  const NAME = { rojo: 'rojos', ambar: 'amarillos', verde: 'verdes' };
+  const list = SEM_OPEN.filter(d => d.sem.color === SEM_COLOR);
+  if (!list.length) { el.innerHTML = `<div class="empty">Sin negocios ${NAME[SEM_COLOR]} con los filtros actuales.</div>`; return; }
+  el.innerHTML = `<div class="semlist">` + list.map(d => {
+    const color = SEM_COLORVAR[d.sem.color];
     const stale = d.dAct != null && d.dAct > 14;
     const actTxt = d.dAct == null ? 'sin actividad registrada'
       : `últ. actividad ${fmtDate(d.act)} (hace ${d.dAct} d)`;
+    const cLbl = d.sem.color === 'rojo' ? 'Rojo' : d.sem.color === 'ambar' ? 'Amarillo' : 'Verde';
     const motivos = d.sem.motivos.length
-      ? `<span class="resumen" style="color:${color === 'var(--st-good)' ? 'var(--ink-2)' : ''}"><b style="color:${color}">${d.sem.color === 'rojo' ? 'Rojo' : 'Amarillo'}:</b> ${esc(d.sem.motivos.join(' · '))}</span>` : '';
+      ? `<span class="resumen" style="color:${color === 'var(--st-good)' ? 'var(--ink-2)' : ''}"><b style="color:${color}">${cLbl}:</b> ${esc(d.sem.motivos.join(' · '))}</span>` : '';
     const resumen = (stale || d.dAct == null) && d.resumen
       ? `<span class="resumen"><b>Detenido:</b> ${esc(d.resumen)}</span>` : '';
     return `
