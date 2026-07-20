@@ -159,6 +159,12 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
   #emTip{position:fixed;pointer-events:none;background:#0f172a;color:#fff;font-size:12px;padding:7px 10px;border-radius:7px;display:none;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:240px}
   .note{font-size:12px;color:var(--ink-3);background:var(--surface);border:1px dashed var(--ring);border-radius:9px;padding:10px 13px;margin-top:4px}
   .note b{color:var(--ink-2)}
+  /* tabla cohorte */
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:420px}
+  .tbl th,.tbl td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--ring);font-variant-numeric:tabular-nums}
+  .tbl thead th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600}
+  .tbl td.num,.tbl th.num{text-align:right}
+  .tbl tbody tr:last-child td{border-bottom:0}
 </style>
 
 <div class="wrap">
@@ -199,6 +205,19 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     <div class="srcs" id="srcs"></div>
   </div>
 
+  <div class="card" id="paidCard" style="display:none">
+    <h2>MQL de pago · avance en el pipeline</h2>
+    <div class="sub">Negocios cuyo nombre contiene "MQL", clasificados por la fuente del contacto asociado. <b>De pago</b> = algún contacto asociado con fuente <b>Búsqueda pagada</b> (PAID_SEARCH).</div>
+    <div class="headstat" id="paidHead"></div>
+  </div>
+
+  <div class="card" id="paidCohortCard" style="display:none">
+    <h2>Cohorte de MQL de pago</h2>
+    <div class="sub">Por <b>mes de entrada</b> (fecha de creación del negocio): cuántos MQL de pago entraron y cuántos llegaron al menos a "Qualified Opportunity".</div>
+    <div class="chart-scroll"><table class="tbl" id="paidCohortTbl"></table></div>
+    <div class="foot">v1: cuenta la etapa actual; los que se perdieron después de QO no se cuentan como llegados (se afinará).</div>
+  </div>
+
   <div class="card">
     <h2>Sobre este panel</h2>
     <div class="note">El <b>embudo</b> es una foto por <b>etapa actual</b> del ciclo de vida en HubSpot (Lead → MQL → SQL → Oportunidad → Cliente); "n" cuenta quienes están en esa etapa o una más avanzada. Los <b>MQL nuevos</b> (47 en el período) usan la propiedad <b>fecha MQL</b>, que se empezó a registrar en <b>mayo 2026</b>, por eso la serie mensual parte ahí. El <b>Costo por MQL pagado</b> cruza dos fuentes: la <b>inversión de Google Ads</b> (Supermetrics, cuenta 3766426817, CLP) dividida por los <b>MQL con fuente "Búsqueda pagada"</b> (HubSpot) del mismo mes. Ojo: las "conversiones" que importan aquí son los <b>MQL reales de HubSpot</b>, no las conversiones que reporta Google Ads (que suelen contar formularios o clics, no leads calificados).</div>
@@ -208,118 +227,55 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
 
 <script>
 const D = {
-  "updated": "19 jul 2026",
+  "updated": "20 jul 2026",
   "account": "Tazki",
   "funnel": [
-    {
-      "stage": "Lead",
-      "n": 13838
-    },
-    {
-      "stage": "MQL",
-      "n": 2099
-    },
-    {
-      "stage": "SQL",
-      "n": 2065
-    },
-    {
-      "stage": "Oportunidad",
-      "n": 2052
-    },
-    {
-      "stage": "Cliente",
-      "n": 156
-    }
+    { "stage": "Lead", "n": 13838 },
+    { "stage": "MQL", "n": 2100 },
+    { "stage": "SQL", "n": 2065 },
+    { "stage": "Oportunidad", "n": 2052 },
+    { "stage": "Cliente", "n": 156 }
   ],
   "conv": [
-    {
-      "from": "Lead",
-      "to": "MQL",
-      "pct": 15.2
-    },
-    {
-      "from": "MQL",
-      "to": "SQL",
-      "pct": 98.4
-    },
-    {
-      "from": "SQL",
-      "to": "Oportunidad",
-      "pct": 99.4
-    },
-    {
-      "from": "Oportunidad",
-      "to": "Cliente",
-      "pct": 7.6
-    }
+    { "from": "Lead", "to": "MQL", "pct": 15.2 },
+    { "from": "MQL", "to": "SQL", "pct": 98.3 },
+    { "from": "SQL", "to": "Oportunidad", "pct": 99.4 },
+    { "from": "Oportunidad", "to": "Cliente", "pct": 7.6 }
   ],
   "kpi": {
-    "mql_total": 54,
+    "mql_total": 55,
     "lead_mql_pct": 15.2,
-    "mql_sql_pct": 98.4,
+    "mql_sql_pct": 98.3,
     "win_pct": 7.6,
-    "cpm_total": 179280,
-    "paid_share_pct": 11.1
+    "cpm_total": 189188,
+    "paid_share_pct": 10.9
   },
   "monthly": [
-    {
-      "ds": "2026-05-01",
-      "lab": "may 26",
-      "mql": 1,
-      "mql_paid": 0,
-      "spend": 2534,
-      "cpm": null
-    },
-    {
-      "ds": "2026-06-01",
-      "lab": "jun 26",
-      "mql": 28,
-      "mql_paid": 3,
-      "spend": 555220,
-      "cpm": 185073
-    },
-    {
-      "ds": "2026-07-01",
-      "lab": "jul 26",
-      "mql": 25,
-      "mql_paid": 3,
-      "spend": 517930,
-      "cpm": 172643,
-      "cur": true
-    }
+    { "ds": "2026-05-01", "lab": "may 26", "mql": 1, "mql_paid": 0, "spend": 2534, "cpm": null },
+    { "ds": "2026-06-01", "lab": "jun 26", "mql": 28, "mql_paid": 3, "spend": 555220, "cpm": 185073 },
+    { "ds": "2026-07-01", "lab": "jul 26", "mql": 26, "mql_paid": 3, "spend": 577372, "cpm": 192457, "cur": true }
   ],
   "by_source": [
-    {
-      "src": "Búsqueda orgánica",
-      "mql": 33
-    },
-    {
-      "src": "Tráfico directo",
-      "mql": 8
-    },
-    {
-      "src": "Búsqueda pagada",
-      "mql": 6
-    },
-    {
-      "src": "Fuentes offline",
-      "mql": 5
-    },
-    {
-      "src": "Redes sociales",
-      "mql": 1
-    },
-    {
-      "src": "Referencias",
-      "mql": 1
-    }
+    { "src": "Búsqueda orgánica", "mql": 34 },
+    { "src": "Tráfico directo", "mql": 8 },
+    { "src": "Búsqueda pagada", "mql": 6 },
+    { "src": "Fuentes offline", "mql": 5 },
+    { "src": "Redes sociales", "mql": 1 },
+    { "src": "Referencias", "mql": 1 }
   ],
   "metric_labels": {
     "mql": "MQL nuevos",
     "mql_paid": "MQL de pago",
     "spend": "Inversión Ads",
     "cpm": "Costo por MQL"
+  },
+  "paid": {
+    "paid_vs_other": { "paid": 6, "other": 199, "total": 205, "paid_share_pct": 2.9 },
+    "paid_to_qo": { "n": 6, "reached_qo": 1, "pct": 16.7 },
+    "cohort": [
+      { "lab": "jun 26", "n": 3, "qo": 1, "pct": 33.3 },
+      { "lab": "jul 26", "n": 3, "qo": 0, "pct": 0.0 }
+    ]
   }
 };
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
@@ -465,6 +421,29 @@ setPreset(12);
     <span class="vv">${nf.format(r.mql)}</span></div>`).join('')
     ||'<div class="sub">Sin datos.</div>';
 })();
+
+/* ---- MQL de pago (negocios) ---- */
+if(D.paid){
+  const P=D.paid, pvo=P.paid_vs_other||{}, pq=P.paid_to_qo||{};
+  const pc=document.getElementById('paidCard'), pcc=document.getElementById('paidCohortCard');
+  if(pc)pc.style.display='';
+  if(pcc)pcc.style.display='';
+  const head=document.getElementById('paidHead');
+  if(head){
+    head.innerHTML=
+      `<div><div class="n">${nf.format(pvo.paid||0)} <span style="color:var(--ink-3);font-weight:400">/ ${nf.format(pvo.total||0)}</span></div><div class="l">MQL de pago vs total de negocios · ${nf1.format(pvo.paid_share_pct||0)}% de pago</div></div>`+
+      `<div><div class="n">${nf.format(pvo.other||0)}</div><div class="l">MQL de otras fuentes</div></div>`+
+      `<div><div class="n">${nf.format(pq.reached_qo||0)} <span style="color:var(--ink-3);font-weight:400">/ ${nf.format(pq.n||0)}</span></div><div class="l">MQL de pago → Qualified Opportunity+ · ${pq.pct!=null?nf1.format(pq.pct)+'%':'—'}</div></div>`;
+  }
+  const tbl=document.getElementById('paidCohortTbl');
+  if(tbl){
+    const rows=(P.cohort||[]);
+    tbl.innerHTML=
+      `<thead><tr><th>Mes de entrada</th><th class="num">MQL de pago</th><th class="num">Llegaron a Qualified Opportunity+</th><th class="num">%</th></tr></thead>`+
+      `<tbody>`+(rows.length?rows.map(r=>`<tr><td>${esc(r.lab)}</td><td class="num">${nf.format(r.n)}</td><td class="num">${nf.format(r.qo)}</td><td class="num">${r.pct!=null?nf1.format(r.pct)+'%':'—'}</td></tr>`).join('')
+        :`<tr><td colspan="4" class="sub">Sin datos.</td></tr>`)+`</tbody>`;
+  }
+}
 </script>
 
 </body></html>
