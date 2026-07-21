@@ -227,55 +227,118 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
 
 <script>
 const D = {
-  "updated": "20 jul 2026",
+  "updated": "21 jul 2026",
   "account": "Tazki",
   "funnel": [
-    { "stage": "Lead", "n": 13838 },
-    { "stage": "MQL", "n": 2100 },
-    { "stage": "SQL", "n": 2065 },
-    { "stage": "Oportunidad", "n": 2052 },
-    { "stage": "Cliente", "n": 156 }
+    {
+      "stage": "Lead",
+      "n": 13855
+    },
+    {
+      "stage": "MQL",
+      "n": 2104
+    },
+    {
+      "stage": "SQL",
+      "n": 2068
+    },
+    {
+      "stage": "Oportunidad",
+      "n": 2055
+    },
+    {
+      "stage": "Cliente",
+      "n": 159
+    }
   ],
   "conv": [
-    { "from": "Lead", "to": "MQL", "pct": 15.2 },
-    { "from": "MQL", "to": "SQL", "pct": 98.3 },
-    { "from": "SQL", "to": "Oportunidad", "pct": 99.4 },
-    { "from": "Oportunidad", "to": "Cliente", "pct": 7.6 }
+    {
+      "from": "Lead",
+      "to": "MQL",
+      "pct": 15.2
+    },
+    {
+      "from": "MQL",
+      "to": "SQL",
+      "pct": 98.3
+    },
+    {
+      "from": "SQL",
+      "to": "Oportunidad",
+      "pct": 99.4
+    },
+    {
+      "from": "Oportunidad",
+      "to": "Cliente",
+      "pct": 7.7
+    }
   ],
   "kpi": {
-    "mql_total": 55,
+    "mql_total": 56,
     "lead_mql_pct": 15.2,
     "mql_sql_pct": 98.3,
-    "win_pct": 7.6,
-    "cpm_total": 189188,
-    "paid_share_pct": 10.9
+    "win_pct": 7.7,
+    "cpm_total": 194871,
+    "paid_share_pct": 10.7
   },
   "monthly": [
-    { "ds": "2026-05-01", "lab": "may 26", "mql": 1, "mql_paid": 0, "spend": 2534, "cpm": null },
-    { "ds": "2026-06-01", "lab": "jun 26", "mql": 28, "mql_paid": 3, "spend": 555220, "cpm": 185073 },
-    { "ds": "2026-07-01", "lab": "jul 26", "mql": 26, "mql_paid": 3, "spend": 577372, "cpm": 192457, "cur": true }
+    {
+      "ds": "2026-05-01",
+      "lab": "may 26",
+      "mql": 1,
+      "mql_paid": 0,
+      "spend": 2534,
+      "cpm": null
+    },
+    {
+      "ds": "2026-06-01",
+      "lab": "jun 26",
+      "mql": 28,
+      "mql_paid": 3,
+      "spend": 555220,
+      "cpm": 185073
+    },
+    {
+      "ds": "2026-07-01",
+      "lab": "jul 26",
+      "mql": 27,
+      "mql_paid": 3,
+      "spend": 611472,
+      "cpm": 203824,
+      "cur": true
+    }
   ],
   "by_source": [
-    { "src": "Búsqueda orgánica", "mql": 34 },
-    { "src": "Tráfico directo", "mql": 8 },
-    { "src": "Búsqueda pagada", "mql": 6 },
-    { "src": "Fuentes offline", "mql": 5 },
-    { "src": "Redes sociales", "mql": 1 },
-    { "src": "Referencias", "mql": 1 }
+    {
+      "src": "Búsqueda orgánica",
+      "mql": 35
+    },
+    {
+      "src": "Tráfico directo",
+      "mql": 8
+    },
+    {
+      "src": "Búsqueda pagada",
+      "mql": 6
+    },
+    {
+      "src": "Fuentes offline",
+      "mql": 5
+    },
+    {
+      "src": "Redes sociales",
+      "mql": 1
+    },
+    {
+      "src": "Referencias",
+      "mql": 1
+    }
   ],
   "metric_labels": {
     "mql": "MQL nuevos",
     "mql_paid": "MQL de pago",
     "spend": "Inversión Ads",
     "cpm": "Costo por MQL"
-  },
-  "paid": {
-    "paid_vs_other": { "paid": 6, "other": 199, "total": 205, "paid_share_pct": 2.9 },
-    "paid_to_qo": { "n": 6, "reached_qo": 1, "pct": 16.7 },
-    "cohort": [
-      { "lab": "jun 26", "n": 3, "qo": 1, "pct": 33.3 },
-      { "lab": "jul 26", "n": 3, "qo": 0, "pct": 0.0 }
-    ]
   }
 };
 const nf = new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
