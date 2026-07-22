@@ -1,46 +1,63 @@
 {
  "roots": [
+  "18001",
+  "45001",
+  "achs gestion",
+  "auditoria trinorma",
+  "charlas de prevencion de riesgos",
+  "cmx1",
   "como funciona",
+  "control de alcohol y drogas en el trabajo",
   "curso",
+  "egenya",
   "ejemplo",
+  "esginnova",
   "foco en obra",
   "geovictoria",
+  "gestionprevencion",
   "gratis",
   "infocontrol",
+  "iso 14001",
   "iso 45001",
+  "iso 9001",
+  "isometrix aurora",
+  "isotools",
+  "libro de obra digital",
   "medicap",
   "megaprevencion",
   "metodologia gema",
+  "modelo de sg sst",
+  "moreapp",
+  "nexcel contratistas",
+  "ohsas",
   "prevsis",
+  "programa de trabajo preventivo ds 44",
   "programa preventivo",
   "pronexo",
   "que es",
   "que es hseq",
   "que es tazki",
+  "que significa",
+  "riskweb",
   "safe culture",
   "safety culture",
+  "safety management system",
   "safetyculture",
+  "sap ehs",
   "sat contratista",
   "seleria",
+  "sigweb",
+  "software para extintores",
   "subcontrataley",
+  "tarjeta stop seguridad industrial",
   "tutorial",
+  "webcontrol",
   "woken",
   "word",
   "worklite",
-  "zyght",
+  "zigth",
   "zimexa",
-  "isotools",
-  "esginnova",
-  "gestionprevencion",
-  "webcontrol",
-  "achs gestion",
-  "45001",
-  "18001",
-  "ohsas",
-  "iso 9001",
-  "iso 14001",
-  "que significa",
-  "modelo de sg sst"
+  "zyght"
  ],
  "detalle": [
   {
@@ -266,6 +283,125 @@
     "Tazki - SST/HSEQ - Search"
    ],
    "fecha": "2026-07-11"
+  },
+  {
+   "root": "safety management system",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "sap ehs",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "cmx1",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "riskweb",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "charlas de prevencion de riesgos",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "moreapp",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "libro de obra digital",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "software para extintores",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "auditoria trinorma",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "sigweb",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "zigth",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "nexcel contratistas",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "isometrix aurora",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "egenya",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "control de alcohol y drogas en el trabajo",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "programa de trabajo preventivo ds 44",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
+  },
+  {
+   "root": "tarjeta stop seguridad industrial",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-22"
   }
  ],
  "campanas_activas": [
@@ -273,5 +409,5 @@
   "Tazki - SST/HSEQ - Search"
  ],
  "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
- "updated": "17 jul 2026"
+ "updated": "22 jul 2026"
 }
