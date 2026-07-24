@@ -4,14 +4,17 @@
   "45001",
   "achs gestion",
   "auditoria trinorma",
+  "bpsystem",
   "charlas de prevencion de riesgos",
   "cmx1",
   "como funciona",
   "control de alcohol y drogas en el trabajo",
+  "cority",
   "curso",
   "egenya",
   "ejemplo",
   "esginnova",
+  "eyrus",
   "foco en obra",
   "geovictoria",
   "gestionprevencion",
@@ -23,6 +26,7 @@
   "isometrix aurora",
   "isotools",
   "libro de obra digital",
+  "lumiform",
   "medicap",
   "megaprevencion",
   "metodologia gema",
@@ -57,6 +61,7 @@
   "worklite",
   "zigth",
   "zimexa",
+  "zone safe",
   "zyght"
  ],
  "detalle": [
@@ -402,6 +407,41 @@
     "Tazki - SST/HSEQ - Search"
    ],
    "fecha": "2026-07-22"
+  },
+  {
+   "root": "eyrus",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-23"
+  },
+  {
+   "root": "lumiform",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-23"
+  },
+  {
+   "root": "cority",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-23"
+  },
+  {
+   "root": "bpsystem",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-23"
+  },
+  {
+   "root": "zone safe",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-23"
   }
  ],
  "campanas_activas": [
@@ -409,5 +449,5 @@
   "Tazki - SST/HSEQ - Search"
  ],
  "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
- "updated": "22 jul 2026"
+ "updated": "23 jul 2026"
 }
