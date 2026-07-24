@@ -8,12 +8,15 @@
   "charlas de prevencion de riesgos",
   "cmx1",
   "como funciona",
+  "consultoras",
   "control de alcohol y drogas en el trabajo",
   "cority",
   "curso",
   "egenya",
   "ejemplo",
+  "ergosoft",
   "esginnova",
+  "evopreven",
   "eyrus",
   "foco en obra",
   "geovictoria",
@@ -54,8 +57,10 @@
   "software para extintores",
   "subcontrataley",
   "tarjeta stop seguridad industrial",
+  "tazkiapp",
   "tutorial",
   "webcontrol",
+  "wiiprot",
   "woken",
   "word",
   "worklite",
@@ -442,6 +447,41 @@
     "Tazki - SST/HSEQ - Search"
    ],
    "fecha": "2026-07-23"
+  },
+  {
+   "root": "consultoras",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-24"
+  },
+  {
+   "root": "evopreven",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-24"
+  },
+  {
+   "root": "ergosoft",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-24"
+  },
+  {
+   "root": "wiiprot",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-24"
+  },
+  {
+   "root": "tazkiapp",
+   "campanas": [
+    "Tazki - SST/HSEQ - Search"
+   ],
+   "fecha": "2026-07-24"
   }
  ],
  "campanas_activas": [
@@ -449,5 +489,5 @@
   "Tazki - SST/HSEQ - Search"
  ],
  "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
- "updated": "23 jul 2026"
+ "updated": "2026-07-24"
 }
