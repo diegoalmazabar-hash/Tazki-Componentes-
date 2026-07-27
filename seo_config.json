@@ -1,0 +1,44 @@
+{
+  "_lee_esto_primero": "Configuración OBLIGATORIA para cualquier consulta a Google Search Console de Tazki. Acordado con Diego el 27-jul-2026. NO consultes Search Console sin aplicar las dos reglas de abajo: los números salen mal y no cuadran con lo que Diego ve en su pantalla.",
+
+  "propiedad": "sc-domain:tazki.cl",
+
+  "regla_1_regex_de_marca": {
+    "que_es": "La expresión regular exacta que Diego tiene puesta en su Search Console (filtro Consulta > Personalizada > NO coincide con la regex). Excluye la marca y sus errores de tipeo.",
+    "como_aplicarla": "En Supermetrics (ds_id GW) va en el parámetro `filters` como: query !~ <regex>. Del lado del servidor, no la reimplementes en Python.",
+    "nunca_hagas": "No la reemplaces por una lista propia de variantes de marca. Se probó el 27-jul-2026 y da números distintos a los de Diego.",
+    "regex": "(?i)(tazki|tazky|taski|tasky|tasqui|tazqui|tazki\\.cl|^(taaski|tabk|taci|taci e|tacoa|tact|tactech|tadki|tadky|takary falabella|taki app|takis app|takk|takski|taky|takzi|tanzky|tapi|taq|taqi|taqui|taquillero|tas|tas chile|tascki|tasjy|taskki|tasque|tasques|tasski|tastik|tastki|tasuki|tasyk|tasz|taszki|taxa|taxeki|taxico|taxity|taxki|taxy|taz e|taz ki|taz video|tazke|tazkki|tazku|tazski|taztki|tazzki|taşkı|cómo se llama ahora\\?|dame su historia|dasky|dazki|de que se trata|tezkac|tezki|thak|titask|titask chile|tizki|tks|tzki|tsski)$)"
+  },
+
+  "regla_2_solo_busqueda_web": {
+    "que_es": "Diego tiene el filtro 'Tipo de búsqueda: Web' en su pantalla. Hay que replicarlo.",
+    "como_aplicarla": "Pide el campo `searchType` como dimensión y quédate SOLO con las filas WEB. Descarta IMAGE, VIDEO y NEWS.",
+    "por_que_importa": "La búsqueda de IMÁGENES rankea cerca del puesto 33. Si se cuela, hunde la posición media: en julio 2026 la posición salía 10,7 en vez de 9,3, y sobraban 5 clics.",
+    "valor": "WEB"
+  },
+
+  "regla_3_fila_unknown": {
+    "que_es": "Supermetrics inventa una fila '(unknown)' para cuadrar totales (setting discrepancy_correction).",
+    "como_aplicarla": "Descártala siempre en los cortes por consulta. Con filtro de consulta aplicado, Google tampoco la muestra."
+  },
+
+  "regla_4_posicion_ponderada": {
+    "que_es": "La posición media se pondera por impresiones, nunca es un promedio simple.",
+    "formula": "sum(posicion_fila * impresiones_fila) / sum(impresiones_fila)"
+  },
+
+  "control_de_calidad": {
+    "que_hacer": "Antes de publicar cualquier número de SEO, recalcula estos períodos cerrados. Si NO dan exacto, algo se rompió: NO publiques y avísale a Diego en el chat.",
+    "periodos": [
+      {"periodo": "2026-06-01 a 2026-06-30", "clics": 14, "impresiones": 5947, "posicion": 8.4},
+      {"periodo": "2026-07-01 a 2026-07-27", "clics": 22, "impresiones": 7141, "posicion": 9.3},
+      {"periodo": "2026-07-13 a 2026-07-19", "clics": 5, "impresiones": 1836, "posicion": 9.8},
+      {"periodo": "2026-07-20 a 2026-07-26", "clics": 13, "impresiones": 2776, "posicion": 7.8}
+    ],
+    "fuente_de_verdad": "Capturas de la propia pantalla de Diego (Search Console), 27-jul-2026."
+  },
+
+  "historial": {
+    "2026-07-27": "Creado. Antes se usaba una lista aproximada de 29 variantes de marca y no se filtraba el tipo de búsqueda; los clics de julio salían 26 en vez de 22 y la posición 10,7 en vez de 9,3. Diego detectó el descuadre comparando con su pantalla."
+  }
+}
