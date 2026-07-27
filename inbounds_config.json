@@ -1,0 +1,50 @@
+{
+  "_lee_esto_primero": "Definición OFICIAL de 'inbounds' de Tazki, elegida por Diego el 27-jul-2026. Es la misma de su informe guardado de HubSpot «Inbounds - Mensual». Cualquier rutina que reporte inbounds usa ESTA, no otra.",
+
+  "objeto": "DEAL",
+
+  "filtros": {
+    "pipeline": "default",
+    "_pipeline_nota": "'default' es el pipeline llamado «Pipeline de ventas» en la interfaz. Los otros son 'Lead Generation' (831950611) y 'Clientes (Customer Success)' (861878587) y NO cuentan.",
+    "latest_source": "IS NOT NULL",
+    "_latest_source_nota": "PROPIEDAD PERSONALIZADA de Tazki, etiqueta «Latest Source [i]», nombre interno `latest_source`. NO confundir con `hs_analytics_latest_source` (la nativa de HubSpot, etiqueta «Latest Traffic Source»): da números totalmente distintos. Tampoco uses `hs_analytics_source` ni `dealtype='Inbound'`, que era la definición vieja."
+  },
+
+  "agrupacion": {
+    "por": "latest_source",
+    "fecha": "createdate",
+    "columnas_del_panel": {
+      "Orgánica": ["organic_search"],
+      "Pago": ["paid_search"],
+      "Directo": ["direct_traffic"],
+      "Otras": ["offline", "email_marketing", "referrals", "social_media"]
+    }
+  },
+
+  "limite_historico": {
+    "primer_mes_con_datos": "2026-05",
+    "que_hacer": "NO muestres enero–abril 2026. La propiedad personalizada no existía y saldrían en cero, lo que se lee como una caída que nunca ocurrió. La tabla mensual arranca en mayo."
+  },
+
+  "control_de_calidad": {
+    "que_hacer": "Antes de publicar, recalcula estos meses. Si no dan exacto, NO publiques y avísale a Diego.",
+    "meses": [
+      {"mes": "2026-06", "total": 25, "organic_search": 15, "paid_search": 4, "direct_traffic": 4, "offline": 1, "social_media": 1},
+      {"mes": "2026-07", "total": 35, "organic_search": 19, "paid_search": 7, "direct_traffic": 3, "offline": 4, "email_marketing": 1, "referrals": 1, "_corte": "al 27 de julio, mes en curso"}
+    ],
+    "fuente_de_verdad": "Informe de HubSpot «Inbounds - Mensual» (reportId 341621064), capturado el 27-jul-2026."
+  },
+
+  "meta_porcentaje_de_pago": {
+    "formula": "paid_search / total del mes",
+    "junio_2026": "4/25 = 16%",
+    "julio_2026": "7/35 = 20%",
+    "objetivo_agosto": "30%"
+  },
+
+  "no_confundir_con": "La sincronización de conversiones HubSpot → Google Ads sigue usando FUENTE ORIGINAL (hs_analytics_source) en su propiedad de consentimiento. Son dos decisiones distintas: esto es medición interna, aquello es qué señal recibe el algoritmo de Google. Medido el 27-jul-2026: cambiar esa sincronización a fuente más reciente bajaría de 9 a 5 los contactos calificados que llegan a Google.",
+
+  "historial": {
+    "2026-07-27": "Creado. Antes el informe usaba dealtype='Inbound' + hs_analytics_source y daba 37 en julio y 30 en junio, contra 35 y 25 del informe de Diego. Él eligió su definición."
+  }
+}
