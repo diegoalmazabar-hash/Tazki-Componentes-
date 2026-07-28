@@ -1,0 +1,85 @@
+{
+  "_lee_esto_primero": "Estructura acordada de los 9 bloques del informe «Plan de Generación de Demanda» (artefacto privado de Claude). Definida con Diego el 27-jul-2026. Si el informe se regenera, tiene que quedar con ESTA estructura, no con la anterior. Las definiciones de datos viven en inbounds_config.json, embudo_config.json y seo_config.json.",
+
+  "bloque_1_inbounds": {
+    "titulo": "Inbounds · mes a mes",
+    "subtitulo": "— por Latest Source [i], igual que tu informe de HubSpot",
+    "definicion": "ver inbounds_config.json",
+    "tablas": ["mensual desde mayo 2026", "semanal lunes a domingo, últimas 8 semanas"]
+  },
+
+  "bloque_2_embudo_y_calidad": {
+    "titulo": "Embudo y Conversión",
+    "definicion": "ver embudo_config.json (listas 970 SEO y 968 SEM)",
+    "tablas": [
+      "Embudo SEM vs SEO: Inbounds · Meeting Set · Qualified Opp. · Perdidos",
+      "CALIDAD = MATRIZ DE CAMADAS. Filas = mes de creación. Columnas = mes de cierre. Cada celda dice cuántos se ganaron y cuántos se perdieron ESE mes. Más columnas 'Sin cerrar' y '% conv'. NO es un resumen por mes: Diego lo pidió explícitamente como matriz para seguir cada camada en el tiempo.",
+      "PRODUCTIVIDAD por mes de cierre: ganó · perdió · % conv"
+    ],
+    "mapeo_de_etapas": {
+      "gano": ["1294334986 (Audit)", "closedlost (etiquetado «Closed Won », con espacio final)"],
+      "churn": "1287744033 — convirtió y después se fue. Columna aparte, NO suma a perdido.",
+      "perdio": ["1233212743 (Closed Lost)", "1233115675 (Lost, pipeline Lead Generation)"],
+      "en_proceso": "todo el resto",
+      "onboarding": "1287744035 NO cuenta como ganado. Los negocios del pipeline «Clientes» son DUPLICADOS de los de ventas (mismo cliente en ambos); contarlos infla los ganados.",
+      "audit_esta_vacia": "Al 27-jul-2026 la etapa Audit no tiene ningún negocio en todo el portal. Se cuenta igual por decisión de Diego, pero hoy el ganado lo aporta entero Closed Won.",
+      "formula_conversion": "ganó / (ganó + perdió) — los que siguen en proceso no castigan el porcentaje"
+    },
+    "nota_obligatoria": "SEM tiene ~8 Meeting Set en el año: cada negocio mueve la conversión ~12 puntos. Declararlo siempre al lado del número."
+  },
+
+  "bloque_3_sem_ranking": {
+    "titulo": "SEM · Puja y ranking",
+    "regla": "Impression share y sus dos pérdidas se ponderan por impresiones ELEGIBLES (impresiones ÷ impression share), nunca promediando días. Control: las 3 métricas suman ~100%."
+  },
+
+  "bloque_4_accionables": {
+    "regla": "NO pre-llenar con sugerencias. Solo lo que Diego ya pidió ejecutar."
+  },
+
+  "bloque_5_ads_conversiones": {
+    "regla": "Contar SOLO ConversionTypeName = 'HubSpot - Marketing Qualified Lead'. EXCLUIR 'TechSol - formulario web 48078' (dispara al apretar Enviar sin esperar confirmación; pasó a secundaria el 27-jul-2026). Si aparece TechSol, declararla aparte, nunca sumada.",
+    "limitacion_api": "Google Ads rechaza la consulta si se pide ConversionTypeName junto con Impressions. Van en dos consultas separadas."
+  },
+
+  "bloque_6_seo": {
+    "definicion": "ver seo_config.json",
+    "tablas": ["mes a mes", "semana a semana lun-dom", "palabras nuevas semana a semana", "nuevas con su primer clic", "a recuperar", "25 keywords a trabajar"],
+    "popups": {
+      "que_son": "En la tabla «Palabras clave nuevas · semana a semana», los números de nuevas / +impresiones / +clics / −impresiones / −clics llevan un popup en hover con el listado de términos.",
+      "como_se_arma": "Cada entrada de KWNEW puede traer un campo `pop` con {nuevas, subimp, bajimp, subclk, bajclk}, cada uno una lista de strings ordenada por magnitud del cambio. La función pop(n, list, titulo) del propio HTML envuelve el número; si no hay lista devuelve el número pelado.",
+      "cuantas_semanas": "Solo las 2 semanas más recientes llevan listas, con tope de 60 términos cada una. Guardar las 12 semanas engordaría el archivo sin uso real.",
+      "css": "Las clases .pop / .pw ya están en el <style> del informe."
+    },
+    "nombre_de_la_metrica": "En metas se llama «Palabras distintas que trajeron clics» (queries con ≥1 clic). NO son los clics totales. Diego se confundió con eso el 27-jul: no volver a rotularla «Keywords con clics»."
+  },
+
+  "bloque_7_contenido": {
+    "titulo": "Contenido · blog, recursos y casos",
+    "subtitulo": "— semana a semana · medido por HubSpot",
+    "cambio_del_27_jul": "Antes era solo un total anual del blog + top 5. Diego pidió verlo SEMANA A SEMANA e incluir las páginas de Recursos y Casos de éxito, no solo artículos de blog.",
+    "tabla_semanal": "Columnas: Semana · Blog · Recursos · Casos de éxito · Total · Envíos · Leads. El ranking acumulado del año se mantiene debajo.",
+    "fuente": "HubSpot get_content_analytics_report, modo TIME_SERIES period WEEKLY sobre los IDs de los contenidos publicados (blog + recursos + casos).",
+    "ojo_con_las_semanas": "HubSpot corta las semanas de DOMINGO a SÁBADO, distinto de los bloques 1 y 6 que van lunes a domingo. Rotularlo siempre para que nadie cruce las tablas.",
+    "semana_parcial": "Marcar la última fila como parcial con los días que lleva, en vez de dejar que parezca una caída."
+  },
+
+  "bloque_8_clarity": {
+    "titulo": "Landing principal + Clarity",
+    "cambio_del_27_jul": "Antes mostraba el baseline como porcentajes y decía «la comparativa empieza la próxima semana». Ahora es un comparativo real entre los primeros snapshots y los últimos, más la tabla snapshot a snapshot.",
+    "unidad_correcta": "Clarity entrega CONTEOS de dead clicks, rage clicks y quick-backs, no porcentajes. Publicarlos como «%» es incorrecto. Se normalizan dividiendo por las sesiones del período.",
+    "umbral": "Filas con menos de 5 sesiones muestran «—»: no son medición, son ruido.",
+    "fuente": "El snapshot diario se acumula en bitacora-tazki.html del Hub, const BITA → clarity.history."
+  },
+
+  "bloque_9_bitacora": {
+    "fuente_sem": "El historial REAL de Google Ads: campaign_and_resource_get resource_type='history' sobre la cuenta 3766426817. No lo que recuerde el modelo de conversaciones pasadas.",
+    "dos_listas": "platform_change_list trae los cambios con hora y autor pero sin valores; supermetrics_change_list trae menos entradas pero con los valores viejo/nuevo.",
+    "ojo_con_el_autor": "Los cambios que entran por la conexión de Supermetrics NO figuran con el correo de Diego: Google los registra con la identidad de la cuenta que autorizó la conexión (un Gmail). NO es un acceso externo. Verificado el 27-jul-2026 cruzando las horas con offset Chile = UTC−4. No volver a levantar esa falsa alarma.",
+    "rezago": "El historial de Google llega con 1 o 2 días de atraso. Decirlo en la nota en vez de dejar el hueco sin explicar."
+  },
+
+  "historial": {
+    "2026-07-27": "Creado tras una revisión completa con Diego: se alinearon inbounds, embudo, calidad y SEO a sus propios informes y listas de HubSpot, se corrigió la unidad de Clarity, se pasó el contenido a semanal y se agregaron los popups de keywords."
+  }
+}
