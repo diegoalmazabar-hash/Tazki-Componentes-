@@ -27,18 +27,26 @@
     "formula": "sum(posicion_fila * impresiones_fila) / sum(impresiones_fila)"
   },
 
+  "regla_5_semanas_lunes_a_domingo": {
+    "que_es": "La dimensión `Yearweek` de Supermetrics corta las semanas de DOMINGO a SÁBADO. Search Console y las tablas de Tazki van de LUNES a DOMINGO.",
+    "como_aplicarla": "NO uses `Yearweek` para armar series semanales. Pide el campo `Date` (día a día) y agrupa tú por lunes.",
+    "por_que_importa": "Cada punto quedaba corrido un día y nunca calzaba con la pantalla de Diego. Comprobado el 28-jul-2026: el rango 20 al 26 de julio pedido directo da 2.776 impresiones; con `Yearweek` el mismo rango se parte en 2026|30 = 2.552 y 2026|31 = 224.",
+    "los_meses_si_sirven": "`Yearmonth` está bien: los meses no se corren de día. Verificado contra el control de junio."
+  },
+
   "control_de_calidad": {
-    "que_hacer": "Antes de publicar cualquier número de SEO, recalcula estos períodos cerrados. Si NO dan exacto, algo se rompió: NO publiques y avísale a Diego en el chat.",
+    "que_hacer": "Antes de publicar cualquier número de SEO, recalcula estos períodos CERRADOS. Si NO dan exacto, algo se rompió: NO publiques y avísale a Diego en el chat.",
+    "ojo_con_el_mes_en_curso": "Search Console rellena datos con 2 o 3 días de atraso. Un período todavía abierto SUBE después: el 27-jul el rango 1 al 27 de julio marcaba 7.141 impresiones y 22 clics, y el 28-jul el mismo rango ya marcaba 7.629 y 24. Eso es normal, no es un error. Solo los períodos cerrados sirven de control.",
     "periodos": [
-      {"periodo": "2026-06-01 a 2026-06-30", "clics": 14, "impresiones": 5947, "posicion": 8.4},
-      {"periodo": "2026-07-01 a 2026-07-27", "clics": 22, "impresiones": 7141, "posicion": 9.3},
-      {"periodo": "2026-07-13 a 2026-07-19", "clics": 5, "impresiones": 1836, "posicion": 9.8},
-      {"periodo": "2026-07-20 a 2026-07-26", "clics": 13, "impresiones": 2776, "posicion": 7.8}
+      {"periodo": "2026-06-01 a 2026-06-30", "clics": 14, "impresiones": 5947, "posicion": 8.4, "cerrado": true},
+      {"periodo": "2026-07-13 a 2026-07-19", "clics": 5, "impresiones": 1836, "posicion": 9.8, "cerrado": true},
+      {"periodo": "2026-07-20 a 2026-07-26", "clics": 13, "impresiones": 2776, "posicion": 7.8, "cerrado": true}
     ],
     "fuente_de_verdad": "Capturas de la propia pantalla de Diego (Search Console), 27-jul-2026."
   },
 
   "historial": {
-    "2026-07-27": "Creado. Antes se usaba una lista aproximada de 29 variantes de marca y no se filtraba el tipo de búsqueda; los clics de julio salían 26 en vez de 22 y la posición 10,7 en vez de 9,3. Diego detectó el descuadre comparando con su pantalla."
+    "2026-07-27": "Creado. Antes se usaba una lista aproximada de 29 variantes de marca y no se filtraba el tipo de búsqueda; los clics de julio salían 26 en vez de 22 y la posición 10,7 en vez de 9,3. Diego detectó el descuadre comparando con su pantalla.",
+    "2026-07-28": "Se agrega la regla 5: las semanas se arman desde datos diarios, no con `Yearweek`. Se saca del control el período 1 al 27 de julio porque estaba abierto y Google lo siguió rellenando."
   }
 }
