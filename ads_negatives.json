@@ -1,493 +1,502 @@
 {
- "roots": [
-  "18001",
-  "45001",
-  "achs gestion",
-  "auditoria trinorma",
-  "bpsystem",
-  "charlas de prevencion de riesgos",
-  "cmx1",
-  "como funciona",
-  "consultoras",
-  "control de alcohol y drogas en el trabajo",
-  "cority",
-  "curso",
-  "egenya",
-  "ejemplo",
-  "ergosoft",
-  "esginnova",
-  "evopreven",
-  "eyrus",
-  "foco en obra",
-  "geovictoria",
-  "gestionprevencion",
-  "gratis",
-  "infocontrol",
-  "iso 14001",
-  "iso 45001",
-  "iso 9001",
-  "isometrix aurora",
-  "isotools",
-  "libro de obra digital",
-  "lumiform",
-  "medicap",
-  "megaprevencion",
-  "metodologia gema",
-  "modelo de sg sst",
-  "moreapp",
-  "nexcel contratistas",
-  "ohsas",
-  "prevsis",
-  "programa de trabajo preventivo ds 44",
-  "programa preventivo",
-  "pronexo",
-  "que es",
-  "que es hseq",
-  "que es tazki",
-  "que significa",
-  "riskweb",
-  "safe culture",
-  "safety culture",
-  "safety management system",
-  "safetyculture",
-  "sap ehs",
-  "sat contratista",
-  "seleria",
-  "sigweb",
-  "software para extintores",
-  "subcontrataley",
-  "tarjeta stop seguridad industrial",
-  "tazkiapp",
-  "tutorial",
-  "webcontrol",
-  "wiiprot",
-  "woken",
-  "word",
-  "worklite",
-  "zigth",
-  "zimexa",
-  "zone safe",
-  "zyght"
- ],
- "detalle": [
-  {
-   "root": "como funciona",
-   "campanas": [
+  "roots": [
+    "18001",
+    "45001",
+    "achs gestion",
+    "auditoria trinorma",
+    "bpsystem",
+    "charlas de prevencion de riesgos",
+    "cmx1",
+    "como funciona",
+    "consultoras",
+    "control de alcohol y drogas en el trabajo",
+    "cority",
+    "curso",
+    "egenya",
+    "ejemplo",
+    "ergosoft",
+    "esginnova",
+    "evopreven",
+    "eyrus",
+    "foco en obra",
+    "focoprevencion",
+    "geovictoria",
+    "gestionprevencion",
+    "gratis",
+    "infocontrol",
+    "iso 14001",
+    "iso 45001",
+    "iso 9001",
+    "isometrix aurora",
+    "isotools",
+    "libro de obra digital",
+    "lumiform",
+    "medicap",
+    "megaprevencion",
+    "metodologia gema",
+    "modelo de sg sst",
+    "moreapp",
+    "nexcel contratistas",
+    "ohsas",
+    "prevsis",
+    "programa de trabajo preventivo ds 44",
+    "programa preventivo",
+    "pronexo",
+    "que es",
+    "que es hseq",
+    "que es tazki",
+    "que significa",
+    "riskweb",
+    "safe culture",
+    "safety culture",
+    "safety management system",
+    "safetyculture",
+    "sap ehs",
+    "sat contratista",
+    "seleria",
+    "sigweb",
+    "software para extintores",
+    "subcontrataley",
+    "tarjeta stop seguridad industrial",
+    "tazkiapp",
+    "tutorial",
+    "webcontrol",
+    "wiiprot",
+    "woken",
+    "word",
+    "worklite",
+    "zigth",
+    "zimexa",
+    "zone safe",
+    "zyght"
+  ],
+  "detalle": [
+    {
+      "root": "auditoria trinorma",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "bpsystem",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-23"
+    },
+    {
+      "root": "charlas de prevencion de riesgos",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "cmx1",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "como funciona",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "consultoras",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-24"
+    },
+    {
+      "root": "control de alcohol y drogas en el trabajo",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "cority",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-23"
+    },
+    {
+      "root": "curso",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "egenya",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "ejemplo",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "ergosoft",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-24"
+    },
+    {
+      "root": "evopreven",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-24"
+    },
+    {
+      "root": "eyrus",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-23"
+    },
+    {
+      "root": "foco en obra",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "focoprevencion",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-08-03"
+    },
+    {
+      "root": "geovictoria",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "gratis",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-08-03"
+    },
+    {
+      "root": "infocontrol",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "iso 45001",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "isometrix aurora",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "libro de obra digital",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "lumiform",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-23"
+    },
+    {
+      "root": "medicap",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "megaprevencion",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "metodologia gema",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "moreapp",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "nexcel contratistas",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "prevsis",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "programa de trabajo preventivo ds 44",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "programa preventivo",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "pronexo",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "que es",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "que es hseq",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "que es tazki",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "riskweb",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "safe culture",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "safety culture",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "safety management system",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "safetyculture",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "sap ehs",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "sat contratista",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "seleria",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "sigweb",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "software para extintores",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "subcontrataley",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "tarjeta stop seguridad industrial",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "tazkiapp",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-24"
+    },
+    {
+      "root": "tutorial",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "wiiprot",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-24"
+    },
+    {
+      "root": "woken",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "word",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "worklite",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    },
+    {
+      "root": "zigth",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-22"
+    },
+    {
+      "root": "zone safe",
+      "campanas": [
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-23"
+    },
+    {
+      "root": "zyght",
+      "campanas": [
+        "Tazki - Marca - Search - v2",
+        "Tazki - SST/HSEQ - Search"
+      ],
+      "fecha": "2026-07-11"
+    }
+  ],
+  "campanas_activas": [
     "Tazki - Marca - Search - v2",
     "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "curso",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "ejemplo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "foco en obra",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "geovictoria",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "gratis",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "infocontrol",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "iso 45001",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "medicap",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "megaprevencion",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "metodologia gema",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "prevsis",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "programa preventivo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "pronexo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "que es",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "que es hseq",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "que es tazki",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "safe culture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "safety culture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "safetyculture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "sat contratista",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "seleria",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "subcontrataley",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "tutorial",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "woken",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "word",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "worklite",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "zyght",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
-  },
-  {
-   "root": "safety management system",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "sap ehs",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "cmx1",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "riskweb",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "charlas de prevencion de riesgos",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "moreapp",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "libro de obra digital",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "software para extintores",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "auditoria trinorma",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "sigweb",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "zigth",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "nexcel contratistas",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "isometrix aurora",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "egenya",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "control de alcohol y drogas en el trabajo",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "programa de trabajo preventivo ds 44",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "tarjeta stop seguridad industrial",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
-  },
-  {
-   "root": "eyrus",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
-  },
-  {
-   "root": "lumiform",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
-  },
-  {
-   "root": "cority",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
-  },
-  {
-   "root": "bpsystem",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
-  },
-  {
-   "root": "zone safe",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
-  },
-  {
-   "root": "consultoras",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
-  },
-  {
-   "root": "evopreven",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
-  },
-  {
-   "root": "ergosoft",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
-  },
-  {
-   "root": "wiiprot",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
-  },
-  {
-   "root": "tazkiapp",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
-  }
- ],
- "campanas_activas": [
-  "Tazki - Marca - Search - v2",
-  "Tazki - SST/HSEQ - Search"
- ],
- "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
- "updated": "2026-07-24"
+  ],
+  "nota": "Negativas ya aplicadas por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ), concordancia de frase.",
+  "updated": "2026-08-03"
 }
