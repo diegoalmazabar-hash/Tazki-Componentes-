@@ -157,6 +157,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
       <button class="b1" id="armar">Armar presentación</button>
       <button class="b2" id="ejemplo">Cargar fila de ejemplo</button>
       <button class="b2 noprint" id="pdf">Exportar a PDF</button>
+      <button class="b2 noprint" id="link">Copiar enlace del deck</button>
     </div>
     <div class="err" id="err" hidden></div>
     <div class="receta" id="receta" hidden></div>
@@ -373,6 +374,39 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     return {html:s, arq:a, n:n};
   }
 
+  /* ---------- enlace con los datos ---------- */
+  /* Solo viajan las columnas de cara al cliente. La inteligencia interna
+     (resistencia, manejo de detractores, comparacion con competencia) NUNCA
+     entra al enlace: si el enlace se filtra, eso no se filtra con el. */
+  var PUBLICAS = ["dealname","dolor_principal_detectado","industrias_isic_nivel_2",
+    "cantidad_empleados","centros_de_trabajo_activos","descripcion_dolor_cliente",
+    "como_gestionan_actualmente","que_pasa_si_no_lo_resuelven_hoy","normativa__riesgo",
+    "urgencia_o_necesidad__migracion","modulos_a_cotizar","modulos_de_mayor_valor_wow",
+    "detalles_solucion_wow","el_cliente_espera_ver",
+    "argumento_principal__justificacion_de_la_inversion","metrica_de_exito_declarada",
+    "promesa_realizada"];
+
+  function aB64(obj){
+    var json = JSON.stringify(obj);
+    var bytes = new TextEncoder().encode(json);
+    var bin = "";
+    bytes.forEach(function(b){ bin += String.fromCharCode(b); });
+    return btoa(bin).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  }
+  function deB64(t){
+    t = t.replace(/-/g,"+").replace(/_/g,"/");
+    while(t.length % 4) t += "=";
+    var bin = atob(t);
+    var bytes = new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+  function enlaceDe(d){
+    var min = {};
+    PUBLICAS.forEach(function(c){ if(d[c]) min[c] = d[c]; });
+    return location.origin + location.pathname + "#d=" + aB64(min);
+  }
+
   /* ---------- eventos ---------- */
   var $fila = document.getElementById("fila"),
       $deck = document.getElementById("deck"),
@@ -385,6 +419,45 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
   });
   document.getElementById("armar").addEventListener("click", generar);
   document.getElementById("pdf").addEventListener("click", function(){ window.print(); });
+
+  document.getElementById("link").addEventListener("click", function(){
+    var btn = this, antes = btn.textContent;
+    try{
+      var url = enlaceDe(parse($fila.value));
+      var ta = document.createElement("textarea");
+      ta.value = url; ta.style.position="fixed"; ta.style.top="-1000px";
+      document.body.appendChild(ta); ta.select();
+      var ok=false; try{ ok = document.execCommand("copy"); }catch(e){ ok=false; }
+      document.body.removeChild(ta);
+      if(!ok && navigator.clipboard) navigator.clipboard.writeText(url);
+      btn.textContent = "Enlace copiado";
+      setTimeout(function(){ btn.textContent = antes; }, 1800);
+    }catch(e){
+      $err.hidden = false; $err.textContent = e.message;
+    }
+  });
+
+  /* si el enlace trae datos, arma el deck solo y esconde el panel de carga */
+  (function desdeEnlace(){
+    var m = /[#&]d=([^&]+)/.exec(location.hash);
+    if(!m) return;
+    try{
+      var d = deB64(m[1]);
+      COLS.forEach(function(c){ if(!(c in d)) d[c] = ""; });
+      var r = armar(d);
+      $deck.innerHTML = r.html;
+      $deck.classList.add("show");
+      var loader = document.querySelector("#px .loader");
+      if(loader) loader.style.display = "none";
+      var lead = document.querySelector("#px .lead");
+      if(lead) lead.style.display = "none";
+      var h1 = document.querySelector("#px h1");
+      if(h1) h1.style.display = "none";
+    }catch(e){
+      $err.hidden = false;
+      $err.textContent = "El enlace viene con datos ilegibles. Pide que lo generen de nuevo.";
+    }
+  })();
 
   function generar(){
     $err.hidden = true; $rec.hidden = true;
