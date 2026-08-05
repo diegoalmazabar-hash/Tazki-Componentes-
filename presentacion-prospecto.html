@@ -1,0 +1,409 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Presentación por prospecto · Tazki</title></head><body>
+<!-- MENU LATERAL TAZKI -->
+<style>
+#tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
+#tzMenuBtn span,#tzMenuBtn span:before,#tzMenuBtn span:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.2s}
+#tzMenuBtn span:before{position:absolute;top:-6px}#tzMenuBtn span:after{position:absolute;top:6px}
+#tzSide{position:fixed;top:0;left:0;height:100%;width:270px;background:#0f1b34;color:#fff;z-index:100001;transform:translateX(-100%);transition:transform .22s ease;box-shadow:4px 0 24px rgba(0,0,0,.35);display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif}
+#tzSide.open{transform:translateX(0)}
+#tzOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100000;opacity:0;pointer-events:none;transition:.22s}
+#tzOverlay.open{opacity:1;pointer-events:auto}
+#tzSide .th{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+#tzSide .th .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ea8e0;font-weight:700}
+#tzSide .th .t{font-size:19px;font-weight:800;margin-top:3px}
+#tzSide nav{padding:12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+#tzSide a{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:10px;color:#cdd8ef;text-decoration:none;font-size:14.5px;font-weight:600;transition:.15s}
+#tzSide a:hover{background:rgba(255,255,255,.08);color:#fff}
+#tzSide a.on{background:#1f4ed8;color:#fff}
+#tzSide a .ic{width:22px;text-align:center;font-size:16px}
+#tzSide .cl{padding:16px 22px;font-size:11px;color:#6b7ba0;border-top:1px solid rgba(255,255,255,.1)}
+#tzSide .x{position:absolute;top:16px;right:16px;background:none;border:none;color:#8ea8e0;font-size:22px;cursor:pointer;line-height:1}
+</style>
+<button id="tzMenuBtn" onclick="tzToggle()" aria-label="Menú"><span></span></button>
+<div id="tzOverlay" onclick="tzToggle()"></div>
+<aside id="tzSide">
+  <button class="x" onclick="tzToggle()">&times;</button>
+  <div class="th"><div class="k">Growth · Tazki</div><div class="t">Paneles</div></div>
+  <nav>
+    <a href="index.html" data-p="inicio"><span class="ic">🏠</span> Inicio</a>
+    <a href="manual-tazki.html" data-p="manual"><span class="ic">📖</span> Manual de uso</a>
+    <a href="recomendaciones-tazki.html" data-p="recomendaciones"><span class="ic">💡</span> Recomendaciones</a>
+    <a href="bitacora-tazki.html" data-p="bitacora"><span class="ic">📋</span> Bitácora · Baseline</a>
+    <a href="google-ads-tazki.html" data-p="google-ads"><span class="ic">🎯</span> Google Ads</a>
+    <a href="seo-tazki.html" data-p="seo"><span class="ic">🔍</span> SEO · Buscadores</a>
+    <a href="benchmark-tazki.html" data-p="benchmark"><span class="ic">🗺️</span> Benchmark</a>
+    <a href="maquina-de-leads-tazki.html" data-p="maquina"><span class="ic">🧲</span> Plan de contenidos</a>
+    <a href="calendario-tazki.html" data-p="calendario"><span class="ic">🗓️</span> Calendario</a>
+    <a href="roi.html" data-p="roi"><span class="ic">🧮</span> Calculadora ROI</a>
+    <a href="ventas.html" data-p="ventas"><span class="ic">🗂️</span> Assets para Ventas</a>
+  </nav>
+  <div class="cl">Panel interno · datos vía HubSpot y Supermetrics</div>
+</aside>
+<script>
+function tzToggle(){document.getElementById('tzSide').classList.toggle('open');document.getElementById('tzOverlay').classList.toggle('open');}
+(function(){var f=(location.pathname.split('/').pop()||'index.html');var map={'index.html':'inicio','manual-tazki.html':'manual','recomendaciones-tazki.html':'recomendaciones','bitacora-tazki.html':'bitacora','google-ads-tazki.html':'google-ads','seo-tazki.html':'seo','conversaciones-tazki.html':'conversaciones','benchmark-tazki.html':'benchmark','maquina-de-leads-tazki.html':'maquina','calendario-tazki.html':'calendario','capsulas-tazki.html':'capsulas','roi.html':'roi','ventas.html':'ventas','':'inicio'};var cur=map[f]||'inicio';document.querySelectorAll('#tzSide a').forEach(function(a){if(a.getAttribute('data-p')===cur)a.classList.add('on');});})();
+</script>
+<!-- GATE TAZKI -->
+<div id="tzGate" style="position:fixed;inset:0;z-index:200000;background:linear-gradient(160deg,#0f1b34,#1f4ed8);display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif">
+  <form id="tzGateForm" style="background:#fff;padding:34px 28px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45);width:300px;max-width:90vw;text-align:center">
+    <div style="font-size:30px;margin-bottom:8px">🔒</div>
+    <div style="font-weight:800;font-size:18px;color:#0f1b34">Growth Hub · Tazki</div>
+    <div style="font-size:12.5px;color:#586079;margin:4px 0 18px">Acceso interno</div>
+    <input id="tzGatePass" type="password" placeholder="Contraseña" autocomplete="current-password" style="width:100%;padding:11px 12px;border:1px solid #d6dcec;border-radius:9px;font-size:14px;margin-bottom:10px;box-sizing:border-box">
+    <button type="submit" style="width:100%;padding:11px;background:#1f4ed8;color:#fff;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer">Entrar</button>
+    <div id="tzGateErr" style="color:#d03b3b;font-size:12px;margin-top:9px;visibility:hidden">Contraseña incorrecta</div>
+  </form>
+</div>
+<script>
+(function(){var KEY="tz_hub_auth",H=952746836;
+function hash(s){var x=0;for(var i=0;i<s.length;i++){x=(x*31+s.charCodeAt(i))>>>0;}return x;}
+var g=document.getElementById("tzGate");
+if(!g)return;
+if(sessionStorage.getItem(KEY)==="1"){g.parentNode.removeChild(g);return;}
+var f=document.getElementById("tzGateForm");
+f.addEventListener("submit",function(e){e.preventDefault();
+var v=document.getElementById("tzGatePass").value;
+if(hash(v)===H){sessionStorage.setItem(KEY,"1");g.parentNode.removeChild(g);}
+else{document.getElementById("tzGateErr").style.visibility="visible";}});
+setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus();},80);})();
+</script>
+<!-- FIN GATE TAZKI -->
+<!-- FIN MENU LATERAL TAZKI -->
+<style>
+:root{
+  --navy:#0C1E50; --cobalt:#1537D1; --plight:#B865C1; --pdeep:#8F4799;
+  --bluesup:#A2D6F9; --cloud:#F4F6FB; --line:#E2E7F1; --grey:#5B6472; --ink:#0C1E50;
+  --good:#0F9D58; --warn:#B97D00; --crit:#D03B3B;
+  --shadow:0 1px 3px rgba(12,30,80,.08),0 8px 30px rgba(12,30,80,.06);
+}
+*{box-sizing:border-box}
+#px{font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cloud);min-height:100vh;line-height:1.5}
+#px .wrap{max-width:1080px;margin:0 auto;padding:70px 22px 60px}
+#px h1{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;line-height:1.08}
+#px .lead{font-size:16px;color:var(--grey);max-width:680px;margin:0 0 26px}
+#px .card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+#px .lbl{font-size:11.5px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:7px}
+
+/* ---- panel de carga ---- */
+#px .loader{padding:22px}
+#px textarea{width:100%;min-height:96px;padding:13px 14px;border:1.5px solid var(--line);border-radius:11px;font:inherit;font-size:13.5px;color:var(--ink);background:#fff;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+#px textarea:focus{outline:none;border-color:var(--cobalt)}
+#px .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+#px button{font:inherit;font-size:14px;font-weight:700;border-radius:11px;padding:11px 18px;border:1.5px solid transparent;cursor:pointer}
+#px .b1{background:var(--cobalt);color:#fff}
+#px .b2{background:#fff;color:var(--ink);border-color:var(--line)}
+#px button:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+#px .aviso{margin-top:14px;padding:12px 14px;background:#FFF8E8;border:1px solid #F0DFB4;border-radius:11px;font-size:13px;color:#6B5310}
+#px .err{margin-top:12px;font-size:13.5px;color:var(--crit);font-weight:600}
+#px .receta{margin-top:14px;font-size:13.5px;color:var(--grey)}
+#px .receta b{color:var(--ink)}
+
+/* ---- deck ---- */
+#px #deck{margin-top:30px;display:none}
+#px #deck.show{display:block}
+#px .slide{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:52px 56px;margin-bottom:22px;min-height:470px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+#px .slide .n{position:absolute;right:26px;bottom:20px;font-size:12px;color:#9AA3B5;font-weight:600}
+#px .slide .wm{position:absolute;right:30px;top:26px;font-size:15px;font-weight:800;letter-spacing:-.02em;color:#C3CBDC}
+#px .slide h2{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px;line-height:1.14;max-width:80%}
+#px .slide .kicker{font-size:11.5px;font-weight:700;color:var(--cobalt);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px}
+#px .slide p{font-size:16.5px;color:#33405C;margin:0 0 12px;max-width:62ch}
+#px .slide ul{margin:6px 0 0;padding-left:20px}
+#px .slide li{font-size:16px;color:#33405C;margin-bottom:9px;max-width:60ch}
+#px .cifras{display:flex;flex-wrap:wrap;gap:38px;margin:18px 0 20px}
+#px .cifra .v{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--navy)}
+#px .cifra .k{font-size:13px;color:var(--grey);margin-top:6px;font-weight:600}
+#px .slide.dark{background:var(--navy);border-color:var(--navy)}
+#px .slide.dark h2,#px .slide.dark .cifra .v{color:#fff}
+#px .slide.dark p,#px .slide.dark li{color:#C9D3EA}
+#px .slide.dark .kicker{color:var(--bluesup)}
+#px .slide.dark .wm{color:#3A4B7A}
+#px .slide.dark .n{color:#495A88}
+#px .slide.dark .cifra .k{color:#9FAECC}
+#px .portada{justify-content:center;min-height:470px}
+#px .portada .emp{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.06;margin:0 0 14px;color:#fff;max-width:16ch}
+#px .portada .sub{font-size:17px;color:#B8C6E4;margin:0}
+#px .portada .marca{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:auto}
+#px .caja{background:var(--cloud);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:auto}
+#px .caja .t{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--grey);margin-bottom:6px}
+#px .caja p{font-size:15.5px;margin:0;color:var(--ink)}
+#px .dark .caja{background:#16295C;border-color:#25396E}
+#px .dark .caja p{color:#E4EBFA}
+#px .dark .caja .t{color:#8FA3CE}
+#px .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:18px}
+#px .pill{font-size:13px;font-weight:600;padding:7px 13px;border-radius:20px;background:var(--cloud);color:var(--ink);border:1px solid var(--line)}
+#px .dark .pill{background:#16295C;color:#DCE5F8;border-color:#2A3D74}
+
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff}
+  #tzSide,#tzOverlay,#tzBtn,#tzGate,#px .loader,#px h1,#px .lead,#px .noprint{display:none!important}
+  #px{background:#fff}
+  #px .wrap{max-width:none;padding:0}
+  #px .slide{break-inside:avoid;page-break-after:always;border:0;border-radius:0;box-shadow:none;margin:0;min-height:100vh;padding:8vh 9vw;justify-content:flex-start}
+  #px .slide.dark{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+<div id="px">
+<div class="wrap">
+
+  <h1>Presentación por prospecto</h1>
+  <p class="lead">Pega la fila del Sheet <b>Informacion Negocios Presentaciones</b> y arma la presentación comercial de seguimiento. Lee la información del negocio, elige el tipo de deck que corresponde y redacta las láminas. Después la exportas a PDF y se la mandas al prospecto para que la circule internamente.</p>
+
+  <div class="card loader noprint">
+    <span class="lbl">Fila del Sheet</span>
+    <textarea id="fila" placeholder="Copia la fila completa desde Google Sheets (incluida la columna vacía del inicio) y pégala acá."></textarea>
+    <div class="row">
+      <button class="b1" id="armar">Armar presentación</button>
+      <button class="b2" id="ejemplo">Cargar fila de ejemplo</button>
+      <button class="b2 noprint" id="pdf">Exportar a PDF</button>
+    </div>
+    <div class="err" id="err" hidden></div>
+    <div class="receta" id="receta" hidden></div>
+    <div class="aviso"><b>No guardes datos de prospectos reales acá.</b> Esta página vive en un repositorio público: pega la fila, exporta el PDF y cierra. Nada de lo que pegues queda guardado ni se sube a ninguna parte.</div>
+  </div>
+
+  <div id="deck"></div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var COLS = ["_","dealname","dolor_principal_detectado","industrias_isic_nivel_2","cantidad_empleados",
+    "centros_de_trabajo_activos","descripcion_dolor_cliente","como_gestionan_actualmente",
+    "que_pasa_si_no_lo_resuelven_hoy","normativa__riesgo","urgencia_o_necesidad__migracion",
+    "modulos_a_cotizar","modulos_de_mayor_valor_wow","detalles_solucion_wow","el_cliente_espera_ver",
+    "argumento_principal__justificacion_de_la_inversion","metrica_de_exito_declarada",
+    "motivo_de_resistencia","estrategia_de_manejo_detractores","como_nos_comparan_con_la_competencia",
+    "promesa_realizada"];
+
+  var EJEMPLO = "\tPrueba paneles 60353141935\tGestión documental desordenada (Excel / carpetas / papel);Falta de trazabilidad / evidencias ante fiscalización;Procesos manuales en terreno (firmas, checklists, charlas);Miedo a multas o sanciones por falta de control\tAgricultura, ganadería, caza y actividades de servicios conexas\t1200\t8\tGestión de entrega de EPP\tMixto (manual + herramientas sueltas)\tMultas;Sobrecarga\tAuditoría externa próxima, riesgo de detención de trabajos, observaciones en auditorías y sanciones o multas.\tNecesidad de cargar 24.000 documentos iniciales para auditoría externa.\tPlan Core;Contratistas;Capacitaciones;EPP\tContratistas\tEspecialización en prevención de riesgos, gestión de contratistas y capacidad de centralizar documentación en una sola plataforma.\tReducción importante en el tiempo dedicado a revisar documentos, mayor trazabilidad y una disminución de trabajadores bloqueados por documentación incompleta.\tReducir riesgos operacionales, liberar tiempo del equipo de prevención para tareas de mayor valor, evitar retrasos en el ingreso de contratistas y contar con evidencia clara frente a auditorías.\tReducir en al menos un 50% el tiempo de revisión documental durante los primeros tres meses y mantener sobre un 95% de documentación vigente en los centros incorporados.\tConsidera que el equipo podría seguir trabajando con Excel y que la implementación podría tomar demasiado tiempo.\tMostrarle el impacto actual de los retrasos, explicar el plan de implementación gradual y presentar casos similares donde la adopción fue rápida.\tLíderes\tImplementación por etapas, comenzando con 3 centros de trabajo y ampliando posteriormente a los 8 centros activos.";
+
+  /* ---------- utilidades ---------- */
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function lista(v){ return (v||"").split(";").map(function(x){return x.trim();}).filter(Boolean); }
+  function tiene(v,re){ return re.test((v||"").toLowerCase()); }
+  function mil(n){ var x=parseInt(String(n).replace(/\D/g,""),10); return isNaN(x)?null:x.toLocaleString("es-CL"); }
+  function frase(s){ s=(s||"").trim(); if(!s) return ""; return s.charAt(0).toUpperCase()+s.slice(1); }
+  function sinPunto(s){ return (s||"").trim().replace(/\.$/,""); }
+
+  /* limpia marcadores que a veces vienen sin rellenar desde las notas */
+  function limpia(s){
+    return (s||"").replace(/^[•\-\s]*\[[^\]]*\]\s*:?\s*/,"").trim();
+  }
+
+  function parse(txt){
+    var lineas = txt.split("\n").filter(function(l){return l.trim();});
+    if(!lineas.length) throw new Error("No pegaste nada.");
+    var l = lineas[lineas.length-1];                  // si pegan encabezado + fila, toma la última
+    var celdas = l.split("\t");
+    if(celdas.length < 8) throw new Error("La fila tiene " + celdas.length + " columnas y se esperaban 21. Cópiala completa desde el Sheet, sin reformatear.");
+    var d = {};
+    COLS.forEach(function(c,i){ d[c] = (celdas[i]||"").trim(); });
+    if(!d.dealname) throw new Error("No encontré el nombre del negocio en la segunda columna.");
+    return d;
+  }
+
+  /* ---------- arquetipo ---------- */
+  function arquetipo(d){
+    var urg = (d.urgencia_o_necesidad__migracion||"") + " " + (d.normativa__riesgo||"");
+    if(tiene(urg, /auditor|fiscaliza|multa|sanci|detenci/))
+      return {id:"cumplimiento", nom:"Cumplimiento con fecha",
+              por:"hay una auditoría o fiscalización encima"};
+    if(tiene(d.como_gestionan_actualmente, /100% manual|papel/))
+      return {id:"digitalizacion", nom:"Primera digitalización",
+              por:"hoy gestionan en papel y el riesgo real es la adopción"};
+    var centros = parseInt(d.centros_de_trabajo_activos,10)||0;
+    var emp = parseInt(String(d.cantidad_empleados).replace(/\D/g,""),10)||0;
+    if(centros >= 5 || emp >= 500)
+      return {id:"escala", nom:"Escala multi-centro",
+              por:"la operación es grande y distribuida"};
+    return {id:"consolidacion", nom:"Consolidación",
+            por:"ya tienen herramientas sueltas y el valor está en centralizar"};
+  }
+
+  /* ---------- láminas ---------- */
+  var n = 0;
+  function slide(html, dark, cls){
+    n++;
+    return '<section class="slide'+(dark?" dark":"")+(cls?" "+cls:"")+'">'
+         + '<div class="wm">tazki</div>' + html + '<div class="n">'+n+'</div></section>';
+  }
+
+  function portada(d,a){
+    return slide(
+      '<div class="marca">tazki</div>'
+      + '<div class="emp">'+esc(d.dealname)+'</div>'
+      + '<p class="sub">Digitalización de la prevención de riesgos</p>', true, "portada");
+  }
+
+  function situacion(d){
+    var c = [];
+    if(mil(d.cantidad_empleados)) c.push({v:mil(d.cantidad_empleados), k:"colaboradores"});
+    if(d.centros_de_trabajo_activos) c.push({v:d.centros_de_trabajo_activos, k:"centros de trabajo activos"});
+    var cif = c.length ? '<div class="cifras">'+c.map(function(x){
+      return '<div class="cifra"><div class="v">'+esc(x.v)+'</div><div class="k">'+esc(x.k)+'</div></div>';
+    }).join("")+'</div>' : "";
+    var ind = d.industrias_isic_nivel_2 ? '<p>'+esc(sinPunto(d.industrias_isic_nivel_2))+'.</p>' : "";
+    var ges = d.como_gestionan_actualmente
+      ? '<div class="caja"><div class="t">Cómo se gestiona hoy</div><p>'+esc(sinPunto(d.como_gestionan_actualmente))+'.</p></div>' : "";
+    return slide('<div class="kicker">Situación actual</div><h2>'+esc(d.dealname)+' hoy</h2>'+ind+cif+ges);
+  }
+
+  function costo(d){
+    var items = lista(d.que_pasa_si_no_lo_resuelven_hoy);
+    var li = items.length ? '<ul>'+items.map(function(x){return '<li>'+esc(frase(x))+'</li>';}).join("")+'</ul>' : "";
+    var norm = d.normativa__riesgo ? '<p>'+esc(frase(sinPunto(d.normativa__riesgo)))+'.</p>' : "";
+    return slide('<div class="kicker">Lo que está en juego</div>'
+      + '<h2>El costo de seguir como está</h2>' + norm + li, true);
+  }
+
+  function urgencia(d){
+    if(!d.urgencia_o_necesidad__migracion) return "";
+    return slide('<div class="kicker">El hito que aprieta</div>'
+      + '<h2>Lo que hay que tener listo</h2>'
+      + '<p>'+esc(frase(sinPunto(d.urgencia_o_necesidad__migracion)))+'.</p>');
+  }
+
+  function objetivos(d){
+    var dolores = lista(d.dolor_principal_detectado).map(objetivo);
+    var extra = limpia(d.descripcion_dolor_cliente);
+    if(extra) dolores.push(frase(extra));
+    if(!dolores.length) return "";
+    var sel = dolores.slice(0,5);
+    var NUM = ["","Un objetivo concreto","Dos objetivos concretos","Tres objetivos concretos",
+               "Cuatro objetivos concretos","Cinco objetivos concretos"];
+    return slide('<div class="kicker">Lo que hay que resolver</div>'
+      + '<h2>'+NUM[sel.length]+'</h2>'
+      + '<ul>'+sel.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>');
+  }
+
+  /* convierte el dolor (queja) en objetivo (aprobable) */
+  function objetivo(t){
+    var l = t.toLowerCase();
+    if(/documental|excel|carpeta|papel/.test(l)) return "Centralizar la documentación en una sola plataforma, con control de versiones y vencimientos.";
+    if(/trazabilidad|evidencia|fiscaliza/.test(l)) return "Dejar evidencia auditable de cada actividad, disponible en el momento en que se pide.";
+    if(/manual|terreno|firma|checklist|charla/.test(l)) return "Sacar del papel las firmas, checklists y charlas en terreno.";
+    if(/multa|sanci|control/.test(l)) return "Reducir la exposición a multas con control y respaldo documental al día.";
+    if(/contratista/.test(l)) return "Controlar la acreditación de contratistas antes del ingreso a faena.";
+    if(/epp/.test(l)) return "Registrar la entrega de EPP con firma electrónica válida.";
+    return frase(t);
+  }
+
+  var MODULOS = {
+    "plan core":      {t:"Plan Core", d:"La base: colaboradores, centros de trabajo, documentación obligatoria y alertas de vencimiento en un solo lugar."},
+    "contratistas":   {t:"Contratistas", d:"Acreditación documental antes del ingreso a faena. El contratista sube sus documentos, el sistema valida vigencia y bloquea a quien no está al día."},
+    "capacitaciones": {t:"Capacitaciones", d:"Charlas, inducciones y capacitaciones con firma electrónica validada por la Resolución/Ord. DT N°908."},
+    "epp":            {t:"EPP", d:"Inventario, entrega y firma de recepción de equipos de protección personal, con trazabilidad por colaborador."},
+    "checklist":      {t:"Checklists e inspecciones", d:"Inspecciones y checklists desde el celular en terreno, con hallazgos asignados y seguimiento hasta el cierre."},
+    "miper":          {t:"MIPER", d:"Matriz de identificación de peligros y evaluación de riesgos, con control de versiones y difusión registrada."}
+  };
+
+  function modulos(d){
+    var pedidos = lista(d.modulos_a_cotizar);
+    var estrella = (d.modulos_de_mayor_valor_wow||"").toLowerCase().trim();
+    if(estrella) pedidos.sort(function(a,b){
+      return (b.toLowerCase().indexOf(estrella)===0?1:0) - (a.toLowerCase().indexOf(estrella)===0?1:0);
+    });
+    var out = "";
+    pedidos.slice(0,4).forEach(function(m){
+      var k = Object.keys(MODULOS).find(function(key){ return m.toLowerCase().indexOf(key)>=0; });
+      var info = k ? MODULOS[k] : {t:m, d:""};
+      var esEstrella = estrella && m.toLowerCase().indexOf(estrella)>=0;
+      var wow = (esEstrella && d.detalles_solucion_wow)
+        ? '<div class="caja"><div class="t">Por qué pesa en tu caso</div><p>'+esc(sinPunto(d.detalles_solucion_wow))+'.</p></div>' : "";
+      out += slide('<div class="kicker">Cómo se resuelve</div><h2>'+esc(info.t)+'</h2>'
+        + (info.d ? '<p>'+esc(info.d)+'</p>' : "") + wow);
+    });
+    return out;
+  }
+
+  function numeros(d){
+    if(!d.metrica_de_exito_declarada && !d.argumento_principal__justificacion_de_la_inversion) return "";
+    var met = d.metrica_de_exito_declarada
+      ? '<div class="caja"><div class="t">Meta</div><p>'+esc(frase(sinPunto(d.metrica_de_exito_declarada)))+'.</p></div>' : "";
+    var arg = d.argumento_principal__justificacion_de_la_inversion
+      ? '<p>'+esc(frase(sinPunto(d.argumento_principal__justificacion_de_la_inversion)))+'.</p>' : "";
+    return slide('<div class="kicker">Qué cambia</div><h2>Cómo se mide que funcionó</h2>'+arg+met);
+  }
+
+  function porQue(d){
+    var pills = ["Resolución/Ord. DT N°908","+135 empresas","Hecho en Chile"];
+    return slide('<div class="kicker">Por qué Tazki</div>'
+      + '<h2>Respaldo legal, no una promesa</h2>'
+      + '<p>La Dirección del Trabajo valida legalmente la firma electrónica de Tazki para inducciones, capacitaciones y entrega de EPP. Es un documento que puedes descargar y presentar en una fiscalización.</p>'
+      + '<p>Ya la usan +135 empresas en Chile.</p>'
+      + '<div class="meta">'+pills.map(function(p){return '<span class="pill">'+esc(p)+'</span>';}).join("")+'</div>', true);
+  }
+
+  function partida(d){
+    if(!d.promesa_realizada) return "";
+    return slide('<div class="kicker">Cómo partimos</div><h2>Alcance de la puesta en marcha</h2>'
+      + '<p>'+esc(frase(sinPunto(d.promesa_realizada)))+'.</p>');
+  }
+
+  function cierre(d){
+    return slide('<div class="kicker">Siguiente paso</div>'
+      + '<h2>Revisemos esto con tu equipo</h2>'
+      + '<p>Coordinamos una sesión con las personas que necesiten verlo y resolvemos las dudas que aparezcan.</p>'
+      + '<div class="marca" style="margin-top:auto;font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff">tazki</div>', true);
+  }
+
+  /* ---------- armado por receta ---------- */
+  function armar(d){
+    n = 0;
+    var a = arquetipo(d), s = "";
+    s += portada(d,a);
+    s += situacion(d);
+    if(a.id === "cumplimiento"){
+      s += urgencia(d); s += costo(d); s += objetivos(d);
+    } else if(a.id === "digitalizacion"){
+      s += objetivos(d); s += costo(d);
+    } else {
+      s += costo(d); s += objetivos(d); s += urgencia(d);
+    }
+    s += modulos(d);
+    s += numeros(d);
+    s += porQue(d);
+    s += partida(d);
+    s += cierre(d);
+    return {html:s, arq:a, n:n};
+  }
+
+  /* ---------- eventos ---------- */
+  var $fila = document.getElementById("fila"),
+      $deck = document.getElementById("deck"),
+      $err  = document.getElementById("err"),
+      $rec  = document.getElementById("receta");
+
+  document.getElementById("ejemplo").addEventListener("click", function(){
+    $fila.value = EJEMPLO;
+    generar();
+  });
+  document.getElementById("armar").addEventListener("click", generar);
+  document.getElementById("pdf").addEventListener("click", function(){ window.print(); });
+
+  function generar(){
+    $err.hidden = true; $rec.hidden = true;
+    try{
+      var d = parse($fila.value);
+      var r = armar(d);
+      $deck.innerHTML = r.html;
+      $deck.classList.add("show");
+      $rec.hidden = false;
+      $rec.innerHTML = 'Tipo de deck: <b>' + esc(r.arq.nom) + '</b> · se eligió porque ' + esc(r.arq.por)
+                     + ' · <b>' + r.n + '</b> láminas.';
+      $deck.scrollIntoView({behavior:"smooth", block:"start"});
+    }catch(e){
+      $deck.classList.remove("show");
+      $err.hidden = false;
+      $err.textContent = e.message;
+    }
+  }
+})();
+</script>
+
+</body></html>
