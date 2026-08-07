@@ -38,9 +38,6 @@
     "titulo": "SEM · Puja y ranking",
     "regla": "Impression share y sus dos pérdidas se ponderan por impresiones ELEGIBLES (impresiones ÷ impression share), nunca promediando días. Control: las 3 métricas suman ~100%."
   },
-  "bloque_4_accionables": {
-    "regla": "NO pre-llenar con sugerencias. Solo lo que Diego ya pidió ejecutar."
-  },
   "bloque_5_ads_conversiones": {
     "regla": "Contar SOLO ConversionTypeName = 'HubSpot - Marketing Qualified Lead'. EXCLUIR 'TechSol - formulario web 48078' (dispara al apretar Enviar sin esperar confirmación; pasó a secundaria el 27-jul-2026). Si aparece TechSol, declararla aparte, nunca sumada.",
     "limitacion_api": "Google Ads rechaza la consulta si se pide ConversionTypeName junto con Impressions. Van en dos consultas separadas."
@@ -149,5 +146,6 @@
         "lectura": "2026-08-03"
       }
     ]
-  }
+  },
+  "_accionables_eliminado": "La sección Accionables se eliminó del Plan el 7-ago-2026 a pedido de Diego: todo ajuste se registra SOLO en la bitácora (bloque 9). NO recrear la sección. Los badges del HTML quedaron renumerados 1-9; las claves de este archivo conservan su numeración original."
 }
