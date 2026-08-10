@@ -1,4 +1,11 @@
 {
+  "_regla_0_los_informes_de_diego_mandan": {
+    "regla": "Los informes guardados de HubSpot de Diego son la FUENTE DE VERDAD del Plan. Dicho por el 10-ago-2026: «mi informe es tu informe». Ningun panel puede contradecirlos.",
+    "que_hacer": "Antes de publicar cualquier panel nuevo, verificar que sus totales cuadren con el informe de Diego que cubre ese universo. Si no cuadran, NO se publica: primero se cambia la consulta para reproducir su definicion.",
+    "error_del_10_ago_2026": "Se publico un panel de «MQLs segun la primera pagina» contando CONTACTOS que entraron a Marketing Qualified Lead (may 4 / jun 30 / jul 52 / ago 14). Diego lo comparo con su informe «Inbounds - Mensual», que cuenta NEGOCIOS (1 / 25 / 47 / 15) y no calzaba. Se rehizo sobre negocios inbound con la definicion oficial de inbounds_config.json y quedo exacto: 1 / 25 / 47 / 13 al corte del 9.",
+    "leccion": "Objeto distinto = numero distinto. Contacto que llega a MQL != negocio inbound creado. Si el Plan muestra los dos, se leen como una contradiccion aunque ambos esten bien.",
+    "desfase_normal": "El informe de Diego llega hasta hoy; el Plan corta el dia anterior. Agosto puede decir 15 en su pantalla y 13 en el Plan sin que nada este mal. Declararlo siempre."
+  },
   "_lee_esto_primero": "Estructura acordada de los 9 bloques del informe «Plan de Generación de Demanda» (artefacto privado de Claude). Definida con Diego el 27-jul-2026. Si el informe se regenera, tiene que quedar con ESTA estructura, no con la anterior. Las definiciones de datos viven en inbounds_config.json, embudo_config.json y seo_config.json.",
   "bloque_1_inbounds": {
     "titulo": "Inbounds · mes a mes",
