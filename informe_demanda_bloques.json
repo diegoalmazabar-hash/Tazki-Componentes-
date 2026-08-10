@@ -32,7 +32,8 @@
    "audit_esta_vacia": "Al 27-jul-2026 la etapa Audit no tiene ningún negocio en todo el portal. Se cuenta igual por decisión de Diego, pero hoy el ganado lo aporta entero Closed Won.",
    "formula_conversion": "ganó / (ganó + perdió) — los que siguen en proceso no castigan el porcentaje"
   },
-  "nota_obligatoria": "SEM tiene ~8 Meeting Set en el año: cada negocio mueve la conversión ~12 puntos. Declararlo siempre al lado del número."
+  "nota_obligatoria": "SEM tiene ~8 Meeting Set en el año: cada negocio mueve la conversión ~12 puntos. Declararlo siempre al lado del número.",
+  "matriz_camadas_como_traer_los_datos": "RESUELTO el 10-ago-2026. La consulta paginaba de a 25 y era impracticable; la solución es agregar LIMIT 500 al SQL: `SELECT createdate, dealstage, hs_v2_date_entered_1294334986, hs_v2_date_entered_closedlost, hs_v2_date_entered_1233212743, hs_v2_date_entered_1233115675, hs_v2_date_entered_1287744033 FROM DEAL WHERE hs_crm_search.ilsListIds = '970' LIMIT 500` (y lo mismo con 968). Devuelve todo de una. Si el resultado excede el límite de tokens se guarda solo en archivo, que es lo ideal: procesarlo con python sin cargarlo al contexto. Camada = mes de createdate; el mes de desenlace sale del hs_v2_date_entered_* de la etapa terminal. OJO: reproducir las listas con hs_analytics_source NO sirve (da 177 y 12 contra 170 y 16): tienen criterios extra."
  },
  "bloque_3_sem_ranking": {
   "titulo": "SEM · Puja y ranking",
@@ -91,7 +92,8 @@
   "2026-07-30": "Se agrega la regla de la tabla de metas: «mes anterior» = mes calendario real, no corte previo.",
   "2026-07-30 (2)": "Se agrega la regla de números críticos: origen visible + verificación doble + mes en curso para Ads.",
   "2026-08-09": "Se unifica todo el Plan a semanas lunes–domingo (antes el bloque 7 de contenido iba domingo–sábado por cómo corta HubSpot). La tabla semanal de contenido pasa a armarse desde la serie diaria. Se actualiza también plan_check.py, que validaba la fila parcial contra semanas domingo–sábado.",
-  "2026-08-10": "Se eliminan del bloque SEO las tarjetas «Nuevas que trajeron su primer clic» y «A recuperar», que no se refrescaban. Se corrige además el texto fósil «Julio va parcial al 22» en la nota de verificación de SEO."
+  "2026-08-10": "Se eliminan del bloque SEO las tarjetas «Nuevas que trajeron su primer clic» y «A recuperar», que no se refrescaban. Se corrige además el texto fósil «Julio va parcial al 22» en la nota de verificación de SEO.",
+  "2026-08-10 (2)": "Matriz de camadas reconstruida desde las listas completas: 186 negocios, 5 ganados, 109 perdidos, 72 abiertos, 4,4% de conversión."
  },
  "tabla_de_metas": {
   "regla_mes_anterior": "La columna «Mes anterior» lleva el valor REAL del mes calendario anterior, NUNCA el corte anterior del propio informe. El 30-jul-2026 se publicó 22% como «mes anterior» del % de pago cuando junio real era 16% (4 de 25): era el valor de julio medido dos días antes. Diego lo detectó. No repetir.",
