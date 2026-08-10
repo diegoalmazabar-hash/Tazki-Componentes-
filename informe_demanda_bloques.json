@@ -88,15 +88,21 @@
         "por_que_SUMMARY_y_no_TIME_SERIES": "TIME_SERIES devuelve un punto por contenido y por día (enorme). SUMMARY agrega el grupo entero en un punto por día: mismo dato, 10x menos texto."
       },
       "344302572_y_343051073_trafico_por_fuente": {
-        "que_mide": "Desglose por fuente de sesión de las páginas /soluciones y del blog, semanal y mensual.",
-        "estado": "BLOQUEADO al 10-ago-2026: ninguna herramienta disponible expone la dimensión de fuente de sesión a nivel de página. get_content_analytics_report no la tiene.",
-        "como_desbloquearlo": "Diego debe conectar en Supermetrics el conector HubSpot Content Analytics (ds_id HSCA), que trae report_types 'sources', 'blog_posts', 'standard_pages' y 'landing_pages'. data_source_discovery(ds_id='HSCA') devuelve el login_link.",
-        "alternativa": "un token de private app de HubSpot con permiso de analytics permitiría la API v2 de analytics; el token se perdió en el reinicio del contenedor del 9-ago."
+        "que_mide": "Desglose por fuente de sesion de las paginas /soluciones y del blog, semanal y mensual.",
+        "resuelto_el_10_ago_2026": "Se saca de GOOGLE ANALYTICS 4 via Supermetrics (ds GAWA, cuenta 540969557 'Tazki-Web').",
+        "receta": "data_query(ds_id='GAWA', ds_accounts='540969557', fields='date,landingPage,sessionDefaultChannelGrouping,sessions,screenPageViews', date_range_type='custom', ...). SIN filtros. El resultado se guarda en archivo (~78k) y se agrupa en python por seccion y por semana lunes-domingo.",
+        "trampa_del_filtro": "El parametro filters con 'landingPage =~ ^/blog' NO funciona como regex anclada: devuelve solo las filas cuyo landingPage es exactamente /blog. NO usar filters aca; traer todo y filtrar en python.",
+        "grupos": "blog = ^/blog/ (articulos, sin la portada /blog) · recursos = ^/recursos/ · casos = ^/casos-de-exito/ · soluciones = ^/soluciones · industrias = ^/industrias",
+        "limite_importante": "La propiedad GA4 EMPIEZA A MEDIR EL 7 DE JULIO DE 2026. No hay historia anterior. Declararlo siempre.",
+        "no_mezclar": "GA4 entrega SESIONES; HubSpot entrega VISUALIZACIONES. No sumar ni comparar entre tablas. GA4 para el reparto por fuente, HubSpot para el volumen.",
+        "por_que_no_HSCA": "El conector HubSpot Content Analytics (HSCA) se conecto el 10-ago pero la licencia de Supermetrics (Team tazki - Plan Starter, 1831548) no lo incluye: devuelve 'not available in your license'. Ademas su dimension 'source' solo existe en el report_type 'sources', que es a nivel sitio y NO se puede cruzar con paginas. O sea, ni pagando resolveria el cruce fuente x pagina.",
+        "alternativa_gratis_pendiente": "un token de private app de HubSpot permitiria la API v2 de analytics; el token se perdio en el reinicio del contenedor del 9-ago."
       },
       "344302532_por_industrias": {
-        "que_mide": "Tráfico de las páginas /industrias/*, presumiblemente por fuente.",
-        "paginas": "tazki.cl/industrias/construccion, /mineria, /logistica, /servicios-basicos, /manufactura, /gestion-multisucursal",
-        "estado": "las visitas ya se pueden medir con get_content_analytics_report; falta la fuente (mismo bloqueo que arriba)."
+        "que_mide": "Trafico de las paginas /industrias/*, por fuente.",
+        "resuelto_el_10_ago_2026": "Mismo camino que el de arriba (GA4, grupo ^/industrias).",
+        "paginas_y_sesiones_7jul_9ago": "mineria 15, logistica 10, construccion 8, manufactura 5, servicios-basicos 5, gestion-multisucursal 3",
+        "hallazgo": "46 sesiones en cinco semanas y la mayoria por trafico DIRECTO, no por busqueda: son paginas que existen pero que Google todavia no muestra."
       }
     },
     "que_se_cuenta_como_contenido": {
