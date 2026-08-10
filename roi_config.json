@@ -1,0 +1,51 @@
+{
+  "_lee_esto_primero": "Estado de la calculadora ROI (roi.html) del Growth Hub. Se creó el 10-ago-2026 después de que se perdiera el historial de una sesión en un reinicio del contenedor. Cualquier cambio al ROI se anota ACÁ, no en la memoria del chat.",
+  "version_publicada": "Versión 3 · agosto 2026",
+  "que_es": "Cuatro calculadoras comerciales independientes en una sola página: horas recuperadas, exposición a multas DT, costo oculto de accidentes y cotización adicional DS 67. Uso: el vendedor la abre frente al prospecto.",
+  "feedback_del_vendedor_4_ago_2026": {
+    "_origen": "Reunión «Revisión Calculadora ROI», 4-ago-2026, Diego + un vendedor que la probó. Transcripción entregada por Diego el 10-ago.",
+    "1_riesgo_de_ahorro_neto_negativo": {
+      "hallazgo": "Si el prospecto tiene muchos centros y poco papeleo, el ahorro neto sale negativo y la calculadora argumenta EN CONTRA de Tazki delante del cliente.",
+      "resuelto": "10-ago. Cuando neto<0 aparece un bloque naranja que lo reconoce de frente, ofrece revisar los supuestos y deriva a las pestañas de multas y accidentes. No se maquilla el número."
+    },
+    "2_semantica_de_multas": {
+      "hallazgo": "EL MAS IMPORTANTE. Al marcar los instrumentos la exposición baja a $0 y se lee como «con Tazki no te multan» o «estoy a salvo». Falso: tener el documento no libera de multa; si no se lo puedes mostrar al fiscalizador en el momento, se cursa igual.",
+      "frase_del_vendedor": "«Yo tenía empresas que tienen los papeles, pero llegan a fiscalizarlos y tienen que estar corriendo porque nadie sabía dónde están los papeles.»",
+      "mensaje_correcto": "No «con Tazki no te multan», sino «te ayudamos a DEMOSTRAR cumplimiento cuando llegue el fiscalizador». Analogía de seguro: pagas una cuota mensual para no quedar expuesto a la multa completa de una sola vez.",
+      "resuelto": "10-ago. (a) El enunciado pide marcar solo lo que podrías MOSTRAR en el acto, no lo que tienes. (b) Con los 6 marcados ya NO aparece un mensaje de felicitación: aparece una advertencia que dice explícitamente que $0 no significa estar libre de multa y que invita a desmarcar para ver el salto. (c) Con instrumentos faltantes aparece el remate con el encuadre de seguro y el KPI «repartido en 12 meses».",
+      "intencion_de_diseno": "La calculadora tiene que servir para que el prospecto DESCUBRA lo que le falta, no para que se tranquilice con lo que tiene."
+    },
+    "3_falta_nexo_en_costo_de_accidentes": {
+      "hallazgo": "Muestra cuánto cuesta el accidente pero no dice cómo Tazki lo baja. Propuesta del vendedor: «muestra el monto y luego ofrece ¿quieres saber cómo podemos ayudarte a reducirlo?».",
+      "resuelto": "10-ago. Bloque de remate con los tres mecanismos (hallazgos que se cierran, investigación con causa raíz, inspecciones en terreno) y puente a la pestaña de cotización adicional."
+    },
+    "4_gancho_de_cotizacion_adicional": {
+      "hallazgo": "Es la calculadora que más le gustó al vendedor. Faltaba el cálculo inverso: «estás en tramo X, quieres bajar a tramo Y, necesitas reducir Z días perdidos».",
+      "frase_del_vendedor": "«Yo estaba con gerentes: ¿cuántos días [perdidos] nos quedan para mantener el tramo?»",
+      "resuelto": "10-ago. Sub-bloque «¿Cuántos días perdidos tengo que bajar?»: entra trabajadores promedio, tasa de siniestralidad actual y tasa del tramo objetivo; sale días perdidos de hoy, días que admite el objetivo y la diferencia. Si ya está bajo el techo, muestra el MARGEN que le queda, que es la otra pregunta que hacen los gerentes.",
+      "correccion_conceptual": "El tramo lo fija la TASA DE SINIESTRALIDAD (días perdidos por cada 100 trabajadores), NO la cantidad de accidentes. El vendedor corrigió esto en la reunión: se pueden tener muchos accidentes sin días perdidos y quedar en tramo bajo. Ya está declarado en el enunciado de la pestaña."
+    },
+    "5_falta_remate_comercial_general": {
+      "hallazgo": "«Las calculadoras se entienden, pero falta el remate comercial que conecte los números con la propuesta de Tazki.»",
+      "resuelto": "10-ago. Las cuatro terminan en un bloque que conecta el resultado con qué hace Tazki y un botón a tazki.cl/contactanos."
+    }
+  },
+  "pendientes": {
+    "utm_de_agosto": "La calculadora de multas trae la UTM de JULIO 2026 ($71.649) por defecto y la UTM cambia cada mes. No se pudo actualizar: el proxy de red bloquea sii.cl. Diego tiene que pasar el valor. Está escrita en 3 lugares: el input m_utm, la nota de fuentes y el bloque de referencias.",
+    "tabla_oficial_del_ds_67": "No se pudo verificar la tabla del artículo 21 del DS 67 (tasa de siniestralidad -> tramo de cotización) porque bcn.cl también está bloqueado por el proxy. POR ESO el cálculo de días perdidos pide que el usuario ponga la tasa del tramo objetivo desde la planilla de su mutual, en vez de deducirla de una tabla. Si algún día se consigue la tabla oficial, se puede automatizar el paso tramo -> tasa. NO inventar esa tabla: es un dato legal que el vendedor usa frente a un cliente.",
+    "mes_de_la_revision_ds_67": "El vendedor dijo que la revisión es cada 2 años EN NOVIEMBRE. No se pudo verificar contra la norma (proxy bloqueado), así que la página sigue diciendo solo «cada 2 años». Confirmar con Diego antes de publicar el mes.",
+    "presentacion_comercial": "Tarea de Diego, no del repo: crear una copia del documento por cliente, renombrada con guion y nombre del cliente, con acceso abierto por hipervínculo.",
+    "suma_de_las_cuatro": "El vendedor sugirió de pasada un total que sume las cuatro calculadoras. NO se implementó: sumar horas + multas + accidentes + cotización mezcla plata realizada, exposición potencial y ahorro condicional. Si se hace, tiene que quedar clarísimo que no son sumables. Decidir con Diego."
+  },
+  "discrepancias_a_resolver_con_diego": {
+    "porcentaje_de_tiempo_administrativo": "El resumen de la reunión dice 45%; la página dice que la cifra internacional más citada es 35% (HSI GERI 2024) y trae 40% como default editable. Se dejó como estaba (35% citado, 40% default) porque es lo único con fuente escrita. Confirmar.",
+    "costo_hora_incluye_costo_empresa": "El resumen dice «incluye costo empresa»; la página dice explícitamente que NO lo incluye y que sumaría 25% a 40% más. Contradicción directa que cambia el número. Se dejó como estaba en la página. Confirmar cuál es.",
+    "typo_corregido": "La ficha de fuentes decía «costo/hora ≈ sueldo ÷ 18», que da $50.278. Corregido a ÷ 180 h, que es lo que calza con el default de $5.000."
+  },
+  "reglas_de_la_calculadora": {
+    "1": "Ningún resultado puede leerse como «con Tazki no te multan» ni «estás a salvo». Tazki ayuda a DEMOSTRAR cumplimiento.",
+    "2": "Si un número sale en contra de Tazki, se muestra igual y se explica. El vendedor pierde más credibilidad con un número forzado que con uno honesto.",
+    "3": "Todo dato legal o de tasa va con fuente y con etiqueta (ley / oficial / supuesto del usuario). Si no se puede verificar, no se publica.",
+    "4": "Cada calculadora termina conectando el número con qué hace Tazki y con una invitación a conversar."
+  }
+}

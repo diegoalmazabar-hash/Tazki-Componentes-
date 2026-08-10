@@ -79,6 +79,15 @@ details.src summary::before{content:"📚 "}
 .rn{display:inline-block;background:#EDF1FF;color:var(--cobalt);font-weight:800;font-size:11px;padding:1px 7px;border-radius:999px;white-space:nowrap}
 .refs li{margin-bottom:10px}
 @media(max-width:780px){.grid{grid-template-columns:1fr}.tab{min-width:calc(50% - 4px)}}
+
+.cta{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(46,91,230,.10);border:1px solid rgba(46,91,230,.30)}
+.cta b{display:block;margin-bottom:6px}
+.cta ul{margin:8px 0 10px 18px;padding:0}
+.cta li{margin:3px 0}
+.cta a{display:inline-block;margin-top:4px;font-weight:700;text-decoration:none;background:#2E5BE6;color:#fff;padding:9px 16px;border-radius:9px}
+.cta a:hover{background:#1f47c4}
+.alert{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(247,144,9,.12);border:1px solid rgba(247,144,9,.38)}
+.alert b{display:block;margin-bottom:6px}
 </style></head><body><!-- MENU LATERAL TAZKI -->
 <style>
 #tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
@@ -212,6 +221,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <div class="line"><span class="neg">− Costo de Tazki/año</span><span class="neg" id="h_costo">$0</span></div>
           <div class="line"><span>= Ahorro neto/año</span><span id="h_netoBd">$0</span></div>
         </div>
+        <div id="h_remate"></div>
       </div>
     </div>
     <details class="src">
@@ -230,13 +240,13 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     <div class="grid">
       <div class="card">
         <h2>Tu situación documental</h2>
-        <div class="sub">Marca solo lo que hoy tienes al día, firmado y trazable (lo encontrarías en menos de una hora si llega el inspector).</div>
+        <div class="sub">Marca solo lo que <b>podrías mostrarle al fiscalizador en el momento</b>, firmado y trazable. Tenerlo no basta: si está en una carpeta que nadie encuentra, la multa se cursa igual.</div>
         <div class="row2">
           <div><label>Trabajadores de la empresa</label><input id="m_trab" type="number" min="1" value="120"></div>
           <div><label>Centros / faenas</label><input id="m_centros" type="number" min="1" value="3"></div>
         </div>
         <div class="tramo" id="m_tramo">Mediana empresa (50 a 199)</div>
-        <label style="margin-top:16px">Instrumentos al día y trazables</label>
+        <label style="margin-top:16px">Instrumentos que hoy podrías demostrar en el acto</label>
         <div class="checks" id="m_checks">
           <label class="chk"><input type="checkbox" data-n="RIOHS actualizado y entregado"><span><span class="cn">RIOHS actualizado y entregado</span><br><span class="cd">Reglamento interno, art. 153 Código del Trabajo</span></span></label>
           <label class="chk"><input type="checkbox" data-n="MIPER / matriz de riesgos vigente"><span><span class="cn">MIPER vigente por centro</span><br><span class="cd">Gestión preventiva, DS 44</span></span></label>
@@ -261,9 +271,11 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
         <div class="kpis">
           <div class="kpi"><div class="v" id="m_brechas">0</div><div class="l">Instrumentos sin respaldo</div></div>
           <div class="kpi"><div class="v" id="m_utmkpi">0 UTM</div><div class="l">UTM en juego (grado grave)</div></div>
+          <div class="kpi"><div class="v" id="m_mes">$0</div><div class="l">Repartido en 12 meses</div></div>
         </div>
         <div class="bd" id="m_bd"></div>
-        <div class="resnote" style="margin-top:14px">💡 29,6% de las fiscalizaciones DT terminan en multa (2022-2025, 380.380 fiscalizaciones). Tazki no elimina el riesgo: reduce la probabilidad de la infracción con trazabilidad y firma electrónica validada por la Resolución N°908 de la DT.</div>
+        <div class="resnote" style="margin-top:14px">💡 29,6% de las fiscalizaciones DT terminan en multa (2022-2025, 380.380 fiscalizaciones).</div>
+        <div id="m_remate"></div>
       </div>
     </div>
     <details class="src">
@@ -325,6 +337,15 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <div class="line"><span>= Costo oculto/año</span><span id="a_totalBd">$0</span></div>
         </div>
         <div class="resnote" style="margin-top:14px">💡 VERA sugiere el árbol de causas y las medidas; tu equipo valida y decide. Reduce las horas de investigación, no la responsabilidad técnica.</div>
+        <div class="cta"><b>¿Quieres saber cómo bajar este número?</b>
+          Este monto lo paga tu empresa por accidentes que <b>ya ocurrieron</b>. Lo que todavía se puede cambiar es cuántos ocurren el año que viene, y eso se juega <b>antes</b> del accidente:
+          <ul>
+            <li><b>Hallazgos que se cierran</b>, no que se anotan: cada condición insegura con responsable, plazo y evidencia de cierre.</li>
+            <li><b>Investigación con causa raíz</b>, para que el mismo accidente no se repita en otra faena.</li>
+            <li><b>Inspecciones y checklists en terreno</b>, con la foto y la firma en el momento.</li>
+          </ul>
+          Y si además bajas los <b>días perdidos</b>, se te abre el otro premio: el de la pestaña de cotización adicional.
+          <a href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Revisémoslo con tus números →</a></div>
       </div>
     </div>
     <details class="src">
@@ -344,7 +365,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     <div class="grid">
       <div class="card">
         <h2>Tu cotización Ley 16.744</h2>
-        <div class="sub">La cotización adicional depende de tu siniestralidad (DS 67) y se revisa cada 2 años. Menos días perdidos, menor tasa.</div>
+        <div class="sub">La cotización adicional depende de tu <b>tasa de siniestralidad</b> (DS 67) y se revisa cada 2 años. Ojo: el tramo lo fijan los <b>días perdidos</b>, no la cantidad de accidentes — puedes tener muchos accidentes sin días perdidos y quedar en un tramo bajo.</div>
         <label>Masa salarial imponible mensual (CLP) <span class="hint">suma de remuneraciones imponibles</span></label>
         <input id="c_masa" type="number" min="0" step="1000000" value="100000000">
         <label>Tu cotización adicional actual (%) <span class="hint">está en la planilla de tu mutual</span></label>
@@ -377,6 +398,22 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <option value="2">2 tramos (0,68%)</option>
           <option value="3">3 tramos (1,02%)</option>
         </select>
+        <div class="dperd">
+          <label style="margin-top:18px">¿Cuántos días perdidos tengo que bajar?</label>
+          <div class="sub" style="margin-bottom:10px">Las tres cifras salen de la planilla de tu mutual. La tasa de siniestralidad son los días perdidos por cada 100 trabajadores.</div>
+          <div class="row2">
+            <div><label>Trabajadores (promedio anual)</label><input id="c_trab" type="number" min="1" value="120"></div>
+            <div><label>Tu tasa de siniestralidad actual</label><input id="c_tsact" type="number" min="0" step="0.1" value="95"></div>
+          </div>
+          <label>Tasa del tramo al que aspiras <span class="hint">o el techo del tramo que quieres mantener</span></label>
+          <input id="c_tsobj" type="number" min="0" step="0.1" value="65">
+          <div class="bd" style="margin-top:12px">
+            <div class="line"><span class="neg">Días perdidos que llevas hoy</span><span class="neg" id="c_dhoy">0</span></div>
+            <div class="line"><span class="pos">Días perdidos que admite el tramo objetivo</span><span class="pos" id="c_dobj">0</span></div>
+            <div class="line"><span id="c_dlabel">= Tienes que bajar</span><span id="c_ddelta">0</span></div>
+          </div>
+          <div id="c_dmsg"></div>
+        </div>
         <div class="note">⚠️ Bajar la tasa exige reducir tus días perdidos (tasa de siniestralidad, DS 67) sostenidamente en el período de evaluación. Ningún software lo garantiza por sí solo: esta calculadora muestra el premio si lo logras.</div>
       </div>
       <div class="card res">
@@ -393,7 +430,14 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <div class="line"><span class="pos">Cotización adicional objetivo/año</span><span class="pos" id="c_nuevaBd">$0</span></div>
           <div class="line"><span>= Ahorro anual potencial</span><span id="c_ahorroBd">$0</span></div>
         </div>
-        <div class="resnote" style="margin-top:14px">💡 Para bajar la siniestralidad necesitas cerrar hallazgos, investigar accidentes a tiempo y demostrar gestión ante tu mutual. Ahí es donde la trazabilidad pesa.</div>
+        <div class="cta"><b>De la cifra a la conversación</b>
+          Ya sabes cuánto vale bajar de tramo y cuántos días perdidos tienes que recortar para lograrlo. Lo que sigue es cómo:
+          <ul>
+            <li><b>Reducir los días perdidos</b> atacando lo que los genera: hallazgos abiertos, tareas críticas sin control, reincidencia por accidentes mal investigados.</li>
+            <li><b>Reintegro temprano bien gestionado</b>, con seguimiento del caso y no con el trabajador olvidado en licencia.</li>
+            <li><b>Demostrarle la gestión a tu mutual</b> con evidencia trazable, que es lo que mira en la evaluación.</li>
+          </ul>
+          <a href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Armemos el plan para tu próxima evaluación →</a></div>
       </div>
     </div>
     <details class="src">
@@ -572,11 +616,12 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
   </section>
 
   <div style="text-align:center"><a class="cta" href="https://tazki.cl/contactanos/">Agendar demo<small>30 minutos, sin presentación corporativa</small></a></div>
-  <div class="disc">Estimaciones referenciales con fines comerciales. Los resultados dependen de los supuestos que ingreses. Multas y cotizaciones según normativa vigente (art. 506 y 505 bis CT, Tipificador DT 23-jun-2026, Ley 16.744, DS 44, DS 67, DS 110); UTM del SII (julio 2026). Días perdidos según SUSESO. Ninguna cifra de esta página constituye asesoría legal. Versión 2 · julio 2026.</div>
+  <div class="disc">Estimaciones referenciales con fines comerciales. Los resultados dependen de los supuestos que ingreses. Multas y cotizaciones según normativa vigente (art. 506 y 505 bis CT, Tipificador DT 23-jun-2026, Ley 16.744, DS 44, DS 67, DS 110); UTM del SII (julio 2026). Días perdidos según SUSESO. Ninguna cifra de esta página constituye asesoría legal. Versión 3 · agosto 2026.</div>
 </div>
 
 <script>
 var $=function(id){return document.getElementById(id)};
+var CTAURL='https://tazki.cl/contactanos';
 var clp=function(n){return '$'+Math.round(n).toLocaleString('es-CL')};
 var num=function(n){return Math.round(n).toLocaleString('es-CL')};
 
@@ -603,6 +648,22 @@ function calcH(){
   var kn=$('h_neto'); kn.textContent=clp(neto); kn.style.color=neto<0?'#ff9aa0':'';
   $('h_roi').textContent=num(roi)+'%';
   $('h_payback').textContent=(pb>0&&pb<600)?(pb<1?'<1 mes':Math.round(pb)+(Math.round(pb)==1?' mes':' meses')):'—';
+  var r=$('h_remate');
+  if(neto<0){
+    r.className='alert';
+    r.innerHTML='<b>Con estos supuestos, el ahorro en horas no paga el software — y está bien que lo veas.</b>'+
+      'Te faltan '+clp(-neto)+' al año para equilibrar solo por este lado. Pasa cuando tienes muchos centros y poco papeleo por prevencionista: '+
+      'ahí el problema no es el tiempo administrativo, y forzar el número no te va a servir en una reunión.'+
+      '<ul><li>Si el papeleo <b>sí</b> te pesa más de lo que pusiste, sube las horas/semana o el % que se automatiza y vuelve a mirar.</li>'+
+      '<li>Si de verdad no te pesa, el valor está en otra parte: mira <b>Exposición a multas</b> y <b>Costo de accidentes</b>. '+
+      'Una sola multa evitada o un accidente menos suelen pesar más que todas las horas de este cálculo.</li></ul>';
+  } else {
+    r.className='cta';
+    r.innerHTML='<b>Qué haces con '+num(horasRec)+' horas al año</b>'+
+      'Son '+num(horasRec/8)+' jornadas que hoy se van en formularios y carpetas. Devueltas a terreno, se convierten en inspecciones, charlas y hallazgos cerrados — '+
+      'que es justamente lo que baja los días perdidos y, con eso, tu cotización adicional.'+
+      '<a href="'+CTAURL+'" target="_blank" rel="noopener">Veamos tu caso con tus horas reales →</a>';
+  }
 }
 $('h_sector').addEventListener('change',function(){if(this.value!=='custom'){$('h_costohora').value=this.value;}calcH();});
 $('h_costohora').addEventListener('input',function(){$('h_sector').value='custom';});
@@ -627,12 +688,29 @@ function calcM(){
     d.innerHTML='<span class="neg">'+c.dataset.n+'</span><span class="neg">'+tr.g+' a '+tr.gg+' UTM'+(mult>1?' × '+mult:'')+'</span>';
     bd.appendChild(d);
   });
+  $('m_mes').textContent=faltan.length?clp(piso/12):'$0';
+  var rem=$('m_remate');
   if(faltan.length){
     var t=document.createElement('div'); t.className='line';
     t.innerHTML='<span>= Exposición total</span><span>'+clp(piso)+' a '+clp(techo)+'</span>';
     bd.appendChild(t);
+    rem.className='cta';
+    rem.innerHTML='<b>Tazki no te evita la multa: te deja probar que cumples</b>'+
+      'Los '+faltan.length+' instrumentos de arriba son los que hoy no podrías mostrar en el acto. Con Tazki dejan de depender de dónde quedó la carpeta:'+
+      '<ul><li>Todo en una plataforma, buscable por trabajador, centro y fecha, con firma electrónica validada por la <b>Resolución N°908 de la DT</b>.</li>'+
+      '<li>El fiscalizador ve la evidencia en el momento, no en tres días cuando ya se cursó el acta.</li></ul>'+
+      'Piénsalo como un seguro: pagas una cuota mensual para no quedar expuesto a '+clp(piso)+' o más de una sola vez.'+
+      '<a href="'+CTAURL+'" target="_blank" rel="noopener">Ver qué me falta y cómo cerrarlo →</a>';
   } else {
-    bd.innerHTML='<div class="line"><span class="pos">✓ Tus 6 instrumentos están trazables. La pregunta es cuántas horas te cuesta mantenerlos así.</span></div>';
+    bd.innerHTML='<div class="line"><span class="pos">Marcaste los 6 instrumentos como demostrables en el acto.</span></div>';
+    rem.className='alert';
+    rem.innerHTML='<b>Cuidado con leer esto como «estoy a salvo».</b>'+
+      'Que la exposición por estos 6 instrumentos sea $0 significa una sola cosa: que <b>hoy</b>, si llega el fiscalizador, los puedes mostrar. '+
+      'No significa que estés libre de multa. La DT fiscaliza muchas más materias que estas seis, y basta que un documento quede sin firmar, '+
+      'sin actualizar o en el computador de alguien que está de vacaciones para que vuelva a contar como incumplimiento.'+
+      '<ul><li>Sé honesto al marcar: la pregunta no es «¿lo tengo?» sino «¿lo encuentro y lo muestro ahora mismo, de los 8 centros?».</li>'+
+      '<li>Desmarca uno y mira cuánto sube. Ese salto es lo que hoy sostienes a pulso.</li></ul>'+
+      'Si de verdad están los seis trazables, la pregunta que queda es cuántas horas al mes te cuesta mantenerlos así — eso está en la primera pestaña.';
   }
 }
 document.querySelectorAll('#m_checks input').forEach(function(c){c.addEventListener('change',calcM)});
@@ -666,6 +744,34 @@ function calcC(){
 ['c_masa'].forEach(function(id){$(id).addEventListener('input',calcC)});
 ['c_tasa','c_tramos'].forEach(function(id){$(id).addEventListener('change',calcC)});
 
-calcH();calcM();calcA();calcC();
+/* ---- calc 4b: días perdidos para cambiar de tramo ---- */
+function calcD(){
+  var trab=+$('c_trab').value||0, ts=+$('c_tsact').value||0, obj=+$('c_tsobj').value||0;
+  var dHoy=ts*trab/100, dObj=obj*trab/100, delta=dHoy-dObj;
+  $('c_dhoy').textContent=num(dHoy)+' días';
+  $('c_dobj').textContent=num(dObj)+' días';
+  var m=$('c_dmsg');
+  if(delta>0){
+    $('c_dlabel').textContent='= Tienes que bajar';
+    $('c_ddelta').textContent=num(delta)+' días perdidos al año';
+    m.className='cta';
+    m.innerHTML='<b>Ese es el número que te falta</b>'+
+      'Para pasar de una tasa de '+ts.toLocaleString('es-CL')+' a '+obj.toLocaleString('es-CL')+' con '+num(trab)+' trabajadores, '+
+      'tienes que recortar <b>'+num(delta)+' días perdidos al año</b> — unos '+num(delta/12)+' al mes. '+
+      'No son accidentes menos: son días de licencia menos, que es otra cosa y se ataca antes y después del accidente.'+
+      '<a href="'+CTAURL+'" target="_blank" rel="noopener">Veamos de dónde salen esos días →</a>';
+  } else {
+    $('c_dlabel').textContent='= Margen que te queda';
+    $('c_ddelta').textContent=num(-delta)+' días perdidos';
+    m.className='alert';
+    m.innerHTML='<b>Ya estás bajo ese techo, y eso es lo que hay que cuidar.</b>'+
+      'Con '+num(trab)+' trabajadores te quedan <b>'+num(-delta)+' días perdidos</b> de margen antes de volver a subir de tramo: '+
+      'unos '+num(-delta/12)+' al mes. Un solo accidente con licencia larga se come buena parte de eso. '+
+      'Mantener el tramo vale exactamente lo mismo que bajarlo: es plata que ya no estás pagando.';
+  }
+}
+['c_trab','c_tsact','c_tsobj'].forEach(function(id){$(id).addEventListener('input',calcD)});
+
+calcH();calcM();calcA();calcC();calcD();
 </script>
 </body></html>
