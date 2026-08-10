@@ -80,14 +80,24 @@ details.src summary::before{content:"📚 "}
 .refs li{margin-bottom:10px}
 @media(max-width:780px){.grid{grid-template-columns:1fr}.tab{min-width:calc(50% - 4px)}}
 
-.cta{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(46,91,230,.10);border:1px solid rgba(46,91,230,.30)}
-.cta b{display:block;margin-bottom:6px}
-.cta ul{margin:8px 0 10px 18px;padding:0}
-.cta li{margin:3px 0}
-.cta a{display:inline-block;margin-top:4px;font-weight:700;text-decoration:none;background:#2E5BE6;color:#fff;padding:9px 16px;border-radius:9px}
-.cta a:hover{background:#1f47c4}
+.cierre{margin-top:18px;border-radius:14px;background:rgba(46,91,230,.10);border:1px solid rgba(46,91,230,.30);overflow:hidden}
+.cierre .paso{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(46,91,230,.18)}
+.cierre .paso:last-child{border-bottom:0}
+.cierre .n{flex:0 0 26px;height:26px;border-radius:50%;background:#2E5BE6;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.cierre .tt{display:block;font-weight:800;margin-bottom:4px;letter-spacing:.2px}
+.cierre .dolor{background:rgba(247,144,9,.10)}
+.cierre .dolor .n{background:#F79009}
+.cierre ul{margin:6px 0 0 16px;padding:0}
+.cierre li{margin:3px 0}
+.cierre .go{display:inline-block;margin-top:10px;font-weight:700;text-decoration:none;background:#2E5BE6;color:#fff;padding:10px 18px;border-radius:999px}
+.cierre .go:hover{background:#1f47c4}
 .alert{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(247,144,9,.12);border:1px solid rgba(247,144,9,.38)}
 .alert b{display:block;margin-bottom:6px}
+.indbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 4px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);font-size:12.5px}
+.indbar .ind{display:flex;gap:6px;align-items:baseline}
+.indbar .ind b{font-size:14px}
+.indbar .st{margin-left:auto;opacity:.75}
+.indbar.warn{background:rgba(247,144,9,.12);border-color:rgba(247,144,9,.38)}
 </style></head><body><!-- MENU LATERAL TAZKI -->
 <style>
 #tzMenuBtn{position:fixed;top:14px;left:14px;z-index:100000;background:#1f4ed8;color:#fff;border:none;width:44px;height:44px;border-radius:11px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
@@ -163,6 +173,13 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
     <div class="eyebrow">● CALCULADORAS · PREVENCIÓN DE RIESGOS</div>
     <h1>¿Cuánto vale ordenar tu prevención?</h1>
     <p>Cuatro calculadoras, cuatro dolores: horas administrativas, exposición a multas de la DT, costo oculto de accidentes y cotización adicional. Todo editable y con fuente.</p>
+  </div>
+
+  <div class="indbar" id="indbar">
+    <div class="ind" title="Unidad Tributaria Mensual">UTM <b id="ind_utm">—</b></div>
+    <div class="ind" title="Unidad de Fomento">UF <b id="ind_uf">—</b></div>
+    <div class="ind" title="Dólar observado">Dólar <b id="ind_usd">—</b></div>
+    <div class="st" id="ind_st">Buscando indicadores del día…</div>
   </div>
 
   <div class="tabs">
@@ -337,15 +354,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <div class="line"><span>= Costo oculto/año</span><span id="a_totalBd">$0</span></div>
         </div>
         <div class="resnote" style="margin-top:14px">💡 VERA sugiere el árbol de causas y las medidas; tu equipo valida y decide. Reduce las horas de investigación, no la responsabilidad técnica.</div>
-        <div class="cta"><b>¿Quieres saber cómo bajar este número?</b>
-          Este monto lo paga tu empresa por accidentes que <b>ya ocurrieron</b>. Lo que todavía se puede cambiar es cuántos ocurren el año que viene, y eso se juega <b>antes</b> del accidente:
-          <ul>
-            <li><b>Hallazgos que se cierran</b>, no que se anotan: cada condición insegura con responsable, plazo y evidencia de cierre.</li>
-            <li><b>Investigación con causa raíz</b>, para que el mismo accidente no se repita en otra faena.</li>
-            <li><b>Inspecciones y checklists en terreno</b>, con la foto y la firma en el momento.</li>
-          </ul>
-          Y si además bajas los <b>días perdidos</b>, se te abre el otro premio: el de la pestaña de cotización adicional.
-          <a href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Revisémoslo con tus números →</a></div>
+        <div class="cierre"><div class="paso dolor"><span class="n">1</span><div><span class="tt">Tu dolor hoy</span>Ese monto no lo cubre tu mutual: lo absorbe tu empresa, en días de producción perdidos y en horas de tu equipo administrando el accidente. Y es plata de accidentes que <b>ya ocurrieron</b>.</div></div><div class="paso"><span class="n">2</span><div><span class="tt">Lo que se puede cambiar es el año que viene</span><ul><li><b>Hallazgos que se cierran</b>, no que se anotan: cada condición insegura con responsable, plazo y evidencia de cierre.</li><li><b>Investigación con causa raíz</b>, para que el mismo accidente no se repita en otra faena.</li><li><b>Inspecciones y checklists en terreno</b>, con la foto y la firma en el momento.</li><li>Menos <b>días perdidos</b> abre además el premio de la pestaña de cotización adicional.</li></ul></div></div><div class="paso"><span class="n">3</span><div><span class="tt">El siguiente paso</span>Media hora con uno de nuestros especialistas: tomamos tus números reales de accidentabilidad y te decimos qué parte de ese monto es alcanzable en 12 meses. Sin presentación corporativa.<a class="go" href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Revisar mis números →</a></div></div></div>
       </div>
     </div>
     <details class="src">
@@ -430,14 +439,7 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
           <div class="line"><span class="pos">Cotización adicional objetivo/año</span><span class="pos" id="c_nuevaBd">$0</span></div>
           <div class="line"><span>= Ahorro anual potencial</span><span id="c_ahorroBd">$0</span></div>
         </div>
-        <div class="cta"><b>De la cifra a la conversación</b>
-          Ya sabes cuánto vale bajar de tramo y cuántos días perdidos tienes que recortar para lograrlo. Lo que sigue es cómo:
-          <ul>
-            <li><b>Reducir los días perdidos</b> atacando lo que los genera: hallazgos abiertos, tareas críticas sin control, reincidencia por accidentes mal investigados.</li>
-            <li><b>Reintegro temprano bien gestionado</b>, con seguimiento del caso y no con el trabajador olvidado en licencia.</li>
-            <li><b>Demostrarle la gestión a tu mutual</b> con evidencia trazable, que es lo que mira en la evaluación.</li>
-          </ul>
-          <a href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Armemos el plan para tu próxima evaluación →</a></div>
+        <div class="cierre"><div class="paso dolor"><span class="n">1</span><div><span class="tt">Tu dolor hoy</span>Estás pagando esa cotización adicional todos los meses sobre toda tu masa salarial, y el tramo se revisa cada 2 años. Si no bajas los días perdidos, lo seguirás pagando dos años más.</div></div><div class="paso"><span class="n">2</span><div><span class="tt">Cómo se bajan los días perdidos</span><ul><li><b>Atacar lo que los genera:</b> hallazgos abiertos, tareas críticas sin control, reincidencia por accidentes mal investigados.</li><li><b>Reintegro temprano gestionado</b>, con seguimiento del caso y no con el trabajador olvidado en licencia.</li><li><b>Demostrarle la gestión a tu mutual</b> con evidencia trazable, que es lo que mira en la evaluación.</li></ul></div></div><div class="paso"><span class="n">3</span><div><span class="tt">El siguiente paso</span>Te ayudamos a armar el plan para tu próxima evaluación DS 67: de dónde salen los días que tienes que recortar y en qué orden atacarlos.<a class="go" href="https://tazki.cl/contactanos" target="_blank" rel="noopener">Armar mi plan DS 67 →</a></div></div></div>
       </div>
     </div>
     <details class="src">
@@ -616,12 +618,21 @@ setTimeout(function(){var p=document.getElementById("tzGatePass");if(p)p.focus()
   </section>
 
   <div style="text-align:center"><a class="cta" href="https://tazki.cl/contactanos/">Agendar demo<small>30 minutos, sin presentación corporativa</small></a></div>
-  <div class="disc">Estimaciones referenciales con fines comerciales. Los resultados dependen de los supuestos que ingreses. Multas y cotizaciones según normativa vigente (art. 506 y 505 bis CT, Tipificador DT 23-jun-2026, Ley 16.744, DS 44, DS 67, DS 110); UTM del SII (julio 2026). Días perdidos según SUSESO. Ninguna cifra de esta página constituye asesoría legal. Versión 3 · agosto 2026.</div>
+  <div class="disc">Estimaciones referenciales con fines comerciales. Los resultados dependen de los supuestos que ingreses. Multas y cotizaciones según normativa vigente (art. 506 y 505 bis CT, Tipificador DT 23-jun-2026, Ley 16.744, DS 44, DS 67, DS 110); UTM del SII (julio 2026). Días perdidos según SUSESO. Ninguna cifra de esta página constituye asesoría legal. Versión 4 · agosto 2026.</div>
 </div>
 
 <script>
 var $=function(id){return document.getElementById(id)};
 var CTAURL='https://tazki.cl/contactanos';
+
+var CIERRE=function(dolor,tit,items,paso,boton){
+  return '<div class="cierre">'+
+   '<div class="paso dolor"><span class="n">1</span><div><span class="tt">Tu dolor hoy</span>'+dolor+'</div></div>'+
+   '<div class="paso"><span class="n">2</span><div><span class="tt">'+tit+'</span><ul><li>'+items.join('</li><li>')+'</li></ul></div></div>'+
+   '<div class="paso"><span class="n">3</span><div><span class="tt">El siguiente paso</span>'+paso+
+   '<a class="go" href="'+CTAURL+'" target="_blank" rel="noopener">'+boton+'</a></div></div></div>';
+};
+
 var clp=function(n){return '$'+Math.round(n).toLocaleString('es-CL')};
 var num=function(n){return Math.round(n).toLocaleString('es-CL')};
 
@@ -658,11 +669,16 @@ function calcH(){
       '<li>Si de verdad no te pesa, el valor está en otra parte: mira <b>Exposición a multas</b> y <b>Costo de accidentes</b>. '+
       'Una sola multa evitada o un accidente menos suelen pesar más que todas las horas de este cálculo.</li></ul>';
   } else {
-    r.className='cta';
-    r.innerHTML='<b>Qué haces con '+num(horasRec)+' horas al año</b>'+
-      'Son '+num(horasRec/8)+' jornadas que hoy se van en formularios y carpetas. Devueltas a terreno, se convierten en inspecciones, charlas y hallazgos cerrados — '+
-      'que es justamente lo que baja los días perdidos y, con eso, tu cotización adicional.'+
-      '<a href="'+CTAURL+'" target="_blank" rel="noopener">Veamos tu caso con tus horas reales →</a>';
+    r.className='';
+    r.innerHTML=CIERRE(
+      'Tu equipo pierde <b>'+num(horasRec)+' horas al año</b> ('+num(horasRec/8)+' jornadas) en formularios, carpetas y firmas en papel. '+
+      'Son horas de prevención que se pagan igual, pero que no llegan al terreno.',
+      'Cómo Tazki devuelve esas horas',
+      ['<b>Formularios que se llenan en el celular</b>, en terreno y sin volver a digitar nada en la oficina.',
+       '<b>Firma electrónica validada por la Resolución N°908 de la DT</b>: se acabó imprimir, perseguir y escanear.',
+       '<b>Todo queda buscable</b> por trabajador, centro y fecha, así que armar el respaldo deja de ser un proyecto.'],
+      'En 30 minutos revisamos tu proceso real y te decimos qué parte de esas '+num(horasRec)+' horas es recuperable de verdad, y en cuánto tiempo.',
+      'Ver mi caso con mis horas →');
   }
 }
 $('h_sector').addEventListener('change',function(){if(this.value!=='custom'){$('h_costohora').value=this.value;}calcH();});
@@ -694,13 +710,17 @@ function calcM(){
     var t=document.createElement('div'); t.className='line';
     t.innerHTML='<span>= Exposición total</span><span>'+clp(piso)+' a '+clp(techo)+'</span>';
     bd.appendChild(t);
-    rem.className='cta';
-    rem.innerHTML='<b>Tazki no te evita la multa: te deja probar que cumples</b>'+
-      'Los '+faltan.length+' instrumentos de arriba son los que hoy no podrías mostrar en el acto. Con Tazki dejan de depender de dónde quedó la carpeta:'+
-      '<ul><li>Todo en una plataforma, buscable por trabajador, centro y fecha, con firma electrónica validada por la <b>Resolución N°908 de la DT</b>.</li>'+
-      '<li>El fiscalizador ve la evidencia en el momento, no en tres días cuando ya se cursó el acta.</li></ul>'+
-      'Piénsalo como un seguro: pagas una cuota mensual para no quedar expuesto a '+clp(piso)+' o más de una sola vez.'+
-      '<a href="'+CTAURL+'" target="_blank" rel="noopener">Ver qué me falta y cómo cerrarlo →</a>';
+    rem.className='';
+    rem.innerHTML=CIERRE(
+      'Hay <b>'+faltan.length+' instrumento'+(faltan.length>1?'s':'')+'</b> que hoy no podrías mostrarle al fiscalizador en el acto. '+
+      'Eso te deja expuesto a <b>'+clp(piso)+'</b> como piso, y la DT cursa multa en el 29,6% de las fiscalizaciones que hace.',
+      'Tazki no evita la multa: te deja probar que cumples',
+      ['<b>Todo en una plataforma</b>, buscable por trabajador, centro y fecha — no en la carpeta que nadie encuentra.',
+       '<b>Firma electrónica validada por la Resolución N°908 de la DT</b>: el respaldo tiene valor probatorio.',
+       '<b>El fiscalizador ve la evidencia en el momento</b>, no en tres días cuando el acta ya se cursó.'],
+      'Piénsalo como un seguro: una cuota mensual para no quedar expuesto a '+clp(piso)+' de una sola vez. '+
+      'Te mostramos cuáles de estos '+faltan.length+' cierras el primer mes.',
+      'Ver qué me falta y cómo cerrarlo →');
   } else {
     bd.innerHTML='<div class="line"><span class="pos">Marcaste los 6 instrumentos como demostrables en el acto.</span></div>';
     rem.className='alert';
@@ -773,5 +793,74 @@ function calcD(){
 ['c_trab','c_tsact','c_tsobj'].forEach(function(id){$(id).addEventListener('input',calcD)});
 
 calcH();calcM();calcA();calcC();calcD();
+
+/* ================= MOTOR DE INDICADORES ECONÓMICOS =================
+   Corre en el navegador del visitante, no en el servidor: la página es
+   estática y aun así queda al día sola. Consulta varias fuentes en orden,
+   valida que el valor sea plausible y solo entonces reemplaza el valor de
+   respaldo. Si todas fallan, deja el de respaldo y lo dice en pantalla.
+   Regla: preferimos un dato viejo declarado que uno nuevo inventado. */
+var IND={
+  respaldo:{utm:71649,utmFecha:'2026-07-01',uf:null,usd:null},
+  /* rangos de cordura: si el valor cae fuera, se descarta la fuente */
+  rango:{utm:[45000,250000], uf:[30000,150000], usd:[500,2500]},
+  fuentes:[
+    {n:'mindicador.cl', u:'https://mindicador.cl/api', lee:function(j){
+        return {utm:j&&j.utm&&j.utm.valor, utmFecha:j&&j.utm&&j.utm.fecha,
+                uf:j&&j.uf&&j.uf.valor, usd:j&&j.dolar&&j.dolar.valor};}},
+    {n:'boostr.cl', u:'https://api.boostr.cl/economy/indicators.json', lee:function(j){
+        var d=(j&&j.data)||j||{};
+        return {utm:d.utm&&(d.utm.value||d.utm.valor), utmFecha:d.utm&&(d.utm.date||d.utm.fecha),
+                uf:d.uf&&(d.uf.value||d.uf.valor), usd:d.dollar&&(d.dollar.value||d.dollar.valor)};}}
+  ]
+};
+function indOk(k,v){var r=IND.rango[k]; v=+v; return isFinite(v)&&v>=r[0]&&v<=r[1];}
+function mesEs(iso){
+  var M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var d=new Date(iso); if(isNaN(d)) return '';
+  return M[d.getUTCMonth()]+' '+d.getUTCFullYear();
+}
+function pintaInd(d,fuente){
+  var bar=$('indbar');
+  if(indOk('utm',d.utm)) $('ind_utm').textContent=clp(d.utm);
+  if(indOk('uf',d.uf))   $('ind_uf').textContent=clp(d.uf);
+  if(indOk('usd',d.usd)) $('ind_usd').textContent=clp(d.usd);
+  if(indOk('utm',d.utm)){
+    var inp=$('m_utm');
+    /* solo si el usuario no lo editó a mano */
+    if(!inp.dataset.tocado){ inp.value=Math.round(d.utm); calcM(); }
+    var m=mesEs(d.utmFecha);
+    $('ind_st').textContent='UTM de '+(m||'este mes')+' cargada automáticamente · fuente: '+fuente;
+    bar.classList.remove('warn');
+    var h=document.querySelector('#m_utm')&&document.querySelector('#m_utm').previousElementSibling;
+    if(h){var sp=h.querySelector('.hint'); if(sp) sp.textContent='al día · '+(m||'')+' · '+fuente;}
+  }
+}
+function respaldoInd(){
+  var bar=$('indbar'); bar.classList.add('warn');
+  $('ind_utm').textContent=clp(IND.respaldo.utm);
+  $('ind_st').innerHTML='⚠️ No se pudo consultar el indicador del día. Estás viendo la <b>UTM de '+
+    mesEs(IND.respaldo.utmFecha)+'</b>, que es un valor de respaldo: verifícala en sii.cl y edítala en «Ajustar supuestos» antes de mostrar esta pantalla a un cliente.';
+}
+(function cargaInd(){
+  var i=0;
+  function intenta(){
+    if(i>=IND.fuentes.length){ respaldoInd(); return; }
+    var f=IND.fuentes[i++];
+    var ctl=('AbortController' in window)?new AbortController():null;
+    var to=setTimeout(function(){ if(ctl) ctl.abort(); },6000);
+    fetch(f.u,{cache:'no-store',signal:ctl?ctl.signal:undefined})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(j){
+        var d=f.lee(j)||{};
+        if(!indOk('utm',d.utm)) throw 0;      /* fuente descartada */
+        clearTimeout(to); pintaInd(d,f.n);
+      })
+      .catch(function(){ clearTimeout(to); intenta(); });
+  }
+  intenta();
+})();
+$('m_utm').addEventListener('input',function(){this.dataset.tocado='1';});
+
 </script>
 </body></html>

@@ -1,6 +1,6 @@
 {
   "_lee_esto_primero": "Estado de la calculadora ROI (roi.html) del Growth Hub. Se creó el 10-ago-2026 después de que se perdiera el historial de una sesión en un reinicio del contenedor. Cualquier cambio al ROI se anota ACÁ, no en la memoria del chat.",
-  "version_publicada": "Versión 3 · agosto 2026",
+  "version_publicada": "Versión 4 · agosto 2026",
   "que_es": "Cuatro calculadoras comerciales independientes en una sola página: horas recuperadas, exposición a multas DT, costo oculto de accidentes y cotización adicional DS 67. Uso: el vendedor la abre frente al prospecto.",
   "feedback_del_vendedor_4_ago_2026": {
     "_origen": "Reunión «Revisión Calculadora ROI», 4-ago-2026, Diego + un vendedor que la probó. Transcripción entregada por Diego el 10-ago.",
@@ -27,11 +27,11 @@
     },
     "5_falta_remate_comercial_general": {
       "hallazgo": "«Las calculadoras se entienden, pero falta el remate comercial que conecte los números con la propuesta de Tazki.»",
-      "resuelto": "10-ago. Las cuatro terminan en un bloque que conecta el resultado con qué hace Tazki y un botón a tazki.cl/contactanos."
+      "resuelto": "10-ago, v3 con remates simples; v4 los reemplaza por la estructura de 3 pasos dolor -> como ayuda Tazki -> siguiente paso."
     }
   },
   "pendientes": {
-    "utm_de_agosto": "La calculadora de multas trae la UTM de JULIO 2026 ($71.649) por defecto y la UTM cambia cada mes. No se pudo actualizar: el proxy de red bloquea sii.cl. Diego tiene que pasar el valor. Está escrita en 3 lugares: el input m_utm, la nota de fuentes y el bloque de referencias.",
+    "utm_de_agosto": "Ya no bloquea la operación: el motor de indicadores la trae sola desde el navegador. Falta solo actualizar el VALOR DE RESPALDO (hoy julio 2026) que se usa si el visitante está sin conexión.",
     "tabla_oficial_del_ds_67": "No se pudo verificar la tabla del artículo 21 del DS 67 (tasa de siniestralidad -> tramo de cotización) porque bcn.cl también está bloqueado por el proxy. POR ESO el cálculo de días perdidos pide que el usuario ponga la tasa del tramo objetivo desde la planilla de su mutual, en vez de deducirla de una tabla. Si algún día se consigue la tabla oficial, se puede automatizar el paso tramo -> tasa. NO inventar esa tabla: es un dato legal que el vendedor usa frente a un cliente.",
     "mes_de_la_revision_ds_67": "El vendedor dijo que la revisión es cada 2 años EN NOVIEMBRE. No se pudo verificar contra la norma (proxy bloqueado), así que la página sigue diciendo solo «cada 2 años». Confirmar con Diego antes de publicar el mes.",
     "presentacion_comercial": "Tarea de Diego, no del repo: crear una copia del documento por cliente, renombrada con guion y nombre del cliente, con acceso abierto por hipervínculo.",
@@ -47,5 +47,27 @@
     "2": "Si un número sale en contra de Tazki, se muestra igual y se explica. El vendedor pierde más credibilidad con un número forzado que con uno honesto.",
     "3": "Todo dato legal o de tasa va con fuente y con etiqueta (ley / oficial / supuesto del usuario). Si no se puede verificar, no se publica.",
     "4": "Cada calculadora termina conectando el número con qué hace Tazki y con una invitación a conversar."
+  },
+  "motor_de_indicadores_economicos": {
+    "_por_que": "Diego, 10-ago-2026: la calculadora no puede depender de que alguien se acuerde de actualizar la UTM cada mes. El valor tiene que estar al día solo.",
+    "como_funciona": "Corre en el NAVEGADOR DEL VISITANTE, no en el servidor. La página sigue siendo estática en GitHub Pages y aun así queda al día sola, sin backend ni build.",
+    "por_que_del_lado_del_cliente": "Desde este contenedor el proxy de red responde 403 a mindicador.cl, api.boostr.cl, sii.cl y bcn.cl (verificado el 10-ago). El navegador del prospecto no tiene esa restricción.",
+    "fuentes_en_orden": [
+      "mindicador.cl/api",
+      "api.boostr.cl/economy/indicators.json"
+    ],
+    "como_agregar_una_fuente": "Sumar un objeto {n, u, lee} al arreglo IND.fuentes en roi.html. 'lee' recibe el JSON y devuelve {utm, utmFecha, uf, usd}. Si la fuente no entrega una UTM plausible, se descarta sola y pasa a la siguiente.",
+    "validacion_de_cordura": "IND.rango: utm 45.000-250.000 · uf 30.000-150.000 · dolar 500-2.500. Un valor fuera de rango descarta la fuente completa. Esto evita que un cambio de formato de la API meta un número absurdo en una pantalla comercial.",
+    "respaldo": "Si todas las fuentes fallan, queda la UTM de respaldo (hoy julio 2026, $71.649) y la barra se pone naranja con un aviso explícito de que hay que verificarla en sii.cl antes de mostrarla a un cliente. Regla: preferimos un dato viejo declarado que uno nuevo inventado.",
+    "respeta_al_usuario": "Si el vendedor edita la UTM a mano, el motor ya no la pisa (bandera dataset.tocado).",
+    "timeout": "6 segundos por fuente, con AbortController.",
+    "que_falta": "El respaldo sigue siendo julio 2026 y hay que subirlo cuando Diego pase la UTM de agosto: es lo que se ve si el visitante está sin conexión o si las dos APIs caen."
+  },
+  "cierre_comercial": {
+    "_por_que": "Los vendedores pidieron un cierre real: que la calculadora no termine en un número sino en una conversación.",
+    "estructura": "Las cuatro calculadoras terminan en el mismo bloque de 3 pasos: (1) Tu dolor hoy, en naranja, que reformula el número calculado en una frase; (2) Cómo lo aborda Tazki, con 3-4 mecanismos concretos, no genéricos; (3) El siguiente paso, con botón a tazki.cl/contactanos.",
+    "los_pasos_1_son_dinamicos": "En horas y en multas el texto del dolor se arma con las cifras que el prospecto acaba de ingresar (horas perdidas, instrumentos sin respaldo, monto de exposición). No es copy fijo.",
+    "ojo_colision_de_clases": "La clase .cta YA EXISTÍA en roi.html como el botón pill 'Agendar demo' de la guía. El bloque de cierre usa .cierre. NO reutilizar .cta para bloques.",
+    "excepcion": "Cuando el ahorro en horas sale negativo, o cuando el prospecto marca los 6 instrumentos, en vez del cierre aparece un bloque .alert. Ahí el cierre comercial sería deshonesto: primero se corrige la lectura."
   }
 }
