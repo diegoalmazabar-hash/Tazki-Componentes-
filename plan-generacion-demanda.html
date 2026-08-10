@@ -181,11 +181,11 @@
     <div class="card"><div class="ct">Mes a mes <span class="light">(no-marca · julio al 28, en curso)</span></div><div class="tscroll"><table id="tSeo"></table></div></div>
     <div class="card" style="margin-top:14px"><div class="ct">Semana a semana <span class="light">(no-marca · últimas 8 semanas)</span></div><div class="tscroll"><table id="tSeoKw"></table></div></div>
     <div class="card" style="margin-top:14px"><div class="ct">Palabras clave nuevas · semana a semana <span class="light">(no-marca · cada semana vs la anterior · <b>pasa el mouse sobre los números para ver las palabras</b>)</span></div><div class="tscroll"><table id="tKwNew"></table></div></div>
-    <div class="card" style="margin-top:14px"><div class="ct">Nuevas que trajeron su primer clic <span class="light">(pincha una semana)</span></div><div id="kwNewClk"></div></div>
-    <div class="card" style="margin-top:14px"><div class="ct">🎯 A recuperar · última semana (20–26 jul) <span class="light">(perdieron su clic, o muchas impresiones sin clic)</span></div><div id="kwRecup"></div></div>
+    
+    
     <p class="read"><b>La mejor semana del año, con distancia.</b> Del <b>3 al 9 de agosto</b>: <b>26 clics</b> contra 15 de la semana anterior (+73%), <b>3.558 impresiones</b> y posición media <b>6,4</b> — la mejor marca desde que medimos. Agosto acumula <b>27 clics</b> en 9 días, cuando julio entero cerró en 36. La posición del mes va en <b>6,8</b> contra 8,7 de julio. <span class="light">El clúster <b>IRL</b> es el motor: "irl" (6 clics), "irl ds 44" (5) y las variantes de "qué es el IRL" suman 17 de los 27 clics del mes. Detrás asoman los temas nuevos: "registro entrega epp" (2), "formato matriz de riesgos ds 44" y "miper ds 44". Son exactamente los artículos que están en borrador esperando publicación.</span></p>
     <p class="read"><b>Cuadra exacto con tu Search Console.</b> Se aplica tu misma expresión regular de marca y solo <b>búsqueda Web</b>. Los tres períodos de control dieron idénticos: junio <b>14 clics · 5.947 impresiones · posición 8,4</b>, la semana 13–19 jul <b>5 clics · 1.836 · 9,8</b> y la del 20–26 jul <b>13 clics · 2.776 · 7,8</b>. <span class="light">Un detalle honesto: entre las palabras con clic de agosto aparece <b>"tszki"</b>, que es un typo de la marca que tu expresión regular no cubre. Suma 1 clic al no-marca. Lo dejo tal cual para que el número siga calzando con tu pantalla; si lo agregas a tu filtro, lo agrego acá.</span></p>
-    <p class="verify">🔎 <b>Cómo verificar (Search Console):</b> Rendimiento → aplica tu filtro <b>Consulta: Personalizada</b> (excluye tazki y variantes) → elige el mes/semana. Prueba estable: <b>13–19 jul = 5 clics</b> (cuadra con tu UI). <span class="light">Saco las búsquedas una por una y aplico tu filtro de marca exacto. Posición = impresión-ponderada (puede variar levemente vs GSC). Julio va parcial al 22.</span></p>
+    <p class="verify">🔎 <b>Cómo verificar (Search Console):</b> Rendimiento → aplica tu filtro <b>Consulta: Personalizada</b> (excluye tazki y variantes) → elige el mes/semana. Prueba estable: <b>13–19 jul = 5 clics</b> (cuadra con tu UI). <span class="light">Saco las búsquedas una por una y aplico tu filtro de marca exacto. Posición = impresión-ponderada (puede variar levemente vs GSC). Agosto va al día 9; hoy no se cuenta porque va incompleto.</span></p>
     
   </section>
 
@@ -383,33 +383,11 @@ const RECUP={"perdieron_clic": [{"q": "sistema de control de contratistas", "clk
     h+="<tr><td class='name'>"+w.lab+"</td><td class='r num'>"+pop(w.nuevas,w.pop&&w.pop.nuevas,"Palabras nuevas")+"</td><td class='r num'>"+(w.clk||"—")+"</td><td class='r num up'>"+pop(w.subimp,w.pop&&w.pop.subimp,"Subieron impresiones")+"</td><td class='r num up'>"+pop(w.subclk||"—",w.pop&&w.pop.subclk,"Subieron clics")+"</td><td class='r num dn'>"+pop(w.bajimp,w.pop&&w.pop.bajimp,"Bajaron impresiones")+"</td><td class='r num dn'>"+pop(w.bajclk||"—",w.pop&&w.pop.bajclk,"Bajaron clics")+"</td></tr>";
   });
   t.innerHTML=h+"</tbody>";
-  var box=document.getElementById("kwNewClk");
-  if(box){
-    box.innerHTML=KWNEW.slice().reverse().map(function(w,idx){
-      if(!w.list||!w.list.length) return "";
-      var items=w.list.map(function(k){return "<div class='ev'><span class='tg tg-seo'>"+k.c+" clic"+(k.c>1?"s":"")+"</span><div>"+String(k.q).replace(/&/g,"&amp;").replace(/</g,"&lt;")+" <span class='light'>· "+k.i+" impresiones</span></div></div>";}).join("");
-      return "<details class='day'"+(idx===0?" open":"")+"><summary>"+w.lab+"<span class='cnt'>"+w.list.length+" con clic</span></summary><div class='body'>"+items+"</div></details>";
-    }).join("");
-  }
+  
 })();
 
 
-(function(){
-  var box=document.getElementById("kwRecup"); if(!box||typeof RECUP==="undefined") return;
-  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
-  var h="";
-  var pc=(RECUP.perdieron_clic||[]).filter(function(x){return x.imp>0;});
-  if(pc.length){
-    h+="<div style='margin:2px 12px 8px'><b style='font-size:13px'>Perdieron su clic esta semana</b></div>";
-    pc.forEach(function(x){ var a=(x.antes!=null?x.antes:x.clk), b=(x.ahora!=null?x.ahora:0); var et=(a!=null? a+"→"+b+" clic" : "0 clics"); h+="<div class='ev'><span class='tg tg-seo'>"+et+"</span><div>"+esc(x.q)+" <span class='light'>· "+x.imp+" impresiones (recupera el clic con título/meta)</span></div></div>"; });
-  }
-  var a0=RECUP.alta_imp_sin_clic||[];
-  if(a0.length){
-    h+="<div style='margin:14px 12px 8px'><b style='font-size:13px'>Muchas impresiones, 0 clics → recuperar el clic</b> <span class='light'>(ya rankean en página 1)</span></div>";
-    a0.forEach(function(x){ var pos=x.pos!=null?(Math.round(x.pos*10)/10).toString().replace(".",","):"—"; h+="<div class='ev'><span class='tg tg-land'>pos "+pos+"</span><div>"+esc(x.q)+" <span class='light'>· "+x.imp+" impresiones · 0 clics</span></div></div>"; });
-  }
-  box.innerHTML=h||"<p class='cap-note'>Sin pérdidas relevantes esta semana.</p>";
-})();
+
 
 </script>
 
