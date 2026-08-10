@@ -66,14 +66,15 @@ def main():
     if mal:
         errores.append(f"Etiquetas '(al N)' desalineadas: esperaba (al {esperado}), hay {mal}.")
 
-    # 4. fila parcial de contenido, semana DOM–SÁB
+    # 4. fila parcial de contenido, semana LUN–DOM
+    # (cambiado el 9-ago-2026: Diego pidió unificar TODO el Plan a lunes–domingo.
+    #  Antes el bloque de contenido iba DOM–SÁB porque HubSpot corta así; ahora la
+    #  tabla se arma agrupando desde datos diarios, igual que SEO y el bloque SEM.)
     m = re.search(r'parcial · (\d+) de 7 días', src)
     if m:
-        # días transcurridos de la semana dom-sáb que contiene el corte
-        dow = (corte.weekday() + 1) % 7  # dom=0 ... sáb=6
-        transcurridos = dow + 1
+        transcurridos = corte.weekday() + 1  # lun=0 -> 1 día transcurrido
         if int(m.group(1)) != transcurridos:
-            errores.append(f"Fila parcial de contenido dice '{m.group(1)} de 7 días'; con corte {corte} debería decir {transcurridos}.")
+            errores.append(f"Fila parcial de contenido dice '{m.group(1)} de 7 días'; con corte {corte} (semana lun–dom) debería decir {transcurridos}.")
 
     # 6. spans dentro de arrays de meses
     for k in ("inbMonths", "convMonths", "impMonths", "seoMonths"):
