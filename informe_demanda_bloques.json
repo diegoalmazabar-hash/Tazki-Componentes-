@@ -136,13 +136,6 @@
       "ojo_duplicados": "el inventario trae la home dos veces (contentId 215559935410 «Inicio» y contentId de texto «tazki.cl/»). No sumar ambas."
     }
   },
-  "bloque_8_clarity": {
-    "titulo": "Landing principal + Clarity",
-    "cambio_del_27_jul": "Antes mostraba el baseline como porcentajes y decía «la comparativa empieza la próxima semana». Ahora es un comparativo real entre los primeros snapshots y los últimos, más la tabla snapshot a snapshot.",
-    "unidad_correcta": "Clarity entrega CONTEOS de dead clicks, rage clicks y quick-backs, no porcentajes. Publicarlos como «%» es incorrecto. Se normalizan dividiendo por las sesiones del período.",
-    "umbral": "Filas con menos de 5 sesiones muestran «—»: no son medición, son ruido.",
-    "fuente": "El snapshot diario se acumula en bitacora-tazki.html del Hub, const BITA → clarity.history."
-  },
   "bloque_9_bitacora": {
     "fuente_sem": "El historial REAL de Google Ads: campaign_and_resource_get resource_type='history' sobre la cuenta 3766426817. No lo que recuerde el modelo de conversaciones pasadas.",
     "dos_listas": "platform_change_list trae los cambios con hora y autor pero sin valores; supermetrics_change_list trae menos entradas pero con los valores viejo/nuevo.",
@@ -248,6 +241,7 @@
     "efecto_util": "Cada corrida reporta semanas lunes a domingo COMPLETAS. SEO, inbounds, SEM y LinkedIn ya iban lunes a domingo, así que la cadencia y los datos quedan alineados.",
     "causa_raiz_pendiente": "El 12-ago la rutina no alcanzó a refrescar 7 de 10 bloques. NO fue por el día: el trigger trig_01MChjuaRvbqm8RpE9CsnvJq tiene persist_session=true y dispara DENTRO de la sesión de Diego (session_0176D1YDhQApe8HjWuh1rvSm), heredando todo el contexto ya gastado ese día. Mientras siga así, un lunes cargado puede repetir el problema.",
     "como_arreglar_la_causa_raiz": "Recrear el trigger con create_new_session_on_fire=true para que cada corrida arranque en una sesión limpia con presupuesto completo. update_trigger NO puede cambiar esto: solo edita nombre, cron, enabled, model y prompt. Requiere delete + create, y el informe llegaría en una conversación nueva, no en la de Diego. PENDIENTE DE SU DECISIÓN.",
-    "orden_sugerido_si_falta_presupuesto": "1) inbounds, 2) embudo, 3) SEO — son los que exige el mensaje final. Después SEM ranking y Ads (detectan gasto quemado), luego contenido, camadas, LinkedIn y bitácora. Clarity depende del token."
+    "orden_sugerido_si_falta_presupuesto": "1) inbounds, 2) embudo, 3) SEO — son los que exige el mensaje final. Después SEM ranking y Ads (detectan gasto quemado), luego contenido, camadas, LinkedIn y bitácora. Clarity depende del token.",
+    "clarity_eliminado": "El 12-ago-2026 Diego pidió sacar Clarity del Plan: lo va a mirar por otro lado. Se eliminó la sección «Landing principal + Clarity» y los badges siguientes se corrieron (Bitácora 8->7, LinkedIn 9->8). Ya NO hay que pedir el token de Clarity ni refrescar ese panel. Las entradas históricas de la bitácora que lo mencionan se dejan como están: son registro de lo que pasó."
   }
 }
