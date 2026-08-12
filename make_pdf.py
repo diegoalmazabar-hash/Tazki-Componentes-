@@ -26,7 +26,14 @@ INYECCION = r"""
   .pop .pw{display:none !important}          /* el contenido se mueve al anexo */
   .ref{font-size:9px;vertical-align:super;color:#2E5BE6;font-weight:700;margin-left:2px}
   details{display:block !important}
-  details>summary{display:none !important}
+  /* NO ocultar los summary: en la bitácora el summary ES la fecha del día.
+     (Se ocultaban hasta el 12-ago-2026 y el PDF salía sin fechas.) */
+  details>summary{display:block !important;list-style:none !important;cursor:auto !important}
+  details>summary::-webkit-details-marker{display:none !important}
+  details>summary::marker{content:"" !important}
+  .day{page-break-inside:avoid}
+  .day>summary{background:#EEF1F6 !important;font-weight:800 !important;color:#0C1E50 !important;
+               border-bottom:1px solid #C7D0E0}
   #anexo{margin-top:34px;page-break-before:always}
   #anexo h2{font-size:19px;margin:0 0 4px}
   #anexo .grupo{margin-top:18px;page-break-inside:avoid}
