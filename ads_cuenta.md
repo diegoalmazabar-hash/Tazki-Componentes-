@@ -114,6 +114,35 @@ El 80 de móvil es laboratorio con Moto G Power en 4G lento; el campo manda y es
 gestión de seguridad y salud en el trabajo». El arreglo de vocabulario del 25-jul no bastó.
 Pendientes menores: contraste insuficiente (accesibilidad, en rojo) e imágenes sin width/height.
 
+## Landings: una por grupo de anuncios, NO una por keyword (13-ago)
+
+Una landing por keyword no sirve: Google evalúa la experiencia de la página **por keyword contra la
+página de destino del grupo**, y partir el tráfico en 6 páginas deja a cada una sin datos
+suficientes para que el algoritmo aprenda. El corte correcto es el grupo de anuncios, porque cada
+grupo ya agrupa intenciones equivalentes.
+
+| Grupo | Conversiones | Landing |
+|---|---|---|
+| A · Sistema Gestión SST | 8 | `soluciones.tazki.cl/sistema-gestion-seguridad-salud-trabajo` (creada 13-ago) |
+| B · Software Prevención de Riesgos | 1 | `soluciones.tazki.cl/software-prevencion-riesgos` (ya calzaba) |
+| C · HSEQ HSE | 1 | `soluciones.tazki.cl/software-hseq` (ya existía) |
+
+**Landing A — creada el 13-ago como borrador, contentId `219388262058`.** Clon de la B
+(`217060324610`), así que hereda tema, estructura y el **mismo formulario**
+`07323525-2476-418d-a087-e7a0fbc19275`. Cambios respecto del original:
+
+- H1: «El sistema de gestión de seguridad y salud en el trabajo, en una sola plataforma» — la frase
+  exacta que busca la keyword estrella, que en la B no aparecía en el H1.
+- `htmlTitle`, meta description, eyebrow, H2 de módulos y checklist reescritos hacia SG-SST,
+  DS 44 y Ley 16.744.
+- FAQ: primera pregunta ahora es la definicional («¿Qué es un SG-SST?»). **El módulo FAQ acepta
+  máximo 8 ítems**; agregar uno obliga a sacar otro.
+- Contraste del `headHtml` corregido: `rgba(255,255,255,.4)` → `.78` (era el rojo de accesibilidad
+  de PageSpeed).
+
+**Para conectarla: NO editar la URL final del anuncio por API** — eso borra el anuncio y lo recrea
+en pausa. Se le pone la URL final **a la keyword**, que sobrescribe la del anuncio sin tocarlo.
+
 ## AI Max: marginal
 
 $23.485, **cero conversiones**, 2,6% del gasto. Y NO explica el crecimiento de la subasta: las
@@ -137,10 +166,11 @@ impresiones disponibles ya se habían triplicado (3.079 → 8.784) la semana ANT
 
 ## Pendientes
 
-- Construir la landing de SGSST (decidido el 13-ago).
+- **Que Diego revise y publique la landing A** (borrador `219388262058`) y después le ponga la URL
+  final a las keywords del Grupo A.
 - Pausar `"software hseq"` frase ($870, 0 conv), que quedó activa.
 - Lectura del 17-ago: Quality Score de la estrella, CPA, % de gasto irrelevante.
-- Arreglar contraste de la landing.
+- Arreglar contraste en la landing B (en la A ya quedó corregido).
 - 3 recomendaciones de keywords que la API no muestra: revisarlas con Diego desde su pantalla.
 
 ## Rechazadas permanentemente (no volver a proponer)
