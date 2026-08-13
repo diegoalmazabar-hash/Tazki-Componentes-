@@ -125,7 +125,14 @@ grupo ya agrupa intenciones equivalentes.
 |---|---|---|
 | A · Sistema Gestión SST | 8 | `soluciones.tazki.cl/es/sistema-gestion-seguridad-salud-trabajo` (creada y publicada 13-ago) |
 | B · Software Prevención de Riesgos | 1 | `soluciones.tazki.cl/software-prevencion-riesgos` (ya calzaba) |
-| C · HSEQ HSE | 1 | `soluciones.tazki.cl/software-hseq` (ya existía) |
+| C · HSEQ HSE | 1 | `soluciones.tazki.cl/software-hseq` (existía, pero el anuncio NO apuntaba ahí) |
+
+**El anuncio del Grupo C apuntaba a `/software-prevencion-riesgos`** — el mismo error que tenía A,
+descubierto el 13-ago. Y su URL visible decía `soluciones.tazki.cl/hseq/demo`, o sea ni siquiera
+coincidía con lo que el propio anuncio prometía. **Esto explica el diagnóstico completo del Quality
+Score: dos de los tres grupos caían en la misma página, escrita para el tercero.** No era un
+misterio de contenido, era de cableado. (Lo que queda abierto: la B también sale «Inferior al
+promedio» y ella sí estaba en su página correcta — ese grupo tiene un problema propio de contenido.)
 
 **Landing A — creada el 13-ago como borrador, contentId `219388262058`.** Clon de la B
 (`217060324610`), así que hereda tema, estructura y el **mismo formulario**
@@ -143,6 +150,21 @@ grupo ya agrupa intenciones equivalentes.
 Ojo: al publicarla, el idioma `es` le antepuso **`/es/`** al slug, a diferencia de las landings B y C
 que no lo llevan. No afecta a Ads. Diego la publicó así el 13-ago.
 
+**Landing C (`214952422274`, «Landing HSEQ») — retocada el 13-ago.** Es la mejor construida de las
+tres: barra de cifras, sección de problema con 6 tarjetas, GIF de flujo, tarjeta DT. Diego cambió el
+H1 a «Plataforma HSE chilena: centraliza calidad, seguridad, medioambiente y salud» (la única
+keyword viva del grupo es `plataforma hse`, sin la Q, y la página solo decía «HSEQ») y reemplazó la
+barra de logos de texto por logos reales. Yo agregué: eyebrow `PLATAFORMA HSE · SOFTWARE HSEQ
+CHILE`, la FAQ definicional «¿Qué es una plataforma HSE y en qué se diferencia de una HSEQ?», y
+título/meta SEO.
+
+⚠️ **La landing C tiene Google Tag Manager (`GTM-5QSBL6BQ`) en su `headHtml`; la B y la A no.** Las
+tres landings no miden lo mismo. Las conversiones de Ads no dependen de eso (viajan por el
+formulario de HubSpot + importación de GCLID, por eso el Grupo A registró sus 8 sin GTM), pero
+cualquier otra cosa de ese contenedor está ciega en dos de tres páginas. Pendiente de definir con
+Diego. Por lo mismo NO se tocó el contraste `.4` de esa página: el script de GTM vive en el mismo
+bloque y no vale la pena arriesgar el seguimiento por un ajuste cosmético.
+
 **Para conectarla: NO editar la URL final del anuncio por API** — eso borra el anuncio y lo recrea
 en pausa. Se le pone la URL final **a la keyword**, que sobrescribe la del anuncio sin tocarlo.
 
@@ -150,6 +172,19 @@ en pausa. Se le pone la URL final **a la keyword**, que sobrescribe la del anunc
 `"sistema de gestión de seguridad y salud en el trabajo"` (5,00 conv), `"software seguridad
 ocupacional"` (2,00), `"software gestión sst"` (0,67), `"software sst"` (0,33), `[software seguridad
 ocupacional]` y `[sistema gestión seguridad laboral]`. A las detenidas no se les puso URL.
+
+**Ejecutado el 13-ago en el Grupo C:** URL final `https://soluciones.tazki.cl/software-hseq` cargada
+a `plataforma hse`, la **única keyword viva del grupo** (amplia, QS 3/10, 1 conversión a $28.991 —
+más barata que el promedio de la cuenta, $83.698).
+
+**Por qué NO reactivar las 9 detenidas del Grupo C todavía.** Todas están en cero conversiones
+(`"software hse"` $16.777, `software hseq` $10.576, `sistema gestión hseq` $9.756, `"sistema gestión
+hseq"` $2.373, `"plataforma hse"` $1.931, `"software hseq"` $870, `"plataforma hseq"` $561), **pero
+todas fueron juzgadas aterrizando en la landing equivocada**: su expediente está contaminado. Eso es
+razón para re-probar alguna después, no para reactivarlas ya. El presupuesto es de la CAMPAÑA, no
+del grupo: cada peso que vuelve a C se lo quita a A, que convierte 8 veces más. Si el 17-ago sube el
+QS de `plataforma hse`, devolver **una sola** — `"plataforma hse"` en frase, la hermana directa de
+la que funciona — para medirla limpia.
 
 ## AI Max: marginal
 
@@ -175,8 +210,10 @@ impresiones disponibles ya se habían triplicado (3.079 → 8.784) la semana ANT
 
 ## Pendientes
 
-- **Cambiar la URL final del ANUNCIO del Grupo A a la landing A — pero recién DESPUÉS de la lectura
-  del 17-ago.** Hoy no urge: la URL de la keyword manda sobre la del anuncio y las 6 activas ya la
+- Definir con Diego qué hay en el contenedor GTM de la landing C y si va en las otras dos.
+- Arreglar el contraste de la landing C (`.4` → `.78`) con cuidado de no romper el script de GTM.
+- **Cambiar la URL final de los ANUNCIOS de los Grupos A y C a su landing — pero recién DESPUÉS de
+  la lectura del 17-ago.** Hoy no urge: la URL de la keyword manda sobre la del anuncio y las 6 activas ya la
   tienen, así que el 100% del tráfico llega bien. Se posterga porque editar un anuncio lo elimina y
   crea uno nuevo con estadísticas en cero, y ese anuncio se reescribió el 6-ago: cambiarlo ahora
   metería una segunda variable justo cuando estamos midiendo el efecto de la landing.
