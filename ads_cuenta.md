@@ -123,7 +123,7 @@ grupo ya agrupa intenciones equivalentes.
 
 | Grupo | Conversiones | Landing |
 |---|---|---|
-| A · Sistema Gestión SST | 8 | `soluciones.tazki.cl/sistema-gestion-seguridad-salud-trabajo` (creada 13-ago) |
+| A · Sistema Gestión SST | 8 | `soluciones.tazki.cl/es/sistema-gestion-seguridad-salud-trabajo` (creada y publicada 13-ago) |
 | B · Software Prevención de Riesgos | 1 | `soluciones.tazki.cl/software-prevencion-riesgos` (ya calzaba) |
 | C · HSEQ HSE | 1 | `soluciones.tazki.cl/software-hseq` (ya existía) |
 
@@ -140,8 +140,16 @@ grupo ya agrupa intenciones equivalentes.
 - Contraste del `headHtml` corregido: `rgba(255,255,255,.4)` → `.78` (era el rojo de accesibilidad
   de PageSpeed).
 
+Ojo: al publicarla, el idioma `es` le antepuso **`/es/`** al slug, a diferencia de las landings B y C
+que no lo llevan. No afecta a Ads. Diego la publicó así el 13-ago.
+
 **Para conectarla: NO editar la URL final del anuncio por API** — eso borra el anuncio y lo recrea
 en pausa. Se le pone la URL final **a la keyword**, que sobrescribe la del anuncio sin tocarlo.
+
+**Ejecutado el 13-ago:** URL final cargada a las **6 keywords activas del Grupo A** —
+`"sistema de gestión de seguridad y salud en el trabajo"` (5,00 conv), `"software seguridad
+ocupacional"` (2,00), `"software gestión sst"` (0,67), `"software sst"` (0,33), `[software seguridad
+ocupacional]` y `[sistema gestión seguridad laboral]`. A las detenidas no se les puso URL.
 
 ## AI Max: marginal
 
@@ -166,10 +174,11 @@ impresiones disponibles ya se habían triplicado (3.079 → 8.784) la semana ANT
 
 ## Pendientes
 
-- **Que Diego revise y publique la landing A** (borrador `219388262058`) y después le ponga la URL
-  final a las keywords del Grupo A.
 - Pausar `"software hseq"` frase ($870, 0 conv), que quedó activa.
-- Lectura del 17-ago: Quality Score de la estrella, CPA, % de gasto irrelevante.
+- **Lectura del 17-ago: el número que manda es si la estrella sale de «Rara vez se publica (nivel de
+  calidad bajo)».** Es la keyword que aporta 5 de 8 conversiones y Google la tiene frenada; la
+  landing A se construyó exactamente para eso. Leer también CPA y % de gasto irrelevante.
+  La columna «Nivel de calidad» quedó agregada en la pantalla de keywords de Diego.
 - Arreglar contraste en la landing B (en la A ya quedó corregido).
 - 3 recomendaciones de keywords que la API no muestra: revisarlas con Diego desde su pantalla.
 
