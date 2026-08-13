@@ -168,13 +168,21 @@ impresiones disponibles ya se habían triplicado (3.079 → 8.784) la semana ANT
 - **13 ago** — 9 negativas de la familia consultoría/implementación, incluida `[implementacion sg
   sst]` (un clic de **$15.154** sin conversión). NO se negaron `implementacion` como raíz,
   `auditoria`, `capacitacion` ni `gratis` («software sst gratis» convirtió 0,33).
+- **13 ago** — `"software hseq"` (frase) pausada: $870, 0 conversiones. Quedó viva en la limpieza.
 - **13 ago** — **24 keywords pausadas: $249.844, el 31% del gasto, cero conversiones.** De 35 a 10
   keywords activas SIN perder ninguna conversión (total se mantuvo en 10,00). Se dejaron las 3
   exactas y `plataforma hse` amplia (única amplia que convirtió).
 
 ## Pendientes
 
-- Pausar `"software hseq"` frase ($870, 0 conv), que quedó activa.
+- **Cambiar la URL final del ANUNCIO del Grupo A a la landing A — pero recién DESPUÉS de la lectura
+  del 17-ago.** Hoy no urge: la URL de la keyword manda sobre la del anuncio y las 6 activas ya la
+  tienen, así que el 100% del tráfico llega bien. Se posterga porque editar un anuncio lo elimina y
+  crea uno nuevo con estadísticas en cero, y ese anuncio se reescribió el 6-ago: cambiarlo ahora
+  metería una segunda variable justo cuando estamos midiendo el efecto de la landing.
+  ⚠️ Mientras tanto, **toda keyword nueva del Grupo A hereda la URL vieja del anuncio** — hay que
+  ponerle la URL final a mano al crearla.
+- La landing B (`software-prevencion-riesgos`) NO se toca: sigue siendo la del Grupo B y ahí calza.
 - **Lectura del 17-ago: el número que manda es si la estrella sale de «Rara vez se publica (nivel de
   calidad bajo)».** Es la keyword que aporta 5 de 8 conversiones y Google la tiene frenada; la
   landing A se construyó exactamente para eso. Leer también CPA y % de gasto irrelevante.
