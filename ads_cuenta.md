@@ -275,3 +275,27 @@ capas (MQL da volumen, QP da dirección). Piso garantizado: la columna calificad
 
 Red de socios, expansión Display, estrategia de cartera, segmentación por listas de clientes,
 aflojar la concordancia de Marca.
+
+## Reunión con Felipe (14-ago) — acuerdos y contexto
+
+- **Cadencia**: reunión cada 2 semanas. EXTRA el viernes 21-ago con presentación formal.
+- **Formato exigido por Felipe**: problema → métrica → acción → resultado esperado → medición.
+  Usó el caso del Quality Score de Diego como ejemplo de la estructura correcta. La bitácora
+  existe pero NO se mostró (feedback de Axel: mostrarla siempre); falta agregar el "qué quería
+  conseguir" ANTES de cada acción.
+- **Regla de Axel**: con n chico, decir el crudo antes que el porcentaje ("5 de 8" antes que "62%").
+- **Tercer lead por IA**: Felipe habló el 14-ago con una persona que llegó recomendada por ChatGPT
+  (además de SOFTYS ganada y Dinamo viva).
+- **AEO (módulo HubSpot)**: mide Gemini, ChatGPT y Perplexity (no Claude). Línea base 14-ago:
+  50% de visibilidad en el prompt «mejores software de seguridad laboral en Chile». Plan: reporte
+  mensual SEO + SEM + AEO.
+- **Campaña Marca**: programada desde las 10:00 para evitar clics de inicio de sesión; sus 5
+  conversiones están todas vivas.
+- **Newsletter por correo**: lanza la semana del 18-ago. El de LinkedIn lleva ~500 suscriptores
+  orgánicos; la lista (nombre, cargo, URL) se exporta automatizada para prospección de Boris
+  (caso U. de Chile: reunión desde un like).
+- **Quedó SIN decir en la reunión** (llevar el 21-ago): la bitácora en pantalla, el umbral SEM con
+  fechas (31-ago/30-sep/30-nov), los 27 congelados (~492 UF/mes) con el pedido de dueño y fecha,
+  y los motivos de pérdida entrando al reporte.
+- Modelo contratista: video + brochure a Drive (14-ago), uso interno con tono de confianza;
+  posible hype con acceso por credenciales. Feedback de Carla y Emilio.
