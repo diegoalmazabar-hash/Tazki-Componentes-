@@ -192,6 +192,50 @@ $23.485, **cero conversiones**, 2,6% del gasto. Y NO explica el crecimiento de l
 impresiones disponibles ya se habían triplicado (3.079 → 8.784) la semana ANTES de activarlo el
 22-jul. El crecimiento es rampa de campaña nueva + consolidación de las campañas pausadas el 13-jul.
 
+## Criterio de medición inbound (cerrado con Diego el 14-ago)
+
+- **Universo**: `Tipo de negocio = Inbound` + `Pipeline = Pipeline de ventas` (sin ese segundo
+  filtro se cuelan 9 de Lead Generation y 9 duplicados del pipeline Clientes). 2026 = 245 negocios.
+- **Ganado** = etapa Closed Won (⚠️ valor interno `closedlost`, alguien la renombró) ·
+  **Perdido** = Closed Lost (`1233212743`). El criterio "entró a Onboarding" queda DESCARTADO.
+- **Dos lentes de fuente**: `Fuente original [i]` (quién abre la puerta; poblada en el 100%) para el
+  desglose maestro anual · `Latest Source [i]` (quién convierte; poblada desde junio) para medir los
+  MQL de PAGO — captura a los que conocieron Tazki por otro lado y convirtieron con un clic de
+  anuncio (ago-2026: 4 de 18, el 22% — Equans 50 UF, Odis 24, IMT 15, Santolaya).
+- **⚠️ LAS UF DEL CRM SON MENSUALES** (confirmado por Diego 14-ago). Todo cálculo de recuperación
+  usa ingreso recurrente: 1 cliente promedio (23 UF/mes ≈ $920k/mes) recupera los $854k del año de
+  Ads en su PRIMER MES.
+- **Meeting Set no es señal**: el 91% de los negocios nace con demo agendada (el formulario ES de
+  agendar demo). La fuga real está entre la demo y Qualified Prospect.
+- **Canal AEO existe**: 2 negocios desde chatgpt.com — SOFTYS (40,48 UF, GANADA, la inbound más
+  grande del año) y Dinamo (10 UF, viva). <1% del volumen, 22% del valor ganado inbound.
+
+## Conversiones offline por valor — diseño aprobado, ejecutar LUNES 17-ago
+
+Hoy Google optimiza hacia el MQL (evento «HubSpot - Marketing Qualified Lead», activo desde
+29-may, 35 sincronizados, valor CL$1). ⚠️ En Google Ads ese evento se llama «Lead calificado»
+pero dispara en el MQL (demo agendada) — trampa de nombre.
+
+Plan (todo en modo SECUNDARIO, la puja NO se toca hasta después del 30-sep):
+1. Crear evento «Prospecto calificado (QP)» — deal stage Qualified Prospect (o lifecycle SQL con
+   workflow puente si el selector no ofrece etapa de negocio) — valor CL$80.000.
+2. Crear evento «Cliente ganado» — lifecycle Customer — valor CL$920.000.
+3. Subir el evento MQL de CL$1 a CL$10.000 (proporción 1:8:92).
+4. En Google Ads: ambos como acción SECUNDARIA. Verificar semanalmente que cuadren con el CRM.
+5. Recién después del 30-sep y con datos cuadrados: puja a «Maximizar valor de conversión» y
+   promover eventos a principales (resetea aprendizaje ~2 semanas; hacerlo SOLO, sin otro cambio).
+Volumen real: ~4-5 calificados pagados/mes — poco para pujar solo con eso; por eso el diseño en
+capas (MQL da volumen, QP da dirección). Piso garantizado: la columna calificados-por-keyword.
+
+## Umbral SEM comprometido con Felipe (14-ago)
+
+- **31-ago**: la estrella sale de «Rara vez se publica» o se rehace el anuncio del Grupo A.
+- **30-sep**: ≥3 MQL calificados pagados nuevos desde el arreglo, costo/calificado ≤ ~$78k.
+  Si el Grupo C no aporta ninguno → se apaga el Grupo C.
+- **30-nov** (fecha justa por ciclo 73-85d de los grandes): primer Closed Won pagado. Si no hay y
+  es porque NO califican → se apaga SST/HSEQ (queda Marca). Si califican y no cierran → problema
+  comercial, decisión conjunta. Marca NO se toca (4/4 vivos, único negocio en Negotiation).
+
 ## Historial de cambios
 
 - **1 ago** — extensiones completas en ambas campañas (6 textos destacados, fragmentos «Servicios»,
