@@ -10,7 +10,10 @@ Actualizado: 13 de agosto de 2026.
 ## Estructura
 
 - **Tazki - SST/HSEQ - Search** (`23995581786`) — genérica, la principal. Search pura,
-  MAXIMIZE_CONVERSIONS, geo PRESENCE Chile, $24.000 CLP/día, 7 días 06:00–24:00.
+  MAXIMIZE_CONVERSIONS, $24.000 CLP/día, 7 días 06:00–24:00. Geo: Chile / Presencia
+  **desde el 14-ago** (⚠️ hasta esa fecha estuvo en «Todos los países y territorios» — ver
+  historial; una nota anterior de esta bitácora decía "PRESENCE Chile" y estaba ERRADA:
+  la opción Presencia era correcta pero la ubicación era el mundo entero).
   Grupos: A - Sistema Gestión SST (anuncio `819974344713`), B - Software Prevención de
   Riesgos (`815557848862`), C - HSEQ HSE (`815524188918`). Arrancó el 4-jul-2026.
 - **Tazki - Marca - Search - v2** (`23886304307`) — $4.000 CLP/día, phrase "tazki*".
@@ -237,6 +240,20 @@ capas (MQL da volumen, QP da dirección). Piso garantizado: la columna calificad
   comercial, decisión conjunta. Marca NO se toca (4/4 vivos, único negocio en Negotiation).
 
 ## Historial de cambios
+
+- **14 ago** — **GEO CORREGIDA: la campaña SST/HSEQ estaba en «Todos los países y territorios»**,
+  no en Chile. Descubierto por el MQL de Vazquez y Asociados Consultora (Paraguay, dominio .com.py)
+  que agendó demo en el calendario de Felipe vía `plataforma hse`. Precedente: existe el motivo de
+  pérdida «Empresa Venezolana.» en el CRM. Diego la cambió a Chile/Presencia el mismo día (y revisó
+  Marca en el mismo paso). NO se aplicó la recomendación de Google de CPA objetivo.
+  Pendiente: cuantificar gasto/impresiones fuera de Chile (Informes → Ubicaciones o API cuando
+  vuelva Supermetrics — caída de nuevo con «Anthropic Proxy: Invalid content»).
+  ⚠️ La lectura del QS del 17/31-ago lleva DOS variables encima: landing nueva + geo. Si mejora,
+  fue el combo; no se podrá separar el aporte de cada una.
+- **14 ago** — `plataforma hse` (amplia, Grupo C) acumula **2 leads chatarra**: «asesor»
+  (Reagendar) y Vazquez (consultora paraguaya). A favor: 1 conversión real ($28.991). Criterio
+  acordado: si la lectura del domingo no muestra mejora y cae un tercer lead de este perfil,
+  pasarla de amplia a frase `"plataforma hse"`.
 
 - **1 ago** — extensiones completas en ambas campañas (6 textos destacados, fragmentos «Servicios»,
   6 vínculos en SST/HSEQ y 6 en Marca). SST/HSEQ tiene imágenes como assets (`338226009506`,
