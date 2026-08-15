@@ -241,6 +241,14 @@ capas (MQL da volumen, QP da dirección). Piso garantizado: la columna calificad
 
 ## Historial de cambios
 
+- **15 ago** — **Misterio de la geo CERRADO con el historial de cambios (CSV 1–14 ago).** No hubo
+  reversión: Ubicaciones tiene DOS perillas — la lista de ubicaciones y la opción
+  presencia/interés. El 3-ago (vía fecasanov@gmail.com) se corrigió la OPCIÓN a «Presencia», pero
+  la LISTA siguió en «Todos los países» desde que la campaña nació el 4-jul. Ninguna fila del
+  historial quita Chile jamás. El 14-ago Diego agregó el país: recién ahí quedaron bien las dos.
+  Autores del historial: solo Diego, fecasanov@gmail.com y adwords@hubspot.com — cero cambios de
+  «Sistema»/auto-aplicados. ⚠️ Los cambios hechos por API se firman como fecasanov@gmail.com
+  (la credencial de la conexión): no confundir con cambios manuales de Felipe.
 - **14 ago** — **GEO CORREGIDA: la campaña SST/HSEQ estaba en «Todos los países y territorios»**,
   no en Chile. Descubierto por el MQL de Vazquez y Asociados Consultora (Paraguay, dominio .com.py)
   que agendó demo en el calendario de Felipe vía `plataforma hse`. Precedente: existe el motivo de
