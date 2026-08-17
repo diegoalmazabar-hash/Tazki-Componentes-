@@ -324,3 +324,13 @@ aflojar la concordancia de Marca.
   y los motivos de pérdida entrando al reporte.
 - Modelo contratista: video + brochure a Drive (14-ago), uso interno con tono de confianza;
   posible hype con acceso por credenciales. Feedback de Carla y Emilio.
+
+## Regla permanente: grabar todo cambio (17-ago-2026, pedido de Diego)
+Todo cambio acordado con Diego (criterios, orden de bloques, filas/columnas nuevas, umbrales, definiciones) se graba en el momento en
+los archivos de config del repo — informe_demanda_bloques.json, inbounds_config.json, embudo_config.json, seo_config.json y este
+archivo — con fecha y quién lo pidió. El repo es la única memoria que sobrevive entre sesiones. Cambio no grabado = cambio que la
+próxima corrida deshace. Primero se graba el criterio, después se publica el Plan.
+
+Cambios del 17-ago ya grabados: camadas al universo del diccionario (8 ganados · 4,85%), columna IA en tráfico por fuente (GA4
+AI Assistant: jul 11 · ago 23 al 16), bitácora al final del Plan (badges renumerados: LinkedIn 7 · Motivos 8 · Salud 9 · AEO 10 ·
+Bitácora 11), fila Valor (UF/mes) en las tablas de inbounds con cobertura declarada.
