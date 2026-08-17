@@ -135,7 +135,8 @@
     ]
    },
    "ojo_duplicados": "el inventario trae la home dos veces (contentId 215559935410 «Inicio» y contentId de texto «tazki.cl/»). No sumar ambas."
-  }
+  },
+  "_columna_ia_17_ago_2026": "Pedido de Diego (17-ago): la tabla «Tráfico por fuente · sesiones por sección» lleva columna «IA» separada = canal 'AI Assistant' de GA4 (ChatGPT/Gemini/Perplexity), que antes se sumaba en «Otras». «Otras» queda solo con cross-network y unassigned. Además va una tarjeta con el total de sesiones IA de TODO el sitio (incluye home y landings de pago, que no son secciones de la tabla) y dónde aterrizan. Serie: julio (desde el 7) = 11 · agosto al 16 = 23. Es la tercera pata AEO junto al bloque 12 (visibilidad por prompt, carga manual) y los negocios con fuente «Referencias de IA»."
  },
  "bloque_9_bitacora": {
   "fuente_sem": "El historial REAL de Google Ads: campaign_and_resource_get resource_type='history' sobre la cuenta 3766426817. No lo que recuerde el modelo de conversaciones pasadas.",
