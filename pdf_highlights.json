@@ -1,0 +1,17 @@
+{
+ "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica.",
+ "fecha": "Semana 10–16 de agosto · corte domingo 16",
+ "highlights": [
+  {"t": "El ranking se arregló", "d": "SST/HSEQ pasó de perder 88,6% de sus impresiones por ranking a 23,2%; Marca de 50,5% a 7,0%. Efecto del combo landing SGSST + concordancia + geo solo Chile. El límite vuelve a ser presupuesto (66,6%), con el tope de US$1.000."},
+  {"t": "Semana récord de inbounds: 15, con 5 de pago", "d": "Agosto lleva 28 en 16 días (1,75/día vs 1,5 de julio). El pago pone 29% — a un negocio de la meta del 30%."},
+  {"t": "Mejor mes de pago del año en Ads", "d": "8 MQL y $55.947 por MQL (antes $77.670). Las 5 conversiones de la semana salieron de 5 keywords distintas — antes dependíamos de una sola."},
+  {"t": "SEO récord", "d": "48 clics no-marca en la semana; agosto acumula 75 contra 36 de julio entero, con 33 palabras distintas y posición media 6,40."},
+  {"t": "El canal IA ya se mide aparte", "d": "23 sesiones desde asistentes de IA en agosto (julio: 11); 5 aterrizan directo en las landings de pago. Van 3 negocios con fuente «Referencias de IA», incluida SOFTYS, la inbound ganada más grande del año."},
+  {"t": "LinkedIn se dio vuelta", "d": "+22 seguidores en la semana (hace 7 días agosto iba en +2), tasa de interacción récord 22,1%, total 5.151."}
+ ],
+ "rojo": [
+  {"t": "Keyword estrella de SGSST: Quality Score sigue en 1/10", "d": "Aunque convirtió esta semana. Veredicto 31-ago: sale de «Rara vez se publica» o se reescribe el anuncio."},
+  {"t": "Congelados: 28 negocios · 517 UF/mes esperando", "d": "+1 congelado nuevo esta semana."},
+  {"t": "Conversión Closed Won: 4,85% en el año (8 de 165)", "d": "Agosto al 16 va 0 ganados / 10 perdidos. Julio, el mes récord de volumen (47 creados), aún no convierte ninguno — 23 siguen vivos."}
+ ]
+}
