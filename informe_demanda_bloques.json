@@ -286,5 +286,6 @@
   "regla": "Desde el 15-ago cada accion nueva se anota AL ABRIRLA con 5 campos (formato pedido por Felipe): que_quiero_mover / cuanto_esta_hoy / que_hago / resultado_esperado / cuando_se_lee. El resultado real se agrega en la fecha de lectura.",
   "ejemplo": "geo: leads extranjeros ocupando agenda / campana en todos los paises desde el 4-jul / geo a Chile+Presencia (14-ago) / 0 leads fuera de Chile y CTR sube / lectura 31-ago.",
   "donde": "ads_cuenta.md para lo de Ads; este JSON para lo del Plan; la presentacion quincenal a Felipe se ARMA leyendo la bitacora, no redactando de cero."
- }
+ },
+ "_orden_bloques_17_ago_2026": "Orden del Plan desde el 17-ago (pedido de Diego): 1 Inbounds · 2 Embudo y Conversión · 3 SEM puja y ranking · 4 Ads conversiones · 5 SEO · 6 Contenido · 7 LinkedIn · 8 Motivos de pérdida · 9 Salud del pipeline · 10 AEO · 11 BITÁCORA — la bitácora va SIEMPRE AL FINAL del documento: Diego registra ahí todo lo que hace (SEM, SEO, GEO, landings y LinkedIn) y cierra el informe. Los números de bloque de las claves de este JSON son históricos y NO calzan con los badges; los badges del HTML mandan."
 }
