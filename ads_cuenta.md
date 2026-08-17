@@ -334,3 +334,11 @@ próxima corrida deshace. Primero se graba el criterio, después se publica el P
 Cambios del 17-ago ya grabados: camadas al universo del diccionario (8 ganados · 4,85%), columna IA en tráfico por fuente (GA4
 AI Assistant: jul 11 · ago 23 al 16), bitácora al final del Plan (badges renumerados: LinkedIn 7 · Motivos 8 · Salud 9 · AEO 10 ·
 Bitácora 11), fila Valor (UF/mes) en las tablas de inbounds con cobertura declarada.
+
+## plataforma hse — contrapunto a los 2 strikes (17-ago-2026, 16:51 Chile)
+Tercer MQL de la keyword amplia «plataforma hse» (campaña SST/HSEQ → landing software-hseq): Macarena Becerra,
+Ingeniería y Construcción Nobarzo Ltda (mbecerra@q4ingenieros.cl, +569…), contacto 242592884272. Perfil ICP legítimo
+(construcción, Chile). Es el PRIMER MQL de esta keyword DESPUÉS del arreglo de geo del 14-ago — los 2 strikes previos
+(asesor + Paraguay) ocurrieron con la campaña en «todos los países». Coherente con su QS 3 y creativo Above average.
+LECTURA PARA LA DECISIÓN: el criterio «3er lead chatarra → pasar a frase» NO se gatilla (este no es chatarra); la amplia
+confinada a Chile queda en observación normal. Entra a la semana 17–23 (reporte del lunes 24).
