@@ -342,3 +342,9 @@ Ingeniería y Construcción Nobarzo Ltda (mbecerra@q4ingenieros.cl, +569…), co
 (asesor + Paraguay) ocurrieron con la campaña en «todos los países». Coherente con su QS 3 y creativo Above average.
 LECTURA PARA LA DECISIÓN: el criterio «3er lead chatarra → pasar a frase» NO se gatilla (este no es chatarra); la amplia
 confinada a Chile queda en observación normal. Entra a la semana 17–23 (reporte del lunes 24).
+ADDENDUM término de búsqueda (mismo día): la keyword «plataforma hse» tuvo 2 clics el 17-ago — «plan de sso» ($752) y
+«safetygpt» ($1.380). El de Macarena es probablemente «plan de sso» (perfil constructora armando su plan SSO), pero el
+reporte de términos trae rezago: CONFIRMAR el 18-ago antes de citarlo como hecho. Ruta completa: campaña SST/HSEQ →
+Grupo C HSEQ (201709000961) → anuncio 815524188918 → landing /software-hseq → 2 páginas vistas → demo agendada.
+Vigilar: «safetygpt» (herramienta IA, posible negativa) y «sistemas de seguridad industrial» ($2.477, ambiguo) — solo
+observación, sin acción aún.
