@@ -1,0 +1,833 @@
+{
+ "_que_es": "Matcheo logo -> industria de los 131 logos de clientes. Pedido de Diego el 17-ago-2026 para regenerar los assets comerciales por industria. La carpeta de Drive 'LOGOS TAZKI - AGO 2026' (14q91stbFDt93bCCRQNYzREo8ILqI-e2Q) es la exportacion pagina a pagina del Canva 'Logos de Tazki' (DAHQTvRv2zk, 131 paginas): N.png == pagina N. La industria se leyo del texto de cada pagina del Canva.",
+ "_ojo": [
+  "El Canva trae 'Contruccion' (sin s) en 24 de las 29 paginas de construccion. Normalizado aca; corregir en el Canva.",
+  "Alimentos aparece con 3 etiquetas distintas: 'Alimentos y servicio de Casinos', 'Alimentos y Servicios de Casinos' y 'Alimentos'. Unificadas.",
+  "La pagina 131 es Informacion y comunicaciones y quedo suelta al final, fuera de su bloque (34-41).",
+  "El Canva usa 22 industrias y ventas-piezas tiene 14 carpetas: el campo 'pieza' es la propuesta de agrupacion, PENDIENTE de confirmar con Diego.",
+  "Suministros Sanitarios (sanitarias de agua) se agrupo en 'energia' por falta de una pieza de servicios basicos. Revisar."
+ ],
+ "resumen_por_industria": {
+  "Construccion - Inmobiliaria": 29,
+  "Industria Minera": 13,
+  "Transporte y Almacenamiento": 11,
+  "Servicios Administrativos": 9,
+  "Informacion y comunicaciones": 9,
+  "Suministros Sanitarios": 8,
+  "Retail": 8,
+  "Industrias Manufactureras": 7,
+  "Agro y Acuicultura": 6,
+  "Alimentos y servicio de Casinos": 5,
+  "Salud y asistencia social": 4,
+  "Arriendo de vehiculos y maquinarias": 4,
+  "Otras actividades de servicios": 3,
+  "Ingenieria e instalaciones electricas industriales": 3,
+  "Suministro de electricidad, gas, vapor y aire acondicionado": 3,
+  "Educacion": 2,
+  "Industria Financiera": 2,
+  "Energia y tecnologia": 2,
+  "Maritima, portuaria y de logistica": 1,
+  "Consultoria ambiental": 1,
+  "Inspecciones y Certificaciones": 1
+ },
+ "resumen_por_pieza": {
+  "construccion": 29,
+  "core": 22,
+  "energia": 16,
+  "mineria": 13,
+  "transporte": 12,
+  "manufactura": 12,
+  "telecom": 9,
+  "comercio": 8,
+  "agro": 6,
+  "salud": 4
+ },
+ "logos": {
+  "1": {
+   "archivo": "1.png",
+   "pagina_canva": 1,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "2": {
+   "archivo": "2.png",
+   "pagina_canva": 2,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "3": {
+   "archivo": "3.png",
+   "pagina_canva": 3,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "4": {
+   "archivo": "4.png",
+   "pagina_canva": 4,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "5": {
+   "archivo": "5.png",
+   "pagina_canva": 5,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "6": {
+   "archivo": "6.png",
+   "pagina_canva": 6,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "7": {
+   "archivo": "7.png",
+   "pagina_canva": 7,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "8": {
+   "archivo": "8.png",
+   "pagina_canva": 8,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "9": {
+   "archivo": "9.png",
+   "pagina_canva": 9,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "10": {
+   "archivo": "10.png",
+   "pagina_canva": 10,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "11": {
+   "archivo": "11.png",
+   "pagina_canva": 11,
+   "industria_canva": "Transporte y Almacenamiento",
+   "pieza": "transporte"
+  },
+  "12": {
+   "archivo": "12.png",
+   "pagina_canva": 12,
+   "industria_canva": "Otras actividades de servicios",
+   "pieza": "core"
+  },
+  "13": {
+   "archivo": "13.png",
+   "pagina_canva": 13,
+   "industria_canva": "Otras actividades de servicios",
+   "pieza": "core"
+  },
+  "14": {
+   "archivo": "14.png",
+   "pagina_canva": 14,
+   "industria_canva": "Otras actividades de servicios",
+   "pieza": "core"
+  },
+  "15": {
+   "archivo": "15.png",
+   "pagina_canva": 15,
+   "industria_canva": "Salud y asistencia social",
+   "pieza": "salud"
+  },
+  "16": {
+   "archivo": "16.png",
+   "pagina_canva": 16,
+   "industria_canva": "Salud y asistencia social",
+   "pieza": "salud"
+  },
+  "17": {
+   "archivo": "17.png",
+   "pagina_canva": 17,
+   "industria_canva": "Salud y asistencia social",
+   "pieza": "salud"
+  },
+  "18": {
+   "archivo": "18.png",
+   "pagina_canva": 18,
+   "industria_canva": "Salud y asistencia social",
+   "pieza": "salud"
+  },
+  "19": {
+   "archivo": "19.png",
+   "pagina_canva": 19,
+   "industria_canva": "Educacion",
+   "pieza": "core"
+  },
+  "20": {
+   "archivo": "20.png",
+   "pagina_canva": 20,
+   "industria_canva": "Educacion",
+   "pieza": "core"
+  },
+  "21": {
+   "archivo": "21.png",
+   "pagina_canva": 21,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "22": {
+   "archivo": "22.png",
+   "pagina_canva": 22,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "23": {
+   "archivo": "23.png",
+   "pagina_canva": 23,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "24": {
+   "archivo": "24.png",
+   "pagina_canva": 24,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "25": {
+   "archivo": "25.png",
+   "pagina_canva": 25,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "26": {
+   "archivo": "26.png",
+   "pagina_canva": 26,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "27": {
+   "archivo": "27.png",
+   "pagina_canva": 27,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "28": {
+   "archivo": "28.png",
+   "pagina_canva": 28,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "29": {
+   "archivo": "29.png",
+   "pagina_canva": 29,
+   "industria_canva": "Servicios Administrativos",
+   "pieza": "core"
+  },
+  "30": {
+   "archivo": "30.png",
+   "pagina_canva": 30,
+   "industria_canva": "Arriendo de vehiculos y maquinarias",
+   "pieza": "core"
+  },
+  "31": {
+   "archivo": "31.png",
+   "pagina_canva": 31,
+   "industria_canva": "Arriendo de vehiculos y maquinarias",
+   "pieza": "core"
+  },
+  "32": {
+   "archivo": "32.png",
+   "pagina_canva": 32,
+   "industria_canva": "Arriendo de vehiculos y maquinarias",
+   "pieza": "core"
+  },
+  "33": {
+   "archivo": "33.png",
+   "pagina_canva": 33,
+   "industria_canva": "Arriendo de vehiculos y maquinarias",
+   "pieza": "core"
+  },
+  "34": {
+   "archivo": "34.png",
+   "pagina_canva": 34,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "35": {
+   "archivo": "35.png",
+   "pagina_canva": 35,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "36": {
+   "archivo": "36.png",
+   "pagina_canva": 36,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "37": {
+   "archivo": "37.png",
+   "pagina_canva": 37,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "38": {
+   "archivo": "38.png",
+   "pagina_canva": 38,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "39": {
+   "archivo": "39.png",
+   "pagina_canva": 39,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "40": {
+   "archivo": "40.png",
+   "pagina_canva": 40,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "41": {
+   "archivo": "41.png",
+   "pagina_canva": 41,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  },
+  "42": {
+   "archivo": "42.png",
+   "pagina_canva": 42,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "43": {
+   "archivo": "43.png",
+   "pagina_canva": 43,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "44": {
+   "archivo": "44.png",
+   "pagina_canva": 44,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "45": {
+   "archivo": "45.png",
+   "pagina_canva": 45,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "46": {
+   "archivo": "46.png",
+   "pagina_canva": 46,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "47": {
+   "archivo": "47.png",
+   "pagina_canva": 47,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "48": {
+   "archivo": "48.png",
+   "pagina_canva": 48,
+   "industria_canva": "Agro y Acuicultura",
+   "pieza": "agro"
+  },
+  "49": {
+   "archivo": "49.png",
+   "pagina_canva": 49,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "50": {
+   "archivo": "50.png",
+   "pagina_canva": 50,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "51": {
+   "archivo": "51.png",
+   "pagina_canva": 51,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "52": {
+   "archivo": "52.png",
+   "pagina_canva": 52,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "53": {
+   "archivo": "53.png",
+   "pagina_canva": 53,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "54": {
+   "archivo": "54.png",
+   "pagina_canva": 54,
+   "industria_canva": "Industrias Manufactureras",
+   "pieza": "manufactura"
+  },
+  "55": {
+   "archivo": "55.png",
+   "pagina_canva": 55,
+   "industria_canva": "Alimentos y servicio de Casinos",
+   "pieza": "manufactura"
+  },
+  "56": {
+   "archivo": "56.png",
+   "pagina_canva": 56,
+   "industria_canva": "Alimentos y servicio de Casinos",
+   "pieza": "manufactura"
+  },
+  "57": {
+   "archivo": "57.png",
+   "pagina_canva": 57,
+   "industria_canva": "Alimentos y servicio de Casinos",
+   "pieza": "manufactura"
+  },
+  "58": {
+   "archivo": "58.png",
+   "pagina_canva": 58,
+   "industria_canva": "Alimentos y servicio de Casinos",
+   "pieza": "manufactura"
+  },
+  "59": {
+   "archivo": "59.png",
+   "pagina_canva": 59,
+   "industria_canva": "Alimentos y servicio de Casinos",
+   "pieza": "manufactura"
+  },
+  "60": {
+   "archivo": "60.png",
+   "pagina_canva": 60,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "61": {
+   "archivo": "61.png",
+   "pagina_canva": 61,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "62": {
+   "archivo": "62.png",
+   "pagina_canva": 62,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "63": {
+   "archivo": "63.png",
+   "pagina_canva": 63,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "64": {
+   "archivo": "64.png",
+   "pagina_canva": 64,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "65": {
+   "archivo": "65.png",
+   "pagina_canva": 65,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "66": {
+   "archivo": "66.png",
+   "pagina_canva": 66,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "67": {
+   "archivo": "67.png",
+   "pagina_canva": 67,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "68": {
+   "archivo": "68.png",
+   "pagina_canva": 68,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "69": {
+   "archivo": "69.png",
+   "pagina_canva": 69,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "70": {
+   "archivo": "70.png",
+   "pagina_canva": 70,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "71": {
+   "archivo": "71.png",
+   "pagina_canva": 71,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "72": {
+   "archivo": "72.png",
+   "pagina_canva": 72,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "73": {
+   "archivo": "73.png",
+   "pagina_canva": 73,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "74": {
+   "archivo": "74.png",
+   "pagina_canva": 74,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "75": {
+   "archivo": "75.png",
+   "pagina_canva": 75,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "76": {
+   "archivo": "76.png",
+   "pagina_canva": 76,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "77": {
+   "archivo": "77.png",
+   "pagina_canva": 77,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "78": {
+   "archivo": "78.png",
+   "pagina_canva": 78,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "79": {
+   "archivo": "79.png",
+   "pagina_canva": 79,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "80": {
+   "archivo": "80.png",
+   "pagina_canva": 80,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "81": {
+   "archivo": "81.png",
+   "pagina_canva": 81,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "82": {
+   "archivo": "82.png",
+   "pagina_canva": 82,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "83": {
+   "archivo": "83.png",
+   "pagina_canva": 83,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "84": {
+   "archivo": "84.png",
+   "pagina_canva": 84,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "85": {
+   "archivo": "85.png",
+   "pagina_canva": 85,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "86": {
+   "archivo": "86.png",
+   "pagina_canva": 86,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "87": {
+   "archivo": "87.png",
+   "pagina_canva": 87,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "88": {
+   "archivo": "88.png",
+   "pagina_canva": 88,
+   "industria_canva": "Construccion - Inmobiliaria",
+   "pieza": "construccion"
+  },
+  "89": {
+   "archivo": "89.png",
+   "pagina_canva": 89,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "90": {
+   "archivo": "90.png",
+   "pagina_canva": 90,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "91": {
+   "archivo": "91.png",
+   "pagina_canva": 91,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "92": {
+   "archivo": "92.png",
+   "pagina_canva": 92,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "93": {
+   "archivo": "93.png",
+   "pagina_canva": 93,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "94": {
+   "archivo": "94.png",
+   "pagina_canva": 94,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "95": {
+   "archivo": "95.png",
+   "pagina_canva": 95,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "96": {
+   "archivo": "96.png",
+   "pagina_canva": 96,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "97": {
+   "archivo": "97.png",
+   "pagina_canva": 97,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "98": {
+   "archivo": "98.png",
+   "pagina_canva": 98,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "99": {
+   "archivo": "99.png",
+   "pagina_canva": 99,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "100": {
+   "archivo": "100.png",
+   "pagina_canva": 100,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "101": {
+   "archivo": "101.png",
+   "pagina_canva": 101,
+   "industria_canva": "Industria Minera",
+   "pieza": "mineria"
+  },
+  "102": {
+   "archivo": "102.png",
+   "pagina_canva": 102,
+   "industria_canva": "Ingenieria e instalaciones electricas industriales",
+   "pieza": "energia"
+  },
+  "103": {
+   "archivo": "103.png",
+   "pagina_canva": 103,
+   "industria_canva": "Ingenieria e instalaciones electricas industriales",
+   "pieza": "energia"
+  },
+  "104": {
+   "archivo": "104.png",
+   "pagina_canva": 104,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "105": {
+   "archivo": "105.png",
+   "pagina_canva": 105,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "106": {
+   "archivo": "106.png",
+   "pagina_canva": 106,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "107": {
+   "archivo": "107.png",
+   "pagina_canva": 107,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "108": {
+   "archivo": "108.png",
+   "pagina_canva": 108,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "109": {
+   "archivo": "109.png",
+   "pagina_canva": 109,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "110": {
+   "archivo": "110.png",
+   "pagina_canva": 110,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "111": {
+   "archivo": "111.png",
+   "pagina_canva": 111,
+   "industria_canva": "Suministros Sanitarios",
+   "pieza": "energia"
+  },
+  "112": {
+   "archivo": "112.png",
+   "pagina_canva": 112,
+   "industria_canva": "Suministro de electricidad, gas, vapor y aire acondicionado",
+   "pieza": "energia"
+  },
+  "113": {
+   "archivo": "113.png",
+   "pagina_canva": 113,
+   "industria_canva": "Suministro de electricidad, gas, vapor y aire acondicionado",
+   "pieza": "energia"
+  },
+  "114": {
+   "archivo": "114.png",
+   "pagina_canva": 114,
+   "industria_canva": "Suministro de electricidad, gas, vapor y aire acondicionado",
+   "pieza": "energia"
+  },
+  "115": {
+   "archivo": "115.png",
+   "pagina_canva": 115,
+   "industria_canva": "Ingenieria e instalaciones electricas industriales",
+   "pieza": "energia"
+  },
+  "116": {
+   "archivo": "116.png",
+   "pagina_canva": 116,
+   "industria_canva": "Industria Financiera",
+   "pieza": "core"
+  },
+  "117": {
+   "archivo": "117.png",
+   "pagina_canva": 117,
+   "industria_canva": "Industria Financiera",
+   "pieza": "core"
+  },
+  "118": {
+   "archivo": "118.png",
+   "pagina_canva": 118,
+   "industria_canva": "Maritima, portuaria y de logistica",
+   "pieza": "transporte"
+  },
+  "119": {
+   "archivo": "119.png",
+   "pagina_canva": 119,
+   "industria_canva": "Energia y tecnologia",
+   "pieza": "energia"
+  },
+  "120": {
+   "archivo": "120.png",
+   "pagina_canva": 120,
+   "industria_canva": "Energia y tecnologia",
+   "pieza": "energia"
+  },
+  "121": {
+   "archivo": "121.png",
+   "pagina_canva": 121,
+   "industria_canva": "Consultoria ambiental",
+   "pieza": "core"
+  },
+  "122": {
+   "archivo": "122.png",
+   "pagina_canva": 122,
+   "industria_canva": "Inspecciones y Certificaciones",
+   "pieza": "core"
+  },
+  "123": {
+   "archivo": "123.png",
+   "pagina_canva": 123,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "124": {
+   "archivo": "124.png",
+   "pagina_canva": 124,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "125": {
+   "archivo": "125.png",
+   "pagina_canva": 125,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "126": {
+   "archivo": "126.png",
+   "pagina_canva": 126,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "127": {
+   "archivo": "127.png",
+   "pagina_canva": 127,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "128": {
+   "archivo": "128.png",
+   "pagina_canva": 128,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "129": {
+   "archivo": "129.png",
+   "pagina_canva": 129,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "130": {
+   "archivo": "130.png",
+   "pagina_canva": 130,
+   "industria_canva": "Retail",
+   "pieza": "comercio"
+  },
+  "131": {
+   "archivo": "131.png",
+   "pagina_canva": 131,
+   "industria_canva": "Informacion y comunicaciones",
+   "pieza": "telecom"
+  }
+ }
+}
