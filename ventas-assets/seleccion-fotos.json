@@ -1,0 +1,20 @@
+{
+ "_que_es": "Foto de prevencion elegida para la portada de cada pieza comercial y para la lamina de contexto DS 44. Elegidas el 18-ago-2026 revisando visualmente las 101 fotos que subio Diego. Archivos en ventas-assets/prev-nuevas/.",
+ "ds44_todas": "industrial_safety_briefing_in_progress.jpeg",
+ "portadas": {
+  "construccion": "12_construction_teamwork_in_the_field.jpeg",
+  "mineria": "construction_team_at_mining_site.jpeg",
+  "transporte": "44_operario_en_area_de_carga_industrial.jpeg",
+  "manufactura": "industrial_team_discussion_in_factory_setting.jpeg",
+  "energia": "industrial_workers_securing_control_panel_safety.jpeg",
+  "comercio": "warehouse_safety_inspection_in_action.jpeg",
+  "salud": "worker_examination_in_industrial_setting.jpeg",
+  "agro": "outdoor_construction_industrial_site_scene_with_a.jpeg",
+  "telecom": "interior_modern_office_meeting_scene_in_a_light_fi.jpeg",
+  "contratistas": "07_construction_site_entry_checkpoint_interaction.jpeg",
+  "core": "construction_site_safety_briefing_in_progress.jpeg",
+  "expandido": "11_construction_team_briefing_on_site.jpeg",
+  "enterprise": "30_industrial_office_presentation_in_progress.jpeg",
+  "plan-core": "06_construction_safety_briefing_in_progress.jpeg"
+ }
+}

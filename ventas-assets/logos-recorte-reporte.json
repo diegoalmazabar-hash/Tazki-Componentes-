@@ -1,0 +1,31 @@
+{
+ "_que_es": "Recortes de la tarjeta del logo, sacados de las paginas del Canva. Generados por ventas_recortar_logos.py el 18-ago-2026. Se usan en el muro de logos de las piezas comerciales.",
+ "recortados_ok": 131,
+ "tarjeta_vacia": [
+  131
+ ],
+ "interior_oscuro_logo_blanco": [
+  4,
+  9,
+  15,
+  25,
+  48,
+  60,
+  62,
+  64,
+  65,
+  81,
+  90,
+  91,
+  96,
+  101,
+  103,
+  108,
+  115,
+  118,
+  130
+ ],
+ "sin_tarjeta_detectada": [],
+ "_nota": "'tarjeta_vacia' = la pagina del Canva no tiene logo cargado. 'interior_oscuro' = el logo es blanco sobre fondo oscuro; se ve bien sobre tarjeta oscura, no sobre blanca. Son los casos que Diego ya tenia identificados en su planilla.",
+ "_nota_vacias": "Detectadas por desviacion estandar del centro < 6 (sin contraste). Se excluyen del muro de logos."
+}
