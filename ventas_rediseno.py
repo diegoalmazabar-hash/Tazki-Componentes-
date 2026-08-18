@@ -84,14 +84,14 @@ def _foto_cubriendo(s, ruta, x, y, w, h):
     pic.width, pic.height = Inches(w), Inches(h)
     return pic
 
-def _velo(s, x, y, w, h, color, alpha_pct):
-    """Rectangulo semitransparente sobre la foto (PowerPoint: transparencia del relleno)."""
+def _velo(s, x, y, w, h, color, opacidad_pct):
+    """Rectangulo semitransparente sobre la foto. opacidad_pct 100 = solido, 0 = invisible."""
     sh = _rect(s, x, y, w, h, color)
     from lxml import etree
     sp = sh.fill._xPr.find('{http://schemas.openxmlformats.org/drawingml/2006/main}solidFill')
     clr = sp.find('{http://schemas.openxmlformats.org/drawingml/2006/main}srgbClr')
     a = etree.SubElement(clr, '{http://schemas.openxmlformats.org/drawingml/2006/main}alpha')
-    a.set('val', str(int((100-alpha_pct)*1000)))
+    a.set('val', str(int(opacidad_pct*1000)))
     return sh
 
 def _vaciar(s):
@@ -121,13 +121,18 @@ def _borrar(prs, idx):
 def lamina_ds44(s, foto):
     _txt(s, 0.05, 7.42, 0.3, 0.06, MARCA, 1, False, BLANCO)
     _foto_cubriendo(s, foto, 0, 0, W, H)
-    _velo(s, 0, 0, W, H, NAVY, 82)
-    _velo(s, 0, 0, 7.4, H, NAVY, 94)
+    _velo(s, 0, 0, W, H, NAVY, 70)          # baja el brillo de toda la foto
+    # degradado escalonado hacia la derecha (pasos chicos: no se nota el corte)
+    _velo(s, 0, 0, 5.9, H, NAVY, 92)
+    for i in range(10):
+        _velo(s, 5.9 + i*0.42, 0, 0.44, H, NAVY, int(90 - i*7.6))
+    # franja inferior pareja: las 3 columnas se leen igual sobre cualquier parte de la foto
+    _velo(s, 0, 4.55, W, 2.35, NAVY, 66)
 
     _rect(s, 0.77, 0.70, 0.36, 0.035, AZUL_CLARO)
     _txt(s, 1.25, 0.60, 6.0, 0.3, "EL CONTEXTO", 13, True, AZUL_CLARO)
-    _txt(s, 0.77, 1.02, 7.0, 2.4, "Ya no basta\ncon tener\nlos papeles.", 54, True, BLANCO, line=1.02)
-    _txt(s, 0.80, 3.42, 5.9, 1.0,
+    _txt(s, 0.77, 1.15, 6.6, 2.1, "Ya no basta\ncon tener\nlos papeles.", 44, True, BLANCO, line=1.06)
+    _txt(s, 0.79, 3.62, 6.1, 1.1,
          "El DS 44 cambió la regla: desde 2025 la prevención dejó de medirse por documentos "
          "archivados y pasó a medirse por gestión demostrable.", 15.5, False, CELESTE, line=1.42)
 
@@ -141,8 +146,8 @@ def lamina_ds44(s, foto):
         x = 0.77 + i*4.0
         _rect(s, x, 4.72, 3.55, 0.04, COBALT)
         _txt(s, x, 4.88, 3.5, 0.25, n, 13, True, AZUL_CLARO)
-        _txt(s, x, 5.18, 3.5, 0.6, tit, 18, True, BLANCO, line=1.12)
-        _txt(s, x, 5.72, 3.5, 1.0, cue, 11.5, False, CELESTE, line=1.36)
+        _txt(s, x, 5.16, 3.5, 0.75, tit, 16.5, True, BLANCO, line=1.14)
+        _txt(s, x, 5.98, 3.5, 1.0, cue, 11.5, False, CELESTE, line=1.36)
 
     _rect(s, 0, 6.85, W, 0.65, COBALT)
     _txt(s, 0.77, 7.03, 11.8, 0.35,
@@ -206,7 +211,7 @@ def procesar(carpeta):
             pic = _foto_cubriendo(p0, foto_portada, 0, 0, W, H)
             p0.shapes._spTree.remove(pic._element)
             p0.shapes._spTree.insert(2, pic._element)   # al fondo
-            _velo(p0, 0, 0, W, H, NAVY, 68)
+            _velo(p0, 0, 0, W, H, NAVY, 46)
             velo = p0.shapes[-1]
             p0.shapes._spTree.remove(velo._element)
             p0.shapes._spTree.insert(3, velo._element)
