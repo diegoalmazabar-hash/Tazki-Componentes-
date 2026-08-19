@@ -325,5 +325,18 @@
       "retirada": "sistema gestion seguridad laboral (Frase): CPC $2.143 contra promedio de frase $2.121. Sin evidencia. Se queda."
     }
   },
-  "_regla_ads_n_minimo_keyword": "No declarar muerta una keyword por '0 conversiones' con menos de ~110 clics (CVR de SST 2,77%). Con n chico el criterio es el CPC contra el promedio de su campana."
+  "_regla_ads_n_minimo_keyword": "No declarar muerta una keyword por '0 conversiones' con menos de ~110 clics (CVR de SST 2,77%). Con n chico el criterio es el CPC contra el promedio de su campana.",
+  "_mediciones_abiertas": {
+    "sem_pausa_amplias_19_ago_2026": {
+      "formato": "5 campos de Felipe (que_quiero_mover / cuanto_esta_hoy / que_hago / resultado_esperado / cuando_se_lee)",
+      "que_quiero_mover": "costo por MQL de la campana SST/HSEQ",
+      "cuanto_esta_hoy": "$62.023 por MQL (16 MQL, $992.360 de gasto de campana, 13-jul a 18-ago). Por concordancia sobre clics atribuidos: frase 286 clics/13 MQL/$46.661; amplia 273 clics/3 MQL/$116.316; amplias sin 'plataforma hse' 231 clics/$297.531/0 MQL.",
+      "que_hago": "Diego pausa (no elimina) todas las keywords en concordancia amplia de SST/HSEQ salvo 'plataforma hse'. Ejecutado por Diego el 19-ago-2026.",
+      "resultado_esperado": "costo por MQL de SST entre $35.000 y $45.000. Hipotesis, no promesa: al concentrar sube el CPC y las buenas tienen techo de volumen.",
+      "cuando_se_lee": "martes 2-sep-2026",
+      "estado": "abierta",
+      "anotado_en": "bitacora del Plan (bloque 11), dia 19 ago"
+    }
+  },
+  "_bitacora_19_ago_2026": "Se agregaron 2 entradas SEM al dia 19 ago: (1) la accion abierta de pausa de amplias en formato de 5 campos de Felipe, con lectura el 2-sep; (2) la correccion del criterio (piso de ~110 clics antes de juzgar una keyword por conversiones) con el retiro de 'sistema gestion seguridad laboral' de la lista de pausa."
 }
