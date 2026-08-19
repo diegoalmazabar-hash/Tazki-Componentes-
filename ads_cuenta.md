@@ -475,3 +475,31 @@ PLAN CORREGIDO:
 
 REGLA NUEVA PERMANENTE: no declarar muerta una keyword por "0 conversiones" con menos de ~110 clics.
   Con n chico el criterio es el CPC contra el promedio de su campana, no la conversion.
+
+## ANULADA la accion de pausar amplias (19-ago-2026) — el campo de concordancia no estaba verificado
+
+Diego fue a ejecutar la pausa y encontro que «software seguridad ocupacional» esta cargada en su cuenta en
+CONCORDANCIA DE FRASE y CONCORDANCIA EXACTA (grupo «Grupo A - Sistema Gestion SST»), no en amplia. La
+consulta a Supermetrics mostraba para esa misma keyword una fila «Broad» con 401 impresiones y 28 clics.
+
+CAUSA: el campo `Match type` del report_type KeywordView se interpreto como la concordancia CONFIGURADA de
+la keyword. Eso no esta confirmado. Puede estar describiendo como calzo la BUSQUEDA del usuario contra la
+keyword, no como esta cargada la palabra. Si es asi, las filas «Broad» no son keywords, no se pueden pausar,
+y toda la ACCION 1 se cae. Alternativa: si hay amplias, estan en otro grupo de anuncios.
+
+ESTADO: no se pauso nada. Se le indico a Diego reactivar cualquier keyword que hubiera alcanzado a pausar.
+
+COMO SE ZANJA (lo hace Diego en la UI): Google Ads > Palabras clave > Columnas > agregar «Tipo de
+concordancia», sobre la campana SST/HSEQ COMPLETA (todos los grupos), filtrando por Amplia.
+  - Sin filas  -> el campo era el de las busquedas; la accion queda anulada entera.
+  - Con filas  -> rehacer el analisis solo sobre esas keywords.
+No se pudo verificar en el momento: la conexion de Supermetrics se cayo en la sesion.
+
+LO QUE NO DEPENDE DE ESTE CAMPO Y SIGUE EN PIE:
+  - Costo por MQL: SST $62.023 contra Marca $26.873 (nivel campana, no keyword).
+  - Marca pierde 50,8% de sus busquedas por presupuesto; el traslado de $4.000/dia de SST a Marca sigue valido.
+  - La regla del piso de ~110 clics antes de juzgar una keyword por conversiones.
+
+REGLA NUEVA PERMANENTE: antes de recomendar CUALQUIER accion basada en concordancia, confirmar contra la UI
+de Google Ads que el campo dice lo que se cree que dice. No pedirle a Diego que ejecute sobre un campo cuyo
+significado no se verifico.

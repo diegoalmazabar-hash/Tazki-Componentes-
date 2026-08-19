@@ -334,9 +334,13 @@
       "que_hago": "Diego pausa (no elimina) todas las keywords en concordancia amplia de SST/HSEQ salvo 'plataforma hse'. Ejecutado por Diego el 19-ago-2026.",
       "resultado_esperado": "costo por MQL de SST entre $35.000 y $45.000. Hipotesis, no promesa: al concentrar sube el CPC y las buenas tienen techo de volumen.",
       "cuando_se_lee": "martes 2-sep-2026",
-      "estado": "abierta",
-      "anotado_en": "bitacora del Plan (bloque 11), dia 19 ago"
+      "estado": "ANULADA - dato no verificado",
+      "anotado_en": "bitacora del Plan (bloque 11), dia 19 ago",
+      "por_que_se_anula": "Diego encontro al ejecutarla que 'software seguridad ocupacional' esta cargada en frase y exacta, no en amplia, mientras la consulta mostraba una fila Broad con 401 impresiones y 28 clics para esa misma keyword. El campo 'Match type' de Supermetrics se interpreto como la concordancia de la keyword sin confirmarlo; puede ser la concordancia con que calzo la BUSQUEDA. Si es asi, las filas Broad no son keywords y no hay nada que pausar.",
+      "como_se_zanja": "En Google Ads, agregar la columna 'Tipo de concordancia' en Palabras clave sobre la campana SST/HSEQ COMPLETA (todos los grupos de anuncios) y filtrar por Amplia. Sin filas -> la accion se cae entera. Con filas -> rehacer el analisis solo sobre esas.",
+      "sigue_en_pie": "Costo por MQL de SST $62.023 vs Marca $26.873; 50,8% de Marca perdido por presupuesto; el traslado de presupuesto; la regla de los ~110 clics."
     }
   },
-  "_bitacora_19_ago_2026": "Se agregaron 2 entradas SEM al dia 19 ago: (1) la accion abierta de pausa de amplias en formato de 5 campos de Felipe, con lectura el 2-sep; (2) la correccion del criterio (piso de ~110 clics antes de juzgar una keyword por conversiones) con el retiro de 'sistema gestion seguridad laboral' de la lista de pausa."
+  "_bitacora_19_ago_2026": "Se agregaron 2 entradas SEM al dia 19 ago: (1) la accion abierta de pausa de amplias en formato de 5 campos de Felipe, con lectura el 2-sep; (2) la correccion del criterio (piso de ~110 clics antes de juzgar una keyword por conversiones) con el retiro de 'sistema gestion seguridad laboral' de la lista de pausa.",
+  "_regla_ads_verificar_campo_concordancia": "ANTES de recomendar cualquier accion basada en concordancia, confirmar que el campo 'Match type' de Supermetrics (report_type KeywordView) es la concordancia CONFIGURADA de la keyword y no la de la busqueda. El 19-ago-2026 se recomendo pausar amplias que probablemente no existen en la cuenta. Contrastar siempre contra la UI de Google Ads antes de pedirle a Diego que ejecute."
 }
