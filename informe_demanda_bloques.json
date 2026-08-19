@@ -311,6 +311,19 @@
     ],
     "caveat_marca": "Parte de los clics de Marca llegarian igual por organico. Se mide comparando MQL totales y trafico organico de marca al 2-sep; si solo bajo el organico fue canibalizacion y se devuelve el presupuesto.",
     "revision": "2-sep-2026",
-    "hipotesis_no_dato": "SST podria bajar de $62.023 a $35.000-$45.000 por MQL. Estimacion, no promesa."
-  }
+    "hipotesis_no_dato": "SST podria bajar de $62.023 a $35.000-$45.000 por MQL. Estimacion, no promesa.",
+    "_correccion_19_ago_2026": {
+      "motivo": "Diego pregunto por que pausar palabras buenas. Al traer los clics por keyword, el argumento de '0 conversiones' se cae para 4 de las 5: tenian entre 11 y 50 clics y se esperaban 0,3 a 1,4 MQL. Cero era el resultado normal.",
+      "base": "Ventana 13-jul a 18-ago. SST 577 clics, 16 MQL, CVR 2,77%: ~36 clics por MQL esperado.",
+      "argumento_valido": "La concordancia. FRASE en SST 286 clics/13 MQL/CVR 4,55%/$46.661 por MQL contra AMPLIA 273 clics/3 MQL/CVR 1,10%/$116.316. Los 3 MQL de amplia son todos de 'plataforma hse'; el resto son 231 clics y $297.531 con cero MQL.",
+      "aclaracion": "Pausar la amplia no saca a Tazki de esa busqueda: la gemela en frase la sigue cubriendo.",
+      "plan_corregido": [
+        "1 (solida). Pausar todas las amplias de SST salvo 'plataforma hse'.",
+        "2 (por CPC, no por conversion). plataforma prevencion de riesgos (Frase, CPC $3.534) y software hse (Frase, CPC $3.854), contra promedio SST $1.698. Decision de riesgo: la palanca natural seria bajar puja pero estan congeladas hasta el 30-sep.",
+        "3. Traslado de presupuesto a Marca se mantiene sin cambios."
+      ],
+      "retirada": "sistema gestion seguridad laboral (Frase): CPC $2.143 contra promedio de frase $2.121. Sin evidencia. Se queda."
+    }
+  },
+  "_regla_ads_n_minimo_keyword": "No declarar muerta una keyword por '0 conversiones' con menos de ~110 clics (CVR de SST 2,77%). Con n chico el criterio es el CPC contra el promedio de su campana."
 }

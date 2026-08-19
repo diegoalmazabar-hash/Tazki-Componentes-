@@ -435,3 +435,43 @@ MEDICION: revisar el 2-sep-2026 (2 semanas despues). Metrica que decide: costo p
   MQL totales de la cuenta. Hipotesis (NO dato): con el gasto concentrado en las keywords que si
   convierten, SST deberia bajar de $62.023 a algo entre $35.000 y $45.000 por MQL. Es una estimacion,
   no una promesa: al concentrar el gasto suben los CPC y el volumen de las buenas tiene techo.
+
+## CORRECCION del plan de accion (19-ago-2026, tras revisar clics por keyword)
+
+Diego pregunto por que pausar keywords que son buenas palabras. Tenia razon en desconfiar. Al traer los
+CLICS por keyword (dato que no habia mirado) el argumento de "0 conversiones" se cae para 4 de las 5.
+
+DATOS DE LA VENTANA 13-jul a 18-ago (cuenta 3766426817):
+  Cuenta: 864 clics | 22 MQL | $1.141.015 | CVR 2,55% | CPC $1.321
+  SST   : 577 clics | 16 MQL | $  979.776 | CVR 2,77% | CPC $1.698
+  -> se necesitan ~36 clics para ESPERAR 1 MQL. Antes de ~110 clics, "0 conversiones" no es evidencia.
+
+Clics reales de las 5 que se propuso pausar y MQL esperados a CVR de SST:
+  plataforma prevencion de riesgos (Frase) ............ 22 clics -> 0,61 esperados | CPC $3.534
+  software de prevencion de riesgos laborales (Amplia)  50 clics -> 1,39 esperados | CPC $1.290
+  sistema gestion seguridad laboral (Frase) ........... 29 clics -> 0,80 esperados | CPC $2.143
+  sistema de gestion de seguridad y salud... (Amplia) . 24 clics -> 0,67 esperados | CPC $2.089
+  software hse (Frase) ................................ 11 clics -> 0,31 esperados | CPC $3.854
+  Con esos volumenes, cero MQL es el resultado NORMAL. No estaban probadas malas, estaban sin probar.
+
+EL ARGUMENTO QUE SI AGUANTA ES LA CONCORDANCIA (volumenes comparables, mismo periodo):
+  FRASE  en SST: 286 clics | 13 MQL | CVR 4,55% | $46.661 por MQL
+  AMPLIA en SST: 273 clics |  3 MQL | CVR 1,10% | $116.316 por MQL
+  Los 3 MQL de amplia son TODOS de "plataforma hse". El resto de las amplias:
+  231 clics, $297.531, CERO MQL (a la tasa de frase debieron dar ~10). Ahi el n ya no es chico.
+  Keyword por keyword: sistema de gestion... 116/6 en frase vs 24/0 en amplia;
+  software seguridad ocupacional 20/3 vs 28/0; software prevencion de riesgos 32/3 vs 3/0.
+  PUNTO CLAVE: pausar la amplia NO saca a Tazki de esa busqueda. La gemela en frase la sigue cubriendo.
+
+PLAN CORREGIDO:
+  ACCION 1 (solida) - Pausar todas las AMPLIAS de SST salvo "plataforma hse". 231 clics, $297.531, 0 MQL.
+  ACCION 2 (por CPC, no por conversion) - plataforma prevencion de riesgos (Frase, CPC $3.534 = 2,1x el
+    promedio de SST) y software hse (Frase, CPC $3.854 = 2,3x). No estan probadas malas, estan caras.
+    La palanca natural seria bajar la puja, pero las pujas estan congeladas hasta el 30-sep; queda
+    pausar hasta octubre o dejarlas. Es decision de riesgo, no dato.
+  RETIRADA - sistema gestion seguridad laboral (Frase): CPC $2.143 contra promedio de frase $2.121.
+    Esta en el promedio. Sin evidencia en contra. Se queda corriendo.
+  ACCION 3 - el traslado de presupuesto a Marca se mantiene, no dependia de esto.
+
+REGLA NUEVA PERMANENTE: no declarar muerta una keyword por "0 conversiones" con menos de ~110 clics.
+  Con n chico el criterio es el CPC contra el promedio de su campana, no la conversion.
