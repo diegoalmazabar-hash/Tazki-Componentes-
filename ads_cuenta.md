@@ -348,3 +348,41 @@ reporte de términos trae rezago: CONFIRMAR el 18-ago antes de citarlo como hech
 Grupo C HSEQ (201709000961) → anuncio 815524188918 → landing /software-hseq → 2 páginas vistas → demo agendada.
 Vigilar: «safetygpt» (herramienta IA, posible negativa) y «sistemas de seguridad industrial» ($2.477, ambiguo) — solo
 observación, sin acción aún.
+
+## Analisis de eficiencia por keyword (19-ago-2026, ventana 13-jul a 18-ago)
+Fuente: Supermetrics AW, report_type KeywordView + Campaign. Conversiones = solo "HubSpot - Marketing
+Qualified Lead" (verificado: no hay TechSol en la ventana).
+
+CAMPANAS
+  SST/HSEQ:  $992.360 · 596 clics · 16 MQL -> $62.023/MQL · CPC $1.665 · IS 11,4% · perdido x presupuesto 34,1%
+  Marca:     $161.239 · 287 clics ·  6 MQL -> $26.873/MQL · CPC $  562 · IS 17,8% · perdido x presupuesto 50,8%
+  Presupuestos diarios: SST $24.000 · Marca $4.000 (total ~US$885/mes, bajo el tope de US$1.000).
+
+HALLAZGO 1 - Marca esta ahogada. Convierte 2,3x mas barato que SST y pierde la MITAD de sus impresiones
+  por presupuesto. Contraargumento honesto que hay que discutir antes de mover plata: son busquedas de
+  marca, parte de esos clics llegarian igual por organico. No es plata regalada, pero tampoco es
+  incremental puro. Prueba limpia posible: subir Marca y medir si los MQL totales suben o solo se
+  canibalizan con el organico de marca.
+
+HALLAZGO 2 - La concordancia AMPLIA no convierte, salvo una. $297.530 gastados en keywords broad con
+  CERO conversiones en 5 semanas. La unica broad que convierte es "plataforma hse" (3 MQL, $17.139/MQL,
+  la mas barata de la cuenta). El resto de las broad son fuga.
+
+HALLAZGO 3 - Duplicacion de concordancia canibalizando. La misma keyword corre en broad y en phrase
+  compitiendo entre si: "sistema de gestion de seguridad y salud en el trabajo" convierte 6 veces en
+  PHRASE ($179.333) y 0 veces en BROAD ($50.133). Mismo patron en software sst, software seguridad
+  ocupacional, sistema gestion seguridad laboral, app prevencion de riesgos, software gestion sst.
+
+HALLAZGO 4 - Las 5 keywords mas caras sin ninguna conversion en 5 semanas suman $296.920 (30% del gasto
+  de SST): plataforma prevencion de riesgos (phrase, $77.740), software de prevencion de riesgos
+  laborales (broad, $64.502), sistema gestion seguridad laboral (phrase, $62.153), sistema de gestion...
+  (broad, $50.133) y software hse (phrase, $42.392, CPC $3.854).
+
+HALLAZGO 5 - OJO CON EL VEREDICTO DEL 31-AGO. La keyword estrella tiene QS 1 pero es la MAS
+  CONVERSORA de la cuenta: 6 de los 16 MQL, a $29.889 cada uno. El umbral comprometido con Felipe decia
+  "sale de rara vez se publica o se reescribe el anuncio"; los datos dicen que matarla seria matar al
+  mejor conversor. El veredicto correcto es sobre su COSTO, no sobre su existencia.
+
+ARITMETICA DE LA OPORTUNIDAD: las 6 keywords que convierten rinden $26.972/MQL. Si el gasto total de
+  SST se concentrara en ellas al mismo rendimiento, serian ~36 MQL en vez de 16 con la misma plata.
+  Es un techo teorico (al concentrar sube el CPC), pero marca el tamano del problema.
