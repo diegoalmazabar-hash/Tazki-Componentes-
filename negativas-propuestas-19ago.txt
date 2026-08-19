@@ -1,0 +1,89 @@
+NEGATIVAS PROPUESTAS · campaña «Tazki - SST/HSEQ - Search» · nivel CAMPAÑA · concordancia de FRASE
+Base: términos de búsqueda reales del 13-jul al 18-ago-2026, ya cruzados contra las 462 negativas vigentes.
+Dónde: Google Ads > Campaña SST/HSEQ > Palabras clave > Palabras clave negativas > + > Nivel campaña >
+       pegar la lista > elegir "Frase".
+
+===============================================================================
+LISTA A — APLICAR. Sin ambigüedad. Recupera $26.316 de las últimas 5 semanas.
+===============================================================================
+
+--- A.1 Competencia: nombres propios de otro software ($18.476, 0 conversiones) ---
+"intelex"
+"ergofellow"
+"neoehs"
+"gauss control"
+"r2 docuo"
+"accimap"
+"tekrisk"
+"ehs360"
+"safetydocs"
+"sst soluciones"
+"temporis"
+"jarvis sst"
+"sistegra"
+"kahuna app"
+"guardian sst"
+
+--- A.2 Informacional, servicio y fuera de tema ($7.840, 0 conversiones) ---
+"plan de emergencias"
+"registro de difusion"
+"como codificar"
+"mapa de riesgos editable"
+"sustancias quimicas"
+"como implementar protocolos"
+"temas para charlas"
+"charlas de seguridad de 5 minutos"
+"servicio prevencion de riesgos laborales"
+"servicios de prevencion de riesgos"
+"servicio de sst"
+"software de construccion"
+
+===============================================================================
+LISTA B — TÚ DECIDES. $12.187. No las aplico yo porque son ambiguas.
+===============================================================================
+
+"safetygpt"                            $3.551  Cubre «safetygpt» y «safetygpt pro». Ya estaba marcado
+                                               como «vigilar» en el log. Uno de los 2 clics del 17-ago
+                                               de la keyword que trajo a Macarena fue este término.
+"prevencion de riesgos en chile"       $3.591  Genérica de tope de embudo. Puede ser prospecto real.
+"sistemas de seguridad industrial"     $3.071  Suma su variante «sistemas de gestión de seguridad
+                                               industrial». Puede ser seguridad física (cámaras) o
+                                               puede ser prospecto. Ya estaba marcado como ambiguo.
+"sistema de riesgos laborales"         $  854  En Colombia designa el sistema de ARL, no un software.
+                                               Si es tráfico fuera de Chile, va; si no, no.
+"induccion hse"                        $  768  Tazki hace inducciones. Puede ser búsqueda de contenido
+                                               o de producto.
+"ast digital"                          $  352  AST (Análisis Seguro de Trabajo) es concepto legítimo de
+                                               Tazki. Solo negativizar si es marca de un competidor.
+
+===============================================================================
+ACCIÓN APARTE — no es negativa de descarte, es ruteo de marca propia
+===============================================================================
+Agregar en SST/HSEQ (frase), NO en Marca:
+"taski"
+"tazki"
+
+Motivo: «taski app» ($371) y «tazki app» ($363) los está pagando SST vía keywords genéricas, a CPC de
+SST ($1.665) en vez del CPC de Marca ($562). Marca ya tiene «tazki app» cargada en frase, así que al
+bloquearlas en SST se van solas a Marca a un tercio del precio. No se pierde el clic, se paga menos.
+
+===============================================================================
+LO QUE NO HAY QUE HACER
+===============================================================================
+- No agregar las 22 que ya están bloqueadas (sigweb, zone safe, egenya, riskweb, bpsystem, eyrus,
+  lumiform, urbicad, la familia «gratis», «excel», «descarga», «que es», «consultoras»). Su gasto en
+  la ventana es ANTERIOR a la negativa: ya está detenido.
+- No tocar pujas ni presupuesto. Esto es gratis y no interfiere con la congelación hasta el 30-sep.
+
+===============================================================================
+TAMAÑO REAL Y LÍMITES — para no venderlo como más de lo que es
+===============================================================================
+- Lista A = $26.316 en 5 semanas = ~$5.300/semana = 2,7% del gasto de SST. Con la lista B completa
+  llegaría a 3,9%. Es modesto. Su mérito es que es gratis y sin riesgo.
+- Los términos analizados cubren 156 de los 596 clics de SST ($251.230 de $992.360). Google no reporta
+  el término de la mayoría de los clics: sobre ese 74% restante no se puede afirmar nada.
+- El argumento aquí es semántico, no estadístico: quien busca «intelex» busca a un competidor por su
+  nombre. Un clic basta para decidirlo. No aplica la regla de los ~110 clics, que es para juzgar
+  keywords por su tasa de conversión.
+
+Lectura de resultado: 2-sep-2026, junto con la medición del traslado de presupuesto a Marca.
