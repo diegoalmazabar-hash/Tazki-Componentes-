@@ -547,3 +547,37 @@ registra como observacion; apagarlo es una decision aparte y no se recomienda to
 HALLAZGO SEPARADO — MARCA PROPIA PAGADA POR SST. «taski app» ($371) y «tazki app» ($363) los esta pagando
 la campana SST via keywords genericas, a CPC de SST ($1.665) en vez del CPC de Marca ($562). Marca ya
 tiene «tazki app» en frase. Negativizar «taski» y «tazki» EN SST los ruta a Marca a un tercio del precio.
+
+## CIERRE del hilo de negativas (19-ago-2026) — Diego tenia razon, ya estaban cargadas
+
+Se leyeron las negativas VIVAS de la campana SST (23995581786) via campaign_and_resource_get:
+**806 negativas a nivel campana: 726 EXACT + 80 PHRASE.** El archivo local decia 462 al 9-ago: 10 dias
+de desfase, y por eso se le propusieron a Diego negativas que ya tenia. ads_negatives.json quedo
+reemplazado por la lectura en vivo.
+
+CRUCE CORRECTO (respetando el match_type: EXACT bloquea solo la consulta literal; PHRASE, cualquiera que
+la contenga) sobre los 37 terminos propuestos:
+  YA BLOQUEADOS ... 24 terminos · $25.113 · sin accion
+  SIGUEN ABIERTOS . 13 terminos · $14.124
+     inequivocos: tekrisk, ehs360, sst soluciones, kahuna app, mapa de riesgos editable,
+                  software de construccion, servicio de sst, servicio prevencion de riesgos laborales
+                  = $6.256 en 5 semanas = 0,6% del gasto de SST
+     ambiguos (decide Diego): prevencion de riesgos en chile $3.591, sistemas de seguridad industrial
+                  $3.071 (con su variante), sistema de riesgos laborales $854, ast digital $352
+SE CAE TAMBIEN el ruteo de marca propia: «taski» y «tazki» ya estan como negativas de FRASE en SST.
+
+EL TECHO DE ESTA LINEA DE TRABAJO — el dato que importa:
+  De los $251.230 con termino reportado en SST, el 72% ($179.661) se fue en terminos RELEVANTES, y esos
+  trajeron 3 conversiones: $59.887 cada una, contra $62.023 de promedio de la campana.
+  Bloquear el 100% de la basura bajaria el costo por MQL de $62.023 a $59.887: un 3%.
+  LA FUGA NO ES EL PROBLEMA. El trafico relevante convierte mal. Eso no se arregla con negativas sino en
+  la landing, la oferta o la calificacion. DEJAR DE TRABAJAR EN NEGATIVAS.
+
+OBSERVACION ESTRUCTURAL: 726 de 806 son EXACTAS. Cada nombre de competidor nuevo cuesta un clic antes de
+quedar bloqueado, y esos clics valen $1.000 a $4.346 (2-3x el CPC promedio: el anuncio es irrelevante para
+esa consulta y la subasta lo castiga). Con nombres propios no hay raiz comun que sirva de frase, asi que el
+juego del topo es inherente. La palanca real no es agregar negativas sino reducir el emparejamiento suelto
+que hace aparecer esos nombres: concordancias y AI Max (activo hoy en SST: 9 clics, $9.472, 0 conversiones).
+
+REGLA NUEVA PERMANENTE: nunca proponer negativas cruzando contra ads_negatives.json. Leer siempre las vivas
+con campaign_and_resource_get y respetar el match_type.

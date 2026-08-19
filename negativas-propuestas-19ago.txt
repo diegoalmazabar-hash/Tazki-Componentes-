@@ -1,89 +1,64 @@
-NEGATIVAS PROPUESTAS · campaña «Tazki - SST/HSEQ - Search» · nivel CAMPAÑA · concordancia de FRASE
-Base: términos de búsqueda reales del 13-jul al 18-ago-2026, ya cruzados contra las 462 negativas vigentes.
-Dónde: Google Ads > Campaña SST/HSEQ > Palabras clave > Palabras clave negativas > + > Nivel campaña >
-       pegar la lista > elegir "Frase".
+NEGATIVAS · campaña «Tazki - SST/HSEQ - Search»
+CORREGIDO el 19-ago tras leer las 806 negativas VIVAS de la cuenta (el archivo local decía 462, al 9-ago).
+
+CONCLUSIÓN: casi todo lo que se iba a proponer YA ESTABA CARGADO. De 37 términos, 24 ($25.113) ya están
+bloqueados. Quedan 13 abiertos por $14.124, y de esos solo ~$6.256 son inequívocos = 0,6% del gasto de SST.
+Esta línea de trabajo está agotada. La plata no está acá.
 
 ===============================================================================
-LISTA A — APLICAR. Sin ambigüedad. Recupera $26.316 de las últimas 5 semanas.
+LO ÚNICO QUE SIGUE ABIERTO Y ES INEQUÍVOCO ($6.256 en 5 semanas · 0,6% del gasto)
 ===============================================================================
+Competencia (frase):
+"tekrisk"                                 $1.132
+"ehs360"                                  $1.052
+"sst soluciones"                          $1.000
+"kahuna app"                              $  383
 
---- A.1 Competencia: nombres propios de otro software ($18.476, 0 conversiones) ---
-"intelex"
-"ergofellow"
-"neoehs"
-"gauss control"
-"r2 docuo"
-"accimap"
-"tekrisk"
-"ehs360"
-"safetydocs"
-"sst soluciones"
-"temporis"
-"jarvis sst"
-"sistegra"
-"kahuna app"
-"guardian sst"
-
---- A.2 Informacional, servicio y fuera de tema ($7.840, 0 conversiones) ---
-"plan de emergencias"
-"registro de difusion"
-"como codificar"
-"mapa de riesgos editable"
-"sustancias quimicas"
-"como implementar protocolos"
-"temas para charlas"
-"charlas de seguridad de 5 minutos"
-"servicio prevencion de riesgos laborales"
-"servicios de prevencion de riesgos"
-"servicio de sst"
-"software de construccion"
+Descarte claro (frase):
+"mapa de riesgos editable"                $  677
+"software de construccion"                $  539
+"servicio de sst"                         $  408
+"servicio prevencion de riesgos laborales" $1.065
 
 ===============================================================================
-LISTA B — TÚ DECIDES. $12.187. No las aplico yo porque son ambiguas.
+ABIERTO PERO AMBIGUO — decides tú ($7.868). Yo no lo aplicaría sin tu criterio.
 ===============================================================================
-
-"safetygpt"                            $3.551  Cubre «safetygpt» y «safetygpt pro». Ya estaba marcado
-                                               como «vigilar» en el log. Uno de los 2 clics del 17-ago
-                                               de la keyword que trajo a Macarena fue este término.
-"prevencion de riesgos en chile"       $3.591  Genérica de tope de embudo. Puede ser prospecto real.
-"sistemas de seguridad industrial"     $3.071  Suma su variante «sistemas de gestión de seguridad
-                                               industrial». Puede ser seguridad física (cámaras) o
-                                               puede ser prospecto. Ya estaba marcado como ambiguo.
-"sistema de riesgos laborales"         $  854  En Colombia designa el sistema de ARL, no un software.
-                                               Si es tráfico fuera de Chile, va; si no, no.
-"induccion hse"                        $  768  Tazki hace inducciones. Puede ser búsqueda de contenido
-                                               o de producto.
-"ast digital"                          $  352  AST (Análisis Seguro de Trabajo) es concepto legítimo de
-                                               Tazki. Solo negativizar si es marca de un competidor.
+"prevencion de riesgos en chile"          $3.591  genérica de tope de embudo, puede ser prospecto real
+"sistemas de seguridad industrial"        $3.071  suma su variante «sistemas de gestión de…»; puede ser
+                                                  seguridad física o puede ser prospecto
+"sistema de riesgos laborales"            $  854  en Colombia designa el sistema de ARL, no un software
+"ast digital"                             $  352  AST es concepto legítimo de Tazki; solo si es competidor
 
 ===============================================================================
-ACCIÓN APARTE — no es negativa de descarte, es ruteo de marca propia
+YA BLOQUEADOS — NO volver a cargarlos (24 términos, $25.113)
 ===============================================================================
-Agregar en SST/HSEQ (frase), NO en Marca:
-"taski"
-"tazki"
+intelex · safetygpt · safetygpt pro · ergofellow · neoehs · gauss control · r2 docuo · accimap software ·
+safetydocs · jarvis sst · guardian sst · sistegra sst · www temporis · taski app · tazki app ·
+plan de emergencias y contingencias de una empresa · registro de difusion pts · induccion hse ·
+como codificar documentos del sgsst · programa para manejo de sustancias quimicas ·
+como implementar protocolos minsal · servicios de prevencion de riesgos · temas para charlas de seguridad ·
+charlas de seguridad de 5 minutos
 
-Motivo: «taski app» ($371) y «tazki app» ($363) los está pagando SST vía keywords genéricas, a CPC de
-SST ($1.665) en vez del CPC de Marca ($562). Marca ya tiene «tazki app» cargada en frase, así que al
-bloquearlas en SST se van solas a Marca a un tercio del precio. No se pierde el clic, se paga menos.
-
-===============================================================================
-LO QUE NO HAY QUE HACER
-===============================================================================
-- No agregar las 22 que ya están bloqueadas (sigweb, zone safe, egenya, riskweb, bpsystem, eyrus,
-  lumiform, urbicad, la familia «gratis», «excel», «descarga», «que es», «consultoras»). Su gasto en
-  la ventana es ANTERIOR a la negativa: ya está detenido.
-- No tocar pujas ni presupuesto. Esto es gratis y no interfiere con la congelación hasta el 30-sep.
+Nota: «taski» y «tazki» ya están como negativas de FRASE en SST, así que el ruteo de marca propia hacia la
+campaña Marca ya está hecho. Se cae esa recomendación también.
 
 ===============================================================================
-TAMAÑO REAL Y LÍMITES — para no venderlo como más de lo que es
+EL TECHO DE TODO ESTO — el dato que importa
 ===============================================================================
-- Lista A = $26.316 en 5 semanas = ~$5.300/semana = 2,7% del gasto de SST. Con la lista B completa
-  llegaría a 3,9%. Es modesto. Su mérito es que es gratis y sin riesgo.
-- Los términos analizados cubren 156 de los 596 clics de SST ($251.230 de $992.360). Google no reporta
-  el término de la mayoría de los clics: sobre ese 74% restante no se puede afirmar nada.
-- El argumento aquí es semántico, no estadístico: quien busca «intelex» busca a un competidor por su
-  nombre. Un clic basta para decidirlo. No aplica la regla de los ~110 clics, que es para juzgar
-  keywords por su tasa de conversión.
+De los $251.230 con término reportado en SST, el 72% ($179.661) se fue en términos RELEVANTES, y esos
+trajeron 3 conversiones: $59.887 cada una. El promedio de la campaña es $62.023.
 
-Lectura de resultado: 2-sep-2026, junto con la medición del traslado de presupuesto a Marca.
+Es decir: si se bloqueara el 100% de la basura, el costo por MQL bajaría de $62.023 a $59.887. Un 3%.
+
+La fuga no es el problema. El problema es que el tráfico relevante convierte mal. Eso no se arregla con
+negativas: se arregla en la landing, en la oferta o en la calificación.
+
+===============================================================================
+OBSERVACIÓN ESTRUCTURAL
+===============================================================================
+De las 806 negativas, 726 son EXACTAS y 80 de frase. Una negativa exacta bloquea solo la consulta literal,
+así que cada nombre de competidor nuevo cuesta un clic antes de quedar bloqueado — y esos clics son caros
+($1.000 a $4.346 cada uno, 2 a 3 veces el CPC promedio, porque el anuncio es irrelevante para esa consulta
+y la subasta lo castiga). Con nombres propios no hay raíz común que sirva de frase, así que el juego del
+topo es inherente. La palanca real no es agregar más negativas sino reducir el emparejamiento suelto que
+hace aparecer esos nombres: concordancias y AI Max (activo hoy en SST: 9 clics, $9.472, 0 conversiones).

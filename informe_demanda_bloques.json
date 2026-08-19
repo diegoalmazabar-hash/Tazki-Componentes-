@@ -344,14 +344,13 @@
   "_bitacora_19_ago_2026": "Se agregaron 2 entradas SEM al dia 19 ago: (1) la accion abierta de pausa de amplias en formato de 5 campos de Felipe, con lectura el 2-sep; (2) la correccion del criterio (piso de ~110 clics antes de juzgar una keyword por conversiones) con el retiro de 'sistema gestion seguridad laboral' de la lista de pausa.",
   "_regla_ads_verificar_campo_concordancia": "ANTES de recomendar cualquier accion basada en concordancia, confirmar que el campo 'Match type' de Supermetrics (report_type KeywordView) es la concordancia CONFIGURADA de la keyword y no la de la busqueda. El 19-ago-2026 se recomendo pausar amplias que probablemente no existen en la cuenta. Contrastar siempre contra la UI de Google Ads antes de pedirle a Diego que ejecute.",
   "_ads_negativas_propuestas_19_ago_2026": {
-    "archivo": "negativas-propuestas-19ago.txt (raiz del repo gh-pages)",
-    "base": "terminos de busqueda reales de SST 13-jul a 18-ago, cruzados contra las 462 negativas vigentes",
-    "lista_A_aplicar": "27 negativas en frase a nivel campana SST/HSEQ. Recupera $26.316 en 5 semanas (2,7% del gasto de SST). 15 de competencia + 12 informacional/servicio/fuera de tema.",
-    "lista_B_decide_diego": "safetygpt ($3.551), prevencion de riesgos en chile ($3.591), sistemas de seguridad industrial ($3.071), sistema de riesgos laborales ($854), induccion hse ($768), ast digital ($352). Total $12.187.",
-    "accion_aparte": "Agregar 'taski' y 'tazki' como negativas EN SST (no en Marca): hoy SST paga la marca propia a $1.665/clic cuando Marca la paga a $562. Marca ya tiene 'tazki app' en frase.",
-    "no_hacer": "No re-agregar las 22 ya bloqueadas. No tocar pujas ni presupuesto.",
-    "limites": "Los terminos cubren 156 de 596 clics de SST. El ahorro es modesto (2,7%-3,9%). El argumento es semantico, no estadistico: no aplica la regla de los ~110 clics.",
-    "estado": "propuesta, NO aplicada. Actualizar ads_negatives.json solo cuando Diego confirme que las cargo.",
-    "lectura": "2-sep-2026"
-  }
+    "estado": "CERRADO SIN ACCION RELEVANTE. Diego aviso que ya tenia esas negativas cargadas y tenia razon.",
+    "que_paso": "El cruce se hizo contra ads_negatives.json (462 negativas, al 9-ago) en vez de contra la cuenta. Las vivas son 806 (726 EXACT + 80 PHRASE). De 37 terminos propuestos, 24 ($25.113) ya estaban bloqueados.",
+    "queda_abierto": "13 terminos, $14.124. Inequivocos: tekrisk, ehs360, sst soluciones, kahuna app, mapa de riesgos editable, software de construccion, servicio de sst, servicio prevencion de riesgos laborales = $6.256 = 0,6% del gasto de SST.",
+    "ambiguos_decide_diego": "prevencion de riesgos en chile ($3.591), sistemas de seguridad industrial ($3.071), sistema de riesgos laborales ($854), ast digital ($352).",
+    "se_cae_tambien": "El ruteo de marca propia: 'taski' y 'tazki' ya estan como negativas de FRASE en SST.",
+    "EL_TECHO": "De los $251.230 con termino reportado, el 72% ($179.661) se fue en terminos RELEVANTES que trajeron 3 conversiones = $59.887 c/u, contra $62.023 de promedio de campana. Bloquear el 100% de la basura bajaria el costo por MQL solo un 3%. LA FUGA NO ES EL PROBLEMA: el trafico relevante convierte mal. Eso se arregla en landing, oferta o calificacion, no en keywords.",
+    "observacion_estructural": "726 de 806 negativas son EXACTAS: cada nombre de competidor nuevo cuesta un clic caro ($1.000-$4.346, 2-3x el CPC promedio) antes de quedar bloqueado. Con nombres propios no hay raiz comun para una frase, asi que el juego del topo es inherente. La palanca real es reducir el emparejamiento suelto (concordancias y AI Max), no agregar negativas."
+  },
+  "_regla_ads_leer_negativas_en_vivo": "NUNCA proponer negativas cruzando contra ads_negatives.json. Leer siempre las vivas con campaign_and_resource_get (AW, cuenta 3766426817, campana 23995581786, campaign_detail_level full -> targeting.negative_keywords). Y respetar el match_type: EXACT bloquea solo la consulta literal, PHRASE bloquea cualquier consulta que la contenga."
 }

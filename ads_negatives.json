@@ -1,709 +1,3848 @@
 {
- "roots": [
-  "18001",
-  "45001",
-  "achs gestion",
-  "auditoria trinorma",
-  "bow tie",
-  "bowtie",
-  "bpsystem",
-  "charlas de prevencion de riesgos",
-  "cmx1",
-  "como funciona",
-  "consultoras",
-  "control de alcohol y drogas en el trabajo",
-  "cority",
-  "curso",
-  "descarga",
-  "descargar",
-  "dgp seguridad",
-  "download",
-  "egenya",
-  "ejemplo",
-  "ergosoft",
-  "esginnova",
-  "evopreven",
-  "excel",
-  "eyrus",
-  "foco en obra",
-  "focoprevencion",
-  "fracttal",
-  "geovictoria",
-  "gerenciadores de riesgos",
-  "gestionprevencion",
-  "globalsuite",
-  "gratis",
-  "infocontrol",
-  "iso 14001",
-  "iso 45001",
-  "iso 9001",
-  "isometrix aurora",
-  "isotools",
-  "istas 21",
-  "laus",
-  "libro de obra digital",
-  "lumiform",
-  "medicap",
-  "megaprevencion",
-  "metodologia gema",
-  "modelo de sg sst",
-  "moreapp",
-  "nexcel contratistas",
-  "ohsas",
-  "pdf",
-  "plade software",
-  "plantilla",
-  "prevencion 10",
-  "prevencion10",
-  "prevsis",
-  "programa de trabajo preventivo ds 44",
-  "programa preventivo",
-  "pronexo",
-  "propiedad horizontal",
-  "que es",
-  "que es hseq",
-  "que es tazki",
-  "que significa",
-  "riskweb",
-  "safe culture",
-  "safety culture",
-  "safety management system",
-  "safetyculture",
-  "sap ehs",
-  "sat contratista",
-  "seleria",
-  "sigweb",
-  "softland",
-  "software para extintores",
-  "subcontrataley",
-  "tarjeta stop seguridad industrial",
-  "tazkiapp",
-  "treyder",
-  "tutorial",
-  "urbicad",
-  "webcontrol",
-  "wiiprot",
-  "woken",
-  "word",
-  "worklite",
-  "xls",
-  "xlsx",
-  "zigth",
-  "zimexa",
-  "zone safe",
-  "zyght"
- ],
- "detalle": [
-  {
-   "root": "como funciona",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+ "updated": "2026-08-19",
+ "fuente": "LEIDO EN VIVO de la cuenta via Supermetrics campaign_and_resource_get (campana 23995581786). Ya no se mantiene a mano.",
+ "campana": "Tazki - SST/HSEQ - Search",
+ "total": 806,
+ "por_tipo": {
+  "EXACT": 726,
+  "PHRASE": 80
+ },
+ "nota": "El archivo anterior decia 462 al 9-ago y estaba 10 dias atrasado; ese desfase hizo que el 19-ago se le propusieran a Diego negativas que ya tenia cargadas. REGLA: antes de proponer negativas, LEER LAS VIVAS de la cuenta, nunca este archivo de memoria. Y respetar el tipo: una negativa EXACT bloquea solo la consulta literal; una PHRASE bloquea cualquier consulta que la contenga.",
+ "negativas": [
+  {
+   "t": "cmms",
+   "m": "EXACT"
+  },
+  {
+   "t": "ohsas 18001",
+   "m": "EXACT"
+  },
+  {
+   "t": "consultoria",
+   "m": "PHRASE"
+  },
+  {
+   "t": "asesoria",
+   "m": "PHRASE"
+  },
+  {
+   "t": "iso 14001",
+   "m": "PHRASE"
+  },
+  {
+   "t": "excel",
+   "m": "PHRASE"
+  },
+  {
+   "t": "iso 9001",
+   "m": "PHRASE"
+  },
+  {
+   "t": "download",
+   "m": "PHRASE"
+  },
+  {
+   "t": "word",
+   "m": "PHRASE"
+  },
+  {
+   "t": "gratis",
+   "m": "PHRASE"
+  },
+  {
+   "t": "bow tie",
+   "m": "PHRASE"
+  },
+  {
+   "t": "bowtie",
+   "m": "PHRASE"
+  },
+  {
+   "t": "pdf",
+   "m": "PHRASE"
+  },
+  {
+   "t": "nalanda",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk management software",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety culture",
+   "m": "PHRASE"
+  },
+  {
+   "t": "pts",
+   "m": "EXACT"
+  },
+  {
+   "t": "software erp",
+   "m": "EXACT"
+  },
+  {
+   "t": "hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencion riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "bowtie",
+   "m": "EXACT"
+  },
+  {
+   "t": "ejemplo",
+   "m": "PHRASE"
+  },
+  {
+   "t": "safety management system",
+   "m": "EXACT"
+  },
+  {
+   "t": "consultora",
+   "m": "PHRASE"
+  },
+  {
+   "t": "consultoras",
+   "m": "PHRASE"
+  },
+  {
+   "t": "software de mantenimiento",
+   "m": "EXACT"
+  },
+  {
+   "t": "descargar",
+   "m": "PHRASE"
+  },
+  {
+   "t": "descarga",
+   "m": "PHRASE"
+  },
+  {
+   "t": "buk",
+   "m": "EXACT"
+  },
+  {
+   "t": "ohsas",
+   "m": "PHRASE"
+  },
+  {
+   "t": "xls",
+   "m": "PHRASE"
+  },
+  {
+   "t": "18001",
+   "m": "PHRASE"
+  },
+  {
+   "t": "asesoría",
+   "m": "PHRASE"
+  },
+  {
+   "t": "propiedad horizontal",
+   "m": "PHRASE"
+  },
+  {
+   "t": "auditorias internas",
+   "m": "EXACT"
+  },
+  {
+   "t": "plantilla",
+   "m": "PHRASE"
+  },
+  {
+   "t": "prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevención de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "taski",
+   "m": "PHRASE"
+  },
+  {
+   "t": "medicap",
+   "m": "PHRASE"
+  },
+  {
+   "t": "iper",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehs software",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergosoft",
+   "m": "PHRASE"
+  },
+  {
+   "t": "workzone",
+   "m": "EXACT"
+  },
+  {
+   "t": "kloc",
+   "m": "EXACT"
+  },
+  {
+   "t": "laus",
+   "m": "PHRASE"
+  },
+  {
+   "t": "mastercontrol",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety auditor",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestor de documentos",
+   "m": "EXACT"
+  },
+  {
+   "t": "smartsheet",
+   "m": "EXACT"
+  },
+  {
+   "t": "que significa",
+   "m": "PHRASE"
+  },
+  {
+   "t": "sistema control asistencia",
+   "m": "EXACT"
+  },
+  {
+   "t": "softland",
+   "m": "PHRASE"
+  },
+  {
+   "t": "avetta",
+   "m": "EXACT"
+  },
+  {
+   "t": "xlsx",
+   "m": "PHRASE"
+  },
+  {
+   "t": "isnetworld",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad corporativa",
+   "m": "EXACT"
+  },
+  {
+   "t": "talana",
+   "m": "EXACT"
+  },
+  {
+   "t": "isn network",
+   "m": "EXACT"
+  },
+  {
+   "t": "softexpert",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de ingreso y salida de personal",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de entrada y salida de personal",
+   "m": "EXACT"
+  },
+  {
+   "t": "softland erp",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de mantenimiento preventivo y correctivo",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de mantenimiento gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "gensuite",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de mantenimiento mp",
+   "m": "EXACT"
+  },
+  {
+   "t": "apps para recursos humanos",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad e higiene industrial",
+   "m": "EXACT"
+  },
+  {
+   "t": "cmms computerized maintenance management system",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety record",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety management",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesoria en prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "acadis",
+   "m": "EXACT"
+  },
+  {
+   "t": "programas de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "45001",
+   "m": "PHRASE"
+  },
+  {
+   "t": "empresas de salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "link360",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestion de riesgo",
+   "m": "EXACT"
+  },
+  {
+   "t": "sap ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "intelex",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "kantan",
+   "m": "EXACT"
+  },
+  {
+   "t": "iso 45001",
+   "m": "PHRASE"
+  },
+  {
+   "t": "prl",
+   "m": "EXACT"
+  },
+  {
+   "t": "clodi",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas de seguridad de 5 minutos",
+   "m": "EXACT"
+  },
+  {
+   "t": "elssa",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad y salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "primavera risk analysis",
+   "m": "EXACT"
+  },
+  {
+   "t": "woken",
+   "m": "PHRASE"
+  },
+  {
+   "t": "worklite",
+   "m": "PHRASE"
+  },
+  {
+   "t": "safesite",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de auditoria",
+   "m": "EXACT"
+  },
+  {
+   "t": "fiix cmms",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety dashboard",
+   "m": "EXACT"
+  },
+  {
+   "t": "salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetyline lone worker",
+   "m": "EXACT"
+  },
+  {
+   "t": "auditoria laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "higiene y seguridad en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "salud y seguridad ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety intelligence",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety mojo app",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema safety",
+   "m": "EXACT"
+  },
+  {
+   "t": "empresa de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "riesgo laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "servicios de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "r2 docuo",
+   "m": "EXACT"
+  },
+  {
+   "t": "hsec",
+   "m": "EXACT"
+  },
+  {
+   "t": "visma enterprise",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas administrativos en la nube",
+   "m": "EXACT"
+  },
+  {
+   "t": "software risk",
+   "m": "EXACT"
+  },
+  {
+   "t": "protocolo prexor",
+   "m": "EXACT"
+  },
+  {
+   "t": "software para camiones",
+   "m": "EXACT"
+  },
+  {
+   "t": "easymaint",
+   "m": "EXACT"
+  },
+  {
+   "t": "enablon",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas de 5 minutos de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas diarias de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de gestion de mantenimiento",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestion de trabajadores",
+   "m": "EXACT"
+  },
+  {
+   "t": "kawak",
+   "m": "EXACT"
+  },
+  {
+   "t": "sigea",
+   "m": "EXACT"
+  },
+  {
+   "t": "itelex",
+   "m": "EXACT"
+  },
+  {
+   "t": "riskonnect",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas de monitoreo",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de higiene y seguridad industrial",
+   "m": "EXACT"
+  },
+  {
+   "t": "servicio de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "fieldwire",
+   "m": "EXACT"
+  },
+  {
+   "t": "riskman",
+   "m": "EXACT"
+  },
+  {
+   "t": "hseq que significa",
+   "m": "EXACT"
+  },
+  {
+   "t": "site diary",
+   "m": "EXACT"
+  },
+  {
+   "t": "e builder",
+   "m": "EXACT"
+  },
+  {
+   "t": "isotools",
+   "m": "PHRASE"
+  },
+  {
+   "t": "upkeep",
+   "m": "EXACT"
+  },
+  {
+   "t": "iso tools",
+   "m": "EXACT"
+  },
+  {
+   "t": "programas de salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "syntrio",
+   "m": "EXACT"
+  },
+  {
+   "t": "mapon",
+   "m": "EXACT"
+  },
+  {
+   "t": "workmate software",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetyculture",
+   "m": "PHRASE"
+  },
+  {
+   "t": "software de control",
+   "m": "EXACT"
+  },
+  {
+   "t": "cmx1",
+   "m": "EXACT"
+  },
+  {
+   "t": "riskweb",
+   "m": "EXACT"
+  },
+  {
+   "t": "zkteco software",
+   "m": "EXACT"
+  },
+  {
+   "t": "eyrus",
+   "m": "PHRASE"
+  },
+  {
+   "t": "puntoseguro",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesoria prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "software prl gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "webcontrol",
+   "m": "PHRASE"
+  },
+  {
+   "t": "risk simulator",
+   "m": "EXACT"
+  },
+  {
+   "t": "omnigo",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetychain",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad y salud laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk monitor",
+   "m": "EXACT"
+  },
+  {
+   "t": "go audit",
+   "m": "EXACT"
+  },
+  {
+   "t": "buildertrend",
+   "m": "EXACT"
+  },
+  {
+   "t": "reglamento interno de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "bindy",
+   "m": "EXACT"
+  },
+  {
+   "t": "plataforma shift",
+   "m": "EXACT"
+  },
+  {
+   "t": "health and safety made simple",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencion10",
+   "m": "PHRASE"
+  },
+  {
+   "t": "iperc",
+   "m": "EXACT"
+  },
+  {
+   "t": "empresa de seguridad industrial",
+   "m": "EXACT"
+  },
+  {
+   "t": "lumiform",
+   "m": "PHRASE"
+  },
+  {
+   "t": "nexcel",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehslatam",
+   "m": "EXACT"
+  },
+  {
+   "t": "implementacion del sistema de gestion",
+   "m": "PHRASE"
+  },
+  {
+   "t": "software medicina laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio ergonomico",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety champion",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de ergonomia integrado",
+   "m": "EXACT"
+  },
+  {
+   "t": "mediciones ambientales ocupacionales",
+   "m": "EXACT"
+  },
+  {
+   "t": "checklist facil",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesorias de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesorias prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "istas 21",
+   "m": "PHRASE"
+  },
+  {
+   "t": "vigilancia medica",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe de prevencion de riesgo",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz de riesgo de trabajo en altura",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "prl que es",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencion 10",
+   "m": "PHRASE"
+  },
+  {
+   "t": "prevencion 10 riesgos laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "fracttal",
+   "m": "EXACT"
+  },
+  {
+   "t": "enhesa",
+   "m": "EXACT"
+  },
+  {
+   "t": "medicion de ruido laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "brigada de emergencia en una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "infocontrol",
+   "m": "PHRASE"
+  },
+  {
+   "t": "camaras de seguridad en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de trazabilidad",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de gestão de segurança do trabalho",
+   "m": "EXACT"
+  },
+  {
+   "t": "paginas de prevencion",
+   "m": "EXACT"
+  },
+  {
+   "t": "sitedocs",
+   "m": "EXACT"
+  },
+  {
+   "t": "procedimiento seguro de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "plan de evacuacion de una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "hseq",
+   "m": "EXACT"
+  },
+  {
+   "t": "moreapp",
+   "m": "EXACT"
+  },
+  {
+   "t": "isotool",
+   "m": "EXACT"
+  },
+  {
+   "t": "orden de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "auditorias laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety walks",
+   "m": "EXACT"
+  },
+  {
+   "t": "safeti",
+   "m": "EXACT"
+  },
+  {
+   "t": "isolucion",
+   "m": "EXACT"
+  },
+  {
+   "t": "sitemate",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa loto",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema loto",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe de inspeccion",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehs sap",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencionar",
+   "m": "EXACT"
+  },
+  {
+   "t": "sap ehsm",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "plantillas ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "ip3 control de obras",
+   "m": "EXACT"
+  },
+  {
+   "t": "workview",
+   "m": "EXACT"
+  },
+  {
+   "t": "erp gratis para pymes",
+   "m": "EXACT"
+  },
+  {
+   "t": "software ergonomia",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehs latam",
+   "m": "EXACT"
+  },
+  {
+   "t": "bow tie xp",
+   "m": "EXACT"
+  },
+  {
+   "t": "pronexo",
+   "m": "PHRASE"
+  },
+  {
+   "t": "informe de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "como prevenir accidentes laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk register",
+   "m": "EXACT"
+  },
+  {
+   "t": "empresas de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "cority",
+   "m": "PHRASE"
+  },
+  {
+   "t": "safety evolution",
+   "m": "EXACT"
+  },
+  {
+   "t": "procedimiento de trabajo seguro",
+   "m": "EXACT"
+  },
+  {
+   "t": "bizneo",
+   "m": "EXACT"
+  },
+  {
+   "t": "velocityehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "globalsuite",
+   "m": "EXACT"
+  },
+  {
+   "t": "de riesgos laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "safe culture",
+   "m": "PHRASE"
+  },
+  {
+   "t": "mapa de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "mapa de riesgos de una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "reglamento de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "controldoc",
+   "m": "EXACT"
+  },
+  {
+   "t": "trinorma",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevengo",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de orden y aseo",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetya",
+   "m": "EXACT"
+  },
+  {
+   "t": "departamento de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "isometrix",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz de riesgos laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "urbicad gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "metodo rula ergonomia",
+   "m": "EXACT"
+  },
+  {
+   "t": "software hazop",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencion chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetyhub",
+   "m": "EXACT"
+  },
+  {
+   "t": "descargar isotools gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "zero risk",
+   "m": "EXACT"
+  },
+  {
+   "t": "infraspeak",
+   "m": "EXACT"
+  },
+  {
+   "t": "infinityqs proficient",
+   "m": "EXACT"
+  },
+  {
+   "t": "hammertech",
+   "m": "EXACT"
+  },
+  {
+   "t": "urbicad",
+   "m": "PHRASE"
+  },
+  {
+   "t": "globalsuite",
+   "m": "PHRASE"
+  },
+  {
+   "t": "safety analytics",
+   "m": "EXACT"
+  },
+  {
+   "t": "azemi",
+   "m": "EXACT"
+  },
+  {
+   "t": "iqhse",
+   "m": "EXACT"
+  },
+  {
+   "t": "inhst",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety mind",
+   "m": "EXACT"
+  },
+  {
+   "t": "aipem",
+   "m": "EXACT"
+  },
+  {
+   "t": "myiso",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de ergonomia",
+   "m": "EXACT"
+  },
+  {
+   "t": "miper",
+   "m": "EXACT"
+  },
+  {
+   "t": "avaint",
+   "m": "EXACT"
+  },
+  {
+   "t": "software administracion de flota vehicular",
+   "m": "EXACT"
+  },
+  {
+   "t": "analisis de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesoria salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "planilla de riesgos laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "manejo de carga",
+   "m": "EXACT"
+  },
+  {
+   "t": "como hacer una matriz legal",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es hseq",
+   "m": "PHRASE"
+  },
+  {
+   "t": "programa para control de obras civiles gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "treyder",
+   "m": "PHRASE"
+  },
+  {
+   "t": "cohort software occupational health",
+   "m": "EXACT"
+  },
+  {
+   "t": "empresas consultoras de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "evaluación de riesgo",
+   "m": "EXACT"
+  },
+  {
+   "t": "enaxis",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa preventivo",
+   "m": "PHRASE"
+  },
+  {
+   "t": "ats para trabajo en alturas",
+   "m": "EXACT"
+  },
+  {
+   "t": "ssoma",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudios de seguridad para empresas",
+   "m": "EXACT"
+  },
+  {
+   "t": "mediciones laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "isowin",
+   "m": "EXACT"
+  },
+  {
+   "t": "fyld",
+   "m": "EXACT"
+  },
+  {
+   "t": "eqdz pro",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de medicina ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "zone safe",
+   "m": "EXACT"
+  },
+  {
+   "t": "pentana audit",
+   "m": "EXACT"
+  },
+  {
+   "t": "implementacion sg sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "reglamento interno de orden higiene y seguridad constructora",
+   "m": "EXACT"
+  },
+  {
+   "t": "myosh",
+   "m": "EXACT"
+  },
+  {
+   "t": "modelo de sg sst",
+   "m": "PHRASE"
+  },
+  {
+   "t": "libro de obra digital",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de seguridad e higiene gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "control operativo",
+   "m": "EXACT"
+  },
+  {
+   "t": "geovictoria",
+   "m": "PHRASE"
+  },
+  {
+   "t": "sistema defontana",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety mojo",
+   "m": "EXACT"
+  },
+  {
+   "t": "quentic",
+   "m": "EXACT"
+  },
+  {
+   "t": "plataforma safety",
+   "m": "EXACT"
+  },
+  {
+   "t": "bateria riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "consultoría",
+   "m": "PHRASE"
+  },
+  {
+   "t": "previsis",
+   "m": "EXACT"
+  },
+  {
+   "t": "coso erm",
+   "m": "EXACT"
+  },
+  {
+   "t": "arl para empresas",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "documentos de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "chileprevencion",
+   "m": "EXACT"
+  },
+  {
+   "t": "fracttal",
+   "m": "PHRASE"
+  },
+  {
+   "t": "subcontrataley",
+   "m": "PHRASE"
+  },
+  {
+   "t": "syso",
+   "m": "EXACT"
+  },
+  {
+   "t": "implementacion de sistema de gestion",
+   "m": "EXACT"
+  },
+  {
+   "t": "lulowin",
+   "m": "EXACT"
+  },
+  {
+   "t": "defontana",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesoria sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "cetapp",
+   "m": "EXACT"
+  },
+  {
+   "t": "oracle aconex",
+   "m": "EXACT"
+  },
+  {
+   "t": "svision",
+   "m": "EXACT"
+  },
+  {
+   "t": "s10 erp",
+   "m": "EXACT"
+  },
+  {
+   "t": "temas para charlas de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "plataforma para recursos humanos",
+   "m": "EXACT"
+  },
+  {
+   "t": "hands hq",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergo ia",
+   "m": "EXACT"
+  },
+  {
+   "t": "eramba",
+   "m": "EXACT"
+  },
+  {
+   "t": "tasqui",
+   "m": "EXACT"
+  },
+  {
+   "t": "gerencia de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "compliance programa",
+   "m": "EXACT"
+  },
+  {
+   "t": "inspecciones de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "como hacer un mapa de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz de identificación de peligros y evaluación de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "gps control saesa",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de energias peligrosas",
+   "m": "EXACT"
+  },
+  {
+   "t": "smartsheet que es",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz iperc",
+   "m": "EXACT"
+  },
+  {
+   "t": "rgrl formulario",
+   "m": "EXACT"
+  },
+  {
+   "t": "modelrisk",
+   "m": "EXACT"
+  },
+  {
+   "t": "asesoria en sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "intenseye",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema para obras",
+   "m": "EXACT"
+  },
+  {
+   "t": "cotizacion bateria de riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehsoft",
+   "m": "EXACT"
+  },
+  {
+   "t": "workera",
+   "m": "EXACT"
+  },
+  {
+   "t": "seleria",
+   "m": "PHRASE"
+  },
+  {
+   "t": "globaliso",
+   "m": "EXACT"
+  },
+  {
+   "t": "sinail",
+   "m": "EXACT"
+  },
+  {
+   "t": "dossier sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "auditoria sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "viact",
+   "m": "EXACT"
+  },
+  {
+   "t": "isa software",
+   "m": "EXACT"
+  },
+  {
+   "t": "conformio",
+   "m": "EXACT"
+  },
+  {
+   "t": "hazard software",
+   "m": "EXACT"
+  },
+  {
+   "t": "360 ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "software sgsst gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "software sst gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "software isolucion",
+   "m": "EXACT"
+  },
+  {
+   "t": "sigus",
+   "m": "EXACT"
+  },
+  {
+   "t": "izi safety",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de acceso trabajadores",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad industrial y prevención de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "ghse consulting",
+   "m": "EXACT"
+  },
+  {
+   "t": "informes de seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "tazky",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe tecnico de higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "globalsuite solutions",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de control de asistencia gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "software kawak",
+   "m": "EXACT"
+  },
+  {
+   "t": "outsourcing seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa para manejo de sustancias quimicas",
+   "m": "EXACT"
+  },
+  {
+   "t": "software nom 035",
+   "m": "EXACT"
+  },
+  {
+   "t": "aplicaciones para asistencia de personal",
+   "m": "EXACT"
+  },
+  {
+   "t": "fracttal software",
+   "m": "EXACT"
+  },
+  {
+   "t": "orden de trabajo de mantenimiento",
+   "m": "EXACT"
+  },
+  {
+   "t": "aleph risk intelligence",
+   "m": "EXACT"
+  },
+  {
+   "t": "auditoria interna sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas de salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "aplicacion bateria riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "foco en obra",
+   "m": "PHRASE"
+  },
+  {
+   "t": "zyght",
+   "m": "PHRASE"
+  },
+  {
+   "t": "prevsis",
+   "m": "PHRASE"
+  },
+  {
+   "t": "que son mediciones higienicas",
+   "m": "EXACT"
+  },
+  {
+   "t": "www talana cl",
+   "m": "EXACT"
+  },
+  {
+   "t": "comportamiento seguro en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "maintainx",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety docs",
+   "m": "EXACT"
+  },
+  {
+   "t": "aplicación de batería de riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "go audits",
+   "m": "EXACT"
+  },
+  {
+   "t": "software para extintores",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio de seguridad y salud obra",
+   "m": "EXACT"
+  },
+  {
+   "t": "soter analytics",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de medicina laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "goaudits",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistegra sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "manejo de materiales pesados",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevencion empresas",
+   "m": "EXACT"
+  },
+  {
+   "t": "implementacion de protocolos minsal",
+   "m": "EXACT"
+  },
+  {
+   "t": "plan de emergencias y contingencias de una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "logiciel veille réglementaire gratuit",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz de identificación de peligros",
+   "m": "EXACT"
+  },
+  {
+   "t": "auditoria trinorma",
+   "m": "EXACT"
+  },
+  {
+   "t": "analisis de seguridad del trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "software ergonomico",
+   "m": "EXACT"
+  },
+  {
+   "t": "sg sst propiedad horizontal",
+   "m": "EXACT"
+  },
+  {
+   "t": "control crítico",
+   "m": "EXACT"
+  },
+  {
+   "t": "gauss control",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk simulator descargar",
+   "m": "EXACT"
+  },
+  {
+   "t": "equipo de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "politica sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "eqdz",
+   "m": "EXACT"
+  },
+  {
+   "t": "software para bateria de riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa anual sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "contador de dias sin accidentes",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety nova",
+   "m": "EXACT"
+  },
+  {
+   "t": "tasky app",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevengos seguridad y salud laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "protecnus",
+   "m": "EXACT"
+  },
+  {
+   "t": "documentos prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "buk chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "hse que es",
+   "m": "EXACT"
+  },
+  {
+   "t": "kuvanty sg sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "indicadores de seguridad y salud en el trabajo excel",
+   "m": "EXACT"
+  },
+  {
+   "t": "iso 45.001",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevención de alcohol y drogas en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "menfis software",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de gestion syso",
+   "m": "EXACT"
+  },
+  {
+   "t": "plan anual sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk software download",
+   "m": "EXACT"
+  },
+  {
+   "t": "paginas de prevencion de riesgos chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "gcg control",
+   "m": "EXACT"
+  },
+  {
+   "t": "grupo hseq",
+   "m": "EXACT"
+  },
+  {
+   "t": "chile prevención",
+   "m": "EXACT"
+  },
+  {
+   "t": "software bateria de riesgo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "examen de aversión al riesgo",
+   "m": "EXACT"
+  },
+  {
+   "t": "talana app",
+   "m": "EXACT"
+  },
+  {
+   "t": "politica sst de una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa extintores",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas loto",
+   "m": "EXACT"
+  },
+  {
+   "t": "syso consultoria",
+   "m": "EXACT"
+  },
+  {
+   "t": "qooling",
+   "m": "EXACT"
+  },
+  {
+   "t": "planillas de seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "aware360",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de ponche empleados",
+   "m": "EXACT"
+  },
+  {
+   "t": "delegado de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "q now",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de ergonomía integrado",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevenciona",
+   "m": "EXACT"
+  },
+  {
+   "t": "full audits",
+   "m": "EXACT"
+  },
+  {
+   "t": "organismo administrador de la ley 16.744",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de fatiga y somnolencia",
+   "m": "EXACT"
+  },
+  {
+   "t": "batería de riesgo psicosocial excel gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "software prevención de riesgos laborales gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "inventario de epp",
+   "m": "EXACT"
+  },
+  {
+   "t": "genesis broker",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas biometricos control de acceso",
+   "m": "EXACT"
+  },
+  {
+   "t": "vector ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetymint",
+   "m": "EXACT"
+  },
+  {
+   "t": "benchmark gensuite",
+   "m": "EXACT"
+  },
+  {
+   "t": "analisis seguro de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "tzki",
+   "m": "EXACT"
+  },
+  {
+   "t": "carpeta de arranque",
+   "m": "EXACT"
+  },
+  {
+   "t": "sabentis plus",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehs que es",
+   "m": "EXACT"
+  },
+  {
+   "t": "wiprot",
+   "m": "EXACT"
+  },
+  {
+   "t": "neoehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "documentos basicos de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "honeywell sine",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es un mapa de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "evaluaciones ergonómicas",
+   "m": "EXACT"
+  },
+  {
+   "t": "genera software",
+   "m": "EXACT"
+  },
+  {
+   "t": "biofile salud ocupacional",
+   "m": "EXACT"
+  },
+  {
+   "t": "portal ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "ctaimalegal",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergo ibv",
+   "m": "EXACT"
+  },
+  {
+   "t": "izytimecontrol",
+   "m": "EXACT"
+  },
+  {
+   "t": "safeculture",
+   "m": "EXACT"
+  },
+  {
+   "t": "genhoras",
+   "m": "EXACT"
+  },
+  {
+   "t": "evaluacion matriz de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "capsulas de seguridad en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "protex ai",
+   "m": "EXACT"
+  },
+  {
+   "t": "fullaudit",
+   "m": "EXACT"
+  },
+  {
+   "t": "biotime cloud",
+   "m": "EXACT"
+  },
+  {
+   "t": "método owas",
+   "m": "EXACT"
+  },
+  {
+   "t": "procore descargar",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetydocs",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguro ats",
+   "m": "EXACT"
+  },
+  {
+   "t": "antea trabajador app",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "portal prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "wwwgeovictoria",
+   "m": "EXACT"
+  },
+  {
+   "t": "como implementar protocolos minsal",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk manager solution",
+   "m": "EXACT"
+  },
+  {
+   "t": "kuvanty",
+   "m": "EXACT"
+  },
+  {
+   "t": "checkingplan",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es una matriz iperc",
+   "m": "EXACT"
+  },
+  {
+   "t": "hse chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "hsec chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "normativas hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "zyght codelco",
+   "m": "EXACT"
+  },
+  {
+   "t": "zyght hseq technology",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz ipvr",
+   "m": "EXACT"
+  },
+  {
+   "t": "metodo fine para evaluacion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "como hacer un mapa de riesgos laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "normas hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "chemeter software",
+   "m": "EXACT"
+  },
+  {
+   "t": "software para auditores",
+   "m": "EXACT"
+  },
+  {
+   "t": "construcloud",
+   "m": "EXACT"
+  },
+  {
+   "t": "como evaluar un riesgo laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "sigdoc",
+   "m": "EXACT"
+  },
+  {
+   "t": "monitor de sso",
+   "m": "EXACT"
+  },
+  {
+   "t": "control y seguimiento",
+   "m": "EXACT"
+  },
+  {
+   "t": "análisis seguro de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "quioo",
+   "m": "EXACT"
+  },
+  {
+   "t": "osh systems",
+   "m": "EXACT"
+  },
+  {
+   "t": "simeon software",
+   "m": "EXACT"
+  },
+  {
+   "t": "smartosh",
+   "m": "EXACT"
+  },
+  {
+   "t": "brio team",
+   "m": "EXACT"
+  },
+  {
+   "t": "riskallay",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de seguridad en maquinas",
+   "m": "EXACT"
+  },
+  {
+   "t": "hqse",
+   "m": "EXACT"
+  },
+  {
+   "t": "como elaborar un plan de emergencia para una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "software hse gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "tazki",
+   "m": "PHRASE"
+  },
+  {
+   "t": "que es sgi en una empresa",
+   "m": "EXACT"
+  },
+  {
+   "t": "accimap software",
+   "m": "EXACT"
+  },
+  {
+   "t": "protocolos minsal chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "carpetas de arranque",
+   "m": "EXACT"
+  },
+  {
+   "t": "temas de charla de seguridad de 5 minutos",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de seguridad para demolicion",
+   "m": "EXACT"
+  },
+  {
+   "t": "monitoreo de obras",
+   "m": "EXACT"
+  },
+  {
+   "t": "registro de prevencionistas de riesgos chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "gremio prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "piramide de prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "my pass global",
+   "m": "EXACT"
+  },
+  {
+   "t": "voolks",
+   "m": "EXACT"
+  },
+  {
+   "t": "alcumus ecompliance",
+   "m": "EXACT"
+  },
+  {
+   "t": "risk programa",
+   "m": "EXACT"
+  },
+  {
+   "t": "como conformar un comite paritario",
+   "m": "EXACT"
+  },
+  {
+   "t": "como realizar un procedimiento de trabajo seguro",
+   "m": "EXACT"
+  },
+  {
+   "t": "mela works",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es un sistema de gestion en prevencion de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "evotix",
+   "m": "EXACT"
+  },
+  {
+   "t": "buk asistencia",
+   "m": "EXACT"
+  },
+  {
+   "t": "paso a paso para implementar el sg sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de trabajo preventivo",
+   "m": "EXACT"
+  },
+  {
+   "t": "prosemeh",
+   "m": "EXACT"
+  },
+  {
+   "t": "snap compliance",
+   "m": "EXACT"
+  },
+  {
+   "t": "safeia",
+   "m": "EXACT"
+  },
+  {
+   "t": "software iconstruye",
+   "m": "EXACT"
+  },
+  {
+   "t": "software pesv",
+   "m": "EXACT"
+  },
+  {
+   "t": "lista de comprobación",
+   "m": "EXACT"
+  },
+  {
+   "t": "proyecpro",
+   "m": "EXACT"
+  },
+  {
+   "t": "migtra",
+   "m": "EXACT"
+  },
+  {
+   "t": "nueva vision hseq",
+   "m": "EXACT"
+  },
+  {
+   "t": "sercol",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety clutter",
+   "m": "EXACT"
+  },
+  {
+   "t": "software batería de riesgo psicosocial gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "sigweb",
+   "m": "EXACT"
+  },
+  {
+   "t": "integriapps",
+   "m": "EXACT"
+  },
+  {
+   "t": "datalaing maprex",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio de epp",
+   "m": "EXACT"
+  },
+  {
+   "t": "agencia de protección de datos personales chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "buk control de asistencia",
+   "m": "EXACT"
+  },
+  {
+   "t": "metodo meseri",
+   "m": "EXACT"
+  },
+  {
+   "t": "como hacer un ats de seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "software para seguimiento de acuerdos",
+   "m": "EXACT"
+  },
+  {
+   "t": "sylogi software",
+   "m": "EXACT"
+  },
+  {
+   "t": "hseq international sas",
+   "m": "EXACT"
+  },
+  {
+   "t": "puntoseguro cl",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetyqube",
+   "m": "EXACT"
+  },
+  {
+   "t": "planilla control de epp",
+   "m": "EXACT"
+  },
+  {
+   "t": "siclope",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergofellow",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es un sistema de gestión de sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "zigth",
+   "m": "EXACT"
+  },
+  {
+   "t": "www temporis",
+   "m": "EXACT"
+  },
+  {
+   "t": "support brigades",
+   "m": "EXACT"
+  },
+  {
+   "t": "carpetas de arranque prevencion",
+   "m": "EXACT"
+  },
+  {
+   "t": "seguridad electrica en la industria",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa de salud ocupacional excel",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es un sistema integrado de gestion sig",
+   "m": "EXACT"
+  },
+  {
+   "t": "informe de gestion seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "zkteco software lite",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio de epp por puesto de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema sgcs",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de gestion de ruido",
+   "m": "EXACT"
+  },
+  {
+   "t": "software de ergonomía gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "achs gestion",
+   "m": "PHRASE"
+  },
+  {
+   "t": "matriz de riesgos aseo y limpieza excel",
+   "m": "EXACT"
+  },
+  {
+   "t": "probabilidad y severidad del riesgo",
+   "m": "EXACT"
+  },
+  {
+   "t": "metodos ergonomicos para evaluacion puestos trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz mosler",
+   "m": "EXACT"
+  },
+  {
+   "t": "dashboard seguridad y salud en el trabajo xls gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "metodo reba aplicacion",
+   "m": "EXACT"
+  },
+  {
+   "t": "sofydia",
+   "m": "EXACT"
+  },
+  {
+   "t": "taski app",
+   "m": "EXACT"
+  },
+  {
+   "t": "zhygt",
+   "m": "EXACT"
+  },
+  {
+   "t": "ssst download",
+   "m": "EXACT"
+  },
+  {
+   "t": "dashboard sst gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "descargar carpeta de arranque prevención",
+   "m": "EXACT"
+  },
+  {
+   "t": "inteligencia artificial na segurança do trabalho",
+   "m": "EXACT"
+  },
+  {
+   "t": "sofidya",
+   "m": "EXACT"
+  },
+  {
+   "t": "planilla de ats",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergoniza",
+   "m": "EXACT"
+  },
+  {
+   "t": "preuso",
+   "m": "EXACT"
+  },
+  {
+   "t": "next prl",
+   "m": "EXACT"
+  },
+  {
+   "t": "smart osh",
+   "m": "EXACT"
+  },
+  {
+   "t": "briqsafe",
+   "m": "EXACT"
+  },
+  {
+   "t": "hsetools",
+   "m": "EXACT"
+  },
+  {
+   "t": "induccion hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "temporis cl",
+   "m": "EXACT"
+  },
+  {
+   "t": "puresafety lms",
+   "m": "EXACT"
+  },
+  {
+   "t": "planilla de investigacion de accidentes laborales",
+   "m": "EXACT"
+  },
+  {
+   "t": "widu digital",
+   "m": "EXACT"
+  },
+  {
+   "t": "reglamento interno de higiene y seguridad menos de 10 trabajadores",
+   "m": "EXACT"
+  },
+  {
+   "t": "riskmann",
+   "m": "EXACT"
+  },
+  {
+   "t": "legajo tecnico de seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz legal de higiene y seguridad excel",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema bizneo",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetymind",
+   "m": "EXACT"
+  },
+  {
+   "t": "dgp seguridad y salud",
+   "m": "EXACT"
+  },
+  {
+   "t": "wiiprot",
+   "m": "PHRASE"
+  },
+  {
+   "t": "implementación del sistema de gestión",
+   "m": "PHRASE"
+  },
+  {
+   "t": "como hacer una carpeta de seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "personal hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "plataforma sigea",
+   "m": "EXACT"
+  },
+  {
+   "t": "estandares hse",
+   "m": "EXACT"
+  },
+  {
+   "t": "resiliere",
+   "m": "EXACT"
+  },
+  {
+   "t": "6conecta opiniones",
+   "m": "EXACT"
+  },
+  {
+   "t": "passt seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "safety mantis",
+   "m": "EXACT"
+  },
+  {
+   "t": "mvd quality",
+   "m": "EXACT"
+  },
+  {
+   "t": "charlas integrales de prevención de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "notificaciones de riesgos",
+   "m": "EXACT"
+  },
+  {
+   "t": "formulario planilla de capacitacion higiene y seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "tareo de personal de obra",
+   "m": "EXACT"
+  },
+  {
+   "t": "icam seguridad",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestion de ausentismo laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "megaprevencion",
+   "m": "PHRASE"
+  },
+  {
+   "t": "genesis sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "sobereye",
+   "m": "EXACT"
+  },
+  {
+   "t": "esginnova isotools",
+   "m": "EXACT"
+  },
+  {
+   "t": "hoja de riesgo laboral",
+   "m": "EXACT"
+  },
+  {
+   "t": "iec risk assessment calculator descargar",
+   "m": "EXACT"
+  },
+  {
+   "t": "wiiprot net",
+   "m": "EXACT"
+  },
+  {
+   "t": "registro de pausas activas",
+   "m": "EXACT"
+  },
+  {
+   "t": "carpeta de arranque prevención de riesgos chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "iswo software",
+   "m": "EXACT"
+  },
+  {
+   "t": "kority",
+   "m": "EXACT"
+  },
+  {
+   "t": "ingecal chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "defontana excel",
+   "m": "EXACT"
+  },
+  {
+   "t": "seglico software",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es prax",
+   "m": "EXACT"
+  },
+  {
+   "t": "que es tazki",
+   "m": "PHRASE"
+  },
+  {
+   "t": "simeon ips",
+   "m": "EXACT"
+  },
+  {
+   "t": "sisobox",
+   "m": "EXACT"
+  },
+  {
+   "t": "6 conecta app",
+   "m": "EXACT"
+  },
+  {
+   "t": "ds 44 chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "tazki cl",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistemas de reportes",
+   "m": "EXACT"
+  },
+  {
+   "t": "sistema de gestion silice",
+   "m": "EXACT"
+  },
+  {
+   "t": "tazki app",
+   "m": "EXACT"
+  },
+  {
+   "t": "tazki app descargar",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergoia",
+   "m": "EXACT"
+  },
+  {
+   "t": "como codificar documentos del sgsst",
+   "m": "EXACT"
+  },
+  {
+   "t": "sisgro",
+   "m": "EXACT"
+  },
+  {
+   "t": "evaluacion puesto de trabajo ergonomia",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio ergonomico del puesto de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "ehs apryma",
+   "m": "EXACT"
+  },
+  {
+   "t": "implementacion protocolo psicosocial",
+   "m": "EXACT"
+  },
+  {
+   "t": "isolegal",
+   "m": "EXACT"
+  },
+  {
+   "t": "taskiapp com",
+   "m": "EXACT"
+  },
+  {
+   "t": "de fontana app",
+   "m": "EXACT"
+  },
+  {
+   "t": "safe align",
+   "m": "EXACT"
+  },
+  {
+   "t": "rld gestion integral",
+   "m": "EXACT"
+  },
+  {
+   "t": "qpsuite",
+   "m": "EXACT"
+  },
+  {
+   "t": "certificado iso 45005 y seguridad minera",
+   "m": "EXACT"
+  },
+  {
+   "t": "cetapp go",
+   "m": "EXACT"
+  },
+  {
+   "t": "nexcel contratistas",
+   "m": "EXACT"
+  },
+  {
+   "t": "alerta prevencion cl",
+   "m": "EXACT"
+  },
+  {
+   "t": "gesamseo",
+   "m": "EXACT"
+  },
+  {
+   "t": "inteligencia artificial para sst gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "programa para bitacoras",
+   "m": "EXACT"
+  },
+  {
+   "t": "prevenx",
+   "m": "EXACT"
+  },
+  {
+   "t": "scan ehs",
+   "m": "EXACT"
+  },
+  {
+   "t": "quickpass chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "sofsalud 360 seyso",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de riesgos laborales para personas trabajadoras",
+   "m": "EXACT"
+  },
+  {
+   "t": "mapa de riesgos ds 44",
+   "m": "EXACT"
+  },
+  {
+   "t": "trino 360",
+   "m": "EXACT"
+  },
+  {
+   "t": "capsulas de seguridad y salud en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "isometrix aurora",
+   "m": "EXACT"
+  },
+  {
+   "t": "egenya",
+   "m": "EXACT"
+  },
+  {
+   "t": "planning p3",
+   "m": "EXACT"
+  },
+  {
+   "t": "ds 44 2025",
+   "m": "EXACT"
+  },
+  {
+   "t": "esginnova",
+   "m": "PHRASE"
+  },
+  {
+   "t": "ukg wfm kronos scm gr",
+   "m": "EXACT"
+  },
+  {
+   "t": "sauce plataforma sgsst",
+   "m": "EXACT"
+  },
+  {
+   "t": "control de alcohol y drogas en el trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "indicadores sst excel gratis",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetygpt",
+   "m": "EXACT"
+  },
+  {
+   "t": "protex ia",
+   "m": "EXACT"
+  },
+  {
+   "t": "aplicaciones para hacer reportes de trabajo",
+   "m": "EXACT"
+  },
+  {
+   "t": "zimexa",
+   "m": "PHRASE"
+  },
+  {
+   "t": "prevencion10 e",
+   "m": "EXACT"
+  },
+  {
+   "t": "estudio de linea base del sistema gestión de la sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "elssa 2.0",
+   "m": "EXACT"
+  },
+  {
+   "t": "genesis app sst",
+   "m": "EXACT"
+  },
+  {
+   "t": "fivosh",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestionprevencion",
+   "m": "PHRASE"
+  },
+  {
+   "t": "programa anual ssoma",
+   "m": "EXACT"
+  },
+  {
+   "t": "2workers app",
+   "m": "EXACT"
+  },
+  {
+   "t": "gestobras",
+   "m": "EXACT"
+  },
+  {
+   "t": "taski app download",
+   "m": "EXACT"
+  },
+  {
+   "t": "matriz legal sst 2026",
+   "m": "EXACT"
+  },
+  {
+   "t": "iso consultores chile",
+   "m": "EXACT"
+  },
+  {
+   "t": "sisibox",
+   "m": "EXACT"
+  },
+  {
+   "t": "ergoniza software",
+   "m": "EXACT"
+  },
+  {
+   "t": "genesis seguridad e higiene",
+   "m": "EXACT"
+  },
+  {
+   "t": "fractal programa de mantenimiento",
+   "m": "EXACT"
+  },
+  {
+   "t": "twins io",
+   "m": "EXACT"
+  },
+  {
+   "t": "novara flex",
+   "m": "EXACT"
+  },
+  {
+   "t": "ds 44 actualizado",
+   "m": "EXACT"
+  },
+  {
+   "t": "safetymantis",
+   "m": "EXACT"
+  },
+  {
+   "t": "smart qhse",
+   "m": "EXACT"
+  },
+  {
+   "t": "guia mipyme",
+   "m": "EXACT"
+  },
+  {
+   "t": "inteliap",
+   "m": "EXACT"
   },
   {
-   "root": "curso",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "www tazki cl",
+   "m": "EXACT"
   },
   {
-   "root": "ejemplo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "matriz de requisitos legales sst 2026",
+   "m": "EXACT"
   },
   {
-   "root": "foco en obra",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "trir ltir",
+   "m": "EXACT"
   },
   {
-   "root": "geovictoria",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "guardian sst",
+   "m": "EXACT"
   },
   {
-   "root": "infocontrol",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "matriz iperc excel descargar",
+   "m": "EXACT"
   },
   {
-   "root": "iso 45001",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "focoprevencion",
+   "m": "PHRASE"
   },
   {
-   "root": "medicap",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "quien implementa",
+   "m": "PHRASE"
   },
   {
-   "root": "megaprevencion",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "metodologia gema",
+   "m": "PHRASE"
   },
   {
-   "root": "metodologia gema",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "tazkiapp",
+   "m": "PHRASE"
   },
   {
-   "root": "prevsis",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "programa de trabajo preventivo ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "programa preventivo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "megaprevencion cl",
+   "m": "EXACT"
   },
   {
-   "root": "pronexo",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "wappy ia sst",
+   "m": "EXACT"
   },
   {
-   "root": "que es",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "protocolo alcohol y drogas en el trabajo",
+   "m": "EXACT"
   },
   {
-   "root": "que es hseq",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "myper ssoma",
+   "m": "EXACT"
   },
   {
-   "root": "que es tazki",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "libro digital de obra",
+   "m": "EXACT"
   },
   {
-   "root": "safe culture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "racs en seguridad",
+   "m": "EXACT"
   },
   {
-   "root": "safety culture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "geny ia sst",
+   "m": "EXACT"
   },
   {
-   "root": "safetyculture",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "ergocheck pro",
+   "m": "EXACT"
   },
   {
-   "root": "sat contratista",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "programa passo",
+   "m": "EXACT"
   },
   {
-   "root": "seleria",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "matriz de elementos de protección personal excel",
+   "m": "EXACT"
   },
   {
-   "root": "subcontrataley",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "que es sistema hseq",
+   "m": "EXACT"
   },
   {
-   "root": "tutorial",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "como se llena un ats de trabajo",
+   "m": "EXACT"
   },
   {
-   "root": "woken",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "safetygpt pro",
+   "m": "EXACT"
   },
   {
-   "root": "word",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "cruz de seguridad excel gratis",
+   "m": "EXACT"
   },
   {
-   "root": "worklite",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "programa para hacer mapa de riesgos gratis",
+   "m": "EXACT"
   },
   {
-   "root": "zyght",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-11"
+   "t": "planilla ats seguridad e higiene",
+   "m": "EXACT"
   },
   {
-   "root": "auditoria trinorma",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "portal integrado para entidades empleadoras",
+   "m": "EXACT"
   },
   {
-   "root": "charlas de prevencion de riesgos",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "bpsystem",
+   "m": "PHRASE"
   },
   {
-   "root": "cmx1",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "asesoramiento hse",
+   "m": "EXACT"
   },
   {
-   "root": "control de alcohol y drogas en el trabajo",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "matriz de riesgos excel descargar ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "egenya",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "metodo meseri excel",
+   "m": "EXACT"
   },
   {
-   "root": "isometrix aurora",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "sober eye",
+   "m": "EXACT"
   },
   {
-   "root": "libro de obra digital",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "tazki que es",
+   "m": "EXACT"
   },
   {
-   "root": "moreapp",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "tarjeta stop seguridad industrial",
+   "m": "EXACT"
   },
   {
-   "root": "nexcel contratistas",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "gerenciadores de riesgos",
+   "m": "PHRASE"
   },
   {
-   "root": "programa de trabajo preventivo ds 44",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "she 360",
+   "m": "EXACT"
   },
   {
-   "root": "riskweb",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "ast documento",
+   "m": "EXACT"
   },
   {
-   "root": "safety management system",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "estandar operacional",
+   "m": "EXACT"
   },
   {
-   "root": "sap ehs",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "copasst es",
+   "m": "EXACT"
   },
   {
-   "root": "sigweb",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "sercol plataforma",
+   "m": "EXACT"
   },
   {
-   "root": "software para extintores",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "jsi job strain index",
+   "m": "EXACT"
   },
   {
-   "root": "tarjeta stop seguridad industrial",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "support brigades seguridad y salud en el trabajo",
+   "m": "EXACT"
   },
   {
-   "root": "zigth",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-22"
+   "t": "evopreven",
+   "m": "PHRASE"
   },
   {
-   "root": "bpsystem",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
+   "t": "cetap go",
+   "m": "EXACT"
   },
   {
-   "root": "cority",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
+   "t": "como hacer un informe de seguridad ocupacional",
+   "m": "EXACT"
   },
   {
-   "root": "eyrus",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
+   "t": "pignus chile",
+   "m": "EXACT"
   },
   {
-   "root": "lumiform",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
+   "t": "llenado correcto de ats",
+   "m": "EXACT"
   },
   {
-   "root": "zone safe",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-23"
+   "t": "jarvis sst",
+   "m": "EXACT"
   },
   {
-   "root": "consultoras",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
+   "t": "pasos para una inspeccion de seguridad",
+   "m": "EXACT"
   },
   {
-   "root": "ergosoft",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
+   "t": "eperce",
+   "m": "EXACT"
   },
   {
-   "root": "evopreven",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
+   "t": "iperc excel descargar",
+   "m": "EXACT"
   },
   {
-   "root": "tazkiapp",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
+   "t": "aplicacion protocolo psicosocial",
+   "m": "EXACT"
   },
   {
-   "root": "wiiprot",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-07-24"
+   "t": "control gauss",
+   "m": "EXACT"
   },
   {
-   "root": "focoprevencion",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-03"
+   "t": "como confeccionar un reglamento interno",
+   "m": "EXACT"
   },
   {
-   "root": "gratis",
-   "campanas": [
-    "Tazki - Marca - Search - v2",
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-03"
+   "t": "forwood safety plus",
+   "m": "EXACT"
   },
   {
-   "root": "bow tie",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "plade software",
+   "m": "PHRASE"
   },
   {
-   "root": "bowtie",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "dgp seguridad",
+   "m": "PHRASE"
   },
   {
-   "root": "descarga",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "trakion",
+   "m": "EXACT"
   },
   {
-   "root": "descargar",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "registro de difusion pts",
+   "m": "EXACT"
   },
   {
-   "root": "dgp seguridad",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "autoevaluacion ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "download",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "gesprev",
+   "m": "EXACT"
   },
   {
-   "root": "excel",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "identificación de peligro",
+   "m": "EXACT"
   },
   {
-   "root": "fracttal",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "matriz de riesgos 2026",
+   "m": "EXACT"
   },
   {
-   "root": "gerenciadores de riesgos",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "como llenar un iperc",
+   "m": "EXACT"
   },
   {
-   "root": "globalsuite",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "que es iper en seguridad",
+   "m": "EXACT"
   },
   {
-   "root": "istas 21",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "mercado equivocado"
+   "t": "reglamento interno de higiene y seguridad ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "laus",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "que debe contener un procedimiento de trabajo seguro",
+   "m": "EXACT"
   },
   {
-   "root": "pdf",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "protocolo trabajo en solitario",
+   "m": "EXACT"
   },
   {
-   "root": "plade software",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "sat contratista",
+   "m": "PHRASE"
   },
   {
-   "root": "plantilla",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "coeftrack",
+   "m": "EXACT"
   },
   {
-   "root": "prevencion 10",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "mercado equivocado"
+   "t": "gestionprevencion cl",
+   "m": "EXACT"
   },
   {
-   "root": "prevencion10",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "mercado equivocado"
+   "t": "gauss control chile",
+   "m": "EXACT"
   },
   {
-   "root": "propiedad horizontal",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "mercado equivocado"
+   "t": "programa comite paritario ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "softland",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "comité paritario de higiene y seguridad ds 44",
+   "m": "EXACT"
   },
   {
-   "root": "treyder",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "difusion miper",
+   "m": "EXACT"
   },
   {
-   "root": "urbicad",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "marca ajena"
+   "t": "sistema drops",
+   "m": "EXACT"
   },
   {
-   "root": "xls",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "que es sofidya",
+   "m": "EXACT"
   },
   {
-   "root": "xlsx",
-   "campanas": [
-    "Tazki - SST/HSEQ - Search"
-   ],
-   "fecha": "2026-08-09",
-   "motivo": "archivo/gratis"
+   "t": "kuvanty software",
+   "m": "EXACT"
   }
  ],
- "campanas_activas": [
-  "Tazki - Marca - Search - v2",
-  "Tazki - SST/HSEQ - Search"
- ],
- "nota": "Negativas en concordancia de frase. Base aplicada por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ); las posteriores se agregaron por API sobre SST/HSEQ. Al 9-ago-2026 la campaña SST/HSEQ tiene 462 negativas a nivel campaña.",
- "updated": "2026-08-09"
+ "_historico_previo": {
+  "updated": "2026-08-09",
+  "nota": "Negativas en concordancia de frase. Base aplicada por Diego el 11-jul-2026 en las campañas activas (Marca + SST/HSEQ); las posteriores se agregaron por API sobre SST/HSEQ. Al 9-ago-2026 la campaña SST/HSEQ tiene 462 negativas a nivel campaña.",
+  "detalle": [
+   {
+    "root": "como funciona",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "curso",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "ejemplo",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "foco en obra",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "geovictoria",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "infocontrol",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "iso 45001",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "medicap",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "megaprevencion",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "metodologia gema",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "prevsis",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "programa preventivo",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "pronexo",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "que es",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "que es hseq",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "que es tazki",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "safe culture",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "safety culture",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "safetyculture",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "sat contratista",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "seleria",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "subcontrataley",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "tutorial",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "woken",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "word",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "worklite",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "zyght",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-11"
+   },
+   {
+    "root": "auditoria trinorma",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "charlas de prevencion de riesgos",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "cmx1",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "control de alcohol y drogas en el trabajo",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "egenya",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "isometrix aurora",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "libro de obra digital",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "moreapp",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "nexcel contratistas",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "programa de trabajo preventivo ds 44",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "riskweb",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "safety management system",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "sap ehs",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "sigweb",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "software para extintores",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "tarjeta stop seguridad industrial",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "zigth",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-22"
+   },
+   {
+    "root": "bpsystem",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-23"
+   },
+   {
+    "root": "cority",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-23"
+   },
+   {
+    "root": "eyrus",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-23"
+   },
+   {
+    "root": "lumiform",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-23"
+   },
+   {
+    "root": "zone safe",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-23"
+   },
+   {
+    "root": "consultoras",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-24"
+   },
+   {
+    "root": "ergosoft",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-24"
+   },
+   {
+    "root": "evopreven",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-24"
+   },
+   {
+    "root": "tazkiapp",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-24"
+   },
+   {
+    "root": "wiiprot",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-07-24"
+   },
+   {
+    "root": "focoprevencion",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-03"
+   },
+   {
+    "root": "gratis",
+    "campanas": [
+     "Tazki - Marca - Search - v2",
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-03"
+   },
+   {
+    "root": "bow tie",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "bowtie",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "descarga",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "descargar",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "dgp seguridad",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "download",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "excel",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "fracttal",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "gerenciadores de riesgos",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "globalsuite",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "istas 21",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "mercado equivocado"
+   },
+   {
+    "root": "laus",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "pdf",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "plade software",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "plantilla",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "prevencion 10",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "mercado equivocado"
+   },
+   {
+    "root": "prevencion10",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "mercado equivocado"
+   },
+   {
+    "root": "propiedad horizontal",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "mercado equivocado"
+   },
+   {
+    "root": "softland",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "treyder",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "urbicad",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "marca ajena"
+   },
+   {
+    "root": "xls",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   },
+   {
+    "root": "xlsx",
+    "campanas": [
+     "Tazki - SST/HSEQ - Search"
+    ],
+    "fecha": "2026-08-09",
+    "motivo": "archivo/gratis"
+   }
+  ]
+ }
 }
