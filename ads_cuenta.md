@@ -503,3 +503,47 @@ LO QUE NO DEPENDE DE ESTE CAMPO Y SIGUE EN PIE:
 REGLA NUEVA PERMANENTE: antes de recomendar CUALQUIER accion basada en concordancia, confirmar contra la UI
 de Google Ads que el campo dice lo que se cree que dice. No pedirle a Diego que ejecute sobre un campo cuyo
 significado no se verifico.
+
+## Lo que SI muestra el dato: terminos de busqueda de SST (19-ago-2026, ventana 13-jul a 18-ago)
+
+CONFIRMADO EL ERROR DE LECTURA. Diego verifico en la UI: la unica keyword en concordancia AMPLIA activada
+es «plataforma hse». El campo `Matchtype` de Supermetrics devuelve valores `broad`, `phrase`,
+`phrase (close variant)`, `exact`, `exact (close variant)` y `AI Max` -> es la concordancia con que calzo
+la BUSQUEDA, no la concordancia con que esta cargada la keyword. Queda cerrado: no habia amplias que pausar.
+
+EL DATO REAL. Terminos de busqueda de SST/HSEQ con costo en la ventana: 132 terminos, 156 clics, $251.230,
+3,33 conversiones. Clasificados:
+  RELEVANTE .............................. 73 terminos ·  96 clics · $179.661 · 3,00 conv · 72% del gasto
+  COMPETENCIA (nombres de otros software)  31 terminos ·  31 clics · $ 45.289 · 0    conv · 18%
+  INFORMACIONAL (no compra) .............. 10 terminos ·  11 clics · $  7.802 · 0    conv ·  3%
+  BUSCA GRATIS ...........................  7 terminos ·   7 clics · $  7.137 · 0,33 conv ·  3%
+  SERVICIO/CONSULTORIA (no software) .....  5 terminos ·   5 clics · $  6.142 · 0    conv ·  2%
+  FUERA DE TEMA ..........................  4 terminos ·   4 clics · $  4.464 · 0    conv ·  2%
+  MARCA PROPIA mal escrita ...............  2 terminos ·   2 clics · $    734 · 0    conv
+  FUGA TOTAL: $70.834 = 28% del gasto con termino reportado.
+
+CRUCE CONTRA LAS NEGATIVAS YA APLICADAS (ads_negatives.json, 462 a nivel campana):
+  YA BLOQUEADAS ... 22 terminos · $32.330 — el gasto es ANTERIOR a la negativa (sigweb 22-jul, zone safe
+    23-jul, egenya/riskweb/bpsystem/eyrus/lumiform jul, urbicad 9-ago, familia «gratis» 3-ago, «excel» y
+    «descarga» 9-ago, «que es» 11-jul, «consultoras» 24-jul). Esa plata ya esta detenida. SIN ACCION.
+  NO BLOQUEADAS AUN ... 35 terminos · $38.504 <- ESTA es la lista accionable.
+
+NOTA SOBRE EL TIPO DE ARGUMENTO: aca el n por termino es 1 clic y no importa. El argumento no es
+estadistico sino semantico: quien busca «intelex» busca a un competidor por su nombre, no a Tazki. Eso no
+necesita volumen para decidirse. Es lo contrario del error del recorte por keyword, donde si se necesitaba n.
+
+LIMITACION QUE HAY QUE DECIR: los 132 terminos cubren 156 de los 596 clics de SST ($251.230 de $992.360).
+Google no reporta el termino de la mayoria de los clics. Sobre ese 74% restante NO se puede afirmar nada.
+
+TAMANO REAL DEL AHORRO: $38.504 en 5 semanas = ~$7.700/semana = 3,9% del gasto de SST. Es modesto. Su
+merito es que es gratis, no toca pujas ni presupuesto, y no hay que esperar al 30-sep.
+
+HALLAZGO SEPARADO — AI MAX ESTA ACTIVO en SST. Aparece como valor de concordancia en 7 terminos,
+9 clics, $9.472, CERO conversiones (ds 44 actualizado, programa de prevencion de riesgos, sistemas de
+seguridad industrial, registro de difusion pts, programa de prevencion de riesgos ds 44, empresas
+consultoras, servicio de sst). Es expansion automatica de Google mas alla de las keywords. Solo se
+registra como observacion; apagarlo es una decision aparte y no se recomienda todavia con 9 clics.
+
+HALLAZGO SEPARADO — MARCA PROPIA PAGADA POR SST. «taski app» ($371) y «tazki app» ($363) los esta pagando
+la campana SST via keywords genericas, a CPC de SST ($1.665) en vez del CPC de Marca ($562). Marca ya
+tiene «tazki app» en frase. Negativizar «taski» y «tazki» EN SST los ruta a Marca a un tercio del precio.
