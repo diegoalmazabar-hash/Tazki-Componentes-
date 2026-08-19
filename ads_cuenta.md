@@ -386,3 +386,52 @@ HALLAZGO 5 - OJO CON EL VEREDICTO DEL 31-AGO. La keyword estrella tiene QS 1 per
 ARITMETICA DE LA OPORTUNIDAD: las 6 keywords que convierten rinden $26.972/MQL. Si el gasto total de
   SST se concentrara en ellas al mismo rendimiento, serian ~36 MQL en vez de 16 con la misma plata.
   Es un techo teorico (al concentrar sube el CPC), pero marca el tamano del problema.
+
+## PLAN DE ACCION derivado de los hallazgos (19-ago-2026) — lo que Diego debe hacer
+
+Restricciones que respeta este plan: tope US$1.000 (no sube el gasto total), NO se toca la puja hasta
+despues del 30-sep, NO se aplica la recomendacion de "CPA objetivo" de Google.
+
+ACCION 1 (hoy, 10 min) — PAUSAR 5 keywords sin ninguna conversion en 5 semanas. Campana SST/HSEQ.
+  1. plataforma prevencion de riesgos ................ FRASE  ... $77.740
+  2. software de prevencion de riesgos laborales ..... AMPLIA ... $64.502
+  3. sistema gestion seguridad laboral ............... FRASE  ... $62.153
+  4. sistema de gestion de seguridad y salud en el trabajo ... AMPLIA ... $50.133  (ojo: la AMPLIA, NO la de frase)
+  5. software hse .................................... FRASE  ... $42.392  (CPC $3.854, el mas caro)
+  Total liberado: $296.920 en 5 semanas = ~$59.400/semana = ~$8.500/dia.
+  Como: Google Ads > Campana SST/HSEQ > Palabras clave > seleccionar las 5 > Editar > Pausar.
+  PAUSAR, NUNCA ELIMINAR (eliminar borra el historial y no se puede volver atras).
+
+ACCION 2 (hoy, 5 min) — PAUSAR el resto de las AMPLIAS de SST, con UNA excepcion.
+  Todas las broad menos "plataforma hse". Esa se queda: 3 MQL a $17.139, el conversor mas barato.
+  Las demas broad duplican keywords que ya corren en frase y le roban las impresiones a la version
+  que si convierte (hallazgo 3).
+
+ACCION 3 (hoy, 2 min) — REASIGNAR presupuesto entre campanas. No es aumento, es traslado.
+  SST/HSEQ: $24.000/dia -> $20.000/dia
+  Marca:    $ 4.000/dia -> $ 8.000/dia
+  Total diario: $28.000, exactamente el mismo de hoy. El tope de US$1.000 no se mueve.
+  Por que: Marca cuesta $26.873/MQL contra $62.023 de SST (2,3x mas barata) y pierde el 50,8% de sus
+  busquedas por falta de presupuesto.
+  CAVEAT HONESTO: son busquedas de marca; parte de esos clics llegarian igual por organico. No es MQL
+  incremental garantizado. COMO SE MIDE: anotar hoy en la bitacora el trafico organico de marca y los
+  MQL de Marca; al 2-sep comparar. Si los MQL totales suben, fue incremental; si solo bajo el organico,
+  fue canibalizacion y se devuelve el presupuesto.
+
+ACCION 4 — LO QUE NO SE TOCA.
+  - La keyword estrella (frase): produce 6 de los 16 MQL a $29.889. Tiene QS 1 pero es el mejor conversor.
+  - "plataforma hse" (amplia): el MQL mas barato de la cuenta.
+  - Las pujas y la estrategia de puja: congeladas hasta despues del 30-sep.
+  - Los eventos de conversion siguen en SECUNDARIO.
+
+ACCION 5 (antes del 31-ago, con Felipe) — REESCRIBIR el umbral comprometido.
+  El compromiso original apuntaba a sacar la keyword estrella por QS 1. Los datos la muestran como el
+  mejor conversor de la cuenta. Redaccion propuesta para el 31-ago:
+  "El veredicto sobre la keyword estrella se toma por COSTO POR MQL, no por Quality Score. Se mantiene
+  mientras su costo por MQL este por debajo del promedio de la campana SST ($62.023). Hoy esta en
+  $29.889, menos de la mitad."
+
+MEDICION: revisar el 2-sep-2026 (2 semanas despues). Metrica que decide: costo por MQL de SST/HSEQ y
+  MQL totales de la cuenta. Hipotesis (NO dato): con el gasto concentrado en las keywords que si
+  convierten, SST deberia bajar de $62.023 a algo entre $35.000 y $45.000 por MQL. Es una estimacion,
+  no una promesa: al concentrar el gasto suben los CPC y el volumen de las buenas tiene techo.

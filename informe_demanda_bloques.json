@@ -1,297 +1,316 @@
 {
- "_regla_0_los_informes_de_diego_mandan": {
-  "regla": "Los informes guardados de HubSpot de Diego son la FUENTE DE VERDAD del Plan. Dicho por el 10-ago-2026: «mi informe es tu informe». Ningun panel puede contradecirlos.",
-  "que_hacer": "Antes de publicar cualquier panel nuevo, verificar que sus totales cuadren con el informe de Diego que cubre ese universo. Si no cuadran, NO se publica: primero se cambia la consulta para reproducir su definicion.",
-  "error_del_10_ago_2026": "Se publico un panel de «MQLs segun la primera pagina» contando CONTACTOS que entraron a Marketing Qualified Lead (may 4 / jun 30 / jul 52 / ago 14). Diego lo comparo con su informe «Inbounds - Mensual», que cuenta NEGOCIOS (1 / 25 / 47 / 15) y no calzaba. Se rehizo sobre negocios inbound con la definicion oficial de inbounds_config.json y quedo exacto: 1 / 25 / 47 / 13 al corte del 9.",
-  "leccion": "Objeto distinto = numero distinto. Contacto que llega a MQL != negocio inbound creado. Si el Plan muestra los dos, se leen como una contradiccion aunque ambos esten bien.",
-  "desfase_normal": "El informe de Diego llega hasta hoy; el Plan corta el dia anterior. Agosto puede decir 15 en su pantalla y 13 en el Plan sin que nada este mal. Declararlo siempre."
- },
- "_regla_1_grabar_todo_cambio": "REGLA PERMANENTE (Diego, 17-ago-2026): TODO cambio que se acuerde con Diego — criterio de medición, orden de bloques, columnas o filas nuevas, umbrales, definiciones — se graba EN EL MISMO MOMENTO en los archivos de configuración del repo (este JSON, inbounds_config.json, embudo_config.json, seo_config.json, ads_cuenta.md) con fecha y quién lo pidió. El repo es la única memoria que sobrevive entre sesiones (la carpeta de skills ya se borró 3 veces). Un cambio aplicado al HTML pero no grabado aquí NO existe: la próxima corrida lo va a deshacer. Regla de oro: primero graba el criterio, después publica el Plan.",
- "_lee_esto_primero": "Estructura acordada de los 9 bloques del informe «Plan de Generación de Demanda» (artefacto privado de Claude). Definida con Diego el 27-jul-2026. Si el informe se regenera, tiene que quedar con ESTA estructura, no con la anterior. Las definiciones de datos viven en inbounds_config.json, embudo_config.json y seo_config.json. — Desde el 18-ago-2026 se suman tres bloques: 10 Motivos de pérdida, 11 Salud del pipeline, 12 AEO (carga manual). El _diccionario_de_medicion_14_ago_2026 manda sobre cualquier definición vieja.",
- "bloque_1_inbounds": {
-  "titulo": "Inbounds · mes a mes",
-  "subtitulo": "— por Latest Source [i], igual que tu informe de HubSpot",
-  "definicion": "ver inbounds_config.json",
-  "tablas": [
-   "mensual desde mayo 2026",
-   "semanal lunes a domingo, últimas 8 semanas"
-  ],
-  "_fila_valor_uf_17_ago_2026": "Pedido de Diego (17-ago): las tablas mensual y semanal de inbounds llevan una fila «Valor (UF/mes)» = SUM(amount) de los negocios de cada columna con amount IS NOT NULL (mismo universo del bloque: pipeline default + latest_source conocido, por createdate). Las UF del CRM son MENSUALES. SQL: SELECT DATE_TRUNC(createdate,'MONTH'|'WEEK'), SUM(amount), COUNT(*) ... AND amount IS NOT NULL GROUP BY ... Declarar SIEMPRE la cobertura (cuántos de los inbounds tienen valor cargado) y que las semanas recientes se leen a la baja porque el valor se carga cuando el negocio avanza. Los datos van en D.inbUF {m:[...], w:[...]} y la fila la pinta un bloque JS tras las llamadas a monthTable."
- },
- "bloque_2_embudo_y_calidad": {
-  "titulo": "Embudo y Conversión",
-  "definicion": "ver embudo_config.json (listas 970 SEO y 968 SEM)",
-  "tablas": [
-   "Embudo SEM vs SEO: Inbounds · Meeting Set · Qualified Opp. · Perdidos",
-   "CALIDAD = MATRIZ DE CAMADAS. Filas = mes de creación. Columnas = mes de cierre. Cada celda dice cuántos se ganaron y cuántos se perdieron ESE mes. Más columnas 'Sin cerrar' y '% conv'. NO es un resumen por mes: Diego lo pidió explícitamente como matriz para seguir cada camada en el tiempo.",
-   "PRODUCTIVIDAD por mes de cierre: ganó · perdió · % conv"
-  ],
-  "mapeo_de_etapas": {
-   "gano": [
-    "1294334986 (Audit)",
-    "closedlost (etiquetado «Closed Won », con espacio final)"
-   ],
-   "churn": "1287744033 — convirtió y después se fue. Columna aparte, NO suma a perdido.",
-   "perdio": [
-    "1233212743 (Closed Lost)",
-    "1233115675 (Lost, pipeline Lead Generation)"
-   ],
-   "en_proceso": "todo el resto",
-   "onboarding": "1287744035 NO cuenta como ganado. Los negocios del pipeline «Clientes» son DUPLICADOS de los de ventas (mismo cliente en ambos); contarlos infla los ganados.",
-   "audit_esta_vacia": "Al 27-jul-2026 la etapa Audit no tiene ningún negocio en todo el portal. Se cuenta igual por decisión de Diego, pero hoy el ganado lo aporta entero Closed Won.",
-   "formula_conversion": "ganó / (ganó + perdió) — los que siguen en proceso no castigan el porcentaje"
+  "_regla_0_los_informes_de_diego_mandan": {
+    "regla": "Los informes guardados de HubSpot de Diego son la FUENTE DE VERDAD del Plan. Dicho por el 10-ago-2026: «mi informe es tu informe». Ningun panel puede contradecirlos.",
+    "que_hacer": "Antes de publicar cualquier panel nuevo, verificar que sus totales cuadren con el informe de Diego que cubre ese universo. Si no cuadran, NO se publica: primero se cambia la consulta para reproducir su definicion.",
+    "error_del_10_ago_2026": "Se publico un panel de «MQLs segun la primera pagina» contando CONTACTOS que entraron a Marketing Qualified Lead (may 4 / jun 30 / jul 52 / ago 14). Diego lo comparo con su informe «Inbounds - Mensual», que cuenta NEGOCIOS (1 / 25 / 47 / 15) y no calzaba. Se rehizo sobre negocios inbound con la definicion oficial de inbounds_config.json y quedo exacto: 1 / 25 / 47 / 13 al corte del 9.",
+    "leccion": "Objeto distinto = numero distinto. Contacto que llega a MQL != negocio inbound creado. Si el Plan muestra los dos, se leen como una contradiccion aunque ambos esten bien.",
+    "desfase_normal": "El informe de Diego llega hasta hoy; el Plan corta el dia anterior. Agosto puede decir 15 en su pantalla y 13 en el Plan sin que nada este mal. Declararlo siempre."
   },
-  "nota_obligatoria": "SEM tiene ~8 Meeting Set en el año: cada negocio mueve la conversión ~12 puntos. Declararlo siempre al lado del número.",
-  "matriz_camadas_como_traer_los_datos": "RESUELTO el 10-ago-2026. La consulta paginaba de a 25 y era impracticable; la solución es agregar LIMIT 500 al SQL: `SELECT createdate, dealstage, hs_v2_date_entered_1294334986, hs_v2_date_entered_closedlost, hs_v2_date_entered_1233212743, hs_v2_date_entered_1233115675, hs_v2_date_entered_1287744033 FROM DEAL WHERE hs_crm_search.ilsListIds = '970' LIMIT 500` (y lo mismo con 968). Devuelve todo de una. Si el resultado excede el límite de tokens se guarda solo en archivo, que es lo ideal: procesarlo con python sin cargarlo al contexto. Camada = mes de createdate; el mes de desenlace sale del hs_v2_date_entered_* de la etapa terminal. OJO: reproducir las listas con hs_analytics_source NO sirve (da 177 y 12 contra 170 y 16): tienen criterios extra.",
-  "definicion_gano_camadas": "CORREGIDO el 17-ago-2026 por Diego (reemplaza la definición del 10-ago). La matriz de camadas usa el UNIVERSO DEL DICCIONARIO: todos los negocios con dealtype='Inbound' y pipeline='default' creados en 2026 (251 al corte 16-ago) — NO las listas 970/968, que no ven 3 de los 8 ganados (SOFTYS por ChatGPT, Ollagua y Ranco Cherries por carga manual). Ganó = etapa actual 'closedlost' (etiquetada «Closed Won») · Perdió = etapa actual 1233212743 · mes de desenlace = closedate (hora Chile) · % conv = ganó ÷ (ganó + perdió). Así Camadas y Productividad salen del mismo dataset y ambas dan 8 ganados · 157 perdidos = 4,85%. El EMBUDO SEM vs SEO sigue sobre las listas 970/968 (su pregunta es por canal). SQL: SELECT createdate, dealstage, hs_v2_date_entered_closedlost, hs_v2_date_entered_1233212743 FROM DEAL WHERE dealtype='Inbound' AND pipeline='default' AND createdate BETWEEN '2026-01-01' AND '2026-12-31' LIMIT 500 (resultado a archivo, procesar con python; closedate viene solo en las properties).",
-  "_historial_definicion_camadas": "10-ago: ganó = ingreso a Onboarding sobre las listas (daba 5). 17-ago: Diego pidió que la matriz muestre los 8 del diccionario → universo completo + Closed Won. La versión con listas quedó obsoleta."
- },
- "bloque_3_sem_ranking": {
-  "titulo": "SEM · Puja y ranking",
-  "regla": "Impression share y sus dos pérdidas se ponderan por impresiones ELEGIBLES (impresiones ÷ impression share), nunca promediando días. Control: las 3 métricas suman ~100%."
- },
- "bloque_5_ads_conversiones": {
-  "regla": "Contar SOLO ConversionTypeName = 'HubSpot - Marketing Qualified Lead'. EXCLUIR 'TechSol - formulario web 48078' (dispara al apretar Enviar sin esperar confirmación; pasó a secundaria el 27-jul-2026). Si aparece TechSol, declararla aparte, nunca sumada.",
-  "limitacion_api": "Google Ads rechaza la consulta si se pide ConversionTypeName junto con Impressions. Van en dos consultas separadas."
- },
- "bloque_6_seo": {
-  "definicion": "ver seo_config.json",
-  "tablas": [
-   "mes a mes",
-   "semana a semana lun-dom",
-   "palabras nuevas semana a semana",
-   "nuevas con su primer clic",
-   "a recuperar",
-   "25 keywords a trabajar"
-  ],
-  "popups": {
-   "que_son": "En la tabla «Palabras clave nuevas · semana a semana», los números de nuevas / +impresiones / +clics / −impresiones / −clics llevan un popup en hover con el listado de términos.",
-   "como_se_arma": "Cada entrada de KWNEW puede traer un campo `pop` con {nuevas, subimp, bajimp, subclk, bajclk}, cada uno una lista de strings ordenada por magnitud del cambio. La función pop(n, list, titulo) del propio HTML envuelve el número; si no hay lista devuelve el número pelado.",
-   "cuantas_semanas": "Solo las 2 semanas más recientes llevan listas, con tope de 60 términos cada una. Guardar las 12 semanas engordaría el archivo sin uso real.",
-   "css": "Las clases .pop / .pw ya están en el <style> del informe."
-  },
-  "nombre_de_la_metrica": "En metas se llama «Palabras distintas que trajeron clics» (queries con ≥1 clic). NO son los clics totales. Diego se confundió con eso el 27-jul: no volver a rotularla «Keywords con clics».",
-  "paneles_eliminados_9_ago_2026": "Diego pidió el 10-ago-2026 sacar DOS tarjetas del bloque SEO y NO recrearlas: (1) «Nuevas que trajeron su primer clic (pincha una semana)» y (2) «🎯 A recuperar · última semana». Motivo: ninguna de las dos se estaba refrescando en las corridas y quedaban congeladas en la semana del 20–26 jul, y la información de palabras nuevas ya está en la tabla «Palabras clave nuevas · semana a semana», que sí se actualiza y muestra los términos al pasar el mouse. Se eliminaron también sus renderizadores; el const KWNEW se mantiene porque alimenta esa tabla. Si alguna vuelve, tiene que venir con su refresco garantizado en cada corrida."
- },
- "bloque_7_contenido": {
-  "titulo": "Contenido · blog, recursos y casos",
-  "subtitulo": "— semana a semana · medido por HubSpot",
-  "cambio_del_27_jul": "Antes era solo un total anual del blog + top 5. Diego pidió verlo SEMANA A SEMANA e incluir las páginas de Recursos y Casos de éxito, no solo artículos de blog.",
-  "tabla_semanal": "Columnas: Semana · Blog · Recursos · Casos de éxito · Total · Envíos · Leads. El ranking acumulado del año se mantiene debajo.",
-  "fuente": "HubSpot get_content_analytics_report, modo TIME_SERIES period DAILY sobre los IDs de los contenidos publicados (blog + recursos + casos), agrupado en Python por semana lunes–domingo. NO uses period WEEKLY: corta domingo–sábado y no es configurable.",
-  "semana_parcial": "La última fila es la semana en curso y va marcada 'parcial · N de 7 días', contando desde el lunes.",
-  "semanas": "LUNES A DOMINGO. Cambiado el 9-ago-2026 a pedido de Diego: unifica el Plan entero en una sola convención de semana. ESTA REGLA MANDA SOBRE EL PROMPT DE LA RUTINA, que todavía describe semanas DOM–SÁB en el bloque 7; si el prompt dice DOM–SÁB, ignóralo y usa lunes–domingo.",
-  "como_armar_las_semanas": "NO uses el modo WEEKLY de get_content_analytics_report: HubSpot corta de domingo a sábado y no se puede cambiar. Pide la serie DIARIA (TIME_SERIES period DAILY) sobre los grupos de IDs (blog, recursos, casos) y agrupa tú en Python por semana lunes–domingo. Es el mismo patrón que ya se usa en SEO por la regla 5 de seo_config.json.",
-  "fila_en_curso": "La semana en curso se marca parcial con los días transcurridos desde el LUNES: lunes = 1 de 7, domingo = 7 de 7. El verificador plan_check.py valida esto (regla 4) y ya está alineado.",
-  "ojo_al_migrar": "La primera corrida con la convención nueva debe REHACER toda la tabla semanal histórica, no solo agregar la fila nueva: las semanas viejas están cortadas DOM–SÁB y sus totales cambian al recortarlas de nuevo. Si no se rehace, la serie queda mezclando dos convenciones.",
-  "informes_de_hubspot_de_diego": {
-   "_nota": "Diego pasó estos informes el 10-ago-2026 y dijo: «ES CLAVE QUE SAQUES LA INFO DE AQUI». No hay API para leer un informe guardado por id: hay que reproducir su lógica con las herramientas de abajo.",
-   "342944748_primera_pagina_de_los_mql": {
-    "que_mide": "Primera página vista de los contactos que llegaron a MQL. Sirve para ver qué contenido abre la puerta.",
-    "como_reproducirlo": "query_crm_data: SELECT hs_object_id, hs_v2_date_entered_marketingqualifiedlead, hs_analytics_first_url, hs_analytics_source, hs_analytics_first_referrer FROM CONTACT WHERE hs_v2_date_entered_marketingqualifiedlead BETWEEN '2026-01-01' AND '<corte>' LIMIT 500. El resultado se guarda en archivo: procesar con python.",
-    "buckets": "home (tazki.cl a secas) · soluciones (/soluciones* y soluciones.tazki.cl) · contenido (/blog/, /recursos, casos-de-exito, la URL antigua nueva-irl) · contacto (contactanos, meetings.hubspot, recibimos-tu-solicitud) · otras",
-    "ojo": "«primera página vista» es la primerísima visita, puede ser meses antes de calificar. No es atribución de la conversión."
-   },
-   "344302745_visitas_mensuales_blog": {
-    "que_mide": "Visitas mensuales del blog con desglose por artículo. Diego lo quiere mensual Y semanal, con total y por artículo.",
-    "como_reproducirlo": "get_content_analytics_report. TOTALS con limit alto + includeMetadata para el inventario y el acumulado por contenido; SUMMARY con period=DAILY y contentIds del grupo para la serie diaria, que se agrupa en python de LUNES A DOMINGO; SUMMARY con period=MONTHLY para los meses.",
-    "por_que_SUMMARY_y_no_TIME_SERIES": "TIME_SERIES devuelve un punto por contenido y por día (enorme). SUMMARY agrega el grupo entero en un punto por día: mismo dato, 10x menos texto."
-   },
-   "344302572_y_343051073_trafico_por_fuente": {
-    "que_mide": "Desglose por fuente de sesion de las paginas /soluciones y del blog, semanal y mensual.",
-    "resuelto_el_10_ago_2026": "Se saca de GOOGLE ANALYTICS 4 via Supermetrics (ds GAWA, cuenta 540969557 'Tazki-Web').",
-    "receta": "data_query(ds_id='GAWA', ds_accounts='540969557', fields='date,landingPage,sessionDefaultChannelGrouping,sessions,screenPageViews', date_range_type='custom', ...). SIN filtros. El resultado se guarda en archivo (~78k) y se agrupa en python por seccion y por semana lunes-domingo.",
-    "trampa_del_filtro": "El parametro filters con 'landingPage =~ ^/blog' NO funciona como regex anclada: devuelve solo las filas cuyo landingPage es exactamente /blog. NO usar filters aca; traer todo y filtrar en python.",
-    "grupos": "blog = ^/blog/ (articulos, sin la portada /blog) · recursos = ^/recursos/ · casos = ^/casos-de-exito/ · soluciones = ^/soluciones · industrias = ^/industrias",
-    "limite_importante": "La propiedad GA4 EMPIEZA A MEDIR EL 7 DE JULIO DE 2026. No hay historia anterior. Declararlo siempre.",
-    "no_mezclar": "GA4 entrega SESIONES; HubSpot entrega VISUALIZACIONES. No sumar ni comparar entre tablas. GA4 para el reparto por fuente, HubSpot para el volumen.",
-    "por_que_no_HSCA": "El conector HubSpot Content Analytics (HSCA) se conecto el 10-ago pero la licencia de Supermetrics (Team tazki - Plan Starter, 1831548) no lo incluye: devuelve 'not available in your license'. Ademas su dimension 'source' solo existe en el report_type 'sources', que es a nivel sitio y NO se puede cruzar con paginas. O sea, ni pagando resolveria el cruce fuente x pagina.",
-    "alternativa_gratis_pendiente": "un token de private app de HubSpot permitiria la API v2 de analytics; el token se perdio en el reinicio del contenedor del 9-ago."
-   },
-   "344302532_por_industrias": {
-    "que_mide": "Trafico de las paginas /industrias/*, por fuente.",
-    "resuelto_el_10_ago_2026": "Mismo camino que el de arriba (GA4, grupo ^/industrias).",
-    "paginas_y_sesiones_7jul_9ago": "mineria 15, logistica 10, construccion 8, manufactura 5, servicios-basicos 5, gestion-multisucursal 3",
-    "hallazgo": "46 sesiones en cinco semanas y la mayoria por trafico DIRECTO, no por busqueda: son paginas que existen pero que Google todavia no muestra."
-   }
-  },
-  "que_se_cuenta_como_contenido": {
-   "incluye": "solo piezas: artículos de blog (incluida la URL antigua del IRL, tazki.cl/nueva-irl-...), el recurso DS 44 (216048041479) con su landing de e-book (214800158050), y los casos (216185175900, 216648025162 y la URL antigua tazki.cl/como-falabella-...).",
-   "excluye": "páginas índice /blog, /recursos, /casos-de-exito y sus copias en 50744593.hs-sites.com — son navegación, no lectura. Incluirlas infla «casos» 6 veces.",
-   "ids_al_10_ago_2026": {
-    "blog": [
-     "216048041317 IRL/DS44",
-     "216648024605 Inspecciones",
-     "216648005673 AST",
-     "216607598644 Inducciones",
-     "tazki.cl/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion (URL antigua del IRL)"
+  "_regla_1_grabar_todo_cambio": "REGLA PERMANENTE (Diego, 17-ago-2026): TODO cambio que se acuerde con Diego — criterio de medición, orden de bloques, columnas o filas nuevas, umbrales, definiciones — se graba EN EL MISMO MOMENTO en los archivos de configuración del repo (este JSON, inbounds_config.json, embudo_config.json, seo_config.json, ads_cuenta.md) con fecha y quién lo pidió. El repo es la única memoria que sobrevive entre sesiones (la carpeta de skills ya se borró 3 veces). Un cambio aplicado al HTML pero no grabado aquí NO existe: la próxima corrida lo va a deshacer. Regla de oro: primero graba el criterio, después publica el Plan.",
+  "_lee_esto_primero": "Estructura acordada de los 9 bloques del informe «Plan de Generación de Demanda» (artefacto privado de Claude). Definida con Diego el 27-jul-2026. Si el informe se regenera, tiene que quedar con ESTA estructura, no con la anterior. Las definiciones de datos viven en inbounds_config.json, embudo_config.json y seo_config.json. — Desde el 18-ago-2026 se suman tres bloques: 10 Motivos de pérdida, 11 Salud del pipeline, 12 AEO (carga manual). El _diccionario_de_medicion_14_ago_2026 manda sobre cualquier definición vieja.",
+  "bloque_1_inbounds": {
+    "titulo": "Inbounds · mes a mes",
+    "subtitulo": "— por Latest Source [i], igual que tu informe de HubSpot",
+    "definicion": "ver inbounds_config.json",
+    "tablas": [
+      "mensual desde mayo 2026",
+      "semanal lunes a domingo, últimas 8 semanas"
     ],
-    "recursos": [
-     "216048041479 DS 44 un año y medio después",
-     "214800158050 E-book DS 44 (landing)"
+    "_fila_valor_uf_17_ago_2026": "Pedido de Diego (17-ago): las tablas mensual y semanal de inbounds llevan una fila «Valor (UF/mes)» = SUM(amount) de los negocios de cada columna con amount IS NOT NULL (mismo universo del bloque: pipeline default + latest_source conocido, por createdate). Las UF del CRM son MENSUALES. SQL: SELECT DATE_TRUNC(createdate,'MONTH'|'WEEK'), SUM(amount), COUNT(*) ... AND amount IS NOT NULL GROUP BY ... Declarar SIEMPRE la cobertura (cuántos de los inbounds tienen valor cargado) y que las semanas recientes se leen a la baja porque el valor se carga cuando el negocio avanza. Los datos van en D.inbUF {m:[...], w:[...]} y la fila la pinta un bloque JS tras las llamadas a monthTable."
+  },
+  "bloque_2_embudo_y_calidad": {
+    "titulo": "Embudo y Conversión",
+    "definicion": "ver embudo_config.json (listas 970 SEO y 968 SEM)",
+    "tablas": [
+      "Embudo SEM vs SEO: Inbounds · Meeting Set · Qualified Opp. · Perdidos",
+      "CALIDAD = MATRIZ DE CAMADAS. Filas = mes de creación. Columnas = mes de cierre. Cada celda dice cuántos se ganaron y cuántos se perdieron ESE mes. Más columnas 'Sin cerrar' y '% conv'. NO es un resumen por mes: Diego lo pidió explícitamente como matriz para seguir cada camada en el tiempo.",
+      "PRODUCTIVIDAD por mes de cierre: ganó · perdió · % conv"
     ],
-    "casos": [
-     "216185175900 80 sucursales",
-     "216648025162 Falabella 326 días",
-     "tazki.cl/como-falabella-retail-logro-ahorrar-326-dias-de-trabajo-con-tazki (URL antigua)"
-    ]
-   },
-   "ojo_duplicados": "el inventario trae la home dos veces (contentId 215559935410 «Inicio» y contentId de texto «tazki.cl/»). No sumar ambas."
+    "mapeo_de_etapas": {
+      "gano": [
+        "1294334986 (Audit)",
+        "closedlost (etiquetado «Closed Won », con espacio final)"
+      ],
+      "churn": "1287744033 — convirtió y después se fue. Columna aparte, NO suma a perdido.",
+      "perdio": [
+        "1233212743 (Closed Lost)",
+        "1233115675 (Lost, pipeline Lead Generation)"
+      ],
+      "en_proceso": "todo el resto",
+      "onboarding": "1287744035 NO cuenta como ganado. Los negocios del pipeline «Clientes» son DUPLICADOS de los de ventas (mismo cliente en ambos); contarlos infla los ganados.",
+      "audit_esta_vacia": "Al 27-jul-2026 la etapa Audit no tiene ningún negocio en todo el portal. Se cuenta igual por decisión de Diego, pero hoy el ganado lo aporta entero Closed Won.",
+      "formula_conversion": "ganó / (ganó + perdió) — los que siguen en proceso no castigan el porcentaje"
+    },
+    "nota_obligatoria": "SEM tiene ~8 Meeting Set en el año: cada negocio mueve la conversión ~12 puntos. Declararlo siempre al lado del número.",
+    "matriz_camadas_como_traer_los_datos": "RESUELTO el 10-ago-2026. La consulta paginaba de a 25 y era impracticable; la solución es agregar LIMIT 500 al SQL: `SELECT createdate, dealstage, hs_v2_date_entered_1294334986, hs_v2_date_entered_closedlost, hs_v2_date_entered_1233212743, hs_v2_date_entered_1233115675, hs_v2_date_entered_1287744033 FROM DEAL WHERE hs_crm_search.ilsListIds = '970' LIMIT 500` (y lo mismo con 968). Devuelve todo de una. Si el resultado excede el límite de tokens se guarda solo en archivo, que es lo ideal: procesarlo con python sin cargarlo al contexto. Camada = mes de createdate; el mes de desenlace sale del hs_v2_date_entered_* de la etapa terminal. OJO: reproducir las listas con hs_analytics_source NO sirve (da 177 y 12 contra 170 y 16): tienen criterios extra.",
+    "definicion_gano_camadas": "CORREGIDO el 17-ago-2026 por Diego (reemplaza la definición del 10-ago). La matriz de camadas usa el UNIVERSO DEL DICCIONARIO: todos los negocios con dealtype='Inbound' y pipeline='default' creados en 2026 (251 al corte 16-ago) — NO las listas 970/968, que no ven 3 de los 8 ganados (SOFTYS por ChatGPT, Ollagua y Ranco Cherries por carga manual). Ganó = etapa actual 'closedlost' (etiquetada «Closed Won») · Perdió = etapa actual 1233212743 · mes de desenlace = closedate (hora Chile) · % conv = ganó ÷ (ganó + perdió). Así Camadas y Productividad salen del mismo dataset y ambas dan 8 ganados · 157 perdidos = 4,85%. El EMBUDO SEM vs SEO sigue sobre las listas 970/968 (su pregunta es por canal). SQL: SELECT createdate, dealstage, hs_v2_date_entered_closedlost, hs_v2_date_entered_1233212743 FROM DEAL WHERE dealtype='Inbound' AND pipeline='default' AND createdate BETWEEN '2026-01-01' AND '2026-12-31' LIMIT 500 (resultado a archivo, procesar con python; closedate viene solo en las properties).",
+    "_historial_definicion_camadas": "10-ago: ganó = ingreso a Onboarding sobre las listas (daba 5). 17-ago: Diego pidió que la matriz muestre los 8 del diccionario → universo completo + Closed Won. La versión con listas quedó obsoleta."
   },
-  "_columna_ia_17_ago_2026": "Pedido de Diego (17-ago): la tabla «Tráfico por fuente · sesiones por sección» lleva columna «IA» separada = canal 'AI Assistant' de GA4 (ChatGPT/Gemini/Perplexity), que antes se sumaba en «Otras». «Otras» queda solo con cross-network y unassigned. Además va una tarjeta con el total de sesiones IA de TODO el sitio (incluye home y landings de pago, que no son secciones de la tabla) y dónde aterrizan. Serie: julio (desde el 7) = 11 · agosto al 16 = 23. Es la tercera pata AEO junto al bloque 12 (visibilidad por prompt, carga manual) y los negocios con fuente «Referencias de IA»."
- },
- "bloque_9_bitacora": {
-  "fuente_sem": "El historial REAL de Google Ads: campaign_and_resource_get resource_type='history' sobre la cuenta 3766426817. No lo que recuerde el modelo de conversaciones pasadas.",
-  "dos_listas": "platform_change_list trae los cambios con hora y autor pero sin valores; supermetrics_change_list trae menos entradas pero con los valores viejo/nuevo.",
-  "ojo_con_el_autor": "Los cambios que entran por la conexión de Supermetrics NO figuran con el correo de Diego: Google los registra con la identidad de la cuenta que autorizó la conexión (un Gmail). NO es un acceso externo. Verificado el 27-jul-2026 cruzando las horas con offset Chile = UTC−4. No volver a levantar esa falsa alarma.",
-  "rezago": "El historial de Google llega con 1 o 2 días de atraso. Decirlo en la nota en vez de dejar el hueco sin explicar."
- },
- "historial": {
-  "2026-07-27": "Creado tras una revisión completa con Diego: se alinearon inbounds, embudo, calidad y SEO a sus propios informes y listas de HubSpot, se corrigió la unidad de Clarity, se pasó el contenido a semanal y se agregaron los popups de keywords.",
-  "2026-07-30": "Se agrega la regla de la tabla de metas: «mes anterior» = mes calendario real, no corte previo.",
-  "2026-07-30 (2)": "Se agrega la regla de números críticos: origen visible + verificación doble + mes en curso para Ads.",
-  "2026-08-09": "Se unifica todo el Plan a semanas lunes–domingo (antes el bloque 7 de contenido iba domingo–sábado por cómo corta HubSpot). La tabla semanal de contenido pasa a armarse desde la serie diaria. Se actualiza también plan_check.py, que validaba la fila parcial contra semanas domingo–sábado.",
-  "2026-08-10": "Se eliminan del bloque SEO las tarjetas «Nuevas que trajeron su primer clic» y «A recuperar», que no se refrescaban. Se corrige además el texto fósil «Julio va parcial al 22» en la nota de verificación de SEO.",
-  "2026-08-10 (2)": "Matriz de camadas reconstruida desde las listas completas: 186 negocios, 5 ganados, 109 perdidos, 72 abiertos, 4,4% de conversión.",
-  "2026-08-10 (3)": "Matriz de camadas recalculada con «ganó = fecha de ingreso a Onboarding». 186 negocios · 5 ganados · 109 perdidos · 72 abiertos · 4,4%. Cambia la mejor camada: pasa a ser julio (11,1%), no abril. Se descartó Active porque ningún negocio de las listas tiene esa fecha."
- },
- "tabla_de_metas": {
-  "regla_mes_anterior": "La columna «Mes anterior» lleva el valor REAL del mes calendario anterior, NUNCA el corte anterior del propio informe. El 30-jul-2026 se publicó 22% como «mes anterior» del % de pago cuando junio real era 16% (4 de 25): era el valor de julio medido dos días antes. Diego lo detectó. No repetir.",
-  "controles_mes_junio_2026": {
-   "pct_inbounds_pago": "16% (4 de 25)",
-   "kw_no_marca_con_clics": 9,
-   "posicion_media_no_marca": 8.4
+  "bloque_3_sem_ranking": {
+    "titulo": "SEM · Puja y ranking",
+    "regla": "Impression share y sus dos pérdidas se ponderan por impresiones ELEGIBLES (impresiones ÷ impression share), nunca promediando días. Control: las 3 métricas suman ~100%."
   },
-  "metricas_acumuladas": "Las conversiones SEM/SEO y la pérdida son acumuladas del año: ahí «mes anterior» no existe y se usa el corte anterior DECLARÁNDOLO en una nota al pie (ya agregada al artefacto)."
- },
- "numeros_criticos": {
-  "_que_es": "Acordado con Diego el 30-jul-2026. Estos números se usan para decisiones de plata: van BLINDADOS. Aplica a todo informe, panel, artefacto y mensaje de chat.",
-  "lista": [
-   "% de inbounds de pago (Latest Source)",
-   "Conversión SEM (lista 968) y Conversión SEO (lista 970)",
-   "Gasto de Google Ads (mes en curso, no 30 días rodantes)",
-   "MQL nuevos (fecha_mql)"
-  ],
-  "regla_1_origen_visible": "NUNCA publicar el número pelado. Siempre con su desglose de origen al lado: «9 de 45», «10 agendaron y 4 avanzaron», «$X del 1 al N de <mes>». Un porcentaje solo miente en silencio; un «4 de 25» se verifica en 10 segundos.",
-  "regla_2_verificacion_doble": "Antes de publicar, recalcular el número desde la fuente con una consulta independiente (ej: contar total y contar pago por separado, y verificar que la división da el porcentaje publicado). Si las dos vías no cuadran, NO publicar y avisar a Diego.",
-  "regla_3_ventana": "Google Ads se reporta por MES EN CURSO (1 del mes a hoy) y campañas activas en los últimos días, nunca 30 días rodantes: la ventana rodante arrastra el estado de antes de los ajustes de Diego y muestra problemas ya resueltos."
- },
- "bitacora_seguimiento": {
-  "_que_es": "Regla acordada con Diego el 31-jul-2026: cada acción de la bitácora se sigue hasta saber si funcionó. No basta anotar lo que se hizo; hay que volver a medirlo.",
-  "regla_1_toda_accion_lleva_medicion": "Toda acción nueva que entre a la bitácora DEBE llevar su bloque de medición: métrica concreta (m), valor de antes (a), estado (st) y fecha de próxima lectura (n). Si una acción no tiene métrica medible, se anota igual pero se dice explícitamente 'sin métrica de seguimiento'.",
-  "regla_2_actualizar_en_cada_refresco": "En cada refresco del plan (lunes, miércoles y viernes), revisar TODAS las mediciones con estado 'midiendo' cuya fecha de lectura ya llegó: consultar el dato real (Search Console, Ads, HubSpot o Clarity según corresponda), escribir el valor de después (d) y cambiar el estado.",
-  "regla_3_estados": [
-   "midiendo (aún sin lectura)",
-   "ok (mejoró como se esperaba)",
-   "sin efecto (no se movió; decidir si se insiste o se descarta)",
-   "empeoró (revisar y avisar a Diego)"
-  ],
-  "regla_4_honestidad": "El estado sale del dato real, nunca de la expectativa. Si el dato aún no alcanza para concluir (ej: Google no ha recorrido los enlaces), se mantiene 'midiendo' y se corre la fecha de lectura, diciéndolo.",
-  "en_medicion_al_31_jul": [
-   {
-    "accion": "Título y meta del artículo IRL reescritos (28-jul)",
-    "metrica": "CTR no-marca del artículo",
-    "lectura": "2026-08-03"
-   },
-   {
-    "accion": "Redirección 301 de MIPER + enlaces desde artículo IRL (28-jul)",
-    "metrica": "posición de /soluciones/miper en 'miper'",
-    "lectura": "2026-08-03"
-   },
-   {
-    "accion": "AMP desactivado (28-jul)",
-    "metrica": "impresiones de la copia AMP (esperado: 0)",
-    "lectura": "2026-08-03"
-   },
-   {
-    "accion": "Botón demo del artículo IRL arreglado (28-jul)",
-    "metrica": "envíos de formulario desde el artículo",
-    "lectura": "2026-08-03"
-   },
-   {
-    "accion": "Enlazado de los 5 artículos FUF (31-jul)",
-    "metrica": "posición e impresiones del clúster FUF",
-    "lectura": "2026-08-03"
-   }
-  ],
-  "regla_5_una_metrica_por_cambio": "Acordado el 9-ago-2026 (Diego delegó la decisión). Cuando hay varios cambios encima de la MISMA campaña, no se leen todos con la misma métrica: a cada cambio se le asigna la métrica que ese cambio buscaba mover, y si dos cambios comparten métrica se declara efecto COMBINADO sin atribuir a ninguno. Motivo: entre el 1 y el 9 de agosto se apilaron tres cambios sobre Tazki - SST/HSEQ - Search (extensiones el 1, anuncio SGSST el 6, 23 negativas el 9) y el CTR dejó de ser atribuible. OJO TÉCNICO: agregar negativas SUBE el CTR por aritmética — saca impresiones malas del denominador — así que después del 9-ago el CTR de SST/HSEQ ya no sirve para juzgar ni las extensiones ni el anuncio.",
-  "plan_de_lectura_ads_ago_2026": {
-   "_decidido": "9-ago-2026. Diego delegó la decisión sobre cómo leer las mediciones de Ads que quedaron encimadas.",
-   "extensiones_1_ago": {
-    "metrica": "CTR",
-    "lectura_limpia_en": "Tazki - Marca - Search - v2 (única campaña sin otros cambios encima)",
-    "ventanas": "2 al 9 ago vs 24 al 31 jul (8 días contra 8 días, contiguas y de igual largo)",
-    "en_sst_hseq": "NO atribuir. Se informa el CTR como movimiento combinado de los tres cambios, con sus fechas.",
-    "lectura": "2026-08-10"
-   },
-   "anuncio_sgsst_6_ago": {
-    "metrica": "Quality Score de la keyword 'sistema de gestión de seguridad y salud en el trabajo' (antes 1/10) y CPA de la campaña",
-    "por_que_no_ctr": "El CTR de SST/HSEQ quedó contaminado por extensiones y negativas. La QS es lo que el cambio buscaba mover y no la afectan las negativas.",
-    "ojo": "Google tarda 2 a 3 semanas en recalcular la QS.",
-    "lectura": "2026-08-17"
-   },
-   "negativas_9_ago": {
-    "metrica": "porcentaje del gasto que se va en términos irrelevantes (competencia, archivo/gratis, mercado equivocado) y CPA",
-    "como": "reporte de términos de búsqueda cruzado contra ads_negatives.json; comparar la semana 10-16 ago contra la del 2-8 ago",
-    "lectura": "2026-08-17"
-   },
-   "regla_hacia_adelante": "Si hay una medición abierta sobre una campaña, no apilar otro cambio encima salvo que sea urgente. Si igual hay que hacerlo, anotarlo acá y reasignar las métricas antes de tocar la cuenta."
+  "bloque_5_ads_conversiones": {
+    "regla": "Contar SOLO ConversionTypeName = 'HubSpot - Marketing Qualified Lead'. EXCLUIR 'TechSol - formulario web 48078' (dispara al apretar Enviar sin esperar confirmación; pasó a secundaria el 27-jul-2026). Si aparece TechSol, declararla aparte, nunca sumada.",
+    "limitacion_api": "Google Ads rechaza la consulta si se pide ConversionTypeName junto con Impressions. Van en dos consultas separadas."
+  },
+  "bloque_6_seo": {
+    "definicion": "ver seo_config.json",
+    "tablas": [
+      "mes a mes",
+      "semana a semana lun-dom",
+      "palabras nuevas semana a semana",
+      "nuevas con su primer clic",
+      "a recuperar",
+      "25 keywords a trabajar"
+    ],
+    "popups": {
+      "que_son": "En la tabla «Palabras clave nuevas · semana a semana», los números de nuevas / +impresiones / +clics / −impresiones / −clics llevan un popup en hover con el listado de términos.",
+      "como_se_arma": "Cada entrada de KWNEW puede traer un campo `pop` con {nuevas, subimp, bajimp, subclk, bajclk}, cada uno una lista de strings ordenada por magnitud del cambio. La función pop(n, list, titulo) del propio HTML envuelve el número; si no hay lista devuelve el número pelado.",
+      "cuantas_semanas": "Solo las 2 semanas más recientes llevan listas, con tope de 60 términos cada una. Guardar las 12 semanas engordaría el archivo sin uso real.",
+      "css": "Las clases .pop / .pw ya están en el <style> del informe."
+    },
+    "nombre_de_la_metrica": "En metas se llama «Palabras distintas que trajeron clics» (queries con ≥1 clic). NO son los clics totales. Diego se confundió con eso el 27-jul: no volver a rotularla «Keywords con clics».",
+    "paneles_eliminados_9_ago_2026": "Diego pidió el 10-ago-2026 sacar DOS tarjetas del bloque SEO y NO recrearlas: (1) «Nuevas que trajeron su primer clic (pincha una semana)» y (2) «🎯 A recuperar · última semana». Motivo: ninguna de las dos se estaba refrescando en las corridas y quedaban congeladas en la semana del 20–26 jul, y la información de palabras nuevas ya está en la tabla «Palabras clave nuevas · semana a semana», que sí se actualiza y muestra los términos al pasar el mouse. Se eliminaron también sus renderizadores; el const KWNEW se mantiene porque alimenta esa tabla. Si alguna vuelve, tiene que venir con su refresco garantizado en cada corrida."
+  },
+  "bloque_7_contenido": {
+    "titulo": "Contenido · blog, recursos y casos",
+    "subtitulo": "— semana a semana · medido por HubSpot",
+    "cambio_del_27_jul": "Antes era solo un total anual del blog + top 5. Diego pidió verlo SEMANA A SEMANA e incluir las páginas de Recursos y Casos de éxito, no solo artículos de blog.",
+    "tabla_semanal": "Columnas: Semana · Blog · Recursos · Casos de éxito · Total · Envíos · Leads. El ranking acumulado del año se mantiene debajo.",
+    "fuente": "HubSpot get_content_analytics_report, modo TIME_SERIES period DAILY sobre los IDs de los contenidos publicados (blog + recursos + casos), agrupado en Python por semana lunes–domingo. NO uses period WEEKLY: corta domingo–sábado y no es configurable.",
+    "semana_parcial": "La última fila es la semana en curso y va marcada 'parcial · N de 7 días', contando desde el lunes.",
+    "semanas": "LUNES A DOMINGO. Cambiado el 9-ago-2026 a pedido de Diego: unifica el Plan entero en una sola convención de semana. ESTA REGLA MANDA SOBRE EL PROMPT DE LA RUTINA, que todavía describe semanas DOM–SÁB en el bloque 7; si el prompt dice DOM–SÁB, ignóralo y usa lunes–domingo.",
+    "como_armar_las_semanas": "NO uses el modo WEEKLY de get_content_analytics_report: HubSpot corta de domingo a sábado y no se puede cambiar. Pide la serie DIARIA (TIME_SERIES period DAILY) sobre los grupos de IDs (blog, recursos, casos) y agrupa tú en Python por semana lunes–domingo. Es el mismo patrón que ya se usa en SEO por la regla 5 de seo_config.json.",
+    "fila_en_curso": "La semana en curso se marca parcial con los días transcurridos desde el LUNES: lunes = 1 de 7, domingo = 7 de 7. El verificador plan_check.py valida esto (regla 4) y ya está alineado.",
+    "ojo_al_migrar": "La primera corrida con la convención nueva debe REHACER toda la tabla semanal histórica, no solo agregar la fila nueva: las semanas viejas están cortadas DOM–SÁB y sus totales cambian al recortarlas de nuevo. Si no se rehace, la serie queda mezclando dos convenciones.",
+    "informes_de_hubspot_de_diego": {
+      "_nota": "Diego pasó estos informes el 10-ago-2026 y dijo: «ES CLAVE QUE SAQUES LA INFO DE AQUI». No hay API para leer un informe guardado por id: hay que reproducir su lógica con las herramientas de abajo.",
+      "342944748_primera_pagina_de_los_mql": {
+        "que_mide": "Primera página vista de los contactos que llegaron a MQL. Sirve para ver qué contenido abre la puerta.",
+        "como_reproducirlo": "query_crm_data: SELECT hs_object_id, hs_v2_date_entered_marketingqualifiedlead, hs_analytics_first_url, hs_analytics_source, hs_analytics_first_referrer FROM CONTACT WHERE hs_v2_date_entered_marketingqualifiedlead BETWEEN '2026-01-01' AND '<corte>' LIMIT 500. El resultado se guarda en archivo: procesar con python.",
+        "buckets": "home (tazki.cl a secas) · soluciones (/soluciones* y soluciones.tazki.cl) · contenido (/blog/, /recursos, casos-de-exito, la URL antigua nueva-irl) · contacto (contactanos, meetings.hubspot, recibimos-tu-solicitud) · otras",
+        "ojo": "«primera página vista» es la primerísima visita, puede ser meses antes de calificar. No es atribución de la conversión."
+      },
+      "344302745_visitas_mensuales_blog": {
+        "que_mide": "Visitas mensuales del blog con desglose por artículo. Diego lo quiere mensual Y semanal, con total y por artículo.",
+        "como_reproducirlo": "get_content_analytics_report. TOTALS con limit alto + includeMetadata para el inventario y el acumulado por contenido; SUMMARY con period=DAILY y contentIds del grupo para la serie diaria, que se agrupa en python de LUNES A DOMINGO; SUMMARY con period=MONTHLY para los meses.",
+        "por_que_SUMMARY_y_no_TIME_SERIES": "TIME_SERIES devuelve un punto por contenido y por día (enorme). SUMMARY agrega el grupo entero en un punto por día: mismo dato, 10x menos texto."
+      },
+      "344302572_y_343051073_trafico_por_fuente": {
+        "que_mide": "Desglose por fuente de sesion de las paginas /soluciones y del blog, semanal y mensual.",
+        "resuelto_el_10_ago_2026": "Se saca de GOOGLE ANALYTICS 4 via Supermetrics (ds GAWA, cuenta 540969557 'Tazki-Web').",
+        "receta": "data_query(ds_id='GAWA', ds_accounts='540969557', fields='date,landingPage,sessionDefaultChannelGrouping,sessions,screenPageViews', date_range_type='custom', ...). SIN filtros. El resultado se guarda en archivo (~78k) y se agrupa en python por seccion y por semana lunes-domingo.",
+        "trampa_del_filtro": "El parametro filters con 'landingPage =~ ^/blog' NO funciona como regex anclada: devuelve solo las filas cuyo landingPage es exactamente /blog. NO usar filters aca; traer todo y filtrar en python.",
+        "grupos": "blog = ^/blog/ (articulos, sin la portada /blog) · recursos = ^/recursos/ · casos = ^/casos-de-exito/ · soluciones = ^/soluciones · industrias = ^/industrias",
+        "limite_importante": "La propiedad GA4 EMPIEZA A MEDIR EL 7 DE JULIO DE 2026. No hay historia anterior. Declararlo siempre.",
+        "no_mezclar": "GA4 entrega SESIONES; HubSpot entrega VISUALIZACIONES. No sumar ni comparar entre tablas. GA4 para el reparto por fuente, HubSpot para el volumen.",
+        "por_que_no_HSCA": "El conector HubSpot Content Analytics (HSCA) se conecto el 10-ago pero la licencia de Supermetrics (Team tazki - Plan Starter, 1831548) no lo incluye: devuelve 'not available in your license'. Ademas su dimension 'source' solo existe en el report_type 'sources', que es a nivel sitio y NO se puede cruzar con paginas. O sea, ni pagando resolveria el cruce fuente x pagina.",
+        "alternativa_gratis_pendiente": "un token de private app de HubSpot permitiria la API v2 de analytics; el token se perdio en el reinicio del contenedor del 9-ago."
+      },
+      "344302532_por_industrias": {
+        "que_mide": "Trafico de las paginas /industrias/*, por fuente.",
+        "resuelto_el_10_ago_2026": "Mismo camino que el de arriba (GA4, grupo ^/industrias).",
+        "paginas_y_sesiones_7jul_9ago": "mineria 15, logistica 10, construccion 8, manufactura 5, servicios-basicos 5, gestion-multisucursal 3",
+        "hallazgo": "46 sesiones en cinco semanas y la mayoria por trafico DIRECTO, no por busqueda: son paginas que existen pero que Google todavia no muestra."
+      }
+    },
+    "que_se_cuenta_como_contenido": {
+      "incluye": "solo piezas: artículos de blog (incluida la URL antigua del IRL, tazki.cl/nueva-irl-...), el recurso DS 44 (216048041479) con su landing de e-book (214800158050), y los casos (216185175900, 216648025162 y la URL antigua tazki.cl/como-falabella-...).",
+      "excluye": "páginas índice /blog, /recursos, /casos-de-exito y sus copias en 50744593.hs-sites.com — son navegación, no lectura. Incluirlas infla «casos» 6 veces.",
+      "ids_al_10_ago_2026": {
+        "blog": [
+          "216048041317 IRL/DS44",
+          "216648024605 Inspecciones",
+          "216648005673 AST",
+          "216607598644 Inducciones",
+          "tazki.cl/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion (URL antigua del IRL)"
+        ],
+        "recursos": [
+          "216048041479 DS 44 un año y medio después",
+          "214800158050 E-book DS 44 (landing)"
+        ],
+        "casos": [
+          "216185175900 80 sucursales",
+          "216648025162 Falabella 326 días",
+          "tazki.cl/como-falabella-retail-logro-ahorrar-326-dias-de-trabajo-con-tazki (URL antigua)"
+        ]
+      },
+      "ojo_duplicados": "el inventario trae la home dos veces (contentId 215559935410 «Inicio» y contentId de texto «tazki.cl/»). No sumar ambas."
+    },
+    "_columna_ia_17_ago_2026": "Pedido de Diego (17-ago): la tabla «Tráfico por fuente · sesiones por sección» lleva columna «IA» separada = canal 'AI Assistant' de GA4 (ChatGPT/Gemini/Perplexity), que antes se sumaba en «Otras». «Otras» queda solo con cross-network y unassigned. Además va una tarjeta con el total de sesiones IA de TODO el sitio (incluye home y landings de pago, que no son secciones de la tabla) y dónde aterrizan. Serie: julio (desde el 7) = 11 · agosto al 16 = 23. Es la tercera pata AEO junto al bloque 12 (visibilidad por prompt, carga manual) y los negocios con fuente «Referencias de IA»."
+  },
+  "bloque_9_bitacora": {
+    "fuente_sem": "El historial REAL de Google Ads: campaign_and_resource_get resource_type='history' sobre la cuenta 3766426817. No lo que recuerde el modelo de conversaciones pasadas.",
+    "dos_listas": "platform_change_list trae los cambios con hora y autor pero sin valores; supermetrics_change_list trae menos entradas pero con los valores viejo/nuevo.",
+    "ojo_con_el_autor": "Los cambios que entran por la conexión de Supermetrics NO figuran con el correo de Diego: Google los registra con la identidad de la cuenta que autorizó la conexión (un Gmail). NO es un acceso externo. Verificado el 27-jul-2026 cruzando las horas con offset Chile = UTC−4. No volver a levantar esa falsa alarma.",
+    "rezago": "El historial de Google llega con 1 o 2 días de atraso. Decirlo en la nota en vez de dejar el hueco sin explicar."
+  },
+  "historial": {
+    "2026-07-27": "Creado tras una revisión completa con Diego: se alinearon inbounds, embudo, calidad y SEO a sus propios informes y listas de HubSpot, se corrigió la unidad de Clarity, se pasó el contenido a semanal y se agregaron los popups de keywords.",
+    "2026-07-30": "Se agrega la regla de la tabla de metas: «mes anterior» = mes calendario real, no corte previo.",
+    "2026-07-30 (2)": "Se agrega la regla de números críticos: origen visible + verificación doble + mes en curso para Ads.",
+    "2026-08-09": "Se unifica todo el Plan a semanas lunes–domingo (antes el bloque 7 de contenido iba domingo–sábado por cómo corta HubSpot). La tabla semanal de contenido pasa a armarse desde la serie diaria. Se actualiza también plan_check.py, que validaba la fila parcial contra semanas domingo–sábado.",
+    "2026-08-10": "Se eliminan del bloque SEO las tarjetas «Nuevas que trajeron su primer clic» y «A recuperar», que no se refrescaban. Se corrige además el texto fósil «Julio va parcial al 22» en la nota de verificación de SEO.",
+    "2026-08-10 (2)": "Matriz de camadas reconstruida desde las listas completas: 186 negocios, 5 ganados, 109 perdidos, 72 abiertos, 4,4% de conversión.",
+    "2026-08-10 (3)": "Matriz de camadas recalculada con «ganó = fecha de ingreso a Onboarding». 186 negocios · 5 ganados · 109 perdidos · 72 abiertos · 4,4%. Cambia la mejor camada: pasa a ser julio (11,1%), no abril. Se descartó Active porque ningún negocio de las listas tiene esa fecha."
+  },
+  "tabla_de_metas": {
+    "regla_mes_anterior": "La columna «Mes anterior» lleva el valor REAL del mes calendario anterior, NUNCA el corte anterior del propio informe. El 30-jul-2026 se publicó 22% como «mes anterior» del % de pago cuando junio real era 16% (4 de 25): era el valor de julio medido dos días antes. Diego lo detectó. No repetir.",
+    "controles_mes_junio_2026": {
+      "pct_inbounds_pago": "16% (4 de 25)",
+      "kw_no_marca_con_clics": 9,
+      "posicion_media_no_marca": 8.4
+    },
+    "metricas_acumuladas": "Las conversiones SEM/SEO y la pérdida son acumuladas del año: ahí «mes anterior» no existe y se usa el corte anterior DECLARÁNDOLO en una nota al pie (ya agregada al artefacto)."
+  },
+  "numeros_criticos": {
+    "_que_es": "Acordado con Diego el 30-jul-2026. Estos números se usan para decisiones de plata: van BLINDADOS. Aplica a todo informe, panel, artefacto y mensaje de chat.",
+    "lista": [
+      "% de inbounds de pago (Latest Source)",
+      "Conversión SEM (lista 968) y Conversión SEO (lista 970)",
+      "Gasto de Google Ads (mes en curso, no 30 días rodantes)",
+      "MQL nuevos (fecha_mql)"
+    ],
+    "regla_1_origen_visible": "NUNCA publicar el número pelado. Siempre con su desglose de origen al lado: «9 de 45», «10 agendaron y 4 avanzaron», «$X del 1 al N de <mes>». Un porcentaje solo miente en silencio; un «4 de 25» se verifica en 10 segundos.",
+    "regla_2_verificacion_doble": "Antes de publicar, recalcular el número desde la fuente con una consulta independiente (ej: contar total y contar pago por separado, y verificar que la división da el porcentaje publicado). Si las dos vías no cuadran, NO publicar y avisar a Diego.",
+    "regla_3_ventana": "Google Ads se reporta por MES EN CURSO (1 del mes a hoy) y campañas activas en los últimos días, nunca 30 días rodantes: la ventana rodante arrastra el estado de antes de los ajustes de Diego y muestra problemas ya resueltos."
+  },
+  "bitacora_seguimiento": {
+    "_que_es": "Regla acordada con Diego el 31-jul-2026: cada acción de la bitácora se sigue hasta saber si funcionó. No basta anotar lo que se hizo; hay que volver a medirlo.",
+    "regla_1_toda_accion_lleva_medicion": "Toda acción nueva que entre a la bitácora DEBE llevar su bloque de medición: métrica concreta (m), valor de antes (a), estado (st) y fecha de próxima lectura (n). Si una acción no tiene métrica medible, se anota igual pero se dice explícitamente 'sin métrica de seguimiento'.",
+    "regla_2_actualizar_en_cada_refresco": "En cada refresco del plan (lunes, miércoles y viernes), revisar TODAS las mediciones con estado 'midiendo' cuya fecha de lectura ya llegó: consultar el dato real (Search Console, Ads, HubSpot o Clarity según corresponda), escribir el valor de después (d) y cambiar el estado.",
+    "regla_3_estados": [
+      "midiendo (aún sin lectura)",
+      "ok (mejoró como se esperaba)",
+      "sin efecto (no se movió; decidir si se insiste o se descarta)",
+      "empeoró (revisar y avisar a Diego)"
+    ],
+    "regla_4_honestidad": "El estado sale del dato real, nunca de la expectativa. Si el dato aún no alcanza para concluir (ej: Google no ha recorrido los enlaces), se mantiene 'midiendo' y se corre la fecha de lectura, diciéndolo.",
+    "en_medicion_al_31_jul": [
+      {
+        "accion": "Título y meta del artículo IRL reescritos (28-jul)",
+        "metrica": "CTR no-marca del artículo",
+        "lectura": "2026-08-03"
+      },
+      {
+        "accion": "Redirección 301 de MIPER + enlaces desde artículo IRL (28-jul)",
+        "metrica": "posición de /soluciones/miper en 'miper'",
+        "lectura": "2026-08-03"
+      },
+      {
+        "accion": "AMP desactivado (28-jul)",
+        "metrica": "impresiones de la copia AMP (esperado: 0)",
+        "lectura": "2026-08-03"
+      },
+      {
+        "accion": "Botón demo del artículo IRL arreglado (28-jul)",
+        "metrica": "envíos de formulario desde el artículo",
+        "lectura": "2026-08-03"
+      },
+      {
+        "accion": "Enlazado de los 5 artículos FUF (31-jul)",
+        "metrica": "posición e impresiones del clúster FUF",
+        "lectura": "2026-08-03"
+      }
+    ],
+    "regla_5_una_metrica_por_cambio": "Acordado el 9-ago-2026 (Diego delegó la decisión). Cuando hay varios cambios encima de la MISMA campaña, no se leen todos con la misma métrica: a cada cambio se le asigna la métrica que ese cambio buscaba mover, y si dos cambios comparten métrica se declara efecto COMBINADO sin atribuir a ninguno. Motivo: entre el 1 y el 9 de agosto se apilaron tres cambios sobre Tazki - SST/HSEQ - Search (extensiones el 1, anuncio SGSST el 6, 23 negativas el 9) y el CTR dejó de ser atribuible. OJO TÉCNICO: agregar negativas SUBE el CTR por aritmética — saca impresiones malas del denominador — así que después del 9-ago el CTR de SST/HSEQ ya no sirve para juzgar ni las extensiones ni el anuncio.",
+    "plan_de_lectura_ads_ago_2026": {
+      "_decidido": "9-ago-2026. Diego delegó la decisión sobre cómo leer las mediciones de Ads que quedaron encimadas.",
+      "extensiones_1_ago": {
+        "metrica": "CTR",
+        "lectura_limpia_en": "Tazki - Marca - Search - v2 (única campaña sin otros cambios encima)",
+        "ventanas": "2 al 9 ago vs 24 al 31 jul (8 días contra 8 días, contiguas y de igual largo)",
+        "en_sst_hseq": "NO atribuir. Se informa el CTR como movimiento combinado de los tres cambios, con sus fechas.",
+        "lectura": "2026-08-10"
+      },
+      "anuncio_sgsst_6_ago": {
+        "metrica": "Quality Score de la keyword 'sistema de gestión de seguridad y salud en el trabajo' (antes 1/10) y CPA de la campaña",
+        "por_que_no_ctr": "El CTR de SST/HSEQ quedó contaminado por extensiones y negativas. La QS es lo que el cambio buscaba mover y no la afectan las negativas.",
+        "ojo": "Google tarda 2 a 3 semanas en recalcular la QS.",
+        "lectura": "2026-08-17"
+      },
+      "negativas_9_ago": {
+        "metrica": "porcentaje del gasto que se va en términos irrelevantes (competencia, archivo/gratis, mercado equivocado) y CPA",
+        "como": "reporte de términos de búsqueda cruzado contra ads_negatives.json; comparar la semana 10-16 ago contra la del 2-8 ago",
+        "lectura": "2026-08-17"
+      },
+      "regla_hacia_adelante": "Si hay una medición abierta sobre una campaña, no apilar otro cambio encima salvo que sea urgente. Si igual hay que hacerlo, anotarlo acá y reasignar las métricas antes de tocar la cuenta."
+    }
+  },
+  "_accionables_eliminado": "La sección Accionables se eliminó del Plan el 7-ago-2026 a pedido de Diego: todo ajuste se registra SOLO en la bitácora (bloque 9). NO recrear la sección. Los badges del HTML quedaron renumerados 1-9; las claves de este archivo conservan su numeración original.",
+  "_cadencia": {
+    "decision": "Desde el 12-ago-2026 la rutina corre SOLO LOS LUNES a las 8:00 de Chile (cron 0 12 * * 1). Antes era lunes, miércoles y viernes.",
+    "por_que": "Decisión de Diego. Dos razones: (1) los miércoles y viernes mostraban semanas a medias que no se pueden comparar con nada, y (2) una sola corrida semanal deja presupuesto para refrescar los 10 bloques en vez de los 3 más urgentes.",
+    "efecto_util": "Cada corrida reporta semanas lunes a domingo COMPLETAS. SEO, inbounds, SEM y LinkedIn ya iban lunes a domingo, así que la cadencia y los datos quedan alineados.",
+    "causa_raiz_pendiente": "El 12-ago la rutina no alcanzó a refrescar 7 de 10 bloques. NO fue por el día: el trigger trig_01MChjuaRvbqm8RpE9CsnvJq tiene persist_session=true y dispara DENTRO de la sesión de Diego (session_0176D1YDhQApe8HjWuh1rvSm), heredando todo el contexto ya gastado ese día. Mientras siga así, un lunes cargado puede repetir el problema.",
+    "como_arreglar_la_causa_raiz": "Recrear el trigger con create_new_session_on_fire=true para que cada corrida arranque en una sesión limpia con presupuesto completo. update_trigger NO puede cambiar esto: solo edita nombre, cron, enabled, model y prompt. Requiere delete + create, y el informe llegaría en una conversación nueva, no en la de Diego. PENDIENTE DE SU DECISIÓN.",
+    "orden_sugerido_si_falta_presupuesto": "1) inbounds, 2) embudo, 3) SEO — son los que exige el mensaje final. Después SEM ranking y Ads (detectan gasto quemado), luego contenido, camadas, LinkedIn y bitácora. Clarity depende del token.",
+    "clarity_eliminado": "El 12-ago-2026 Diego pidió sacar Clarity del Plan: lo va a mirar por otro lado. Se eliminó la sección «Landing principal + Clarity» y los badges siguientes se corrieron (Bitácora 8->7, LinkedIn 9->8). Ya NO hay que pedir el token de Clarity ni refrescar ese panel. Las entradas históricas de la bitácora que lo mencionan se dejan como están: son registro de lo que pasó.",
+    "sem_13_ago_2026": "Limpieza grande de SST/HSEQ: 9 negativas de consultoria, 24 keywords pausadas ($249.844, 31% del gasto, cero conversiones), y diagnostico cerrado de la landing (PageSpeed aprueba Core Web Vitals en movil y escritorio: el problema es relevancia, no velocidad). Detalle completo en la skill gestion-google-ads-tazki, cuenta.md."
+  },
+  "_diccionario_de_medicion_14_ago_2026": {
+    "regla": "TODO numero de conversion/canal del Plan usa este diccionario. Cerrado con Diego el 14-ago tras la reunion con Felipe. Ante conflicto con configs viejas, MANDA ESTE BLOQUE.",
+    "universo": "DEAL con dealtype=Inbound Y pipeline=default (Pipeline de ventas). Sin el filtro de pipeline se cuelan 9 Lead Gen y 9 duplicados de Clientes. 2026 = 245 negocios.",
+    "ganado": "etapa Closed Won (valor interno `closedlost`, esta renombrada). NUNCA usar entrada a Onboarding: esa definicion produjo el 4,4% que confundio a Felipe.",
+    "perdido": "etapa Closed Lost (1233212743)",
+    "dos_lentes_de_fuente": {
+      "fuente_original": "hs_analytics_source — quien ABRE la puerta. Poblada en el 100% del universo. Es el desglose maestro anual: organica 164 / directo 39 / offline 24 / pago 14 / IA 2 / social 2.",
+      "latest_source": "latest_source — quien CONVIERTE. Poblada desde junio. Es EL lente para medir MQL de pago (capta a los que conocieron por otro lado y convirtieron con un clic: ago-2026 son 4 de 18, el 22%). La lista SEM de Diego usa este lente: correcto."
+    },
+    "uf_mensuales": "LAS UF DEL CRM SON MENSUALES (Diego, 14-ago). Todo calculo de recuperacion/proyeccion usa ingreso recurrente.",
+    "conversion_en_tres_cortes": "Nunca reportar un porcentaje solo: (a) ano completo, (b) camadas desde abril, (c) cerrado en los ultimos 60 dias por fecha de cierre. Al 14-ago: 4,85% / 9,4% / 6,8%. Y con n chico decir SIEMPRE el crudo antes del porcentaje (regla de Axel: \"5 de 8\" antes que \"62%\").",
+    "meeting_set_no_es_senal": "El 91% de los negocios nace con demo agendada (el formulario ES de agendar demo). Meeting Set es punto de partida, no logro. La fuga real esta entre la demo y Qualified Prospect.",
+    "canal_aeo": "Referencias de IA (AI_REFERRALS) es el TERCER canal junto a SEO y SEM. Fila propia en todo desglose. Al 14-ago: SOFTYS (40,48 UF, ganada, la inbound mas grande del ano) + Dinamo (10 UF, viva), ambas chatgpt.com."
+  },
+  "bloque_10_motivos_de_perdida": {
+    "titulo": "Motivos de pérdida · mes a mes",
+    "desde": "18-ago-2026 (prometido a Felipe en la reunion del 14-ago)",
+    "fuente": "DEAL.motivo_de_negocio_perdido — SIEMPRE estuvo cargada y no se reportaba.",
+    "consulta": "SELECT DATE_TRUNC(createdate,MONTH), motivo_de_negocio_perdido, COUNT(*) FROM DEAL WHERE dealtype=Inbound AND pipeline=default AND createdate en el ano GROUP BY ambos",
+    "agrupacion": "5 categorias: Timing y presupuesto / Nunca fueron candidatos / No hubo contacto / Fit de producto / Competencia. Mostrar crudos + la categoria.",
+    "alerta": "\"Es cliente y buscaba soporte\" = negocios falsos de la automatizacion (29 en el ano). Mostrarlos aparte hasta que el filtro este puesto; despues la fila debe tender a 0 y ESO es la metrica del arreglo."
+  },
+  "bloque_11_salud_pipeline": {
+    "titulo": "Salud del pipeline · detenidos y congelados",
+    "desde": "18-ago-2026",
+    "que_muestra": "(a) negocios vivos con >30 dias sin cambio de etapa, en etapas activas (QP en adelante), con dueno, UF y dias; (b) total Frozen: n, UF mensuales, y los 3 mas grandes con antiguedad.",
+    "como": "fechas de entrada a etapa (hs_v2_date_entered_* o propiedades Fecha de ingreso a...); dias parado = hoy - max(fecha de entrada). Al 14-ago: 63 UF/mes parado 74d en VP; Frozen 27 negocios ~492 UF/mes (Nestle 40/134d, Scania 30/84d).",
+    "cuidado": "El dueno actual NO es el dueno historico: la cartera congelada de Nicolas la heredo ya detenida (llego hace 3 semanas). No usar este bloque para culpar personas; es un tablero de \"dueno y fecha\"."
+  },
+  "bloque_12_aeo": {
+    "titulo": "AEO · visibilidad en motores de respuesta",
+    "modo": "CARGA MANUAL. Diego baja los reportes del modulo AEO de HubSpot (mide Gemini, ChatGPT y Perplexity; no mide Claude) y los manda al chat; el asistente los integra manteniendo la serie historica. NO hay API disponible para esto.",
+    "linea_base_14_ago": "50% de visibilidad en el prompt \"mejores software de seguridad laboral en Chile\". Negocios por IA: 2 (SOFTYS ganada, Dinamo viva) + 1 contacto reportado por Felipe el 14-ago.",
+    "que_guardar": "por prompt: visibilidad %, fecha, motores; y el conteo acumulado de negocios con fuente AI_REFERRALS (eso SI sale de HubSpot directo)."
+  },
+  "_bitacora_2_0": {
+    "regla": "Desde el 15-ago cada accion nueva se anota AL ABRIRLA con 5 campos (formato pedido por Felipe): que_quiero_mover / cuanto_esta_hoy / que_hago / resultado_esperado / cuando_se_lee. El resultado real se agrega en la fecha de lectura.",
+    "ejemplo": "geo: leads extranjeros ocupando agenda / campana en todos los paises desde el 4-jul / geo a Chile+Presencia (14-ago) / 0 leads fuera de Chile y CTR sube / lectura 31-ago.",
+    "donde": "ads_cuenta.md para lo de Ads; este JSON para lo del Plan; la presentacion quincenal a Felipe se ARMA leyendo la bitacora, no redactando de cero."
+  },
+  "_orden_bloques_17_ago_2026": "Orden del Plan desde el 17-ago (pedido de Diego): 1 Inbounds · 2 Embudo y Conversión · 3 SEM puja y ranking · 4 Ads conversiones · 5 SEO · 6 Contenido · 7 LinkedIn · 8 Motivos de pérdida · 9 Salud del pipeline · 10 AEO · 11 BITÁCORA — la bitácora va SIEMPRE AL FINAL del documento: Diego registra ahí todo lo que hace (SEM, SEO, GEO, landings y LinkedIn) y cierra el informe. Los números de bloque de las claves de este JSON son históricos y NO calzan con los badges; los badges del HTML mandan.",
+  "_pdf_ejecutivo_17_ago_2026": "Pedido de Diego (17-ago): el PDF que se le entrega los lunes es el EJECUTIVO — `python3 make_pdf_ejecutivo.py plan-generacion-demanda.html plan-ejecutivo-<fecha>.pdf`. ANTES de generarlo, la rutina reescribe pdf_highlights.json con los highlights de la semana (lo que se movió + en rojo con fecha). El ejecutivo: parte con resumen ejecutivo + metas, oculta la letra chica (.verify, .cap-note, popups, tarjeta Estado de los datos), cada bloque parte en página nueva y las celdas envuelven texto para que las tablas no se corten a lo ancho. La bitácora va completa al final. make_pdf.py (espejo exacto de la web, con anexo de keywords) queda como respaldo si Diego pide el detalle completo.",
+  "_assets_comerciales_logos_18_ago_2026": "Matcheo logo->industria hecho el 18-ago-2026 (pedido de Diego): ver ventas-assets/logos-por-industria.json. Los 131 PNG de la carpeta de Drive 'LOGOS TAZKI - AGO 2026' son la exportacion del Canva 'Logos de Tazki' (design_id DAHQTvRv2zk, 131 paginas) => N.png == pagina N. La industria se lee del texto de cada pagina via Canva MCP read-design con filter.page_indices en lotes de 10. Diego pidio NO buscar logos nuevos. Pendiente: confirmar la agrupacion de las 22 industrias del Canva en las 14 carpetas de ventas-piezas.",
+  "_assets_comerciales_criterio_18_ago_2026": "CRITERIO PERMANENTE (Diego, 18-ago-2026): TODA pieza comercial —presentacion PPTX, brochure PDF y flyer PDF, de las 14 carpetas de ventas-piezas— debe llevar SIEMPRE: (1) la lamina/seccion de contexto DS 44 al inicio (la norma cambio: ya no basta con tener los papeles, ahora se exige gestion demostrable; Tazki ayuda con eso), (2) los logos de clientes en alta calidad filtrados por la industria de la pieza (ver ventas-assets/logos-por-industria.json), (3) las imagenes de prevencion nuevas en alta resolucion de la carpeta de Drive 1izk9HrvN8wjwPE31iGaOfPp-F5tbGfgl, NO las 6 antiguas de ventas-assets/prev. SIEMPRE se mantienen los GIF/capturas que muestran los flujos de producto (laminas de modulos). Los PDF (brochure y flyer) hay que REGENERARLOS, no parcharlos: hoy estan renderizados y sin el DS 44. El script de la lamina DS 44 es ventas_ds44.py (idempotente, corre con --todas). OJO: cada vez que se modifican los archivos de ventas-piezas hay que actualizar los pesos que muestra ventas.html (constantes INDPZ y PIECES: [pptx, brochure, flyer]), o la pagina miente sobre el tamano de la descarga.",
+  "_assets_comerciales_rediseno_18_ago_2026": "EJECUTADO 18-ago-2026. Assets: Diego subio a la rama main del repo 131 logos (1.jpg-131.jpg, exportacion pagina a pagina del Canva 'Logos de Tazki') y 101 fotos de prevencion. Quedaron en ventas-assets/logos-clientes/ y ventas-assets/prev-nuevas/. OJO: cada N.jpg es la PAGINA COMPLETA del Canva (fondo navy + etiqueta de industria + tarjeta con el logo); hay que recortar la tarjeta con ventas_recortar_logos.py -> ventas-assets/logos-recortados/. La pagina 131 esta vacia (sin logo) y se excluye. 19 logos son blancos sobre fondo oscuro: su tarjeta recortada queda oscura y se ve bien igual, no hay que corregirlos. El rediseno lo hace ventas_rediseno.py (idempotente): lamina 1 portada con foto por industria (ventas-assets/seleccion-fotos.json), lamina 2 contexto DS 44 a sangre con titular 54pt, lamina 3 muro de logos de la industria. NO toca las laminas de modulos: ahi viven los GIF de los flujos. IMPORTANTE: para editar laminas existentes hay que VACIARLAS y redibujar, no borrarlas: borrar laminas en python-pptx deja partes huerfanas y el pptx queda con partes duplicadas.",
+  "_biblioteca_assets_para_design_18_ago_2026": "Pregunta de Diego: como usar los logos y fotos en Claude Design. RESPUESTA: las paginas de Artifact/Design tienen CSP estricta y NO cargan imagenes externas (ni GitHub Pages ni Drive): hay que INCRUSTARLAS como data URI. Limite 16 MB por pagina. Paquete listo en ventas-assets/pack-design/biblioteca.json (6,3 MB: 130 logos a 300px y 101 fotos a 640px, base64, con su industria). Catalogo navegable en ventas-assets/biblioteca-tazki.html (mismo contenido, con buscador y copiar-al-portapapeles) publicado como artifact. Para un diseno nuevo: leer biblioteca.json y escribir <img src='data:image/jpeg;base64,...'> solo con los assets que se usen, no todos.",
+  "_ads_plan_accion_19_ago_2026": {
+    "origen": "analisis de eficiencia por keyword 13-jul a 18-ago, registrado en ads_cuenta.md",
+    "restricciones": [
+      "tope US$1.000, sin aumento de gasto total",
+      "no tocar la puja hasta despues del 30-sep",
+      "no aplicar CPA objetivo de Google"
+    ],
+    "acciones": [
+      "1. Pausar (no eliminar) 5 keywords con 0 conversiones en 5 semanas: plataforma prevencion de riesgos (frase), software de prevencion de riesgos laborales (amplia), sistema gestion seguridad laboral (frase), sistema de gestion de seguridad y salud en el trabajo (AMPLIA), software hse (frase). Liberan $296.920 = 30% del gasto de SST.",
+      "2. Pausar el resto de las amplias de SST salvo 'plataforma hse' (3 MQL a $17.139, el conversor mas barato).",
+      "3. Reasignar presupuesto sin subirlo: SST 24.000 -> 20.000 y Marca 4.000 -> 8.000. Total diario sigue en 28.000.",
+      "4. No tocar: keyword estrella (6 de 16 MQL), 'plataforma hse', pujas, eventos en secundario.",
+      "5. Con Felipe antes del 31-ago: reescribir el umbral de la keyword estrella para que sea por costo por MQL y no por Quality Score."
+    ],
+    "caveat_marca": "Parte de los clics de Marca llegarian igual por organico. Se mide comparando MQL totales y trafico organico de marca al 2-sep; si solo bajo el organico fue canibalizacion y se devuelve el presupuesto.",
+    "revision": "2-sep-2026",
+    "hipotesis_no_dato": "SST podria bajar de $62.023 a $35.000-$45.000 por MQL. Estimacion, no promesa."
   }
- },
- "_accionables_eliminado": "La sección Accionables se eliminó del Plan el 7-ago-2026 a pedido de Diego: todo ajuste se registra SOLO en la bitácora (bloque 9). NO recrear la sección. Los badges del HTML quedaron renumerados 1-9; las claves de este archivo conservan su numeración original.",
- "_cadencia": {
-  "decision": "Desde el 12-ago-2026 la rutina corre SOLO LOS LUNES a las 8:00 de Chile (cron 0 12 * * 1). Antes era lunes, miércoles y viernes.",
-  "por_que": "Decisión de Diego. Dos razones: (1) los miércoles y viernes mostraban semanas a medias que no se pueden comparar con nada, y (2) una sola corrida semanal deja presupuesto para refrescar los 10 bloques en vez de los 3 más urgentes.",
-  "efecto_util": "Cada corrida reporta semanas lunes a domingo COMPLETAS. SEO, inbounds, SEM y LinkedIn ya iban lunes a domingo, así que la cadencia y los datos quedan alineados.",
-  "causa_raiz_pendiente": "El 12-ago la rutina no alcanzó a refrescar 7 de 10 bloques. NO fue por el día: el trigger trig_01MChjuaRvbqm8RpE9CsnvJq tiene persist_session=true y dispara DENTRO de la sesión de Diego (session_0176D1YDhQApe8HjWuh1rvSm), heredando todo el contexto ya gastado ese día. Mientras siga así, un lunes cargado puede repetir el problema.",
-  "como_arreglar_la_causa_raiz": "Recrear el trigger con create_new_session_on_fire=true para que cada corrida arranque en una sesión limpia con presupuesto completo. update_trigger NO puede cambiar esto: solo edita nombre, cron, enabled, model y prompt. Requiere delete + create, y el informe llegaría en una conversación nueva, no en la de Diego. PENDIENTE DE SU DECISIÓN.",
-  "orden_sugerido_si_falta_presupuesto": "1) inbounds, 2) embudo, 3) SEO — son los que exige el mensaje final. Después SEM ranking y Ads (detectan gasto quemado), luego contenido, camadas, LinkedIn y bitácora. Clarity depende del token.",
-  "clarity_eliminado": "El 12-ago-2026 Diego pidió sacar Clarity del Plan: lo va a mirar por otro lado. Se eliminó la sección «Landing principal + Clarity» y los badges siguientes se corrieron (Bitácora 8->7, LinkedIn 9->8). Ya NO hay que pedir el token de Clarity ni refrescar ese panel. Las entradas históricas de la bitácora que lo mencionan se dejan como están: son registro de lo que pasó.",
-  "sem_13_ago_2026": "Limpieza grande de SST/HSEQ: 9 negativas de consultoria, 24 keywords pausadas ($249.844, 31% del gasto, cero conversiones), y diagnostico cerrado de la landing (PageSpeed aprueba Core Web Vitals en movil y escritorio: el problema es relevancia, no velocidad). Detalle completo en la skill gestion-google-ads-tazki, cuenta.md."
- },
- "_diccionario_de_medicion_14_ago_2026": {
-  "regla": "TODO numero de conversion/canal del Plan usa este diccionario. Cerrado con Diego el 14-ago tras la reunion con Felipe. Ante conflicto con configs viejas, MANDA ESTE BLOQUE.",
-  "universo": "DEAL con dealtype=Inbound Y pipeline=default (Pipeline de ventas). Sin el filtro de pipeline se cuelan 9 Lead Gen y 9 duplicados de Clientes. 2026 = 245 negocios.",
-  "ganado": "etapa Closed Won (valor interno `closedlost`, esta renombrada). NUNCA usar entrada a Onboarding: esa definicion produjo el 4,4% que confundio a Felipe.",
-  "perdido": "etapa Closed Lost (1233212743)",
-  "dos_lentes_de_fuente": {
-   "fuente_original": "hs_analytics_source — quien ABRE la puerta. Poblada en el 100% del universo. Es el desglose maestro anual: organica 164 / directo 39 / offline 24 / pago 14 / IA 2 / social 2.",
-   "latest_source": "latest_source — quien CONVIERTE. Poblada desde junio. Es EL lente para medir MQL de pago (capta a los que conocieron por otro lado y convirtieron con un clic: ago-2026 son 4 de 18, el 22%). La lista SEM de Diego usa este lente: correcto."
-  },
-  "uf_mensuales": "LAS UF DEL CRM SON MENSUALES (Diego, 14-ago). Todo calculo de recuperacion/proyeccion usa ingreso recurrente.",
-  "conversion_en_tres_cortes": "Nunca reportar un porcentaje solo: (a) ano completo, (b) camadas desde abril, (c) cerrado en los ultimos 60 dias por fecha de cierre. Al 14-ago: 4,85% / 9,4% / 6,8%. Y con n chico decir SIEMPRE el crudo antes del porcentaje (regla de Axel: \"5 de 8\" antes que \"62%\").",
-  "meeting_set_no_es_senal": "El 91% de los negocios nace con demo agendada (el formulario ES de agendar demo). Meeting Set es punto de partida, no logro. La fuga real esta entre la demo y Qualified Prospect.",
-  "canal_aeo": "Referencias de IA (AI_REFERRALS) es el TERCER canal junto a SEO y SEM. Fila propia en todo desglose. Al 14-ago: SOFTYS (40,48 UF, ganada, la inbound mas grande del ano) + Dinamo (10 UF, viva), ambas chatgpt.com."
- },
- "bloque_10_motivos_de_perdida": {
-  "titulo": "Motivos de pérdida · mes a mes",
-  "desde": "18-ago-2026 (prometido a Felipe en la reunion del 14-ago)",
-  "fuente": "DEAL.motivo_de_negocio_perdido — SIEMPRE estuvo cargada y no se reportaba.",
-  "consulta": "SELECT DATE_TRUNC(createdate,MONTH), motivo_de_negocio_perdido, COUNT(*) FROM DEAL WHERE dealtype=Inbound AND pipeline=default AND createdate en el ano GROUP BY ambos",
-  "agrupacion": "5 categorias: Timing y presupuesto / Nunca fueron candidatos / No hubo contacto / Fit de producto / Competencia. Mostrar crudos + la categoria.",
-  "alerta": "\"Es cliente y buscaba soporte\" = negocios falsos de la automatizacion (29 en el ano). Mostrarlos aparte hasta que el filtro este puesto; despues la fila debe tender a 0 y ESO es la metrica del arreglo."
- },
- "bloque_11_salud_pipeline": {
-  "titulo": "Salud del pipeline · detenidos y congelados",
-  "desde": "18-ago-2026",
-  "que_muestra": "(a) negocios vivos con >30 dias sin cambio de etapa, en etapas activas (QP en adelante), con dueno, UF y dias; (b) total Frozen: n, UF mensuales, y los 3 mas grandes con antiguedad.",
-  "como": "fechas de entrada a etapa (hs_v2_date_entered_* o propiedades Fecha de ingreso a...); dias parado = hoy - max(fecha de entrada). Al 14-ago: 63 UF/mes parado 74d en VP; Frozen 27 negocios ~492 UF/mes (Nestle 40/134d, Scania 30/84d).",
-  "cuidado": "El dueno actual NO es el dueno historico: la cartera congelada de Nicolas la heredo ya detenida (llego hace 3 semanas). No usar este bloque para culpar personas; es un tablero de \"dueno y fecha\"."
- },
- "bloque_12_aeo": {
-  "titulo": "AEO · visibilidad en motores de respuesta",
-  "modo": "CARGA MANUAL. Diego baja los reportes del modulo AEO de HubSpot (mide Gemini, ChatGPT y Perplexity; no mide Claude) y los manda al chat; el asistente los integra manteniendo la serie historica. NO hay API disponible para esto.",
-  "linea_base_14_ago": "50% de visibilidad en el prompt \"mejores software de seguridad laboral en Chile\". Negocios por IA: 2 (SOFTYS ganada, Dinamo viva) + 1 contacto reportado por Felipe el 14-ago.",
-  "que_guardar": "por prompt: visibilidad %, fecha, motores; y el conteo acumulado de negocios con fuente AI_REFERRALS (eso SI sale de HubSpot directo)."
- },
- "_bitacora_2_0": {
-  "regla": "Desde el 15-ago cada accion nueva se anota AL ABRIRLA con 5 campos (formato pedido por Felipe): que_quiero_mover / cuanto_esta_hoy / que_hago / resultado_esperado / cuando_se_lee. El resultado real se agrega en la fecha de lectura.",
-  "ejemplo": "geo: leads extranjeros ocupando agenda / campana en todos los paises desde el 4-jul / geo a Chile+Presencia (14-ago) / 0 leads fuera de Chile y CTR sube / lectura 31-ago.",
-  "donde": "ads_cuenta.md para lo de Ads; este JSON para lo del Plan; la presentacion quincenal a Felipe se ARMA leyendo la bitacora, no redactando de cero."
- },
- "_orden_bloques_17_ago_2026": "Orden del Plan desde el 17-ago (pedido de Diego): 1 Inbounds · 2 Embudo y Conversión · 3 SEM puja y ranking · 4 Ads conversiones · 5 SEO · 6 Contenido · 7 LinkedIn · 8 Motivos de pérdida · 9 Salud del pipeline · 10 AEO · 11 BITÁCORA — la bitácora va SIEMPRE AL FINAL del documento: Diego registra ahí todo lo que hace (SEM, SEO, GEO, landings y LinkedIn) y cierra el informe. Los números de bloque de las claves de este JSON son históricos y NO calzan con los badges; los badges del HTML mandan.",
- "_pdf_ejecutivo_17_ago_2026": "Pedido de Diego (17-ago): el PDF que se le entrega los lunes es el EJECUTIVO — `python3 make_pdf_ejecutivo.py plan-generacion-demanda.html plan-ejecutivo-<fecha>.pdf`. ANTES de generarlo, la rutina reescribe pdf_highlights.json con los highlights de la semana (lo que se movió + en rojo con fecha). El ejecutivo: parte con resumen ejecutivo + metas, oculta la letra chica (.verify, .cap-note, popups, tarjeta Estado de los datos), cada bloque parte en página nueva y las celdas envuelven texto para que las tablas no se corten a lo ancho. La bitácora va completa al final. make_pdf.py (espejo exacto de la web, con anexo de keywords) queda como respaldo si Diego pide el detalle completo.",
- "_assets_comerciales_logos_18_ago_2026": "Matcheo logo->industria hecho el 18-ago-2026 (pedido de Diego): ver ventas-assets/logos-por-industria.json. Los 131 PNG de la carpeta de Drive 'LOGOS TAZKI - AGO 2026' son la exportacion del Canva 'Logos de Tazki' (design_id DAHQTvRv2zk, 131 paginas) => N.png == pagina N. La industria se lee del texto de cada pagina via Canva MCP read-design con filter.page_indices en lotes de 10. Diego pidio NO buscar logos nuevos. Pendiente: confirmar la agrupacion de las 22 industrias del Canva en las 14 carpetas de ventas-piezas.",
- "_assets_comerciales_criterio_18_ago_2026": "CRITERIO PERMANENTE (Diego, 18-ago-2026): TODA pieza comercial —presentacion PPTX, brochure PDF y flyer PDF, de las 14 carpetas de ventas-piezas— debe llevar SIEMPRE: (1) la lamina/seccion de contexto DS 44 al inicio (la norma cambio: ya no basta con tener los papeles, ahora se exige gestion demostrable; Tazki ayuda con eso), (2) los logos de clientes en alta calidad filtrados por la industria de la pieza (ver ventas-assets/logos-por-industria.json), (3) las imagenes de prevencion nuevas en alta resolucion de la carpeta de Drive 1izk9HrvN8wjwPE31iGaOfPp-F5tbGfgl, NO las 6 antiguas de ventas-assets/prev. SIEMPRE se mantienen los GIF/capturas que muestran los flujos de producto (laminas de modulos). Los PDF (brochure y flyer) hay que REGENERARLOS, no parcharlos: hoy estan renderizados y sin el DS 44. El script de la lamina DS 44 es ventas_ds44.py (idempotente, corre con --todas). OJO: cada vez que se modifican los archivos de ventas-piezas hay que actualizar los pesos que muestra ventas.html (constantes INDPZ y PIECES: [pptx, brochure, flyer]), o la pagina miente sobre el tamano de la descarga.",
- "_assets_comerciales_rediseno_18_ago_2026": "EJECUTADO 18-ago-2026. Assets: Diego subio a la rama main del repo 131 logos (1.jpg-131.jpg, exportacion pagina a pagina del Canva 'Logos de Tazki') y 101 fotos de prevencion. Quedaron en ventas-assets/logos-clientes/ y ventas-assets/prev-nuevas/. OJO: cada N.jpg es la PAGINA COMPLETA del Canva (fondo navy + etiqueta de industria + tarjeta con el logo); hay que recortar la tarjeta con ventas_recortar_logos.py -> ventas-assets/logos-recortados/. La pagina 131 esta vacia (sin logo) y se excluye. 19 logos son blancos sobre fondo oscuro: su tarjeta recortada queda oscura y se ve bien igual, no hay que corregirlos. El rediseno lo hace ventas_rediseno.py (idempotente): lamina 1 portada con foto por industria (ventas-assets/seleccion-fotos.json), lamina 2 contexto DS 44 a sangre con titular 54pt, lamina 3 muro de logos de la industria. NO toca las laminas de modulos: ahi viven los GIF de los flujos. IMPORTANTE: para editar laminas existentes hay que VACIARLAS y redibujar, no borrarlas: borrar laminas en python-pptx deja partes huerfanas y el pptx queda con partes duplicadas."
 }
