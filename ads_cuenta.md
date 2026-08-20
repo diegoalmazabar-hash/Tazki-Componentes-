@@ -581,3 +581,35 @@ que hace aparecer esos nombres: concordancias y AI Max (activo hoy en SST: 9 cli
 
 REGLA NUEVA PERMANENTE: nunca proponer negativas cruzando contra ads_negatives.json. Leer siempre las vivas
 con campaign_and_resource_get y respetar el match_type.
+
+## CONGELAMIENTO hasta el lunes 24-ago (decidido con Diego el 19-ago)
+
+Lectura del combo del 13-14 ago con datos al 18-ago (SST/HSEQ):
+  13-19 jul .......... 100 clics · $253.503 · 2 MQL · $126.752/MQL · CPC $2.535
+  20-26 jul ..........  92 clics · $194.888 · 4 MQL · $ 48.722/MQL · CPC $2.118
+  27-jul a 2-ago ..... 110 clics · $103.400 · 1 MQL · $103.400/MQL · CPC $  940
+  3-9 ago ............ 150 clics · $183.892 · 2 MQL · $ 91.946/MQL · CPC $1.226
+  10-16 ago ..........  93 clics · $187.130 · 4 MQL · $ 46.782/MQL · CPC $2.012
+  17-18 ago (2 dias) .  32 clics · $ 56.963 · 3 MQL · $ 18.988/MQL · CPC $1.780
+  ANTES (13-jul a 9-ago): $81.743/MQL · DESPUES LIMPIO (17-18): $18.988/MQL.
+MEJORO: ranking (88,6% -> 23,2% de perdida en SST; Marca 50,5% -> 7,0%); el recorte de 24 keywords no
+  costo ninguna conversion (se mantuvieron en 10); costo por MQL a la baja; agosto es el mejor mes de
+  conversion pagada del ano (8 MQL en 16 dias contra 6 en julio entero).
+NO MEJORO: el CPC (sigue en $1.780-$2.012); el impression share sigue en ~10% y el cuello de botella se
+  corrio al presupuesto (66,6% perdido por budget); las impresiones elegibles cayeron 28% por la salida
+  de otros paises.
+ADVERTENCIAS: el "despues limpio" son 2 dias y 3 MQL — no citar el 77% de mejora como hecho. Y los 4
+  cambios del 13-14 (recorte de keywords, landing A, negativas, geo) van juntos y NO son separables.
+  Pista nueva: como bloquear el 100% de la basura solo moveria el costo por MQL un 3%, las negativas NO
+  explican esta mejora; queda entre el recorte de keywords, la landing y la geo.
+
+DECISION DE DIEGO (19-ago): "mejor ir paso a paso, vamos bien". NO SE TOCA NADA hasta el lunes 24-ago,
+para poder leer una semana completa y limpia (17 al 23 de agosto). Quedan EN ESPERA, sin ejecutar:
+  - Las 8 negativas inequivocas que siguen abiertas ($6.256 = 0,6% del gasto). Parkeadas: son marginales.
+  - Las 4 negativas ambiguas que decide Diego (prevencion de riesgos en chile, sistemas de seguridad
+    industrial, sistema de riesgos laborales, ast digital).
+  - El traslado de presupuesto SST $24.000 -> $20.000 y Marca $4.000 -> $8.000. Meterlo ahora ensuciaria
+    la lectura del 24.
+  - Cambiar la URL final de los ANUNCIOS de los Grupos A y C (ya estaba postergado por la misma razon).
+SIGUE VIGENTE: pujas congeladas hasta despues del 30-sep; no aplicar CPA objetivo; tope US$1.000.
+PROXIMO PASO: lunes 24-ago, leer la semana 17-23 completa. Metrica que manda: costo por MQL de SST.

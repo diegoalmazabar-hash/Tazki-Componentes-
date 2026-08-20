@@ -352,5 +352,19 @@
     "EL_TECHO": "De los $251.230 con termino reportado, el 72% ($179.661) se fue en terminos RELEVANTES que trajeron 3 conversiones = $59.887 c/u, contra $62.023 de promedio de campana. Bloquear el 100% de la basura bajaria el costo por MQL solo un 3%. LA FUGA NO ES EL PROBLEMA: el trafico relevante convierte mal. Eso se arregla en landing, oferta o calificacion, no en keywords.",
     "observacion_estructural": "726 de 806 negativas son EXACTAS: cada nombre de competidor nuevo cuesta un clic caro ($1.000-$4.346, 2-3x el CPC promedio) antes de quedar bloqueado. Con nombres propios no hay raiz comun para una frase, asi que el juego del topo es inherente. La palanca real es reducir el emparejamiento suelto (concordancias y AI Max), no agregar negativas."
   },
-  "_regla_ads_leer_negativas_en_vivo": "NUNCA proponer negativas cruzando contra ads_negatives.json. Leer siempre las vivas con campaign_and_resource_get (AW, cuenta 3766426817, campana 23995581786, campaign_detail_level full -> targeting.negative_keywords). Y respetar el match_type: EXACT bloquea solo la consulta literal, PHRASE bloquea cualquier consulta que la contenga."
+  "_regla_ads_leer_negativas_en_vivo": "NUNCA proponer negativas cruzando contra ads_negatives.json. Leer siempre las vivas con campaign_and_resource_get (AW, cuenta 3766426817, campana 23995581786, campaign_detail_level full -> targeting.negative_keywords). Y respetar el match_type: EXACT bloquea solo la consulta literal, PHRASE bloquea cualquier consulta que la contenga.",
+  "_ads_congelamiento_19_ago_2026": {
+    "decision": "Diego, 19-ago: 'mejor ir paso a paso, vamos bien'. No se toca nada hasta el lunes 24-ago para leer una semana completa y limpia (17 al 23 de agosto).",
+    "lectura_del_combo_13_14_ago": "ANTES (13-jul a 9-ago) $81.743 por MQL; semana del cambio (10-16 ago) $46.782; despues limpio (17-18 ago, 2 dias) $18.988. Ranking de SST de 88,6% a 23,2% de perdida, Marca de 50,5% a 7,0%. El recorte de 24 keywords no costo ninguna conversion.",
+    "no_mejoro": "El CPC sigue en $1.780-$2.012. El impression share sigue en ~10% y el cuello de botella paso a ser el presupuesto (66,6%). Las impresiones elegibles cayeron 28%.",
+    "advertencia": "El 'despues limpio' son 2 dias y 3 MQL: no citar el 77% como hecho. Los 4 cambios del 13-14 no son separables. Las negativas NO explican la mejora (su techo es 3%).",
+    "en_espera_sin_ejecutar": [
+      "8 negativas inequivocas abiertas ($6.256, 0,6% del gasto) - parkeadas por marginales",
+      "4 negativas ambiguas que decide Diego",
+      "traslado de presupuesto SST 24.000->20.000 y Marca 4.000->8.000",
+      "cambiar la URL final de los anuncios de los Grupos A y C"
+    ],
+    "sigue_vigente": "Pujas congeladas hasta despues del 30-sep. No aplicar CPA objetivo. Tope US$1.000.",
+    "proximo_paso": "Lunes 24-ago: leer la semana 17-23 completa. Metrica que manda: costo por MQL de SST."
+  }
 }
