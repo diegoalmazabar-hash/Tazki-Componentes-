@@ -640,3 +640,64 @@ OBSERVACIONES anotadas al cargarlas (no bloquean nada, son para Diego):
 
 CONTEXTO: en SST «taski» y «tazki» ya estaban como negativas de FRASE. Con estas de Marca, esos terminos
 quedan bloqueados en las dos campanas activas.
+
+## CORRECCION MAYOR: TechSol estaba contaminando los conteos (19-ago-2026, 21:30 Chile)
+
+Gatillo: Diego trajo un diagnostico hecho por otro chat (21-jul a 19-ago) que reporta 21 conversiones y
+un CPA de $40.613. Al verificar con el desglose por Conversiontypename aparecio el problema — y me
+alcanza a mi tambien: TODOS los numeros de conversion que use hoy incluian la etiqueta TechSol, que por
+diccionario esta EXCLUIDA.
+
+DESGLOSE REAL (Supermetrics AW, campo Conversiontypename):
+  21-jul a 19-ago:  MQL real 16 (SST 12 + Marca 4)  ·  TechSol 5 (SST 3 + Marca 2)  ·  total 21
+  21-jun a 20-jul:  MQL real 4  ·  TechSol 0  ·  total 4
+  13-jul a 18-ago:  MQL real 17 (SST 13 + Marca 4)  ·  TechSol 5 (SST 3 + Marca 2)  ·  total 22
+  TODO el TechSol de la ventana esta concentrado en la SEMANA 30 (20-26 jul).
+
+NUMEROS CORREGIDOS DE MI PROPIO ANALISIS DE HOY (ventana 13-jul a 18-ago):
+  SST/HSEQ:  $992.360 / 13 MQL = $76.335 por MQL   (habia dicho $62.023 con 16)
+  Marca:     $161.239 /  4 MQL = $40.310 por MQL   (habia dicho $26.873 con 6)
+  Marca sigue siendo mas barata que SST, pero 1,9x y no 2,3x. La conclusion se sostiene, el numero no.
+
+SERIE SEMANAL LIMPIA DE SST (solo MQL real):
+  13-19 jul .......... 2 MQL · $253.503 · $126.752/MQL
+  20-26 jul .......... 1 MQL · $194.888 · $194.888/MQL   (antes decia 4: eran 1 MQL + 3 TechSol)
+  27-jul a 2-ago ..... 1 MQL · $103.400 · $103.400/MQL
+  3-9 ago ............ 2 MQL · $183.892 · $ 91.946/MQL
+  10-16 ago .......... 4 MQL · $187.130 · $ 46.782/MQL
+  17-18 ago (2 dias) . 3 MQL · $ 56.963 · $ 18.988/MQL
+  ANTES (13-jul a 9-ago): 6 MQL · $735.684 · $122.614 por MQL  (habia dicho $81.743)
+  OJO: la mejora corregida es MAS grande, no mas chica, porque el TechSol estaba en el periodo ANTERIOR.
+
+ERRORES DEL REPORTE EXTERNO (no son de mala fe, son los mismos dos tropiezos de esta cuenta):
+  1. Las 21 conversiones incluyen 5 de TechSol. El real es 16. Por lo tanto:
+       CPA real = $852.877 / 16 = $53.305, no $40.613 (31% peor).
+       Variacion real = 4 -> 16 = +300%, no +425%.
+       Mejora de CPA real = $221.782 -> $53.305 = -76%, no -82%.
+     El periodo anterior (4 conversiones) SI es todo MQL real, asi que la comparacion base estaba bien.
+     LA HISTORIA DE FONDO SE SOSTIENE: la cuenta mejoro mucho. Solo que menos de lo que dice el PDF.
+  2. Etiqueta keywords como [Amplia] (plataforma hse, software de prevencion de riesgos laborales,
+     software de gestion de riesgos, software seguridad ocupacional, software sst). ES EL MISMO ERROR
+     QUE COMETI YO HOY: ese campo es la concordancia con que calzo la BUSQUEDA, no la de la keyword.
+     Diego ya verifico en la UI que la unica amplia activada es «plataforma hse». Su recomendacion 4
+     («concordancia amplia: revisar caso a caso») se apoya en datos que no dicen eso.
+     Sintoma visible en el propio PDF: el encabezado dice «Todas las keywords en concordancia de frase»
+     y dos lineas mas abajo etiquetan varias como [Amplia]. Se contradice solo.
+  3. Su recomendacion 6 propone negativizar la raiz «implementacion». El 13-ago se decidio
+     explicitamente NO negar «implementacion» como raiz. Contradice una decision deliberada previa.
+  4. Su lista de negativas de competidores incluye «consultora», que ya esta cargada («consultoras»).
+     SI aporta uno nuevo que no estaba en mi lista: «lexcontrol».
+
+LO QUE EL REPORTE APORTA Y HAY QUE TOMAR:
+  - Su recomendacion 2 (cruzar las conversiones con HubSpot antes de celebrar el CPA) es la mejor del
+    documento, y este mismo hallazgo de TechSol le da la razon: 5 de 21 no eran lo que se creia.
+  - Corrobora de forma independiente que la fuga viva es chica: calcula $21.642 vivos de $77.011, igual
+    que la lectura de hoy de que casi todo ya estaba negativizado.
+  - Su recomendacion 5 (QS 1 en la keyword que mas gasta) coincide con lo ya anotado.
+  - Su recomendacion 7 (Marca sana y limitada por presupuesto) coincide: 50,8% perdido por presupuesto.
+  - Declara honestamente sus limites: 34% de cobertura de terminos, cambio de estructura de campanas,
+    y que las conversiones no son oportunidades validadas.
+
+REGLA NUEVA PERMANENTE: TODA consulta de conversiones a Google Ads debe traer Conversiontypename y
+filtrar a «HubSpot - Marketing Qualified Lead». El campo `conversions` a secas suma TechSol. El Plan ya
+lo hacia bien; los analisis ad-hoc de esta sesion no.

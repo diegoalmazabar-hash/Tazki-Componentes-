@@ -392,5 +392,28 @@
       "Marca es la campana del traslado de presupuesto en espera: si el 24 mejora, parte puede venir de estas negativas y no del presupuesto."
     ],
     "contexto": "En SST «taski» y «tazki» ya estaban como negativas de FRASE. Ahora quedan bloqueados en las dos campanas activas."
+  },
+  "_regla_ads_conversiones_filtrar_techsol": "TODA consulta de conversiones a Google Ads debe traer Conversiontypename y filtrar a 'HubSpot - Marketing Qualified Lead'. El campo `conversions` a secas suma la etiqueta TechSol, que por diccionario esta excluida. El 19-ago-2026 esto inflo todos los analisis ad-hoc de la sesion y tambien el diagnostico externo que trajo Diego.",
+  "_ads_correccion_techsol_19_ago_2026": {
+    "desglose_real": {
+      "21-jul a 19-ago": "MQL 16 (SST 12 + Marca 4) + TechSol 5 = 21",
+      "21-jun a 20-jul": "MQL 4 + TechSol 0 = 4",
+      "13-jul a 18-ago": "MQL 17 (SST 13 + Marca 4) + TechSol 5 = 22",
+      "nota": "Todo el TechSol esta concentrado en la semana 30 (20-26 jul)."
+    },
+    "mis_numeros_corregidos": "SST $992.360/13 = $76.335 por MQL (habia dicho $62.023). Marca $161.239/4 = $40.310 (habia dicho $26.873). Marca sigue mas barata pero 1,9x, no 2,3x.",
+    "serie_limpia_sst": "13-19 jul 2 MQL $126.752 | 20-26 jul 1 MQL $194.888 | 27-jul a 2-ago 1 MQL $103.400 | 3-9 ago 2 MQL $91.946 | 10-16 ago 4 MQL $46.782 | 17-18 ago 3 MQL $18.988. ANTES (13-jul a 9-ago) 6 MQL = $122.614 por MQL, no $81.743. La mejora corregida es MAS grande porque el TechSol estaba en el periodo anterior.",
+    "reporte_externo_errores": [
+      "Las 21 conversiones incluyen 5 TechSol: CPA real $53.305 y no $40.613; variacion 4->16 = +300% y no +425%; mejora de CPA -76% y no -82%. La historia de fondo se sostiene.",
+      "Etiqueta keywords como [Amplia] leyendo el mismo campo que me equivoco a mi: es la concordancia de la BUSQUEDA. Diego ya verifico que la unica amplia activada es plataforma hse. El propio PDF se contradice: dice 'todas en frase' y luego etiqueta varias como [Amplia].",
+      "Propone negativizar la raiz 'implementacion', que el 13-ago se decidio explicitamente NO negar.",
+      "Propone 'consultora', ya cargada. Aporta uno nuevo valido: 'lexcontrol'."
+    ],
+    "reporte_externo_aciertos": [
+      "Su recomendacion 2 (cruzar conversiones con HubSpot antes de celebrar el CPA) es la mejor del documento y el hallazgo de TechSol le da la razon.",
+      "Corrobora de forma independiente que la fuga viva es chica ($21.642 de $77.011).",
+      "Coincide en el QS 1 de la keyword que mas gasta y en que Marca esta sana pero limitada por presupuesto.",
+      "Declara sus limites con honestidad: 34% de cobertura de terminos, cambio de estructura, conversiones no validadas."
+    ]
   }
 }
