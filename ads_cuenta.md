@@ -613,3 +613,30 @@ para poder leer una semana completa y limpia (17 al 23 de agosto). Quedan EN ESP
   - Cambiar la URL final de los ANUNCIOS de los Grupos A y C (ya estaba postergado por la misma razon).
 SIGUE VIGENTE: pujas congeladas hasta despues del 30-sep; no aplicar CPA objetivo; tope US$1.000.
 PROXIMO PASO: lunes 24-ago, leer la semana 17-23 completa. Metrica que manda: costo por MQL de SST.
+
+## Negativas cargadas en la campana MARCA (19-ago-2026, por Diego)
+
+Nivel CAMPANA, concordancia EXACTA, campana «Tazki - Marca - Search - v2». 12 terminos:
+  [taski app cl] · [www tazki cl] · [que es tazki] · [tazki que es] · [tazkipass] · [que es tazki] ·
+  [tasky] · [taszki] · [taski app] · [taski app descargar] · [taski chile] · [tasky chile]
+
+LINEA BASE DE MARCA ANTES DEL CAMBIO (13-jul a 18-ago) — el numero contra el cual comparar el 24-ago:
+  287 clics · $161.239 · 6 MQL · $26.873 por MQL · CPC $562 · IS 17,8% · 50,8% perdido por presupuesto
+
+OBSERVACIONES anotadas al cargarlas (no bloquean nada, son para Diego):
+  1. Son EXACTAS: cada una bloquea solo esa consulta literal, no sus variantes. Mismo patron que SST
+     (726 de 806 exactas). Cada variante nueva cuesta un clic antes de quedar bloqueada.
+  2. [que es tazki] esta DUPLICADA en la lista. Una sobra.
+  3. Son dos familias distintas mezcladas:
+     - Marca propia bien escrita: www tazki cl, que es tazki, tazki que es, tazkipass. Bloquearlas es
+       dejar de pagar por trafico que llegaria igual por organico. Decision legitima y consistente con
+       el contraargumento que ya estaba anotado sobre canibalizacion de marca.
+     - Errores de tipeo: taski, tasky, taszki. Depende de que sean en realidad. Si es gente escribiendo
+       mal «Tazki», se pierde ese trafico. Si es la marca de aseo industrial TASKI (Diversey), esta bien
+       bloquearlas. QUEDA A CRITERIO DE DIEGO — no hay dato en la cuenta que lo zanje.
+  4. OJO CON LA MEDICION: Marca es justo la campana del traslado de presupuesto que quedo en espera
+     hasta el 24-ago. Su linea base se mueve desde hoy. Si el 24 se lee una mejora en Marca, parte puede
+     venir de estas negativas y no del presupuesto.
+
+CONTEXTO: en SST «taski» y «tazki» ya estaban como negativas de FRASE. Con estas de Marca, esos terminos
+quedan bloqueados en las dos campanas activas.

@@ -366,5 +366,31 @@
     ],
     "sigue_vigente": "Pujas congeladas hasta despues del 30-sep. No aplicar CPA objetivo. Tope US$1.000.",
     "proximo_paso": "Lunes 24-ago: leer la semana 17-23 completa. Metrica que manda: costo por MQL de SST."
+  },
+  "_ads_negativas_marca_19_ago_2026": {
+    "ejecutado_por": "Diego, 19-ago-2026",
+    "donde": "campana «Tazki - Marca - Search - v2», nivel campana, concordancia EXACTA",
+    "terminos": [
+      "[taski app cl]",
+      "[www tazki cl]",
+      "[que es tazki]",
+      "[tazki que es]",
+      "[tazkipass]",
+      "[que es tazki] (duplicada)",
+      "[tasky]",
+      "[taszki]",
+      "[taski app]",
+      "[taski app descargar]",
+      "[taski chile]",
+      "[tasky chile]"
+    ],
+    "linea_base_marca_antes": "13-jul a 18-ago: 287 clics, $161.239, 6 MQL, $26.873 por MQL, CPC $562, IS 17,8%, 50,8% perdido por presupuesto. Es el numero contra el cual comparar el 24-ago.",
+    "observaciones": [
+      "Son exactas: bloquean solo la consulta literal, no variantes.",
+      "[que es tazki] esta duplicada; una sobra.",
+      "Dos familias mezcladas: marca propia bien escrita (legitimo dejar de pagarla si llega por organico) y errores de tipeo (taski/tasky/taszki). Si los errores son gente buscando Tazki se pierde ese trafico; si son la marca de aseo TASKI esta bien. Sin dato en la cuenta que lo zanje: criterio de Diego.",
+      "Marca es la campana del traslado de presupuesto en espera: si el 24 mejora, parte puede venir de estas negativas y no del presupuesto."
+    ],
+    "contexto": "En SST «taski» y «tazki» ya estaban como negativas de FRASE. Ahora quedan bloqueados en las dos campanas activas."
   }
 }
