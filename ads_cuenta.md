@@ -701,3 +701,56 @@ LO QUE EL REPORTE APORTA Y HAY QUE TOMAR:
 REGLA NUEVA PERMANENTE: TODA consulta de conversiones a Google Ads debe traer Conversiontypename y
 filtrar a «HubSpot - Marketing Qualified Lead». El campo `conversions` a secas suma TechSol. El Plan ya
 lo hacia bien; los analisis ad-hoc de esta sesion no.
+
+## Segundo informe externo con cruce a HubSpot (20-ago-2026) — verificacion
+
+Diego trajo un segundo PDF del otro chat, esta vez cruzando Ads con HubSpot. Es MUCHO mejor que el
+primero: hace exactamente el cruce que faltaba. Verificado punto por punto.
+
+LO QUE VERIFIQUE Y ESTA BIEN:
+- Su tasa del 55% Meeting Set -> Qualified Prospect esta bien calculada SOBRE TODO EL PIPELINE:
+  340 de 623 deals del pipeline de ventas creados en 2026 = 54,6%. Confirmado en HubSpot.
+- Su punto 8 (la etapa con id interno `closedlost` esta etiquetada «Closed Won») coincide exactamente
+  con lo que ya dice nuestro diccionario del 14-ago. Corroboracion independiente.
+- Su lectura de la fuga viva ($21.642 de $77.011) coincide con la lectura de ayer: casi todo ya estaba
+  negativizado.
+
+EL ERROR QUE SI IMPORTA — la tasa del 55% no aplica a estos leads:
+  Todo el pipeline .... 340 de 623 = 54,6%
+  Solo INBOUND ........  84 de 234 = 35,9%   <- la que corresponde a leads de Paid Search
+  La diferencia es outbound/prospeccion, que entra pre-calificado a la reunion (256 de 389 = 65,8%).
+  Efecto en su proyeccion: 3 reuniones x 35,9% = 1,08 oportunidades (no 1,65).
+  Total esperado 7,08 y no 7,7 -> costo por oportunidad ~$120.463, no $111.343.
+  Nota: ese 35,9% inbound calza casi exacto con el 35,7% de SEM que ya trae el Plan (5 de 14).
+  ES LA MISMA CLASE DE ERROR QUE YA CONFUNDIO A FELIPE con el 4,4% contra el 4,85%: universo equivocado.
+
+ERRORES QUE ARRASTRA DEL PRIMER PDF (ya corregidos aca el 19-ago):
+- Su resumen ejecutivo sigue diciendo «las conversiones pasaron de 4 a 21 y el costo por conversion cayo
+  82%». Son 16 MQL reales + 5 TechSol. Real: 4 -> 16 = +300%, y -76%.
+  IRONIA UTIL: al corregirlo su propio informe MEJORA. Explica la brecha «21 en Ads vs 17 en HubSpot»
+  como «conversiones repetidas o desfase de fecha». La explicacion real es TechSol, y deja 16 contra 17:
+  un calce casi perfecto en vez de una brecha sin explicar.
+- Sigue etiquetando keywords como [Amplia] (plataforma hse, software de prev de riesgos laborales,
+  software de gestion de riesgos, software seguridad ocupacional, software sst). Diego ya verifico en la
+  UI que la unica amplia activada es «plataforma hse». Es el campo de concordancia de la BUSQUEDA.
+- Vuelve a proponer negativizar «implementacion» (su punto 6), que el 13-ago se decidio explicitamente
+  NO negar. Tambien propone «consultora» y «curso», ya cargadas.
+- Su punto 1 dice «subir el presupuesto de Marca». Con el tope de US$1.000 vigente eso NO se hace como
+  aumento: se hace como TRASLADO desde SST. El total diario se mantiene en $28.000.
+
+LO QUE APORTA Y NO TENIAMOS:
+- El cruce nombre por nombre: 6 oportunidades confirmadas (Cushman & Wakefield en Negociacion 70%,
+  INOLASA, Tecton, Candelaria/Lundin, Contenedores San Fernando, IMT) y 3 con reunion agendada
+  (Valle Nevado, Proyecsur, Agricola el Arenal). Eso responde «son leads reales o formularios basura».
+- Marca produjo 3 de las 6 oportunidades con el 14,5% del gasto y CERO descartes; SST produjo las otras
+  3 a $243.160 y concentro los 3 descartes. Refuerza el traslado de presupuesto con evidencia comercial,
+  no solo con costo por MQL.
+- Dos deals estancados: Candelaria 22 dias en Qualified Prospect, Fundinox 27 en Reagendar.
+- Ninguno de los 3 Closed Lost tiene motivo de descarte cargado.
+- 2 de los 17 leads tienen Original Source = Organic Search: llegaron por organico y volvieron por Ads.
+  Es el mismo caveat de canibalizacion de marca que ya teniamos anotado, ahora cuantificado.
+
+SU PUNTO 9 YA ESTA RESUELTO Y NO LO SABE: dice que no se puede calcular ROI porque el campo «amount»
+trae valores de 10 a 50 que «parecen licencias, no pesos». El diccionario del 14-ago ya lo zanjo:
+SON UF MENSUALES. El ano lleva 8 ganados inbound = 184,8 UF/mes. Diego puede responder esto con
+autoridad en la reunion.

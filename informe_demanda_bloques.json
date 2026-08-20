@@ -415,5 +415,29 @@
       "Coincide en el QS 1 de la keyword que mas gasta y en que Marca esta sana pero limitada por presupuesto.",
       "Declara sus limites con honestidad: 34% de cobertura de terminos, cambio de estructura, conversiones no validadas."
     ]
-  }
+  },
+  "_ads_informe_externo_2_20_ago_2026": {
+    "veredicto": "Mucho mejor que el primero: hace el cruce con HubSpot que faltaba. Verificado punto por punto.",
+    "verificado_ok": [
+      "Tasa 55% Meeting Set -> Qualified Prospect bien calculada sobre todo el pipeline: 340 de 623 = 54,6%.",
+      "Su punto 8 (etapa closedlost etiquetada Closed Won) coincide con nuestro diccionario del 14-ago.",
+      "Fuga viva $21.642 de $77.011 coincide con la lectura del 19-ago."
+    ],
+    "error_principal": "El 55% es de TODO el pipeline. Para leads inbound de Paid Search la tasa real es 84 de 234 = 35,9% (la diferencia es outbound, que entra pre-calificado: 256 de 389 = 65,8%). Su proyeccion baja de 7,7 a 7,08 oportunidades y el costo sube de $111.343 a ~$120.463. Es la misma clase de error del 4,4% vs 4,85% que ya confundio a Felipe: universo equivocado. El 35,9% inbound calza con el 35,7% de SEM del Plan.",
+    "errores_arrastrados": [
+      "Resumen ejecutivo sigue diciendo 4->21 y -82%; real 4->16 y -76%. Al corregirlo su informe MEJORA: la brecha '21 en Ads vs 17 en HubSpot' que atribuye a duplicados es en realidad TechSol, y queda 16 contra 17.",
+      "Sigue etiquetando keywords como [Amplia] leyendo la concordancia de la BUSQUEDA.",
+      "Vuelve a proponer negativizar 'implementacion', decidido explicitamente NO el 13-ago.",
+      "Dice 'subir el presupuesto de Marca': con el tope de US$1.000 debe ser TRASLADO desde SST, no aumento."
+    ],
+    "aporta": [
+      "Cruce nombre por nombre: 6 oportunidades confirmadas y 3 con reunion agendada.",
+      "Marca: 3 de 6 oportunidades con 14,5% del gasto y cero descartes; SST las otras 3 a $243.160 con los 3 descartes.",
+      "Dos deals estancados: Candelaria 22 dias, Fundinox 27 dias.",
+      "Ningun Closed Lost tiene motivo de descarte cargado.",
+      "2 de los 17 leads tienen Original Source = Organic Search: canibalizacion de marca cuantificada."
+    ],
+    "su_punto_9_ya_resuelto": "Dice que no se puede calcular ROI porque 'amount' trae valores de 10 a 50. El diccionario del 14-ago ya lo zanjo: SON UF MENSUALES. El ano lleva 8 ganados inbound = 184,8 UF/mes."
+  },
+  "_tasa_meeting_set_a_qualified_prospect": "2026, pipeline de ventas: TODO el pipeline 340 de 623 = 54,6%. Solo INBOUND 84 de 234 = 35,9%. Outbound 256 de 389 = 65,8%. Para proyectar leads inbound USAR 35,9%, nunca el 55%."
 }
