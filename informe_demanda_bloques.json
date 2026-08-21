@@ -461,5 +461,21 @@
       "El periodo aun madura; comparacion por campana no directa (6 campanas antes, 2 hoy); terminos cubren 34% del gasto.",
       "Tope US$1.000, pujas congeladas hasta despues del 30-sep, sin CPA objetivo."
     ]
+  },
+  "_metas_septiembre_axel_20_ago_2026": {
+    "fuente": "Planilla Plan RevOps Tazki Ago-Sep 2026 + transcripcion de la reunion con Axel del 20-ago",
+    "formato_de_relato": "DIAGNOSTICO -> PROCESO/ACCION -> RESULTADO. 'Vi esto, por eso hice esto, y busco lograr esto'. Es el formato de 5 campos de Felipe comprimido en 3. La planilla lo tiene como columnas: Titulo / Dato o problema que la justifica / Por que importa / Indicador / Baseline / Meta / hitos semanales.",
+    "metas_de_diego": [
+      "Contenido: >=8 piezas nuevas al 30/09 (hitos: 2, 3, 4, 6, 7, 8 acumuladas por semana).",
+      "Leads: >=12 en septiembre. Baseline 6/mes.",
+      "Maduracion Lead -> MQL: >=30% al 30/09. Baseline 17% (2 de 12)."
+    ],
+    "otras_de_diego_en_la_planilla": [
+      "Validar apertura de mercado en Peru: 100% de 6 dimensiones + decision Go/No-Go.",
+      "Preparar Edifica 2026 (20-22 oct): 100% ICP identificadas, >=80% prospectadas, >=10 reuniones."
+    ],
+    "choque_de_definiciones_VERIFICADO": "El 'lead' de Axel es contacto con fecha_lead (newsletter o ebook). El 'MQL' de Ads es el evento HubSpot - Marketing Qualified Lead (pide demo). Son embudos casi disjuntos: de los 12 contactos con fecha_lead entre 1-jul y 31-ago, 7 son ORGANIC_SEARCH, 2 DIRECT, 1 SOCIAL, 1 OFFLINE y 1 PAID_SEARCH (un estudiante @usach.cl). Los 2 que llegaron a MQL son ambos organicos. NO MEZCLAR los numeros con los de Ads en la misma lamina.",
+    "hallazgo_mix_de_correos": "De los 12 leads: 4 con correo corporativo -> 2 MQL; 8 con correo personal o educacional -> 0 MQL. n chico (4 casos), pero la direccion sirve. Con el mix actual 12 leads rendirian ~2 MQL y no 3,6. Sugerencia: pedir correo corporativo o bloquear dominios gratuitos/educacionales, y proponerle a Axel un guardarrail de calidad en la meta de leads en vez de cambiar el numero.",
+    "encuadre_para_felipe": "Las 3 metas de Axel son el motor ORGANICO ('sin inversion SEM', textual en la planilla). Google Ads es always-on y va en otro bloque. La planilla dice explicitamente que estas metas no reemplazan el always-on de cada area."
   }
 }

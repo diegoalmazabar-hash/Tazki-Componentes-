@@ -754,3 +754,38 @@ SU PUNTO 9 YA ESTA RESUELTO Y NO LO SABE: dice que no se puede calcular ROI porq
 trae valores de 10 a 50 que «parecen licencias, no pesos». El diccionario del 14-ago ya lo zanjo:
 SON UF MENSUALES. El ano lleva 8 ganados inbound = 184,8 UF/mes. Diego puede responder esto con
 autoridad en la reunion.
+
+## Metas de septiembre de Axel y el choque de definiciones (20-ago-2026)
+
+Axel dejo 3 metas de marketing para septiembre (planilla Plan RevOps Ago-Sep 2026):
+  1. CONTENIDO ....... >=8 piezas nuevas al 30/09. Baseline: cadencia no sistematizada.
+  2. LEADS ........... >=12 leads en septiembre. Baseline 6/mes (12 reales en 2026: 6 jul + 6 ago).
+  3. MADURACION ...... conversion Lead -> MQL >=30% al 30/09. Baseline 17% (2 de 12).
+Formato de relato que exige Axel: DIAGNOSTICO -> PROCESO/ACCION -> RESULTADO ("vi esto, por eso hice
+esto, y busco lograr esto"). Es el mismo formato de 5 campos de Felipe, comprimido en 3.
+Texto literal de la planilla en la meta de leads: "para que Marketing funcione como un motor relevante
+y constante de creacion de demanda y pipeline SIN INVERSION (SEM)".
+
+⚠️ CHOQUE DE DEFINICIONES — VERIFICADO EN HUBSPOT, HAY QUE DECIRLO ANTES DE QUE FELIPE LOS SUME:
+  El «lead» de Axel = contacto con `fecha_lead` marcada (se suscribio al newsletter o descargo un ebook).
+  El «MQL» de Ads   = evento «HubSpot - Marketing Qualified Lead» (pidio demo).
+  SON EMBUDOS DISTINTOS Y CASI DISJUNTOS. Los 12 contactos con fecha_lead entre 1-jul y 31-ago:
+    ORGANIC_SEARCH 7 · DIRECT 2 · SOCIAL 1 · OFFLINE 1 · PAID_SEARCH 1
+  El unico de Paid Search es gabriel.bustos.s@usach.cl — un estudiante.
+  Los 2 que llegaron a MQL (Matias Martinez de agenciamaun.cl y Fresia Matamala de cimolai.com) son
+  AMBOS ORGANIC_SEARCH. Cero de los 16 MQL de Ads pasa por el embudo de Axel.
+  CONSECUENCIA: las 3 metas de Axel son el motor ORGANICO. Ads es always-on y no las mueve.
+  No mezclar los numeros en la misma lamina.
+
+HALLAZGO QUE DIEGO PUEDE LLEVAR (mismo formato, y respeta la regla de Axel de decir el crudo antes que
+el porcentaje): de los 12 leads, 4 tienen correo corporativo y 8 tienen correo personal o educacional
+(4 gmail, 1 hotmail, usach.cl, uoc.edu, y uno mas de gmail).
+  Corporativos ....... 4 leads -> 2 MQL
+  Personales/edu ..... 8 leads -> 0 MQL
+  n chico: son 4 casos, no es una tasa estable. Pero la direccion sirve para decidir.
+  Implicacion para la meta 3: con el mix actual, llegar a 30% exige mejorar la CALIDAD del lead, no solo
+  el volumen. Si el mix no cambia, 12 leads al mes rendirian ~2 MQL (17%), no 3,6 (30%).
+  Accion sugerida: pedir correo corporativo en el formulario o bloquear dominios de correo gratuito y
+  educacionales, y segmentar aparte a los que no lo tengan.
+  RIESGO DE LA META TAL COMO ESTA ESCRITA: «12 leads» se puede cumplir con mas estudiantes. Conviene
+  proponerle a Axel un guardarrail de calidad, no cambiar el numero.
