@@ -482,7 +482,7 @@
   "_plan_septiembre_20_ago_2026": {
     "entregable": "plan-septiembre.html (repo gh-pages) · artefacto https://claude.ai/code/artifact/aec2611a-b3b5-4249-bf9f-86273d4505a1",
     "idea_central": "Las 8 piezas se eligen por DEMANDA VERIFICADA, y la fuente es la propia cuenta de Google Ads: los terminos informacionales por los que ya pagamos y que no convierten a venta son exactamente los temas de contenido. La fuga de Ads es la lista de keywords del calendario editorial.",
-    "diagnostico_meta_1": "1.470 visualizaciones del blog, pero 823 (56%) vienen de un solo articulo (IRL/DS 44). Todo el inventario es DS 44 y prevencion: cero piezas de salud ocupacional, protocolos MINSAL, matriz IPER, charlas ni psicosocial.",
+    "diagnostico_meta_1": "El blog lleva 1.470 visualizaciones y el 70% son de UN SOLO TEMA, el DS 44: IRL 823 + un ano y medio despues 103 + entrega de EPP 59 + ebook 37 = 1.022. Operacion (inspecciones 145 + AST 67) 212 = 14%. Casos de exito (Falabella 99 + control operacional 63) 162 = 11%. Resto 74 = 5%. Dentro de ese 70%, el articulo «IRL: que es y que exige el DS 44 (la nueva ODI)» solo pone 823 = 56% del blog entero, y ese numero suma su URL nueva y la antigua del mismo contenido tras la migracion (es un articulo, no dos). No hay ninguna pieza de salud ocupacional, protocolos MINSAL, matriz IPER, charlas ni psicosocial.",
     "las_8_piezas": [
       "SG-SST paso a paso (evidencia: 'implementacion sg sst', un clic de $15.154, el termino mas caro de la cuenta) - 28-ago",
       "Matriz IPER/IPERC ('que es una matriz iperc' $1.605, 'software iperc' $3.840) - 28-ago",
@@ -512,6 +512,7 @@
       "Definicion escrita de que hace que un contacto pase a MQL",
       "Media hora a una hora semanal bloqueada para produccion",
       "Revision de borradores antes de publicar"
-    ]
+    ],
+    "nota_v2": "20-ago: el diagnostico de la meta 1 se reforzo de 'un solo articulo, 56%' a 'un solo TEMA, 70%'. Es mas fuerte y igual de cierto, y justifica mejor las 5 piezas que abren temas nuevos. La agrupacion por tema es nuestra, sobre los articulos que reporta HubSpot."
   }
 }
