@@ -514,5 +514,14 @@
       "Revision de borradores antes de publicar"
     ],
     "nota_v2": "20-ago: el diagnostico de la meta 1 se reforzo de 'un solo articulo, 56%' a 'un solo TEMA, 70%'. Es mas fuerte y igual de cierto, y justifica mejor las 5 piezas que abren temas nuevos. La agrupacion por tema es nuestra, sobre los articulos que reporta HubSpot."
+  },
+  "_aeo_medible_desde_hubspot_21_ago_2026": {
+    "corrige": "La suposicion de que el bloque AEO se carga a mano porque 'no hay API'. Es falso para el lado de resultado comercial.",
+    "como": "CONTACT (y DEAL) con hs_latest_source EQ 'AI_REFERRALS' o hs_analytics_source EQ 'AI_REFERRALS'. OJO: la propiedad es hs_latest_source, NO latest_source (esta ultima no existe y la API rechaza la consulta). El valor es AI_REFERRALS en plural; AI_REFERRAL devuelve cero. Existe tambien hs_chatgpt_click_id, hoy sin datos.",
+    "estado_21_ago_2026": "5 contactos con origen IA en 2026, cero descartes: Alejandro Cortes (INPROLEC, opportunity, 12-mar), Nicole Osorio (SOFTYS, opportunity, 11-may, fuente original IA y latest source direct), Gary Osses (dinamo, SQL, MQL 5-ago), Consuelo Rojas (Digua, SQL, MQL 14-ago), Frank Peralta (Tecnologias Cobra, MQL 19-ago). 3 de los 5 llegaron en agosto.",
+    "advertencia": "Son 5 casos. Sirve para mostrar que el canal existe y acelera, no para calcular una tasa.",
+    "se_automatiza": "Contactos y negocios con origen IA, su etapa y empresa, semana a semana. Reemplaza la carga manual del bloque 10 para el lado de resultado.",
+    "sigue_manual": "La VISIBILIDAD: si Tazki aparece citada en ChatGPT/Perplexity/Gemini ante un prompt. No vive en HubSpot. Linea base 14-ago: 50% en el prompt 'mejores software de seguridad laboral en Chile'.",
+    "rutina_semanal": "Los lunes: contactos nuevos de la semana con origen IA, empresa y etapa, mas acumulado del ano y cuantos llegaron a oportunidad."
   }
 }

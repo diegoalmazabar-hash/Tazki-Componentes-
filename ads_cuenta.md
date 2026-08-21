@@ -789,3 +789,40 @@ el porcentaje): de los 12 leads, 4 tienen correo corporativo y 8 tienen correo p
   educacionales, y segmentar aparte a los que no lo tengan.
   RIESGO DE LA META TAL COMO ESTA ESCRITA: «12 leads» se puede cumplir con mas estudiantes. Conviene
   proponerle a Axel un guardarrail de calidad, no cambiar el numero.
+
+## AEO/GEO: SI se puede medir desde HubSpot, semana a semana (21-ago-2026)
+
+CORRIGE UNA SUPOSICION VIEJA. En la configuracion estaba anotado que el bloque AEO se cargaba a mano
+porque "no hay API". Eso es falso para el lado de RESULTADO. HubSpot tiene un valor de fuente nativo:
+  hs_latest_source = "AI_REFERRALS"   (plural; AI_REFERRAL en singular NO existe y devuelve cero)
+  hs_analytics_source = "AI_REFERRALS"  (fuente original, para los que volvieron por otro canal)
+  Tambien existe la propiedad nativa hs_chatgpt_click_id (hoy sin datos en el portal).
+OJO: la propiedad de fuente se llama `hs_latest_source`, NO `latest_source`. Esta ultima no existe y la
+API rechaza la consulta.
+
+ESTADO AL 21-AGO-2026 — 5 contactos con origen IA en todo 2026, y NINGUNO es basura:
+  Alejandro Cortes · INPROLEC S.A ......... creado 12-mar · lifecycle OPPORTUNITY
+  Nicole Osorio · SOFTYS .................. creado 11-may · lifecycle OPPORTUNITY
+     (fuente original AI_REFERRALS, latest source DIRECT_TRAFFIC: llego por IA y volvio directo.
+      Es la ganada por ChatGPT que ya estaba anotada, ahora confirmada por propiedad.)
+  Gary Osses · dinamo ..................... MQL 5-ago  · lifecycle SALES QUALIFIED LEAD
+  Consuelo Rojas · Digua Ltda. ............ MQL 14-ago · lifecycle SALES QUALIFIED LEAD
+  Frank Peralta · Tecnologias Cobra ....... MQL 19-ago · lifecycle MARKETING QUALIFIED LEAD
+
+LECTURA: 3 de los 5 llegaron en AGOSTO (5, 14 y 19). Y la calidad es notable: 2 en oportunidad, 2 en SQL,
+1 en MQL. Cero descartes. Contra Paid Search, que necesito 17 contactos para 6 oportunidades, la IA lleva
+5 contactos y 2 oportunidades mas 2 SQL.
+ADVERTENCIA DE TAMANO: son 5 casos. Sirve para mostrar que el canal existe y esta acelerando, NO para
+calcular una tasa de conversion.
+
+QUE SE PUEDE AUTOMATIZAR Y QUE NO:
+  SI (desde HubSpot, sin carga manual): contactos y negocios con origen IA, su etapa, su empresa, y la
+     evolucion semana a semana. Esto reemplaza la carga manual del bloque 10 del Plan para el lado de
+     resultado comercial.
+  NO (sigue necesitando revision manual o herramienta externa): la VISIBILIDAD, o sea si Tazki aparece
+     citada en ChatGPT/Perplexity/Gemini ante un prompt dado. Eso no vive en HubSpot. La linea base del
+     14-ago era 50% de visibilidad en el prompt "mejores software de seguridad laboral en Chile".
+
+RUTINA SEMANAL PROPUESTA (para los lunes): consultar CONTACT con hs_latest_source EQ AI_REFERRALS o
+hs_analytics_source EQ AI_REFERRALS, y reportar: contactos nuevos de la semana, su empresa y su etapa,
+mas el acumulado del ano y cuantos llegaron a oportunidad.
