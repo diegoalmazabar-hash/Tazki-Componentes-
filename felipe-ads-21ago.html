@@ -1,0 +1,271 @@
+<meta charset="utf-8">
+<title>Cuatro decisiones de Ads</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F6F7FB; --surface:#FFFFFF; --surface-2:#EEF1F8;
+    --ink:#101B3A; --ink-2:#47527A; --ink-3:#79839F;
+    --line:#DFE4EF; --line-soft:#EAEEF6;
+    --accent:#1537D1; --accent-soft:#E7EBFC;
+    --good:#12704F; --good-soft:#E2F1EA;
+    --bad:#A32C22; --bad-soft:#FAE8E5;
+    --warn:#8A5D0E; --warn-soft:#F8EEDA;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0A0F22; --surface:#141B33; --surface-2:#1C2440;
+      --ink:#E9EDF8; --ink-2:#B3BCD6; --ink-3:#818CAC;
+      --line:#2A3352; --line-soft:#212944;
+      --accent:#8AA1FF; --accent-soft:#1C2551;
+      --good:#5BC79A; --good-soft:#102E23;
+      --bad:#F08C80; --bad-soft:#341714;
+      --warn:#E0B25C; --warn-soft:#2E2411;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0A0F22; --surface:#141B33; --surface-2:#1C2440;
+    --ink:#E9EDF8; --ink-2:#B3BCD6; --ink-3:#818CAC;
+    --line:#2A3352; --line-soft:#212944;
+    --accent:#8AA1FF; --accent-soft:#1C2551;
+    --good:#5BC79A; --good-soft:#102E23;
+    --bad:#F08C80; --bad-soft:#341714;
+    --warn:#E0B25C; --warn-soft:#2E2411;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:900px; margin:0 auto; padding:40px 22px 72px; display:flex; flex-direction:column; gap:26px}
+
+  /* ---------- encabezado ---------- */
+  .eyebrow{
+    font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+  }
+  h1{
+    margin:10px 0 0; font-size:clamp(28px,4.6vw,40px); line-height:1.08; font-weight:800;
+    letter-spacing:-.028em; text-wrap:balance;
+  }
+  .sub{margin:12px 0 0; color:var(--ink-2); font-size:15.5px; max-width:62ch; text-wrap:pretty}
+  .stamp{
+    margin-top:14px; font-family:'IBM Plex Mono',ui-monospace,monospace;
+    font-size:11.5px; color:var(--ink-3); letter-spacing:.02em;
+  }
+
+  /* ---------- tira de resultado ---------- */
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+        border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--surface); padding:16px 18px; display:flex; flex-direction:column; gap:5px}
+  .kpi .k{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10.5px; letter-spacing:.1em;
+          text-transform:uppercase; color:var(--ink-3)}
+  .kpi .v{font-size:26px; font-weight:800; letter-spacing:-.025em; line-height:1.1}
+  .kpi .d{font-size:12.5px; color:var(--ink-2)}
+  .up{color:var(--good); font-weight:700}
+  .down{color:var(--good); font-weight:700}
+
+  /* ---------- bloques ---------- */
+  .block{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .bhead{
+    display:flex; align-items:flex-start; gap:14px; padding:18px 20px 16px;
+    border-bottom:1px solid var(--line-soft); flex-wrap:wrap;
+  }
+  .tag{
+    flex:none; width:26px; height:26px; border-radius:8px; background:var(--accent-soft);
+    color:var(--accent); font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:12.5px;
+    font-weight:600; display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .btitle{flex:1 1 340px; min-width:0}
+  .btitle h2{margin:0; font-size:19px; font-weight:700; letter-spacing:-.018em; line-height:1.28; text-wrap:balance}
+  .chip{
+    flex:none; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10.5px; font-weight:600;
+    letter-spacing:.07em; text-transform:uppercase; padding:5px 10px; border-radius:999px; margin-top:3px;
+  }
+  .c-done{background:var(--good-soft); color:var(--good)}
+  .c-ask{background:var(--warn-soft); color:var(--warn)}
+  .c-part{background:var(--accent-soft); color:var(--accent)}
+
+  dl{margin:0; display:flex; flex-direction:column}
+  .row{display:grid; grid-template-columns:132px 1fr; gap:18px; padding:13px 20px;
+       border-bottom:1px solid var(--line-soft)}
+  @media(max-width:600px){.row{grid-template-columns:1fr; gap:5px}}
+  .row:last-child{border-bottom:0}
+  dt{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10.5px; font-weight:500;
+     letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:3px}
+  dd{margin:0; font-size:15px; color:var(--ink-2); text-wrap:pretty}
+  dd b{color:var(--ink); font-weight:700}
+  .row-read{background:var(--surface-2)}
+  .row-read dt{color:var(--accent)}
+  .row-read dd{color:var(--ink)}
+
+  .flag{
+    margin:11px 0 0; padding:11px 13px; border-left:2px solid var(--warn);
+    background:var(--warn-soft); border-radius:0 9px 9px 0; font-size:13.5px; color:var(--ink-2);
+  }
+  .flag b{color:var(--ink)}
+
+  /* ---------- tabla ---------- */
+  .tscroll{overflow-x:auto; margin:11px 0 2px}
+  table{width:100%; border-collapse:collapse; font-size:14px; min-width:440px}
+  th,td{padding:8px 11px; text-align:left; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+  thead th{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.09em;
+           text-transform:uppercase; color:var(--ink-3); font-weight:500}
+  td.r,th.r{text-align:right; font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:0}
+  td.name{font-weight:600; color:var(--ink)}
+
+  /* ---------- pedido de acuerdo ---------- */
+  .ask{
+    background:var(--surface); border:1px solid var(--accent); border-radius:16px; padding:20px 22px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .ask h2{margin:0; font-size:19px; font-weight:700; letter-spacing:-.018em}
+  .quote{
+    font-size:15.5px; color:var(--ink); background:var(--accent-soft); border-radius:11px;
+    padding:14px 16px; text-wrap:pretty;
+  }
+  .strike{color:var(--ink-3); text-decoration:line-through}
+
+  /* ---------- notas ---------- */
+  .notes{border-top:1px solid var(--line); padding-top:18px; display:flex; flex-direction:column; gap:9px}
+  .notes h3{margin:0 0 3px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10.5px;
+            font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+  .notes p{margin:0; font-size:12.5px; line-height:1.6; color:var(--ink-3); max-width:78ch; text-wrap:pretty}
+  .notes p b{color:var(--ink-2)}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Google Ads · Tazki · 21 jul – 19 ago 2026</div>
+    <h1>Cuatro decisiones de Ads</h1>
+    <p class="sub">El mes cerró mejor y ahora sabemos que los leads son reales: los 17 contactos de Paid Search están cruzados uno a uno con HubSpot. Tres de los cuatro puntos necesitan tu decisión.</p>
+    <div class="stamp">Comparado con 21 jun – 20 jul · Google Ads 3766426817 × HubSpot 50744593 · datos al 19 de agosto</div>
+  </header>
+
+  <section class="kpis">
+    <div class="kpi">
+      <span class="k">Inversión</span>
+      <span class="v num">$852.877</span>
+      <span class="d">antes $887.130 · <b>−3,9%</b></span>
+    </div>
+    <div class="kpi">
+      <span class="k">MQL</span>
+      <span class="v num">16</span>
+      <span class="d">antes 4 · <span class="up">+300%</span></span>
+    </div>
+    <div class="kpi">
+      <span class="k">Oportunidades</span>
+      <span class="v num">6</span>
+      <span class="d">antes 2 · +3 con reunión</span>
+    </div>
+    <div class="kpi">
+      <span class="k">Costo / oportunidad</span>
+      <span class="v num">$142.146</span>
+      <span class="d">antes $443.565 · <span class="down">−68%</span></span>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <article class="block">
+    <div class="bhead">
+      <span class="tag">1</span>
+      <div class="btitle"><h2>¿El gasto en Ads produce negocio real o formularios?</h2></div>
+      <span class="chip c-done">Ejecutado</span>
+    </div>
+    <dl>
+      <div class="row"><dt>Métrica</dt><dd><b>17 contactos</b> de Paid Search entraron a HubSpot, <b>16 generaron negocio</b> (94%) y <b>6 están en etapa de oportunidad</b>: Cushman&nbsp;&amp;&nbsp;Wakefield (Negociación, 70%), INOLASA, Tecton Infraestructura, Candelaria / Lundin Mining, Contenedores San Fernando e IMT. Otros 3 tienen reunión agendada: Valle Nevado, Proyecsur y Agrícola el Arenal. El mes anterior fueron 4 MQL y 2 oportunidades.</dd></div>
+      <div class="row"><dt>Acción</dt><dd>Consolidación de 6 campañas en 2 · recorte de <b>24 keywords</b> sin conversión el 13-ago, el <b>31% del gasto</b> · landing nueva para SGSST · geo corregida a Chile el 14-ago (estaba en «todos los países»).</dd></div>
+      <div class="row"><dt>Esperado</dt><dd>Bajar el costo por oportunidad concentrando el gasto en lo que produce.</dd></div>
+      <div class="row row-read"><dt>Medición</dt><dd>De <b>$443.565 a $142.146</b> por oportunidad (−68%), con casi la misma inversión. Las 3 reuniones agendadas suman ~1 oportunidad más a la tasa real de inbound, llevándolo a <b>~$120.000</b>. <b>Se relee el 4 de septiembre</b>, cuando esas reuniones hayan madurado.</dd></div>
+    </dl>
+    <div style="padding:0 20px 16px">
+      <div class="flag">Los cuatro cambios del 13 y 14 de agosto van juntos y <b>no son separables</b>: no podemos atribuirle la mejora a uno solo. Lo que sí descartamos es que venga de las palabras negativas — su techo de efecto es 3%.</div>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="block">
+    <div class="bhead">
+      <span class="tag">2</span>
+      <div class="btitle"><h2>El 85,5% del presupuesto va a la campaña más cara</h2></div>
+      <span class="chip c-ask">Requiere tu OK</span>
+    </div>
+    <dl>
+      <div class="row"><dt>Métrica</dt><dd>
+        <div class="tscroll"><table>
+          <thead><tr><th>Campaña</th><th class="r">Inversión</th><th class="r">% gasto</th><th class="r">Oport.</th><th class="r">Costo / op.</th><th class="r">Descartes</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Marca</td><td class="r num">$123.397</td><td class="r num">14,5%</td><td class="r num">3</td><td class="r num" style="color:var(--good);font-weight:700">$41.132</td><td class="r num">0</td></tr>
+            <tr><td class="name">SST / HSEQ</td><td class="r num">$729.480</td><td class="r num">85,5%</td><td class="r num">3</td><td class="r num" style="color:var(--bad);font-weight:700">$243.160</td><td class="r num">3</td></tr>
+          </tbody>
+        </table></div>
+        Marca produce la mitad de las oportunidades con un séptimo del presupuesto, sin un solo descarte. Y <b>pierde el 50,8%</b> de sus búsquedas por falta de presupuesto.
+      </dd></div>
+      <div class="row"><dt>Acción</dt><dd>Trasladar <b>$4.000/día de SST a Marca</b>. <b>No es aumento:</b> el total diario se mantiene en $28.000 y el tope de US$1.000 no se mueve.</dd></div>
+      <div class="row"><dt>Esperado</dt><dd>Más oportunidades con la misma plata.</dd></div>
+      <div class="row row-read"><dt>Medición</dt><dd>MQL totales de la cuenta y costo por oportunidad al <b>4 de septiembre</b>.</dd></div>
+    </dl>
+    <div style="padding:0 20px 16px">
+      <div class="flag">Parte del tráfico de marca llegaría igual por orgánico: <b>2 de los 17 leads</b> ya venían de búsqueda orgánica y volvieron por Ads. Por eso se compara el orgánico de marca antes y después. <b>Si los MQL totales no suben, se devuelve el presupuesto.</b></div>
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="block">
+    <div class="bhead">
+      <span class="tag">3</span>
+      <div class="btitle"><h2>Cinco keywords caras que no produjeron ni un contacto</h2></div>
+      <span class="chip c-ask">Requiere tu OK</span>
+    </div>
+    <dl>
+      <div class="row"><dt>Métrica</dt><dd><b>$194.638 en 30 días</b> — el <b>23% del presupuesto</b> — en cinco keywords con cero contactos en HubSpot, sobre unos 162 clics entre todas.</dd></div>
+      <div class="row"><dt>Acción</dt><dd>Pausar las dos más caras y consolidar las concordancias duplicadas del resto. El presupuesto liberado va a Marca y a «plataforma hse», que hoy tiene el costo por lead más bajo de la cuenta.</dd></div>
+      <div class="row"><dt>Esperado</dt><dd>Concentrar el gasto en las keywords que sí generan contactos.</dd></div>
+      <div class="row row-read"><dt>Medición</dt><dd>Costo por oportunidad de SST/HSEQ al <b>4 de septiembre</b>.</dd></div>
+    </dl>
+    <div style="padding:0 20px 16px">
+      <div class="flag">Con 162 clics deberíamos haber visto ~4 contactos y vimos 0: <b>a nivel del grupo la señal es real</b>. Pero keyword por keyword no alcanza — «software hse» tiene 11 clics, y con eso cero no significa nada. <b>Regla que adoptamos: una keyword no se juzga por conversiones con menos de ~110 clics.</b></div>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="block">
+    <div class="bhead">
+      <span class="tag">4</span>
+      <div class="btitle"><h2>La keyword que más gasta paga un recargo evitable</h2></div>
+      <span class="chip c-part">Parcial</span>
+    </div>
+    <dl>
+      <div class="row"><dt>Métrica</dt><dd>«sistema de gestión de seguridad y salud en el trabajo» consume <b>$177.231</b> — el 21% del presupuesto — con <b>Quality Score 1 de 10</b>. Produjo 4 leads y <b>2 de las 6 oportunidades</b> (INOLASA y Contenedores San Fernando). Un Quality Score bajo encarece cada clic de esa keyword.</dd></div>
+      <div class="row"><dt>Acción</dt><dd>La landing alineada con ese término ya se publicó el 13 de agosto. <b>Falta alinear el texto del anuncio</b>, que se postergó para no meter dos variables en la misma medición.</dd></div>
+      <div class="row"><dt>Esperado</dt><dd>Bajar el costo por clic de la keyword más cara de la cuenta.</dd></div>
+      <div class="row row-read"><dt>Medición</dt><dd>Quality Score y costo por clic al <b>31 de agosto</b>.</dd></div>
+    </dl>
+  </article>
+
+  <!-- pedido -->
+  <section class="ask">
+    <h2>Un compromiso que hay que reescribir</h2>
+    <p style="margin:0; color:var(--ink-2); font-size:15px; text-wrap:pretty">El 14 de agosto quedamos en un umbral para esta misma keyword, cuando todavía no sabíamos que era la que más producía. Los datos ahora dicen lo contrario de lo que suponía ese acuerdo.</p>
+    <p class="quote"><span class="strike">Si al 31 de agosto no sale de «rara vez se publica por calidad baja», se saca o se reescribe el anuncio.</span></p>
+    <p class="quote"><b>Redacción propuesta:</b> la keyword se juzga por <b>costo por oportunidad</b>, no por Quality Score. Se mantiene mientras ese costo esté bajo el promedio de la campaña SST/HSEQ. Hoy está en $88.615 contra $243.160 del promedio: tres veces mejor.</p>
+  </section>
+
+  <!-- notas -->
+  <section class="notes">
+    <h3>Cómo están medidos estos números</h3>
+    <p><b>MQL</b> cuenta solo el evento «HubSpot – Marketing Qualified Lead»; se excluye la etiqueta TechSol, que suma 5 eventos más en el período y no corresponde a este embudo. <b>Oportunidad</b> es un negocio en etapa Qualified Prospect (20%) o superior; Meeting Set, New MQL, Reagendar y Frozen no cuentan.</p>
+    <p>La proyección de las 3 reuniones agendadas usa la tasa real de avance <b>de negocios inbound</b>: 84 de 234 en 2026 = <b>35,9%</b>. La tasa del pipeline completo es 54,6%, pero incluye prospección saliente, que llega pre-calificada a la reunión y no es comparable con un lead de Ads.</p>
+    <p>El período <b>todavía está madurando</b>: los leads de la última semana no han tenido tiempo de avanzar, así que las 6 oportunidades son el piso y no el resultado final. La comparación por campaña no es directa: en el período anterior había 6 campañas activas y hoy hay 2. El informe de términos de búsqueda de Google cubre el 34% del gasto — sobre el resto no se puede afirmar nada.</p>
+    <p>Sin cambios: <b>tope de US$1.000</b> · estrategia de puja congelada hasta después del 30 de septiembre · no se aplica la recomendación de CPA objetivo de Google.</p>
+  </section>
+
+</div>

@@ -439,5 +439,27 @@
     ],
     "su_punto_9_ya_resuelto": "Dice que no se puede calcular ROI porque 'amount' trae valores de 10 a 50. El diccionario del 14-ago ya lo zanjo: SON UF MENSUALES. El ano lleva 8 ganados inbound = 184,8 UF/mes."
   },
-  "_tasa_meeting_set_a_qualified_prospect": "2026, pipeline de ventas: TODO el pipeline 340 de 623 = 54,6%. Solo INBOUND 84 de 234 = 35,9%. Outbound 256 de 389 = 65,8%. Para proyectar leads inbound USAR 35,9%, nunca el 55%."
+  "_tasa_meeting_set_a_qualified_prospect": "2026, pipeline de ventas: TODO el pipeline 340 de 623 = 54,6%. Solo INBOUND 84 de 234 = 35,9%. Outbound 256 de 389 = 65,8%. Para proyectar leads inbound USAR 35,9%, nunca el 55%.",
+  "_felipe_reunion_21_ago_2026": {
+    "entregable": "felipe-ads-21ago.html (repo gh-pages) · artefacto https://claude.ai/code/artifact/11a9b7dc-b6f4-430d-a6b9-4d2c7dab9675",
+    "formato": "5 campos de Felipe: problema (titulo) / metrica / accion / resultado esperado / medicion, con chip de estado por bloque.",
+    "periodo": "21-jul a 19-ago-2026 contra 21-jun a 20-jul",
+    "bloques": [
+      "1. Ejecutado - el combo del 13-14 ago. Costo por oportunidad de $443.565 a $142.146 (-68%). Relectura 4-sep.",
+      "2. Requiere OK - trasladar $4.000/dia de SST a Marca. NO es aumento, el total sigue en $28.000/dia.",
+      "3. Requiere OK - pausar/consolidar las 5 keywords con $194.638 y cero contactos.",
+      "4. Parcial - alinear el anuncio de la keyword con QS 1. Lectura 31-ago.",
+      "Pedido de acuerdo: reescribir el umbral de la keyword estrella para juzgarla por costo por oportunidad y no por Quality Score."
+    ],
+    "numeros_clave": "Inversion $852.877 (-3,9%) · 16 MQL (antes 4, +300%) · 17 contactos Paid Search en HubSpot, 16 con negocio (94%) · 6 oportunidades confirmadas + 3 con reunion agendada · costo por oportunidad $142.146 (antes $443.565).",
+    "caveats_declarados_en_la_pagina": [
+      "MQL excluye TechSol (5 eventos en el periodo).",
+      "Oportunidad = Qualified Prospect (20%) o superior.",
+      "La proyeccion usa la tasa inbound 35,9% (84 de 234), no el 54,6% del pipeline completo.",
+      "Los 4 cambios del 13-14 ago no son separables; las negativas no explican la mejora (techo 3%).",
+      "Bloque 3: la senal es agregada (162 clics, ~4 esperados, 0 reales); por keyword no alcanza. Regla de los ~110 clics declarada en la pagina.",
+      "El periodo aun madura; comparacion por campana no directa (6 campanas antes, 2 hoy); terminos cubren 34% del gasto.",
+      "Tope US$1.000, pujas congeladas hasta despues del 30-sep, sin CPA objetivo."
+    ]
+  }
 }
