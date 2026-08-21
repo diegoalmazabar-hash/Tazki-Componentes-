@@ -476,6 +476,42 @@
     ],
     "choque_de_definiciones_VERIFICADO": "El 'lead' de Axel es contacto con fecha_lead (newsletter o ebook). El 'MQL' de Ads es el evento HubSpot - Marketing Qualified Lead (pide demo). Son embudos casi disjuntos: de los 12 contactos con fecha_lead entre 1-jul y 31-ago, 7 son ORGANIC_SEARCH, 2 DIRECT, 1 SOCIAL, 1 OFFLINE y 1 PAID_SEARCH (un estudiante @usach.cl). Los 2 que llegaron a MQL son ambos organicos. NO MEZCLAR los numeros con los de Ads en la misma lamina.",
     "hallazgo_mix_de_correos": "De los 12 leads: 4 con correo corporativo -> 2 MQL; 8 con correo personal o educacional -> 0 MQL. n chico (4 casos), pero la direccion sirve. Con el mix actual 12 leads rendirian ~2 MQL y no 3,6. Sugerencia: pedir correo corporativo o bloquear dominios gratuitos/educacionales, y proponerle a Axel un guardarrail de calidad en la meta de leads en vez de cambiar el numero.",
-    "encuadre_para_felipe": "Las 3 metas de Axel son el motor ORGANICO ('sin inversion SEM', textual en la planilla). Google Ads es always-on y va en otro bloque. La planilla dice explicitamente que estas metas no reemplazan el always-on de cada area."
+    "encuadre_para_felipe": "Las 3 metas de Axel son el motor ORGANICO ('sin inversion SEM', textual en la planilla). Google Ads es always-on y va en otro bloque. La planilla dice explicitamente que estas metas no reemplazan el always-on de cada area.",
+    "correccion_diego_20_ago": "Diego corrigio el encuadre: los 'leads' son CONTACTOS (se suscriben al newsletter o descargan un ebook) y su trabajo es hacerlos madurar a MQL con acciones. Es UN SOLO EMBUDO, no dos. Lo que si es cierto es que Google Ads entra por otra PUERTA: el contacto pide demo y llega a MQL sin pasar por la etapa de contacto. Dos puertas de entrada al mismo MQL, no dos embudos."
+  },
+  "_plan_septiembre_20_ago_2026": {
+    "entregable": "plan-septiembre.html (repo gh-pages) · artefacto https://claude.ai/code/artifact/aec2611a-b3b5-4249-bf9f-86273d4505a1",
+    "idea_central": "Las 8 piezas se eligen por DEMANDA VERIFICADA, y la fuente es la propia cuenta de Google Ads: los terminos informacionales por los que ya pagamos y que no convierten a venta son exactamente los temas de contenido. La fuga de Ads es la lista de keywords del calendario editorial.",
+    "diagnostico_meta_1": "1.470 visualizaciones del blog, pero 823 (56%) vienen de un solo articulo (IRL/DS 44). Todo el inventario es DS 44 y prevencion: cero piezas de salud ocupacional, protocolos MINSAL, matriz IPER, charlas ni psicosocial.",
+    "las_8_piezas": [
+      "SG-SST paso a paso (evidencia: 'implementacion sg sst', un clic de $15.154, el termino mas caro de la cuenta) - 28-ago",
+      "Matriz IPER/IPERC ('que es una matriz iperc' $1.605, 'software iperc' $3.840) - 28-ago",
+      "Protocolos MINSAL ('como implementar protocolos minsal' $544) - 4-sep",
+      "Charlas de 5 minutos + registro ('temas para charlas de seguridad', 'charlas de seguridad de 5 minutos', 'registro de difusion pts') - 11-sep",
+      "Salud ocupacional / ficha clinica (pista de Axel + terminos de salud ocupacional que aparecen como relevantes) - 18-sep",
+      "Bateria de riesgo psicosocial ('software bateria de riesgo psicosocial' $5.252 en un clic) - 18-sep",
+      "Indicadores de SST ('indicadores sst excel gratis', 'dashboard sst gratis') - 25-sep",
+      "Plan de emergencias ('plan de emergencias y contingencias de una empresa' $976) - 30-sep"
+    ],
+    "diagnostico_meta_2": "No es falta de trafico: el blog tiene 1.470 visualizaciones y la unica landing de descarga (ebook DS 44) tiene 37. Los articulos no ofrecen nada a cambio del correo. Y los terminos con 'gratis' dicen que la gente busca PLANTILLAS, no ebooks.",
+    "4_activos_descargables": [
+      "Matriz IPER editable (Excel)",
+      "Calendario de charlas + formato de registro de difusion",
+      "Dashboard de indicadores SST (Excel)",
+      "Checklist de plan de emergencias"
+    ],
+    "diagnostico_meta_3": "4 contactos con correo corporativo -> 2 MQL. 8 con correo personal o educacional -> 0 MQL. Con la mezcla actual, 12 contactos rinden ~2 MQL y no 3,6. Es problema de quien entra, no de cuantos.",
+    "acciones_meta_3": [
+      "Filtrar en la entrada: correo corporativo obligatorio o bloquear dominios gratuitos y educacionales.",
+      "Armar el workflow de nurturing (bloqueador declarado por Diego, comun a las metas 2 y 3).",
+      "Definir por escrito la senal de MQL: segunda descarga, o visita a producto/precios tras abrir dos correos."
+    ],
+    "bloqueadores_declarados": [
+      "Ayuda con el workflow del newsletter",
+      "Acuerdo sobre el guardarrail de calidad en la meta de contactos",
+      "Definicion escrita de que hace que un contacto pase a MQL",
+      "Media hora a una hora semanal bloqueada para produccion",
+      "Revision de borradores antes de publicar"
+    ]
   }
 }
