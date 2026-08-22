@@ -522,6 +522,16 @@
     "advertencia": "Son 5 casos. Sirve para mostrar que el canal existe y acelera, no para calcular una tasa.",
     "se_automatiza": "Contactos y negocios con origen IA, su etapa y empresa, semana a semana. Reemplaza la carga manual del bloque 10 para el lado de resultado.",
     "sigue_manual": "La VISIBILIDAD: si Tazki aparece citada en ChatGPT/Perplexity/Gemini ante un prompt. No vive en HubSpot. Linea base 14-ago: 50% en el prompt 'mejores software de seguridad laboral en Chile'.",
-    "rutina_semanal": "Los lunes: contactos nuevos de la semana con origen IA, empresa y etapa, mas acumulado del ano y cuantos llegaron a oportunidad."
+    "rutina_semanal": "Los lunes: contactos nuevos de la semana con origen IA, empresa y etapa, mas acumulado del ano y cuantos llegaron a oportunidad.",
+    "etapas_reales_de_negocio": {
+      "SOFTYS": "pipeline default, dealstage closedlost = CLOSED WON, 40,48 UF, cerrada 31-may. Tiene ademas un duplicado en el pipeline Clientes en Onboarding (1287744035).",
+      "Digua Ltda.": "dealstage 1274225307 = NEGOTIATION, 20 UF, creada 14-ago. En negociacion a 8 dias de entrar.",
+      "Dinamo SPA": "dealstage 1274225307 = NEGOTIATION, 11 UF, creada 5-ago.",
+      "Tecnologias Cobra": "dealstage 1398903581 = REAGENDAR, creada 19-ago.",
+      "INPROLEC S.A": "dealstage 1233212743 = CLOSED LOST y dealtype OUTBOUND. NO CUENTA como negocio traido por IA: lo trabajo prospeccion. El contacto si tiene fuente IA."
+    },
+    "resumen_correcto": "5 contactos con fuente IA, pero solo 4 NEGOCIOS INBOUND atribuibles: 1 ganado (SOFTYS 40,48 UF) + 2 en Negotiation (Digua 20, Dinamo 11) + 1 en Reagendar (Cobra). Total 71,48 UF/mes ganadas o en juego, con cero inversion.",
+    "decision_de_visualizacion": "Con n de 4 a 5 NO se grafica tendencia ni se calcula tasa: una linea de 4 puntos miente. Se muestra un TABLERO DE NOMBRES: cada negocio es una fila con su empresa, su etapa y una barra de 5 tramos (MQL -> Qualified Prospect -> Value Proposition -> Negotiation -> Closed Won) que avanza un tramo cuando el negocio avanza. La cifra de cabecera es UF/mes en juego, no un porcentaje. UMBRAL DECLARADO: con 15 negocios por IA se pasa a tasa y tendencia; hasta entonces, nombres.",
+    "donde_vive": "Bloque 10 del Plan de Generacion de Demanda, reconstruido el 21-ago. La mitad de visibilidad por prompt sigue siendo carga manual de Diego; la mitad de resultado comercial se actualiza sola."
   }
 }
