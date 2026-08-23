@@ -901,3 +901,92 @@ HALLAZGO 5 - EL MATERIAL CUALITATIVO ES ORO Y APUNTA A OTRO CONTENIDO QUE EL DE 
 
 CERO GANADOS EN 30 NEGOCIOS SEM. Es el dato mas duro del export y hay que decirlo: SEM produce
   oportunidades pero todavia no produce clientes. El unico ganado inbound grande del ano vino por IA.
+
+## Analisis PROFUNDO del export SEM (23-ago-2026) — velocidad, madurez y correcciones
+
+CORRIGE PARCIALMENTE EL ANALISIS ANTERIOR DEL MISMO DIA. Al incorporar la edad de cada negocio y la
+velocidad de avance, tres numeros cambian.
+
+=== HALLAZGO CENTRAL: SEM SE RESUELVE EN LA PRIMERA SEMANA ===
+Dias desde la creacion hasta Qualified Prospect (n=12): 0,1,1,1,2,2,2,3,4,6,7,8. Mediana 2. MAXIMO 8.
+Dias hasta la perdida (n=8): 0,1,1,2,3,3,5,20. Mediana 2,5. SIETE DE OCHO murieron en 5 dias o menos.
+  -> Todo el embudo SEM se decide antes del dia 10. Despues de eso practicamente nada se mueve.
+  -> CONSECUENCIA OPERATIVA: a los 10 dias ya se sabe si un lead de SEM vale. No hay que esperar el mes.
+  -> Y las muertes rapidas (mediana 2,5 dias) son CALIDAD DE LEAD, no proceso de venta. Si el vendedor
+     descarta en 2 dias es porque el lead no calificaba, no porque no lo trabajo.
+
+=== CORRECCION 1: LA TASA NO ES 40%, ES 67% ===
+De los 30 negocios, 12 tienen 10 dias o menos y todavia no pueden juzgarse.
+  MADUROS (>10 dias) .. 18 negocios · 12 llegaron a Qualified Prospect = 67%
+  JOVENES (<=10 dias) . 12 negocios · 0 a QP (aun dentro de ventana)
+El 40% que reporte antes estaba diluido por la camada de agosto. La tasa real de SEM sobre negocios con
+tiempo suficiente es 67%. Es MUCHO mejor de lo que dije.
+
+=== CORRECCION 2: «plataforma hse» SIGUE SIENDO MALA, y por la razon correcta ===
+Revise si mi hallazgo era un artefacto de edad. NO lo es, pero el argumento correcto es otro:
+  asesor .......... 30 dias, nunca avanzo (chatarra ya conocida)
+  Vazquez ......... MURIO A LOS 3 DIAS (consultora paraguaya)
+  Ing. y Constr. Nobarzo ... MURIO A LOS 3 DIAS
+  Clima del Desierto ....... 4 dias, aun dentro de ventana (unico pendiente)
+El argumento NO es "0 de 4 llegaron a QP" (eso si seria artefacto de edad). El argumento es que DOS
+murieron a los 3 dias y uno lleva 30 dias parado. Con mediana de 2 dias a QP, 3 de los 4 ya pasaron su
+ventana sin moverse.
+
+*** OJO, ESTO GATILLA EL CRITERIO ACORDADO EL 14-AGO ***
+El 17-ago se anoto que Macarena Becerra de «Ingenieria y Construccion Nobarzo Ltda» era el contrapunto a
+los 2 strikes de plataforma hse: "perfil ICP legitimo, NO es chatarra, el criterio del 3er lead NO se
+gatilla". ESE NEGOCIO MURIO A LOS 3 DIAS (creado 17-ago, Closed Lost 20-ago). El contrapunto se cayo.
+El criterio acordado era: "si cae un tercer lead de este perfil, pasar plataforma hse de amplia a frase".
+Con asesor + Vazquez + Nobarzo, el criterio ESTA CUMPLIDO. Decision pendiente de Diego.
+
+=== CORRECCION 3: LA LISTA FILTRA POR LATEST SOURCE, NO POR FUENTE ORIGINAL ===
+Los 30 negocios tienen Latest Source = PAID_SEARCH, pero solo 26 tienen fuente ORIGINAL = Busqueda de pago.
+Los otros 4 llegaron por otro canal y VOLVIERON por pago:
+  IMT ........... origen Busqueda organica · QP · 15 UF
+  Santolaya ..... origen Busqueda organica · perdido
+  Odis Spa ...... origen Fuentes sin conexion (importacion manual) · VP · 24 UF
+  Equans Chile .. origen Trafico directo · QP · 50 UF
+Suman 89 de las 289 UF = 31% del valor. Encuadre correcto: en esos casos SEM CERRO LA PUERTA PERO NO LA
+ABRIO. No es contaminacion de la lista; es el lente de ultimo toque haciendo su trabajo. Pero atribuirle
+a SEM el merito completo de esas 89 UF seria falso.
+⚠️ ERROR A CORREGIR EN EL PLAN: el bloque 2 dice "estas listas se segmentan por fuente original". Es al
+reves. Hay que arreglarlo.
+
+=== MULTITOQUE: 7 de 30 cambiaron de keyword entre la entrada y la ultima visita ===
+  IMT .............. entro «GOOGLE» -> volvio «software seguridad ocupacional»
+  Hospital Quellon . entro «software seguridad ocupacional» -> volvio «plataforma prevencion de riesgos»
+  Odis Spa ......... entro importacion -> volvio «plataforma prevencion de riesgos»
+  Wese ............. entro «software gestion sst» -> volvio «software sst»
+  Cushman .......... entro «tazki» -> volvio «Luciano Pavesi» (un nombre de persona como termino)
+  Chilexpress ...... entro «sistema gestion seguridad laboral» -> volvio «GOOGLE»
+  Unilever ......... entro «tazki» -> volvio «GOOGLE»
+CONSECUENCIA: el informe externo dijo que «plataforma prevencion de riesgos» sumo un segundo lead con
+Hospital Quellon. En el lente de ENTRADA, Hospital Quellon entro por «software seguridad ocupacional».
+La keyword que se lleva el credito depende del lente. Hay que declarar cual se usa.
+
+=== SESGO METODOLOGICO IMPORTANTE: los campos ricos se llenan DESPUES de calificar ===
+Valor cargado: 12 de los 13 estan en QP o VP. Industria: 12 de 13 en QP o VP. Modulos WOW: 7 de 30.
+El unico perdido con industria y valor es Chilepanel, que habia llegado a QP.
+-> Industria, valor y dolor NO son datos de entrada: son consecuencia de haber calificado. NO se pueden
+   usar como senal predictiva de calidad; seria razonamiento circular.
+
+=== VALOR POR ETAPA (n chico, solo para descartar una hipotesis) ===
+  Qualified Prospect .. 6 negocios · 166 UF · promedio 27,7
+  Value Proposition ... 6 negocios · 105 UF · promedio 17,5
+Los que MAS avanzaron tienen valor promedio MENOR. Con 6 y 6 no significa nada, pero sirve para descartar
+la hipotesis de que los negocios grandes avanzan mas. No hay evidencia de eso.
+
+=== CAMADAS ===
+  Junio ... 4 negocios · 2 a QP · 2 perdidos · 0 jovenes  -> 50%
+  Julio ... 9 negocios · 6 a QP · 2 perdidos · 0 jovenes  -> 67%
+  Agosto .. 17 negocios · 4 a QP · 4 perdidos · 12 jovenes -> aun no se lee
+AGOSTO CASI DUPLICO EL VOLUMEN DE JULIO EN 22 DIAS (17 contra 9). El volumen subio fuerte; la calidad de
+esa camada se lee recien a comienzos de septiembre, cuando los 12 jovenes cumplan sus 10 dias.
+
+=== INDUSTRIAS DE LOS QUE AVANZAN (12 de 13 con industria estan en QP o VP) ===
+Construccion de edificios (2: Rucalhue, Tecton) · Actividades de seguridad e investigacion (2: Sociedad
+de Servicios, Seguridad GSL) · inmobiliaria (Cushman) · agricultura (INOLASA) · almacenamiento
+(Contenedores) · mineria (Candelaria) · equipo electrico (Equans) · retail (Odis) · impresion (Osesa) ·
+servicios de apoyo (IMT). El unico perdido con industria: produccion de madera (Chilepanel).
+Lectura util para ventas: NO hay una industria dominante. La demanda esta repartida, lo que respalda la
+estrategia de piezas por industria en vez de una sola vertical.
