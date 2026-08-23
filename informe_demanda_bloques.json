@@ -541,5 +541,16 @@
     "jueves_4_sep": "Lectura conjunta: costo por oportunidad de Ads, las 3 metas organicas de Axel en su primer hito, y los negocios por IA. Una fecha, una reunion.",
     "por_que_no_el_2_sep": "El traslado de presupuesto quedo congelado hasta el 24-ago; al 2-sep llevaria solo una semana. El 4-sep le da 11 dias y calza con el hito que Diego debe cumplir igual.",
     "sin_cambio": "31-ago veredicto de Quality Score. 30-sep cierre de metas. Pujas congeladas hasta despues del 30-sep. Tope US$1.000. Sin CPA objetivo."
+  },
+  "_analisis_export_sem_23_ago_2026": {
+    "fuente": "Export HubSpot «Negocios Inbound - SEM», 30 negocios, 1-jun a 22-ago, lente FUENTE ORIGINAL.",
+    "desenlaces": "12 de 30 a Qualified Prospect (40%), 6 a Value Proposition (20%), 8 perdidos, 10 sin avanzar, CERO ganados. 289 UF cargadas en 13 de 30.",
+    "hallazgo_1_plataforma_hse": "ES LA PEOR, no la mejor. 4 negocios, 0 a Qualified Prospect, 2 perdidos, 0 UF. Contradice al informe externo (que la elogiaba por CPL $10.130) y tambien mi recomendacion del 19-ago de mantenerla. El CPL bajo medía formularios, no calidad comercial.",
+    "hallazgo_2_marca": "La marca es la mejor keyword por lejos: 'tazki' + 'plataforma tazki' = 5 negocios, 4 a QP (80%), 3 a VP, CERO perdidos, 59 UF. El resto de la cuenta avanza 32%. Refuerza el traslado de presupuesto a Marca con evidencia comercial.",
+    "hallazgo_3_lista_contaminada": "5 de 30 negocios no son SEM y concentran 105 de 289 UF (36%): Odis Spa (importacion manual, 24 UF), Equans (sin keyword, 50 UF), Osesa (sin keyword ni campana, 16 UF), IMT y Santolaya (keyword 'GOOGLE', campana 'Unknown keyword'). Sin ellos: 25 negocios, 184 UF. Revisar autotagging/gclid.",
+    "hallazgo_4_cobertura": "Valor en 13 de 30, Dolor en 14 de 30, Industria en 13 de 30, Modulos WOW en 7 de 30.",
+    "hallazgo_5_dolores": "Dolores repetidos: papel y procesos manuales, trazabilidad ante fiscalizacion DT/SEREMI, firma electronica validada, control de contratistas, carga administrativa, consolidar estadisticas entre centros. Modulos WOW mas nombrados: EPP (6 de 7), investigacion de accidentes (5), contratistas (4), capacitaciones (4), reportes personalizados (3).",
+    "sintesis_para_el_plan_de_contenido": "Los terminos de busqueda dicen que BUSCA la gente y sirven para CAPTURAR (meta 2). Los dolores del CRM dicen que los hace COMPRAR y sirven para MADURAR (meta 3). El nurturing debe salir de los dolores, no de las busquedas.",
+    "dato_mas_duro": "CERO ganados en 30 negocios SEM. Produce oportunidades, todavia no clientes. El unico ganado inbound grande del ano vino por IA (SOFTYS)."
   }
 }

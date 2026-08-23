@@ -847,3 +847,57 @@ fecha que Diego ya tiene que cumplir igual. Menos fechas que seguir, mismo rigor
 
 SE MANTIENE SIN CAMBIO: 31-ago para el veredicto del Quality Score. 30-sep para el cierre de las metas.
 Pujas congeladas hasta despues del 30-sep. Tope US$1.000. Sin CPA objetivo.
+
+## Analisis del export «Negocios Inbound - SEM» (23-ago-2026) — 30 negocios, 1-jun a 22-ago
+
+Lente: FUENTE ORIGINAL (la lista de Diego), no latest source. Ventana mas amplia que el analisis de Ads.
+
+DESENLACES: 12 de 30 llegaron a Qualified Prospect (40%) · 6 de esos a Value Proposition (20%) ·
+  8 perdidos · 10 sin avanzar · CERO GANADOS · cero churn. UF cargada: 289 en 13 de 30 negocios.
+
+HALLAZGO 1 - «plataforma hse» ES LA PEOR, NO LA MEJOR. 4 negocios, CERO llegaron a Qualified Prospect,
+  2 perdidos (Vazquez consultora PY e Ingenieria), 2 sin avanzar (Clima del Desierto y el deal «asesor»),
+  0 UF. CONTRADICE al informe externo, que la elogiaba como «la apuesta a vigilar, mejor CPL $10.130,
+  si convierte es la keyword para escalar». Con el CRM cruzado: trae los contactos MAS BARATOS que NO
+  AVANZAN. El CPL bajo estaba midiendo volumen de formularios, no calidad comercial.
+  Tambien contradice mi propia recomendacion del 19-ago de mantenerla viva por ser «el conversor mas
+  barato». Era barata en MQL y nula en oportunidades.
+
+HALLAZGO 2 - LA MARCA ES LA MEJOR KEYWORD POR LEJOS, y ahora con evidencia comercial.
+  «tazki» ......... 4 negocios · 3 a QP · 3 a VP · 0 perdidos · 39 UF
+  «plataforma tazki» 1 negocio  · 1 a QP · 0 a VP · 0 perdidos · 20 UF
+  MARCA TOTAL ..... 5 negocios · 4 a QP (80%) · 3 a VP · CERO perdidos · 59 UF
+  Contra el resto de la cuenta, donde avanza el 32%. Refuerza el traslado de presupuesto a Marca con
+  argumento comercial y no solo de costo. Nombres: Construct(ora Rucalhue), Tecton, Cushman & Wakefield,
+  Unilever y Candelaria.
+
+HALLAZGO 3 - LA LISTA MEZCLA NEGOCIOS QUE NO SON SEM, y son los mas valiosos.
+  Odis Spa ....... keyword «Importacion de contactos.xlsx», campana IMPORT. Es carga manual. 24 UF, VP.
+  Equans Chile ... keyword vacia, campana «solucione...». 50 UF, QP.
+  Osesa spa ...... keyword y campana vacias. 16 UF, QP.
+  IMT ............ keyword «GOOGLE», campana «Unknown keyword». 15 UF, QP.
+  Santolaya ...... keyword «GOOGLE», campana «Unknown keyword». Perdido.
+  Son 5 de 30 negocios sin atribucion SEM confiable, y concentran 105 de las 289 UF = 36% del valor.
+  EL VALOR DE SEM ESTA INFLADO. Sin ellos: 25 negocios, 184 UF.
+  Las dos filas «GOOGLE / Unknown keyword» sugieren trafico de Google sin autotagging o organico mal
+  etiquetado: hay que revisar el gclid/autotagging.
+
+HALLAZGO 4 - COBERTURA DE DATOS POBRE. Valor cargado en 13 de 30 · Dolor en 14 de 30 · Industria en
+  13 de 30 · Modulos WOW en solo 7 de 30. Limita cualquier analisis y es justo la «disciplina de CRM»
+  del pilar 1 de Axel.
+
+HALLAZGO 5 - EL MATERIAL CUALITATIVO ES ORO Y APUNTA A OTRO CONTENIDO QUE EL DE LAS BUSQUEDAS.
+  Dolores que se repiten en los 14 que los tienen cargados:
+    papel y procesos manuales (casi todos) · trazabilidad ante fiscalizacion DT/SEREMI (Contenedores,
+    Osesa, Seguridad GSL, Odis, Tecton) · firma electronica validada (Candelaria, Odis) · control de
+    contratistas (Candelaria, IMT, Odis, Cushman, INOLASA, Rucalhue) · carga administrativa (Equans,
+    INOLASA, Valle Nevado, Seguridad GSL) · consolidar estadisticas entre centros (Chilexpress).
+  Modulos WOW mas nombrados: EPP (6 de 7) · Investigacion de accidentes (5) · Contratistas (4) ·
+    Capacitaciones (4) · Reportes personalizados (3).
+  SINTESIS: los terminos de busqueda dicen que BUSCA la gente (IPER, MINSAL, charlas, indicadores) y
+  sirven para CAPTURAR (meta 2 de Axel). Los dolores del CRM dicen que los hace COMPRAR (contratistas,
+  EPP, investigacion de accidentes, firma ante fiscalizacion) y sirven para MADURAR (meta 3). No se
+  contradicen: son contenido de dos etapas distintas. El nurturing debe salir de los dolores.
+
+CERO GANADOS EN 30 NEGOCIOS SEM. Es el dato mas duro del export y hay que decirlo: SEM produce
+  oportunidades pero todavia no produce clientes. El unico ganado inbound grande del ano vino por IA.
