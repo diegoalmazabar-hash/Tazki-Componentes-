@@ -826,3 +826,24 @@ QUE SE PUEDE AUTOMATIZAR Y QUE NO:
 RUTINA SEMANAL PROPUESTA (para los lunes): consultar CONTACT con hs_latest_source EQ AI_REFERRALS o
 hs_analytics_source EQ AI_REFERRALS, y reportar: contactos nuevos de la semana, su empresa y su etapa,
 mas el acumulado del ano y cuantos llegaron a oportunidad.
+
+## Consolidacion de fechas de lectura (21-ago-2026)
+
+Habia tres fechas dando vueltas y se contradecian: 24-ago (semana limpia de Ads), 2-sep (medicion del
+traslado de presupuesto y de las negativas, fijada el 19-ago) y 4-sep (usada en la una plana para Felipe,
+alineada al hito de Axel). Se consolidan en DOS, y solo dos:
+
+  LUNES 24-AGO ..... Lectura de la semana 17-23 completa de Ads. Es el fin del congelamiento.
+                     Metrica que decide: costo por MQL de SST/HSEQ, filtrado a «HubSpot - Marketing
+                     Qualified Lead». Recien despues de esta lectura se ejecutan el traslado de
+                     presupuesto a Marca y el recorte de keywords.
+  JUEVES 4-SEP ..... Lectura conjunta de TODO: costo por oportunidad de Ads (con el traslado ya con ~11
+                     dias corriendo), las 3 metas organicas de Axel en su primer hito de septiembre, y
+                     los negocios por IA. Una sola fecha, una sola reunion.
+
+Se ANULA el 2-sep. Motivo: el traslado de presupuesto quedo congelado hasta el 24-ago, asi que al 2-sep
+llevaria solo una semana corriendo. El 4-sep le da 11 dias y ademas calza con el hito de Axel, que es la
+fecha que Diego ya tiene que cumplir igual. Menos fechas que seguir, mismo rigor.
+
+SE MANTIENE SIN CAMBIO: 31-ago para el veredicto del Quality Score. 30-sep para el cierre de las metas.
+Pujas congeladas hasta despues del 30-sep. Tope US$1.000. Sin CPA objetivo.
