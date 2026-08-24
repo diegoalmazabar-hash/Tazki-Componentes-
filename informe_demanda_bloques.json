@@ -564,5 +564,18 @@
       "camadas": "Junio 4 negocios 50% a QP; Julio 9 negocios 67%; Agosto 17 negocios con 12 aun jovenes. Agosto casi duplico el volumen de julio en 22 dias; su calidad se lee a comienzos de septiembre.",
       "industrias": "No hay industria dominante entre los que avanzan: construccion (2), seguridad e investigacion (2), inmobiliaria, agricultura, almacenamiento, mineria, equipo electrico, retail, impresion, servicios de apoyo. Respalda la estrategia de piezas por industria en vez de una sola vertical."
     }
+  },
+  "_lectura_semana_17_23_ago_2026": {
+    "fecha": "lunes 24-ago-2026, fin del congelamiento",
+    "resultado": "SST 7,96 MQL con $164.465 = $20.662/MQL (CPC $1.597, CVR 7,73%). Marca 1 MQL con $26.955 = $26.955/MQL (CPC $473, CVR 1,75%). Total 8,96 MQL, $21.364 por MQL.",
+    "serie_sst": "3-9 ago $91.946/MQL -> 10-16 ago $46.782 -> 17-23 ago $20.662. Mejor semana del ano y con menos gasto. Contra $122.614 del promedio previo a los cambios: 6 veces mejor.",
+    "IMPACTO_EN_LA_RECOMENDACION": "DEBILITA el traslado de presupuesto a Marca. Esta semana SST quedo mas barata que Marca por MQL. Recomendacion actualizada: NO mover presupuesto todavia; esperar la semana 24-30 para ver si el $20.662 de SST se sostiene. Si se sostiene, el traslado queda sin fundamento y se archiva.",
+    "marca_ranking_y_techo": "Marca: IS 18,72%, perdido por presupuesto 74,41%, por ranking solo 6,87%. El ranking de Marca esta sano; su unico freno es el presupuesto. Techo calculado: ~903 impresiones elegibles por semana; saturarla costaria ~$19.100/dia contra los $4.000 de hoy. Hay espacio de sobra, pero el espacio no es el argumento: el rendimiento si, y esta semana rindio peor que SST.",
+    "ALERTA_SST_RANKING": "El ranking de SST se esta deteriorando otra vez: 88,6% -> 23,2% (10-16) -> 40,05% (17-23) de impresiones perdidas por ranking. Es la palanca GRATIS y hay que mirarla antes que cualquier movimiento de presupuesto.",
+    "para_confirmar_marca": [
+      "Dos semanas mas de MQL de Marca (hoy 4 en 5 semanas + 1: con ese n una sola conversion mueve todo).",
+      "La prueba de canibalizacion: anotar el organico de marca antes y comparar despues.",
+      "Ver si el $20.662 de SST se sostiene."
+    ]
   }
 }

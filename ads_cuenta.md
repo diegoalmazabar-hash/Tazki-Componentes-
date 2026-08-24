@@ -990,3 +990,50 @@ de Servicios, Seguridad GSL) · inmobiliaria (Cushman) · agricultura (INOLASA) 
 servicios de apoyo (IMT). El unico perdido con industria: produccion de madera (Chilepanel).
 Lectura util para ventas: NO hay una industria dominante. La demanda esta repartida, lo que respalda la
 estrategia de piezas por industria en vez de una sola vertical.
+
+## LECTURA DE LA SEMANA LIMPIA 17-23 AGO (lunes 24-ago-2026) — fin del congelamiento
+
+Conversiones filtradas a «HubSpot - Marketing Qualified Lead». Semana completa, sin cambios en la cuenta.
+
+  SST/HSEQ ... 1.770 impr · 103 clics · $164.465 · 7,96 MQL -> $20.662/MQL · CPC $1.597 · CVR 7,73%
+  Marca ......   169 impr ·  57 clics · $ 26.955 · 1,00 MQL -> $26.955/MQL · CPC $  473 · CVR 1,75%
+  TOTAL ...... 8,96 MQL con $191.420 -> $21.364 por MQL
+
+SERIE DE SST, SOLO MQL REAL, TRES SEMANAS SEGUIDAS A LA BAJA:
+  3-9 ago .... 2 MQL · $183.892 · $91.946/MQL
+  10-16 ago .. 4 MQL · $187.130 · $46.782/MQL
+  17-23 ago .. 7,96 MQL · $164.465 · $20.662/MQL   <- MEJOR SEMANA DEL ANO, y con MENOS gasto
+  Contra el promedio de antes de los cambios (13-jul a 9-ago): $122.614/MQL. Es 6 veces mejor.
+  La CVR de SST paso de 2,25% (5 semanas) a 7,73% en esta semana. Con 103 clics y 8 conversiones ya no
+  es ruido puro, pero sigue siendo UNA semana: confirmar con la del 24-30.
+
+*** ESTO DEBILITA EL ARGUMENTO DEL TRASLADO DE PRESUPUESTO A MARCA. HAY QUE DECIRLO. ***
+  Esta semana SST produjo MQL a $20.662 y Marca a $26.955. SST quedo MAS BARATA que Marca.
+  Sobre 5 semanas Marca seguia siendo 1,9x mas barata ($40.310 contra $76.335), pero eso era antes de
+  que SST mejorara. El peso marginal hoy rinde mas en SST que en Marca.
+  RECOMENDACION ACTUALIZADA: NO mover el presupuesto todavia. Esperar la semana del 24-30 para ver si
+  el $20.662 de SST se sostiene. Si se sostiene, el traslado a Marca queda sin fundamento y se archiva.
+
+COMPETENCIA POR PRESUPUESTO Y RANKING (semana 17-23):
+  Marca ... IS 18,72% · perdido por PRESUPUESTO 74,41% · perdido por RANKING 6,87%
+  SST ..... IS 16,12% · perdido por PRESUPUESTO 43,84% · perdido por RANKING 40,05%
+
+  MARCA: el ranking esta SANO (6,87%). Su unico freno es el presupuesto. Responde la pregunta de Diego:
+    si, se puede llegar con buen ranking en Marca; el ranking no es el problema ahi.
+    TECHO DE MARCA, calculado: 169 impresiones con 18,72% de IS implica ~903 impresiones elegibles por
+    semana. Cerrando toda la perdida por presupuesto se llegaria a ~93% de IS = ~841 impresiones, es
+    decir ~283 clics/semana contra los 57 de hoy. Al CPC actual de $473 eso costaria ~$134.000/semana,
+    o sea ~$19.100/dia para SATURAR la marca. Hoy tiene $4.000/dia. Hay muchisimo espacio.
+    PERO el espacio no es el argumento: el argumento tiene que ser el rendimiento, y esta semana Marca
+    rindio peor que SST.
+
+  ⚠️ SST: EL RANKING SE ESTA DETERIORANDO OTRA VEZ. Serie: 88,6% -> 23,2% (10-16 ago) -> 40,05% (17-23).
+    Perder 40% por ranking es la palanca GRATIS que hay que mirar antes que cualquier movimiento de
+    presupuesto. No cuesta plata arreglarlo.
+
+QUE NECESITO PARA CONFIRMAR O DESCARTAR LO DE MARCA (respuesta a Diego):
+  1. Dos semanas mas de MQL de Marca. Hoy son 4 MQL en 5 semanas y 1 en esta: con ese n cualquier
+     numero se mueve entero con una sola conversion.
+  2. La prueba de canibalizacion: anotar el trafico organico de marca ANTES y compararlo despues. Si al
+     subir Marca los MQL totales no suben, solo se traslado plata de gratis a pagado.
+  3. Ver si el $20.662 de SST se sostiene. Si SST se queda ahi, Marca no tiene caso.
