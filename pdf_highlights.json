@@ -1,17 +1,56 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica.",
- "fecha": "Semana 10–16 de agosto · corte domingo 16",
+ "fecha": "Semana 17–23 de agosto · corte domingo 23",
  "highlights": [
-  {"t": "El ranking se arregló", "d": "SST/HSEQ pasó de perder 88,6% de sus impresiones por ranking a 23,2%; Marca de 50,5% a 7,0%. Efecto del combo landing SGSST + concordancia + geo solo Chile. El límite vuelve a ser presupuesto (66,6%), con el tope de US$1.000."},
-  {"t": "Semana récord de inbounds: 15, con 5 de pago", "d": "Agosto lleva 28 en 16 días (1,75/día vs 1,5 de julio). El pago pone 29% — a un negocio de la meta del 30%."},
-  {"t": "Mejor mes de pago del año en Ads", "d": "8 MQL y $55.947 por MQL (antes $77.670). Las 5 conversiones de la semana salieron de 5 keywords distintas — antes dependíamos de una sola."},
-  {"t": "SEO récord", "d": "48 clics no-marca en la semana; agosto acumula 75 contra 36 de julio entero, con 33 palabras distintas y posición media 6,40."},
-  {"t": "El canal IA ya se mide aparte", "d": "23 sesiones desde asistentes de IA en agosto (julio: 11); 5 aterrizan directo en las landings de pago. Van 3 negocios con fuente «Referencias de IA», incluida SOFTYS, la inbound ganada más grande del año."},
-  {"t": "LinkedIn se dio vuelta", "d": "+22 seguidores en la semana (hace 7 días agosto iba en +2), tasa de interacción récord 22,1%, total 5.151."}
+  {
+   "t": "La mejor semana del año en Ads: $20.662 por MQL",
+   "d": "SST/HSEQ trajo 7,96 MQL con $164.465. Tercera semana seguida a la baja: $122.614 antes de los cambios del 13-14 → $46.782 → $20.662. La conversión de clics saltó de 2,3% a 7,7%."
+  },
+  {
+   "t": "Récord del canal pagado: 9 de los 13 inbounds de la semana",
+   "d": "Agosto lleva 42 inbounds en 23 días y el pago pone 17 = 40,5%, muy por encima de la meta del 30% y del 29% del corte anterior."
+  },
+  {
+   "t": "SEO triplicó julio entero",
+   "d": "118 clics no-marca en agosto contra 36 de julio completo, con 13.289 impresiones, posición media 6,5 y 52 palabras distintas trayendo clics (meta ≥25)."
+  },
+  {
+   "t": "El canal IA dejó de ser una anécdota",
+   "d": "4 negocios inbound: SOFTYS ganada con 40,48 UF, Digua y Dinamo ambas en Negociación, Tecton Cobra recién entrada. 71,48 UF entre lo ganado y lo que está en juego, con cero inversión. Y 28 sesiones desde asistentes de IA en agosto contra 11 en julio."
+  },
+  {
+   "t": "Marca: el freno es solo el presupuesto",
+   "d": "Pierde el 74,4% de sus búsquedas por presupuesto y apenas el 6,9% por ranking. Tiene unas 900 impresiones semanales disponibles y captura 169."
+  },
+  {
+   "t": "LinkedIn sostuvo el ritmo",
+   "d": "+34 seguidores en agosto (+10 en la semana), 5.160 en total y 15,0% de tasa de interacción."
+  }
  ],
  "rojo": [
-  {"t": "Keyword estrella de SGSST: Quality Score sigue en 1/10", "d": "Aunque convirtió esta semana. Veredicto 31-ago: sale de «Rara vez se publica» o se reescribe el anuncio."},
-  {"t": "Congelados: 28 negocios · 517 UF/mes esperando", "d": "+1 congelado nuevo esta semana."},
-  {"t": "Conversión Closed Won: 4,85% en el año (8 de 165)", "d": "Agosto al 16 va 0 ganados / 10 perdidos. Julio, el mes récord de volumen (47 creados), aún no convierte ninguno — 23 siguen vivos."}
+  {
+   "t": "El ranking de SST se soltó otra vez",
+   "d": "Impresiones perdidas por calidad baja: 88,6% antes de los cambios → 23,2% la semana del 10 al 16 → 40,1% esta semana. Es la palanca gratis y va en la dirección equivocada."
+  },
+  {
+   "t": "La pérdida de SEO empeoró y cruzó la meta",
+   "d": "63,9% contra 60,1% del corte anterior, con meta de ≤60%. Sus Closed Lost saltaron de 107 a 115 mientras los inbounds solo subieron de 178 a 180."
+  },
+  {
+   "t": "SEM produce oportunidades, todavía no clientes",
+   "d": "De 30 negocios inbound de SEM, 18 tuvieron tiempo suficiente y 12 llegaron a oportunidad (67%), pero ninguno se ha ganado. La única camada con edad para juzgar es la de junio y son 4 negocios: no es concluyente. Se lee a mediados de septiembre."
+  },
+  {
+   "t": "El orgánico cayó a 2 inbounds en la semana",
+   "d": "Venía de 7 y 8. No hay caída de impresiones en SEO (4.600 contra 4.621), así que por ahora es ruido y no tendencia. Se confirma el lunes 31."
+  },
+  {
+   "t": "$2.011 en tres días en términos que no están bloqueados",
+   "d": "«mypass global» $656 e «ideagen ehs» $220 de competencia; «que es el ds 44» $638 y «sgsst que es» $497 informacionales. Ninguno figura en las 806 negativas vivas."
+  },
+  {
+   "t": "Conversión Closed Won: 4,57% en el año (8 de 175)",
+   "d": "Agosto va 0 ganados y 21 perdidos al día 23. Julio, el mes récord de volumen con 47 creados, aún no convierte ninguno: 21 siguen vivos."
+  }
  ]
 }
