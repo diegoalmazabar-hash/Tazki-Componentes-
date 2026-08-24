@@ -615,5 +615,151 @@
       "Acordar con Axel la regla 'fecha MQL > fecha Lead' + ventana de 30 días, antes del 4-sep."
     ],
     "regla_permanente": "NUNCA proponer definiciones de MQL por scoring para Tazki. La definición es por formulario."
+  },
+  "_hallazgo_search_console_24_ago_2026": {
+    "fuente": "Export Search Console 24-ago-2026, tipo Web, ultimos 28 dias vs 28 anteriores. Impresiones consolidadas por articulo (se suman anclas #section-N y ?hs_amp=true al padre).",
+    "sitio": {
+      "impresiones": "7.854 -> 18.236 (+132%)",
+      "clics": "25 -> 130"
+    },
+    "blog": {
+      "impresiones": "3.562 -> 15.910",
+      "clics": 104,
+      "ctr": "0,65%"
+    },
+    "top_crecimiento": [
+      {
+        "url": "/blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion",
+        "impr": "3.328 -> 11.090",
+        "mult": "3,3x",
+        "clics": "11 -> 69",
+        "pos": "6,6 -> 4,6",
+        "nota": "70% de las impresiones y 66% de los clics del blog"
+      },
+      {
+        "url": "/blog/miper-chile-ds44-guia",
+        "impr": "0 -> 1.506",
+        "clics": "0 -> 9",
+        "pos": 4.9
+      },
+      {
+        "url": "/blog/art-ast-charla-diaria-digital",
+        "impr": "151 -> 1.151",
+        "mult": "7,6x",
+        "clics": "0 -> 8",
+        "pos": "9,1 -> 5,6"
+      },
+      {
+        "url": "/blog/fuf-ds44-60-preguntas",
+        "impr": "35 -> 371",
+        "mult": "10,6x",
+        "clics": "1 -> 0",
+        "pos": 8.4
+      },
+      {
+        "url": "/blog/mapa-de-riesgos-ds-44-como-hacerlo",
+        "impr": "0 -> 359",
+        "clics": "0 -> 6"
+      },
+      {
+        "url": "/blog/sistema-gestion-contratistas-control-documental",
+        "impr": "0 -> 278",
+        "clics": "0 -> 0",
+        "pos": 16.9
+      },
+      {
+        "url": "/blog/charla-de-5-minutos-seguridad-guia-registro",
+        "impr": "0 -> 229",
+        "clics": "0 -> 3"
+      },
+      {
+        "url": "/blog/programa-de-trabajo-preventivo-ds-44-en-30-dias",
+        "impr": "0 -> 203",
+        "clics": "0 -> 2"
+      },
+      {
+        "url": "/blog/inspecciones-de-seguridad-digitales",
+        "impr": "40 -> 197",
+        "clics": "0 -> 0",
+        "pos": 81.2
+      },
+      {
+        "url": "/blog/entrega-de-epp-ds44-registro-firma-control",
+        "impr": "0 -> 135",
+        "clics": "0 -> 6",
+        "ctr": "4,44% - el mejor del sitio"
+      }
+    ],
+    "no_blog": {
+      "/soluciones/miper": "32 -> 305 impr, 0 -> 10 clics, CTR 3,28%",
+      "/soluciones/contratistas": "163 -> 407 impr, 3 -> 2 clics"
+    },
+    "diagnostico": "La fuga NO esta en la pagina, esta en el SERP: 11.090 impresiones -> 69 clics. El crecimiento del IRL lo levantan busquedas definicionales (irl significado 582, que es irl 562, irl que es 362, que significa irl 247) que Google resuelve en el fragmento destacado.",
+    "escenarios_ctr_irl": {
+      "0,62% (hoy)": "69 clics",
+      "1,5%": "166 clics",
+      "2,5% (normal pos 4)": "277 clics (+208)",
+      "4,0%": "444 clics"
+    }
+  },
+  "_estrategia_septiembre_v2_24_ago_2026": {
+    "origen": "Propuesta de Diego (24-ago): acortar articulos a modo resumen y llevar al descargable. Evaluada y ajustada.",
+    "veredicto": "La intuicion es correcta (el recurso DS 44 convierte 15,1% vs articulo IRL 0,4%) pero acortar NO toca la fuga principal, que ocurre en el SERP antes de la pagina.",
+    "riesgo_identificado": "El IRL rankea pos 4,6 porque es completo y es el 70% de las impresiones del blog. Cortarlo = menos contenido indexado = perder posicion. Mostrar texto completo a Googlebot y resumen al usuario es cloaking y se penaliza. NO experimentar con el unico activo grande.",
+    "principio": "No cortar, AGREGAR (content upgrade). El articulo queda completo; el descargable es lo que el articulo no puede ser: la herramienta/plantilla que ahorra el trabajo. Nadie descarga el PDF de un articulo que acaba de leer.",
+    "segmentacion": "Definicionales (IRL, MIPER, AST) = volumen sin intencion comercial, el descargable rinde poco. Operativos (FUF, mapa de riesgos, programa de trabajo, EPP, comite paritario) = la persona tiene una fiscalizacion encima, ahi rinde.",
+    "orden_de_ejecucion": [
+      "FASE 1: reescribir titulo y metadescripcion del IRL, MIPER y ART/AST. Ahi esta todo el volumen. Cero riesgo.",
+      "FASE 2: colgar el descargable dentro del articulo SIN cortarlo.",
+      "FASE 3: probar el formato resumen SOLO en /blog/fuf-ds44-60-preguntas (371 impr, 0 clics: nada que perder)."
+    ],
+    "8_piezas_v2": [
+      {
+        "pieza": "Checklist de fiscalizacion DS 44",
+        "tipo": "descargable",
+        "alcance": "~11.500 impr/mes",
+        "fecha": "28 ago"
+      },
+      {
+        "pieza": "Matriz IPER editable (Excel)",
+        "tipo": "descargable",
+        "alcance": "~2.170 impr/mes",
+        "fecha": "4 sep"
+      },
+      {
+        "pieza": "Calendario de charlas + registro",
+        "tipo": "descargable",
+        "alcance": "~1.380 impr/mes",
+        "fecha": "11 sep"
+      },
+      {
+        "pieza": "Formato de entrega de EPP con firma",
+        "tipo": "descargable",
+        "alcance": "~344 impr/mes",
+        "fecha": "18 sep"
+      },
+      {
+        "pieza": "SG-SST: que exige el DS 44",
+        "tipo": "articulo",
+        "fecha": "18 sep"
+      },
+      {
+        "pieza": "Que es HSEQ y que incluye",
+        "tipo": "articulo",
+        "fecha": "25 sep"
+      },
+      {
+        "pieza": "Indicadores de SST + plantilla de tablero",
+        "tipo": "articulo",
+        "fecha": "25 sep"
+      },
+      {
+        "pieza": "RIOHS para empresas de menos de 10 trabajadores",
+        "tipo": "articulo",
+        "fecha": "30 sep"
+      }
+    ],
+    "salud_ocupacional": "Queda en reserva: no hay evidencia de demanda que la sostenga sobre las otras.",
+    "documento": "plan-septiembre.html + plan-septiembre.pdf (13 paginas), regenerados 24-ago-2026."
   }
 }
