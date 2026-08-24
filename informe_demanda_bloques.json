@@ -771,5 +771,74 @@
   },
   "_reglas_documentos_diego": {
     "guiones_no_van_en_documentos_compartidos": "Los guiones de 30 segundos (como contar cada meta) son preparacion personal de Diego. NO incluirlos en documentos que se comparten con Axel ni con Felipe."
+  },
+  "_cambio_organizacional_24_ago_2026": {
+    "hecho": "Axel se fue de Tazki. Diego queda solo a cargo de marketing y reporta directamente a FELIPE.",
+    "implicancias": [
+      "Las 3 metas (>=8 piezas, >=12 contactos, 30% Lead->MQL) siguen vigentes: las asume Diego. Recomendacion dada: mantenerlas, no bajarlas.",
+      "Se cayeron 3 compromisos de Axel: ayuda con workflow del newsletter, media hora semanal bloqueada, revision de borradores.",
+      "La definicion de MQL y la regla de medicion ya no se negocian: las escribe Diego. Sigue siendo obligatorio escribirlas ANTES de medir.",
+      "El documento plan-septiembre esta escrito para Axel (lenguaje RevOps). La audiencia ahora es Felipe."
+    ]
+  },
+  "_inventario_formularios_hubspot_24_ago_2026": {
+    "fuente": "recent_conversion_event_name agrupado en CONTACT, leido en vivo el 24-ago-2026.",
+    "nota": "La convencion de nombres YA codifica la clasificacion. No hay que inventarla.",
+    "formularios_MQL": {
+      "patron": "contienen 'mql form | contact form'",
+      "lista": {
+        "contactate con nosotros y solicita una demo": 186,
+        "agenda una demo (nuevo sitio)": 64,
+        "lp ds 44 y ley 16.744": 6,
+        "lp control operativo hseq": 4,
+        "lp software hseq con respaldo de la dt": 3,
+        "lp plataforma hse": 1,
+        "lp sistema de gestion sst": 1
+      },
+      "total": 265,
+      "excluir": "'mql form | contact form (pruebas)' es de prueba"
+    },
+    "formularios_LEAD": {
+      "patron": "'form leads - ebook' y 'formulario suscriptores newsletter'",
+      "lista": {
+        "ds 44 un ano y medio despues - ebook": 9,
+        "ds 44 un ano despues - ebook": 6,
+        "blog de prevencion newsletter": 2,
+        "entrega de epp newsletter": 1,
+        "formulario suscriptores newsletter": 1,
+        "inspecciones de seguridad newsletter": 1
+      },
+      "total": 20
+    },
+    "meetings_links": "felipe400/meeting-link-mql (31) es MQL por definicion. Los axel-* (13) quedan huerfanos tras su salida: revisar.",
+    "NI_LEAD_NI_MQL_excluir_de_la_metrica": {
+      "csat - soporte": 36,
+      "actualizacion de datos de clientes": 21,
+      "creacion requerimiento a producto": 13,
+      "formulario requerimientos a producto": 13,
+      "formulario requerimientos a marketing": 3,
+      "csat - onboarding": 3,
+      "feedback surveys": 5,
+      "test - ficha de clientes": 3,
+      "prueba kickback email": 1,
+      "total_aprox": 101
+    }
+  },
+  "_estado_rastreo_lead_a_mql_24_ago_2026": {
+    "buena_noticia": "El rastreo YA FUNCIONA. hs_v2_date_entered_lead y hs_v2_date_entered_marketingqualifiedlead estan poblados. NOTA: los nombres hs_lifecyclestage_*_date NO existen en este portal; usar los hs_v2_date_entered_*.",
+    "problema_1": "lifecyclestage='lead' tiene 12.099 contactos: es el balde por defecto, NO una etapa de marketing. La cohorte del 30% NO se puede definir por lifecyclestage, hay que definirla por FORMULARIO (first_conversion_event_name).",
+    "problema_2": "El formulario de newsletter dejo de estampar Lead. Los 3 unicos 'subscriber' del portal son las 3 suscripciones de agosto (Sonia 21-ago, Oscar 17-ago, Dominga 10-ago). Patricia (10-jun, mismo form) si quedo como 'lead'. Cambio de config entre junio y agosto. Decidir: newsletter cuenta como Lead o no.",
+    "distribucion_lifecyclestage": {
+      "lead": 12099,
+      "opportunity": 1843,
+      "customer": 301,
+      "marketingqualifiedlead": 70,
+      "salesqualifiedlead": 51,
+      "subscriber": 3
+    },
+    "contactos_que_alguna_vez_entraron_a_MQL": 130,
+    "baseline_medido": "De los 13 contactos cuyo PRIMER formulario fue de Lead, NINGUNO tiene fecha de entrada a MQL. Lead->MQL = 0 de 13 con esta definicion.",
+    "discrepancia_a_resolver": "El plan usa un baseline de '2 de 12 = 17%'. Ese numero NO se reproduce con las fechas de lifecycle. Hay que reconciliar de donde salio antes de usarlo como linea base de la meta del 30%.",
+    "formula_correcta": "Denominador: contactos cuyo first_conversion_event_name es un formulario Lead, creados en el mes X. Numerador: de esos, los que tienen hs_v2_date_entered_marketingqualifiedlead POSTERIOR a la fecha del formulario Lead, dentro de 30 dias."
   }
 }
