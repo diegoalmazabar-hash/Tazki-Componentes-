@@ -109,125 +109,178 @@
   .notes p{margin:0; font-size:12.5px; line-height:1.6; color:var(--ink-3); max-width:80ch; text-wrap:pretty}
   .notes p b{color:var(--ink-2)}
 </style>
-
+<style>
+  .find{background:var(--surface); border:2px solid var(--accent); border-radius:16px; padding:22px 24px;
+        display:flex; flex-direction:column; gap:12px}
+  .find h2{margin:0; font-size:21px; font-weight:800; letter-spacing:-.02em}
+  .flow{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:14px}
+  .fhead{display:flex; align-items:center; gap:12px; padding:14px 18px; background:var(--surface-2);
+         border-bottom:1px solid var(--line); flex-wrap:wrap}
+  .fhead h3{margin:0; font-size:16.5px; font-weight:700; letter-spacing:-.015em; flex:1 1 220px}
+  .trig{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10.5px; letter-spacing:.06em;
+        text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:4px 10px; border-radius:999px}
+  .vol{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11.5px; color:var(--ink-3)}
+  .mail{display:grid; grid-template-columns:62px 1fr; gap:14px; padding:11px 18px; border-bottom:1px solid var(--line-soft)}
+  @media(max-width:600px){.mail{grid-template-columns:1fr; gap:3px}}
+  .mail:last-of-type{border-bottom:0}
+  .day{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11px; font-weight:600; color:var(--ink-3); padding-top:2px}
+  .mail .s{font-size:14.5px; color:var(--ink); font-weight:600}
+  .mail .w{font-size:13px; color:var(--ink-3); margin-top:2px}
+  .sig{padding:11px 18px; background:var(--good-soft); font-size:13.5px; color:var(--ink-2); border-top:1px solid var(--line)}
+  .sig b{color:var(--good)}
+  .keep{display:inline-block; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:10px;
+        letter-spacing:.06em; text-transform:uppercase; padding:2px 8px; border-radius:5px;
+        background:var(--warn-soft); color:var(--warn); margin-left:6px}
+  .new{background:var(--good-soft); color:var(--good)}
+</style>
 <div class="wrap">
 
   <header>
     <div class="eyebrow">Marketing · Tazki · plan a 30 de septiembre 2026</div>
     <h1>Motor orgánico de septiembre</h1>
-    <p class="sub">Las tres metas están encadenadas: el contenido genera contactos, los contactos maduran a MQL. Este plan dice qué se publica, qué se ofrece a cambio del correo y qué hace madurar a quien ya entró.</p>
-    <div class="stamp">Metas acordadas con Axel el 20-ago · Google Ads es always-on y va aparte</div>
+    <p class="sub">Actualizado el 24 de agosto con el rendimiento real de cada página. El hallazgo cambia la prioridad: el problema no es cuánto contenido hay, es que el contenido que trae gente no es el que captura correos.</p>
+    <div class="stamp">Metas acordadas con Axel el 20-ago · rendimiento por página del 1 de junio al 23 de agosto</div>
   </header>
+
+  <!-- HALLAZGO -->
+  <section class="find">
+    <h2>Un recurso convierte 38 veces mejor que el artículo que le trae la gente</h2>
+    <div class="tscroll"><table>
+      <thead><tr><th>Página</th><th class="r">Vistas</th><th class="r">Envíos</th><th class="r">% que deja el correo</th></tr></thead>
+      <tbody>
+        <tr><td class="name">«DS 44, un año y medio después» <span class="ev">— recurso descargable</span></td><td class="r num">106</td><td class="r num">16</td><td class="r num" style="color:var(--good);font-weight:800">15,1%</td></tr>
+        <tr><td class="name">«IRL: qué es y qué exige el DS 44» <span class="ev">— artículo</span></td><td class="r num">456</td><td class="r num">2</td><td class="r num" style="color:var(--bad);font-weight:800">0,4%</td></tr>
+        <tr><td class="name">Inspecciones de seguridad <span class="ev">— artículo</span></td><td class="r num">150</td><td class="r num">1</td><td class="r num">0,7%</td></tr>
+        <tr><td class="name">Entrega de EPP según el DS 44 <span class="ev">— artículo</span></td><td class="r num">80</td><td class="r num">1</td><td class="r num">1,2%</td></tr>
+        <tr><td class="name">MIPER en Chile <span class="ev">— artículo</span></td><td class="r num">70</td><td class="r num">0</td><td class="r num">0,0%</td></tr>
+        <tr><td class="name">/soluciones/charlas <span class="ev">— la 2ª página más vista del sitio</span></td><td class="r num">1.883</td><td class="r num">0</td><td class="r num" style="color:var(--bad);font-weight:800">0,0%</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin:0; font-size:15.5px; color:var(--ink-2); text-wrap:pretty">El recurso del DS 44 tiene <b>cuatro veces menos tráfico</b> que el artículo de IRL y produce <b>ocho veces más envíos</b>. Si el artículo convirtiera al ritmo del recurso, dejaría <b>69 correos</b> en vez de 2 — más de cinco veces la meta del mes completo.</p>
+    <p style="margin:0; font-size:15.5px; color:var(--ink); font-weight:700">La pieza de mayor retorno de septiembre no es un artículo nuevo: es conectar el tráfico que ya tienes con un activo que capture.</p>
+  </section>
 
   <!-- META 1 -->
   <section class="goal">
-    <div class="ghead">
-      <span class="gnum">1</span>
-      <div class="gt"><h2>Contenido</h2><p class="base">Baseline: cadencia no sistematizada · 8 piezas vivas hoy</p></div>
-      <div class="target"><span class="t">≥8 piezas</span><span class="l">al 30 de septiembre</span></div>
-    </div>
+    <div class="ghead"><span class="gnum">1</span><div class="gt"><h2>Contenido</h2><p class="base">Baseline: cadencia no sistematizada · 19 artículos vivos</p></div>
+      <div class="target"><span class="t">≥8 piezas</span><span class="l">al 30 de septiembre</span></div></div>
 
-    <div class="step diag"><span class="lab">Diagnóstico</span><div class="body">
-      <p>El blog lleva <b>1.470 visualizaciones</b> y <b>el 70% son de un solo tema: el DS 44</b>. No dependemos de un artículo — dependemos de una norma.</p>
-      <div class="tscroll"><table>
-        <thead><tr><th>Tema</th><th class="r">Visualizaciones</th><th class="r">% del blog</th></tr></thead>
-        <tbody>
-          <tr><td class="name">DS 44 <span class="ev">— IRL 823 · un año y medio después 103 · entrega de EPP 59 · ebook 37</span></td><td class="r num">1.022</td><td class="r num" style="color:var(--bad);font-weight:700">70%</td></tr>
-          <tr><td class="name">Operación <span class="ev">— inspecciones 145 · AST 67</span></td><td class="r num">212</td><td class="r num">14%</td></tr>
-          <tr><td class="name">Casos de éxito <span class="ev">— Falabella 99 · control operacional 63</span></td><td class="r num">162</td><td class="r num">11%</td></tr>
-          <tr><td class="name">Resto</td><td class="r num">74</td><td class="r num">5%</td></tr>
-        </tbody>
-      </table></div>
-      <p>Dentro de ese 70%, un artículo solo —<b>«IRL: qué es y qué exige el DS 44»</b>— pone 823 visualizaciones, el 56% del blog entero.</p>
-      <p><b>No hay una sola pieza de salud ocupacional, protocolos MINSAL, matriz IPER, charlas ni riesgo psicosocial</b> — que es exactamente lo que la gente está buscando.</p>
+    <div class="step diag"><span class="lab">Corrección</span><div class="body">
+      <p>Al revisar el inventario real aparecieron <b>19 artículos publicados</b>, no 8. Dos de las piezas que había propuesto <b>ya existen</b>: MIPER y charlas de 5 minutos. Salen de la lista.</p>
+      <p>Y el 70% de las visitas sigue siendo un solo tema, el DS 44. La oportunidad está en los temas donde no hay nada escrito y que la gente igual busca.</p>
     </div></div>
 
-    <div class="step act"><span class="lab">Acción</span><div class="body">
-      <p>Ocho piezas elegidas por demanda verificada, no por intuición. <b>La fuente es la propia cuenta de Google Ads:</b> son los términos por los que ya estamos pagando y que no convierten a venta porque son informacionales. Alguien que busca «cómo implementar protocolos MINSAL» no compra software hoy, pero es ICP puro y hoy lo estamos pagando para nada.</p>
+    <div class="step act"><span class="lab">Las 8 piezas</span><div class="body">
       <div class="tscroll"><table>
-        <thead><tr><th>Pieza</th><th>Evidencia de demanda en la cuenta</th><th class="r">Semana</th></tr></thead>
+        <thead><tr><th>Pieza</th><th>Por qué esta</th><th class="r">Semana</th></tr></thead>
         <tbody>
-          <tr><td class="name">Cómo implementar un SG-SST paso a paso</td><td class="ev">«implementacion sg sst» — un clic de $15.154, el término más caro de toda la cuenta · «implementacion ds 44» · «propuesta implementacion sistema de gestion»</td><td class="r">28-ago</td></tr>
-          <tr><td class="name">Matriz IPER / IPERC: qué es y cómo se construye</td><td class="ev">«que es una matriz iperc» $1.605 · «software iperc» $3.840</td><td class="r">28-ago</td></tr>
-          <tr><td class="name">Protocolos MINSAL: cuáles son y cómo se implementan</td><td class="ev">«como implementar protocolos minsal» $544</td><td class="r">4-sep</td></tr>
-          <tr><td class="name">Charlas de 5 minutos: 50 temas y cómo dejar el registro</td><td class="ev">«temas para charlas de seguridad» · «charlas de seguridad de 5 minutos» · «charlas de prevencion de riesgos» · «registro de difusion pts»</td><td class="r">11-sep</td></tr>
-          <tr><td class="name">Software de salud ocupacional y ficha clínica</td><td class="ev">Pista de Axel + «software de salud ocupacional», «sistema de gestion de salud ocupacional», «software para salud ocupacional» aparecen como términos <b>relevantes</b>, no como fuga</td><td class="r">18-sep</td></tr>
-          <tr><td class="name">Batería de riesgo psicosocial: qué exige y cómo se administra</td><td class="ev">«software bateria de riesgo psicosocial» $5.252 en un clic</td><td class="r">18-sep</td></tr>
-          <tr><td class="name">Indicadores de SST: cuáles medir y cómo leerlos</td><td class="ev">«indicadores sst excel gratis» · «dashboard sst gratis» · «dashboard prevencion de riesgos»</td><td class="r">25-sep</td></tr>
-          <tr><td class="name">Plan de emergencias: qué debe contener y cómo mantenerlo vivo</td><td class="ev">«plan de emergencias y contingencias de una empresa» $976</td><td class="r">30-sep</td></tr>
+          <tr><td class="name">Activo descargable dentro del artículo de IRL <span class="keep new">Máximo retorno</span></td><td class="ev">456 vistas al mes sin nada que descargar. Es la acción de mayor impacto del plan.</td><td class="r">28-ago</td></tr>
+          <tr><td class="name">Cómo implementar un SG-SST paso a paso</td><td class="ev">«implementacion sg sst» — un clic de $15.154 en Ads, el término más caro de la cuenta</td><td class="r">28-ago</td></tr>
+          <tr><td class="name">Protocolos MINSAL: cuáles son y cómo se implementan</td><td class="ev">«como implementar protocolos minsal» · no hay nada publicado</td><td class="r">4-sep</td></tr>
+          <tr><td class="name">Calendario de charlas + formato de registro de difusión <span class="keep new">Activo</span></td><td class="ev">/soluciones/charlas tiene 1.883 vistas y cero captura. El artículo ya existe; falta el activo.</td><td class="r">11-sep</td></tr>
+          <tr><td class="name">Software de salud ocupacional y ficha clínica</td><td class="ev">Pista de Axel + términos de salud ocupacional que ya aparecen como relevantes en Ads</td><td class="r">18-sep</td></tr>
+          <tr><td class="name">Batería de riesgo psicosocial: qué exige y cómo se administra</td><td class="ev">«software bateria de riesgo psicosocial» — $5.252 en un solo clic</td><td class="r">18-sep</td></tr>
+          <tr><td class="name">Indicadores de SST: cuáles medir y cómo leerlos</td><td class="ev">«indicadores sst excel gratis» · «dashboard sst gratis»</td><td class="r">25-sep</td></tr>
+          <tr><td class="name">Plan de emergencias: qué debe contener</td><td class="ev">«plan de emergencias y contingencias de una empresa»</td><td class="r">30-sep</td></tr>
         </tbody>
       </table></div>
+      <p><b>Fuera de la lista:</b> MIPER y charlas de 5 minutos — ya publicadas. <span class="light">Sus artículos entran igual al plan, pero como destino de los flujos, no como piezas nuevas.</span></p>
     </div></div>
 
     <div class="step res"><span class="lab">Resultado</span><div class="body">
-      Dejar de depender de una sola norma y abrir cinco temas nuevos donde hoy no aparecemos. Cada una de las ocho alimenta directamente la meta 2, porque nace con su activo de descarga.
+      Cinco temas nuevos donde hoy no aparecemos, y los dos activos que le faltan al tráfico que ya existe.
     </div></div>
   </section>
 
   <!-- META 2 -->
   <section class="goal">
-    <div class="ghead">
-      <span class="gnum">2</span>
-      <div class="gt"><h2>Contactos nuevos</h2><p class="base">Baseline: 6 al mes · 12 en total durante julio y agosto</p></div>
-      <div class="target"><span class="t">≥12</span><span class="l">en septiembre</span></div>
-    </div>
-
+    <div class="ghead"><span class="gnum">2</span><div class="gt"><h2>Contactos nuevos</h2><p class="base">Baseline: 6 al mes · 12 en julio y agosto</p></div>
+      <div class="target"><span class="t">≥12</span><span class="l">en septiembre</span></div></div>
     <div class="step diag"><span class="lab">Diagnóstico</span><div class="body">
-      <p><b>El problema no es tráfico, es que no hay dónde dejar el correo.</b> El blog recibe 1.470 visualizaciones y la única landing de descarga que existe —el ebook del DS 44— tiene <b>37</b>. Los artículos no ofrecen nada a cambio del dato.</p>
-      <p>Y sabemos qué quiere la gente, porque lo busca con la palabra «gratis» dentro de nuestras propias campañas: <span class="mono">indicadores sst excel gratis</span> · <span class="mono">mapa de riesgos editable</span> · <span class="mono">software control de epp gratis</span> · <span class="mono">dashboard sst gratis</span>. <b>Buscan plantillas, no ebooks.</b></p>
+      <p>Las cuatro páginas con más tráfico del sitio — home, Agendar Demo, /soluciones/charlas y el artículo de IRL — <b>suman más de 5.000 visitas y producen 2 correos entre todas</b>, fuera del formulario de demo.</p>
+      <p>Y los términos con «gratis» de Ads dicen exactamente qué quiere la gente: <span class="mono">indicadores sst excel gratis</span> · <span class="mono">mapa de riesgos editable</span> · <span class="mono">software control de epp gratis</span>. <b>Buscan plantillas.</b></p>
     </div></div>
-
     <div class="step act"><span class="lab">Acción</span><div class="body">
-      <p><b>Ninguna pieza se publica sin su activo descargable.</b> Cuatro plantillas cubren las ocho piezas:</p>
+      <p>Cuatro activos que cubren las ocho piezas y los artículos que ya existen:</p>
       <div class="tscroll"><table>
-        <thead><tr><th>Activo descargable</th><th>Piezas que lo ofrecen</th></tr></thead>
+        <thead><tr><th>Activo</th><th>Dónde se ofrece</th><th class="r">Tráfico que alcanza</th></tr></thead>
         <tbody>
-          <tr><td class="name">Matriz IPER editable (Excel)</td><td>IPER · SG-SST</td></tr>
-          <tr><td class="name">Calendario de charlas + formato de registro de difusión</td><td>Charlas · Protocolos MINSAL</td></tr>
-          <tr><td class="name">Dashboard de indicadores SST (Excel)</td><td>Indicadores · SG-SST</td></tr>
-          <tr><td class="name">Checklist de plan de emergencias</td><td>Plan de emergencias · Psicosocial</td></tr>
+          <tr><td class="name">Checklist de fiscalización DS 44</td><td>Artículo de IRL · fiscalización · FUF · obligaciones</td><td class="r num">~530 vistas/mes</td></tr>
+          <tr><td class="name">Calendario de charlas + registro de difusión</td><td>/soluciones/charlas · artículo de charlas de 5 minutos</td><td class="r num">~1.900 vistas/mes</td></tr>
+          <tr><td class="name">Matriz IPER editable (Excel)</td><td>Artículo MIPER · mapa de riesgos · SG-SST</td><td class="r num">~90 vistas/mes</td></tr>
+          <tr><td class="name">Formato de entrega de EPP con firma</td><td>Artículo de EPP · /soluciones/epp</td><td class="r num">~230 vistas/mes</td></tr>
         </tbody>
       </table></div>
-      <p>Además, el <b>workflow del newsletter sigue sin armarse</b>. Sin él, quien se suscribe no recibe nada y no hay cómo hacerlo madurar. Es el primer bloqueador a resolver, no el último.</p>
+      <p>Y el bloqueador de siempre: <b>el workflow del newsletter sigue sin armarse</b>. Sin él, quien deja el correo no recibe nada.</p>
     </div></div>
-
     <div class="step res"><span class="lab">Resultado</span><div class="body">
-      12 contactos nuevos en septiembre, el doble del ritmo actual, sin inversión en medios.
+      12 contactos en septiembre. <span class="light">Con el 15,1% del recurso del DS 44 aplicado solo al artículo de IRL, la meta se cubre con esa pieza sola. Es el escenario optimista, no la promesa: ese 15,1% son 16 envíos sobre 106 vistas y no está dicho que se sostenga a mayor volumen.</span>
     </div></div>
-
-    <div style="padding:0 20px 16px">
-      <div class="flag"><b>Ojo con cómo está escrita la meta:</b> «12 leads» se cumple igual con estudiantes. Conviene proponerle a Axel un guardarrail de calidad — no cambiar el número, sino agregarle que el contacto traiga correo corporativo. Ver meta 3.</div>
-    </div>
   </section>
 
-  <!-- META 3 -->
+  <!-- META 3 · FLUJOS -->
   <section class="goal">
-    <div class="ghead">
-      <span class="gnum">3</span>
-      <div class="gt"><h2>Maduración a MQL</h2><p class="base">Baseline: 2 de 12 maduraron · 17%</p></div>
-      <div class="target"><span class="t">≥30%</span><span class="l">al 30 de septiembre</span></div>
-    </div>
+    <div class="ghead"><span class="gnum">3</span><div class="gt"><h2>Maduración a MQL · los flujos</h2><p class="base">Baseline: 2 de 12 maduraron · 17%</p></div>
+      <div class="target"><span class="t">≥30%</span><span class="l">al 30 de septiembre</span></div></div>
 
-    <div class="step diag"><span class="lab">Diagnóstico</span><div class="body">
-      <p>Los dos contactos que maduraron a MQL tienen algo en común, y no es el tema que descargaron:</p>
-      <div class="tscroll"><table>
-        <thead><tr><th>Tipo de correo</th><th class="r">Contactos</th><th class="r">Llegaron a MQL</th></tr></thead>
-        <tbody>
-          <tr><td class="name">Corporativo</td><td class="r num">4</td><td class="r num" style="color:var(--good);font-weight:700">2</td></tr>
-          <tr><td class="name">Personal o educacional</td><td class="r num">8</td><td class="r num" style="color:var(--bad);font-weight:700">0</td></tr>
-        </tbody>
-      </table></div>
-      <p>Son 4 casos contra 8, así que no es una tasa estable — pero la dirección alcanza para decidir. <b>Con la mezcla actual, 12 contactos rinden unos 2 MQL, no 3,6.</b> Llegar a 30% es un problema de quién entra, no de cuántos.</p>
+    <div class="step diag"><span class="lab">Principio</span><div class="body">
+      <p><b>El flujo se dispara por la página donde dejó el correo, y habla del dolor que corresponde a ese tema.</b> Los dolores no los inventé: salen de los 14 negocios de SEM que los tienen cargados en el CRM. Se repiten con una consistencia notable — papel y procesos manuales, trazabilidad ante fiscalización, firma electrónica validada, control de contratistas y carga administrativa.</p>
+      <p>Cada flujo son cuatro correos en catorce días y termina en la invitación a demo <b>enfocada en el dolor de ese tema</b>, no en una demo genérica.</p>
     </div></div>
 
-    <div class="step act"><span class="lab">Acción</span><div class="body">
-      <p><b>Uno · filtrar en la entrada.</b> Pedir correo corporativo en el formulario de descarga, o bloquear dominios de correo gratuito y educacionales. Los que no lo traigan se segmentan aparte y no cuentan como contacto de la meta.</p>
-      <p><b>Dos · armar el workflow de nurturing.</b> Es el mismo bloqueador de la meta 2. Una secuencia por tema: quien descargó la matriz IPER recibe la pieza de SG-SST, después la de indicadores, y recién ahí la invitación a demo.</p>
-      <p><b>Tres · definir la señal de MQL.</b> Hoy no está escrito qué hace que un contacto pase a MQL. Propuesta: segunda descarga, o visita a página de producto o precios después de abrir dos correos de la secuencia.</p>
+    <div class="step act"><span class="lab">Los flujos</span><div class="body">
+
+      <div class="flow">
+        <div class="fhead"><h3>1 · Fiscalización DS 44</h3><span class="trig">Descarga el checklist</span><span class="vol">~530 vistas/mes</span></div>
+        <div class="mail"><span class="day">Día 0</span><div><div class="s">Acá va tu checklist de fiscalización</div><div class="w">Entrega + los 3 documentos que más piden en una fiscalización de la DT</div></div></div>
+        <div class="mail"><span class="day">Día 3</span><div><div class="s">«Se nos perdían los registros en papel»</div><div class="w">Dolor: trazabilidad. Caso de una constructora, con el antes y el después</div></div></div>
+        <div class="mail"><span class="day">Día 7</span><div><div class="s">Si te fiscalizan mañana, ¿tienes esto?</div><div class="w">Dolor: riesgo de cumplimiento. Los 10 puntos que se revisan</div></div></div>
+        <div class="mail"><span class="day">Día 12</span><div><div class="s">Cómo se ve todo esto ya resuelto</div><div class="w">Demo enfocada en firma electrónica validada por la DT · Resolución N° 908</div></div></div>
+        <div class="sig"><b>Señal de MQL:</b> abre 2 correos y visita /precio, /contactanos o cualquier /soluciones/*</div>
+      </div>
+
+      <div class="flow">
+        <div class="fhead"><h3>2 · Charlas y capacitaciones</h3><span class="trig">Descarga el calendario</span><span class="vol">~1.900 vistas/mes · el mayor volumen</span></div>
+        <div class="mail"><span class="day">Día 0</span><div><div class="s">Tu calendario de charlas y 50 temas listos</div><div class="w">Entrega + el formato de registro de difusión</div></div></div>
+        <div class="mail"><span class="day">Día 4</span><div><div class="s">El problema no es dar la charla, es probar que la diste</div><div class="w">Dolor: firma en terreno sin papel</div></div></div>
+        <div class="mail"><span class="day">Día 9</span><div><div class="s">Capacitaciones vencidas: cómo saberlo antes que la DT</div><div class="w">Dolor: control de vencimientos, que aparece en Cushman e INOLASA</div></div></div>
+        <div class="mail"><span class="day">Día 14</span><div><div class="s">15 minutos para verlo funcionando</div><div class="w">Demo enfocada en el módulo de charlas y capacitaciones</div></div></div>
+        <div class="sig"><b>Señal de MQL:</b> abre 2 correos y visita /soluciones/charlas o /soluciones/capacitaciones</div>
+      </div>
+
+      <div class="flow">
+        <div class="fhead"><h3>3 · EPP</h3><span class="trig">Descarga el formato de entrega</span><span class="vol">~230 vistas/mes</span></div>
+        <div class="mail"><span class="day">Día 0</span><div><div class="s">El formato de entrega de EPP que la DT acepta</div><div class="w">Entrega + qué campos son obligatorios según el DS 44</div></div></div>
+        <div class="mail"><span class="day">Día 4</span><div><div class="s">Cómo se firma la entrega en terreno, sin imprimir</div><div class="w">Dolor: papel y firma. Aparece textual en Odis y en Sociedad de Servicios</div></div></div>
+        <div class="mail"><span class="day">Día 9</span><div><div class="s">326 días de trabajo ahorrados</div><div class="w">Caso Falabella Retail</div></div></div>
+        <div class="mail"><span class="day">Día 14</span><div><div class="s">Tu bodega de EPP, ordenada</div><div class="w">Demo del módulo EPP — el más nombrado en los negocios ganados</div></div></div>
+        <div class="sig"><b>Señal de MQL:</b> abre 2 correos y visita /soluciones/epp</div>
+      </div>
+
+      <div class="flow">
+        <div class="fhead"><h3>4 · Contratistas</h3><span class="trig">Descarga el checklist documental</span><span class="vol">Dolor n.º 1 del CRM</span></div>
+        <div class="mail"><span class="day">Día 0</span><div><div class="s">Qué documentos exigir antes de que entren a faena</div><div class="w">Entrega del checklist documental</div></div></div>
+        <div class="mail"><span class="day">Día 4</span><div><div class="s">La Ley 20.123 y lo que te toca a ti como mandante</div><div class="w">Dolor: riesgo legal. Textual en Candelaria</div></div></div>
+        <div class="mail"><span class="day">Día 9</span><div><div class="s">Acreditación en la portería, no en el correo</div><div class="w">Dolor: control de acceso y vigencia de documentos</div></div></div>
+        <div class="mail"><span class="day">Día 14</span><div><div class="s">Ver el módulo de contratistas</div><div class="w">Demo enfocada en acreditación y control documental</div></div></div>
+        <div class="sig"><b>Señal de MQL:</b> abre 2 correos y visita /soluciones/contratistas</div>
+      </div>
+
+      <div class="flow">
+        <div class="fhead"><h3>5 · Rescate</h3><span class="trig">Newsletter sin tema identificado</span><span class="vol">Se ramifica solo</span></div>
+        <div class="mail"><span class="day">Día 0</span><div><div class="s">Bienvenida + los cuatro descargables</div><div class="w">Se le ofrecen los cuatro activos en un solo correo</div></div></div>
+        <div class="mail"><span class="day">Día 5</span><div><div class="s">Según lo que abrió, entra al flujo que corresponde</div><div class="w">Si no abrió ninguno, recibe el de fiscalización, que es el de mayor demanda</div></div></div>
+        <div class="sig"><b>Este flujo no busca MQL:</b> busca identificar el tema. Su métrica es cuántos entran a un flujo temático.</div>
+      </div>
+
     </div></div>
 
-    <div class="step res"><span class="lab">Resultado</span><div class="body">
-      Que los 12 contactos de septiembre rindan 3 o 4 MQL en vez de los 2 que rendirían con la mezcla de hoy.
+    <div class="step act"><span class="lab">Filtro de entrada</span><div class="body">
+      De los 12 contactos actuales, los <b>4 con correo corporativo dieron los 2 MQL</b> y los <b>8 con correo personal o educacional no dieron ninguno</b>. Son 4 casos contra 8, así que no es una tasa — pero la dirección alcanza para decidir. <b>Pedir correo corporativo en el formulario de descarga</b>, o bloquear dominios gratuitos y educacionales y segmentarlos aparte.
+    </div></div>
+
+    <div class="step row-read" style="display:grid;grid-template-columns:118px 1fr;gap:18px;padding:15px 20px"><span class="lab" style="color:var(--accent)">Definición de MQL</span><div class="body" style="color:var(--ink)">
+      Hoy no está escrita, y sin eso la meta del 30% no es auditable. <b>Propuesta:</b> un contacto pasa a MQL cuando cumple <b>dos de estas tres</b> — segunda descarga o segunda visita a una página de producto · correo corporativo · visita a /precio o /contactanos. <span class="light">Hay que acordarla con Axel antes del 4 de septiembre, porque es la que decide si la meta se cumplió.</span>
     </div></div>
   </section>
 
@@ -236,54 +289,50 @@
     <h2>Calendario de control</h2>
     <p class="n">Los hitos son los que fijó Axel. Cada viernes se revisa esta fila, no el mes completo.</p>
     <div class="tscroll"><table>
-      <thead><tr><th>Corte</th><th class="r">Piezas acum.</th><th class="r">Contactos acum.</th><th>Maduración</th><th>Qué tiene que estar listo</th></tr></thead>
+      <thead><tr><th>Corte</th><th class="r">Piezas</th><th class="r">Contactos</th><th>Maduración</th><th>Qué tiene que estar listo</th></tr></thead>
       <tbody>
-        <tr><td class="wk">28 ago</td><td class="r num">≥2</td><td class="r num">≥6 en agosto</td><td>Segmentos, journey y contenido definidos</td><td>SG-SST e IPER publicadas · matriz IPER descargable · workflow del newsletter armado</td></tr>
-        <tr><td class="wk">4 sep</td><td class="r num">≥3</td><td class="r num">≥3</td><td>≥25% de cobertura</td><td>Protocolos MINSAL publicada · filtro de correo corporativo activo</td></tr>
-        <tr><td class="wk">11 sep</td><td class="r num">≥4</td><td class="r num">≥6</td><td>≥50%</td><td>Charlas publicada · calendario de charlas descargable</td></tr>
-        <tr><td class="wk">18 sep</td><td class="r num">≥6</td><td class="r num">≥8</td><td>≥70%</td><td>Salud ocupacional y psicosocial publicadas · checklist de emergencias</td></tr>
-        <tr><td class="wk">25 sep</td><td class="r num">≥7</td><td class="r num">≥10</td><td>≥85%</td><td>Indicadores publicada · dashboard SST descargable</td></tr>
+        <tr><td class="wk">28 ago</td><td class="r num">≥2</td><td class="r num">≥6 en agosto</td><td>Segmentos, journey y contenido definidos</td><td>Checklist de fiscalización dentro del artículo de IRL · SG-SST publicada · workflow del newsletter armado</td></tr>
+        <tr><td class="wk">4 sep</td><td class="r num">≥3</td><td class="r num">≥3</td><td>≥25% de cobertura</td><td>Protocolos MINSAL · flujo 1 corriendo · filtro de correo corporativo activo · <b>definición de MQL acordada</b></td></tr>
+        <tr><td class="wk">11 sep</td><td class="r num">≥4</td><td class="r num">≥6</td><td>≥50%</td><td>Calendario de charlas descargable · flujo 2 corriendo</td></tr>
+        <tr><td class="wk">18 sep</td><td class="r num">≥6</td><td class="r num">≥8</td><td>≥70%</td><td>Salud ocupacional y psicosocial publicadas · flujos 3 y 4 corriendo</td></tr>
+        <tr><td class="wk">25 sep</td><td class="r num">≥7</td><td class="r num">≥10</td><td>≥85%</td><td>Indicadores publicada · flujo de rescate corriendo</td></tr>
         <tr><td class="wk">30 sep</td><td class="r num">≥8</td><td class="r num">≥12</td><td>≥90% · conversión ≥30%</td><td>Plan de emergencias publicada · cierre y lectura de las tres metas</td></tr>
       </tbody>
     </table></div>
   </section>
 
-  <!-- COMO SE CUENTA -->
+  <!-- GUIONES -->
   <section class="script">
     <h2>Cómo contar cada meta en 30 segundos</h2>
-    <p class="intro">La estructura es la de Axel: <b>vi esto → por eso hice esto → busco lograr esto</b>. Nunca partir por la táctica.</p>
-
+    <p class="intro">La estructura de Axel: <b>vi esto → por eso hice esto → busco lograr esto</b>.</p>
     <div class="say"><span class="who">Contenido</span>
-      Vi que el 70% de las visitas del blog son de un solo tema, el DS 44, y que no teníamos nada publicado sobre salud ocupacional, protocolos MINSAL ni matriz IPER, que es lo que la gente está buscando — lo sé porque Google Ads nos está cobrando por esas búsquedas y no convierten a venta. Por eso armé un calendario de ocho piezas elegidas por esa demanda real. Con eso busco dejar de depender de una sola norma y alimentar la generación de contactos.
+      Vi que el 70% de las visitas del blog son de un solo tema y que no teníamos nada sobre salud ocupacional, protocolos MINSAL ni psicosocial, que es lo que la gente busca — lo sé porque Google Ads nos cobra por esas búsquedas y no convierten a venta. Por eso armé un calendario de ocho piezas elegidas por esa demanda real. Con eso busco dejar de depender de una norma y alimentar la generación de contactos.
     </div>
-
     <div class="say"><span class="who">Contactos</span>
-      Vi que el blog ya tiene 1.470 visitas pero la única landing de descarga tiene 37: hay tráfico y no hay dónde dejar el correo. Y la gente busca plantillas, no ebooks — «indicadores SST en Excel gratis», «mapa de riesgos editable». Por eso cada pieza va a salir con su plantilla descargable y estoy armando el workflow del newsletter. Con eso busco pasar de 6 a 12 contactos al mes.
+      Vi que el recurso del DS 44 convierte al 15% y el artículo que le trae la gente al 0,4%: hay tráfico y no hay dónde dejar el correo. Por eso cada pieza va a salir con su plantilla descargable y estoy conectando los artículos que ya tienen tráfico con esos activos. Con eso busco pasar de 6 a 12 contactos al mes.
     </div>
-
     <div class="say"><span class="who">Maduración</span>
-      Vi que de los 12 contactos, los 4 con correo corporativo dieron los 2 MQL que tenemos y los 8 con correo personal o educacional no dieron ninguno. Por eso voy a pedir correo corporativo en el formulario y a armar una secuencia de nurturing por tema. Con eso busco que los 12 contactos de septiembre rindan 30% en vez del 17% de hoy.
+      Vi que de los 12 contactos, los 4 con correo corporativo dieron los 2 MQL y los 8 con correo personal no dieron ninguno, y que quien se suscribe hoy no recibe nada. Por eso armé cinco flujos que se disparan según la página donde dejó el correo y que hablan del dolor de ese tema. Con eso busco que los 12 contactos de septiembre rindan 30% en vez del 17% de hoy.
     </div>
   </section>
 
-  <!-- NECESITO -->
   <section class="needs">
     <h2>Lo que necesito para que esto ocurra</h2>
     <ul>
-      <li><b>Ayuda con el workflow del newsletter.</b> Es el bloqueador de las metas 2 y 3 a la vez; sin él, quien se suscribe no recibe nada.</li>
-      <li><b>Acuerdo sobre el guardarrail de calidad</b> en la meta de contactos: correo corporativo obligatorio o segmentación aparte.</li>
-      <li><b>Definición escrita de qué hace que un contacto pase a MQL.</b> Hoy no existe, y sin eso la meta de 30% no es auditable.</li>
-      <li><b>Media hora a una hora bloqueada por semana</b> para producción de contenido, como ofreció Axel.</li>
+      <li><b>Ayuda con el workflow del newsletter.</b> Bloquea las metas 2 y 3 a la vez.</li>
+      <li><b>Acuerdo sobre el guardarrail de calidad</b>: correo corporativo obligatorio o segmentación aparte.</li>
+      <li><b>La definición de MQL por escrito, antes del 4 de septiembre.</b> Sin eso la meta del 30% no se puede auditar.</li>
+      <li><b>Media hora a una hora bloqueada por semana</b> para producción, como ofreció Axel.</li>
       <li><b>Revisión de borradores antes de publicar</b>, según lo acordado.</li>
     </ul>
   </section>
 
   <section class="notes">
     <h3>De dónde salen los datos</h3>
-    <p><b>Blog:</b> 1.470 visualizaciones y el reparto por artículo salen de HubSpot, al corte del 16 de agosto. Las 823 del artículo de IRL suman su URL nueva y la antigua del mismo contenido, que quedaron midiéndose por separado tras la migración: es un artículo, no dos. La agrupación por tema es nuestra, sobre esos mismos artículos. <b>Contactos:</b> los 12 son los que tienen la propiedad «Fecha Lead» marcada entre el 1 de julio y el 31 de agosto, verificados uno a uno en HubSpot el 20 de agosto — 7 de origen orgánico, 2 directo, 1 social, 1 offline y 1 de búsqueda pagada. Los 2 que maduraron a MQL son ambos de origen orgánico.</p>
-    <p><b>Evidencia de demanda:</b> términos de búsqueda reales de la cuenta de Google Ads 3766426817, ventana 13 de julio al 18 de agosto, con su costo efectivo. Solo cubren el 34% del gasto — Google oculta los términos de bajo volumen — así que la lista de temas es un piso, no el universo completo.</p>
-    <p><b>Advertencia de tamaño:</b> el corte por tipo de correo son 4 contactos contra 8. Sirve para decidir la dirección, no para prometer una tasa. Se vuelve a mirar con los contactos de septiembre.</p>
-    <p><b>Alcance:</b> este plan es el motor orgánico. Google Ads entra por otra puerta —el contacto pide demo directo y llega a MQL sin pasar por la etapa de contacto— y se reporta aparte, como always-on.</p>
+    <p><b>Rendimiento por página:</b> HubSpot, del 1 de junio al 23 de agosto. «Envíos» son envíos de formulario sobre esa página. El inventario de 19 artículos se levantó cruzando el reporte de contenidos con las páginas de aterrizaje de GA4.</p>
+    <p><b>Los dolores de cada flujo</b> salen del campo «Descripción Dolor Cliente» de los negocios inbound de SEM: está cargado en 14 de 30. Los módulos más nombrados son EPP (6 de 7 con el campo lleno), investigación de accidentes (5), contratistas (4) y capacitaciones (4).</p>
+    <p><b>Evidencia de demanda de las piezas:</b> términos de búsqueda reales de la cuenta de Google Ads, con su costo efectivo. Cubren el 34% del gasto — Google oculta los de bajo volumen — así que la lista de temas es un piso, no el universo.</p>
+    <p><b>Advertencias de tamaño:</b> el 15,1% del recurso del DS 44 son 16 envíos sobre 106 vistas, y el corte por tipo de correo son 4 contactos contra 8. Sirven para decidir la dirección, no para prometer una tasa.</p>
   </section>
 
 </div>

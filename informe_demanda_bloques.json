@@ -514,7 +514,31 @@
       "Media hora a una hora semanal bloqueada para produccion",
       "Revision de borradores antes de publicar"
     ],
-    "nota_v2": "20-ago: el diagnostico de la meta 1 se reforzo de 'un solo articulo, 56%' a 'un solo TEMA, 70%'. Es mas fuerte y igual de cierto, y justifica mejor las 5 piezas que abren temas nuevos. La agrupacion por tema es nuestra, sobre los articulos que reporta HubSpot."
+    "nota_v2": "20-ago: el diagnostico de la meta 1 se reforzo de 'un solo articulo, 56%' a 'un solo TEMA, 70%'. Es mas fuerte y igual de cierto, y justifica mejor las 5 piezas que abren temas nuevos. La agrupacion por tema es nuestra, sobre los articulos que reporta HubSpot.",
+    "_actualizacion_24_ago": {
+      "hallazgo_central": "El recurso «DS 44, un año y medio después» tiene 106 vistas y 16 envios = 15,1% de conversion a correo. El articulo de IRL que le trae la gente tiene 456 vistas y 2 envios = 0,4%. El recurso convierte 38 veces mejor con 4 veces menos trafico. Si el articulo convirtiera a la tasa del recurso dejaria 69 correos en vez de 2. LA PIEZA DE MAYOR RETORNO NO ES UN ARTICULO NUEVO: es conectar el trafico existente con un activo que capture.",
+      "otras_paginas": "/soluciones/charlas 1.883 vistas y CERO envios (2a pagina mas vista del sitio). Inspecciones 150 vistas 1 envio. EPP 80 vistas 1 envio. MIPER 70 vistas 0 envios. Agendar Demo 2.529 vistas 75 envios (3,0%).",
+      "correccion_inventario": "Hay 19 articulos publicados, no 8. MIPER y charlas de 5 minutos YA EXISTEN y salen de la lista de piezas nuevas; entran como destino de los flujos.",
+      "8_piezas_corregidas": [
+        "Activo descargable dentro del articulo de IRL (28-ago, maximo retorno)",
+        "SG-SST paso a paso (28-ago)",
+        "Protocolos MINSAL (4-sep)",
+        "Calendario de charlas + registro de difusion, activo (11-sep)",
+        "Salud ocupacional y ficha clinica (18-sep)",
+        "Bateria de riesgo psicosocial (18-sep)",
+        "Indicadores de SST (25-sep)",
+        "Plan de emergencias (30-sep)"
+      ],
+      "4_activos": [
+        "Checklist de fiscalizacion DS 44 (~530 vistas/mes)",
+        "Calendario de charlas + registro de difusion (~1.900)",
+        "Matriz IPER editable (~90)",
+        "Formato de entrega de EPP con firma (~230)"
+      ],
+      "5_flujos_de_nurturing": "Se disparan por la PAGINA donde dejo el correo y hablan del dolor de ese tema, tomado del campo Descripcion Dolor Cliente del CRM. 4 correos en 14 dias, terminan en demo enfocada en ese dolor. (1) Fiscalizacion DS 44, (2) Charlas y capacitaciones, (3) EPP, (4) Contratistas, (5) Rescate para newsletter sin tema, que se ramifica.",
+      "definicion_mql_propuesta": "Un contacto pasa a MQL cuando cumple DOS de tres: segunda descarga o segunda visita a pagina de producto; correo corporativo; visita a /precio o /contactanos. HAY QUE ACORDARLA CON AXEL ANTES DEL 4-SEP porque es la que decide si la meta se cumplio.",
+      "advertencias": "El 15,1% son 16 envios sobre 106 vistas. El corte por tipo de correo son 4 contactos contra 8. Sirven para decidir direccion, no para prometer tasa."
+    }
   },
   "_aeo_medible_desde_hubspot_21_ago_2026": {
     "corrige": "La suposicion de que el bloque AEO se carga a mano porque 'no hay API'. Es falso para el lado de resultado comercial.",
