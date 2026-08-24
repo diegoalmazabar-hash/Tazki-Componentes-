@@ -1037,3 +1037,30 @@ QUE NECESITO PARA CONFIRMAR O DESCARTAR LO DE MARCA (respuesta a Diego):
   2. La prueba de canibalizacion: anotar el trafico organico de marca ANTES y compararlo despues. Si al
      subir Marca los MQL totales no suben, solo se traslado plata de gratis a pagado.
   3. Ver si el $20.662 de SST se sostiene. Si SST se queda ahi, Marca no tiene caso.
+
+## Corrida semanal del Plan · lunes 24-ago-2026 (semana 17-23 cerrada)
+
+REFRESCADO: metas, inbounds (1), embudo + camadas + productividad (2), SEM ranking (3), Ads (4),
+SEO (5), trafico por fuente GA4 (6), LinkedIn (7) y bloque de IA (10).
+SIN REFRESCAR: los dos paneles de visitas del blog del bloque 6 y la bitacora (11). Declarado en el Plan.
+
+NUMEROS DE LA SEMANA:
+  Inbounds agosto: 42 al dia 23 (jul 47 entero) · PAGO 17 de 42 = 40,5% (meta 30%, antes 29%)
+  Semana 17-23: 13 inbounds, 9 de pago (69%) — record del canal pagado. Organico cayo a 2.
+  Embudo: SEM 30 inbounds, 19 MS, 6 QOpp (31,6%), 8 perdidos (26,7%)
+          SEO 180 inbounds, 162 MS, 35 QOpp (21,6%), 115 perdidos (63,9% — EMPEORO, meta <=60%)
+  Camadas: 264 creados, 8 ganados de 175 cerrados = 4,57%, 89 sin cerrar
+  SEO agosto: 118 clics (jul 36), 13.289 impresiones, posicion 6,5, 52 palabras distintas (meta >=25)
+  Ads agosto: 17 MQL en 23 dias (jul 6). Desde 13-jul $1.269.932 y 25 inbounds de pago = $50.797 c/u
+  LinkedIn: +34 en agosto, 5.160 seguidores totales, 15,0% de tasa de interaccion
+  IA en GA4: 28 sesiones en agosto contra 11 en julio
+
+CONTROL QUE NO CUADRO: junio de inbounds daba 25 en el control guardado y hoy da 26 (un negocio mas en
+Directo, uno que paso de 'offline' a 'conversations'). Latest Source es una propiedad que SE REESCRIBE
+cuando el contacto vuelve por otro canal, asi que los meses cerrados pueden moverse. Se publico igual.
+NOTA: mayo sigue mostrando 1 inbound porque a mitad de mes cambio el formato del valor de la propiedad
+('organic search' con espacio vs 'organic_search'); 40 negocios de mayo quedan fuera por eso.
+
+ANOMALIA DETECTADA (chequeo b): $2.011 en 3 dias en terminos abiertos — «mypass global» $656 y
+«ideagen ehs» $220 (competencia), «que es el ds 44» $638 y «sgsst que es» $497 (informacionales).
+Ninguno esta en las 806 negativas vivas. Los otros tres chequeos (gasto, MQL, SEO) no se dispararon.
