@@ -601,5 +601,19 @@
       "La prueba de canibalizacion: anotar el organico de marca antes y comparar despues.",
       "Ver si el $20.662 de SST se sostiene."
     ]
+  },
+  "_definicion_mql_corregida_24_ago_2026": {
+    "origen": "Corrección de Diego (24-ago-2026) a una propuesta mía errada. Yo había propuesto una regla de scoring (2 de 3 señales). NO aplica.",
+    "definicion_real": "MQL = contacto que completó el FORMULARIO MQL. Es binaria, no es puntaje. Los formularios MQL son el de Google Ads (landing) y el orgánico del sitio web.",
+    "lead": "Contacto que completó un formulario de Lead (suscripción newsletter, descarga de ebook/recurso). Anterior en el tiempo al formulario MQL.",
+    "el_problema_real": "No es definir MQL (ya está definido). Es RASTREAR que un contacto que ya era Lead después completó el formulario MQL.",
+    "regla_de_medicion_Lead_a_MQL": "Cuenta como conversión Lead→MQL solo si la fecha de entrada a MQL es POSTERIOR a la fecha de entrada a Lead. Si ambas fechas son iguales, o solo existe la de MQL, es un MQL DIRECTO y no entra en el numerador ni en el denominador de la meta del 30%.",
+    "denominador": "Cohorte, no mes calendario: de los leads que entraron en el mes, cuántos completaron después el formulario MQL, con ventana de 30 días desde la fecha de Lead. Acordar la ventana con Axel ANTES de medir.",
+    "pendientes_de_diego": [
+      "Escribir la lista de formularios clasificados: cuáles son Lead y cuáles son MQL (va en la planilla de RevOps de Axel).",
+      "Confirmar en HubSpot que cada formulario MQL mueve el lifecycle stage a MQL automáticamente (workflow) y estampa fecha.",
+      "Acordar con Axel la regla 'fecha MQL > fecha Lead' + ventana de 30 días, antes del 4-sep."
+    ],
+    "regla_permanente": "NUNCA proponer definiciones de MQL por scoring para Tazki. La definición es por formulario."
   }
 }
