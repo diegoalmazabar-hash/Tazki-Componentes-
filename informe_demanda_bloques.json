@@ -761,5 +761,15 @@
     ],
     "salud_ocupacional": "Queda en reserva: no hay evidencia de demanda que la sostenga sobre las otras.",
     "documento": "plan-septiembre.html + plan-septiembre.pdf (13 paginas), regenerados 24-ago-2026."
+  },
+  "_guiones_30_seg_septiembre_uso_interno_24_ago_2026": {
+    "nota": "SACADOS del documento plan-septiembre.html por pedido de Diego el 24-ago: son preparacion personal para hablar con Axel, NO se muestran. Se guardan aca para que no se pierdan.",
+    "estructura": "vi esto -> por eso hice esto -> busco lograr esto (formato de Axel)",
+    "contenido": "Vi que el blog se multiplico por 4,5 en visibilidad en un mes y que los articulos nuevos de DS 44 entraron rankeando en posiciones 4 a 7. Por eso cambie las ocho piezas: cuatro dejan de ser articulos nuevos y pasan a ser descargables colgados de los articulos que ya rankean. Con eso busco que las piezas produzcan contactos desde el dia que se publican, en vez de esperar tres meses a que posicionen.",
+    "contactos": "Vi que de 15.910 impresiones del blog entran 104 personas, un 0,65% de CTR, y que el articulo de IRL esta en posicion 4,6 sacando 69 clics de 11.090 impresiones, cuando lo normal serian 400. Por eso primero reescribo titulos y metadescripciones, y recien despues cuelgo los descargables. Con eso busco pasar de 6 a 12 contactos al mes sin depender de contenido nuevo.",
+    "maduracion": "Vi que quien se suscribe hoy no recibe nada, y que de los 12 contactos los 4 con correo corporativo dieron los 2 MQL. Por eso arme cinco flujos que se disparan segun la pagina donde dejo el correo y terminan llevando al formulario MQL. Con eso busco que los contactos de septiembre rindan 30% en vez del 17% de hoy. Y necesito que fijemos la regla de medicion antes de empezar, para que el numero sea auditable."
+  },
+  "_reglas_documentos_diego": {
+    "guiones_no_van_en_documentos_compartidos": "Los guiones de 30 segundos (como contar cada meta) son preparacion personal de Diego. NO incluirlos en documentos que se comparten con Axel ni con Felipe."
   }
 }
