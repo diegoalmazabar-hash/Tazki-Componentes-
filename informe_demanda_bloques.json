@@ -840,5 +840,157 @@
     "baseline_medido": "De los 13 contactos cuyo PRIMER formulario fue de Lead, NINGUNO tiene fecha de entrada a MQL. Lead->MQL = 0 de 13 con esta definicion.",
     "discrepancia_a_resolver": "El plan usa un baseline de '2 de 12 = 17%'. Ese numero NO se reproduce con las fechas de lifecycle. Hay que reconciliar de donde salio antes de usarlo como linea base de la meta del 30%.",
     "formula_correcta": "Denominador: contactos cuyo first_conversion_event_name es un formulario Lead, creados en el mes X. Numerador: de esos, los que tienen hs_v2_date_entered_marketingqualifiedlead POSTERIOR a la fecha del formulario Lead, dentro de 30 dias."
+  },
+  "_correccion_calificados_por_campana_25_ago_2026": {
+    "origen": "Diego subio el export real de HubSpot 'Negocios Inbound - SEM' (25-ago) y me freno: yo habia usado los '4 y 4 calificados' del informe de otro chat SIN verificarlos, y sobre eso construi la conclusion de que Marca rendia 3,8x mas. ERROR MIO.",
+    "regla_reforzada": "NUNCA usar cifras de un informe externo como base de una recomendacion sin abrir el dato primario. Le pedi a Diego que verificara al otro chat y yo no lo hice.",
+    "hecho_verificado": "13 negocios llegaron alguna vez a Qualified Prospect. LOS 13 tienen Latest Source = PAID_SEARCH.",
+    "REGLA_DE_ATRIBUCION": "Clasificar por el ULTIMO toque de pago (Latest Source / fuente reciente + propiedades de Google Ads del negocio), NO por 'Fuente original de trafico'. Dicho por Diego: 'la latest es lo que vale'.",
+    "por_que_el_otro_chat_dijo_4_y_4": "Clasifico por fuente ORIGINAL. Tres negocios de SST no figuran como pago en el origen: Equans ('Trafico directo'), Odis ('Fuentes sin conexion', entro por importacion) e IMT ('Busqueda organica'). Contando por origen da exactamente Marca 4 / SST 4, que es lo que reporto.",
+    "osesa": "Tenia dos toques de pago: SST 'sistema gestion seguridad laboral' el 21-jul (dia de creacion del negocio) y Marca 'tazki' el 27-jul. DIEGO DECIDIO 25-ago: Osesa se la lleva SST.",
+    "reparto_final": {
+      "Marca": {
+        "negocios": 4,
+        "UF_mensuales": 59,
+        "detalle": "Rucalhue 18, Candelaria 20, Cushman 11, Tecton 10"
+      },
+      "SST_HSEQ": {
+        "negocios": 8,
+        "UF_mensuales": 217,
+        "detalle": "Odis 24, Contenedores 15, Equans 50, IMT 15, Valle Nevado 25, Villablanca 50, INOLASA 22, Osesa 16"
+      },
+      "Operativa_pausada": {
+        "negocios": 1,
+        "UF_mensuales": 18,
+        "detalle": "Chilepanel 18 - unico Closed Lost de los 13"
+      }
+    },
+    "gasto_verificado_1jun_24ago": {
+      "SST": 1205620.95,
+      "Marca": 316331.44,
+      "pausadas": {
+        "Prevencion de Riesgos": 199696,
+        "Operativa": 174960,
+        "HSEQ": 125687,
+        "Contratistas": 87730,
+        "Fiscalizacion DT": 32058
+      }
+    },
+    "eficiencia_corregida": {
+      "costo_por_calificado": {
+        "Marca": 79083,
+        "SST": 150703
+      },
+      "costo_por_UF_mensual": {
+        "Marca": 5362,
+        "SST": 5556,
+        "nota": "EMPATE - 3,6% de diferencia. No hay ventaja de eficiencia."
+      },
+      "tamano_promedio_UF": {
+        "Marca": 14.8,
+        "SST": 27.1,
+        "nota": "SST trae negocios 1,8x mas grandes. Los dos de 50 UF (Equans, Villablanca) son de SST."
+      }
+    },
+    "que_se_cae": [
+      "La afirmacion 'Marca es 3,8x mas eficiente': FALSA. Rinden igual por UF.",
+      "La afirmacion 'SST trae gente que no compra': FALSA. SST trae el DOBLE de calificados y mas grandes.",
+      "Mi recomendacion de mover 4.000/dia de SST a Marca: RETIRADA por falta de sustento.",
+      "El traslado parkeado del 19-ago (SST 24.000->20.000, Marca 4.000->8.000): REVISAR antes de ejecutar, se armo sobre costo por MQL y no por negocio calificado."
+    ],
+    "lo_unico_que_sigue_a_favor_de_marca": "Impression share: Marca pierde 74% de apariciones por presupuesto y solo 7% por relevancia (semana 18-24 ago). Tiene mucho espacio libre. Pero apariciones != ingreso, y por ingreso estan empatadas.",
+    "pendiente": "No se puede calcular la TASA de calificacion por campana con este export (solo trae los 13 que calificaron). Falta el denominador de los 31 negocios."
+  },
+  "_impression_share_por_semana_ago_2026": {
+    "fuente": "Supermetrics AW, report Campaign, semanas ISO 30-35 de 2026. Leido 25-ago.",
+    "nota": "Nuestro registro y el otro chat se contradecian sobre si SST pierde por presupuesto o por ranking. LOS DOS TENIAN RAZON EN SU SEMANA: oscila fuerte.",
+    "SST_perdida_por_presupuesto_vs_ranking": {
+      "21-27jul": "73% / 16%",
+      "28jul-3ago": "22% / 70%",
+      "4-10ago": "0,4% / 89%",
+      "11-17ago": "67% / 23%",
+      "18-24ago": "44% / 40%"
+    },
+    "Marca_perdida_por_presupuesto_vs_ranking": {
+      "21-27jul": "73% / 10%",
+      "28jul-3ago": "41% / 42%",
+      "4-10ago": "33% / 48%",
+      "11-17ago": "70% / 7%",
+      "18-24ago": "74% / 7%"
+    },
+    "conclusion_marca": "Marca esta limitada por presupuesto, no por relevancia. IS actual 19%, techo alcanzable ~90%.",
+    "conclusion_sst": "Mixta e inestable. En la semana limpia 44% presupuesto / 40% ranking."
+  },
+  "_keywords_sst_activas_25_ago_2026": {
+    "fuente": "Supermetrics AW KeywordView, 1-jun a 24-ago, solo ENABLED. MQL filtrados a 'HubSpot - Marketing Qualified Lead'.",
+    "tabla": [
+      {
+        "kw": "sistema de gestion de seguridad y salud en el trabajo",
+        "match": "Phrase",
+        "gasto": 228789,
+        "clics": 147,
+        "MQL": 4,
+        "costo_MQL": 57197
+      },
+      {
+        "kw": "software prevencion de riesgos",
+        "match": "Phrase",
+        "gasto": 103338,
+        "clics": 36,
+        "MQL": 4,
+        "costo_MQL": 25834
+      },
+      {
+        "kw": "plataforma hse",
+        "match": "Broad",
+        "gasto": 91372,
+        "clics": 70,
+        "MQL": 4,
+        "costo_MQL": 22843
+      },
+      {
+        "kw": "software sst",
+        "match": "Phrase",
+        "gasto": 42446,
+        "clics": 17,
+        "MQL": 0.33,
+        "costo_MQL": 128624
+      },
+      {
+        "kw": "sistema gestion seguridad laboral",
+        "match": "Exact",
+        "gasto": 38182,
+        "clics": 21,
+        "MQL": 2,
+        "costo_MQL": 19091
+      },
+      {
+        "kw": "software seguridad ocupacional",
+        "match": "Phrase",
+        "gasto": 36868,
+        "clics": 21,
+        "MQL": 2,
+        "costo_MQL": 18434
+      },
+      {
+        "kw": "plataforma prevencion de riesgos",
+        "match": "Exact",
+        "gasto": 33309,
+        "clics": 30,
+        "MQL": 0.96,
+        "costo_MQL": 34697
+      },
+      {
+        "kw": "software gestion sst",
+        "match": "Phrase",
+        "gasto": 30994,
+        "clics": 12,
+        "MQL": 0.67,
+        "costo_MQL": 46260
+      }
+    ],
+    "concentracion": "82,4% del gasto activo de SST (498.549 de 605.298) esta en las 5 keywords que producen, y traen 16 de los 18 MQL. Solo 17,6% es grasa. HAY POCO QUE CORTAR.",
+    "recorte_13_14_ago_validado": "Las 24 keywords pausadas el 13-14 ago se habian comido ~600.000 y NO produjeron ni un MQL. El recorte estuvo bien hecho: SST paso de ~67.000 a ~33.600 por MQL.",
+    "plataforma_hse": "Es la keyword que produce MQL MAS BARATOS de SST: 4 MQL a 22.843. El otro chat propuso bajarle la puja 40%. NO tocar sin resolver antes si esos MQL califican. Regla 4 del plan del 19-ago dice explicitamente 'no tocar'."
   }
 }
