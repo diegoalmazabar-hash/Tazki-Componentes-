@@ -1209,5 +1209,199 @@
     "PROPORCION": "Asymetrics consigue primera posicion absoluta en solo 1,82% de las subastas de marca; Tazki en 46,67%. El dano es de MARGEN (subieron el CPC de 304 a 537), no de perdida de clientes. No es una emergencia.",
     "LO_MAS_ACCIONABLE": "El 46,67% de primera posicion absoluta en la PROPIA marca es bajo; deberia estar cerca del 90%. Eso depende de Tazki (presupuesto que se agota o calidad del anuncio) y no de lo que haga la competencia. Revisar junto con el veredicto de Quality Score.",
     "otro_competidor": "cetappgo.com tambien puja en la campana Marca (superposicion 14,69%, parte superior de pagina 75,92%). Falta ver el texto de su anuncio."
+  },
+  "_analisis_34_negocios_sem_29_ago_2026": {
+    "fuente": "Export HubSpot 'Negocios Inbound - SEM' del 29-ago-2026, 34 negocios (no 31). Atribucion por ULTIMO TOQUE DE PAGO segun regla de Diego. Osesa asignada a SST por decision de Diego.",
+    "QP_por_mes_fecha_de_ingreso": {
+      "junio": {
+        "QP": 2,
+        "UF": 36
+      },
+      "julio": {
+        "QP": 6,
+        "UF": 171
+      },
+      "agosto": {
+        "QP": 6,
+        "UF": 105,
+        "mas_Seguridad_GSL": "7 QP / 125 UF"
+      }
+    },
+    "ALERTA_CRM": "Seguridad GSL entro a Value Proposition el 21-ago SIN fecha de Qualified Prospect estampada: salto la etapa. Contando por fecha de QP se pierde. Revisar higiene del pipeline.",
+    "tasa_calificacion_por_campana": {
+      "SST_HSEQ": {
+        "negocios": 24,
+        "calificados": 10,
+        "tasa": "41,7%",
+        "UF": 255,
+        "UF_promedio": 25.5
+      },
+      "MARCA": {
+        "negocios": 6,
+        "calificados": 4,
+        "tasa": "66,7%",
+        "UF": 59,
+        "UF_promedio": 14.8
+      },
+      "Operativa_pausada": {
+        "negocios": 1,
+        "calificados": 1
+      },
+      "HSEQ_pausada": {
+        "negocios": 1,
+        "calificados": 0
+      },
+      "PrevRiesgos_pausada": {
+        "negocios": 1,
+        "calificados": 0
+      },
+      "no_atribuible": {
+        "negocios": 1,
+        "calificados": 0,
+        "caso": "Santolaya"
+      }
+    },
+    "lectura_campanas": "Marca califica mejor (67% vs 42%) pero SST trae 4x mas negocios y casi el doble de tamano. Marca es selectiva, SST es el motor.",
+    "POR_KEYWORD": [
+      {
+        "kw": "software seguridad ocupacional",
+        "neg": 2,
+        "cal": 2,
+        "tasa": "100%",
+        "UF": 40
+      },
+      {
+        "kw": "software hseq",
+        "neg": 1,
+        "cal": 1,
+        "tasa": "100%",
+        "UF": 50
+      },
+      {
+        "kw": "plataforma tazki",
+        "neg": 1,
+        "cal": 1,
+        "tasa": "100%",
+        "UF": 20
+      },
+      {
+        "kw": "plataforma prevencion de riesgos",
+        "neg": 3,
+        "cal": 2,
+        "tasa": "67%",
+        "UF": 42
+      },
+      {
+        "kw": "sistema gestion seguridad laboral",
+        "neg": 3,
+        "cal": 2,
+        "tasa": "67%",
+        "UF": 36
+      },
+      {
+        "kw": "tazki",
+        "neg": 5,
+        "cal": 3,
+        "tasa": "60%",
+        "UF": 39
+      },
+      {
+        "kw": "sistema de gestion de seguridad y salud en el trabajo",
+        "neg": 5,
+        "cal": 2,
+        "tasa": "40%",
+        "UF": 37
+      },
+      {
+        "kw": "software prevencion de riesgos",
+        "neg": 4,
+        "cal": 1,
+        "tasa": "25%",
+        "UF": 50
+      },
+      {
+        "kw": "software sst",
+        "neg": 1,
+        "cal": 0,
+        "tasa": "0%"
+      },
+      {
+        "kw": "plataforma hse",
+        "neg": 5,
+        "cal": 0,
+        "tasa": "0%",
+        "UF": 0
+      }
+    ],
+    "VEREDICTO_PLATAFORMA_HSE": {
+      "resultado": "5 negocios, 0 calificados. 4 de los 5 ya superaron los 8 dias (maximo historico hasta QP). Uno lleva 36 dias en Reagendar. Dos cerrados perdidos ('No era lo que necesitaba', 'No contesta').",
+      "contraste": "Produce los MQL MAS BARATOS de la cuenta (22.843) y ninguno vale nada. Se llevo 91.372 desde junio. Es la unica amplia activa.",
+      "la_regla_de_110_clics_NO_aplica": "Esa regla existe para no matar una keyword por AUSENCIA de conversiones. Aca hay 4 MQL y 5 negocios y todos murieron. Evidencia distinta y concluyente.",
+      "ACCION": "PAUSAR. Pausar no es cambiar puja, no rompe el congelamiento.",
+      "credito": "El proyecto Ads tenia razon en esto, aunque llego por el camino equivocado."
+    },
+    "costo_por_resultado_mes_campana": {
+      "2026-06_MARCA": {
+        "gasto": 95669,
+        "QP": 1,
+        "UF": 18,
+        "por_QP": 95669,
+        "por_UF": 5315
+      },
+      "2026-07_MARCA": {
+        "gasto": 123439,
+        "QP": 2,
+        "UF": 31,
+        "por_QP": 61720,
+        "por_UF": 3982
+      },
+      "2026-07_SST": {
+        "gasto": 626148,
+        "QP": 4,
+        "UF": 140,
+        "por_QP": 156537,
+        "por_UF": 4472
+      },
+      "2026-08_MARCA": {
+        "gasto": 111732,
+        "QP": 1,
+        "UF": 10,
+        "por_QP": 111732,
+        "por_UF": 11173
+      },
+      "2026-08_SST": {
+        "gasto": 649450,
+        "QP": 6,
+        "UF": 115,
+        "por_QP": 108242,
+        "por_UF": 5647
+      }
+    },
+    "INVERSION_DE_LA_CONCLUSION": "En AGOSTO SST cuesta 5.647 por UF y Marca 11.173: SST es el DOBLE de eficiente. SST viene mejorando (156.537 -> 108.242 por QP) y Marca empeorando. CAVEAT FUERTE: Marca califico 1 solo negocio en agosto, n=1, se da vuelta con un caso. Lo solido es que SST mejoro y que NO hay argumento para sacarle plata a SST.",
+    "cohorte_creados_vs_calificaron": {
+      "junio": "4 creados, 2 calificaron, 50%",
+      "julio": "9 creados, 6 calificaron, 67%",
+      "agosto": "21 creados, 7 calificaron, 33% (44% ajustando por los 5 con menos de 9 dias)"
+    },
+    "TENSION_DE_AGOSTO": "Agosto mas que duplico el volumen (21 vs 9 creados) y la tasa de calificacion cayo a la mitad. Crecimiento con dilucion. Decirlo antes de que lo pregunten.",
+    "velocidad_a_QP": "14 casos: mediana 2 dias, maximo 8. La correccion por madurez es chica.",
+    "motivos_de_no_calificacion": {
+      "sin motivo / aun abierto": 9,
+      "No era lo que necesitaba": 3,
+      "Sin presupuesto": 2,
+      "No contesta": 2,
+      "Es cliente y buscaba soporte": 1,
+      "Empresa idonea": 1,
+      "Estan detenidos sin proyectos": 1
+    },
+    "HALLAZGOS_LATERALES": [
+      "SANTOLAYA: cerrado perdido con motivo 'Es cliente y buscaba soporte'. Un cliente hizo clic en un anuncio y se trabajo como prospecto. Es el problema del trafico de login, ahora con costo comercial ademas del de medios.",
+      "ATRIBUCION INFLADA: Valle Nevado dice 'Referido por un cliente de Tazki, su gerente general conoce...' y Seguridad GSL dice 'Ya conocia Tazki de un trabajo anterior'. Los dos estan atribuidos a pago por haber hecho clic, pero el anuncio no genero la decision. Son 45 de los 115 UF de agosto de SST. Si se es estricto, el costo por UF de SST en agosto es peor que el de la tabla."
+    ],
+    "ACCIONES_SEPTIEMBRE": [
+      "PAUSAR 'plataforma hse' (evidencia concluyente, no rompe congelamiento, libera 91.372).",
+      "PROTEGER 'software seguridad ocupacional' y 'software hseq' (100% de calificacion, 40 y 50 UF).",
+      "DESCARTAR definitivamente el traslado de presupuesto de SST a Marca."
+    ]
   }
 }
