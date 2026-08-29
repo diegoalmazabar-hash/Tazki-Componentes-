@@ -1130,5 +1130,63 @@
     },
     "QUEDA_ABIERTO": "El CPC del termino 'tazki' puro subio 77%: 304 (jun) -> 475 (jul) -> 537 (ago). Ese termino estuvo activo los 3 meses, la limpieza NO lo explica. Supermetrics no expone Auction Insights. ACCION PARA DIEGO: en Google Ads, campana Marca > Estadisticas > Analisis de subastas. Ahi salen los dominios que compiten por esas busquedas.",
     "implicancia_presupuesto": "Marca es hoy esencialmente UNA palabra (tu nombre): 161 clics en agosto. Techo muy cercano, y arrastra la duda de canibalizacion con el organico. Subirle presupuesto tiene MUCHO menos recorrido del que parecia. Refuerza la decision de no mover nada."
+  },
+  "_CORRECCION_agosto_completo_29_ago_2026": {
+    "ERROR_MIO": "El 25-ago corri las consultas con end_date 2026-08-25 sin pensarlo. Esos dias faltantes tenian 4 conversiones. Le dije a Diego que el '18 de agosto' del proyecto Ads estaba mal. EL QUE ESTABA MAL ERA EL MIO.",
+    "regla": "Al medir un mes en curso, usar SIEMPRE la fecha de hoy como corte y decir explicitamente hasta que dia llega el dato.",
+    "SST_agosto_1_al_28": {
+      "gasto": 649449.63,
+      "MQL": 19.96,
+      "TechSol": 0,
+      "costo_por_MQL": 32538,
+      "clics": 442,
+      "impresiones": 7015,
+      "CPC": 1469
+    },
+    "SST_julio": {
+      "gasto": 626147.78,
+      "MQL": 3.04,
+      "TechSol": 3,
+      "costo_por_MQL": 205970
+    },
+    "mejora_real": "-84,2% en costo por MQL. Conversiones x6,6 (no x5,25 como dije antes).",
+    "proyeccion_mes": "~22 MQL y ~672.000 de gasto. El proyecto Ads decia 24 y 860.000: acerto en conversiones, quedo alto en gasto.",
+    "Marca_agosto_al_29": {
+      "gasto": 111732.44,
+      "clics": 210,
+      "impresiones": 755,
+      "CPC": 532,
+      "MQL": "3 al dia 25, sin actualizar al 29"
+    },
+    "veredicto_sobre_el_proyecto_ads": "Su cifra de 18 para agosto era correcta en direccion y magnitud. Mi 15,96 era un artefacto de mi fecha de corte. Lo unico que le queda alto es la proyeccion de gasto.",
+    "mensaje_para_felipe_actualizado": "La campana paso de 205.970 por MQL en julio a 32.538 en agosto: 84% de mejora con el mismo presupuesto, y sin conversiones falsas de por medio (julio tenia 3 de TechSol, agosto cero)."
+  },
+  "_auction_insights_30jul_28ago_2026": {
+    "fuente": "Informe de estadisticas de subastas exportado por Diego el 29-ago. OJO: el archivo NO indica a que campana esta filtrado. PENDIENTE confirmar con Diego si es toda la cuenta o solo Marca.",
+    "competidores": {
+      "cetappgo.com": {
+        "porcentaje_impresiones": "<10%",
+        "superposicion": "14,69%",
+        "posicion_superior": "22,22%",
+        "parte_superior_pagina": "75,92%",
+        "absoluto_parte_superior": "21,99%",
+        "ranking_superior": "19,29%"
+      },
+      "asymetrics.cl": {
+        "porcentaje_impresiones": "<10%",
+        "superposicion": "13,20%",
+        "posicion_superior": "23,71%",
+        "parte_superior_pagina": "6,08%",
+        "absoluto_parte_superior": "1,82%",
+        "ranking_superior": "19,32%"
+      }
+    },
+    "Tazki": {
+      "porcentaje_impresiones": "19,94%",
+      "parte_superior_pagina": "58,37%",
+      "absoluto_parte_superior": "46,67%"
+    },
+    "lectura": "Hay competencia y explica parte del alza de CPC, pero la superposicion de 14% y 13% es baja. Una campana dirigida contra la marca mostraria superposicion mucho mas alta. Tazki domina la primera posicion absoluta: 46,7% vs 22,0% y 1,8%.",
+    "condicionante": "Si el informe es de toda la cuenta, estos dos dominios compiten en busquedas genericas de SST/HSEQ y NO dice nada sobre la marca. Solo es dato de marca si esta filtrado a la campana Marca."
   }
 }
