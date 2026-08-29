@@ -1195,5 +1195,19 @@
       "3. NO bajarle presupuesto a Marca mientras dure esto."
     ],
     "CAMBIO_DE_CRITERIO": "Antes dije que Marca tiene techo cercano y poco recorrido, por lo tanto poca razon para financiarla. Sigue siendo cierto PARA CRECER. Pero aparece una razon nueva y distinta para no achicarla: DEFENSA de marca. Si Tazki se achica, los dos competidores se quedan con la pantalla. Refuerza la conclusion de no mover nada."
+  },
+  "_uso_indebido_de_marca_asymetrics_29_ago_2026": {
+    "hallazgo": "Diego busco 'tazki' en Google el 29-ago-2026 y aparecio un anuncio pagado de asymetrics.cl con el titulo: 'Asymetrics - Taski: Prevencion de Riesgos - Decreto Supremo 44'. Descripcion: 'Ley Karin: Normativa sobre la prevencion de riesgos laborales en Chile.'",
+    "clave": "Usan 'Taski' (con S), variante de una letra de 'Tazki', foneticamente identica, en el mismo rubro, mostrada ante la busqueda exacta de la marca. Deliberado, no un error tipografico.",
+    "dificultad": "La politica de marca registrada de Google prohibe usar la marca EN EL TEXTO del anuncio. Al estar mal escrita, tecnicamente no usan la marca exacta. Google revisa variantes cercanas pero con criterio estrecho. La reclamacion puede no prosperar.",
+    "recomendacion": "Presentarla igual: es gratis, toma ~15 min, y el caso es fuerte de contar.",
+    "requisitos_previos": [
+      "Confirmar que Tazki esta inscrita en INAPI y tener el numero de registro. SIN MARCA REGISTRADA LA RECLAMACION NO PROSPERA.",
+      "Guardar evidencia con fecha: la captura del anuncio (ya la tiene) y la landing a la que lleva. Si la landing tambien usa 'Taski', el caso se refuerza mucho. Los anuncios rotan."
+    ],
+    "camino": "Centro de Ayuda de Google Ads > buscar 'reclamacion de marca registrada' > formulario. Pide registro, texto del anuncio, termino de busqueda y dominio del anunciante.",
+    "PROPORCION": "Asymetrics consigue primera posicion absoluta en solo 1,82% de las subastas de marca; Tazki en 46,67%. El dano es de MARGEN (subieron el CPC de 304 a 537), no de perdida de clientes. No es una emergencia.",
+    "LO_MAS_ACCIONABLE": "El 46,67% de primera posicion absoluta en la PROPIA marca es bajo; deberia estar cerca del 90%. Eso depende de Tazki (presupuesto que se agota o calidad del anuncio) y no de lo que haga la competencia. Revisar junto con el veredicto de Quality Score.",
+    "otro_competidor": "cetappgo.com tambien puja en la campana Marca (superposicion 14,69%, parte superior de pagina 75,92%). Falta ver el texto de su anuncio."
   }
 }
