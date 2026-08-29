@@ -1403,5 +1403,153 @@
       "PROTEGER 'software seguridad ocupacional' y 'software hseq' (100% de calificacion, 40 y 50 UF).",
       "DESCARTAR definitivamente el traslado de presupuesto de SST a Marca."
     ]
+  },
+  "_calidad_de_anuncio_y_landing_29_ago_2026": {
+    "fuente": "Supermetrics AW KeywordView, agosto 1-29, solo keywords ENABLED. Componentes de Quality Score.",
+    "HALLAZGO_PRINCIPAL": "El problema NO son los anuncios, son las LANDINGS. La calidad del anuncio esta 'Above average' en casi todas. La experiencia de pagina de destino esta 'Below average' en TODAS las keywords de SST con dato, y tambien en 'tazki' de Marca. Es sistemico, no de una keyword.",
+    "SST": [
+      {
+        "kw": "software prevencion de riesgos",
+        "grupo": "B",
+        "match": "Phrase",
+        "QS": 7,
+        "anuncio": "Above",
+        "landing": "Below",
+        "ctr_esperado": "Above",
+        "CPC": 2876,
+        "clics": 27,
+        "impr": 297,
+        "nota": "LA MAS CARA DE LA CUENTA, casi el doble del promedio. QS 7: no es problema de calidad, es competencia. Tasa de calificacion 25%."
+      },
+      {
+        "kw": "software seguridad ocupacional",
+        "grupo": "A",
+        "match": "Phrase",
+        "QS": null,
+        "CPC": 2542,
+        "clics": 10,
+        "nota": "Sin QS reportado (volumen bajo). Califica 100% en el CRM."
+      },
+      {
+        "kw": "software gestion sst",
+        "grupo": "A",
+        "match": "Phrase",
+        "QS": null,
+        "CPC": 1800,
+        "clics": 7
+      },
+      {
+        "kw": "sistema gestion seguridad laboral",
+        "grupo": "A",
+        "match": "Exact",
+        "QS": null,
+        "CPC": 1677,
+        "clics": 24,
+        "nota": "Sin QS reportado. Califica 67% en el CRM."
+      },
+      {
+        "kw": "sistema de gestion de seguridad y salud en el trabajo",
+        "grupo": "A",
+        "match": "Phrase",
+        "QS": 1,
+        "anuncio": "Below",
+        "landing": "Below",
+        "ctr_esperado": "Below",
+        "CPC": 1426,
+        "clics": 103,
+        "impr": 1422,
+        "nota": "LA KEYWORD ESTRELLA. QS 1, el minimo, y los TRES componentes en rojo. Se lleva la mitad del trafico de SST."
+      },
+      {
+        "kw": "software sst",
+        "grupo": "A",
+        "match": "Phrase",
+        "QS": 7,
+        "anuncio": "Above",
+        "landing": "Below",
+        "ctr_esperado": "Above",
+        "CPC": 1299,
+        "clics": 6
+      },
+      {
+        "kw": "plataforma prevencion de riesgos",
+        "grupo": "B",
+        "match": "Exact",
+        "QS": 3,
+        "anuncio": "Below",
+        "landing": "Below",
+        "ctr_esperado": "Average",
+        "CPC": 1262,
+        "clics": 43
+      },
+      {
+        "kw": "plataforma hse",
+        "grupo": "C",
+        "match": "Broad",
+        "QS": 3,
+        "anuncio": "Above",
+        "landing": "Below",
+        "ctr_esperado": "Below",
+        "CPC": 1232,
+        "clics": 75,
+        "nota": "0% de calificacion. A pausar."
+      }
+    ],
+    "MARCA": [
+      {
+        "kw": "software tazki",
+        "QS": 10,
+        "anuncio": "Above",
+        "landing": "Above",
+        "ctr_esperado": "Above",
+        "CPC": 761,
+        "nota": "PRUEBA DE QUE SE PUEDE: QS 10 con los 3 componentes bien, en la misma cuenta."
+      },
+      {
+        "kw": "tazki",
+        "QS": 7,
+        "anuncio": "Above",
+        "landing": "Below",
+        "ctr_esperado": "Above",
+        "CPC": 537,
+        "clics": 196,
+        "impr": 722,
+        "nota": "La principal. La landing arrastra el QS y encarece el clic en la propia marca."
+      },
+      {
+        "kw": "tazki software",
+        "QS": 8,
+        "anuncio": "Above",
+        "landing": "Average",
+        "CPC": 450
+      },
+      {
+        "kw": "plataforma tazki",
+        "QS": 8,
+        "anuncio": "Above",
+        "landing": "Average",
+        "CPC": 431
+      },
+      {
+        "kw": "tazki chile",
+        "QS": 8,
+        "anuncio": "Above",
+        "landing": "Average",
+        "CPC": 208
+      },
+      {
+        "kw": "tazki prevencion",
+        "QS": null,
+        "CPC": 733
+      }
+    ],
+    "CORRECCION_IMPORTANTE": "Veniamos repitiendo los tres (Diego, el proyecto Ads y yo) que la keyword estrella con QS 1 'hace pagar 2,5 veces el CPC promedio'. NO SE SOSTIENE. Su CPC es 1.426 y el promedio de SST en agosto es 1.469 (649.450/442). Esta LIGERAMENTE POR DEBAJO del promedio. El QS 1 es real y hay que arreglarlo, pero el argumento del sobrecosto directo es falso. NO llevarlo a la reunion.",
+    "PROBLEMA_ESTRUCTURAL": "El Grupo A tiene 5 keywords compartiendo el mismo conjunto de anuncios (sistema de gestion SST, software seguridad ocupacional, software gestion sst, sistema gestion seguridad laboral, software sst). Intenciones distintas con el mismo mensaje. Explica por que el anuncio de la keyword estrella esta 'Below average'. Sostiene la propuesta del proyecto Ads de separar grupos por tema.",
+    "nota_metodologica": "4 keywords sin QS reportado por volumen bajo. Dos de ellas son las que MEJOR califican en el CRM (software seguridad ocupacional 100%, sistema gestion seguridad laboral 67%). A esas se las juzga por resultado, no por QS.",
+    "ORDEN_DE_TRABAJO_SEPTIEMBRE": [
+      "1. LA LANDING. Es el componente en rojo en toda la cuenta, en las dos campanas. Arregla el problema de raiz.",
+      "2. Anuncio nuevo especifico para la keyword estrella: su texto esta 'Below average' y se lleva la mitad del trafico de SST.",
+      "3. Separar el Grupo A, que hoy le habla con el mismo mensaje a cinco busquedas distintas."
+    ]
   }
 }
