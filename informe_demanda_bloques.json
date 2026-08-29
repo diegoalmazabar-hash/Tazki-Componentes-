@@ -992,5 +992,95 @@
     "concentracion": "82,4% del gasto activo de SST (498.549 de 605.298) esta en las 5 keywords que producen, y traen 16 de los 18 MQL. Solo 17,6% es grasa. HAY POCO QUE CORTAR.",
     "recorte_13_14_ago_validado": "Las 24 keywords pausadas el 13-14 ago se habian comido ~600.000 y NO produjeron ni un MQL. El recorte estuvo bien hecho: SST paso de ~67.000 a ~33.600 por MQL.",
     "plataforma_hse": "Es la keyword que produce MQL MAS BARATOS de SST: 4 MQL a 22.843. El otro chat propuso bajarle la puja 40%. NO tocar sin resolver antes si esos MQL califican. Regla 4 del plan del 19-ago dice explicitamente 'no tocar'."
+  },
+  "_numeros_cerrados_ads_jun_ago_2026": {
+    "fecha": "25-ago-2026. Consultas Supermetrics AW segmentadas por Yearmonth + Conversiontypename. NUMEROS CERRADOS, usar estos.",
+    "motivo": "Reconciliar el informe del proyecto Ads (decia 18 conversiones en agosto y 6 en julio) contra mi medicion (18 MQL de SST jun a 24-ago). Se resolvio con datos.",
+    "SST_HSEQ": {
+      "junio": {
+        "gasto": 0,
+        "nota": "La campana no existia / no gasto. Arranca en julio."
+      },
+      "julio": {
+        "gasto": 626147.78,
+        "MQL": 3.04,
+        "TechSol": 3,
+        "costo_por_MQL": 205970,
+        "clics": 343,
+        "impresiones": 5076
+      },
+      "agosto_al_25": {
+        "gasto": 605655.09,
+        "MQL": 15.96,
+        "TechSol": 0,
+        "costo_por_MQL": 37949,
+        "clics": 405,
+        "impresiones": 6248
+      },
+      "total_MQL_periodo": 19.0,
+      "mejora": "-81,6% en costo por MQL. Conversiones x5,25 (no x6).",
+      "proyeccion_agosto_completo": {
+        "gasto": 751012,
+        "MQL": 19.8,
+        "nota": "Al ritmo de los primeros 25 dias. El informe externo proyectaba 860.000 y 24 conversiones: ambos altos."
+      }
+    },
+    "Marca_v2": {
+      "junio": {
+        "gasto": 95669,
+        "MQL": 1,
+        "costo_por_MQL": 95669,
+        "clics": 295,
+        "impresiones": 2601
+      },
+      "julio": {
+        "gasto": 123439,
+        "MQL": 2,
+        "TechSol": 2,
+        "costo_por_MQL": 61720,
+        "clics": 241,
+        "impresiones": 1433
+      },
+      "agosto_al_25": {
+        "gasto": 102208,
+        "MQL": 3,
+        "TechSol": 0,
+        "costo_por_MQL": 34069,
+        "clics": 195,
+        "impresiones": 704
+      },
+      "total_MQL_periodo": 6
+    },
+    "otras_campanas_MQL": {
+      "junio": {
+        "Operativa": 1,
+        "Prevencion de Riesgos": 1
+      },
+      "julio": {
+        "HSEQ": 1
+      }
+    },
+    "TECHSOL_VERIFICADO": "Julio tuvo 5 conversiones de la etiqueta 'TechSol - formulario web 48078': 3 en SST y 2 en Marca. Agosto: CERO. Cualquier comparacion julio vs agosto con la columna generica de conversiones INFLA julio y achica la mejora real. Hallazgo del proyecto Ads, verificado por mi.",
+    "EMPATE_AGOSTO": "En agosto Marca costo 34.069 por MQL y SST 37.949. Empatadas. Sumado al empate por UF de negocio calificado (5.362 vs 5.556), NO hay argumento de eficiencia para mover presupuesto en ninguna direccion.",
+    "ALERTA_NUEVA_MARCA": "Marca pierde volumen fuerte con gasto constante: impresiones 2.601 (jun) -> 1.433 (jul) -> 704 (ago). CPC de 324 -> 512 -> 524. Se paga cada vez mas por cada vez menos en la propia marca. Revisar si alguien esta pujando sobre el nombre Tazki. PRIORIDAD DE REVISION.",
+    "mensaje_para_felipe": "La campana paso de 206.000 por MQL en julio a 38.000 en agosto: 82% de mejora con el mismo presupuesto y sin conversiones falsas. Ese numero resiste preguntas."
+  },
+  "_evaluacion_informe_proyecto_ads_25_ago_2026": {
+    "acerto": [
+      "TechSol contaminaba julio (3 en SST, 0 en agosto): VERIFICADO",
+      "Julio real = 3 MQL de SST: CORRECTO",
+      "Costo por MQL de julio = 206.000: EXACTO",
+      "Mejora ~82%: CORRECTO",
+      "Retiro lo de las 6 keywords en amplia: CORRECTO, solo hay 1 amplia activa (plataforma hse)",
+      "Retiro la eficiencia de concordancia exacta: CORRECTO, mezclaba keywords vivas hasta el 13",
+      "Acepto el tope de US$1.000 y la regla de los 110 clics"
+    ],
+    "fallo": [
+      "Agosto = 18 MQL: FALSO, son 15,96 al 25-ago",
+      "Total jun-ago = 21: FALSO, son 19",
+      "Me atribuyo '21 MQL': yo dije 18",
+      "Proyeccion de 24 conversiones y 860.000 de gasto: alta, va a ~20 y ~751.000"
+    ],
+    "leccion": "Estimo agosto en vez de segmentarlo. Las cifras que segmento salieron exactas; las que estimo salieron altas."
   }
 }
