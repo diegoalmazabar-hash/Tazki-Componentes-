@@ -1551,5 +1551,48 @@
       "2. Anuncio nuevo especifico para la keyword estrella: su texto esta 'Below average' y se lleva la mitad del trafico de SST.",
       "3. Separar el Grupo A, que hoy le habla con el mismo mensaje a cinco busquedas distintas."
     ]
+  },
+  "_causa_raiz_landings_29_ago_2026": {
+    "HALLAZGO": "Los TRES grupos de SST apuntan a la MISMA URL final: https://soluciones.tazki.cl/software-prevencion-riesgos",
+    "urls_finales_agosto": {
+      "Grupo A - Sistema Gestion SST": {
+        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
+        "clics": 211,
+        "impr": 3102,
+        "coincide": false
+      },
+      "Grupo B - Software Prevencion de Riesgos": {
+        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
+        "clics": 131,
+        "impr": 2178,
+        "coincide": true
+      },
+      "Grupo C - HSEQ HSE": {
+        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
+        "clics": 107,
+        "impr": 1862,
+        "coincide": false
+      },
+      "Marca": {
+        "url": "soluciones.tazki.cl/tazki",
+        "clics": 213,
+        "impr": 775
+      }
+    },
+    "por_que_importa": "Explica la causa UNICA de que 'experiencia de pagina de destino' salga 'Below average' en TODAS las keywords a la vez, y de que la keyword estrella tenga QS 1 con los 3 componentes en rojo. La persona busca una cosa y aterriza en otra.",
+    "LAS_LANDINGS_YA_EXISTEN": "En HubSpot hay landings dedicadas con formularios activos: 'sistema de gestion de seguridad y salud en el trabajo | tazki (lp)', 'plataforma hse y software hseq en chile | tazki (lp)', 'software prevencion de riesgos chile: ds 44 y ley 16.744 (lp)', 'software prevencion de riesgos: control operativo hseq (lp)', 'tazki | software hseq chileno con respaldo de la dt (lp)'. NO HAY QUE CONSTRUIRLAS, HAY QUE CONECTARLAS.",
+    "TECNICA_SIN_PERDER_HISTORIAL": "Editar un anuncio lo borra y lo recrea, perdiendo historial (regla ya anotada). Solucion: poner la URL final A NIVEL DE KEYWORD, que tiene prioridad sobre la del anuncio. Mismo efecto, sin tocar el anuncio. Verificar en la interfaz antes de aplicar.",
+    "ORDEN": [
+      "1. Grupo A -> landing de sistema de gestion SST. 211 clics/mes, el mayor volumen, y contiene la keyword con QS 1.",
+      "2. Grupo C: primero REACTIVAR 'software hseq', despues PAUSAR 'plataforma hse', y recien ahi apuntar a la landing de HSEQ.",
+      "3. Grupo B: queda como esta, ya coincide."
+    ],
+    "ADVERTENCIA": "El Grupo B YA apunta a la pagina correcta y su landing igual sale 'Below average'. Ademas del desajuste hay algo en la pagina misma (velocidad, movil, contenido). Conectar las landings mejora A y C, pero no deja todo en verde por si solo.",
+    "accion_parqueada_que_se_desbloquea": "El 19-ago quedo parqueado 'cambiar la URL final de los anuncios de los Grupos A y C'. Este hallazgo confirma que era la accion correcta y ahora tiene evidencia."
+  },
+  "_correccion_software_hseq_29_ago_2026": {
+    "error": "Dije 'proteger software hseq' cuando en realidad NO ESTA ACTIVA. No aparece en las keywords habilitadas de agosto ni de junio a la fecha.",
+    "realidad": "Vive en el Grupo C, donde la unica encendida hoy es 'plataforma hse' (la que hay que pausar). 'software hseq' trajo a EQUANS: 50 UF, 1 de 1, 100% de calificacion.",
+    "ACCION": "No hay que protegerla, hay que REACTIVARLA."
   }
 }
