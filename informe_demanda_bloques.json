@@ -1082,5 +1082,53 @@
       "Proyeccion de 24 conversiones y 860.000 de gasto: alta, va a ~20 y ~751.000"
     ],
     "leccion": "Estimo agosto en vez de segmentarlo. Las cifras que segmento salieron exactas; las que estimo salieron altas."
+  },
+  "_diagnostico_caida_volumen_marca_25_ago_2026": {
+    "pregunta": "Marca perdio 73% de impresiones (2.601 jun -> 704 ago) gastando lo mismo. Hipotesis inicial: competencia pujando sobre el nombre Tazki.",
+    "VEREDICTO": "NO es competencia. La campana se limpio: dejo de aparecer para busquedas de soporte/login de usuarios existentes.",
+    "evidencia_terminos": {
+      "junio": "26 terminos distintos",
+      "agosto": "8 terminos, y 'tazki' solo es el 85% del gasto",
+      "desaparecieron": "tazki app, tazki pass, descargar tazki, tazki app descargar, tazkiapp com, https tazkiapp com, tazki cl, www tazki cl, tazki ebco (EBCO es cliente, alguien buscando entrar)",
+      "gasto_en_trafico_de_login_junio": "~24.500 CLP = 26% del presupuesto de Marca de junio. En agosto: ~0."
+    },
+    "evidencia_contra_competencia": "Si un competidor hubiera entrado, la participacion de impresiones BAJARIA. Subio de 10,5% a 20,0%. Y la perdida por ranking bajo de 29,2% a 23,0%. Los dos indicadores van en contra de la hipotesis.",
+    "metricas_marca_por_mes": {
+      "junio": {
+        "impresiones": 2601,
+        "disponibles": 24803,
+        "IS": "10,5%",
+        "perdida_presupuesto": "60,3%",
+        "perdida_ranking": "29,2%",
+        "CPC": 324,
+        "CTR": "11,3%",
+        "clics": 295,
+        "costo_por_MQL": 95669
+      },
+      "julio": {
+        "impresiones": 1433,
+        "disponibles": 14344,
+        "IS": "10,0%",
+        "perdida_presupuesto": "76,2%",
+        "perdida_ranking": "16,5%",
+        "CPC": 512,
+        "CTR": "16,8%",
+        "clics": 241,
+        "costo_por_MQL": 61720
+      },
+      "agosto_al_25": {
+        "impresiones": 704,
+        "disponibles": 3527,
+        "IS": "20,0%",
+        "perdida_presupuesto": "57,0%",
+        "perdida_ranking": "23,0%",
+        "CPC": 524,
+        "CTR": "27,7%",
+        "clics": 195,
+        "costo_por_MQL": 34069
+      }
+    },
+    "QUEDA_ABIERTO": "El CPC del termino 'tazki' puro subio 77%: 304 (jun) -> 475 (jul) -> 537 (ago). Ese termino estuvo activo los 3 meses, la limpieza NO lo explica. Supermetrics no expone Auction Insights. ACCION PARA DIEGO: en Google Ads, campana Marca > Estadisticas > Analisis de subastas. Ahi salen los dominios que compiten por esas busquedas.",
+    "implicancia_presupuesto": "Marca es hoy esencialmente UNA palabra (tu nombre): 161 clics en agosto. Techo muy cercano, y arrastra la duda de canibalizacion con el organico. Subirle presupuesto tiene MUCHO menos recorrido del que parecia. Refuerza la decision de no mover nada."
   }
 }
