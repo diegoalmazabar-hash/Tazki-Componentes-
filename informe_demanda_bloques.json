@@ -1162,7 +1162,7 @@
     "mensaje_para_felipe_actualizado": "La campana paso de 205.970 por MQL en julio a 32.538 en agosto: 84% de mejora con el mismo presupuesto, y sin conversiones falsas de por medio (julio tenia 3 de TechSol, agosto cero)."
   },
   "_auction_insights_30jul_28ago_2026": {
-    "fuente": "Informe de estadisticas de subastas exportado por Diego el 29-ago. OJO: el archivo NO indica a que campana esta filtrado. PENDIENTE confirmar con Diego si es toda la cuenta o solo Marca.",
+    "fuente": "Informe de estadisticas de subastas, Google Ads. CONFIRMADO POR DIEGO 29-ago: esta filtrado a la campana 'Tazki - Marca - Search - v2'. Periodo 30-jul a 28-ago-2026.",
     "competidores": {
       "cetappgo.com": {
         "porcentaje_impresiones": "<10%",
@@ -1187,6 +1187,13 @@
       "absoluto_parte_superior": "46,67%"
     },
     "lectura": "Hay competencia y explica parte del alza de CPC, pero la superposicion de 14% y 13% es baja. Una campana dirigida contra la marca mostraria superposicion mucho mas alta. Tazki domina la primera posicion absoluta: 46,7% vs 22,0% y 1,8%.",
-    "condicionante": "Si el informe es de toda la cuenta, estos dos dominios compiten en busquedas genericas de SST/HSEQ y NO dice nada sobre la marca. Solo es dato de marca si esta filtrado a la campana Marca."
+    "VEREDICTO": "Hay DOS competidores comprando la marca Tazki. En ~1 de cada 4 busquedas del nombre hay otro anunciante en pantalla. PERO Tazki gana la posicion: 46,7% de primera posicion absoluta vs 22,0% de cetappgo y 1,8% de asymetrics.",
+    "explica_el_CPC": "Si. El alza de 304 a 537 por clic en el termino 'tazki' se explica por la entrada de competidores en la subasta. No se pierde el cliente, se pierde margen.",
+    "acciones": [
+      "1. GRATIS Y MAS EFECTIVA: buscar 'tazki' en incognito y revisar si cetappgo.com o asymetrics.cl usan la palabra Tazki EN EL TEXTO del anuncio. Comprar la marca como keyword es legal; usarla en el texto NO. Se reclama con el formulario de marca registrada de Google y suele resolverse en dias. Verificar si la marca esta inscrita en INAPI.",
+      "2. Revisar el Quality Score de la keyword 'tazki'. Una marca propia deberia tener 9-10. Si esta mas abajo, ahi hay sobrecosto corregible con relevancia de anuncio y landing. Calza con el veredicto de QS agendado.",
+      "3. NO bajarle presupuesto a Marca mientras dure esto."
+    ],
+    "CAMBIO_DE_CRITERIO": "Antes dije que Marca tiene techo cercano y poco recorrido, por lo tanto poca razon para financiarla. Sigue siendo cierto PARA CRECER. Pero aparece una razon nueva y distinta para no achicarla: DEFENSA de marca. Si Tazki se achica, los dos competidores se quedan con la pantalla. Refuerza la conclusion de no mover nada."
   }
 }
