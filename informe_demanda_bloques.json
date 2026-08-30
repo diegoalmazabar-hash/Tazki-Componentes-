@@ -1714,5 +1714,18 @@
     "NO_CAMBIA": "La conclusion sobre Quality Score se mantiene: las 4 paginas pasan CWV con usuarios reales, la B tiene 99 y 80, la A tiene 95, y las tres siguen 'Below average'. La velocidad NO explica esa etiqueta.",
     "SIGUIENTE_PASO": "Comparar los modulos de la landing C (contentId 214952422274) contra los de la B (217060324610) en HubSpot para encontrar que la frena. Sospecha: imagen de fondo sin optimizar, video, o elemento incrustado pesado. Claude puede diagnosticarlo y arreglarlo desde el editor.",
     "PENDIENTE_DE_MEDIR": "Falta el laboratorio movil de la landing A y de la de Marca, y el escritorio de la C."
+  },
+  "_fix_landing_C_30_ago_2026": {
+    "fecha": "30-ago-2026. EJECUTADO Y PUBLICADO por Claude en HubSpot, autorizado por Diego.",
+    "pagina": "Landing HSEQ · contentId 214952422274 · https://soluciones.tazki.cl/software-hseq",
+    "diagnostico": "El modulo module_17791141874254 (@hubspot/linked_image) apunta a un GIF ANIMADO de 1080x1080: 'Flujo Tazki-2.gif' en el CDN de HubSpot. Estaba en la fila 5 (muy por debajo del pliegue) pero con loading='disabled', o sea carga inmediata. En 4G lento con gama media satura el ancho de banda y bloquea todo lo de arriba. Eso explica LCP 11,3s, Speed Index 11,3s y los primeros 6 cuadros de la tira en blanco.",
+    "cambio_aplicado": "img.loading: 'disabled' -> 'lazy'. Sin cambio visual: misma imagen, mismo lugar, mismo tamano. Solo cambia CUANDO se descarga.",
+    "reversible": "HubSpot guarda historial de revisiones (accion RESTORE_REVISION).",
+    "verificacion_pendiente": "Volver a correr PageSpeed en MOVIL sobre esa URL. Esperar unos minutos por cache. El puntaje de LABORATORIO deberia subir desde 53 y el LCP bajar de 11s a ~2-3s. El bloque de USUARIOS REALES NO se va a mover: es promedio movil de 28 dias y ademas ya venia pasando.",
+    "NO_APLICADO_recomendado": [
+      "Medir el peso del GIF en el Administrador de archivos de HubSpot. Si supera 2 MB, la solucion de fondo es convertirlo a MP4/WebM (10-20x mas liviano para la misma animacion). La carga diferida mitiga pero no elimina el problema.",
+      "El texto alternativo dice 'Flujo Tazki-2', que es el nombre del archivo. Mejora chica de accesibilidad pendiente de aprobacion de Diego."
+    ],
+    "regla_aprendida": "En las landings de Tazki, revisar los modulos @hubspot/linked_image que apunten a .gif: son el patron de riesgo para LCP en movil."
   }
 }
