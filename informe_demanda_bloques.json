@@ -1590,5 +1590,71 @@
     "SIGUIENTE_PASO": "Revisar las 3 landings en HubSpot (modulos, formulario, peso, estructura) y pasarlas por PageSpeed para velocidad y movil. Recien con eso decidir si se arreglan o se rehacen. Claude tiene acceso de escritura a landing pages de HubSpot y puede construirlas.",
     "IMPACTO_EN_EL_PLAN": "De los 4 movimientos propuestos para septiembre, DOS SE CAEN por estar ya hechos (conectar Grupo A y conectar Grupo C). Quedan: reactivar 'software hseq' y pausar 'plataforma hse'."
   },
-  "_regla_urls_finales_29_ago_2026": "Al medir a que landing llega el trafico, consultar 'Finalurl' EN EL REPORTE DE KEYWORDS, no en el de anuncios. La URL de la keyword sobrescribe la del anuncio. En esta cuenta los anuncios tienen URLs viejas a proposito: editarlos los borra y recrea perdiendo estadisticas, por eso se resolvio a nivel de keyword. Si la URL de la keyword viene vacia, entonces si hereda la del anuncio."
+  "_regla_urls_finales_29_ago_2026": "Al medir a que landing llega el trafico, consultar 'Finalurl' EN EL REPORTE DE KEYWORDS, no en el de anuncios. La URL de la keyword sobrescribe la del anuncio. En esta cuenta los anuncios tienen URLs viejas a proposito: editarlos los borra y recrea perdiendo estadisticas, por eso se resolvio a nivel de keyword. Si la URL de la keyword viene vacia, entonces si hereda la del anuncio.",
+  "_revision_landings_29_ago_2026": {
+    "encargo": "Diego pidio revisar las landings para decidir si hacer nuevas.",
+    "VEREDICTO": "NO hacer landings nuevas ahora. Rehacerlas en septiembre reiniciaria el reloj del Quality Score y se perderia la posibilidad de leer si la landing de agosto funciono.",
+    "landings_y_rendimiento_agosto": {
+      "Landing Sistema Gestion SST (A)": {
+        "contentId": "219388262058",
+        "url": "soluciones.tazki.cl/es/sistema-gestion-seguridad-salud-trabajo",
+        "vistas": 69,
+        "envios": 4,
+        "tasa": "5,8%",
+        "rebote": "90,3%",
+        "tiempo": "230s"
+      },
+      "Landing Software Prev Riesgos (B)": {
+        "contentId": "217060324610",
+        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
+        "vistas": 322,
+        "envios": 12,
+        "tasa": "3,7%",
+        "rebote": "90,0%",
+        "tiempo": "201s"
+      },
+      "Landing HSEQ (C)": {
+        "contentId": "214952422274",
+        "url": "soluciones.tazki.cl/software-hseq",
+        "vistas": 75,
+        "envios": 4,
+        "tasa": "5,3%",
+        "rebote": "88,7%",
+        "tiempo": "252s"
+      },
+      "Landing Tazki Brand": {
+        "contentId": "214952432733",
+        "url": "soluciones.tazki.cl/tazki",
+        "vistas": 127,
+        "envios": 2,
+        "tasa": "1,6%",
+        "rebote": "75,2%"
+      },
+      "Landing Tazki Brand (B)": {
+        "contentId": "217060480582",
+        "url": "soluciones.tazki.cl/tazki",
+        "vistas": 106,
+        "envios": 2,
+        "tasa": "1,9%",
+        "rebote": "80,5%",
+        "nota": "Hay DOS landings en la misma URL /tazki: parece un test A/B"
+      }
+    },
+    "observacion_marca": "Las dos landings de /tazki convierten al 1,6% y 1,9%, MUY por debajo del 3,7% al 5,8% de las de SST. Y es el trafico mas caliente (gente que busca la marca). Es el peor rendimiento del conjunto.",
+    "contenido_landing_A": {
+      "H1": "El sistema de gestion de seguridad y salud en el trabajo, en una sola plataforma (contiene la keyword TEXTUAL)",
+      "eyebrow": "PLATAFORMA SG-SST",
+      "descripcion": "menciona DS 44, Ley 16.744, documentacion, contratistas, capacitaciones, inspecciones, EPP, IRL, evidencia trazable",
+      "estructura": "navbar-lp, header/hero, check-list, header + 3 cards, header + 3 cards, card-dt, formulario HubSpot, header + FAQ, logo-cloud, footer",
+      "transparencia": "pie con enlaces a Politica de Privacidad y Terminos",
+      "conclusion": "Relevancia, profundidad y transparencia BIEN. NO hay nada de contenido que arreglar."
+    },
+    "QUALITY_SCORE_SEMANA_A_SEMANA": {
+      "keyword_estrella": "Semanas 28 a 35 de 2026: QS 1 con landing/anuncio/CTR esperado los tres 'Below average'. SIN NINGUN MOVIMIENTO, ni tras la landing nueva (13-14 ago, semana 33) ni tras la reescritura del anuncio (6-ago, semana 32).",
+      "plataforma_hse": "QS 3 estable desde la semana 31, con anuncio 'Above average' y landing 'Below'.",
+      "INTERPRETACION_CORRECTA": "NO significa que la landing nueva no sirva. El Quality Score es historico con ventana movil de ~90 dias. La landing tiene 2 semanas y media contra 13 semanas de historial viejo: es matematicamente esperable que aun no se mueva."
+    },
+    "NO_PUDE_MEDIR": "Velocidad y experiencia movil. La red de la sesion bloquea soluciones.tazki.cl (egress proxy) y la API de PageSpeed esta sin cuota. ACCION PARA DIEGO: correr pagespeed.web.dev sobre las 3 landings y mirar el puntaje MOVIL. Ese dato decide: si la velocidad esta bien, es solo rezago del QS y hay que esperar; si esta mal, es un problema real que el tiempo no arregla y una landing nueva tampoco si la causa es el tema o los scripts.",
+    "FECHA_DE_JUICIO": "30 de septiembre. Para entonces la landing A va a tener 7 semanas de historial y la ventana de 90 dias sera mayoritariamente datos nuevos."
+  }
 }
