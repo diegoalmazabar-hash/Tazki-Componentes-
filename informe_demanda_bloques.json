@@ -582,7 +582,7 @@
       "correccion_plataforma_hse": "Sigue siendo mala pero por otra razon. No es '0 de 4 a QP' (eso seria artefacto de edad) sino que DOS murieron a los 3 dias (Vazquez y Nobarzo) y uno lleva 30 dias parado (asesor). Solo Clima del Desierto sigue dentro de ventana.",
       "GATILLA_EL_CRITERIO_DEL_14_AGO": "El 17-ago se anoto que Nobarzo (Macarena) era el contrapunto legitimo a los 2 strikes de plataforma hse y que el criterio del 3er lead NO se gatillaba. Ese negocio murio a los 3 dias (creado 17-ago, perdido 20-ago). Con asesor + Vazquez + Nobarzo el criterio ESTA CUMPLIDO: corresponde pasar plataforma hse de amplia a frase. Decision pendiente de Diego.",
       "correccion_lente_de_la_lista": "La lista «Negocios Inbound - SEM» filtra por LATEST SOURCE, no por fuente original: los 30 tienen latest PAID_SEARCH pero solo 26 tienen origen Busqueda de pago. Los otros 4 (IMT y Santolaya organicos, Odis offline, Equans directo) suman 89 de 289 UF = 31%. En esos casos SEM cerro la puerta pero no la abrio. ERROR A CORREGIR: el bloque 2 del Plan dice que estas listas se segmentan por fuente original; es al reves.",
-      "multitoque": "7 de 30 cambiaron de keyword entre entrada y ultima visita. Hospital Quellon entro por 'software seguridad ocupacional' y volvio por 'plataforma prevencion de riesgos': el informe externo le dio el credito a la segunda. Cushman volvio por 'Luciano Pavesi', un nombre de persona.",
+      "multitoque": "7 de 30 cambiaron de keyword entre entrada y ultima visita. Hospital Quellon entro por 'software seguridad ocupacional' y volvio por 'plataforma prevencion de riesgos': el informe externo le dio el credito a la segunda. CORREGIDO 29-ago: 'Luciano Pavesi' NO es un termino de busqueda, es el VENDEDOR. El campo de fuente reciente se sobrescribe cuando ventas toca el negocio. Cushman se atribuye por PRIMER toque: Marca / 'tazki'. Entonces son 6 de 30 con cambio real de keyword, no 7.",
       "sesgo_metodologico": "Valor, industria y dolor se cargan DESPUES de calificar: 12 de los 13 con valor y 12 de los 13 con industria estan en QP o VP. No se pueden usar como senal predictiva de calidad, seria circular.",
       "valor_por_etapa": "QP 6 negocios 27,7 UF promedio; VP 6 negocios 17,5. Los que mas avanzaron valen menos en promedio. Con n de 6 no significa nada, pero descarta la hipotesis de que los negocios grandes avanzan mas.",
       "camadas": "Junio 4 negocios 50% a QP; Julio 9 negocios 67%; Agosto 17 negocios con 12 aun jovenes. Agosto casi duplico el volumen de julio en 22 dias; su calidad se lee a comienzos de septiembre.",
@@ -1594,5 +1594,13 @@
     "error": "Dije 'proteger software hseq' cuando en realidad NO ESTA ACTIVA. No aparece en las keywords habilitadas de agosto ni de junio a la fecha.",
     "realidad": "Vive en el Grupo C, donde la unica encendida hoy es 'plataforma hse' (la que hay que pausar). 'software hseq' trajo a EQUANS: 50 UF, 1 de 1, 100% de calificacion.",
     "ACCION": "No hay que protegerla, hay que REACTIVARLA."
+  },
+  "_regla_campo_fuente_reciente_2_29_ago_2026": {
+    "REGLA": "'Datos de la fuente de trafico mas reciente 2' NO es un campo de keyword. Es un campo generico de datos de la fuente y su contenido depende del TIPO del ultimo toque: si fue un clic en anuncio guarda la keyword; si fue una gestion comercial guarda a la PERSONA (el vendedor).",
+    "origen": "Diego, 29-ago-2026: 'Luciano Pavesi es el vendedor que lleva a ese prospecto'. Estaba anotado en dos lugares como si fuera un termino de busqueda.",
+    "consecuencia": "Cuando ventas toca un negocio antes del export, la keyword del ultimo clic queda TAPADA y no se puede recuperar desde ese campo. Hay que caer a la atribucion del primer toque.",
+    "verificacion": "Cushman es el UNICO de los 34 negocios con un nombre de persona en ese campo. En los demas hay keyword real, 'GOOGLE' sin detalle, o vacio.",
+    "sin_dano": "'Luciano Pavesi' NUNCA se agrego como negativa. El error quedo en el analisis y no llego a la cuenta.",
+    "pedido_a_diego": "Agregar al export la columna 'Datos de la fuente de trafico mas reciente 1' (la CAMPANA del ultimo toque). Sin ella, 7 de 34 negocios quedan atribuidos por primer toque."
   }
 }

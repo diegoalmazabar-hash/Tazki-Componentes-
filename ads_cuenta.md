@@ -957,7 +957,10 @@ reves. Hay que arreglarlo.
   Hospital Quellon . entro «software seguridad ocupacional» -> volvio «plataforma prevencion de riesgos»
   Odis Spa ......... entro importacion -> volvio «plataforma prevencion de riesgos»
   Wese ............. entro «software gestion sst» -> volvio «software sst»
-  Cushman .......... entro «tazki» -> volvio «Luciano Pavesi» (un nombre de persona como termino)
+  Cushman .......... entro «tazki». El campo de fuente reciente dice «Luciano Pavesi»: NO es un termino
+                     de busqueda, es el VENDEDOR que lleva el prospecto (corregido por Diego el 29-ago-2026).
+                     Cuando ventas toca un negocio, ese campo se sobrescribe y tapa la keyword del ultimo clic.
+                     Atribucion de Cushman: por PRIMER toque, Marca / «tazki».
   Chilexpress ...... entro «sistema gestion seguridad laboral» -> volvio «GOOGLE»
   Unilever ......... entro «tazki» -> volvio «GOOGLE»
 CONSECUENCIA: el informe externo dijo que «plataforma prevencion de riesgos» sumo un segundo lead con
