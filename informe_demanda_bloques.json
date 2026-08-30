@@ -1553,42 +1553,15 @@
     ]
   },
   "_causa_raiz_landings_29_ago_2026": {
-    "HALLAZGO": "Los TRES grupos de SST apuntan a la MISMA URL final: https://soluciones.tazki.cl/software-prevencion-riesgos",
-    "urls_finales_agosto": {
-      "Grupo A - Sistema Gestion SST": {
-        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
-        "clics": 211,
-        "impr": 3102,
-        "coincide": false
-      },
-      "Grupo B - Software Prevencion de Riesgos": {
-        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
-        "clics": 131,
-        "impr": 2178,
-        "coincide": true
-      },
-      "Grupo C - HSEQ HSE": {
-        "url": "soluciones.tazki.cl/software-prevencion-riesgos",
-        "clics": 107,
-        "impr": 1862,
-        "coincide": false
-      },
-      "Marca": {
-        "url": "soluciones.tazki.cl/tazki",
-        "clics": 213,
-        "impr": 775
-      }
+    "ANULADO": "Este bloque decia que los 3 grupos de SST apuntaban a la misma landing generica y que esa era la causa raiz. ES FALSO. Corregido por Diego el 29-ago: el hizo las 3 landings y las conecto A NIVEL DE KEYWORD hace semanas, y esta escrito en ads_cuenta.md desde antes del 17-ago.",
+    "mi_error": "Consulte 'Finalurl' del reporte de ANUNCIOS, que efectivamente tiene la URL vieja y generica. Pero la URL a nivel de KEYWORD la sobrescribe. Medí el campo equivocado y construí una causa raiz inexistente.",
+    "DATO_CORRECTO_agosto_URL_por_keyword": {
+      "Grupo A (5 keywords, 152 clics)": "https://soluciones.tazki.cl/es/sistema-gestion-seguridad-salud-trabajo",
+      "Grupo C (plataforma hse, 76 clics)": "https://soluciones.tazki.cl/software-hseq",
+      "Grupo B (2 keywords, 72 clics)": "URL de keyword vacia: hereda la del anuncio = /software-prevencion-riesgos, que ES su landing correcta",
+      "Marca": "URL de keyword vacia: hereda /tazki, correcta"
     },
-    "por_que_importa": "Explica la causa UNICA de que 'experiencia de pagina de destino' salga 'Below average' en TODAS las keywords a la vez, y de que la keyword estrella tenga QS 1 con los 3 componentes en rojo. La persona busca una cosa y aterriza en otra.",
-    "LAS_LANDINGS_YA_EXISTEN": "En HubSpot hay landings dedicadas con formularios activos: 'sistema de gestion de seguridad y salud en el trabajo | tazki (lp)', 'plataforma hse y software hseq en chile | tazki (lp)', 'software prevencion de riesgos chile: ds 44 y ley 16.744 (lp)', 'software prevencion de riesgos: control operativo hseq (lp)', 'tazki | software hseq chileno con respaldo de la dt (lp)'. NO HAY QUE CONSTRUIRLAS, HAY QUE CONECTARLAS.",
-    "TECNICA_SIN_PERDER_HISTORIAL": "Editar un anuncio lo borra y lo recrea, perdiendo historial (regla ya anotada). Solucion: poner la URL final A NIVEL DE KEYWORD, que tiene prioridad sobre la del anuncio. Mismo efecto, sin tocar el anuncio. Verificar en la interfaz antes de aplicar.",
-    "ORDEN": [
-      "1. Grupo A -> landing de sistema de gestion SST. 211 clics/mes, el mayor volumen, y contiene la keyword con QS 1.",
-      "2. Grupo C: primero REACTIVAR 'software hseq', despues PAUSAR 'plataforma hse', y recien ahi apuntar a la landing de HSEQ.",
-      "3. Grupo B: queda como esta, ya coincide."
-    ],
-    "ADVERTENCIA": "El Grupo B YA apunta a la pagina correcta y su landing igual sale 'Below average'. Ademas del desajuste hay algo en la pagina misma (velocidad, movil, contenido). Conectar las landings mejora A y C, pero no deja todo en verde por si solo.",
-    "accion_parqueada_que_se_desbloquea": "El 19-ago quedo parqueado 'cambiar la URL final de los anuncios de los Grupos A y C'. Este hallazgo confirma que era la accion correcta y ahora tiene evidencia."
+    "conclusion": "El 100% del trafico llega a la landing que le corresponde. NO hay problema de conexion."
   },
   "_correccion_software_hseq_29_ago_2026": {
     "error": "Dije 'proteger software hseq' cuando en realidad NO ESTA ACTIVA. No aparece en las keywords habilitadas de agosto ni de junio a la fecha.",
@@ -1602,5 +1575,20 @@
     "verificacion": "Cushman es el UNICO de los 34 negocios con un nombre de persona en ese campo. En los demas hay keyword real, 'GOOGLE' sin detalle, o vacio.",
     "sin_dano": "'Luciano Pavesi' NUNCA se agrego como negativa. El error quedo en el analisis y no llego a la cuenta.",
     "pedido_a_diego": "Agregar al export la columna 'Datos de la fuente de trafico mas reciente 1' (la CAMPANA del ultimo toque). Sin ella, 7 de 34 negocios quedan atribuidos por primer toque."
-  }
+  },
+  "_landings_el_problema_real_29_ago_2026": {
+    "HALLAZGO": "Cada keyword aterriza en una landing dedicada y hecha a medida, y Google IGUAL califica 'experiencia de pagina de destino' como Below average en TODAS: landing A, landing B, landing C y la de Marca.",
+    "por_que_importa": "Descarta la hipotesis de desajuste. EL PROBLEMA SON LAS PAGINAS MISMAS. La landing A se construyo especificamente para la keyword estrella y aun asi sale Below average, asi que la relevancia de contenido no puede ser la causa.",
+    "que_mide_google_en_landing_page_experience": [
+      "relevancia y contenido original",
+      "transparencia (datos de contacto, politica de privacidad)",
+      "navegabilidad",
+      "VELOCIDAD DE CARGA",
+      "EXPERIENCIA MOVIL"
+    ],
+    "hipotesis": "Al estar descartada la relevancia, la causa mas probable es tecnica: velocidad o movil. Si es eso, rehacer el contenido NO sirve.",
+    "SIGUIENTE_PASO": "Revisar las 3 landings en HubSpot (modulos, formulario, peso, estructura) y pasarlas por PageSpeed para velocidad y movil. Recien con eso decidir si se arreglan o se rehacen. Claude tiene acceso de escritura a landing pages de HubSpot y puede construirlas.",
+    "IMPACTO_EN_EL_PLAN": "De los 4 movimientos propuestos para septiembre, DOS SE CAEN por estar ya hechos (conectar Grupo A y conectar Grupo C). Quedan: reactivar 'software hseq' y pausar 'plataforma hse'."
+  },
+  "_regla_urls_finales_29_ago_2026": "Al medir a que landing llega el trafico, consultar 'Finalurl' EN EL REPORTE DE KEYWORDS, no en el de anuncios. La URL de la keyword sobrescribe la del anuncio. En esta cuenta los anuncios tienen URLs viejas a proposito: editarlos los borra y recrea perdiendo estadisticas, por eso se resolvio a nivel de keyword. Si la URL de la keyword viene vacia, entonces si hereda la del anuncio."
 }
