@@ -1726,6 +1726,29 @@
       "Medir el peso del GIF en el Administrador de archivos de HubSpot. Si supera 2 MB, la solucion de fondo es convertirlo a MP4/WebM (10-20x mas liviano para la misma animacion). La carga diferida mitiga pero no elimina el problema.",
       "El texto alternativo dice 'Flujo Tazki-2', que es el nombre del archivo. Mejora chica de accesibilidad pendiente de aprobacion de Diego."
     ],
-    "regla_aprendida": "En las landings de Tazki, revisar los modulos @hubspot/linked_image que apunten a .gif: son el patron de riesgo para LCP en movil."
+    "regla_aprendida": "En las landings de Tazki, revisar los modulos @hubspot/linked_image que apunten a .gif: son el patron de riesgo para LCP en movil.",
+    "INTENTO_1_FALLIDO": {
+      "cambio": "img.loading 'disabled' -> 'lazy' en el GIF.",
+      "resultado": "EMPEORO. Performance 53 -> 46. FCP 5,5s -> 3,2s (mejoro), Speed Index 11,3s -> 3,9s (mejoro mucho), pero CLS 0,025 -> 0,355 (ROTO) y LCP 11,3s -> 11,8s (igual).",
+      "causa": "Al diferir la imagen el navegador no le reserva espacio y empuja el contenido de abajo al cargar. Diagnostico del informe: 'Image elements do not have explicit width and height'.",
+      "leccion": "El GIF NO era el causante del LCP. Explicaba parte del Speed Index. Diferir una imagen sin espacio reservado cambia un problema de velocidad por uno de estabilidad, y para una landing de formulario la estabilidad pesa mas.",
+      "REVERTIDO": "Si, el 30-ago. img.loading volvio a 'disabled'."
+    },
+    "CAUSA_REAL_DEL_LCP": {
+      "hallazgo": "El modulo logo-cloud (module_1786645883294), en rowIndex 1 justo debajo del hero, tiene 6 logos de clientes TODOS con loading='disabled' (carga inmediata) y max_width 605.",
+      "el_culpable": "El logo de EBCO: '9680ffa9c66845ff20932da95df2e048a592d975-5242880.png'. El sufijo 5242880 es la convencion de peso de HubSpot: 5.242.880 bytes = 5 MB EXACTOS. Un PNG de 5 MB cargando de inmediato cerca del pliegue.",
+      "otros": "Falabella (PNG de un SVG), Family Shop (PNG), Servicoing (PNG de 800px). Anasac y Aguas Antofagasta son SVG, no requieren accion."
+    },
+    "INTENTO_2_APLICADO_Y_PUBLICADO": {
+      "fecha": "30-ago-2026",
+      "cambios": [
+        "GIF revertido a loading='disabled' (deshace la regresion de CLS).",
+        "Los 6 logos: max_width 605 -> 300, max_height 451 -> 200.",
+        "Los 4 logos PNG: se agrego '?width=300' al src para pedirle al CDN de HubSpot una version redimensionada. Los 2 SVG quedaron intactos."
+      ],
+      "RIESGO_A_VERIFICAR": "Si el parametro ?width= no aplica sobre esas URLs de hs-sites.com, los logos podrian no cargar. Diego debe abrir la pagina y confirmar visualmente que los 6 logos se ven. Si alguno falta, revertir.",
+      "expectativa": "CLS de vuelta cerca de 0,025 y LCP bajando fuerte desde 11,8s.",
+      "TECHO_CONOCIDO": "Aunque salga bien NO se llega a verde. Quedan dos problemas del TEMA de HubSpot, no de esta pagina: render-blocking requests (1.440 ms de ahorro estimado) y unused JavaScript (338 KiB). Requieren tocar el tema. Es la razon por la que las 3 landings comparten el mismo piso de rendimiento."
+    }
   }
 }
