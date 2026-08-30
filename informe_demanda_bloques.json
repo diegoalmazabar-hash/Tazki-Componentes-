@@ -1749,6 +1749,25 @@
       "RIESGO_A_VERIFICAR": "Si el parametro ?width= no aplica sobre esas URLs de hs-sites.com, los logos podrian no cargar. Diego debe abrir la pagina y confirmar visualmente que los 6 logos se ven. Si alguno falta, revertir.",
       "expectativa": "CLS de vuelta cerca de 0,025 y LCP bajando fuerte desde 11,8s.",
       "TECHO_CONOCIDO": "Aunque salga bien NO se llega a verde. Quedan dos problemas del TEMA de HubSpot, no de esta pagina: render-blocking requests (1.440 ms de ahorro estimado) y unused JavaScript (338 KiB). Requieren tocar el tema. Es la razon por la que las 3 landings comparten el mismo piso de rendimiento."
+    },
+    "INTENTO_2_RESULTADO": {
+      "medicion": "Performance 56 (subio desde 53), pero LCP 30,5s (era 11,3s), peso total 5.055 KiB, 'Improve image delivery' 3.703 KiB (era 76 KiB). CLS 0,011 (bien) y TBT 140ms (bien).",
+      "el_puntaje_engana": "Subio a 56 porque CLS y TBT mejoraron y porque la escala de Lighthouse se aplana: con LCP ya malo, pasar de 11s a 30s casi no resta mas. Para el usuario la pagina quedo PEOR.",
+      "CAUSA": "El parametro '?width=300' agregado a mano en el src ROMPIO el redimensionado automatico de HubSpot. Con size_type 'auto_custom_max' HubSpot genera variantes pequenas; al meter un query param manual dejo de hacerlo y empezo a servir los ARCHIVOS ORIGINALES COMPLETOS, incluido el PNG de 5 MB de EBCO. Los logos se ven bien porque el navegador los achica en pantalla, pero descarga el archivo entero.",
+      "REVERTIDO": "Si, 30-ago. Se quitaron los '?width=300'. Se conservo max_width 300 / max_height 200 (mecanismo legitimo, no rompe nada) y la correccion del nombre 'Sercoing'."
+    },
+    "REGLA_APRENDIDA": "NUNCA agregar query params de redimensionado a mano en el src de un modulo de imagen de HubSpot cuando size_type es 'auto_custom_max'. Rompe la generacion automatica de variantes y hace que se sirva el original completo.",
+    "CONCLUSION_FINAL": {
+      "diagnostico": "El problema es UN ARCHIVO, no una configuracion. El logo de EBCO es un PNG de 5.242.880 bytes. Ninguna opcion del editor lo arregla.",
+      "UNICA_SOLUCION": "Reemplazar el archivo. Claude NO puede: no tiene forma de subir archivos a HubSpot.",
+      "pasos_para_diego": [
+        "HubSpot > Marketing > Archivos. Buscar el logo de EBCO (nombre largo terminado en 5242880).",
+        "Descargarlo y pasarlo por squoosh.app o tinypng.com. Redimensionar a ~300px de ancho, guardar como PNG o WebP. Deberia quedar en 20-30 KB.",
+        "REEMPLAZAR EL ARCHIVO EN SU MISMA DIRECCION (HubSpot lo permite): asi se arregla en TODAS las paginas que lo usan de una vez, incluida la landing A que tiene el mismo bloque de logos. Si se sube como archivo nuevo, hay que cambiarlo pagina por pagina.",
+        "Revisar tambien el logo de Sercoing (PNG de 800px) y el de Family Shop. Anasac y Aguas Antofagasta son SVG y estan bien."
+      ],
+      "lo_que_no_se_arregla_asi": "Render-blocking requests (920 ms) y unused JavaScript (338 KiB). Viven en el TEMA de HubSpot y necesitan un desarrollador. Es el piso que comparten las 3 landings.",
+      "decision": "DEJAR DE EXPERIMENTAR EN LA PAGINA EN VIVO. Dos intentos, dos empeoramientos. Cada ronda cuesta una medicion a Diego y no hay forma de medir desde la sesion (el proxy bloquea el dominio)."
     }
   }
 }
