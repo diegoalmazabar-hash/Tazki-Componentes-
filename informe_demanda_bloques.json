@@ -1682,6 +1682,37 @@
     "SE_CAE_LA_HIPOTESIS_DEL_REZAGO": "La landing B NO es nueva, tiene 98 de rendimiento, pasa Core Web Vitals, y IGUAL esta marcada 'Below average'. Si fuera solo antiguedad de la landing A, la B deberia estar bien.",
     "explicacion_mas_probable": "'Below average' es RELATIVO a los otros anunciantes que compiten por esa busqueda, no absoluto. Las paginas de Tazki estan objetivamente bien. Factor candidato observado en la estructura: las landings son PAGINAS AISLADAS (subdominio soluciones.tazki.cl, navbar reducida de landing, pie con solo 3 enlaces: Plataforma, Privacidad, Terminos). 'Facilidad de navegacion' es criterio de Google. NO CONFIRMADO, es la unica hipotesis que queda en pie.",
     "RECOMENDACION": "DEJAR DE PERSEGUIR EL QUALITY SCORE. El 19-ago Diego y Felipe reescribieron el umbral de la keyword estrella para juzgarla por COSTO POR OPORTUNIDAD y no por Quality Score. Aplicar esa regla: el QS lleva 8 semanas en 1 y en ese mismo periodo el costo por MQL cayo 84% (205.970 -> 32.538). La metrica que manda mejoro; la que se decidio ignorar no se movio.",
-    "LO_QUE_SI_MERECE_TRABAJO": "Las landings de MARCA. Las dos de /tazki convierten al 1,6% y 1,9% contra 3,7%-5,8% de las de SST, y reciben el trafico mas caliente (230 visitas/mes de gente que busca la marca) para sacar 4 correos. Ese si es un problema real de la pagina, medible y arreglable, sin depender de metricas relativas de Google."
+    "LO_QUE_SI_MERECE_TRABAJO": "Las landings de MARCA. Las dos de /tazki convierten al 1,6% y 1,9% contra 3,7%-5,8% de las de SST, y reciben el trafico mas caliente (230 visitas/mes de gente que busca la marca) para sacar 4 correos. Ese si es un problema real de la pagina, medible y arreglable, sin depender de metricas relativas de Google.",
+    "CUADRO_COMPLETO": {
+      "A_sistema-gestion-seguridad-salud-trabajo": {
+        "movil_real": "Passed · LCP 1,6s · CLS 0 · FCP 1,6s · TTFB 0,9s",
+        "movil_lab": "FALTA",
+        "escritorio_lab": "95 · A11y 96 · BP 100 · SEO 100"
+      },
+      "B_software-prevencion-riesgos": {
+        "movil_real": "Passed · LCP 1,5s · CLS 0 · FCP 1,5s",
+        "movil_lab": "80 · LCP 2,7s · FCP 2,6s · TBT 470ms · CLS 0,043",
+        "escritorio_lab": "99 · A11y 96 · BP 100 · SEO 100"
+      },
+      "C_software-hseq": {
+        "movil_real": "Passed · LCP 1,6s · CLS 0 · FCP 1,6s · TTFB 0,9s",
+        "movil_lab": "53 · LCP 11,3s · FCP 5,5s · Speed Index 11,3s · TBT 210ms · CLS 0,025",
+        "escritorio_lab": "FALTA"
+      },
+      "Marca_tazki": {
+        "movil_real": "Passed (escritorio LCP 1,1s · CLS 0,03)",
+        "movil_lab": "FALTA",
+        "escritorio_lab": "99 · A11y 100 · BP 100 · SEO 100"
+      }
+    }
+  },
+  "_landing_C_problema_movil_30_ago_2026": {
+    "HALLAZGO": "La landing C (soluciones.tazki.cl/software-hseq) saca 53 en el laboratorio movil, con LCP de 11,3 segundos y Speed Index de 11,3s. En la tira de carga los primeros SEIS cuadros salen EN BLANCO.",
+    "contraste": "La landing B, en el mismo telefono simulado (Moto G Power, 4G lento), pinta en 2,7s. La C tarda 4 veces mas. Mismo tema, misma plataforma, mismo constructor: el problema es ESPECIFICO DE ESA PAGINA, no de HubSpot.",
+    "por_que_importa": "Los usuarios reales pasan Core Web Vitals, pero el escenario del laboratorio (gama media + 4G lento) NO es artificial para el publico de Tazki: un prevencionista en faena con Android medio y senal irregular es literalmente ese caso.",
+    "coincidencia_a_investigar": "La landing C es a donde manda 'plataforma hse', la keyword de 5 negocios y 0 calificados, con 76 clics en agosto. NO comprobado como causa, pero no conviene ignorarlo.",
+    "NO_CAMBIA": "La conclusion sobre Quality Score se mantiene: las 4 paginas pasan CWV con usuarios reales, la B tiene 99 y 80, la A tiene 95, y las tres siguen 'Below average'. La velocidad NO explica esa etiqueta.",
+    "SIGUIENTE_PASO": "Comparar los modulos de la landing C (contentId 214952422274) contra los de la B (217060324610) en HubSpot para encontrar que la frena. Sospecha: imagen de fondo sin optimizar, video, o elemento incrustado pesado. Claude puede diagnosticarlo y arreglarlo desde el editor.",
+    "PENDIENTE_DE_MEDIR": "Falta el laboratorio movil de la landing A y de la de Marca, y el escritorio de la C."
   }
 }
