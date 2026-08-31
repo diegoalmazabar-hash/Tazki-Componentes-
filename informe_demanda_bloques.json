@@ -2055,5 +2055,24 @@
   "por_que_no_lo_detecto_plan_check": "Solo miraba 'undefined', 'NaN', HTML escapado y largo del DOM. Una tabla vacia no produce ninguna de esas senales, y el HTML estatico ya supera el minimo de 50.000 bytes.",
   "arreglo": "plan_check.py ahora (1) parsea 'const D={...}' como JSON y falla si es invalido, y (2) verifica que ninguna tabla con id 'tXxx' que llena el JS quede sin filas en el render. Probado con un D roto a proposito: falla con codigo 1.",
   "estructura_de_bitacora": "D.bitacora = [ {\"d\": \"31 ago\", \"evs\": [ [tag, categoria, html], ... ]}, ... ] — dias, no eventos sueltos."
+ },
+ "_eliminado_panel_ga4_31_ago_2026": {
+  "fecha": "31-ago-2026",
+  "pedido_de": "Diego",
+  "que_se_quito": "Las dos tablas «Trafico por fuente» del bloque 6 (sesiones por seccion, mes a mes y semana a semana) y su parrafo de lectura, que venian de GA4 (propiedad Tazki-Web, 540969557).",
+  "por_que": "Diego: «mejor sacar esa parte del informe porque no se actualiza». Llevaba semanas congelado y un panel viejo dentro de un informe que se lee como si estuviera al dia engana mas de lo que aporta.",
+  "que_se_mantiene": "El resto del bloque 6 (visitas de contenido mes a mes y semana a semana, contenidos mas vistos, inbounds por primera pagina) sale de HubSpot y si se actualiza. El canal de IA se sigue midiendo en el bloque 10 con datos de HubSpot.",
+  "si_alguna_vez_se_quiere_devolver": "La fuente era GA4 propiedad Tazki-Web 540969557, agrupando pagina de aterrizaje por seccion, y solo tenia historia desde el 7-jul-2026. Habria que automatizarlo antes de volver a publicarlo.",
+  "REGLA": "No publicar paneles que no se refrescan en la rutina de los lunes. Si un bloque no se puede actualizar, se saca; no se deja congelado con una nota."
+ },
+ "_stale_encontrados_31_ago_2026": {
+  "contexto": "Diego encontro dos parrafos con cifras del corte anterior dentro de un informe ya actualizado. Los dos eran del mismo tipo: la TABLA se actualizo programaticamente y el PARRAFO de lectura, que es texto libre, no.",
+  "casos": [
+   "Bloque 2 (embudo): decia 180 inbounds contra 30, 31,6% y 21,6% cuando la tabla ya mostraba 181/35, 30% y 22,7%.",
+   "Bloque 4 (Ads): decia «17 MQL en 23 dias», «$1.269.932», «25 inbounds de pago» e «impresiones 5.918 en 23 dias». Real al 30: 23,96 MQL, $1.438.745 desde el 13-jul, 31 inbounds de pago = $46.411 cada uno, impresiones SST 7.585.",
+   "Bloque 4 (nota): «Conversiones e impresiones al 23 de agosto»."
+  ],
+  "arreglo_en_plan_check": "Se agrego un chequeo de etiquetas «al N de <mes>» SIN parentesis (el chequeo viejo solo miraba «(al N)»), con lookbehind para no marcar rangos de semana como «del 3 al 9 de agosto». Probado con una regresion a proposito.",
+  "PENDIENTE_DE_VERDAD": "El verificador solo cubre etiquetas de fecha y sumas cruzadas. Los parrafos de lectura siguen siendo texto libre y NADIE los valida. En cada corrida de los lunes hay que releer uno por uno los parrafos <p class='read'> de todos los bloques que cambiaron de numero."
  }
 }

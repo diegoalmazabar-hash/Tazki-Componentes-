@@ -107,6 +107,16 @@ def main():
     if cp and len(cp["won"]) != len(cp["months"]):
         errores.append("cp: won/lost no tienen el mismo largo que months.")
 
+    # 3b. etiquetas "al N de <mes>" sin parentesis (el 31-ago-2026 quedo viva una
+    #     que decia "al 23 de agosto" en el bloque 4 y el chequeo de "(al N)" no la vio)
+    MES = {1:"enero",2:"febrero",3:"marzo",4:"abril",5:"mayo",6:"junio",
+           7:"julio",8:"agosto",9:"septiembre",10:"octubre",11:"noviembre",12:"diciembre"}
+    # el lookbehind descarta los rangos de semana ("del 3 al 9 de agosto")
+    for dia, mes in re.findall(r"(?<!\d )\bal (\d{1,2}) de (%s)\b" % "|".join(MES.values()), src):
+        if mes == MES[corte.month] and int(dia) != corte.day:
+            errores.append("Etiqueta 'al %s de %s' no coincide con el corte (dia %d)."
+                           % (dia, mes, corte.day))
+
     # 2a. el diccionario D tiene que ser JSON valido
     #     (un D roto no lanza 'undefined' ni acorta el DOM: simplemente deja
     #      TODAS las tablas de JS vacias y el error pasaba desapercibido.
