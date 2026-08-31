@@ -1889,5 +1889,143 @@
   ],
   "borrador_gmail": "Borrador creado a felipe@tazki.cl (Felipe Casanova, Gerente Comercial), asunto 'Generacion de demanda · cierre de agosto (corte domingo 30)'. SIN adjunto: el PDF pesa 1,09 MB y en base64 no cabe en la llamada a la API de Gmail. Diego adjunta el PDF a mano antes de enviar, o usa el link publico de gh-pages que ya va en el cuerpo.",
   "limitacion_conocida": "El MCP de Gmail acepta adjuntos en base64, pero un PDF de ~1 MB son ~1,5 millones de caracteres y no se puede emitir en una llamada. Para adjuntar desde aca habria que bajar el PDF de ~150 KB o subirlo a Drive."
+ },
+ "_regla_analitica_de_contenido_31_ago_2026": {
+  "fecha": "31-ago-2026",
+  "por_que_fallo_antes": "En la corrida del 31-ago dije que las visitas del blog no se podian reproducir. Estaba equivocado: compare el acumulado del anio del panel (IRL 823) contra una consulta de UN SOLO MES (IRL 428) y concluí mal. La API si reproduce todo.",
+  "REGLA_1": "En get_content_analytics_report NUNCA usar period=WEEKLY: sus semanas estan corridas y no cuadran con el mes (daba 324 para el 3-9 de agosto cuando la suma diaria da 163). Las semanas se arman SIEMPRE sumando dias con period=DAILY, igual que en Search Console.",
+  "REGLA_2": "DAILY y MONTHLY si cuadran exacto entre si (agosto blog: suma diaria 1.080 = total mensual 1.080). Usar esos dos y nada mas.",
+  "REGLA_3": "Los articulos con URL cambiada aparecen como DOS filas: la del contentId numerico (URL nueva) y una fila cuyo contentId ES la URL antigua. Hay que sumarlas. Casos conocidos: IRL (216048041317 + 'tazki.cl/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion') y Falabella (216648025162 + 'tazki.cl/como-falabella-retail-logro-ahorrar-326-dias-de-trabajo-con-tazki').",
+  "REGLA_4": "Recalcular SIEMPRE toda la serie con el inventario completo de contentIds. Antes las filas viejas contaban solo los articulos que existian cuando se midieron, y por eso julio decia 349 en vez de 383.",
+  "inventario_contenido": {
+   "blog_19": [
+    "216048041317+URL antigua IRL",
+    "216648024605",
+    "218462837851",
+    "217682667886",
+    "216648005673",
+    "218470472620",
+    "217227797666",
+    "217227797248",
+    "216607598644",
+    "218948639508",
+    "218948639504",
+    "217682668032",
+    "219468407581",
+    "217216897652",
+    "217216897574",
+    "217227804465",
+    "218942630956",
+    "218948091448",
+    "217682606594"
+   ],
+   "recursos_3": [
+    "216048041479 DS 44",
+    "220394781013 tasa de siniestralidad",
+    "214800158050 landing e-book DS 44"
+   ],
+   "casos_2": [
+    "216185175900",
+    "216648025162+URL antigua Falabella"
+   ],
+   "excluidas": "paginas indice /blog, /recursos, /casos-de-exito (navegacion, no lectura)"
+  },
+  "cifras_al_30_ago": {
+   "anio": {
+    "total": 2274,
+    "blog": 1910,
+    "recursos": 185,
+    "casos": 179
+   },
+   "mes_blog": {
+    "ene": 44,
+    "feb": 107,
+    "mar": 99,
+    "abr": 84,
+    "may": 63,
+    "jun": 50,
+    "jul": 383,
+    "ago": 1080
+   },
+   "mes_recursos": {
+    "jun": 25,
+    "jul": 100,
+    "ago": 60
+   },
+   "mes_casos": {
+    "ene": 2,
+    "feb": 8,
+    "mar": 9,
+    "abr": 5,
+    "may": 11,
+    "jun": 6,
+    "jul": 107,
+    "ago": 31
+   },
+   "semanas_blog": {
+    "6-12 jul": 95,
+    "13-19 jul": 66,
+    "20-26 jul": 112,
+    "27 jul-2 ago": 125,
+    "3-9 ago": 163,
+    "10-16 ago": 311,
+    "17-23 ago": 222,
+    "24-30 ago": 360
+   },
+   "envios_anio": {
+    "total": 41,
+    "DS44": 21,
+    "tasa_siniestralidad": 14,
+    "blog": 6
+   }
+  },
+  "primera_pagina_vista": {
+   "consulta": "SELECT CONTACT.hs_analytics_first_url, createdate FROM DEAL WHERE pipeline='default' AND latest_source IS NOT NULL",
+   "ojo": "devuelve una fila por contacto asociado; hay que deduplicar por hs_object_id y preferir la URL real sobre 'Unassigned'",
+   "may_ago": {
+    "Home": 89,
+    "Landing de pago": 34,
+    "Soluciones": 21,
+    "Contacto": 12,
+    "Otras": 6,
+    "Contenido": 4,
+    "total": 166
+   },
+   "por_mes": {
+    "mayo": [
+     31,
+     0,
+     4,
+     0,
+     5,
+     1
+    ],
+    "junio": [
+     12,
+     3,
+     7,
+     1,
+     1,
+     2
+    ],
+    "julio": [
+     26,
+     8,
+     5,
+     2,
+     4,
+     2
+    ],
+    "agosto": [
+     20,
+     23,
+     5,
+     1,
+     2,
+     1
+    ]
+   },
+   "control": "los cuatro meses cuadran uno a uno con el bloque 1: 41 · 26 · 47 · 52"
+  }
  }
 }
