@@ -1879,5 +1879,15 @@
    "gasto de agosto 807.810 por dos caminos independientes"
   ],
   "sin_anomalias": "gasto del 30-ago 26.599 = 1,1x el promedio de los 7 dias previos (23.736); posicion e impresiones de SEO mejoraron"
+ },
+ "_entrega_felipe_31_ago_2026": {
+  "fecha": "31-ago-2026",
+  "artefacto": "https://claude.ai/code/artifact/ad9fb728-ed9f-4e60-845e-81db0259d97f — version ejecutiva del Plan (resumen ejecutivo arriba, sin bloques 'como verificar' ni notas al pie). Se genera con /tmp/build_artifact.py sobre plan-generacion-demanda.html + pdf_highlights.json. Republicar SIEMPRE con la misma ruta de archivo para conservar la URL.",
+  "pdfs": [
+   "plan-ejecutivo-31ago.pdf (31 pag · el que va a Felipe)",
+   "plan-generacion-demanda-31ago.pdf (espejo completo de la web)"
+  ],
+  "borrador_gmail": "Borrador creado a felipe@tazki.cl (Felipe Casanova, Gerente Comercial), asunto 'Generacion de demanda · cierre de agosto (corte domingo 30)'. SIN adjunto: el PDF pesa 1,09 MB y en base64 no cabe en la llamada a la API de Gmail. Diego adjunta el PDF a mano antes de enviar, o usa el link publico de gh-pages que ya va en el cuerpo.",
+  "limitacion_conocida": "El MCP de Gmail acepta adjuntos en base64, pero un PDF de ~1 MB son ~1,5 millones de caracteres y no se puede emitir en una llamada. Para adjuntar desde aca habria que bajar el PDF de ~150 KB o subirlo a Drive."
  }
 }
