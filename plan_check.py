@@ -7,7 +7,8 @@ archivo a Diego mientras este script no pase.
 
 Qué revisa:
   1. charset utf-8 declarado al inicio (sin él, el teléfono muestra mojibake).
-  2. Render headless sin 'undefined', sin HTML escapado visible, sin NaN.
+  2. El diccionario D es JSON valido; render headless sin 'undefined', sin HTML
+     escapado visible, sin NaN, y sin tablas de JS vacias.
   3. Todas las etiquetas "(al N)" y "agosto al día N" == día del corte.
   4. La fila parcial de contenido "(parcial · X de 7 días)" coherente con el corte
      (semana DOM–SÁB).
@@ -106,6 +107,41 @@ def main():
     if cp and len(cp["won"]) != len(cp["months"]):
         errores.append("cp: won/lost no tienen el mismo largo que months.")
 
+    # 2a. el diccionario D tiene que ser JSON valido
+    #     (un D roto no lanza 'undefined' ni acorta el DOM: simplemente deja
+    #      TODAS las tablas de JS vacias y el error pasaba desapercibido.
+    #      Ocurrio el 31-ago-2026 al insertar mal una entrada de bitacora.)
+    mD = re.search(r'const D=\s*\{', src)
+    if not mD:
+        errores.append("No encontre 'const D={' en el archivo.")
+    else:
+        i = src.index("{", mD.start())
+        depth, k, instr, esc = 0, i, False, False
+        fin = None
+        while k < len(src):
+            c = src[k]
+            if instr:
+                if esc: esc = False
+                elif c == "\\": esc = True
+                elif c == '"': instr = False
+            else:
+                if c == '"': instr = True
+                elif c == "{": depth += 1
+                elif c == "}":
+                    depth -= 1
+                    if depth == 0:
+                        fin = k
+                        break
+            k += 1
+        if fin is None:
+            errores.append("El diccionario D no cierra: llaves desbalanceadas.")
+        else:
+            try:
+                json.loads(src[i:fin+1])
+            except Exception as e:
+                errores.append("El diccionario D NO es JSON valido (%s). "
+                               "Con D roto el JS no corre y todas sus tablas quedan vacias." % e)
+
     # 2. render headless
     shells = glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell")
     if shells:
@@ -120,6 +156,15 @@ def main():
             errores.append("El render muestra HTML escapado visible ('<span' como texto).")
         if re.search(r'>NaN<|>NaN%', dom):
             errores.append("El render muestra NaN.")
+        # 2b. ninguna tabla que llena el JS puede quedar vacia
+        ids = sorted(set(re.findall(r'<table id="(t[A-Za-z0-9_]+)"\s*></table>', src)))
+        vacias = []
+        for tid in ids:
+            m = re.search(r'<table id="%s"[^>]*>(.*?)</table>' % tid, dom, re.S)
+            if not m or m.group(1).count("<tr") == 0:
+                vacias.append(tid)
+        if vacias:
+            errores.append("Tablas que el JS deja VACIAS en el render: " + ", ".join(vacias))
         if len(dom) < 50000:
             errores.append(f"El render quedó sospechosamente corto ({len(dom)} bytes): ¿JS roto?")
     else:

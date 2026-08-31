@@ -3,8 +3,8 @@
  "fecha": "Agosto cerrado · semana 24–30 de agosto · corte domingo 30",
  "highlights": [
   {
-   "t": "Cuatro de las seis metas del mes quedaron cumplidas",
-   "d": "% de inbounds de pago 44,2% (meta 30%), palabras distintas con clics 75 (meta ≥25), conversión SEO 22,7% (meta 20%) y posición media SEO 6,2 (meta ≤9,5). Las dos que faltan son conversión SEM y pérdida SEO."
+   "t": "Cinco de las seis metas del mes quedaron cumplidas",
+   "d": "% de inbounds de pago 44,2% (meta 30%), palabras distintas con clics 75 (meta ≥25), conversión SEM a oportunidad real 75,0% (meta ≥40%), conversión SEO 38,0% (meta 20%) y posición media SEO 6,2 (meta ≤9,5). La única que falta es la pérdida de SEO."
   },
   {
    "t": "Récord del canal pagado: 23 de los 52 inbounds de agosto",
@@ -33,16 +33,16 @@
   {
    "t": "Un recurso nuevo convirtió 14 veces con 36 visitas",
    "d": "El recurso de tasa de siniestralidad se publicó a fines de agosto y ya lleva 14 envíos de formulario. De los 41 envíos del año en contenidos, 21 son del DS 44 y 14 de este; el blog, con 1.910 visitas, lleva 6."
+  },
+  {
+   "t": "Nueva definición de oportunidad: el embudo casi dobla",
+   "d": "A pedido de Diego, un negocio cuenta como oportunidad real cuando entra a Qualified Prospect, Qualified Opportunity o Value Proposition, la que venga primero. Antes solo contaba Qualified Opportunity y dejaba fuera a los negocios que el ejecutivo movió por otro camino. El acumulado sube de 6 a 15 en SEM y de 37 a 62 en SEO. Agosto fue el mejor mes de los dos canales: 7 y 14."
   }
  ],
  "rojo": [
   {
    "t": "La pérdida de SEO empeoró y sigue sobre la meta",
    "d": "65,7% (119 Closed Lost sobre 181 inbounds) contra 63,9% del corte anterior, con meta de ≤60%. Es la segunda quincena seguida en que sube."
-  },
-  {
-   "t": "La conversión SEM bajó y se aleja de la meta",
-   "d": "30,0% (6 oportunidades de 20 reuniones agendadas) contra 31,6% del corte anterior, con meta de ≥40%. SEM sigue produciendo oportunidades y todavía ningún cliente ganado."
   },
   {
    "t": "El ranking de SST se soltó por tercera semana seguida",

@@ -2027,5 +2027,33 @@
    },
    "control": "los cuatro meses cuadran uno a uno con el bloque 1: 41 · 26 · 47 · 52"
   }
+ },
+ "_definicion_oportunidad_real_31_ago_2026": {
+  "fecha": "31-ago-2026",
+  "pedido_de": "Diego",
+  "regla": "Un negocio cuenta como OPORTUNIDAD REAL cuando entra a Qualified Prospect (qualifiedtobuy), Qualified Opportunity (presentationscheduled) o Value Proposition (decisionmakerboughtin), tomando la PRIMERA fecha de las tres. Antes se contaba solo presentationscheduled.",
+  "por_que": "Diego detecto que los ejecutivos no siempre siguen el orden del pipeline; hay negocios que saltan etapas y quedaban fuera del conteo aunque fueran oportunidades reales.",
+  "decision_que_tome_yo": "Diego nombro DOS etapas (Qualify Prospect y Value Proposition). Agregue una tercera, Qualified Opportunity, porque Compania Cielo Azul (SEO, 27-ago, 38 UF) entro ahi sin pasar por ninguna de las otras dos y con la regla de dos etapas quedaba fuera. AVISADO a Diego el mismo dia; si el prefiere solo dos etapas, SEO baja de 62 a 61.",
+  "saltos_de_etapa_verificados": [
+   "Seguridad GSL (SEM, 21-ago): directo a Value Proposition — el caso que detecto Diego",
+   "Constructora RIC (SEO, 12-jun): directo a Value Proposition",
+   "Cimolai (SEO, 5-ago): directo a Value Proposition",
+   "Interacid (SEO, 24-ago): directo a Value Proposition",
+   "Compania Cielo Azul (SEO, 27-ago): directo a Qualified Opportunity"
+  ],
+  "impacto": {
+   "SEM": "6 -> 15 oportunidades · conversion desde Meeting Set 30,0% -> 75,0%",
+   "SEO": "37 -> 62 oportunidades · conversion 22,7% -> 38,0%",
+   "metas": "pasan de 4 de 6 cumplidas a 5 de 6; la unica que falta es la perdida de SEO"
+  },
+  "tabla_mensual": "Segundo pedido de Diego: medirlo mes a mes. Nueva tabla «Oportunidades reales · mes a mes» (D.opp) con Meeting Set y oportunidades por canal. feb-ago SEM [0,0,0,0,2,6,7] y SEO [3,1,13,9,9,13,14].",
+  "advertencia": "El % mensual NO es tasa de cohorte: un negocio puede agendar reunion un mes y calificar al siguiente, por eso julio en SEM da 100%. El mes cuenta el EVENTO, no la camada.",
+  "pendiente_para_diego": "Con la definicion nueva la meta de SEM (>=40%) queda muy holgada: va en 75%. Habria que recalibrarla."
+ },
+ "_bug_plan_check_31_ago_2026": {
+  "que_paso": "Inserte mal una entrada en D.bitacora (la puse como evento suelto cuando la estructura es una lista de DIAS con 'evs'). El JSON de D quedo invalido, el JS no corrio y TODAS las tablas dinamicas quedaron vacias. El PDF completo bajo de 31 a 10 paginas.",
+  "por_que_no_lo_detecto_plan_check": "Solo miraba 'undefined', 'NaN', HTML escapado y largo del DOM. Una tabla vacia no produce ninguna de esas senales, y el HTML estatico ya supera el minimo de 50.000 bytes.",
+  "arreglo": "plan_check.py ahora (1) parsea 'const D={...}' como JSON y falla si es invalido, y (2) verifica que ninguna tabla con id 'tXxx' que llena el JS quede sin filas en el render. Probado con un D roto a proposito: falla con codigo 1.",
+  "estructura_de_bitacora": "D.bitacora = [ {\"d\": \"31 ago\", \"evs\": [ [tag, categoria, html], ... ]}, ... ] — dias, no eventos sueltos."
  }
 }

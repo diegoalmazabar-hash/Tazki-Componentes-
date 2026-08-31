@@ -1,11 +1,15 @@
 {
   "_lee_esto_primero": "El embudo SEM vs SEO del informe de Generación de Demanda se calcula SOBRE LAS LISTAS PROPIAS DE DIEGO en HubSpot, no replicando su criterio con filtros de propiedades. Acordado el 27-jul-2026. Si Diego edita sus listas, estos números lo siguen automáticamente: ese es el punto.",
-
   "listas": {
-    "SEO": {"id": "970", "nombre": "Negocios Inbound - SEO"},
-    "SEM": {"id": "968", "nombre": "Negocios Inbound - SEM"}
+    "SEO": {
+      "id": "970",
+      "nombre": "Negocios Inbound - SEO"
+    },
+    "SEM": {
+      "id": "968",
+      "nombre": "Negocios Inbound - SEM"
+    }
   },
-
   "como_consultar": {
     "filtro": "hs_crm_search.ilsListIds = '<id>'",
     "objeto": "DEAL",
@@ -14,38 +18,119 @@
       "total_del_anio": "SELECT COUNT(*) FROM DEAL WHERE hs_crm_search.ilsListIds='<id>' AND createdate BETWEEN '<inicio_anio>' AND '<fin_anio>'",
       "meeting_set": "SELECT COUNT(*) FROM DEAL WHERE hs_crm_search.ilsListIds='<id>' AND hs_v2_date_entered_1272167862 BETWEEN '<inicio_anio>' AND '<fin_anio>'",
       "qualified_opportunity": "SELECT COUNT(*) FROM DEAL WHERE hs_crm_search.ilsListIds='<id>' AND hs_v2_date_entered_presentationscheduled BETWEEN '<inicio_anio>' AND '<fin_anio>'",
-      "closed_lost": "SELECT COUNT(*) FROM DEAL WHERE hs_crm_search.ilsListIds='<id>' AND dealstage='1233212743' AND createdate BETWEEN '<inicio_anio>' AND '<fin_anio>'"
+      "closed_lost": "SELECT COUNT(*) FROM DEAL WHERE hs_crm_search.ilsListIds='<id>' AND dealstage='1233212743' AND createdate BETWEEN '<inicio_anio>' AND '<fin_anio>'",
+      "oportunidad_real": "Un negocio cuenta si entro a CUALQUIERA de las tres etapas, tomando la PRIMERA fecha: hs_v2_date_entered_qualifiedtobuy (Qualified Prospect), hs_v2_date_entered_presentationscheduled (Qualified Opportunity) o hs_v2_date_entered_decisionmakerboughtin (Value Proposition). Se consulta en tres pasos: (1) COUNT con qualifiedtobuy en rango; (2) COUNT con qualifiedtobuy IS NULL AND decisionmakerboughtin en rango; (3) COUNT con qualifiedtobuy IS NULL AND decisionmakerboughtin IS NULL AND presentationscheduled en rango. Se suman."
     }
   },
-
   "ojo_con_las_etapas": {
     "meeting_set": "1272167862",
     "qualified_opportunity": "presentationscheduled",
     "closed_lost": "1233212743",
     "trampa": "El valor 'closedlost' está MAL ETIQUETADO en este portal: su etiqueta dice «Closed Won». El Closed Lost de verdad es el id 1233212743. No los confundas.",
-    "por_fecha_de_entrada": "Meeting Set y Qualified Opportunity se cuentan por FECHA DE ENTRADA a la etapa (hs_v2_date_entered_*), no por etapa actual. Contar por etapa actual además de por fecha infla el numerador: así se produjo el 20,3% erróneo que estuvo publicado hasta el 27-jul-2026."
+    "por_fecha_de_entrada": "Meeting Set y Qualified Opportunity se cuentan por FECHA DE ENTRADA a la etapa (hs_v2_date_entered_*), no por etapa actual. Contar por etapa actual además de por fecha infla el numerador: así se produjo el 20,3% erróneo que estuvo publicado hasta el 27-jul-2026.",
+    "pipeline_completo": "New MQL (1398904577) -> Meeting Set (1272167862) -> Reagendar (1398903581) -> Qualified Prospect (qualifiedtobuy) -> Qualified Opportunity (presentationscheduled) -> Value Proposition (decisionmakerboughtin) -> Negotiation (1274225307) -> Verbal Commit (contractsent) -> Closed Won (closedlost, MAL ETIQUETADO) / Frozen (1274286699) / Closed Lost (1233212743)",
+    "oportunidad_real": "qualifiedtobuy | presentationscheduled | decisionmakerboughtin (la primera de las tres)"
   },
-
   "formulas": {
     "conversion_meeting_set_a_qopp": "qualified_opportunity / meeting_set * 100",
-    "porcentaje_de_perdida": "closed_lost / total_del_anio * 100"
+    "porcentaje_de_perdida": "closed_lost / total_del_anio * 100",
+    "conversion_meeting_set_a_oportunidad": "oportunidad_real / meeting_set * 100"
   },
-
   "control_de_calidad": {
     "que_hacer": "Recalcula esto antes de publicar. Si no da exacto, NO publiques y avísale a Diego.",
     "acumulado_2026_al_27_jul": {
-      "SEO": {"total": 156, "meeting_set": 149, "qualified_opportunity": 27, "closed_lost": 102, "conversion": "18,1%", "perdida": "65,4%"},
-      "SEM": {"total": 11, "meeting_set": 8, "qualified_opportunity": 3, "closed_lost": 4, "conversion": "37,5%", "perdida": "36,4%"}
+      "SEO": {
+        "total": 156,
+        "meeting_set": 149,
+        "qualified_opportunity": 27,
+        "closed_lost": 102,
+        "conversion": "18,1%",
+        "perdida": "65,4%"
+      },
+      "SEM": {
+        "total": 11,
+        "meeting_set": 8,
+        "qualified_opportunity": 3,
+        "closed_lost": 4,
+        "conversion": "37,5%",
+        "perdida": "36,4%"
+      }
     },
-    "fuente_de_verdad": "El informe de embudo de HubSpot de Diego, segmento «Negocios Inbound - SEO»: 149 → 27 = 18,12%. Replicado exacto con la lista 970 el 27-jul-2026."
+    "fuente_de_verdad": "El informe de embudo de HubSpot de Diego, segmento «Negocios Inbound - SEO»: 149 → 27 = 18,12%. Replicado exacto con la lista 970 el 27-jul-2026.",
+    "acumulado_2026_al_30_ago": {
+      "SEO": {
+        "total": 181,
+        "meeting_set": 163,
+        "oportunidad_real": 62,
+        "closed_lost": 119,
+        "conversion": "38,0%",
+        "perdida": "65,7%"
+      },
+      "SEM": {
+        "total": 35,
+        "meeting_set": 20,
+        "oportunidad_real": 15,
+        "closed_lost": 12,
+        "conversion": "75,0%",
+        "perdida": "34,3%"
+      },
+      "por_mes_oportunidades": {
+        "meses": [
+          "feb",
+          "mar",
+          "abr",
+          "may",
+          "jun",
+          "jul",
+          "ago"
+        ],
+        "SEM_meeting_set": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          6,
+          10
+        ],
+        "SEM_oportunidades": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          6,
+          7
+        ],
+        "SEO_meeting_set": [
+          19,
+          30,
+          37,
+          27,
+          17,
+          17,
+          16
+        ],
+        "SEO_oportunidades": [
+          3,
+          1,
+          13,
+          9,
+          9,
+          13,
+          14
+        ]
+      },
+      "ojo": "El % mensual NO es una tasa de cohorte: un negocio puede agendar reunion un mes y calificar al siguiente. El mes cuenta el EVENTO."
+    }
   },
-
   "advertencia_de_lectura": {
     "volumen_sem": "SEM tiene solo 8 Meeting Set en todo el año. Cada negocio mueve la conversión ~12 puntos. Declara siempre esa fragilidad al lado del porcentaje; no lo presentes como una tendencia.",
-    "seo_no_significa_lo_mismo_en_todos_los_bloques": "Estas listas se segmentan por FUENTE ORIGINAL. El bloque 1 de inbounds usa la propiedad personalizada latest_source. Son criterios distintos y dan números distintos (el embudo da 149 Meeting Set con fuente original y 33 con latest_source). Es a propósito: cada bloque replica el informe que Diego usa para esa pregunta."
+    "seo_no_significa_lo_mismo_en_todos_los_bloques": "Estas listas se segmentan por FUENTE ORIGINAL. El bloque 1 de inbounds usa la propiedad personalizada latest_source. Son criterios distintos y dan números distintos (el embudo da 149 Meeting Set con fuente original y 33 con latest_source). Es a propósito: cada bloque replica el informe que Diego usa para esa pregunta.",
+    "group_by_si_funciona": "La nota de 2026-07-27 decia que el filtro de lista no se puede combinar con GROUP BY. El 31-ago-2026 se comprobo que SI funciona con DATE_TRUNC + GROUP BY sobre hs_v2_date_entered_*. Se usa para la tabla mensual."
   },
-
   "historial": {
-    "2026-07-27": "Creado. Antes el embudo se calculaba con filtros de propiedades mezclando fecha de entrada y etapa actual, y daba 20,3% SEO / 28,6% SEM contra el 18,12% del informe de Diego. Ahora se consultan sus listas 970 y 968 directamente."
+    "2026-07-27": "Creado. Antes el embudo se calculaba con filtros de propiedades mezclando fecha de entrada y etapa actual, y daba 20,3% SEO / 28,6% SEM contra el 18,12% del informe de Diego. Ahora se consultan sus listas 970 y 968 directamente.",
+    "2026-08-31": "CAMBIO DE DEFINICION pedido por Diego. Antes la etapa 2 contaba SOLO la entrada a Qualified Opportunity (presentationscheduled) y dejaba fuera a los negocios que el ejecutivo movio por otro camino. Ahora cuenta la entrada a Qualified Prospect, Qualified Opportunity o Value Proposition, la primera de las tres. Acumulado 2026: SEM sube de 6 a 15, SEO de 37 a 62. Saltos de etapa reales encontrados: Seguridad GSL (SEM, 21-ago, directo a Value Proposition, es el caso que detecto Diego), Constructora RIC (SEO, 12-jun), Cimolai (SEO, 5-ago) e Interacid (SEO, 24-ago) tambien directo a Value Proposition; y Compania Cielo Azul (SEO, 27-ago, 38 UF) directo a Qualified Opportunity sin pasar por las otras dos — por ese caso se agrego Qualified Opportunity como tercera etapa valida, mas alla de las dos que nombro Diego. AVISADO a Diego el 31-ago. Ademas se agrego la tabla mensual de oportunidades (D.opp), que era el otro pedido: medirlo mes a mes."
   }
 }
