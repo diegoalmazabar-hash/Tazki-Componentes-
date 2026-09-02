@@ -2208,6 +2208,55 @@
   },
   "ventana_de_exposicion": "Menos de una hora. Muy poco probable que Google haya rastreado la pagina en ese lapso, asi que el impacto esperado es nulo. Igual hay que vigilar impresiones y posicion los proximos dias.",
   "APRENDIZAJE_CLAVE": "El PUBLISH por API regenera el slug. El boton 'Actualizar' de la UI de HubSpot NO lo toca: Diego cambio el slug y guardo desde el editor y la URL quedo como el la escribio. Por eso el camino seguro para cambiar titulo/meta de un articulo YA PUBLICADO es: (1) yo hago el UPDATE por API, que solo escribe el borrador y no toca el slug; (2) Diego abre el editor, verifica el campo de URL y aprieta 'Actualizar'. NUNCA usar la accion PUBLISH por API sobre un articulo publicado.",
-  "pendiente_MIPER": "El UPDATE de la MIPER (contentId 217682667886) sigue en BORRADOR con el titulo y meta nuevos. Diego debe abrir el editor, confirmar que el campo de URL diga 'miper-chile-ds44-guia' y apretar 'Actualizar'. NO publicar por API."
+  "pendiente_MIPER": "RESUELTO 2-sep-2026. Diego aplico el cambio desde el editor y la URL quedo intacta. Verificado por API: title 'MIPER DS 44: que debe contener y cada cuanto se actualiza', slug 'blog/miper-chile-ds44-guia', state PUBLISHED. Confirma la regla: el boton Actualizar de la UI no toca el slug."
+ },
+ "_fase1_titulos_metas_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "estado": "COMPLETADA en los dos articulos, sin dano de URL",
+  "IRL": {
+   "contentId": 216048041317,
+   "titulo_antes": "IRL: que es y que exige el DS 44 (la nueva ODI)",
+   "titulo_ahora": "IRL DS 44: que es, que debe contener y cuando se entrega",
+   "meta_ahora": "El IRL es la Informacion de los Riesgos Laborales que exige el DS 44. Los cinco contenidos minimos, cuando entregarlo y que evidencia sirve en una fiscalizacion.",
+   "slug": "blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion (intacto tras restaurarlo)"
+  },
+  "MIPER": {
+   "contentId": 217682667886,
+   "titulo_antes": "MIPER en Chile: que es, requisitos del DS 44 y como actualizarla",
+   "titulo_ahora": "MIPER DS 44: que debe contener y cada cuanto se actualiza",
+   "meta_ahora": "Que exige el DS 44 sobre la matriz de identificacion de peligros: los cuatro contenidos minimos, la revision anual y los 30 dias para el programa preventivo.",
+   "slug": "blog/miper-chile-ds44-guia (intacto)"
+  },
+  "por_que": "Las busquedas definicionales del IRL dan 2.927 impresiones y 12 clics (0,41%) porque Google contesta la definicion en el buscador; las de formato dan 294 impresiones y 8 clics (2,72%). Los titulos nuevos prometen contenido y momento de entrega, no solo la definicion.",
+  "COMO_MEDIR_EL_EFECTO": "Comparar en Search Console la pagina del IRL y la de MIPER: clics, impresiones, CTR y posicion media, 28 dias antes del 2-sep contra 28 dias despues. Filtrar solo filas WEB y aplicar el regex de marca de seo_config.json.",
+  "BASELINE_al_2_sep_2026": {
+   "IRL_5ago_1sep": {
+    "impresiones_top_query_irl": 2959,
+    "clics": 37,
+    "posicion": 3.39,
+    "definicionales": {
+     "impr": 2927,
+     "clics": 12,
+     "ctr": "0,41%"
+    },
+    "formato": {
+     "impr": 294,
+     "clics": 8,
+     "ctr": "2,72%"
+    }
+   },
+   "MIPER_5ago_1sep": {
+    "miper": {
+     "impr": 916,
+     "clics": 3,
+     "pos": 5.49
+    },
+    "miper_que_es": {
+     "impr": 399,
+     "clics": 1
+    }
+   }
+  },
+  "pendiente": "Colgar el formato IRL descargable dentro del articulo (fase 2 del plan) y armar la landing de descarga con formulario."
  }
 }
