@@ -2197,6 +2197,17 @@
     "titulo": "MIPER DS 44: que debe contener y cada cuanto se actualiza",
     "meta": "Que exige el DS 44 sobre la matriz de identificacion de peligros: los cuatro contenidos minimos, la revision anual y los 30 dias para el programa preventivo."
    }
-  }
+  },
+  "RESUELTO": "SI — 2-sep-2026, el mismo dia, a los pocos minutos. Diego restauro el slug desde el editor de HubSpot.",
+  "verificacion_por_api": {
+   "absoluteUrl": "https://tazki.cl/blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion (ORIGINAL, restaurado)",
+   "title": "IRL DS 44: que es, que debe contener y cuando se entrega (NUEVO, se mantuvo)",
+   "metaDescription": "la nueva, se mantuvo",
+   "postBody": "intacto, no se toco ni una palabra",
+   "tags": "highlight, IRL — preservados"
+  },
+  "ventana_de_exposicion": "Menos de una hora. Muy poco probable que Google haya rastreado la pagina en ese lapso, asi que el impacto esperado es nulo. Igual hay que vigilar impresiones y posicion los proximos dias.",
+  "APRENDIZAJE_CLAVE": "El PUBLISH por API regenera el slug. El boton 'Actualizar' de la UI de HubSpot NO lo toca: Diego cambio el slug y guardo desde el editor y la URL quedo como el la escribio. Por eso el camino seguro para cambiar titulo/meta de un articulo YA PUBLICADO es: (1) yo hago el UPDATE por API, que solo escribe el borrador y no toca el slug; (2) Diego abre el editor, verifica el campo de URL y aprieta 'Actualizar'. NUNCA usar la accion PUBLISH por API sobre un articulo publicado.",
+  "pendiente_MIPER": "El UPDATE de la MIPER (contentId 217682667886) sigue en BORRADOR con el titulo y meta nuevos. Diego debe abrir el editor, confirmar que el campo de URL diga 'miper-chile-ds44-guia' y apretar 'Actualizar'. NO publicar por API."
  }
 }
