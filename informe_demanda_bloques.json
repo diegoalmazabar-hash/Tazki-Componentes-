@@ -2171,5 +2171,32 @@
   },
   "CONSECUENCIA_PARA_EL_PLAN": "Confirma con datos la propuesta de Diego del 24-ago, y le pone foco: el descargable del IRL NO es un resumen del articulo, es EL FORMATO. La demanda ya existe y ya clica.",
   "REGLA": "Antes de decidir un descargable, separar las consultas de la pagina en definicionales vs operativas/formato. El descargable rinde donde la gente busca un formato, un registro o una plantilla; no donde busca una definicion."
+ },
+ "_INCIDENTE_slug_irl_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "gravedad": "ALTA - requiere accion de Diego en la UI de HubSpot",
+  "que_paso": "Diego aprobo aplicar los titulos y metadescripciones nuevos. Hice UPDATE (title + metaDescription) y luego PUBLISH del articulo del IRL, contentId 216048041317. El PUBLISH REGENERO EL SLUG.",
+  "slug_antes": "blog/nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion",
+  "slug_ahora": "blog/irl-qu-es-y-qu-exige-el-ds-44-la-nueva-odi",
+  "por_que_importa": "Ese articulo concentra ~11.000 impresiones al mes en posicion 3-4 y es el 70% de las impresiones del blog. Ademas ya arrastraba una URL antigua de una migracion previa. Un tercer cambio de URL puede costar posiciones.",
+  "ojo": "El slug nuevo se genero desde el titulo ANTIGUO ('IRL: que es y que exige el DS 44 (la nueva ODI)'), no desde el nuevo. HubSpot regenero el slug al publicar.",
+  "REGLA_NUEVA": "NUNCA usar PUBLISH de manage_blog_post sobre un articulo ya publicado solo para aplicar un cambio de titulo o metadescripcion: el PUBLISH regenera el slug y cambia la URL. La herramienta manage_blog_post NO tiene campo slug, asi que no se puede corregir desde aca. Los cambios de titulo/meta en articulos publicados los debe aplicar Diego desde el editor de HubSpot, o hay que verificar el slug inmediatamente despues.",
+  "estado_MIPER": "El UPDATE de la MIPER (contentId 217682667886) quedo en BORRADOR y NO se publico. Su slug sigue intacto: blog/miper-chile-ds44-guia. NO publicar hasta resolver el tema del slug.",
+  "que_debe_hacer_diego": [
+   "Entrar al editor del articulo del IRL en HubSpot y restaurar el slug a 'nueva-irl-un-desafio-para-las-empresas-y-como-digitalizar-su-implementacion'",
+   "Verificar que exista redireccion 301 desde la URL nueva hacia la restaurada",
+   "Revisar en Search Console que no caigan las impresiones del articulo los proximos dias"
+  ],
+  "no_pude_verificar_yo": "tazki.cl esta bloqueado por la politica de red de este entorno (curl devuelve 000), asi que no pude comprobar si HubSpot creo la redireccion automatica.",
+  "titulo_y_meta_aplicados": {
+   "IRL": {
+    "titulo": "IRL DS 44: que es, que debe contener y cuando se entrega",
+    "meta": "El IRL es la Informacion de los Riesgos Laborales que exige el DS 44. Los cinco contenidos minimos, cuando entregarlo y que evidencia sirve en una fiscalizacion."
+   },
+   "MIPER_en_borrador": {
+    "titulo": "MIPER DS 44: que debe contener y cada cuanto se actualiza",
+    "meta": "Que exige el DS 44 sobre la matriz de identificacion de peligros: los cuatro contenidos minimos, la revision anual y los 30 dias para el programa preventivo."
+   }
+  }
  }
 }
