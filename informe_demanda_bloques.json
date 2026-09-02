@@ -2074,5 +2074,54 @@
   ],
   "arreglo_en_plan_check": "Se agrego un chequeo de etiquetas «al N de <mes>» SIN parentesis (el chequeo viejo solo miraba «(al N)»), con lookbehind para no marcar rangos de semana como «del 3 al 9 de agosto». Probado con una regresion a proposito.",
   "PENDIENTE_DE_VERDAD": "El verificador solo cubre etiquetas de fecha y sumas cruzadas. Los parrafos de lectura siguen siendo texto libre y NADIE los valida. En cada corrida de los lunes hay que releer uno por uno los parrafos <p class='read'> de todos los bloques que cambiaron de numero."
+ },
+ "_reparto_de_trabajo_con_la_sesion_crm_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "acordado_con": "Diego",
+  "REGLA": "El trabajo en HubSpot se reparte POR TIPO DE OBJETO, no por proyecto. Esta sesion publica CONTENIDO; la sesion de CRM hace la PLOMERIA.",
+  "esta_sesion_hace": [
+   "Articulos de blog: crear, editar y publicar (manage_blog_post)",
+   "Landing pages: crear, editar, estilar y publicar (manage_landing_page) — ya ejecutado con la Landing C el 30-ago",
+   "Emails de marketing y campanias",
+   "Registros de CRM",
+   "TODA la medicion y el informe de generacion de demanda"
+  ],
+  "la_sesion_crm_hace": [
+   "Workflows (esta sesion NO tiene herramienta de workflows)",
+   "Formularios, listas y propiedades nuevas (esta sesion solo puede leerlas y usarlas)",
+   "Etapas del ciclo de vida y el rastreo de Lead a MQL"
+  ],
+  "por_que_el_plan_organico_se_hace_aca": "El inventario de contenidos, las reglas de medicion y la rutina de los lunes viven en este repo. Si otra sesion publica articulos que este inventario no tiene, se repite el error corregido el 31-ago: las filas viejas contaban solo los articulos que existian cuando se midieron y julio decia 349 visitas en vez de 383.",
+  "ADVERTENCIA_OPERATIVA": "NUNCA las dos sesiones editando el mismo activo. La herramienta de HubSpot trabaja sobre un borrador compartido: dos agentes tocando la misma landing o el mismo articulo se pisan y gana el ultimo que guarda.",
+  "AL_PUBLICAR_CONTENIDO_NUEVO": "Cada articulo o recurso nuevo hay que agregarlo al inventario de _regla_analitica_de_contenido_31_ago_2026 con su contentId y recalcular la serie completa, o el informe lo subcuenta."
+ },
+ "_REGLA_lista_de_leads_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "instruccion_textual_de_Diego": "los leads siempre debes sacarlos de esta lista: https://app.hubspot.com/contacts/50744593/objectLists/1212/filters",
+  "REGLA": "Los Leads SIEMPRE salen de la lista 1212 de HubSpot. Nunca reconstruir la definicion con filtros de formularios ni de lifecyclestage.",
+  "como_consultar": "SELECT ... FROM CONTACT WHERE hs_crm_search.ilsListIds = '1212'",
+  "estado_al_2_sep_2026": {
+   "total": 24,
+   "lead": 18,
+   "subscriber": 4,
+   "marketingqualifiedlead": 2
+  },
+  "hallazgo_1": "Los 4 en Suscriptor son los 4 del newsletter (Oscar Villalobos, Dominga Angel, Sonia Fernandez, Carolin Bruna): entran a la lista pero NO tienen fecha de entrada a Lead. El newsletter sigue sin estampar Lead.",
+  "hallazgo_2": "Los 2 MQL (Matias Martinez, MQL 29-jul, y Fresia Matamala, MQL 20-jul) TAMPOCO tienen hs_v2_date_entered_lead: saltaron directo a MQL. Por la regla literal (MQL cuenta solo si fecha MQL > fecha Lead) serian «MQL directo», pero en sustancia son justo la conversion Lead->MQL que queremos medir: descargaron el ebook del DS 44 y despues se convirtieron. No registran por el mismo problema de estampado.",
+  "hallazgo_3": "Aparecieron formularios nuevos que no estaban en el inventario de 6: «Form leads - ebook Siniestralidad» y «Form leads - ebook - DS 44». Hay que actualizar el inventario de formularios.",
+  "OJO_CONTACTOS_DE_PRUEBA": "En la lista hay contactos de prueba que inflan el conteo: 'Diego de Tazki' (diegoalmazabar81+final@gmail.com, 28-ago) y tres creados el 1-sep con un minuto de diferencia y correos desechables — 'juan perez' (mdsdafdvillal@gmail.com), 'Jose Lopez' (ciceni3715@mediseat.com) y 'Carol Ninas' (tpobd1p1yr@ruutukf.com). Preguntarle a Diego cuales son pruebas antes de publicar cualquier cifra de Leads."
+ },
+ "_estado_newsletter_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "contexto": "Diego dice que la sesion de CRM ya soluciono el formulario de newsletter, que no estampaba Lead.",
+  "lo_que_veo": "Los 4 contactos de newsletter de la lista 1212 (10-ago, 17-ago, 21-ago y 28-ago) siguen en Suscriptor y sin fecha de entrada a Lead. Los 2 que si estan en Lead con conversion de newsletter (Ruben Alarcon y Patricia Gonzalez) entraron a Lead el 3-jul y el 10-jun, ANTES de suscribirse: no los estampo el newsletter.",
+  "conclusion": "NO hay evidencia todavia de que el arreglo funcione. La ultima suscripcion es del 28-ago, asi que si el workflow se creo despues no ha tenido a nadie que estampar. Y los 4 contactos viejos no se corrigieron hacia atras.",
+  "que_pedirle_a_la_sesion_crm": [
+   "Confirmar que el disparador de inscripcion del workflow este activo",
+   "Corregir hacia atras a Dominga Angel, Oscar Villalobos, Sonia Fernandez y Carolin Bruna",
+   "Estampar Lead tambien a Matias Martinez y Fresia Matamala, que saltaron a MQL sin pasar por Lead",
+   "Avisar cuando entre la primera suscripcion nueva para verificarla"
+  ],
+  "por_que_importa_aca": "La definicion de Lead y el cohorte de 30 dias para medir Lead a MQL dependen de que el newsletter estampe Lead. Mientras no estampe, los suscriptores no entran al denominador."
  }
 }
