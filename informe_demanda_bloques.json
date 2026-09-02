@@ -2123,5 +2123,53 @@
    "Avisar cuando entre la primera suscripcion nueva para verificarla"
   ],
   "por_que_importa_aca": "La definicion de Lead y el cohorte de 30 dias para medir Lead a MQL dependen de que el newsletter estampe Lead. Mientras no estampe, los suscriptores no entran al denominador."
+ },
+ "_hallazgo_definicional_vs_formato_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "fuente": "Search Console via Supermetrics (GW, sc-domain:tazki.cl), consultas por landingPage, 5-ago a 1-sep-2026, solo filas WEB.",
+  "HALLAZGO": "Las busquedas DEFINICIONALES traen casi todo el volumen y no dejan clics; las busquedas de FORMATO clican casi 7 veces mejor aunque rankeen peor. Google contesta la definicion en el fragmento destacado y el usuario no entra.",
+  "IRL_definicionales": {
+   "impresiones": 2927,
+   "clics": 12,
+   "ctr": "0,41%",
+   "ejemplos": [
+    "que es irl: 532 impr, 0 clics, pos 2,48",
+    "irl significado: 525 impr, 1 clic, pos 3,47",
+    "que es el irl en prevencion de riesgos: 536 impr, 2 clics, pos 3,30",
+    "que es el irl: 352 impr, 2 clics",
+    "irl que es: 341 impr, 4 clics",
+    "que significa irl: 258 impr, 3 clics"
+   ]
+  },
+  "IRL_formato": {
+   "impresiones": 294,
+   "clics": 8,
+   "ctr": "2,72%",
+   "ejemplos": [
+    "formato irl ds 44: 65 impr, 4 clics, pos 7,15 = 6,2% CTR",
+    "formato irl: 77 impr, 2 clics, pos 7,38",
+    "irl ds 44 formato: 39 impr, 1 clic",
+    "irl formato: 56 impr, 0 clics",
+    "formato de irl: 27 impr, 0 clics",
+    "registro irl: 30 impr, 1 clic, pos 1,8"
+   ]
+  },
+  "IRL_top_absoluto": [
+   "irl: 2.959 impr, 37 clics, pos 3,39",
+   "irl ds 44: 1.185 impr, 19 clics, pos 3,57"
+  ],
+  "IRL_hueco_odi": "«la odi» 358 impr + «odi» 355 impr + «que significa odi» 28 impr = 741 impresiones con CERO clics, en posicion 7 a 9. El articulo cubre ODI vs IRL pero no captura esas busquedas.",
+  "MIPER": {
+   "top": [
+    "miper: 916 impr, 3 clics, pos 5,49",
+    "miper que es: 399 impr, 1 clic",
+    "miper ds 44: 182 impr, 3 clics",
+    "que es miper: 140 impr, 1 clic",
+    "matriz miper: 91 impr, 0 clics"
+   ],
+   "OJO": "Varias consultas de MIPER son literalmente preguntas de prueba de un curso ('el miper es una herramienta que permite reconocer los peligros... a) verdadero b) falso', 30 impr; y otras dos variantes). Es trafico de estudiantes rindiendo un test, sin valor comercial. No invertir ahi."
+  },
+  "CONSECUENCIA_PARA_EL_PLAN": "Confirma con datos la propuesta de Diego del 24-ago, y le pone foco: el descargable del IRL NO es un resumen del articulo, es EL FORMATO. La demanda ya existe y ya clica.",
+  "REGLA": "Antes de decidir un descargable, separar las consultas de la pagina en definicionales vs operativas/formato. El descargable rinde donde la gente busca un formato, un registro o una plantilla; no donde busca una definicion."
  }
 }
