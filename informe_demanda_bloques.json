@@ -2275,5 +2275,35 @@
   "CORREGIDO_HOY": "La metadescripcion del articulo del IRL decia «Los cinco contenidos minimos». Se cambio a «Los cuatro contenidos minimos» (queda en borrador: Diego debe apretar Actualizar en el editor).",
   "PENDIENTE_EN_EL_ARTICULO": "El cuerpo del articulo publicado dice «el articulo 15 exige abordar» y lista CINCO vinetas. Hay que corregirlo a cuatro numerales y aprovechar de enriquecer el numeral 1 (los cuatro subliterales), el 2 (emergencias, catastrofes y desastres) y el 4 (sinonimos, formula, aspecto, olor, almacenamiento, primeros auxilios, ficha tecnica y etiquetado). Tambien agregar el matiz de «mientras la matriz este pendiente».",
   "LECCION": "Vale la pena pedirle a Diego el texto oficial de cada articulo que citemos. La verificacion contra el decreto encontro un error real que veniamos arrastrando desde el articulo publicado."
+ },
+ "_pieza_formato_irl_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "estado": "BORRADOR creado, NO publicado",
+  "recurso_hubspot": {
+   "contentId": 220985961987,
+   "blog": "Recursos (216050734728)",
+   "titulo": "Formato IRL DS 44: descargalo en Excel con el registro de entregas",
+   "editor": "https://app.hubspot.com/blog/50744593/editor/220985961987/content",
+   "OJO_SLUG": "HubSpot genero 'recursos/formato-irl-ds-44-desc-rgalo-en-excel-con-el-registro-de-entregas' — mal formado ('desc-rgalo'). Diego debe cambiarlo a 'recursos/formato-irl-ds-44' ANTES de publicar. Una vez publicado, cambiar el slug cuesta.",
+   "tag": "sin tag; el recurso de siniestralidad usa 'Ebook'. LIST_TAGS devolvio vacio (falta scope), asi que Diego lo agrega desde el editor."
+  },
+  "archivo": "/tmp/piezas/Formato-IRL-DS44-Tazki.xlsx — dos hojas: formato para completar y firmar, y registro de entregas con estado calculado.",
+  "MODELO_QUE_SE_REPLICA": "El recurso «Como enfrentar la tasa de siniestralidad» (contentId 220394781013, blog Recursos, tag Ebook). Su cuerpo describe el contenido y cierra con «Completa el formulario y recibe el e-book en tu correo». El formulario lo inyecta la plantilla del blog Recursos, no va en el HTML.",
+  "LO_QUE_YO_NO_PUEDO_HACER": [
+   "Subir el archivo al gestor de archivos de HubSpot: no tengo herramienta de carga",
+   "Crear el formulario: no tengo herramienta de formularios",
+   "Crear o clonar el workflow que envia el archivo por correo: no tengo herramienta de workflows"
+  ],
+  "REPARTO": "Coherente con la regla del 2-sep: contenido yo, plomeria la sesion de CRM.",
+  "CHECKLIST_PARA_PUBLICAR": [
+   "1. Diego sube el .xlsx al gestor de archivos de HubSpot y me pasa la URL",
+   "2. Clonar el formulario del ebook como «Form leads - formato IRL» (sesion CRM o Diego)",
+   "3. Clonar el workflow del ebook de siniestralidad para que envie el formato IRL (sesion CRM)",
+   "4. Diego corrige el slug a 'recursos/formato-irl-ds-44' y agrega el tag",
+   "5. Rolando Uribe revisa el formato (es el prevencionista que reviso el ebook de siniestralidad)",
+   "6. Recien ahi publicar, y colgar el bloque de descarga dentro del articulo del IRL"
+  ],
+  "POR_QUE_NO_PUBLICAR_ANTES": "Si se publica sin el archivo cargado y sin el workflow, la persona llena el formulario y no recibe nada. Peor que no tenerlo.",
+  "REVISOR_TECNICO_IDENTIFICADO": "Rolando Uribe, experto en prevencion de riesgos, aparece como revisor tecnico del ebook de siniestralidad. Es el filtro interno para validar el formato y el ejemplo del operador de bodega."
  }
 }
