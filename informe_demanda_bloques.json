@@ -2258,5 +2258,22 @@
    }
   },
   "pendiente": "Colgar el formato IRL descargable dentro del articulo (fase 2 del plan) y armar la landing de descarga con formulario."
+ },
+ "_VERIFICACION_articulo_15_ds44_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "fuente": "Texto oficial del articulo 15 del DS 44, BCN/LeyChile idNorma 1205298. Diego lo pego en el chat porque este entorno tiene bloqueado bcn.cl.",
+  "HALLAZGO_PRINCIPAL": "El decreto lista CUATRO contenidos minimos, no cinco. El articulo publicado por Tazki separa «riesgos» y «medidas preventivas» en dos vinetas, pero el NUMERAL 2 del articulo 15 los trae juntos: «Los riesgos a los que podrian estar expuestas y las respectivas medidas preventivas».",
+  "los_cuatro_numerales": {
+   "1": "Caracteristicas minimas que debe reunir el lugar de trabajo: a) espacio de trabajo; b) condiciones ambientales del puesto; c) condiciones de orden y aseo exigidas en el puesto; d) maquinas y herramientas de trabajo que se deberan emplear.",
+   "2": "Los riesgos a los que podrian estar expuestas y las respectivas medidas preventivas, INCLUIDOS los riesgos y medidas derivados de emergencias, catastrofes y desastres.",
+   "3": "Los procedimientos de trabajo seguro.",
+   "4": "Caracteristicas de los productos y sustancias que se manipularan: nombre, sinonimos, formula, aspecto, olor, modo de empleo, limites de exposicion permisible, forma de almacenamiento y uso de EPP, medidas sobre primeros auxilios y otras procedentes, conforme a la ficha tecnica de seguridad del producto y al etiquetado."
+  },
+  "PERIODICIDAD_CONFIRMADO": "El articulo 15 NO fija ninguna periodicidad. Solo exige: (a) entregar la informacion PREVIO AL INICIO DE LAS LABORES; (b) informar de nuevo cada vez que la persona se incorpore a un nuevo proceso productivo, o cambien las tecnologias, los materiales o las sustancias utilizados. Cualquier «revision anual» del IRL es politica de la empresa, NO obligacion del decreto. (La revision anual si existe para la MIPER, no confundir.)",
+  "otro_hallazgo_util": "«Mientras se encuentre pendiente la elaboracion de la matriz y el programa, la entidad empleadora debera informar los riesgos inherentes a la actividad que realiza.» Es decir: no tener MIPER todavia NO exime de entregar el IRL. Ese matiz no esta en el articulo publicado de Tazki y es contenido valioso.",
+  "vinculo_con_miper": "El texto dice que la informacion se determina «conforme a la matriz de riesgos y el programa de trabajo preventivo regulados en este reglamento». Confirma la vinculacion que ya afirmaba el articulo de Tazki.",
+  "CORREGIDO_HOY": "La metadescripcion del articulo del IRL decia «Los cinco contenidos minimos». Se cambio a «Los cuatro contenidos minimos» (queda en borrador: Diego debe apretar Actualizar en el editor).",
+  "PENDIENTE_EN_EL_ARTICULO": "El cuerpo del articulo publicado dice «el articulo 15 exige abordar» y lista CINCO vinetas. Hay que corregirlo a cuatro numerales y aprovechar de enriquecer el numeral 1 (los cuatro subliterales), el 2 (emergencias, catastrofes y desastres) y el 4 (sinonimos, formula, aspecto, olor, almacenamiento, primeros auxilios, ficha tecnica y etiquetado). Tambien agregar el matiz de «mientras la matriz este pendiente».",
+  "LECCION": "Vale la pena pedirle a Diego el texto oficial de cada articulo que citemos. La verificacion contra el decreto encontro un error real que veniamos arrastrando desde el articulo publicado."
  }
 }
