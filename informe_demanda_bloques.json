@@ -2278,7 +2278,7 @@
  },
  "_pieza_formato_irl_2_sep_2026": {
   "fecha": "2-sep-2026",
-  "estado": "BORRADOR creado, NO publicado",
+  "estado": "PUBLICADO. La sesion de CRM subio el archivo, clono formulario y workflow. Slug corregido a 'recursos/formato-irl-ds-44'.",
   "recurso_hubspot": {
    "contentId": 220985961987,
    "blog": "Recursos (216050734728)",
@@ -2304,6 +2304,22 @@
    "6. Recien ahi publicar, y colgar el bloque de descarga dentro del articulo del IRL"
   ],
   "POR_QUE_NO_PUBLICAR_ANTES": "Si se publica sin el archivo cargado y sin el workflow, la persona llena el formulario y no recibe nada. Peor que no tenerlo.",
-  "REVISOR_TECNICO_IDENTIFICADO": "Rolando Uribe, experto en prevencion de riesgos, aparece como revisor tecnico del ebook de siniestralidad. Es el filtro interno para validar el formato y el ejemplo del operador de bodega."
+  "REVISOR_TECNICO_IDENTIFICADO": "Rolando Uribe, experto en prevencion de riesgos, aparece como revisor tecnico del ebook de siniestralidad. Es el filtro interno para validar el formato y el ejemplo del operador de bodega.",
+  "url_recurso": "https://tazki.cl/recursos/formato-irl-ds-44"
+ },
+ "_correccion_articulo_irl_2_sep_2026": {
+  "fecha": "2-sep-2026",
+  "contentId": 216048041317,
+  "estado": "EN BORRADOR — Diego debe apretar Actualizar en el editor",
+  "cambios": [
+   "Los contenidos minimos pasan de 5 vinetas a los 4 NUMERALES del articulo 15, con el detalle real del decreto: los cuatro subliterales del numeral 1, 'emergencias, catastrofes y desastres' en el 2, y la lista completa del 4 (nombre, sinonimos, formula, aspecto, olor, modo de empleo, limites de exposicion, almacenamiento, EPP, primeros auxilios, ficha tecnica y etiquetado).",
+   "Parrafo nuevo: el articulo 15 NO fija periodicidad. Lo que activa una nueva entrega son los cambios, no el calendario. La revision anual es de la MIPER.",
+   "Parrafo nuevo: no tener la matriz todavia NO exime de entregar el IRL (matiz del propio articulo 15).",
+   "Bloque de descarga del formato IRL insertado arriba, despues del parrafo 'En simple', que es donde aterrizan las busquedas de formato.",
+   "Dos FAQ nuevas: '¿Cuantos contenidos minimos exige el articulo 15?' y '¿Existe un formato oficial de IRL?', esta ultima enlazando al recurso.",
+   "FAQ '¿Cada cuanto debe actualizarse el IRL?' reescrita para decir que no hay periodicidad."
+  ],
+  "por_que_el_bloque_va_arriba": "Las consultas de formato (294 impresiones/mes, 2,72% de CTR) son las que clican. El bloque va antes de que el lector se pierda en la parte definicional.",
+  "REGLA_RESPETADA": "Se hizo UPDATE por API (solo escribe el borrador, no toca el slug). El PUBLISH lo hace Diego desde el editor."
  }
 }
