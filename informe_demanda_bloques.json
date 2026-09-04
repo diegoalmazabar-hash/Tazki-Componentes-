@@ -2342,7 +2342,7 @@
  },
  "_pieza_matriz_iper_3_sep_2026": {
   "fecha": "3-sep-2026",
-  "estado": "BORRADOR corregido el 4-sep. Planilla reconstruida al metodo VEP del ISP y copy reescrito. Falta resubir el xlsx y corregir el slug.",
+  "estado": "PUBLICADO Y VERIFICADO el 4-sep-2026.",
   "archivo": "/tmp/piezas/Matriz-IPER-DS44-Tazki.xlsx — 4 hojas: Matriz IPER (100 filas), Emergencias, Control de versiones, Como usarla.",
   "recurso_hubspot": {
    "contentId": 221118818139,
@@ -2361,7 +2361,8 @@
   "limitacion_del_dato": "Search Console solo muestra consultas donde la pagina YA aparece. Si hay demanda de «matriz iper excel» donde Tazki no rankea, es invisible. Conviene mirarlo con el planificador de Google Ads antes de invertir mas.",
   "OJO_SLUG": "El slug quedo como '-temporary-slug-8fb178a0-8015-4eb2-9518-46d94963e613'. Debe quedar 'matriz-iper-ds-44' ANTES de publicar.",
   "tag": "'Ebook' ya aplicado por la sesion de CRM.",
-  "resubir_archivo": "El xlsx CAMBIO por completo. Hay que reemplazarlo en HubSpot Files MANTENIENDO el nombre Matriz-IPER-DS44-Tazki.xlsx, porque el correo del workflow apunta a tazki.cl/hubfs/E-books/Matriz-IPER-DS44-Tazki.xlsx"
+  "resubir_archivo": "El xlsx CAMBIO por completo. Hay que reemplazarlo en HubSpot Files MANTENIENDO el nombre Matriz-IPER-DS44-Tazki.xlsx, porque el correo del workflow apunta a tazki.cl/hubfs/E-books/Matriz-IPER-DS44-Tazki.xlsx",
+  "url_recurso": "https://tazki.cl/recursos/matriz-iper-ds-44"
  },
  "_GUIA_ISP_metodologia_oficial_4_sep_2026": {
   "fecha": "4-sep-2026",
@@ -2382,5 +2383,22 @@
   "ERROR_MIO_CORREGIDO": "La primera version de la planilla usaba escalas 1-4 y niveles Bajo/Moderado/Alto/Critico, inventados por mi. NO cumplian la guia. Reconstruida entera al metodo VEP y al formato del Anexo 6. Verificada: la grilla reproduce exacto la tabla de la pag. 9 y el ejemplo trabajado del Anexo 7.",
   "ERROR_DEL_COPY_CORREGIDO": "El borrador decia «los cuatro contenidos minimos que exige el articulo 7» y llamaba a la hoja de emergencias «el cuarto contenido». Los cuatro contenidos son del articulo 15 (IRL); proyecte esa estructura al articulo equivocado. Lo detecto la sesion de CRM. Copy y meta description reescritos sin esa afirmacion.",
   "PENDIENTE": "El archivo DS44-articulos-7-y-8-texto-oficial.md NO llego: solo llego el PDF de la guia. Sigue sin verificarse el texto literal de los articulos 7 y 8. Lo que si esta respaldado por la guia del ISP: los 30 dias corridos del articulo 8 y la revision anual de la matriz."
+ },
+ "_banners_de_descarga_4_sep_2026": {
+  "fecha": "4-sep-2026",
+  "estado": "LOS DOS EN VIVO Y VERIFICADOS",
+  "IRL": "Articulo blog/nueva-irl-un-desafio-... (216048041317) -> banner a tazki.cl/recursos/formato-irl-ds-44",
+  "MIPER": "Articulo blog/miper-chile-ds44-guia (217682667886) -> banner a tazki.cl/recursos/matriz-iper-ds-44",
+  "ubicacion": "Arriba, despues de la introduccion, antes de que el lector entre en la parte definicional. Es donde aterrizan las busquedas de formato/plantilla, que son las que clican.",
+  "extra_en_el_articulo_MIPER": "Se agrego una seccion nueva «Con que metodologia se evaluan los riesgos» con el metodo VEP, las escalas 1/2/4, los cuatro niveles y su accion; un error frecuente nuevo («inventar una escala propia»); una FAQ sobre que metodologia corresponde; y una FAQ sobre el formato oficial que enlaza al recurso. Todo sacado de la Guia del ISP leida directamente.",
+  "verificacion": "GET_POST tras publicar: HTML plano sin escapar, banner presente, slug original intacto en ambos, tags preservados."
+ },
+ "_PENDIENTE_articulo_7_texto_literal": {
+  "fecha": "4-sep-2026",
+  "estado": "ABIERTO",
+  "que_falta": "El archivo DS44-articulos-7-y-8-texto-oficial.md nunca llego a esta sesion. Solo llego el PDF de la Guia del ISP.",
+  "riesgo_vivo": "El articulo de la MIPER (217682667886) dice en el cuerpo «Como minimo, la matriz debe considerar:» con CUATRO vinetas, y su metaDescription dice «los cuatro contenidos minimos». La sesion de CRM sostiene que el articulo 7 lista DOS elementos minimos (identificacion de peligros y evaluacion de riesgos) y que los cuatro son del articulo 15. No se corrigio porque no se puede reemplazar una afirmacion normativa por otra sin ver el decreto.",
+  "que_hacer": "Cuando llegue el texto del articulo 7: corregir en UNA sola pasada el cuerpo y la metaDescription del articulo de la MIPER. Diego aprieta Actualizar una vez.",
+  "leccion": "El mismo error de proyectar la estructura del articulo 15 a otro articulo ya aparecio dos veces (en el copy del recurso y posiblemente en el articulo). Verificar articulo por articulo, nunca por analogia."
  }
 }
