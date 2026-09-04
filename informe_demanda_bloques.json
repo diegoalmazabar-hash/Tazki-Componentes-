@@ -2339,5 +2339,25 @@
   "REGLA_NUEVA": "NUNCA envolver el postBody en CDATA al llamar manage_blog_post. Se manda como HTML plano y punto.",
   "REGLA_NUEVA_2": "Despues de CADA cambio de cuerpo de articulo, hacer GET_POST y confirmar que el HTML NO viene escapado, ANTES de pedirle a Diego que publique. Hoy lo verifique despues y la pagina estuvo rota unos minutos.",
   "ojo": "El recurso creado con CDATA (contentId 220985961987) NO se escapo. El problema aparecio en el UPDATE del articulo, no en el CREATE. Igual, la regla es no usar CDATA en ninguno de los dos."
+ },
+ "_pieza_matriz_iper_3_sep_2026": {
+  "fecha": "3-sep-2026",
+  "estado": "BORRADOR — falta plomeria y verificacion normativa",
+  "archivo": "/tmp/piezas/Matriz-IPER-DS44-Tazki.xlsx — 4 hojas: Matriz IPER (100 filas), Emergencias, Control de versiones, Como usarla.",
+  "recurso_hubspot": {
+   "contentId": 221118818139,
+   "blog": "Recursos (216050734728)",
+   "titulo": "Matriz IPER DS 44: descarga la planilla editable en Excel",
+   "editor": "https://app.hubspot.com/blog/50744593/editor/221118818139/content",
+   "OJO_SLUG": "HubSpot genero 'matriz-iper-ds-44-descarga-la-planilla-editable-en-excel'. Cambiar a 'matriz-iper-ds-44' ANTES de publicar.",
+   "OJO_TAG": "No se pudo poner el tag: 'Ebook' no existe en el portal segun la API y LIST_TAGS devuelve vacio (falta scope de blog-tags-read). Diego lo agrega desde el editor."
+  },
+  "PENDIENTE_NORMATIVO": "El texto LITERAL del articulo 7 y del articulo 8 NO esta verificado. Los cuatro contenidos minimos se corroboraron con el articulo publicado de Tazki y con fuentes secundarias (ACHS, ISL, ISP) via busqueda, pero no con el decreto. Pedirle a Diego que pegue ambos articulos, igual que hizo con el 15 — ahi aparecio un error real.",
+  "hallazgo_de_la_busqueda": "El articulo 7 exige ademas, como minimo y por cada puesto, los peligros y la evaluacion de riesgos CON PERSPECTIVA DE GENERO. Por eso la matriz lleva una columna dedicada.",
+  "existe_guia_oficial": "El ISP publico una Guia IPER del DS 44 (Res. Exenta E668/25). Vale la pena conseguirla antes de publicar: es la metodologia que espera la autoridad. No pude descargarla, ispch.gob.cl esta bloqueado en este entorno.",
+  "BUG_CORREGIDO": "Las formulas de Nivel de riesgo y Clasificacion se habian escrito en las columnas O y P en vez de N y O, y referenciaban M*N en vez de L*M. Detectado leyendo el archivo de vuelta y corregido. Es el segundo bug de indice de columna en dos planillas: SIEMPRE releer el xlsx y verificar en que celda quedo cada formula.",
+  "limite_declarado": "La clasificacion multiplicativa subestima eventos raros pero fatales (probabilidad 1 x consecuencia 4 = 4 = Moderado). Queda advertido en la hoja «Como usarla» con una regla practica.",
+  "EXPECTATIVA_MAS_BAJA_QUE_IRL": "Search Console 5-ago a 1-sep: las consultas definicionales de MIPER dan 944 impresiones y 4 clics (0,42%); las de matriz/guia solo 156 impresiones y 1 clic. En el IRL ese mismo grupo daba 294 impresiones y 8 clics. Ademas ~62 impresiones son preguntas de prueba de un curso. Esperar bastante menos que del formato IRL.",
+  "limitacion_del_dato": "Search Console solo muestra consultas donde la pagina YA aparece. Si hay demanda de «matriz iper excel» donde Tazki no rankea, es invisible. Conviene mirarlo con el planificador de Google Ads antes de invertir mas."
  }
 }
