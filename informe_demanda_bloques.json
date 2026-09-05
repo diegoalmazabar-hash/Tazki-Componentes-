@@ -2400,5 +2400,33 @@
   "riesgo_vivo": "El articulo de la MIPER (217682667886) dice en el cuerpo «Como minimo, la matriz debe considerar:» con CUATRO vinetas, y su metaDescription dice «los cuatro contenidos minimos». La sesion de CRM sostiene que el articulo 7 lista DOS elementos minimos (identificacion de peligros y evaluacion de riesgos) y que los cuatro son del articulo 15. No se corrigio porque no se puede reemplazar una afirmacion normativa por otra sin ver el decreto.",
   "que_hacer": "Cuando llegue el texto del articulo 7: corregir en UNA sola pasada el cuerpo y la metaDescription del articulo de la MIPER. Diego aprieta Actualizar una vez.",
   "leccion": "El mismo error de proyectar la estructura del articulo 15 a otro articulo ya aparecio dos veces (en el copy del recurso y posiblemente en el articulo). Verificar articulo por articulo, nunca por analogia."
+ },
+ "_VERIFICACION_articulos_7_y_8_ds44_4_sep_2026": {
+  "fecha": "4-sep-2026",
+  "fuente": "Texto oficial de los articulos 7 y 8 transcrito del PDF de Ley Chile (idNorma 1205298), paginas 10 a 12. Lo entrego Diego.",
+  "ARTICULO_7_ELEMENTOS_MINIMOS": "DOS, no cuatro. Textual: «Esta matriz contendra como minimo los siguientes elementos: 1. La identificacion de los peligros del puesto de trabajo. 2. La evaluacion de los riesgos.» CONFIRMA lo que dijo la sesion de CRM y desmiente lo que decia nuestro articulo.",
+  "detalle_elemento_1": "Cualquier fuente, situacion, condicion o entorno con potencial de causar lesiones o afectar la salud, considerando las caracteristicas de las personas expuestas al riesgo.",
+  "detalle_elemento_2": "Cada peligro que se pueda evitar, suprimir o controlar de forma razonable y factible segun el conocimiento disponible, evaluado para determinar la magnitud o nivel del riesgo.",
+  "otras_obligaciones_del_art_7": [
+   "Disponible en los lugares de trabajo e informada a las personas trabajadoras, INCLUIDOS el Comite Paritario, el Delegado de SST y los dirigentes sindicales.",
+   "Considerar riesgos ergonomicos, psicosociales, violencia y acoso, accidentes y enfermedades ocurridos, y riesgos de los programas de vigilancia ocupacional, CON ENFOQUE DE GENERO.",
+   "Evaluar condiciones actuales Y previsibles a futuro, incluida la sensibilidad especial de quien ocupe o vaya a ocupar el puesto.",
+   "Metodologia VALIDADA y basada en criterios de la autoridad competente; metodos cuantitativos o cualitativos.",
+   "El procedimiento se rige por la «Guia Tecnica para la identificacion y evaluacion primaria de riesgos en los ambientes de trabajo» del ISP o el documento que la reemplace. Si una norma impone metodologia especial, se aplica esa.",
+   "Adoptar medidas preventivas de control y de emergencia ADICIONALES cuando el riesgo evaluado sea elevado, alto o grave. ESTE es el respaldo de la hoja de emergencias.",
+   "Conocida por toda la LINEA DE MANDO.",
+   "Revisada al menos anualmente o ante cambio de condiciones, accidente, enfermedad profesional o riesgo grave e inminente.",
+   "Se puede pedir asistencia tecnica del organismo administrador de la ley 16.744."
+  ],
+  "ARTICULO_8_CONFIRMADO": {
+   "plazo": "30 dias corridos contados desde la confeccion o actualizacion de la matriz.",
+   "contenido_minimo": "Las medidas preventivas y correctivas a implementar, los plazos de implementacion y los responsables de su ejecucion. TRES cosas.",
+   "obligatorio_ademas": "Actividades de promocion para prevenir riesgos de alcohol y drogas y difundir vida y alimentacion saludables; y cuando corresponda, prevencion de riesgos por conduccion de vehiculos motorizados.",
+   "formalidad": "Por escrito, aprobado por el representante legal con fecha de aprobacion y de sus modificaciones; difundido ANTES de implementarlo por avisos visibles o correo; ejemplar al Comite Paritario.",
+   "control": "Acciones de control y vigilancia del cumplimiento, presenciales o por medios electronicos idoneos."
+  },
+  "CORREGIDO_HOY": "Articulo de la MIPER (217682667886): cuerpo y metaDescription. Se reemplazo la lista de cuatro vinetas por los DOS elementos minimos, se explico de donde viene la confusion, y se agrego todo lo verificado del articulo 7 y del articulo 8. Queda en borrador; Diego aprieta Actualizar.",
+  "YA_ESTABA_BIEN": "La pagina del recurso (221118818139) no afirmaba los cuatro contenidos tras la correccion del 4-sep, y la guia de uso del Excel tampoco. Revisado.",
+  "PENDIENTE_SIGUIENTE": "El articulo «Programa de trabajo preventivo del DS 44: como armarlo en 30 dias» (218948639504) nunca se ha contrastado con el texto del articulo 8, que ahora si tenemos. Revisarlo: es probable que le falten las actividades de alcohol y drogas, vida saludable, conduccion de vehiculos, y las formalidades de aprobacion y difusion."
  }
 }
