@@ -2428,5 +2428,21 @@
   "CORREGIDO_HOY": "Articulo de la MIPER (217682667886): cuerpo y metaDescription. Se reemplazo la lista de cuatro vinetas por los DOS elementos minimos, se explico de donde viene la confusion, y se agrego todo lo verificado del articulo 7 y del articulo 8. Queda en borrador; Diego aprieta Actualizar.",
   "YA_ESTABA_BIEN": "La pagina del recurso (221118818139) no afirmaba los cuatro contenidos tras la correccion del 4-sep, y la guia de uso del Excel tampoco. Revisado.",
   "PENDIENTE_SIGUIENTE": "El articulo «Programa de trabajo preventivo del DS 44: como armarlo en 30 dias» (218948639504) nunca se ha contrastado con el texto del articulo 8, que ahora si tenemos. Revisarlo: es probable que le falten las actividades de alcohol y drogas, vida saludable, conduccion de vehiculos, y las formalidades de aprobacion y difusion."
+ },
+ "_PRIMEROS_RESULTADOS_descargables_5_sep_2026": {
+  "fecha": "5-sep-2026",
+  "corte": "lista 1212, por fecha de entrada a Lead, 1 al 5 de septiembre",
+  "TOTAL": "9 registros = 8 personas reales (Jennifer Iribarra entro dos veces con dos correos, 5 minutos aparte: rllanos@raccoz.cl y jenn.iribarra@gmail.com).",
+  "de_las_dos_piezas_nuevas": "5 de los 8 leads reales. Formato IRL: 4 (Gabriela Fuentes 3-sep, Carla Rubilar 4-sep, Daniela Munioz 4-sep, Ramon Cornejo 4-sep). Matriz IPER: 1 (Javier Martinez 5-sep, el mismo dia que se publico).",
+  "TODOS_ORGANICOS": "Los 5 leads de las piezas nuevas son ORGANIC_SEARCH. Confirma la tesis del 2-sep: las busquedas de formato/plantilla convierten, las definicionales no.",
+  "el_resto": "teresa jeldres (1-sep, ebook DS 44, organico), Jennifer x2 (2-sep, ebook DS 44), Jhon Soto (4-sep, ebook siniestralidad, social).",
+  "ESTAMPADO_FUNCIONA": "Los 9 registros tienen hs_v2_date_entered_lead. Los workflows nuevos SI estampan Lead. Es justo lo que estaba roto con el newsletter.",
+  "vs_meta": "Meta de septiembre >=12 leads, baseline 6 al mes. Van 8 personas reales en 5 dias: ya se supero el baseline mensual completo antes del dia 6.",
+  "CALIDAD_DEL_CORREO": "De las 8 personas: 3 con correo corporativo (Jennifer raccoz.cl, Carla gasmar.cl, Daniela snaeduca.cl) y 5 con correo personal. Ojo con el hallazgo de Diego del 20-ago: 4 corporativos dieron 2 MQL y 8 personales dieron 0. Con este mix la maduracion a MQL sera baja.",
+  "PENDIENTES": [
+   "Deduplicar a Jennifer Iribarra: es una persona, cuenta como un lead.",
+   "No se verifico la entrega efectiva del correo con el archivo; solo que el formulario y el estampado funcionan.",
+   "Los contactos de prueba del 1-sep (juan perez, Jose Lopez, Carol Ninias) ya NO aparecen en la lista: al parecer se limpiaron."
+  ]
  }
 }
