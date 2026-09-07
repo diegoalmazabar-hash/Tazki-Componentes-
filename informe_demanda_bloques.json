@@ -2772,7 +2772,18 @@
   "vigencia": "01-03-2025",
   "idNorma_LeyChile": 1211184,
   "resuelvo_7": "Los mapas hechos entre el 1-feb y el 1-mar-2025 conforme al Parrafo 6 se dan por validos, pero sus ACTUALIZACIONES deben seguir la metodologia de la guia.",
-  "OJO": "El texto de la guia es parte integrante de la resolucion pero Ley Chile solo publica la resolucion. El PDF esta en previsionsocial.gob.cl. La sesion de CRM NO pudo leer ese PDF, asi que el CONTENIDO de la guia sigue sin verificar. No citar su contenido hasta tenerlo."
+  "OJO": "El texto de la guia es parte integrante de la resolucion pero Ley Chile solo publica la resolucion. El PDF esta en previsionsocial.gob.cl. La sesion de CRM NO pudo leer ese PDF, asi que el CONTENIDO de la guia sigue sin verificar. No citar su contenido hasta tenerlo.",
+  "TRANSCRITA": {
+   "fecha": "7-sep-2026",
+   "por": "sesion de CRM · el PDF tiene capa de texto, 19 paginas, transcrito literal",
+   "archivo": "guia-mapas-de-riesgos-res-129-2025-transcripcion.md — PENDIENTE que Diego me lo pase",
+   "metodologia_6_2_3": "Paso 1: croquis del lugar con sus zonas y maquinas. Paso 2: marcar cada riesgo de la matriz IPER con un circulo del color del nivel de riesgo que contiene el triangulo amarillo con el pictograma. Se puede priorizar rojo y anaranjado; el psicosocial va siempre. Riesgo transversal arriba a la izquierda; leyenda abajo a la derecha.",
+   "simbologia_6_2_2_y_anexo_1": "Tabla referencial propia basada en el Anexo 3 de la Guia IPER del ISP: senales de precaucion triangulares amarillas con pictograma negro. Admite simbolos analogos del OAL.",
+   "contenido_y_formato": "Croquis + simbolos + leyenda, un mapa por lugar de trabajo, visible en sitio, actualizado cada vez que cambie la matriz, y su ubicacion registrada en el Programa de Trabajo Preventivo.",
+   "anexos": "Anexo 1 simbologia, Anexo 2 ejemplo de una muebleria. NO trae plantilla.",
+   "INCONSISTENCIA_DEL_DOCUMENTO_OFICIAL": "El ejemplo del Anexo 2 usa colores rojo/amarillo/celeste que NO coinciden con la escala del cuerpo de la guia. Es una inconsistencia del propio documento. Para la plantilla hay que seguir el punto 6.2.1, no el ejemplo.",
+   "DESBLOQUEA": "La plantilla de mapa de riesgos, que estaba en pausa. Ahora se puede hacer, pero necesito el .md."
+  }
  },
  "_REVISION_comite_paritario_y_mapa_7_sep_2026": {
   "fecha": "7-sep-2026",
@@ -2893,5 +2904,50 @@
    "Circuito del CRM",
    "Banner en el articulo de charla de 5 minutos (contentId 218470472620)"
   ]
+ },
+ "_CIRCUITO_CHECKLIST_montado_por_CRM_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "archivo": "https://tazki.cl/hubfs/E-books/Checklist-DS44-Tazki.xlsx (HTTP 200, content-type Excel)",
+  "formulario": {
+   "nombre": "Form leads - checklist DS 44",
+   "guid": "5cc25431-8e57-43a1-889a-e17e731894d3",
+   "nota": "Clon del de la Matriz IPER, mismos campos, Industria y Cargo obligatorios. Cumple la convencion «form leads»."
+  },
+  "correo": {
+   "nombre": "Gracias por descargar - Checklist DS 44",
+   "objectId": 585794977414,
+   "contentId": 221312807767
+  },
+  "workflow": {
+   "nombre": "Descarga Checklist - DS 44",
+   "id": 1880158220,
+   "estado": "activo",
+   "nota": "Tiene una accion que los otros dos NO tienen: «Editar registro: Etapa del ciclo de vida = Lead» antes del contacto de marketing. HubSpot no retrocede la etapa, asi que un cliente o MQL que descargue no se degrada."
+  },
+  "lista_1212": "Grupo 6 = completo «Form leads - checklist DS 44». Verificado con contacto de prueba.",
+  "PRUEBA_PUNTA_A_PUNTA": "Hecha para los TRES recursos (checklist, Formato IRL, Matriz IPER). Los 3 quedaron con etapa Lead y fecha estampada, los 3 entraron a la lista 1212, los 3 correos registran SENT y DELIVERED a los 7 minutos, y los 3 botones sirven el xlsx sin error. Contactos de prueba borrados y verificado por mi el 7-sep: la consulta por +test-checklist / +test-irl / +test-iper no devuelve nada.",
+  "PENDIENTE_DE_DIEGO": "Publicar el recurso 221318557754: conectar el form 5cc25431 al modulo «Formulario de descarga», fijar el slug a checklist-ds-44 y REVISARLO DESPUES DE PUBLICAR porque HubSpot lo regenera. Hasta entonces tazki.cl/recursos/checklist-ds-44 da 404 y nadie puede descargar.",
+  "pendiente_menor": "Dos informes del panel 22450562 filtran por nombre exacto de formulario y no incluyen el form nuevo. El resto usa «contiene Form leads» y lo capta solo."
+ },
+ "_PUENTE_LEAD_A_MQL_definicion_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "fuente": "sesion de CRM, verificado en el historial de propiedades",
+  "COMO_FUNCIONA_DE_VERDAD": "NO hay un workflow que convierta Lead en MQL. La etapa MQL la estampa EL FORMULARIO DE DEMO: los 4 forms MQL tienen configurado «lifecycle = MQL» al enviarse (fuente FORM en el historial). El disparador es que un Lead envie cualquiera de los 4 forms MQL. Es automatico y sin accion comercial.",
+  "nurturing": {
+   "nombre": "Nurturing Descargas | Lead a MQL",
+   "id": 1878715979,
+   "activo_desde": "6-sep-2026",
+   "que_hace": "Envia dos correos, dia 3 y dia 7 habiles, que empujan a agendar demo. NO convierte por si solo.",
+   "cobertura": "Se le agrego el form del checklist, asi que los leads de los cuatro descargables entran a la misma secuencia."
+  },
+  "aguas_abajo": {
+   "workflow": "Inbound | MQL | Creacion de MQL",
+   "id": 1764004765,
+   "activo_desde": "enero",
+   "que_hace": "Asigna AE, crea el negocio, notifica y manda el kickback. Su Grupo 4 con el form de nurturing esta desde el 6-sep."
+  },
+  "estampado": "hs_v2_date_entered_marketingqualifiedlead SI queda poblada; HubSpot la calcula al cambiar la etapa.",
+  "LINEA_BASE_PARA_MEDIR": "Hoy solo UN contacto con primera conversion «form leads» tiene fecha MQL, y es Diego (2-jul). Los primeros correos del nurturing salen el 9 y 10 de septiembre, asi que el numero recien puede moverse desde esa semana.",
+  "COMO_LO_MIDO": "Contactos cuyo first_conversion_event_name contiene «form leads» Y que tienen hs_v2_date_entered_marketingqualifiedlead. Excluir a Diego. Se reporta desde el corte del 14-sep."
  }
 }
