@@ -2736,5 +2736,22 @@
   },
   "mapa_de_riesgos": "Lo regulan los articulos 62 y 63 (Titulo III, Parrafo 6, «De los Mapas de Riesgos»). Ademas: definicion en el articulo 2 numeral 21, numeral 4 del articulo 76 y el articulo tercero transitorio.",
   "rareza_del_original": "El articulo 8 dice «La enti dad empleadora», con un espacio en medio, en la propia fuente de la BCN. Al citar se puede normalizar el espacio, nunca el sentido."
+ },
+ "_REVISION_programa_trabajo_preventivo_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "articulo": "Programa de trabajo preventivo del DS 44: como armarlo en 30 dias · contentId 218948639504 · /blog/programa-de-trabajo-preventivo-ds-44-en-30-dias",
+  "contrastado_contra": "normativa/ds44-articulos-literal.md, articulo 8 (texto literal de Ley Chile)",
+  "ERROR_AFIRMATIVO": "Bajo el encabezado «Que exige el DS 44» el articulo dice «Evaluacion: el programa se revisa al menos una vez al año, junto con la revision anual de la matriz». El articulo 8 NO establece revision anual del programa. La revision anual es de la MATRIZ (articulo 7). El programa se modifica dentro de 30 dias corridos de cada actualizacion de la matriz. Mismo tipo de error que «cinco contenidos» del IRL: se le atribuye a la norma algo que no dice. Se repite en el FAQ «¿Cada cuanto se actualiza?».",
+  "OMISIONES_de_contenido_obligatorio": [
+   "Actividades de promocion para prevenir los factores de riesgo asociados al CONSUMO DE ALCOHOL Y DROGAS y para difundir un ESTILO DE VIDA Y ALIMENTACION SALUDABLES (art. 8 inciso 2). No aparece.",
+   "Cuando corresponda, actividades para prevenir los riesgos asociados a la CONDUCCION DE VEHICULOS MOTORIZADOS (art. 8 inciso 2). No aparece.",
+   "ACCIONES DE CONTROL Y VIGILANCIA del cumplimiento de las medidas, con la periodicidad y en los casos que defina el programa, mediante inspecciones presenciales o NO PRESENCIALES por medios electronicos idoneos, observando el articulo 5 inciso primero del Codigo del Trabajo (art. 8 inciso 4). No aparece — y es justamente el producto de Tazki."
+  ],
+  "IMPRECISIONES": [
+   "Dice «aprobacion de la administracion»; la norma exige aprobacion del REPRESENTANTE LEGAL, indicando la FECHA de aprobacion y la de sus modificaciones.",
+   "Dice «comunicacion a las instancias de participacion (Comite Paritario o Delegado segun la dotacion)». La norma exige difusion PREVIA A LA IMPLEMENTACION, por avisos o informaciones facilmente visibles en los lugares de trabajo o por correo electronico, y en todo caso remitir un ejemplar al COMITE PARITARIO (no menciona al Delegado en esa obligacion).",
+   "El contenido minimo son «medidas preventivas Y CORRECTIVAS»; el articulo solo habla de medidas y responsables."
+  ],
+  "estado": "PENDIENTE de correccion. No se ha tocado el articulo todavia."
  }
 }
