@@ -2752,6 +2752,15 @@
    "Dice «comunicacion a las instancias de participacion (Comite Paritario o Delegado segun la dotacion)». La norma exige difusion PREVIA A LA IMPLEMENTACION, por avisos o informaciones facilmente visibles en los lugares de trabajo o por correo electronico, y en todo caso remitir un ejemplar al COMITE PARITARIO (no menciona al Delegado en esa obligacion).",
    "El contenido minimo son «medidas preventivas Y CORRECTIVAS»; el articulo solo habla de medidas y responsables."
   ],
-  "estado": "PENDIENTE de correccion. No se ha tocado el articulo todavia."
+  "estado": "CORREGIDO EN BORRADOR el 7-sep-2026, pendiente que Diego apriete «Actualizar» en el editor. NO se publica por API (el PUBLISH regenera el slug).",
+  "correcciones_aplicadas": [
+   "Se reemplazo el bloque «Que exige el DS 44» por «Que exige el articulo 8 del DS 44», con las siete obligaciones literales: origen en la matriz y 30 dias corridos; medidas preventivas Y correctivas, plazos y responsables; alcohol/drogas y vida saludable; conduccion de vehiculos cuando corresponda; por escrito y aprobado por el REPRESENTANTE LEGAL con fecha; difusion PREVIA a la implementacion por avisos visibles o correo, con ejemplar al Comite Paritario; y acciones de control y vigilancia, presenciales o no presenciales por medios electronicos idoneos (art. 5 inciso primero del Codigo del Trabajo).",
+   "Se elimino la afirmacion falsa de que el programa se revisa al menos una vez al año por exigencia propia. El FAQ ahora explica que el plazo es de la matriz (art. 7) y que el programa se arrastra dentro de los 30 dias.",
+   "Semana 3 del paso a paso ahora incluye los contenidos que no salen de la matriz. Semana 4 ahora cierra con las cuatro formalidades del articulo 8.",
+   "Errores frecuentes: se agregaron cuatro (dejar fuera alcohol y drogas, aprobar sin fecha, difundir despues de implementar, no definir el control de cumplimiento).",
+   "Nuevo FAQ sobre si las actividades de alcohol y drogas son obligatorias.",
+   "Se corrigio el ancla de «Sigue leyendo» al titulo nuevo del articulo de MIPER.",
+   "Metadescripcion nueva, centrada en los contenidos obligatorios y las formalidades."
+  ]
  }
 }
