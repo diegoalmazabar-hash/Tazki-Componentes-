@@ -2728,7 +2728,7 @@
    "CVE": "2523218",
    "articulos_totales": 77
   },
-  "archivo": "ds44-articulos-literal.md (lo tiene la sesion de CRM; PENDIENTE que Diego me lo pase)",
+  "archivo": "normativa/ds44-texto-completo-literal.md (154 KB) — decreto COMPLETO: vistos, 19 considerandos, los 77 articulos con Titulos y Parrafos, 4 transitorios, articulo derogatorio y firma. Armado por programa desde el JSON oficial de Ley Chile y verificado con tres pruebas (cada linea del original aparece textual, ninguna linea sobra, el orden es identico). Las tablas de los articulos 54 y 55 estan como IMAGENES en la fuente: se transcribieron leyendo las imagenes y NO pasaron la verificacion automatica. Ademas normativa/ds44-articulos-literal.md con el primer extracto.",
   "CORRECCION_IMPORTANTE": {
    "lo_que_yo_supuse": "Que el articulo 21 del DS 44 regulaba el Comite Paritario / Delegado de Seguridad y Salud. Lo puse asi en el prompt que le di a Diego.",
    "lo_que_dice_el_texto_oficial": "El articulo 21 se titula «Funcionamiento eficaz de la estructura preventiva» y es una norma general del Titulo III. El DELEGADO DE SEGURIDAD Y SALUD esta en el ARTICULO 66. El COMITE PARITARIO se regula en el Titulo III, Parrafo 3, ARTICULOS 24 a 44.",
@@ -2762,5 +2762,33 @@
    "Se corrigio el ancla de «Sigue leyendo» al titulo nuevo del articulo de MIPER.",
    "Metadescripcion nueva, centrada en los contenidos obligatorios y las formalidades."
   ]
+ },
+ "_GUIA_MAPAS_DE_RIESGOS_7_sep_2026": {
+  "HALLAZGO": "La guia de metodologia de mapas de riesgos que el articulo 62 remite a una resolucion del Ministerio del Trabajo YA FUE DICTADA. Nuestro articulo publicado no la mencionaba.",
+  "norma": "Resolucion Exenta N° 129, Subsecretaria de Prevision Social, Ministerio del Trabajo y Prevision Social",
+  "nombre": "Dicta «Guia para la elaboracion de Mapas de Riesgos Laborales al interior de las entidades empleadoras»",
+  "fecha_resolucion": "29-01-2025",
+  "publicacion_DO": "18-02-2025",
+  "vigencia": "01-03-2025",
+  "idNorma_LeyChile": 1211184,
+  "resuelvo_7": "Los mapas hechos entre el 1-feb y el 1-mar-2025 conforme al Parrafo 6 se dan por validos, pero sus ACTUALIZACIONES deben seguir la metodologia de la guia.",
+  "OJO": "El texto de la guia es parte integrante de la resolucion pero Ley Chile solo publica la resolucion. El PDF esta en previsionsocial.gob.cl. La sesion de CRM NO pudo leer ese PDF, asi que el CONTENIDO de la guia sigue sin verificar. No citar su contenido hasta tenerlo."
+ },
+ "_REVISION_comite_paritario_y_mapa_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "comite_paritario": {
+   "articulo": "contentId 218942630956 · /blog/comite-paritario-delegado-sst-ds-44",
+   "ERROR_PRINCIPAL": "La tabla decia que con MENOS DE 10 personas corresponde Delegado de SST. El articulo 66 fija el rango en ENTRE 10 Y HASTA 25 personas y ademas condiciona a que en esa faena no funcione un Comite Paritario. Bajo 10 el reglamento no exige ninguna de las dos instancias.",
+   "ERROR_DERIVADO": "Decia «chica o grande, alguna instancia siempre corresponde» y que marcar «No aplica» en el FUF por ser chica es un error. Con menos de 10 trabajadores eso es falso.",
+   "ERROR_3": "Ponia al «encargado de prevencion» solo en el tramo 10-25. El articulo 65 lo exige en TODAS las entidades de HASTA CIEN personas: el representante legal debe pedirle al organismo administrador que lo capaciten a el o a quien designe.",
+   "OMISION": "No mencionaba el registro del acta de constitucion en el sitio web de la Direccion del Trabajo dentro de 15 dias habiles (articulo 36), ni los suplentes por cada titular (articulo 25), ni que el acta debe decir si la eleccion fue presencial o por medios electronicos (articulo 33).",
+   "verificado_correcto": "Comite sobre 25 personas (art. 23), 3 y 3 representantes (art. 25), reuniones mensuales (art. 39), mandato del Delegado hasta 2 anios y eleccion en asamblea con acta (art. 66), Departamento de Prevencion sobre 100 trabajadores (art. 50).",
+   "estado": "CORREGIDO EN BORRADOR, pendiente que Diego apriete «Actualizar»."
+  },
+  "mapa_de_riesgos": {
+   "articulo": "contentId 218948639508 · /blog/mapa-de-riesgos-ds-44-como-hacerlo",
+   "problema": "No citaba los articulos 62 y 63, no daba los dos contenidos minimos, respondia con evasivas a «¿es obligatorio?» (justo la consulta que llega como pregunta de verdadero o falso) y no mencionaba que la guia de metodologia ya fue dictada.",
+   "estado": "CORREGIDO EN BORRADOR, pendiente que Diego apriete «Actualizar»."
+  }
  }
 }
