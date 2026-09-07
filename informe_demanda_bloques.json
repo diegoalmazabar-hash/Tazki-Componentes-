@@ -2790,5 +2790,47 @@
    "problema": "No citaba los articulos 62 y 63, no daba los dos contenidos minimos, respondia con evasivas a «¿es obligatorio?» (justo la consulta que llega como pregunta de verdadero o falso) y no mencionaba que la guia de metodologia ya fue dictada.",
    "estado": "CORREGIDO EN BORRADOR, pendiente que Diego apriete «Actualizar»."
   }
+ },
+ "_AUTOCORRECCION_articulo_14_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "QUE_PASO": "Al corregir el articulo del programa de trabajo preventivo elimine la frase «el programa se revisa al menos una vez al año» por considerarla una invencion, porque el articulo 8 no la contiene. Estaba a medias: el articulo 8 efectivamente NO la contiene, pero el ARTICULO 14 SI. Al revisar el articulo del FUF encontre la afirmacion de nuevo, fui al texto completo y aparecio.",
+  "TEXTO_LITERAL_ART_14": "Articulo 14.- Evaluacion del cumplimiento del programa de trabajo preventivo. Sera obligacion de la entidad empleadora realizar, al menos anualmente, una evaluacion del cumplimiento del programa de trabajo preventivo a que se refiere el articulo 8 de este reglamento. En particular debera evaluarse la eficacia de las acciones programadas y disponer las medidas de mejora continua que se requieran.",
+  "DISTINCION_QUE_HAY_QUE_MANTENER": "ACTUALIZAR el programa = articulo 8, dentro de 30 dias corridos de cada confeccion o actualizacion de la matriz. EVALUAR el programa = articulo 14, al menos anualmente, y sobre la EFICACIA, no sobre el porcentaje de avance.",
+  "LECCION": "Tener un extracto no basta: un extracto de articulos sueltos hace creer que lo que no esta ahi no existe. Con el decreto completo en el repositorio esto no vuelve a pasar. Antes de declarar que una afirmacion es falsa, hay que buscarla en TODO el texto, no solo en el articulo que uno supone que la contiene.",
+  "estado": "Corregido en el borrador del articulo del programa: se agrego la seccion «La evaluacion anual: el articulo 14», un FAQ nuevo que separa actualizar de evaluar, y un error frecuente («confundir avance con eficacia»)."
+ },
+ "_REVISION_obligaciones_y_FUF_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "obligaciones_segun_numero_trabajadores": {
+   "articulo": "contentId 217216897652 · /blog/ds44-obligaciones-segun-numero-trabajadores",
+   "HALLAZGO": "Los umbrales estaban CORRECTOS. Mi sospecha de que arrastraba el error del tramo de 10 era infundada: este articulo decia bien «entre 10 y 25». El que estaba mal era el de Comite Paritario.",
+   "defectos_reales_corregidos": [
+    "El <!--more--> estaba casi al final, despues del CTA: el extracto del listado se tragaba el articulo entero. Movido al inicio.",
+    "Un <figure> vacio al comienzo y una caja «Continua con las guias del DS 44» cuyos <li> eran etiquetas SIN enlace. Eliminados.",
+    "Dos secciones huerfanas numeradas «8.» y «9.» copiadas del articulo del FUF, sin 1 a 7. Reemplazadas por una seccion propia sobre como se traduce en fiscalizacion.",
+    "El H2 principal preguntaba «¿A que empresas se aplica el FUF?» en un articulo sobre dotacion. Reescrito.",
+    "Se agrego la columna con el ARTICULO que respalda cada umbral (20, 23, 25, 50, 64, 65, 66, 75) y una seccion sobre que pasa bajo 10 personas.",
+    "Se agrego la distincion de donde se cuenta cada umbral: Comite y Delegado por faena/sucursal; encargado y Departamento por entidad empleadora."
+   ],
+   "estado": "CORREGIDO EN BORRADOR"
+  },
+  "FUF_15_tematicas": {
+   "articulo": "contentId 217216897574 · /blog/fuf-ds44-60-preguntas",
+   "VEREDICTO": "Todas las afirmaciones normativas que pude verificar contra el texto completo estan CORRECTAS.",
+   "verificado": [
+    "Capacitacion de EPP de duracion minima 1 hora cronologica, reforzada anualmente (art. 13).",
+    "Capacitacion general: periodicidad que define el programa sin exceder 2 anios, curso de al menos 8 horas, enfoque de genero (art. 16).",
+    "Evaluacion al menos anual de la eficacia del programa (art. 14).",
+    "Plan de emergencias ensayado a lo menos una vez al año simulando una emergencia real (art. 19).",
+    "Los 5 elementos del Sistema de Gestion (art. 22).",
+    "Traslado por enfermedad profesional sin detrimento de remuneraciones (art. 69).",
+    "Tiempo de examenes considerado como trabajado para todos los efectos legales (art. 68).",
+    "Registros minimos para empresas sin Departamento de Prevencion (art. 75).",
+    "Comite sobre 25 y Delegado entre 10 y 25."
+   ],
+   "NO_VERIFICABLE": "La numeracion de las 60 preguntas y su reparto por tematica sale del formulario de la Direccion del Trabajo, no del decreto. No lo pude contrastar; si se quiere verificar, hay que pedirle a la sesion de CRM el PDF del FUF en dt.gob.cl.",
+   "defectos_estructurales_pendientes": "El <!--more--> tambien esta casi al final; hay un <figure> vacio al inicio y otro con solo figcaption huerfano; la caja «Sigue leyendo» tiene un <a> vacio dentro del h2 y un solo item.",
+   "estado": "CONTENIDO OK. Defectos de estructura NO corregidos todavia."
+  }
  }
 }
