@@ -2926,8 +2926,10 @@
   },
   "lista_1212": "Grupo 6 = completo «Form leads - checklist DS 44». Verificado con contacto de prueba.",
   "PRUEBA_PUNTA_A_PUNTA": "Hecha para los TRES recursos (checklist, Formato IRL, Matriz IPER). Los 3 quedaron con etapa Lead y fecha estampada, los 3 entraron a la lista 1212, los 3 correos registran SENT y DELIVERED a los 7 minutos, y los 3 botones sirven el xlsx sin error. Contactos de prueba borrados y verificado por mi el 7-sep: la consulta por +test-checklist / +test-irl / +test-iper no devuelve nada.",
-  "PENDIENTE_DE_DIEGO": "Publicar el recurso 221318557754: conectar el form 5cc25431 al modulo «Formulario de descarga», fijar el slug a checklist-ds-44 y REVISARLO DESPUES DE PUBLICAR porque HubSpot lo regenera. Hasta entonces tazki.cl/recursos/checklist-ds-44 da 404 y nadie puede descargar.",
-  "pendiente_menor": "Dos informes del panel 22450562 filtran por nombre exacto de formulario y no incluyen el form nuevo. El resto usa «contiene Form leads» y lo capta solo."
+  "PENDIENTE_DE_DIEGO": "RESUELTO el 7-sep: pagina publicada en tazki.cl/recursos/checklist-ds-44 con el slug correcto, autor Equipo Tazki y tag Ebook. Verificado por GET_POST.",
+  "pendiente_menor": "Dos informes del panel 22450562 filtran por nombre exacto de formulario y no incluyen el form nuevo. El resto usa «contiene Form leads» y lo capta solo.",
+  "PENDIENTE_NUEVO": "Falta la FOTO DE PORTADA. La herramienta manage_blog_post no expone el campo de imagen destacada (solo title, postBody, metaDescription, tags y autor), asi que la pone Diego desde el editor. Convencion de las portadas del blog: hubfs/50744593/Blog/portada-blog-<tema>-ds44.png",
+  "LIMITACION_DE_ESTE_ENTORNO": "No puedo verificar la pagina en vivo: el proxy de egreso bloquea tazki.cl igual que bcn.cl. La verificacion de la pagina publicada la hace Diego o la sesion de CRM, que si tiene navegador."
  },
  "_PUENTE_LEAD_A_MQL_definicion_7_sep_2026": {
   "fecha": "7-sep-2026",
