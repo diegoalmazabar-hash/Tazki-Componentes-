@@ -2501,13 +2501,9 @@
    "Se recalculo toda la serie de SEO con un metodo unico."
   ],
   "METODO_SEO_DEFINITIVO": {
-   "fuente": "Supermetrics ds GW, cuenta sc-domain:tazki.cl",
-   "filtro": "query !~ [td][a-z]{0,3}[kq][a-z]?[iyeu] AND searchType == web",
-   "settings": {
-    "discrepancy_correction": "DISABLED"
-   },
-   "por_que": "El regex captura las variantes mal escritas de la marca (taski, tasky, tazky, tazqui, tasqui, taxki, takzi, tzki, tszki, tadki, tsski, tezki, dazki, tizki, tazke, tazku). Reproduce las semanas publicadas casi exactas.",
-   "control": "20-26 jul 13 clics/2.774 impr; 27jul-2ago 15/3.017; 10-16 ago 47/4.623; 24-30 ago 67/5.358."
+   "REGLA": "El metodo de SEO es el de seo_config.json y NO se improvisa: regex de marca oficial de Diego en `filters` del lado del servidor + solo filas WEB + discrepancy_correction DISABLED.",
+   "INCIDENTE": "En esta corrida arme primero un regex propio ([td][a-z]{0,3}[kq][a-z]?[iyeu]) porque no habia leido seo_config.json. Reproducia casi todo pero movia enero, marzo, abril y julio entre 1 y 3 clics y bajaba marzo de 22 a 19 palabras. Al aplicar el regex oficial la serie reprodujo EXACTO todos los meses y semanas publicados y se revirtio el cambio.",
+   "control_exacto": "ene 49/25.125/22,3 · feb 39/15.468/21,7 · mar 38/13.189/12,9 · abr 34/8.797/12,6 · may 35/7.565/14,2 · jun 14/5.947/8,4 · jul 36/9.650/8,8 · 13-19jul 5/1.836/9,8 · 24-30ago 67/5.358/5,7"
   },
   "inbounds_mes": {
    "may": 41,
@@ -2570,22 +2566,22 @@
   },
   "seo": {
    "ago": {
-    "clics": 194,
-    "impresiones": 19469,
+    "clics": 198,
+    "impresiones": 19452,
     "posicion": 6.2,
-    "palabras": 78
+    "palabras": 76
    },
    "sep_al_6": {
-    "clics": 52,
-    "impresiones": 3493,
+    "clics": 53,
+    "impresiones": 3488,
     "posicion": 6.2,
-    "palabras": 33
+    "palabras": 34
    },
    "semana_31ago_6sep": {
-    "clics": 64,
-    "impresiones": 4287,
-    "posicion": 6.1,
-    "palabras": 39
+    "clics": 65,
+    "impresiones": 4281,
+    "posicion": 6.0,
+    "palabras": 40
    }
   },
   "ads": {
@@ -2707,6 +2703,13 @@
    "86816995": "Cristian Cea",
    "85541596": "Felipe Casanova"
   },
-  "INCIDENTE_render": "Al reescribir D.funnel deje solo 3 filas y el render usa funnel[3] (Closed Lost) para la fila «% de perdida»: eso lanzo una excepcion que dejo VACIAS nueve tablas del JS. plan_check lo detecto. REGLA: D.funnel debe tener 4 filas (Inbounds, Meeting Set, Oportunidad real, Closed Lost)."
+  "INCIDENTE_render": "Al reescribir D.funnel deje solo 3 filas y el render usa funnel[3] (Closed Lost) para la fila «% de perdida»: eso lanzo una excepcion que dejo VACIAS nueve tablas del JS. plan_check lo detecto. REGLA: D.funnel debe tener 4 filas (Inbounds, Meeting Set, Oportunidad real, Closed Lost).",
+  "SIN_REFRESCAR": "El panel «Palabras clave nuevas · semana a semana» (KWNEW) quedo al 3-9 de agosto. Reconstruirlo exige traer la lista completa de consultas de cada semana para comparar conjuntos. Queda declarado en el propio panel.",
+  "anomalias_6_sep_2026": {
+   "gasto": "6-sep 21.873 = 0,73x el promedio de los 7 dias previos (29.949). NO se dispara.",
+   "terminos": "Se dispara: «safework glencore» (competencia, 1 clic, $2.327), «guia isp matriz de riesgos version 4» ($702) y «carta gantt implementacion protocolos minsal» ($545) recibieron clics pagados el 4-6 sep y NO estan en ads_negatives.json. $3.574 en tres dias.",
+   "mql": "Se dispara: costo por MQL de pago de la semana $40.984 contra $32.000 de promedio de 30 dias (+28%). SST solo va en $59.125, 1,85x el promedio.",
+   "seo": "NO se dispara: posicion 6,0 contra 5,7 y impresiones -20%."
+  }
  }
 }
