@@ -2444,5 +2444,53 @@
    "No se verifico la entrega efectiva del correo con el archivo; solo que el formulario y el estampado funcionan.",
    "Los contactos de prueba del 1-sep (juan perez, Jose Lopez, Carol Ninias) ya NO aparecen en la lista: al parecer se limpiaron."
   ]
+ },
+ "_REGLA_leads_en_el_informe_6_sep_2026": {
+  "fecha": "6-sep-2026",
+  "instruccion_textual_de_Diego": "para el reporte de generacion de demanda, recuerda sumar los leads que creamos",
+  "REGLA": "El Plan de Generacion de Demanda DEBE incluir el conteo de Leads generados, no solo MQL. Los Leads salen SIEMPRE de la lista 1212 (regla del 2-sep). Agregar al informe la serie mensual de Leads y el corte de la semana.",
+  "fuente": "SELECT ... FROM CONTACT WHERE hs_crm_search.ilsListIds = '1212'",
+  "estado_al_6_sep_2026": {
+   "total_en_lista": 35,
+   "contactos_de_prueba_a_excluir": [
+    "Diego de Tazki (diegoalmazabar81+final@gmail.com, 28-ago)",
+    "juan perez (mdsdafdvillal@gmail.com, 31-ago)",
+    "Jose Lopez (ciceni3715@mediseat.com, 31-ago)",
+    "Carol Ninas (tpobd1p1yr@ruutukf.com, 31-ago)"
+   ],
+   "duplicado": "Jennifer Iribarra Aravena entro dos veces el 2-sep con 5 min de diferencia (rllanos@raccoz.cl y jenn.iribarra@gmail.com). Contar como 1.",
+   "reales_unicos": 30,
+   "serie_mensual_real_hora_Santiago": {
+    "jun": 1,
+    "jul": 7,
+    "ago": 11,
+    "sep_al_6": 11
+   },
+   "semana_31ago_a_6sep": {
+    "crudo": 17,
+    "reales_unicos": 13
+   },
+   "por_lifecyclestage": {
+    "lead": "la mayoria",
+    "subscriber": 4,
+    "marketingqualifiedlead": 2
+   },
+   "subscriber_sin_estampar_Lead": [
+    "Dominga Angel",
+    "Oscar Villalobos",
+    "Sonia Fernandez",
+    "Carolin Bruna"
+   ],
+   "mql_directo_sin_fecha_Lead": [
+    "Fresia Matamala (20-jul)",
+    "Matias Martinez (29-jul)"
+   ]
+  },
+  "OJO": "Antes de publicar cifras de Leads, confirmar con Diego cuales contactos son de prueba y deduplicar Jennifer."
+ },
+ "_REGLA_zona_horaria_6_sep_2026": {
+  "fecha": "6-sep-2026",
+  "REGLA": "El contenedor corre en UTC y adelanta el dia respecto de Chile. La fecha y el dia de la semana se leen SIEMPRE en hora de Santiago (TZ=America/Santiago date). Los timestamps ISO que devuelve HubSpot son UTC: restar 3 horas antes de asignar el dia.",
+  "incidente": "Le dije a Diego que era lunes 7-sep cuando en Chile eran las 23:04 del domingo 6-sep. El corte semanal es el lunes."
  }
 }
