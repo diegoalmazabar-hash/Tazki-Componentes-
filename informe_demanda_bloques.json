@@ -2776,7 +2776,7 @@
   "TRANSCRITA": {
    "fecha": "7-sep-2026",
    "por": "sesion de CRM · el PDF tiene capa de texto, 19 paginas, transcrito literal",
-   "archivo": "guia-mapas-de-riesgos-res-129-2025-transcripcion.md — PENDIENTE que Diego me lo pase",
+   "archivo": "normativa/guia-mapas-de-riesgos-res-129-2025.md — GUARDADA en el repo el 7-sep-2026",
    "metodologia_6_2_3": "Paso 1: croquis del lugar con sus zonas y maquinas. Paso 2: marcar cada riesgo de la matriz IPER con un circulo del color del nivel de riesgo que contiene el triangulo amarillo con el pictograma. Se puede priorizar rojo y anaranjado; el psicosocial va siempre. Riesgo transversal arriba a la izquierda; leyenda abajo a la derecha.",
    "simbologia_6_2_2_y_anexo_1": "Tabla referencial propia basada en el Anexo 3 de la Guia IPER del ISP: senales de precaucion triangulares amarillas con pictograma negro. Admite simbolos analogos del OAL.",
    "contenido_y_formato": "Croquis + simbolos + leyenda, un mapa por lugar de trabajo, visible en sitio, actualizado cada vez que cambie la matriz, y su ubicacion registrada en el Programa de Trabajo Preventivo.",
@@ -2951,5 +2951,28 @@
   "estampado": "hs_v2_date_entered_marketingqualifiedlead SI queda poblada; HubSpot la calcula al cambiar la etapa.",
   "LINEA_BASE_PARA_MEDIR": "Hoy solo UN contacto con primera conversion «form leads» tiene fecha MQL, y es Diego (2-jul). Los primeros correos del nurturing salen el 9 y 10 de septiembre, asi que el numero recien puede moverse desde esa semana.",
   "COMO_LO_MIDO": "Contactos cuyo first_conversion_event_name contiene «form leads» Y que tienen hs_v2_date_entered_marketingqualifiedlead. Excluir a Diego. Se reporta desde el corte del 14-sep."
+ },
+ "_pieza_mapa_de_riesgos_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "archivo": "Mapa-de-Riesgos-DS44-Tazki.xlsx · generado por piezas/build_mapa.py",
+  "que_es": "NO dibuja el mapa. Hace el paso previo: decidir que riesgo va en que zona, de que color va su circulo y que hay que aclarar en la leyenda.",
+  "hojas": "Inventario del mapa (120 filas, con familia, escala, color, control de coherencia y aviso de leyenda todos automaticos) · Simbologia (los 46 riesgos especificos del Anexo 1 con su familia, escala, si exige leyenda y la descripcion del pictograma) · Niveles y colores (las 4 escalas del 6.2.1) · Registro de mapas · Como usarla · Control de versiones.",
+  "EL_DETALLE_QUE_LA_DIFERENCIA": "La guia usa CUATRO escalas distintas y no coinciden: en musculo-esqueletico el nivel medio va AMARILLO y en psicosocial el mismo nivel medio va ANARANJADO. La formula de color lo resuelve y la columna «Control» avisa si se eligio un nivel que no corresponde a esa escala.",
+  "verificacion": "Releido con openpyxl: las 4 escalas que devuelve la hoja Simbologia coinciden EXACTO con las que testea la formula de Control (si no, el aviso saldria siempre). La logica de color se reimplemento en Python y reproduce las 14 combinaciones del punto 6.2.1 de la guia sin ninguna discrepancia.",
+  "reglas_de_la_guia_incorporadas": [
+   "Circulo del color del nivel con el triangulo amarillo dentro (6.2.3 paso 2)",
+   "Se puede priorizar rojo y anaranjado, salvo psicosocial que va SIEMPRE",
+   "Riesgo transversal arriba a la izquierda; leyenda abajo a la derecha",
+   "Familias con un solo simbolo, aerosoles, vibraciones y musculo-esqueletico exigen detalle en la leyenda",
+   "La ubicacion fisica del mapa se registra en el Programa de Trabajo Preventivo (nota 11)",
+   "Ajustes para personas especialmente sensibles (7.4)"
+  ],
+  "SE_DECLARA_LA_INCONSISTENCIA": "En «Como usarla» se dice explicitamente que el ejemplo del Anexo 2 de la guia oficial usa una leyenda de colores que NO coincide con su propio punto 6.2.1, y que la plantilla sigue el 6.2.1.",
+  "PENDIENTE": [
+   "Pagina del recurso",
+   "Subir el xlsx a Files",
+   "Circuito del CRM",
+   "Banner en el articulo de mapa de riesgos (contentId 218948639508)"
+  ]
  }
 }
