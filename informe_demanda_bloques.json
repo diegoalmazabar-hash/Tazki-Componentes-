@@ -2903,7 +2903,16 @@
    "Subir el xlsx a Files",
    "Circuito del CRM",
    "Banner en el articulo de charla de 5 minutos (contentId 218470472620)"
-  ]
+  ],
+  "recurso_hubspot": {
+   "contentId": 221320730428,
+   "blog": "Recursos (216050734728)",
+   "estado": "BORRADOR",
+   "titulo": "Charlas de 5 minutos: descarga el calendario anual y el registro de asistencia",
+   "editor": "https://app.hubspot.com/blog/50744593/editor/221320730428/content",
+   "SLUG_OBJETIVO": "charlas-5-minutos",
+   "archivo": "Calendario-Charlas-5min-DS44-Tazki.xlsx"
+  }
  },
  "_CIRCUITO_CHECKLIST_montado_por_CRM_7_sep_2026": {
   "fecha": "7-sep-2026",
@@ -2973,6 +2982,21 @@
    "Subir el xlsx a Files",
    "Circuito del CRM",
    "Banner en el articulo de mapa de riesgos (contentId 218948639508)"
-  ]
+  ],
+  "recurso_hubspot": {
+   "contentId": 221321019183,
+   "blog": "Recursos (216050734728)",
+   "estado": "BORRADOR",
+   "titulo": "Mapa de riesgos DS 44: descarga la plantilla con la simbología oficial",
+   "editor": "https://app.hubspot.com/blog/50744593/editor/221321019183/content",
+   "SLUG_OBJETIVO": "mapa-de-riesgos-ds-44",
+   "OJO": "El articulo del blog vive en /blog/mapa-de-riesgos-ds-44-como-hacerlo, asi que no colisiona con /recursos/mapa-de-riesgos-ds-44.",
+   "archivo": "Mapa-de-Riesgos-DS44-Tazki.xlsx"
+  }
+ },
+ "_REGLA_pasos_de_editor_en_recursos": {
+  "REGLA": "Cada recurso nuevo necesita CUATRO pasos que esta sesion NO puede hacer por API y que hace Diego en el editor: (1) conectar el formulario al modulo «Formulario de descarga», (2) fijar el slug —HubSpot genera uno larguisimo y corta las tildes—, (3) asignar el autor Equipo Tazki, (4) poner el tag Ebook. Ademas la foto de portada, que tampoco es un campo de la herramienta. Y REVISAR EL SLUG DESPUES DE PUBLICAR, porque HubSpot lo regenera.",
+  "por_que": "manage_blog_post solo expone title, postBody, metaDescription, tags y autor. Slug, modulos de la plantilla e imagen destacada no estan.",
+  "tags": "LIST_TAGS devuelve vacio por falta del scope blog-tags-read, asi que el tag tampoco se puede poner por API."
  }
 }
