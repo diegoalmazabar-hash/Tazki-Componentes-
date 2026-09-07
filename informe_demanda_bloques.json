@@ -2998,5 +2998,21 @@
   "REGLA": "Cada recurso nuevo necesita CUATRO pasos que esta sesion NO puede hacer por API y que hace Diego en el editor: (1) conectar el formulario al modulo «Formulario de descarga», (2) fijar el slug —HubSpot genera uno larguisimo y corta las tildes—, (3) asignar el autor Equipo Tazki, (4) poner el tag Ebook. Ademas la foto de portada, que tampoco es un campo de la herramienta. Y REVISAR EL SLUG DESPUES DE PUBLICAR, porque HubSpot lo regenera.",
   "por_que": "manage_blog_post solo expone title, postBody, metaDescription, tags y autor. Slug, modulos de la plantilla e imagen destacada no estan.",
   "tags": "LIST_TAGS devuelve vacio por falta del scope blog-tags-read, asi que el tag tampoco se puede poner por API."
+ },
+ "_banners_checklist_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "estado": "5 banners insertados por API. Quedan como BORRADOR sobre el post publicado: Diego debe abrir cada uno y presionar Actualizar en el editor. NO usar PUBLISH por API (regenera el slug).",
+  "recurso_destino": "https://tazki.cl/recursos/checklist-ds-44 (contentId 221318557754, publicado, portada subida por Diego el 7-sep)",
+  "articulos": {
+   "217227804465": "blog/checklist-cumplimiento-ds44 - banner tras la grafica; ademas se enlazo el recurso en la frase «version descargable»",
+   "217227797666": "blog/fiscalizacion-ds44-documentos-preparacion - banner tras el <!--more-->",
+   "217216897652": "blog/ds44-obligaciones-segun-numero-trabajadores - banner tras la figura de estructura",
+   "218948639504": "blog/programa-de-trabajo-preventivo-ds-44-en-30-dias - banner tras el <!--more--> + enlace en la FAQ de fiscalizacion",
+   "218942630956": "blog/comite-paritario-delegado-sst-ds-44 - banner tras el <!--more--> + enlace en la FAQ del FUF"
+  },
+  "copy_por_articulo": "El titular del banner es el mismo en todos («Checklist del DS 44 en Excel: 80 puntos con su articulo de respaldo», con variantes) pero el parrafo cambia para hablarle al articulo: en el de fiscalizacion habla de revisar antes de la visita, en el del programa nombra los 8 puntos del ambito programa preventivo, en el de comite nombra acta, registro en la DT y reuniones mensuales.",
+  "markup": "Mismo bloque que IRL y MIPER: div #F4F6FB, borde izquierdo 5px #1537D1, eyebrow «DESCARGA GRATUITA», h en #0C1E50, boton #1537D1. Se replico literal para no romper la consistencia visual del cluster.",
+  "PENDIENTE": "Falta el banner de charlas en 218470472620 y el del mapa en 218948639508; van cuando las dos paginas de recurso esten publicadas (hoy borradores 221320730428 y 221321019183).",
+  "verificacion": "La API devolvio matchesRequested=true y el sha256 del body en los 5. HTML plano, sin escapar, sin CDATA."
  }
 }
