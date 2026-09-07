@@ -2878,5 +2878,20 @@
   "AJUSTE_4": "Desde el corte del 14-sep el informe desglosa visitas, envios y leads POR RECURSO, no agregados.",
   "AJUSTE_5": "Aparecio demanda de «formato mapa de riesgos ds 44». La pieza queda EN PAUSA hasta tener el texto de la guia de la Res. Ex. N°129: hacerla sin leerla repetiria el error de la Matriz IPER.",
   "calendario": "Checklist hecho (falta distribucion) · Calendario de charlas 11-sep · Formato de EPP 18-sep · Cuatro articulos de fin de mes cada uno con su pieza · Formato de mapa de riesgos cuando llegue la guia."
+ },
+ "_pieza_calendario_charlas_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "archivo": "Calendario-Charlas-5min-DS44-Tazki.xlsx · generado por piezas/build_charlas.py",
+  "contenido": "52 temas de charla, cada uno con el articulo del DS 44 que lo respalda; registro de asistencia plano de 300 filas (fecha, tema, relator, area, nombre, RUT, cargo, firma); Resumen con calculo automatico; Como usarla; Control de versiones.",
+  "HALLAZGO_NORMATIVO_QUE_DA_EL_ANGULO": "El DS 44 NO menciona la «charla de 5 minutos» con ese nombre. La unica vez que el decreto dice «charlas» es en el articulo 47 letra c), entre los medios con que el Comite Paritario cumple su funcion de instruir: «organizando reuniones informativas, charlas o cualquier otro medio de divulgacion». Lo obligatorio es lo que la charla sirve para cumplir: las acciones permanentes de difusion del art. 4 N°4, la informacion de riesgos del art. 15 ante cambios, y la funcion de divulgacion del Comite del art. 47.",
+  "LO_QUE_LA_CHARLA_NO_REEMPLAZA": "La capacitacion del art. 16 (curso de al menos 8 horas, 7 temas, periodicidad que no puede exceder 2 anios) ni la capacitacion de EPP del art. 13 (minimo 1 hora cronologica, reforzada anualmente). Sumar charlas de 5 minutos no equivale a esas horas.",
+  "por_que_responde_a_la_busqueda": "En agosto entro la consulta «la charla de 5 minutos es obligatoria» con 1 clic. Ese es el titular de la pieza y del recurso.",
+  "BUG_CORREGIDO": "Las formulas del Resumen referenciaban la columna B (las etiquetas de texto) en vez de la C (los valores), y la de charlas planificadas apuntaba a $D$6:$D$57 de la propia hoja Resumen en vez de la del Calendario. Detectado releyendo el archivo con openpyxl. Tercera vez que aparece este tipo de error: SIEMPRE releer el xlsx y verificar en que celda cayo cada formula.",
+  "PENDIENTE": [
+   "Pagina del recurso (falta aprobacion de Diego)",
+   "Subir el xlsx a Files",
+   "Circuito del CRM",
+   "Banner en el articulo de charla de 5 minutos (contentId 218470472620)"
+  ]
  }
 }
