@@ -1,68 +1,68 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica.",
- "fecha": "Agosto cerrado · semana 24–30 de agosto · corte domingo 30",
+ "fecha": "Agosto cerrado · semana 31 de agosto al 6 de septiembre · corte domingo 6",
  "highlights": [
   {
-   "t": "Cinco de las seis metas del mes quedaron cumplidas",
-   "d": "% de inbounds de pago 44,2% (meta 30%), palabras distintas con clics 75 (meta ≥25), conversión SEM a oportunidad real 75,0% (meta ≥40%), conversión SEO 38,0% (meta 20%) y posición media SEO 6,2 (meta ≤9,5). La única que falta es la pérdida de SEO."
+   "t": "La mejor semana del año en Leads: 13",
+   "d": "Las siete semanas anteriores juntas suman 13. Septiembre ya igualó a agosto entero (11 Leads) en solo seis días. El motor son los recursos descargables: 17 envíos de formulario en la semana, el mejor número del año."
   },
   {
-   "t": "Récord del canal pagado: 23 de los 52 inbounds de agosto",
-   "d": "44,2% contra 19,1% de julio y contra una meta de 30%. El mes cerró con 52 inbounds en 30 días (1,73 por día) frente a los 47 de julio (1,52)."
+   "t": "Los descargables convierten 80 veces mejor que el blog",
+   "d": "En el año los recursos llevan 52 envíos con 238 visitas (21,8%); el blog, 6 envíos con 2.240 visitas (0,27%). Los dos recursos nuevos ya rinden: Formato IRL 6 envíos con 17 visitas y Matriz IPER 2 envíos con 8 visitas."
   },
   {
-   "t": "El costo por MQL de Ads cayó a un cuarto",
-   "d": "Agosto gastó $807.810 y trajo 23,96 MQL: $33.715 por MQL, contra $124.104 en julio. La semana 24–30 fue la más barata del mes en gasto total ($168.813) y aun así puso 7 MQL."
+   "t": "El primer MQL trazado directo a un artículo del blog",
+   "d": "Sociedad Segura e Hijos llegó el 3 de septiembre por búsqueda orgánica al artículo de AST y charla diaria, y llenó el formulario de demo a los tres minutos. Es el quinto inbound del año que entra por un contenido."
   },
   {
-   "t": "El blog casi triplicó a julio: 1.080 visitas en agosto",
-   "d": "Julio entero dio 383 y los siete meses de enero a julio suman 830. La semana del 24 al 30 fue la mejor de la serie con 360 visitas. El contenido del año llega a 2.274 visitas: blog 1.910, recursos 185, casos 179."
+   "t": "Agosto cerró como el mejor mes del año en inbounds y en MQL",
+   "d": "52 inbounds (46,2% de pago, contra una meta de 30%) y 54 MQL, sobre 47 y 52 de julio. El año acumula 148 MQL. Septiembre arrancó en 8 inbounds y 9 MQL en la semana."
   },
   {
-   "t": "SEO multiplicó por cinco a julio entero",
-   "d": "186 clics no-marca en agosto contra 36 de julio completo, con 18.597 impresiones contra 9.650, posición media 6,2 contra 8,8 y 75 palabras distintas trayendo clics contra 24."
+   "t": "SEO va más rápido en septiembre que en agosto",
+   "d": "52 clics no-marca en 6 días son 8,7 diarios, contra 6,3 de agosto entero. Agosto cerró en 194 clics con 19.469 impresiones y posición 6,2. Septiembre ya lleva 33 palabras distintas trayendo clics, con meta de ≥25."
   },
   {
-   "t": "El canal IA llegó a 91,48 UF sin gastar un peso",
-   "d": "4 negocios inbound: SOFTYS ganada con 40,48 UF, Digua y Dinamo en Negotiation (20 y 11 UF) y Tecnologías Cobra, que esta semana pasó de Reagendar a Qualified Prospect y ya tiene monto (20 UF). Ninguno se descartó."
+   "t": "El ranking de SST/HSEQ se arregló",
+   "d": "La pérdida por calidad baja se desplomó de 51,6% a 23,8% y la cuota de impresiones subió a 20,0%, la mejor de la serie. Es la palanca que no cuesta plata y por fin va en la dirección correcta."
   },
   {
-   "t": "LinkedIn tuvo su mejor mes en interacción",
-   "d": "Agosto cerró con 7.102 impresiones, 911 clics y 1.069 interacciones: tasa 15,1% contra 13,2% de julio. +36 seguidores en el mes y 5.160 en total. El mejor día fue el 28 de agosto: 632 impresiones y 184 interacciones."
+   "t": "Los motivos de pérdida ya se pueden leer",
+   "d": "El panel estaba mal extraído y decía 69 negocios «sin motivo». Con la propiedad correcta, los motivos cubren los 101 negocios perdidos y solo uno queda sin motivo. La causa número uno es presupuesto y timing: 38 de 101."
   },
   {
-   "t": "Un recurso nuevo convirtió 14 veces con 36 visitas",
-   "d": "El recurso de tasa de siniestralidad se publicó a fines de agosto y ya lleva 14 envíos de formulario. De los 41 envíos del año en contenidos, 21 son del DS 44 y 14 de este; el blog, con 1.910 visitas, lleva 6."
-  },
-  {
-   "t": "Nueva definición de oportunidad: el embudo casi dobla",
-   "d": "A pedido de Diego, un negocio cuenta como oportunidad real cuando entra a Qualified Prospect, Qualified Opportunity o Value Proposition, la que venga primero. Antes solo contaba Qualified Opportunity y dejaba fuera a los negocios que el ejecutivo movió por otro camino. El acumulado sube de 6 a 15 en SEM y de 37 a 62 en SEO. Agosto fue el mejor mes de los dos canales: 7 y 14."
+   "t": "Cinco de las seis metas siguen cumplidas",
+   "d": "Inbounds de pago 50,0% (meta 30%), palabras con clics 33 (meta ≥25), conversión SEM a oportunidad 76,2% (meta ≥40%), conversión SEO 38,0% (meta 20%) y posición SEO 6,2 (meta ≤9,5). La que falta sigue siendo la pérdida de SEO."
   }
  ],
  "rojo": [
   {
-   "t": "La pérdida de SEO empeoró y sigue sobre la meta",
-   "d": "65,7% (119 Closed Lost sobre 181 inbounds) contra 63,9% del corte anterior, con meta de ≤60%. Es la segunda quincena seguida en que sube."
+   "t": "Ningún negocio entró a Meeting Set en septiembre",
+   "d": "Ni en SEO ni en SEM, pese a 9 MQL y 8 inbounds en el mes. O el pipeline se está trabajando sin registrar la etapa, o los MQL de septiembre todavía no agendan. Hay que revisarlo con los AE antes del próximo corte."
   },
   {
-   "t": "El ranking de SST se soltó por tercera semana seguida",
-   "d": "Impresiones perdidas por calidad baja: 23,2% en la semana del 10 al 16, 40,1% del 17 al 23 y 51,2% del 24 al 30. Es la palanca que no cuesta plata y va en la dirección contraria."
+   "t": "El costo por MQL de Ads casi se triplicó en una semana",
+   "d": "SST/HSEQ pasó de $28.701 a $59.125 por MQL: ganó impresiones y clics (124 contra 101) pero su conversión de clics cayó de 5,0% a 2,4%. Marca, en cambio, puso 2 MQL a $13.772: segunda semana seguida rindiendo mejor que SST."
   },
   {
-   "t": "El orgánico se quedó en 2 inbounds dos semanas seguidas",
-   "d": "Venía de 7 y 8. Ya no es ruido de una semana. No es un problema de visibilidad: las impresiones de SEO subieron a 5.296 contra 4.612 y la posición mejoró a 5,6. De los 9 inbounds de la semana, 5 fueron de pago y 2 orgánicos."
+   "t": "El congelador creció de 28 a 36 negocios en una semana",
+   "d": "Ocho congelados nuevos y casi 70 UF mensuales más. En total son 586,9 UF al mes esperando, cerca de $23,5 millones. Además hay 11 negocios vivos parados hace más de 30 días, con 286 UF entre todos."
   },
   {
-   "t": "La semana 24–30 fue más cara por MQL que la anterior",
-   "d": "SST pasó de $20.661 a $28.701 por MQL y su conversión de clic a MQL bajó de 7,7% a 5,0%. Sigue muy por debajo de los $92.844 de la semana del 3 al 9."
+   "t": "El puente de Lead a MQL sigue sin funcionar",
+   "d": "De los 30 Leads reales del año, solo 2 llegaron a MQL, y los dos en julio. Cuatro contactos del newsletter siguen atascados en Suscriptor porque ese formulario no estampa la etapa Lead. Es el trabajo que está tomando la sesión de CRM."
   },
   {
-   "t": "Marca sigue frenada solo por presupuesto",
-   "d": "Pierde el 68,8% de sus búsquedas por presupuesto y apenas el 7,6% por ranking. Su cuota de impresiones subió a 23,6% y captura 138 impresiones semanales."
+   "t": "La pérdida de SEO sigue sobre la meta",
+   "d": "65,8% (121 Closed Lost sobre 184 inbounds) contra 65,7% del corte anterior y una meta de ≤60%. Se movió poco, pero se movió en la dirección equivocada por tercer corte seguido."
   },
   {
-   "t": "Cierres: 5,32% en el año (10 ganados de 188 cerrados)",
-   "d": "Agosto va 2 ganados y 32 perdidos al día 30. De los 275 negocios creados en 2026 quedan 87 sin cerrar."
+   "t": "LinkedIn tuvo su peor semana de alcance desde junio",
+   "d": "977 impresiones, 66 clics y 87 interacciones, contra 1.760 · 224 · 268 la semana anterior. La contracara es que sumó +6 seguidores, lo mejor desde el 17 de agosto, y la página llega a 5.165."
+  },
+  {
+   "t": "La camada de agosto está convirtiendo al 4%",
+   "d": "25 de sus 52 negocios ya cerraron y solo uno se ganó. En el año van 10 ganados de 198 cerrados: 5,05%. Quedan 85 negocios sin cerrar, así que el número puede subir, pero agosto fue el mes de mayor volumen."
   }
  ]
 }

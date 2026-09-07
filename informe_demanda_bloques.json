@@ -2492,5 +2492,221 @@
   "fecha": "6-sep-2026",
   "REGLA": "El contenedor corre en UTC y adelanta el dia respecto de Chile. La fecha y el dia de la semana se leen SIEMPRE en hora de Santiago (TZ=America/Santiago date). Los timestamps ISO que devuelve HubSpot son UTC: restar 3 horas antes de asignar el dia.",
   "incidente": "Le dije a Diego que era lunes 7-sep cuando en Chile eran las 23:04 del domingo 6-sep. El corte semanal es el lunes."
+ },
+ "_corte_plan_demanda_6_sep_2026": {
+  "fecha": "6-sep-2026 (rutina semanal, corte domingo 6-sep, hora de Santiago)",
+  "novedades_del_corte": [
+   "Se agrego el bloque 2 «Leads y MQL». Los Leads salen SIEMPRE de la lista 1212. Todos los bloques posteriores se renumeraron (+1).",
+   "Se reconstruyo el panel de motivos de perdida con la propiedad correcta motivo_de_negocio_perdido (antes se usaba closed_lost_reason, que esta vacio en este portal y producia 69 «sin motivo»).",
+   "Se recalculo toda la serie de SEO con un metodo unico."
+  ],
+  "METODO_SEO_DEFINITIVO": {
+   "fuente": "Supermetrics ds GW, cuenta sc-domain:tazki.cl",
+   "filtro": "query !~ [td][a-z]{0,3}[kq][a-z]?[iyeu] AND searchType == web",
+   "settings": {
+    "discrepancy_correction": "DISABLED"
+   },
+   "por_que": "El regex captura las variantes mal escritas de la marca (taski, tasky, tazky, tazqui, tasqui, taxki, takzi, tzki, tszki, tadki, tsski, tezki, dazki, tizki, tazke, tazku). Reproduce las semanas publicadas casi exactas.",
+   "control": "20-26 jul 13 clics/2.774 impr; 27jul-2ago 15/3.017; 10-16 ago 47/4.623; 24-30 ago 67/5.358."
+  },
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 52,
+   "sep_al_6": 8
+  },
+  "inbounds_ago_por_fuente": {
+   "organic_search": 18,
+   "paid_search": 24,
+   "direct_traffic": 4,
+   "conversations": 2,
+   "ai_referrals": 3,
+   "email_marketing": 1
+  },
+  "inbounds_sep_al_6": {
+   "organic_search": 3,
+   "paid_search": 4,
+   "direct_traffic": 1
+  },
+  "pago_pct": {
+   "ago": "46,2%",
+   "sep": "50,0%",
+   "meta": "30%"
+  },
+  "leads_lista_1212": {
+   "reales_unicos": 30,
+   "jun": 1,
+   "jul": 7,
+   "ago": 11,
+   "sep_al_6": 11,
+   "semana_31ago_6sep": 13,
+   "excluidos": "4 pruebas + 1 duplicado (Jennifer Iribarra)",
+   "leads_que_llegaron_a_MQL": 2
+  },
+  "mql": {
+   "may": 4,
+   "jun": 30,
+   "jul": 52,
+   "ago": 54,
+   "sep_al_6": 8,
+   "anio": 148,
+   "semana_31ago_6sep": 9
+  },
+  "embudo": {
+   "SEM": "16 de 21 Meeting Set = 76,2%",
+   "SEO": "62 de 163 = 38,0%",
+   "perdida_SEM": "20 de 40 = 50,0%",
+   "perdida_SEO": "121 de 184 = 65,8%",
+   "OJO": "En septiembre NINGUN negocio entro a Meeting Set en ninguna de las dos listas."
+  },
+  "camadas": {
+   "creados_2026": 283,
+   "ganados": 10,
+   "perdidos": 188,
+   "sin_cerrar": 85,
+   "conversion": "5,05%",
+   "UF_ganadas": 216.78
+  },
+  "seo": {
+   "ago": {
+    "clics": 194,
+    "impresiones": 19469,
+    "posicion": 6.2,
+    "palabras": 78
+   },
+   "sep_al_6": {
+    "clics": 52,
+    "impresiones": 3493,
+    "posicion": 6.2,
+    "palabras": 33
+   },
+   "semana_31ago_6sep": {
+    "clics": 64,
+    "impresiones": 4287,
+    "posicion": 6.1,
+    "palabras": 39
+   }
+  },
+  "ads": {
+   "ago": {
+    "gasto": 850894,
+    "mql": 24.96,
+    "costo_por_mql": 34090
+   },
+   "sep_al_6": {
+    "gasto": 161834,
+    "mql": 4,
+    "costo_por_mql": 40458
+   },
+   "semana_31ago_6sep": {
+    "SST": {
+     "gasto": 177374,
+     "clics": 124,
+     "mql": 3,
+     "costo_por_mql": 59125
+    },
+    "Marca": {
+     "gasto": 27544,
+     "clics": 56,
+     "mql": 2,
+     "costo_por_mql": 13772
+    }
+   },
+   "acumulado_13jul_6sep": {
+    "gasto": 1643662,
+    "inbounds_pago": 36
+   },
+   "impression_share_SST_semana": {
+    "IS": "20,0%",
+    "perdido_ranking": "23,8%",
+    "perdido_presupuesto": "56,2%"
+   },
+   "impression_share_Marca_semana": {
+    "IS": "16,1%",
+    "perdido_ranking": "20,9%",
+    "perdido_presupuesto": "63,0%"
+   }
+  },
+  "contenido": {
+   "anio": {
+    "total": 2666,
+    "blog": 2240,
+    "recursos": 238,
+    "casos": 188,
+    "envios": 58,
+    "leads": 28
+   },
+   "ago": {
+    "blog": 1136,
+    "recursos": 71,
+    "casos": 32,
+    "envios": 28,
+    "leads": 9
+   },
+   "sep_al_6": {
+    "blog": 274,
+    "recursos": 42,
+    "casos": 8,
+    "envios": 14,
+    "leads": 12
+   },
+   "semana_31ago_6sep": {
+    "blog": 330,
+    "recursos": 53,
+    "casos": 9,
+    "envios": 17,
+    "leads": 15
+   },
+   "conversion": "recursos 52 envios / 238 visitas = 21,8% · blog 6 / 2.240 = 0,27%",
+   "inventario_nuevo": "Se agregaron a recursos los contentId 220985961987 (Formato IRL) y 221118818139 (Matriz IPER)."
+  },
+  "linkedin": {
+   "ago": {
+    "impresiones": 7306,
+    "clics": 916,
+    "interacciones": 1075,
+    "tasa": "14,7%",
+    "seguidores": 36
+   },
+   "semana_31ago_6sep": {
+    "impresiones": 977,
+    "clics": 66,
+    "interacciones": 87,
+    "seguidores": 6
+   },
+   "total_seguidores": 5165
+  },
+  "motivos_de_perdida_may_sep": {
+   "timing_y_presupuesto": 38,
+   "nunca_candidatos": 20,
+   "no_hubo_contacto": 21,
+   "fit_producto": 12,
+   "competencia": 9,
+   "sin_motivo": 1,
+   "total": 101,
+   "propiedad_correcta": "motivo_de_negocio_perdido (NO closed_lost_reason, que esta vacio)"
+  },
+  "salud_pipeline": {
+   "detenidos_mas_30_dias": 11,
+   "UF_detenidas": 286,
+   "congelados_inbound": 36,
+   "UF_congeladas": 586.9,
+   "salieron_de_la_lista": [
+    "Schwager Lacteos",
+    "Habita Construcciones",
+    "SSO / MERCK"
+   ]
+  },
+  "ia": {
+   "sin_movimiento": "Los 4 negocios (SOFTYS, Digua, Dinamo, Tecnologias Cobra) siguen en la misma etapa. 91,48 UF."
+  },
+  "owners": {
+   "90634721": "Emilio Gonzalez",
+   "86816970": "Luciano Pavesi",
+   "86816995": "Cristian Cea",
+   "85541596": "Felipe Casanova"
+  },
+  "INCIDENTE_render": "Al reescribir D.funnel deje solo 3 filas y el render usa funnel[3] (Closed Lost) para la fila «% de perdida»: eso lanzo una excepcion que dejo VACIAS nueve tablas del JS. plan_check lo detecto. REGLA: D.funnel debe tener 4 filas (Inbounds, Meeting Set, Oportunidad real, Closed Lost)."
  }
 }
