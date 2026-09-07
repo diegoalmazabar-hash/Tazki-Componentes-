@@ -2832,5 +2832,31 @@
    "defectos_estructurales_pendientes": "El <!--more--> tambien esta casi al final; hay un <figure> vacio al inicio y otro con solo figcaption huerfano; la caja «Sigue leyendo» tiene un <a> vacio dentro del h2 y un solo item.",
    "estado": "CONTENIDO OK. Defectos de estructura NO corregidos todavia."
   }
+ },
+ "_CORRECCION_alcance_checklist_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "QUE_ESTABA_MAL": "En el plan del 24-ago anote que el checklist de fiscalizacion tenia ~11.500 impresiones/mes de alcance, y se lo repeti a Diego como el descargable de mayor alcance del plan. Al medirlo, la demanda propia de las consultas de checklist y FUF es de unas 90 impresiones al mes con 1 clic.",
+  "medicion": "Search Console, 8-ago a 6-sep, solo Web: «fuf ds 44» 45 impr/0 clics, «check list ds 44» 27/1, resto de la cola 18 impresiones. Total ~90 impr, 1 clic.",
+  "INTERPRETACION": "Las 11.500 impresiones eran el alcance del CLUSTER DS 44 completo, no de las consultas del checklist. El checklist no se distribuye por su propia busqueda: se distribuye por banner desde los articulos del cluster (IRL, MIPER, programa, mapa de riesgos, comite, obligaciones), que juntos ponen mas de 3.000 impresiones semanales.",
+  "RANKING_REAL_POR_INTENCION_DE_BUSQUEDA": [
+   "1. Calendario/registro de charlas de 5 minutos: el cluster de charlas puso 11-13 clics en la semana del 31ago-6sep, el segundo despues del IRL, y ya aparecen consultas de formato («formato charla 5 minutos», «como hacer una charla de 5 minutos», «registro de charla de 5 minutos»).",
+   "2. Formato de entrega de EPP con firma: ~64 impresiones y 4 clics en la semana, CTR ~6%, el mejor del sitio. El articulo de EPP es el tercero mas leido del blog.",
+   "3. Checklist de fiscalizacion: demanda propia baja, pero utilidad transversal alta y distribuible por banner en todo el cluster."
+  ],
+  "REGLA": "Antes de prometer el alcance de un descargable, medir las consultas de ESA pieza, no las del cluster. Y distinguir dos cosas: alcance por busqueda propia vs alcance por distribucion interna."
+ },
+ "_pieza_checklist_ds44_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "archivo": "Checklist-DS44-Tazki.xlsx · generado por piezas/build_checklist.py (versionado en el repo; el xlsx NO, porque el repo es publico y la pieza va detras de formulario)",
+  "contenido": "80 lineas de verificacion en 14 ambitos, cada una con el articulo del DS 44 que la respalda. Hojas: Checklist, Resumen (COUNTIFS automatico, el % excluye las lineas «No aplica»), Plan de cierre (40 filas), Como usarla, Control de versiones.",
+  "ambitos": "Gestion general 5 · Matriz 9 · Programa preventivo 8 · Control de riesgos y EPP 10 · Informacion y capacitacion 7 · Participacion 8 · Riesgo grave y emergencias 5 · Coordinacion 1 · Estructura preventiva 4 · Reglamento interno 6 · Mapas de riesgos 6 · Vigilancia de la salud 4 · Investigacion 2 · Registros e indicadores 5",
+  "verificacion": "Encabezados, rangos y formulas releidos con openpyxl. Los 14 ambitos del Resumen coinciden exacto con los de la hoja Checklist (COUNTIFS no devuelve 0 por typo). La suma por ambito da 80 = total de filas. Logica del % reimplementada en Python.",
+  "fuente": "normativa/ds44-texto-completo-literal.md. Articulos citados: 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 25, 33, 36, 37, 39, 50, 53, 54, 55, 56, 57, 58, 62, 63, 64, 65, 66, 67, 68, 69, 71, 72, 73, 74, 75 y la Res. Ex. N°129 de 2025.",
+  "PENDIENTE": [
+   "Subir el xlsx a Files de HubSpot (lo hace Diego o la sesion de CRM)",
+   "Pagina del recurso en el blog Recursos (id 216050734728) — falta la aprobacion de Diego para crearla",
+   "Formulario + workflow + correo (sesion de CRM)",
+   "Banners en los articulos del cluster DS 44"
+  ]
  }
 }
