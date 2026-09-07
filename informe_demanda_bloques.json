@@ -3023,5 +3023,35 @@
    "218942630956": "blog/comite-paritario-delegado-sst-ds-44"
   },
   "CONFIRMA_LA_REGLA": "Editar por API + publicar desde el editor NO toca el slug. El riesgo era el PUBLISH por API, no el UPDATE. Este es el tercer ciclo (IRL, MIPER y ahora los 5 del checklist) que lo confirma."
+ },
+ "_CIRCUITOS_CHARLAS_Y_MAPA_montados_por_CRM_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "archivos": {
+   "charlas": "https://tazki.cl/hubfs/E-books/Calendario-Charlas-5min-DS44-Tazki.xlsx",
+   "mapa": "https://tazki.cl/hubfs/E-books/Mapa-de-Riesgos-DS44-Tazki.xlsx"
+  },
+  "charlas": {
+   "form": "Form leads - charlas 5 minutos / guid d169c09f-f5be-42fd-b0df-ef754891a1c5",
+   "correo": "Gracias por descargar - Charlas 5 minutos / objectId 585854261288",
+   "workflow": "Descarga Charlas 5 minutos - DS 44 / id 1880190985 / activo",
+   "lista_1212": "Grupo 7"
+  },
+  "mapa": {
+   "form": "Form leads - mapa de riesgos DS 44 / guid ac38de57-e0fd-4baf-9cf9-cd867b3b77a6",
+   "correo": "Gracias por descargar - Mapa de riesgos DS 44 / objectId 585846311990",
+   "workflow": "Descarga Mapa de riesgos - DS 44 / id 1880158615 / activo",
+   "lista_1212": "Grupo 8"
+  },
+  "estructura_workflow": "Editar registro (Etapa = Lead) -> contacto de marketing -> espera 7 min -> correo. Igual que el del checklist.",
+  "nurturing": "«Nurturing Descargas | Lead a MQL» id 1878715979 quedo con 7 formularios en el disparador y sigue activo.",
+  "PRUEBA_PUNTA_A_PUNTA": "Hecha con +test-charlas@ y +test-mapa@. Los dos con etapa Lead y fecha, los dos en la lista 1212, correos SENT y DELIVERED a los 7 min, botones sirviendo el xlsx. Contactos de prueba borrados, confirmado con 404.",
+  "leads_operativos": "Con esto son CINCO recursos capturando: siniestralidad, IRL, MIPER, checklist, charlas y mapa. Todos caen en la lista 1212, que sigue siendo la unica fuente de leads del informe."
+ },
+ "_DEUDA_reportes_panel_22450562_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "PROBLEMA": "Los informes «Contactos Nuevos Por Formulario Ultimos 6 Meses» y «... Por Semana (12 sem)» filtran por nombre de formulario como LISTA CERRADA. Esa propiedad solo ofrece «es igual a» o «es cualquiera de»: NO existe el operador «contiene», asi que no se puede dejar como «contiene Form leads».",
+  "ESTADO": "El CRM les agrego los tres formularios que faltaban. Quedaron con 12 formularios: los 8 de leads y los 4 de MQL.",
+  "REGLA_NUEVA": "Cada recurso nuevo hay que agregarlo A MANO a esos dos informes, o el lead no aparece. Sumarlo al checklist de lanzamiento de cada pieza. El resto del panel usa «contiene Form leads» y no se toca.",
+  "riesgo": "Si se olvida, el informe subreporta y no avisa: simplemente no cuenta ese formulario."
  }
 }
