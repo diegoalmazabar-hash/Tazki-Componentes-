@@ -2857,6 +2857,26 @@
    "Pagina del recurso en el blog Recursos (id 216050734728) — falta la aprobacion de Diego para crearla",
    "Formulario + workflow + correo (sesion de CRM)",
    "Banners en los articulos del cluster DS 44"
-  ]
+  ],
+  "recurso_hubspot": {
+   "contentId": 221318557754,
+   "blog": "Recursos (216050734728)",
+   "titulo": "Checklist DS 44: descarga los 80 puntos de verificación en Excel",
+   "editor": "https://app.hubspot.com/blog/50744593/editor/221318557754/content",
+   "estado": "BORRADOR creado el 7-sep-2026",
+   "OJO_SLUG": "HubSpot genero 'checklist-ds-44-descarga-los-80-puntos-de-verificaci-n-en-excel'. Cambiar a 'checklist-ds-44' ANTES de publicar. Ojo con la 'o' con tilde que quedo cortada como 'verificaci-n'.",
+   "OJO_AUTOR": "No pude asignar autor: GET_AUTHOR no encuentra a Equipo Tazki por correo y SET_AUTHOR falla al crearlo. Diego lo asigna desde el editor, igual que en la Matriz IPER.",
+   "OJO_TAG": "Mismo problema conocido: falta el scope blog-tags-read, LIST_TAGS devuelve vacio. Diego pone el tag «Ebook» desde el editor."
+  }
+ },
+ "_AJUSTE_DE_MATERIALES_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "DIAGNOSTICO": "La fuga no es la conversion sino el trafico. Recursos: 238 visitas / 52 envios = 21,8%. Blog: 2.240 visitas / 6 envios = 0,27%. El articulo del IRL solo vale 1.220 de las 2.240 visitas del blog (55%).",
+  "AJUSTE_1": "El banner dentro del articulo es el canal, no la pagina del recurso. Solo IRL y MIPER tienen banner. Falta ponerlo en programa preventivo, mapa de riesgos, comite paritario, obligaciones, EPP y charlas.",
+  "AJUSTE_2": "Nombrar las piezas como se buscan: las palabras que se repiten en las consultas con clics son FORMATO, EXCEL y DESCARGAR. Cubrir «checklist» y «check list» separado.",
+  "AJUSTE_3": "REGLA NUEVA: ningun articulo nuevo sale sin su descargable el mismo dia. Aplica a los cuatro de fin de septiembre (SG-SST, HSEQ, indicadores, RIOHS).",
+  "AJUSTE_4": "Desde el corte del 14-sep el informe desglosa visitas, envios y leads POR RECURSO, no agregados.",
+  "AJUSTE_5": "Aparecio demanda de «formato mapa de riesgos ds 44». La pieza queda EN PAUSA hasta tener el texto de la guia de la Res. Ex. N°129: hacerla sin leerla repetiria el error de la Matriz IPER.",
+  "calendario": "Checklist hecho (falta distribucion) · Calendario de charlas 11-sep · Formato de EPP 18-sep · Cuatro articulos de fin de mes cada uno con su pieza · Formato de mapa de riesgos cuando llegue la guia."
  }
 }
