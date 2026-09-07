@@ -2486,7 +2486,12 @@
     "Matias Martinez (29-jul)"
    ]
   },
-  "OJO": "Antes de publicar cifras de Leads, confirmar con Diego cuales contactos son de prueba y deduplicar Jennifer."
+  "OJO": "Antes de publicar cifras de Leads, confirmar con Diego cuales contactos son de prueba y deduplicar Jennifer.",
+  "CONFIRMADO_POR_DIEGO_7_sep_2026": {
+   "instruccion_textual": "sii son desechables! actualiza eso y no los cuentes",
+   "REGLA": "Los 4 contactos de prueba NUNCA se cuentan como Leads: Diego de Tazki (diegoalmazabar81+final@gmail.com, 28-ago), juan perez (mdsdafdvillal@gmail.com), Jose Lopez (ciceni3715@mediseat.com) y Carol Ninas (tpobd1p1yr@ruutukf.com), los tres del 31-ago. La lista 1212 marca 35; el conteo real es 30.",
+   "pendiente": "Jennifer Iribarra sigue duplicada en HubSpot (rllanos@raccoz.cl y jenn.iribarra@gmail.com, 2-sep). Diego aun no dice si la fusiona el o la sesion de CRM."
+  }
  },
  "_REGLA_zona_horaria_6_sep_2026": {
   "fecha": "6-sep-2026",
