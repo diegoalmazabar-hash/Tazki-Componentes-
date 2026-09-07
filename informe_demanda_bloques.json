@@ -2716,5 +2716,25 @@
    "mql": "Se dispara: costo por MQL de pago de la semana $40.984 contra $32.000 de promedio de 30 dias (+28%). SST solo va en $59.125, 1,85x el promedio.",
    "seo": "NO se dispara: posicion 6,0 contra 5,7 y impresiones -20%."
   }
+ },
+ "_FUENTE_NORMATIVA_via_sesion_CRM_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "HALLAZGO": "La sesion de CRM SI tiene salida de red a bcn.cl / Ley Chile. Esta sesion NO: el proxy de egreso bloquea bcn.cl, suseso.cl y hasta un PDF del decreto en uchile.cl. WebSearch funciona pero solo devuelve parafrasis.",
+  "REGLA_NUEVA": "La sesion de CRM es la FUENTE del texto normativo literal. Yo escribo y publico el contenido contrastandolo contra ese texto. Nunca se cita el DS 44 desde memoria ni desde una parafrasis de mutual.",
+  "metodo_que_uso_el_CRM": "La pagina de Ley Chile carga el articulado por partes y en pantalla solo muestra hasta el articulo 4. Leyo el servicio oficial que alimenta la pagina (JSON con los 77 articulos) y verifico parrafo por parrafo con hashes: 40 parrafos coinciden exacto.",
+  "version_consultada": {
+   "publicacion": "27-07-2024",
+   "version": "unica, vigente desde 01-02-2025",
+   "CVE": "2523218",
+   "articulos_totales": 77
+  },
+  "archivo": "ds44-articulos-literal.md (lo tiene la sesion de CRM; PENDIENTE que Diego me lo pase)",
+  "CORRECCION_IMPORTANTE": {
+   "lo_que_yo_supuse": "Que el articulo 21 del DS 44 regulaba el Comite Paritario / Delegado de Seguridad y Salud. Lo puse asi en el prompt que le di a Diego.",
+   "lo_que_dice_el_texto_oficial": "El articulo 21 se titula «Funcionamiento eficaz de la estructura preventiva» y es una norma general del Titulo III. El DELEGADO DE SEGURIDAD Y SALUD esta en el ARTICULO 66. El COMITE PARITARIO se regula en el Titulo III, Parrafo 3, ARTICULOS 24 a 44.",
+   "RIESGO": "Tazki tiene publicado el articulo «Comite Paritario o Delegado SST: que te exige el DS 44 segun tu dotacion» (contentId 218942630956). Hay que revisarlo contra los articulos 24-44 y 66 antes de seguir: si yo me equivoque de numero, el articulo publicado puede tener el mismo error."
+  },
+  "mapa_de_riesgos": "Lo regulan los articulos 62 y 63 (Titulo III, Parrafo 6, «De los Mapas de Riesgos»). Ademas: definicion en el articulo 2 numeral 21, numeral 4 del articulo 76 y el articulo tercero transitorio.",
+  "rareza_del_original": "El articulo 8 dice «La enti dad empleadora», con un espacio en medio, en la propia fuente de la BCN. Al citar se puede normalizar el espacio, nunca el sentido."
  }
 }
