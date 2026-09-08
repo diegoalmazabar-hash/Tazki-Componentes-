@@ -3053,5 +3053,14 @@
   "ESTADO": "El CRM les agrego los tres formularios que faltaban. Quedaron con 12 formularios: los 8 de leads y los 4 de MQL.",
   "REGLA_NUEVA": "Cada recurso nuevo hay que agregarlo A MANO a esos dos informes, o el lead no aparece. Sumarlo al checklist de lanzamiento de cada pieza. El resto del panel usa «contiene Form leads» y no se toca.",
   "riesgo": "Si se olvida, el informe subreporta y no avisa: simplemente no cuenta ese formulario."
+ },
+ "_banners_charlas_y_mapa_7_sep_2026": {
+  "fecha": "7-sep-2026",
+  "estado": "Insertados por API. BORRADOR sobre el post publicado: Diego debe abrir cada uno y presionar Actualizar.",
+  "218470472620": "blog/charla-de-5-minutos-seguridad-guia-registro -> tazki.cl/recursos/charlas-5-minutos. Banner tras el <!--more-->, enlace tras la tabla de 20 temas (el recurso trae 52) y FAQ nueva «¿Existe un formato de registro de charlas?».",
+  "218948639508": "blog/mapa-de-riesgos-ds-44-como-hacerlo -> tazki.cl/recursos/mapa-de-riesgos-ds-44. Banner tras el <!--more-->, SECCION NUEVA «El detalle de los colores que la guia no resuelve en una sola tabla» con el caso MSK amarillo vs psicosocial anaranjado, un error frecuente nuevo y FAQ «¿Existe un formato o plantilla oficial?».",
+  "por_que_la_seccion_nueva": "La guia de la Res. Ex. 129 usa cuatro escalas de color distintas y el nivel medio no es del mismo color en todas. Es el dato que justifica la descarga y que no esta en ningun otro articulo del mercado. Sale de normativa/guia-mapas-de-riesgos-res-129-2025.md.",
+  "paginas_de_recurso_verificadas": "221320730428 recursos/charlas-5-minutos y 221321019183 recursos/mapa-de-riesgos-ds-44, ambas PUBLISHED con el slug exacto (LIST_BLOG_POSTS del blog Recursos).",
+  "CIERRE": "Con esto los CINCO descargables del cluster DS 44 tienen banner dentro del blog: IRL, MIPER, checklist (5 articulos), charlas y mapa."
  }
 }
