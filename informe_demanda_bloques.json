@@ -3207,5 +3207,21 @@
    "seo": "Posicion 5,4 contra 6,0 la semana previa e impresiones 5.010 contra 4.293. Mejoro en las dos. No se dispara."
   },
   "verificador": "python3 plan_check.py plan-generacion-demanda.html --corte 2026-09-13 -> OK (201.315 bytes)."
+ },
+ "_REGLA_entrega_a_la_sesion_organizador_14_sep_2026": {
+  "fecha": "14-sep-2026",
+  "pedido": "La sesion «Organizador de Chats» (tazki-crm-9a) pidio, de parte de Diego, recibir el informe de los lunes para cruzarlo contra el CRM y armar una tabla de tres columnas: lo que digo yo, lo que dice el CRM, y la diferencia explicada.",
+  "VIA_1_NO_SIRVE": "SendMessage no alcanza a esa sesion. ListAgents desde la nube devuelve «No reachable agents»: ella corre local en la maquina de Diego y esta sesion corre remota. No volver a intentarlo.",
+  "VIA_FIJA": "Google Drive. Carpeta «Reportes Growth Hub» en la raiz del Drive de Diego (id 1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f, creada el 14-sep-2026). Archivo growth-hub-YYYY-MM-DD.md con la fecha del CORTE (domingo), no la de la corrida.",
+  "QUE_DEBE_LLEVAR": "Periodo exacto y hora de corte · la fuente de cada cifra (HubSpot, Supermetrics AW/GW/LIP, Content Analytics) · las definiciones operativas (inbound, MQL, lead, Meeting Set, oportunidad real, Closed Lost, universo de camadas) · y una seccion de advertencias de lectura, para que cuando un numero no cuadre se sepa si es hora de corte o metodo.",
+  "advertencias_que_van_siempre": [
+   "Los meses cerrados SUBEN porque latest_source se reescribe; solo alarmarse si un numero baja",
+   "Search Console rellena 2-3 dias hacia atras",
+   "closedlost esta mal etiquetado (dice Closed Won); el Closed Lost real es 1233212743",
+   "closed_lost_reason esta vacio en este portal; la propiedad buena es motivo_de_negocio_perdido",
+   "Los 4 contactos de prueba y el duplicado de Jennifer nunca se cuentan"
+  ],
+  "primer_envio": "growth-hub-2026-09-13.md, 13.737 bytes, https://drive.google.com/file/d/1XV7Z5H3Cnwm5xlS8byZNmNGH2_3nLgiS/view",
+  "NO_CAMBIA_EL_INFORME": "El pedido fue explicito: no cambiar como se hace el informe, solo sumar el destinatario. La rutina de los lunes sigue igual."
  }
 }
