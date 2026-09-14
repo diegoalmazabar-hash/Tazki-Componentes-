@@ -3061,7 +3061,8 @@
   "218948639508": "blog/mapa-de-riesgos-ds-44-como-hacerlo -> tazki.cl/recursos/mapa-de-riesgos-ds-44. Banner tras el <!--more-->, SECCION NUEVA «El detalle de los colores que la guia no resuelve en una sola tabla» con el caso MSK amarillo vs psicosocial anaranjado, un error frecuente nuevo y FAQ «¿Existe un formato o plantilla oficial?».",
   "por_que_la_seccion_nueva": "La guia de la Res. Ex. 129 usa cuatro escalas de color distintas y el nivel medio no es del mismo color en todas. Es el dato que justifica la descarga y que no esta en ningun otro articulo del mercado. Sale de normativa/guia-mapas-de-riesgos-res-129-2025.md.",
   "paginas_de_recurso_verificadas": "221320730428 recursos/charlas-5-minutos y 221321019183 recursos/mapa-de-riesgos-ds-44, ambas PUBLISHED con el slug exacto (LIST_BLOG_POSTS del blog Recursos).",
-  "CIERRE": "Con esto los CINCO descargables del cluster DS 44 tienen banner dentro del blog: IRL, MIPER, checklist (5 articulos), charlas y mapa."
+  "CIERRE": "Con esto los CINCO descargables del cluster DS 44 tienen banner dentro del blog: IRL, MIPER, checklist (5 articulos), charlas y mapa.",
+  "CIERRE_14_sep_2026": "Diego publico el banner de charlas el 14-sep desde el editor. Verificado con GET_POST: el bloque de descarga esta en el cuerpo y el slug sigue siendo blog/charla-de-5-minutos-seguridad-guia-registro. Con esto los SEIS descargables del cluster DS 44 tienen banner en vivo dentro del blog: IRL, MIPER, checklist (5 articulos), charlas y mapa. Van ocho articulos publicados por este circuito sin perder un solo slug."
  },
  "_corte_plan_demanda_13_sep_2026": {
   "fecha": "14-sep-2026 (rutina de lunes, corte domingo 13-sep, hora de Santiago)",
@@ -3206,7 +3207,13 @@
    "mql": "22 MQL en 7 dias y costo por MQL de pago de la semana 27.465 contra ~32.000 del promedio de 30 dias. Mejor, no peor. No se dispara.",
    "seo": "Posicion 5,4 contra 6,0 la semana previa e impresiones 5.010 contra 4.293. Mejoro en las dos. No se dispara."
   },
-  "verificador": "python3 plan_check.py plan-generacion-demanda.html --corte 2026-09-13 -> OK (201.315 bytes)."
+  "verificador": "python3 plan_check.py plan-generacion-demanda.html --corte 2026-09-13 -> OK (201.315 bytes).",
+  "entregables": {
+   "pdf_ejecutivo": "plan-ejecutivo-13sep.pdf (el que va a Felipe)",
+   "pdf_espejo": "plan-generacion-demanda-13sep.pdf",
+   "borrador_gmail": "A felipe@tazki.cl, asunto «Generacion de demanda · semana del 7 al 13 de septiembre». SIN adjunto por el limite de base64; Diego engancha el PDF a mano.",
+   "drive": "Reportes Growth Hub / growth-hub-2026-09-13.md para el cruce con la sesion de CRM."
+  }
  },
  "_REGLA_entrega_a_la_sesion_organizador_14_sep_2026": {
   "fecha": "14-sep-2026",
