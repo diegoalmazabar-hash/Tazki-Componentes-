@@ -3062,5 +3062,150 @@
   "por_que_la_seccion_nueva": "La guia de la Res. Ex. 129 usa cuatro escalas de color distintas y el nivel medio no es del mismo color en todas. Es el dato que justifica la descarga y que no esta en ningun otro articulo del mercado. Sale de normativa/guia-mapas-de-riesgos-res-129-2025.md.",
   "paginas_de_recurso_verificadas": "221320730428 recursos/charlas-5-minutos y 221321019183 recursos/mapa-de-riesgos-ds-44, ambas PUBLISHED con el slug exacto (LIST_BLOG_POSTS del blog Recursos).",
   "CIERRE": "Con esto los CINCO descargables del cluster DS 44 tienen banner dentro del blog: IRL, MIPER, checklist (5 articulos), charlas y mapa."
+ },
+ "_corte_plan_demanda_13_sep_2026": {
+  "fecha": "14-sep-2026 (rutina de lunes, corte domingo 13-sep, hora de Santiago)",
+  "bloques_actualizados": "Los 9. Inbounds, Leads y MQL, Embudo + camadas, SEM ranking, Ads, SEO, Contenido, Motivos de perdida, LinkedIn, Bitacora.",
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 53,
+   "sep_al_13": 30
+  },
+  "inbounds_semana_7_13_sep": {
+   "total": 22,
+   "directo": 8,
+   "pago": 7,
+   "organica": 5,
+   "ai_referrals": 2,
+   "nota": "Semana con mas inbounds de la serie. El trafico DIRECTO paso de 4 en todo agosto a 9 en 13 dias de septiembre."
+  },
+  "pago_pct": {
+   "ago": "45,3% (24 de 53)",
+   "sep_al_13": "36,7% (11 de 30)",
+   "meta": "30%"
+  },
+  "OJO_agosto_se_movio": "Agosto paso de 52 a 53 inbounds y el organico de 18 a 19. Es latest_source reescribiendose cuando el contacto vuelve por otro canal; los meses cerrados suben un poco cada semana. NO es un error.",
+  "leads_lista_1212": {
+   "en_lista": 55,
+   "reales_unicos": 50,
+   "excluidos": "4 pruebas + 1 duplicado (Jennifer Iribarra)",
+   "jun": 1,
+   "jul": 7,
+   "ago": 11,
+   "sep_al_13": 31,
+   "semana_7_13_sep": 20,
+   "por_recurso_semana": {
+    "Formato IRL": 8,
+    "Matriz IPER": 4,
+    "Mapa de riesgos": 4,
+    "Checklist": 2,
+    "Siniestralidad": 1,
+    "Newsletter": 1
+   },
+   "VALIDACION_CRUZADA": "El desglose por recurso de la analitica de contenido (IRL 8, IPER 4, mapa 4, checklist 2, siniestralidad 1) coincide EXACTO con el conteo de la lista 1212. Dos fuentes independientes dan lo mismo."
+  },
+  "mql": {
+   "may": 4,
+   "jun": 30,
+   "jul": 52,
+   "ago": 54,
+   "sep_al_13": 30,
+   "anio": 170,
+   "semana_7_13_sep": 22
+  },
+  "PUENTE_LEAD_A_MQL": "Sigue en CERO. Ninguno de los contactos que descargo un recurso tiene fecha de MQL. Los 2 MQL de la lista 1212 (Fresia Matamala y Matias Martinez, julio) entraron por el formulario de demo, no por una descarga.",
+  "embudo": {
+   "SEM": "17 de 26 Meeting Set = 65,4% (era 76,2%)",
+   "SEO": "66 de 170 = 38,8%",
+   "perdida_SEM": "25 de 43 = 58,1% (era 50,0%)",
+   "perdida_SEO": "126 de 192 = 65,6%",
+   "SE_RESOLVIO_LA_ALERTA": "La semana pasada se marco que en septiembre NINGUN negocio habia entrado a Meeting Set en ninguna lista. Al corte del 13-sep hay 7 en SEO y 6 en SEM. Era retraso de registro, no una caida real.",
+   "OJO_SEM": "La conversion SEM bajo porque Meeting Set crecio de 21 a 26 y las oportunidades solo de 16 a 17. Y la perdida SEM subio 8 puntos en una semana: 5 negocios nuevos en Closed Lost sobre una base de 43."
+  },
+  "camadas": {
+   "creados_2026": 306,
+   "ganados": 12,
+   "perdidos": 204,
+   "sin_cerrar": 90,
+   "conversion": "5,56%",
+   "septiembre_cierres": "22 perdidos en 13 dias, el mes de cierre mas duro del anio salvo agosto (34). 10 de esos 22 son de la camada de agosto."
+  },
+  "seo": {
+   "ago": {
+    "clics": 198,
+    "impresiones": 19452,
+    "posicion": 6.2,
+    "palabras": 76
+   },
+   "sep_al_13": {
+    "clics": 122,
+    "impresiones": 8510,
+    "posicion": 5.7,
+    "palabras": 61
+   },
+   "semana_7_13_sep": {
+    "clics": 69,
+    "impresiones": 5010,
+    "posicion": 5.4,
+    "palabras": 40
+   },
+   "CONTROLES_EXACTOS": "jun 14/5.947/8,4 · jul 36/9.650/8,8 · ago 198/19.452/6,2 · 13-19jul 5/1.836/9,8 · 20-26jul 13/2.776/7,8. Todos reprodujeron EXACTO con el regex oficial de seo_config.json.",
+   "consulta_nueva": "Aparecieron con clics «simbologia mapa de riesgos» y «simbologia mapa de riesgos ds 44», que es justo lo que persigue el recurso del mapa."
+  },
+  "ads": {
+   "sep_al_13": {
+    "gasto": 380727,
+    "mql": 12,
+    "costo_por_mql": 31727
+   },
+   "semana_7_13_sep": {
+    "gasto": 218894,
+    "mql": 7.97,
+    "costo_por_mql": 27465,
+    "clics": 209
+   },
+   "acumulado_13jul_13sep": {
+    "gasto": 1862556,
+    "inbounds_pago": 39,
+    "costo_por_inbound": 47758
+   },
+   "impression_share_SST_semana": {
+    "IS": "24,4%",
+    "perdido_ranking": "42,9%",
+    "perdido_presupuesto": "32,6%"
+   },
+   "impression_share_Marca_semana": {
+    "IS": "23,6%",
+    "perdido_ranking": "9,4%",
+    "perdido_presupuesto": "67,1%"
+   }
+  },
+  "contenido_semana": {
+   "blog": 329,
+   "recursos": 138,
+   "casos": 39,
+   "total": 506,
+   "envios": 20,
+   "leads": 19,
+   "OJO": "Los 19 leads salieron TODOS de recursos. El blog puso 329 visitas y 0 envios."
+  },
+  "linkedin": {
+   "seguidores": 5170,
+   "semana": "+7 · 2.334 impresiones · 145 interacciones · 6,2%",
+   "sep_al_13": "+13 · 3.106 impresiones · 225 interacciones · 7,2%",
+   "nota": "La columna Clics quedo en «—»: el campo de clics de pagina no esta en el reporte PageStatistics de Supermetrics, solo page_impressions y page_engagements."
+  },
+  "NEGOCIO_GRANDE": "Zicsa, UF 2.700, creado el 7-sep por busqueda organica, hoy en Value Proposition, cierre proyectado 31-dic-26. Explica 2.700 de las 2.852,7 UF de septiembre y 2.700 de las 2.815,3 de la semana. La semana con mas UF hasta ahora habia sido 180,4.",
+  "PENDIENTE_CHARLAS": "El recurso de charlas es el unico que no arranco: 1 visita y 0 leads en la semana. Su banner en el articulo blog/charla-de-5-minutos-seguridad-guia-registro (218470472620) se edito el 7-sep y NO aparece entre los 14 posts mas recientes por updatedAt, o sea que quedo sin publicar. El banner del mapa si se publico (218948639508, updatedAt 8-sep) y ese recurso hizo 20 visitas y 4 leads.",
+  "chequeo_de_anomalias": {
+   "gasto": "13-sep 32.951 vs promedio de los 7 dias previos 29.688 = 1,11x. Bajo el umbral de 1,8x. No se dispara.",
+   "terminos": "4 clics / ~3.162 CLP en 3 dias en consultas informacionales no negativizadas: «inteligencia artificial en prevencion de riesgos laborales» 1.597, «seguridad industrial en la mineria» 631, «dashboard prevencion de riesgos» 596, «kpi prevencion de riesgos» 338. Ninguna es marca de competencia.",
+   "FALSA_ALARMA_EVITADA": "Primero busque esas palabras como substring dentro de ads_negatives.json y parecian estar en la lista. Son objetos {t,m} con match EXACT o PHRASE: «prevencion de riesgos» EXACT no bloquea «dashboard prevencion de riesgos». La lista esta bien configurada. REGLA: nunca chequear negativas por substring, hay que respetar el tipo de concordancia.",
+   "mql": "22 MQL en 7 dias y costo por MQL de pago de la semana 27.465 contra ~32.000 del promedio de 30 dias. Mejor, no peor. No se dispara.",
+   "seo": "Posicion 5,4 contra 6,0 la semana previa e impresiones 5.010 contra 4.293. Mejoro en las dos. No se dispara."
+  },
+  "verificador": "python3 plan_check.py plan-generacion-demanda.html --corte 2026-09-13 -> OK (201.315 bytes)."
  }
 }
