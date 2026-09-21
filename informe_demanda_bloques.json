@@ -3441,7 +3441,8 @@
     33,
     29
    ],
-   "nota": "Con entrada a etapa el perdido de Olitel (Mutual) pasa de septiembre a mayo respecto del criterio de cierre. Un negocio (64894671007) se perdio el 21-sep 09:02 y queda fuera del corte."
+   "nota": "Con entrada a etapa el perdido de Olitel (Mutual) pasa de septiembre a mayo respecto del criterio de cierre. Un negocio (64894671007) se perdio el 21-sep 09:02 y queda fuera del corte.",
+   "matriz_camadas": "La matriz de camadas (cohorte x mes de desenlace) usa el mismo criterio: columna = mes de entrada a Closed Won / Closed Lost."
   },
   "impression_share_semana_14_20": {
    "ponderado_diario": {
@@ -3536,7 +3537,13 @@
     "Nicole Ortiz MQL y en lista 1324 a la vez: residuo esperable de la transicion del 16, no se corrige"
    ],
    "REGLA_PDF_EJECUTIVO": "Antes de generar el PDF ejecutivo, reescribir pdf_highlights.json y comprobar que su campo fecha es la semana del corte. Antes de publicar, comprobar que la tarjeta Estado de los datos dice la fecha del corte.",
-   "entregable": "Reporte corregido en Drive: growth-hub-2026-09-20-v2.md"
+   "entregable": "Reporte corregido en Drive: growth-hub-2026-09-20-v2.md",
+   "segunda_vuelta_v3": {
+    "hallazgo": "La matriz de camadas seguia por fecha de cierre y contradecia la tabla de productividad.",
+    "correccion": "Matriz rearmada por entrada a etapa; fila Año 2026 = 0/2 · 0/13 · 0/26 · 0/32 · 3/29 · 2/14 · 3/31 · 2/33 · 2/29. Celdas que cambian: ollagua abr->may, SOFTYS may->jun, Ampuero y Ranco Cherries jun->jul, Habita y MAKRO ago->sep, Olitel sep->may. Textos viejos del bloque 3 (Como verificar y tarjeta Correccion de criterio 14-ago) actualizados a 12 ganados · 209 perdidos · 247,4 UF · 5,43%.",
+    "REGLA": "La matriz de camadas y la tabla de productividad salen del MISMO criterio (entrada a etapa) y deben decir lo mismo en la fila de totales. Verificar ambas en cada corte.",
+    "entregable": "growth-hub-2026-09-20-v3.md"
+   }
   }
  }
 }
