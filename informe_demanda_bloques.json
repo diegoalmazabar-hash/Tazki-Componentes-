@@ -3253,7 +3253,7 @@
    "sep_al_20": "39,4% (13 de 33)"
   },
   "CORRECCION_ZICSA": "Zicsa tiene amount 2700 en USD = 59,09 UF (amount_in_home_currency). El corte del 13-sep lo leyo como 2.700 UF. Septiembre queda en 268,3 UF y la semana 7-13 en 230,9 UF. Usar SIEMPRE amount_in_home_currency, nunca amount.",
-  "CORRECCION_PRODUCTIVIDAD_TZ": "Las fechas de cierre se leen ahora con ZoneInfo America/Santiago. Ganados por mes de cierre: abr 1, may 3, jun 3, jul 1, ago 4, sep 0 (antes decia may 3, jun 2, jul 3, ago 2, sep 2).",
+  "CORRECCION_PRODUCTIVIDAD_TZ": "PROBADA Y DESCARTADA el 21-sep. Se intento agrupar por fecha de cierre en hora de Chile (daba abr 1, may 3, jun 3, jul 1, ago 4, sep 0). NO es el criterio oficial: la fecha de cierre la carga el AE como fecha esperada a fin de mes y no la actualiza (SOFTYS quedaba 23 dias antes de la real). Ver REGLA_ganados_por_entrada_a_etapa.",
   "leads_lista_1212": {
    "en_lista": 74,
    "reales_unicos": 68,
@@ -3313,7 +3313,7 @@
     "inbounds_pago": 45,
     "costo_por_inbound_pago": 46048
    },
-   "cambios_cuenta": "14-sep 13:21 fecasanov@gmail.com (Felipe) cargo ~60 negativas en SST. Sin cambios de presupuesto ni puja."
+   "cambios_cuenta": "14-sep 13:21, negativas nuevas en SST cargadas con la cuenta Gmail de la conexion (fecasanov@). El historial de Google trae 60 entradas CREATE de criterio negativo; la revision cruzada del 21-sep las cuenta como 25 negativas en SST y 2 en Marca con OK de Diego. Felipe es el dueno de la conexion, no necesariamente quien hizo el cambio. Sin cambios de presupuesto ni puja."
   },
   "seo": {
    "sep_al_20": {
@@ -3416,6 +3416,127 @@
     "56363143048"
    ],
    "REGLA": "Si una lista de Diego salta mas de lo que explican los inbounds nuevos de la semana, guardar la membresia completa (ids) del corte en el JSON para poder hacer el diff la semana siguiente. Desde este corte los ids de 970 quedan en el archivo l970_ids_20_sep.json del repo."
+  },
+  "REGLA_ganados_por_entrada_a_etapa": {
+   "fecha": "21-sep-2026 (decision de Diego del 17-sep, asi quedo el panel del CRM)",
+   "regla": "Ganados y perdidos por mes se agrupan SIEMPRE por la fecha de ENTRADA a la etapa: ganado = hs_v2_date_entered_closedlost (la etapa closedlost es Closed Won en este portal), perdido = hs_v2_date_entered_1233212743. Nunca por closedate. Leer en America/Santiago.",
+   "serie_ganados_2026": {
+    "may": 3,
+    "jun": 2,
+    "jul": 3,
+    "ago": 2,
+    "sep": 2,
+    "total": 12,
+    "uf": 247.4,
+    "sep_detalle": "MAKRO 7-sep, Habita 8-sep"
+   },
+   "serie_perdidos_2026_al_20_sep": [
+    2,
+    13,
+    26,
+    32,
+    29,
+    14,
+    31,
+    33,
+    29
+   ],
+   "nota": "Con entrada a etapa el perdido de Olitel (Mutual) pasa de septiembre a mayo respecto del criterio de cierre. Un negocio (64894671007) se perdio el 21-sep 09:02 y queda fuera del corte."
+  },
+  "impression_share_semana_14_20": {
+   "ponderado_diario": {
+    "SST": "33,2% · ranking 38,2% · presupuesto 28,6%",
+    "Marca": "26,9% · 20,6% · 52,4%"
+   },
+   "agregado_google": {
+    "SST": "32,6% · ranking 33,3% · presupuesto 34,2%",
+    "Marca": "26,9% · 17,5% · 55,7%"
+   },
+   "REGLA": "El Plan usa la ponderacion diaria por continuidad de la serie y declara SIEMPRE el agregado de Google al lado cuando invierte la conclusion (esta semana: segun Google SST perdio mas por presupuesto que por ranking). Consulta del agregado: AW sin dimension Date, rango custom de la semana, campos SearchImpressionShare / SearchRankLostImpressionShare / SearchBudgetLostImpressionShare."
+  },
+  "leads_por_recurso_dos_tablas": {
+   "oficial": "Bloque 2, lista 1212: Formato IRL 8 · Matriz IPER 4 · Mapa 3 · Checklist 2 · Charlas 1 = 18 unicos, cada persona por su conversion mas reciente.",
+   "analitica_bloque_8": "HubSpot content analytics (leads por pagina): IRL 8 · IPER 5 · Mapa 3 · Checklist 1 · Charlas 2 = 19.",
+   "por_que_difieren": "Cristian Saldivia Vera descargo primero IPER y despues Checklist (analitica lo cuenta en IPER, lista en Checklist); roberto mamani entro con dos correos, Charlas y Checklist (analitica 2, lista 1).",
+   "REGLA": "Cuando las dos tablas no coincidan, decir cual es la oficial (lista 1212) y explicar la diferencia persona por persona."
+  },
+  "panel_palabras_nuevas": {
+   "estado": "Refrescado al 20-sep el 21-sep (estaba al 3-9 ago).",
+   "metodo_validado": "Solo filas WEB, sin marca (regex oficial), sin (unknown); nuevas = consultas de la semana que no estaban la anterior; con clic = nuevas con clics>0; +/-impresiones y +/-clics sobre las consultas presentes en ambas semanas. La fila 3-9 ago se reprodujo EXACTA (174 · 4 · 74 · 68 · 12 · 7).",
+   "filas_nuevas": [
+    {
+     "lab": "10–16 ago",
+     "nuevas": 182,
+     "clk": 3,
+     "subimp": 125,
+     "bajimp": 76,
+     "subclk": 18,
+     "bajclk": 7
+    },
+    {
+     "lab": "17–23 ago",
+     "nuevas": 135,
+     "clk": 1,
+     "subimp": 122,
+     "bajimp": 121,
+     "subclk": 21,
+     "bajclk": 19
+    },
+    {
+     "lab": "24–30 ago",
+     "nuevas": 172,
+     "clk": 4,
+     "subimp": 146,
+     "bajimp": 95,
+     "subclk": 25,
+     "bajclk": 17
+    },
+    {
+     "lab": "31 ago–6 sep",
+     "nuevas": 165,
+     "clk": 3,
+     "subimp": 98,
+     "bajimp": 153,
+     "subclk": 30,
+     "bajclk": 23
+    },
+    {
+     "lab": "7–13 sep",
+     "nuevas": 219,
+     "clk": 9,
+     "subimp": 115,
+     "bajimp": 136,
+     "subclk": 23,
+     "bajclk": 26
+    },
+    {
+     "lab": "14–20 sep",
+     "nuevas": 135,
+     "clk": 1,
+     "subimp": 90,
+     "bajimp": 202,
+     "subclk": 23,
+     "bajclk": 28
+    }
+   ],
+   "consulta": "GW sc-domain:tazki.cl, fields query,searchType,clicks,impressions,position, filters query !~ <regex>, rango custom por semana lunes-domingo."
+  },
+  "revision_organizador_21_sep": {
+   "resultado": "Cifras verificadas contra CRM, Google Ads, Search Console y LinkedIn: cuadran en todo.",
+   "correcciones_aplicadas": [
+    "Ganados por mes por entrada a etapa",
+    "Impression share con agregado de Google declarado",
+    "Resumen ejecutivo del PDF regenerado (estaba con el del 13-sep)",
+    "Tarjeta Estado de los datos regenerada (estaba con el del 6-sep)",
+    "Zicsa marcado como corregido en la bitacora del 14-sep",
+    "Explicada la diferencia entre las dos tablas de leads por recurso",
+    "Panel de palabras clave nuevas refrescado"
+   ],
+   "sin_accion": [
+    "Nicole Ortiz MQL y en lista 1324 a la vez: residuo esperable de la transicion del 16, no se corrige"
+   ],
+   "REGLA_PDF_EJECUTIVO": "Antes de generar el PDF ejecutivo, reescribir pdf_highlights.json y comprobar que su campo fecha es la semana del corte. Antes de publicar, comprobar que la tarjeta Estado de los datos dice la fecha del corte.",
+   "entregable": "Reporte corregido en Drive: growth-hub-2026-09-20-v2.md"
   }
  }
 }
