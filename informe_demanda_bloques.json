@@ -3389,6 +3389,33 @@
    "d_seo": "No: posicion 5,3 vs 5,5; impresiones -20,6%"
   },
   "entrega_drive": "growth-hub-2026-09-20.md en carpeta Reportes Growth Hub (1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f)",
-  "REGLA_NUEVA_amount": "Para UF usar amount_in_home_currency; amount viene en la moneda del negocio (Zicsa esta en USD)."
+  "REGLA_NUEVA_amount": "Para UF usar amount_in_home_currency; amount viene en la moneda del negocio (Zicsa esta en USD).",
+  "LISTA_970_revision_21_sep": {
+   "que_paso": "La lista SEO paso de 192 a 210 negocios (perdidos 126 a 144) entre el 13 y el 20 de septiembre. Los 18 que entraron son perdidos antiguos: 16 creados entre febrero y agosto, y perdidos hace meses.",
+   "filtro_reconstruido": "Con los datos de hoy la lista se reproduce EXACTO (210 de 210, 0 sobrantes) como: negocios Inbound 2026 cuyo Latest Source [i] es Organic Search O cuya fuente original es Organic Search, menos los que estan en la lista SEM 968 (968 = Latest Source Paid Search; ahi caen IMT y Santolaya, organicos de origen pero pagados al final). Quedan fuera ademas 5 negocios en Onboarding con Latest Source vacio.",
+   "por_que_no_estaban_antes": "NO fue por fuente: los 16 son organicos en los tres campos (latest_source, original_source, hs_analytics_source) y su latest_source ya estaba lleno antes del 13-sep (la tabla de inbounds may-ago no se movio entre cortes). Lo unico que tienen en comun es que TODOS fueron editados entre el 14 y el 18 de septiembre (4, 5, 4, 4 y 1 por dia). 7 ediciones vienen de una automatizacion atribuida a un usuario desactivado (id 86817151); el resto de Cristian Cea, Emilio Gonzalez, Luciano Pavesi y Nicolas Manriquez. Es decir, entraron a la lista al ser tocados, o el filtro se edito esa semana. Las herramientas de HubSpot disponibles no permiten leer los filtros ni el historial de una lista: revisar en HubSpot > Listas > 970 > Detalles/Historial.",
+   "consecuencia_para_el_plan": "Los 18 son negocios organicos perdidos de verdad. El 68,6% de perdida SEO es la cifra correcta; el 65,6% del 13-sep estaba subestimado porque la lista los omitia. No corregir hacia abajo.",
+   "ids_18": [
+    "61230652580",
+    "65031767363",
+    "59019103342",
+    "62399387967",
+    "59639428634",
+    "63808420265",
+    "55391210063",
+    "57018793793",
+    "62834389891",
+    "64100945332",
+    "60849194114",
+    "60158018907",
+    "59651993940",
+    "62477986976",
+    "56907682379",
+    "57344268035",
+    "64907048715",
+    "56363143048"
+   ],
+   "REGLA": "Si una lista de Diego salta mas de lo que explican los inbounds nuevos de la semana, guardar la membresia completa (ids) del corte en el JSON para poder hacer el diff la semana siguiente. Desde este corte los ids de 970 quedan en el archivo l970_ids_20_sep.json del repo."
+  }
  }
 }
