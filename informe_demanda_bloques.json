@@ -3544,6 +3544,32 @@
     "REGLA": "La matriz de camadas y la tabla de productividad salen del MISMO criterio (entrada a etapa) y deben decir lo mismo en la fila de totales. Verificar ambas en cada corte.",
     "entregable": "growth-hub-2026-09-20-v3.md"
    }
+  },
+  "CIERRE_DEL_CORTE": {
+   "estado": "CERRADO Y REVISADO",
+   "fecha_cierre": "21-sep-2026 13:32 UTC (10:32 hora de Chile)",
+   "version_final": "v3 · commit 0dc09b8 en gh-pages",
+   "reporte_final_drive": "growth-hub-2026-09-20-v3.md (id 1qSAIdDLKtCM8g8UEdqPr7aC7g9TbbTMi)",
+   "revision_final": "revision-organizador-2026-09-20-ok.md (id 1HZgJXl-UXnhUdJXorkgIvJbSgncqkiFC): sin observaciones pendientes; matriz de camadas comprobada celda por celda contra el CRM con diferencia 0; textos del bloque 3 y bitacora verificados; ninguna otra cifra cambio respecto de la v2 ni de las fuentes.",
+   "vueltas": [
+    {
+     "v": "v1",
+     "commit": "d04ba30",
+     "revision": "5 correcciones (ganados por entrada a etapa, impression share con agregado de Google, textos no regenerados, dos tablas de leads, panel SEO)"
+    },
+    {
+     "v": "v2",
+     "commit": "f4aad0e",
+     "revision": "1 inconsistencia (matriz de camadas por fecha de cierre) + textos viejos del bloque 3 + bitacora charlas"
+    },
+    {
+     "v": "v3",
+     "commit": "0dc09b8",
+     "revision": "OK"
+    }
+   ],
+   "primer_uso_del_circuito_nuevo": "El archivo -ok.md lo dejo el Organizador en Drive por su cuenta, un minuto despues del aviso del circuito: la escritura en Drive desde su sesion funciona.",
+   "commits_posteriores_al_cierre": "9afc47e (plan_check ampliado, cierres_por_entrada.json, circuito documentado): no toca cifras del corte."
   }
  },
  "_CIRCUITO_REVISION_ORGANIZADOR_21_sep_2026": {
