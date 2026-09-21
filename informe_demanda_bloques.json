@@ -3230,5 +3230,165 @@
   ],
   "primer_envio": "growth-hub-2026-09-13.md, 13.737 bytes, https://drive.google.com/file/d/1XV7Z5H3Cnwm5xlS8byZNmNGH2_3nLgiS/view",
   "NO_CAMBIA_EL_INFORME": "El pedido fue explicito: no cambiar como se hace el informe, solo sumar el destinatario. La rutina de los lunes sigue igual."
+ },
+ "_corte_plan_demanda_20_sep_2026": {
+  "fecha": "21-sep-2026 (corrida adelantada por Diego a las 07:25 Chile; corte domingo 20-sep, hora de Santiago)",
+  "bloques_actualizados": "Los 9 mas salud del pipeline, AEO y bitacora. KWNEW sigue sin refrescar (documentado en su cap-note).",
+  "CAMBIO_DE_DEFINICION_MQL_16_sep": "Desde el 16-sep 13:41 solo es MQL quien declara 51 empleados o mas (rango_de_empleados). Los de 50 o menos quedan en Lead, entran a la lista 1324 y no generan negocio. Evento Ads 'HubSpot - Sales Qualified Lead' verificado como SECUNDARIO (PrimaryForGoal=false); la unica principal sigue siendo 'HubSpot - Marketing Qualified Lead'. Historico: 30 de 62 MQL con tamano declarado eran <=50. Series de MQL, inbounds y conversiones no comparables antes/despues del 16.",
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 53,
+   "sep_al_20": 33
+  },
+  "inbounds_semana_14_20_sep": {
+   "total": 3,
+   "pago": 2,
+   "ai_referrals": 1,
+   "nota": "Ingemar y Acses son del domingo 13 a las 23:00 hora Chile: van en la semana 7-13 aunque HubSpot los muestre el 14 en UTC."
+  },
+  "pago_pct": {
+   "ago": "45,3% (24 de 53)",
+   "sep_al_20": "39,4% (13 de 33)"
+  },
+  "CORRECCION_ZICSA": "Zicsa tiene amount 2700 en USD = 59,09 UF (amount_in_home_currency). El corte del 13-sep lo leyo como 2.700 UF. Septiembre queda en 268,3 UF y la semana 7-13 en 230,9 UF. Usar SIEMPRE amount_in_home_currency, nunca amount.",
+  "CORRECCION_PRODUCTIVIDAD_TZ": "Las fechas de cierre se leen ahora con ZoneInfo America/Santiago. Ganados por mes de cierre: abr 1, may 3, jun 3, jul 1, ago 4, sep 0 (antes decia may 3, jun 2, jul 3, ago 2, sep 2).",
+  "leads_lista_1212": {
+   "en_lista": 74,
+   "reales_unicos": 68,
+   "excluidos": "4 pruebas + Jennifer Iribarra + roberto mamani (dos correos, 16 y 18 sep)",
+   "sep_al_20": 49,
+   "semana_14_20": "19 crudos, 18 unicos",
+   "por_recurso_semana": {
+    "Formato IRL": 8,
+    "Matriz IPER": 4,
+    "Mapa de riesgos": 3,
+    "Checklist": 2,
+    "Charlas 5 min": 1
+   }
+  },
+  "mql": {
+   "sep_al_20": 34,
+   "anio": 174,
+   "semana_14_20": 4,
+   "detalle": "3 antes del cambio (Enzo Abarca/Alginatos, Fabiola Rivera/MPM, Nicole Ortiz/conprojecto) + 1 despues (Laura Sepulveda/RC Empresas, 51-200). Eduardo Campos/Incoservice (11-50) quedo en Lead y en la lista 1324. Nicole Ortiz (1-10) esta MQL y en la lista 1324 a la vez: revisar."
+  },
+  "embudo": {
+   "SEM": "18 de 28 = 64,3% (era 65,4%) · perdida 28 de 49 = 57,1%",
+   "SEO": "73 de 188 = 38,8% · perdida 144 de 210 = 68,6% (era 65,6%: la lista 970 paso de 192 a 210 negocios y de 126 a 144 Closed Lost, incorporo 18 negocios antiguos ya perdidos)",
+   "semana": "MS: SEM 2 (MPM 14, Jorquera 15), SEO 0 · opp: 1 y 1 · lost: 3 y 3"
+  },
+  "camadas": {
+   "creados_2026": 309,
+   "ganados": 12,
+   "perdidos": 209,
+   "sin_cerrar": 88,
+   "conversion": "5,43%",
+   "frozen": "35 · 586,9 UF (26 con monto)",
+   "sep": "29 perdidos, 0 ganados al dia 20; 14 de la camada de agosto; semana 14-20: 8 cierres, todos perdidos"
+  },
+  "sem_ranking_14_20": {
+   "SST": "IS 33,2% · rank 38,2% · budget 28,6%",
+   "Marca": "IS 26,9% · rank 20,6% · budget 52,4%",
+   "ojo": "17 al 20: budget lost 0% en ambas y rank lost 55-78% por dia (feriados, pocas impresiones elegibles)"
+  },
+  "ads": {
+   "sep_al_20": {
+    "gasto": 590354,
+    "mql": 15,
+    "sst": 9,
+    "marca": 6,
+    "costo_por_mql": 39357
+   },
+   "semana_14_20": {
+    "gasto": 209626,
+    "clics": 167,
+    "mql": 2,
+    "costo_por_mql": 104813,
+    "nota": "solo 2 MQL posibles con la regla nueva; no comparar"
+   },
+   "acumulado_desde_13_jul": {
+    "gasto": 2072182,
+    "inbounds_pago": 45,
+    "costo_por_inbound_pago": 46048
+   },
+   "cambios_cuenta": "14-sep 13:21 fecasanov@gmail.com (Felipe) cargo ~60 negativas en SST. Sin cambios de presupuesto ni puja."
+  },
+  "seo": {
+   "sep_al_20": {
+    "clics": 184,
+    "impresiones": 12906,
+    "posicion": 5.6,
+    "palabras": 81
+   },
+   "semana_14_20": {
+    "clics": 57,
+    "impresiones": 4163,
+    "posicion": 5.3,
+    "palabras": 35
+   },
+   "semana_7_13_rellenada": {
+    "clics": 74,
+    "impresiones": 5243,
+    "posicion": 5.5,
+    "palabras": 45,
+    "antes": "69 · 5.010 · 5,4 · 40"
+   },
+   "control_junio": "14 / 5.947 / 8,4 EXACTO"
+  },
+  "contenido": {
+   "semana_14_20": {
+    "blog": 225,
+    "recursos": 106,
+    "casos": 5,
+    "total": 336,
+    "envios": 26,
+    "leads": 19
+   },
+   "sep_al_20": {
+    "blog": 820,
+    "recursos": 281,
+    "casos": 36,
+    "total": 1137,
+    "envios": 60,
+    "leads": 50
+   },
+   "calendario_charlas": "arranco: 5 visitas, 2 envios, 2 leads"
+  },
+  "linkedin": {
+   "semana_14_20": {
+    "impresiones": 1708,
+    "interacciones": 97,
+    "tasa": "5,7%",
+    "seguidores": "+8 (el 20 sin dato)"
+   },
+   "sep_al_20": {
+    "impresiones": 4814,
+    "interacciones": 322,
+    "tasa": "6,7%",
+    "seguidores": "+21"
+   },
+   "total": 5177
+  },
+  "motivos_may_sep": {
+   "Timing y presupuesto": 46,
+   "No hubo contacto": 33,
+   "Nunca fueron candidatos": 24,
+   "Fit del producto": 19,
+   "Competencia / alternativa": 13,
+   "total": 135
+  },
+  "salud_pipeline": "15 detenidos +30 dias, 342,4 UF. Salieron Constructora RIC y Sacyr Agua; entraron cwe, Odis, Rucalhue, Hector Vega, Tiendas Mass, Digua.",
+  "aeo": "7 negocios por IA: SOFTYS ganado 40,48; Digua Neg 20; Cobra QP 20; Power Center QP 14; deal sin nombre (Rocio Morales) Meeting Set; Alginatos Reagendar; Dinamo perdido 15-sep (11 UF). Card 94,48 UF.",
+  "feriados": "18 y 19 de septiembre. Del 18 al 20: 8 clics organicos en 3 dias, LinkedIn 47/77/63 impresiones.",
+  "anomalias": {
+   "a_gasto": "No: 20-sep $40.972 vs promedio 7 dias previos $28.801 = 1,42x",
+   "b_terminos": "No evaluado en esta corrida (el reporte de terminos se leyo hasta el 18)",
+   "c_mql": "No dispara: 4 MQL en 7 dias; costo por MQL alto por el cambio de definicion y feriados",
+   "d_seo": "No: posicion 5,3 vs 5,5; impresiones -20,6%"
+  },
+  "entrega_drive": "growth-hub-2026-09-20.md en carpeta Reportes Growth Hub (1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f)",
+  "REGLA_NUEVA_amount": "Para UF usar amount_in_home_currency; amount viene en la moneda del negocio (Zicsa esta en USD)."
  }
 }
