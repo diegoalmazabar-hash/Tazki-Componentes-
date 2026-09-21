@@ -1,0 +1,37 @@
+{
+ "corte": "2026-09-20",
+ "fuente": "HubSpot DEAL dealtype=Inbound AND pipeline=default AND createdate 2026; ganado = mes de hs_v2_date_entered_closedlost (etapa Closed Won), perdido = mes de hs_v2_date_entered_1233212743; America/Santiago; excluye entradas posteriores al corte",
+ "months": [
+  "ene",
+  "feb",
+  "mar",
+  "abr",
+  "may",
+  "jun",
+  "jul",
+  "ago",
+  "sep"
+ ],
+ "won": [
+  0,
+  0,
+  0,
+  0,
+  3,
+  2,
+  3,
+  2,
+  2
+ ],
+ "lost": [
+  2,
+  13,
+  26,
+  32,
+  29,
+  14,
+  31,
+  33,
+  29
+ ]
+}

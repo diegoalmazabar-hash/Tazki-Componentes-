@@ -3545,5 +3545,20 @@
     "entregable": "growth-hub-2026-09-20-v3.md"
    }
   }
+ },
+ "_CIRCUITO_REVISION_ORGANIZADOR_21_sep_2026": {
+  "fecha": "21-sep-2026, pedido de Diego",
+  "objetivo": "Que la revision cruzada del corte no dependa de Diego como intermediario.",
+  "paso_1_lunes_09_00_chile": "La rutina principal (trig_01KKGPHfqztb1meZ84ky3yLz, cron 0 12 * * 1 UTC) corre el corte, publica en gh-pages, sube growth-hub-<corte>.md a la carpeta Reportes Growth Hub (id 1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f) y dispara al Organizador de Chats.",
+  "como_disparar_al_organizador": "La sesion del Organizador (session_01Qud6rUxyC3MBYemYLcVsX8, Remote Control en el Mac de Diego) no es alcanzable por SendMessage. Se le entrega con create_trigger(persistent_session_id=session_01Qud6rUxyC3MBYemYLcVsX8, initiation=human_request, prompt=<mensaje>) + fire_trigger + delete_trigger. Probado el 21-sep tres veces. La entrega queda en cola hasta que Diego abra esa sesion en el Mac.",
+  "que_se_le_pide_al_organizador": "Verificar los entregables contra CRM, Ads, Search Console y LinkedIn y dejar su revision en la carpeta Reportes Growth Hub como revision-organizador-<corte>.md (corte = domingo, YYYY-MM-DD). Para la v2: revision-organizador-<corte>-v2.md si hay hallazgos, o revision-organizador-<corte>-ok.md si esta todo bien.",
+  "paso_2_lunes_10_00_chile": "Segunda rutina (cron 0 13 * * 1 UTC, esta sesion): busca revision-organizador-<corte>.md en Drive. Si no esta, reintenta con send_later cada 60 min hasta 4 veces y luego avisa a Diego en una linea. Si esta: aplica las correcciones, plan_check, publica la v2 (HTML, PDFs, JSON, growth-hub-<corte>-v2.md) y vuelve a disparar al Organizador. Luego send_later a 60 min para buscar revision-organizador-<corte>-ok.md: si esta, avisa a Diego en una linea y cierra; si hay -v2.md con hallazgos, aplica, publica v3 y repite (maximo 3 vueltas, despues avisa a Diego).",
+  "chequeos_automaticos_plan_check": [
+   "fecha de pdf_highlights.json == corte",
+   "tarjeta Estado de los datos == corte",
+   "matriz de camadas y tabla de productividad con los mismos totales que D.cp y D.cc",
+   "ganados y perdidos por entrada a etapa: cierres_por_entrada.json (lo escribe la rutina desde HubSpot) con el corte del dia y == D.cp; criterio declarado en los textos"
+  ],
+  "archivo_nuevo": "cierres_por_entrada.json en la raiz de gh-pages: {corte, months, won[9], lost[9]}. La rutina lo reescribe en cada corte ANTES de correr plan_check."
  }
 }
