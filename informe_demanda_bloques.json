@@ -3234,28 +3234,201 @@
  "_corte_plan_demanda_27_sep_2026": {
   "fecha": "28-sep-2026 (rutina paso 1 de 2, disparada 12:22 UTC; corte domingo 27-sep, hora de Santiago)",
   "bloques_actualizados": "Los 9 mas motivos, salud del pipeline, IA, KWNEW (extendido al 21-27 y fila 14-20 recalculada con la semana rellenada) y bitacora (entrada 28 sep). Primera semana completa con la regla de MQL de 51 empleados y sin feriados: es la nueva linea base.",
-  "inbounds_mes": {"may": 41, "jun": 26, "jul": 47, "ago": 53, "sep_al_27": 39, "sep_detalle": "organica 10 · pago 15 · directo 10 · otras 4"},
-  "inbounds_semana_21_27": {"total": 6, "pago": "Anabatica 21, Haras Don Alberto 24", "organica": "LBM Asesorias 23, Galilea 25 (perdido el mismo dia: cliente pidiendo soporte)", "directo": "Mytilineos 24", "otras": "Rencoret 22 (AI_REFERRALS)", "uf": 0, "lista_1324_semana": "6 formularios de 50 o menos sin negocio: Clean Fosas, Instasat, Pacto, Servicios Henriquez Labra, Chinaled, Ebco"},
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 53,
+   "sep_al_27": 39,
+   "sep_detalle": "organica 10 · pago 15 · directo 10 · otras 4"
+  },
+  "inbounds_semana_21_27": {
+   "total": 6,
+   "pago": "Anabatica 21, Haras Don Alberto 24",
+   "organica": "LBM Asesorias 23, Galilea 25 (perdido el mismo dia: cliente pidiendo soporte)",
+   "directo": "Mytilineos 24",
+   "otras": "Rencoret 22 (AI_REFERRALS)",
+   "uf": 0,
+   "lista_1324_semana": "6 formularios de 50 o menos sin negocio: Clean Fosas, Instasat, Pacto, Servicios Henriquez Labra, Chinaled, Ebco"
+  },
   "pago_pct": "15 de 39 = 38,5% (agosto 45,3%)",
   "series_recalculadas": "3-9 ago pasa de 12 a 13 inbounds (organica 7 -> 8); MQL semanal 27 jul-2 ago 13 -> 10 y 17-23 ago 10 -> 13 (estaban al reves, recalculo hs_v2_date_entered_marketingqualifiedlead en hora de Chile); UF: ago 509,7 -> 515,3, sep 268,3 -> 308,3, semana 7-13 230,9 -> 245,9, 14-20 0 -> 25. Ningun mes de inbounds ni de MQL cambia.",
-  "leads_lista_1212": {"en_lista": 99, "reales_unicos": 92, "excluidos": "4 pruebas + Jennifer Iribarra + roberto mamani + Fernanda Belmar (28-sep, semana siguiente)", "sep_al_27": 73, "semana_21_27": "24 crudos, 24 unicos", "por_recurso_semana": {"Formato IRL": 10, "Mapa de riesgos": 6, "Charlas 5 min": 4, "e-book DS 44": 2, "Matriz IPER": 2}},
-  "mql": {"sep_al_27": 40, "anio": 180, "semana_21_27": 6, "detalle": "Rencoret (AI), Anabatica y Haras Don Alberto (paid), Mytilineos (directo), LBM (organico), Galilea (201-500, organico); todos >=51. Nicole Ortiz sigue MQL y en lista 1324."},
-  "embudo": {"SEO": "212 inb · 189 MS · 74 opp · 151 lost (etapa actual) = 39,2% conv · 71,2% perdida", "SEM": "51 · 30 · 19 · 32 = 63,3% · 62,7%", "semana": "MS: SEM 2 (Anabatica, Haras), SEO 3 por propiedad pero 2 son reentradas (Grafton, Nestle) + Ingelec; opp: MPM y FRC; lost: SEM 5 (Innergy, RC Empresas, UBS, Redtel, ISiete), SEO 8 (Hector Roman, Tarpulin, Romeral, DAEM Villarrica, Valmar, Constructora RIC, Ingelec, Galilea)", "OJO_MS_ultima_entrada": "hs_v2_date_entered_1272167862 guarda solo la ULTIMA entrada: Grafton (26/5 -> 23/9) y Nestle (31/3 -> 23/9) se movieron de marzo y mayo a septiembre en seoMS (mar 34->33, may 33->32, sep 7->10). Declarado en el plan.", "lista_970": "210 -> 212, solo se agregaron Galilea y LBM; nada salio"},
-  "camadas": {"creados_2026": 315, "ganados": 12, "perdidos": 222, "sin_cerrar": 81, "conversion": "5,13% (12 de 234)", "camadas_desde_abril": "6,7% (12 de 180)", "frozen": "29 · 483,9 UF (21 con monto); era 35 · 586,9", "sep": "44 perdidos y 2 ganados al dia 27 (20 de la camada sep, 14 de ago); semana 21-27: 16 cierres, todos perdidos, la semana con mas cierres del ano", "reabiertos": "5 negocios con fecha de Closed Lost y otra etapa: Bupa, Tecton, Aconditermic (Negotiation), Sheraton, Integral Service Mechanics (Frozen); 3 se movieron esta semana: cp lost jun 14->13, jul 31->30, sep 45->44 por entrada", "criterio_cp_lost": "negocios HOY en Closed Lost por mes de entrada (para que matriz y productividad cuadren con cc); embudo SEM/SEO usa etapa actual (151/32) segun embudo_config; 160 entradas historicas a lost en la lista 970 si se contaran por entrada"},
+  "leads_lista_1212": {
+   "en_lista": 99,
+   "reales_unicos": 92,
+   "excluidos": "4 pruebas + Jennifer Iribarra + roberto mamani + Fernanda Belmar (28-sep, semana siguiente)",
+   "sep_al_27": 73,
+   "semana_21_27": "24 crudos, 24 unicos",
+   "por_recurso_semana": {
+    "Formato IRL": 10,
+    "Mapa de riesgos": 6,
+    "Charlas 5 min": 4,
+    "e-book DS 44": 2,
+    "Matriz IPER": 2
+   }
+  },
+  "mql": {
+   "sep_al_27": 40,
+   "anio": 180,
+   "semana_21_27": 6,
+   "detalle": "Rencoret (AI), Anabatica y Haras Don Alberto (paid), Mytilineos (directo), LBM (organico), Galilea (201-500, organico); todos >=51. Nicole Ortiz sigue MQL y en lista 1324."
+  },
+  "embudo": {
+   "SEO": "212 inb · 189 MS · 74 opp · 151 lost (etapa actual) = 39,2% conv · 71,2% perdida",
+   "SEM": "51 · 30 · 19 · 32 = 63,3% · 62,7%",
+   "semana": "MS: SEM 2 (Anabatica, Haras), SEO 3 por propiedad pero 2 son reentradas (Grafton, Nestle) + Ingelec; opp: MPM y FRC; lost: SEM 5 (Innergy, RC Empresas, UBS, Redtel, ISiete), SEO 8 (Hector Roman, Tarpulin, Romeral, DAEM Villarrica, Valmar, Constructora RIC, Ingelec, Galilea)",
+   "OJO_MS_ultima_entrada": "hs_v2_date_entered_1272167862 guarda solo la ULTIMA entrada: Grafton (26/5 -> 23/9) y Nestle (31/3 -> 23/9) se movieron de marzo y mayo a septiembre en seoMS (mar 34->33, may 33->32, sep 7->10). Declarado en el plan.",
+   "lista_970": "210 -> 212, solo se agregaron Galilea y LBM; nada salio"
+  },
+  "camadas": {
+   "creados_2026": 315,
+   "ganados": 12,
+   "perdidos": 222,
+   "sin_cerrar": 81,
+   "conversion": "5,13% (12 de 234)",
+   "camadas_desde_abril": "6,7% (12 de 180)",
+   "frozen": "29 · 483,9 UF (21 con monto); era 35 · 586,9",
+   "sep": "44 perdidos y 2 ganados al dia 27 (20 de la camada sep, 14 de ago); semana 21-27: 16 cierres, todos perdidos, la semana con mas cierres del ano",
+   "reabiertos": "5 negocios con fecha de Closed Lost y otra etapa: Bupa, Tecton, Aconditermic (Negotiation), Sheraton, Integral Service Mechanics (Frozen); 3 se movieron esta semana: cp lost jun 14->13, jul 31->30, sep 45->44 por entrada",
+   "criterio_cp_lost": "negocios HOY en Closed Lost por mes de entrada (para que matriz y productividad cuadren con cc); embudo SEM/SEO usa etapa actual (151/32) segun embudo_config; 160 entradas historicas a lost en la lista 970 si se contaran por entrada"
+  },
   "productividad_pct": "may 9,4 · jun 13,3 · jul 9,1 · ago 5,7 · sep 4,3 · total 5,13",
-  "sem_ranking_21_27": {"ponderado_diario": {"SST": "30,9% · ranking 11,9% · presupuesto 57,2%", "Marca": "21,1% · 18,3% · 60,6%"}, "agregado_google": {"SST": "29,9% · 7,3% · 62,8%", "Marca": "23,2% · 3,0% · 73,8%"}, "lectura": "misma conclusion en los dos metodos: se pierde por presupuesto. Fin de semana 26-27: 0% presupuesto, 56-89% ranking (mezcla)."},
-  "ads": {"sep_al_27": {"gasto": 782141, "mql": 17, "sst": 11, "marca": 6, "costo_por_mql": 46008, "impresiones": "SST 6220 · Marca 746", "clics": "SST 407 · Marca 271"}, "semana_21_27": {"gasto": 191787, "sst": 147748, "marca": 44039, "clics": 159, "impresiones": "SST 1163 · Marca 218", "mql": 2, "detalle": "Anabatica 21 y Haras Don Alberto 24, ambos SST", "costo_por_mql": 95894, "costo_por_mql_sst": 73874}, "acumulado_desde_13_jul": {"gasto": 2263970, "inbounds_pago": 47, "costo_por_inbound_pago": 48170}, "cambios_cuenta": "NO LEIDO: campaign_and_resource_get resource=history devuelve configuracion de campanas, no historial. Presupuestos vigentes: SST $24.000/dia, Marca $6.000/dia, Maximize conversions. Declarado en Estado de los datos y bitacora."},
-  "seo": {"sep_al_27": {"clics": 295, "impresiones": 19167, "posicion": 5.5, "palabras": 103}, "semana_21_27": {"clics": 111, "impresiones": 6231, "posicion": 5.3, "palabras": 58, "record": "mejor semana de la serie en clics; irl 21 clics"}, "semana_14_20_rellenada": {"clics": 57, "impresiones": 4193, "posicion": 5.3, "palabras": 35, "antes": "57 · 4.163 · 35 · 5,3"}, "control_junio": "14 / 5.947 / 8,4 EXACTO", "kwnew": {"21-27 sep": "211 nuevas · 8 clk · 192 subimp · 93 bajimp · 43 subclk · 22 bajclk", "14-20 sep recalc": "135 · 1 · 91 · 201 · 23 · 28 (antes 135 · 1 · 90 · 202 · 23 · 28)", "control_3_9_ago": "174 · 4 · 74 · 68 · 12 · 7 EXACTO"}},
-  "contenido": {"semana_21_27": {"blog": 346, "recursos": 179, "casos": 3, "total": 528, "envios": 27, "leads": 22, "por_recurso": "IRL 67v/8L · IPER 60/2 · Mapa 29/7 · Charlas 11/4 · Checklist 10/0 · ebook 2/1 (2 envios)"}, "sep_al_27": {"blog": 1166, "recursos": 460, "casos": 39, "total": 1665, "envios": 87, "leads": 72, "metodo": "sep al 20 + semana 21-27 (TOTALS por semana, aditivo)"}, "clasificacion": "BLOG_POST por ruta de URL: /blog/ · /recursos/ · /casos-de-exito/"},
-  "linkedin": {"semana_21_27": {"impresiones": 1329, "interacciones": 33, "tasa": "2,5%", "seguidores": "+6 (el 27 sin dato)"}, "sep_al_27": {"impresiones": 6142, "interacciones": 347, "tasa": "5,6%", "seguidores": "+28"}, "total": 5186},
-  "motivos_may_sep": {"criterio": "mes de entrada a Closed Lost, negocios hoy perdidos", "Timing y presupuesto": 50, "No hubo contacto": 38, "Nunca fueron candidatos": 26, "Fit del producto": 19, "Competencia / alternativa": 16, "total": 149, "meses": "29 · 13 · 30 · 33 · 44", "semana": "no contacto 6 · timing 4 · competencia 3 · nunca candidatos 2 (ISiete, Galilea) · fit 1"},
+  "sem_ranking_21_27": {
+   "ponderado_diario": {
+    "SST": "30,9% · ranking 11,9% · presupuesto 57,2%",
+    "Marca": "21,1% · 18,3% · 60,6%"
+   },
+   "agregado_google": {
+    "SST": "29,9% · 7,3% · 62,8%",
+    "Marca": "23,2% · 3,0% · 73,8%"
+   },
+   "lectura": "misma conclusion en los dos metodos: se pierde por presupuesto. Fin de semana 26-27: 0% presupuesto, 56-89% ranking (mezcla)."
+  },
+  "ads": {
+   "sep_al_27": {
+    "gasto": 782141,
+    "mql": 17,
+    "sst": 11,
+    "marca": 6,
+    "costo_por_mql": 46008,
+    "impresiones": "SST 6220 · Marca 746",
+    "clics": "SST 407 · Marca 271"
+   },
+   "semana_21_27": {
+    "gasto": 191787,
+    "sst": 147748,
+    "marca": 44039,
+    "clics": 159,
+    "impresiones": "SST 1163 · Marca 218",
+    "mql": 2,
+    "detalle": "Anabatica 21 y Haras Don Alberto 24, ambos SST",
+    "costo_por_mql": 95894,
+    "costo_por_mql_sst": 73874
+   },
+   "acumulado_desde_13_jul": {
+    "gasto": 2263970,
+    "inbounds_pago": 47,
+    "costo_por_inbound_pago": 48170
+   },
+   "cambios_cuenta": "NO LEIDO: campaign_and_resource_get resource=history devuelve configuracion de campanas, no historial. Presupuestos vigentes: SST $24.000/dia, Marca $6.000/dia, Maximize conversions. Declarado en Estado de los datos y bitacora."
+  },
+  "seo": {
+   "sep_al_27": {
+    "clics": 295,
+    "impresiones": 19167,
+    "posicion": 5.5,
+    "palabras": 103
+   },
+   "semana_21_27": {
+    "clics": 111,
+    "impresiones": 6231,
+    "posicion": 5.3,
+    "palabras": 58,
+    "record": "mejor semana de la serie en clics; irl 21 clics"
+   },
+   "semana_14_20_rellenada": {
+    "clics": 57,
+    "impresiones": 4193,
+    "posicion": 5.3,
+    "palabras": 35,
+    "antes": "57 · 4.163 · 35 · 5,3"
+   },
+   "control_junio": "14 / 5.947 / 8,4 EXACTO",
+   "kwnew": {
+    "21-27 sep": "211 nuevas · 8 clk · 192 subimp · 93 bajimp · 43 subclk · 22 bajclk",
+    "14-20 sep recalc": "135 · 1 · 91 · 201 · 23 · 28 (antes 135 · 1 · 90 · 202 · 23 · 28)",
+    "control_3_9_ago": "174 · 4 · 74 · 68 · 12 · 7 EXACTO"
+   }
+  },
+  "contenido": {
+   "semana_21_27": {
+    "blog": 346,
+    "recursos": 179,
+    "casos": 3,
+    "total": 528,
+    "envios": 27,
+    "leads": 22,
+    "por_recurso": "IRL 67v/8L · IPER 60/2 · Mapa 29/7 · Charlas 11/4 · Checklist 10/0 · ebook 2/1 (2 envios)"
+   },
+   "sep_al_27": {
+    "blog": 1166,
+    "recursos": 460,
+    "casos": 39,
+    "total": 1665,
+    "envios": 87,
+    "leads": 72,
+    "metodo": "sep al 20 + semana 21-27 (TOTALS por semana, aditivo)"
+   },
+   "clasificacion": "BLOG_POST por ruta de URL: /blog/ · /recursos/ · /casos-de-exito/"
+  },
+  "linkedin": {
+   "semana_21_27": {
+    "impresiones": 1329,
+    "interacciones": 33,
+    "tasa": "2,5%",
+    "seguidores": "+6 (el 27 sin dato)"
+   },
+   "sep_al_27": {
+    "impresiones": 6142,
+    "interacciones": 347,
+    "tasa": "5,6%",
+    "seguidores": "+28"
+   },
+   "total": 5186
+  },
+  "motivos_may_sep": {
+   "criterio": "mes de entrada a Closed Lost, negocios hoy perdidos",
+   "Timing y presupuesto": 50,
+   "No hubo contacto": 38,
+   "Nunca fueron candidatos": 26,
+   "Fit del producto": 19,
+   "Competencia / alternativa": 16,
+   "total": 149,
+   "meses": "29 · 13 · 30 · 33 · 44",
+   "semana": "no contacto 6 · timing 4 · competencia 3 · nunca candidatos 2 (ISiete, Galilea) · fit 1"
+  },
   "salud_pipeline": "25 detenidos +30 dias, 564,7 UF (era 15 / 342,4). No salio ninguno; entraron 10: Valle Nevado, SSO Chile/Merck, Resimple, Interacid, Essbio, Rumasal, Transportes y Excavaciones, Cobra, Novofarma, Contenedores San Fernando. Owner 85541596 = Felipe Casanova.",
   "aeo": "8 negocios por IA: SOFTYS ganado 40,48; Digua Neg 20; Cobra QP 20; Power Center QP 14; Alginatos Reagendar; Rencoret Meeting Set (entro 22-sep, primera pagina landing control contratistas utm_source=chatgpt.com); sin nombre perdido 21-sep (desarrollo especifico); Dinamo perdido 15-sep. Card 94,48 UF.",
-  "primera_pagina": {"sep_al_27": "home 7 · landing pago 15 · soluciones 6 · contenido 3 · contacto 3 · otras 5 (4 ChatGPT + 1 sin pagina)", "semana": "landing 2 · soluciones 2 (LBM contratistas, Galilea miper) · contacto 1 (Mytilineos) · otras 1 (Rencoret, ChatGPT)"},
+  "primera_pagina": {
+   "sep_al_27": "home 7 · landing pago 15 · soluciones 6 · contenido 3 · contacto 3 · otras 5 (4 ChatGPT + 1 sin pagina)",
+   "semana": "landing 2 · soluciones 2 (LBM contratistas, Galilea miper) · contacto 1 (Mytilineos) · otras 1 (Rencoret, ChatGPT)"
+  },
   "feriados": "ninguno",
-  "anomalias": {"a_gasto": "No: max diario 27-sep... semana sin picos; gasto semanal $191.787 vs $209.626 la anterior", "b_terminos": "No evaluado (historial de Ads no legible)", "c_mql": "No dispara: 6 MQL en la semana con la regla nueva; 2 de pago", "d_seo": "No: posicion 5,3 estable, impresiones +49% vs semana de feriados"},
+  "anomalias": {
+   "a_gasto": "No: max diario 27-sep... semana sin picos; gasto semanal $191.787 vs $209.626 la anterior",
+   "b_terminos": "No evaluado (historial de Ads no legible)",
+   "c_mql": "No dispara: 6 MQL en la semana con la regla nueva; 2 de pago",
+   "d_seo": "No: posicion 5,3 estable, impresiones +49% vs semana de feriados"
+  },
   "entrega_drive": "growth-hub-2026-09-27.md en carpeta Reportes Growth Hub (1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f)",
-  "circuito": "Organizador disparado tras publicar (trigger efimero a session_01Qud6rUxyC3MBYemYLcVsX8); revision esperada como revision-organizador-2026-09-27.md; paso 2 (trig_014b9tmSQ7Pcyogvor1P3JM9) a las 13:00 UTC."
+  "circuito": "Organizador disparado tras publicar (trigger efimero a session_01Qud6rUxyC3MBYemYLcVsX8); revision esperada como revision-organizador-2026-09-27.md; paso 2 (trig_014b9tmSQ7Pcyogvor1P3JM9) a las 13:00 UTC.",
+  "publicacion": {
+   "commit": "7221f1e",
+   "hora": "28-sep 14:08 UTC (11:08 Chile)",
+   "incidente": "El clasificador de auto mode estuvo caido ~90 min (12:55-14:05 UTC): bloqueo Bash, Agent y send_later; el paso 2 disparo a las 13:05 sin corte publicado. Se publico al reactivarse; Organizador disparado 14:09 UTC (trigger efimero, borrado); verificacion del paso 2 programada 15:10 UTC (intento 1 de 4).",
+   "pdfs": "plan-generacion-demanda-27sep.pdf (2.248 KB) · plan-ejecutivo-27sep.pdf (1.299 KB)",
+   "plan_check": "OK 10 reglas, corte 2026-09-27"
+  }
  },
  "_corte_plan_demanda_20_sep_2026": {
   "fecha": "21-sep-2026 (corrida adelantada por Diego a las 07:25 Chile; corte domingo 20-sep, hora de Santiago)",
