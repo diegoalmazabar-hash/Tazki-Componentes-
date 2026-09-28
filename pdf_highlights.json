@@ -1,56 +1,56 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica. REGLA (21-sep): si este archivo no se reescribe, el PDF ejecutivo sale con el resumen de la semana anterior; verificar la fecha antes de generar.",
- "fecha": "Semana del 14 al 20 de septiembre · corte domingo 20 · septiembre al día 20 · revisado el 21",
+ "fecha": "Semana del 21 al 27 de septiembre · corte domingo 27 · septiembre al día 27 · revisado el 28",
  "highlights": [
   {
-   "t": "Semana corta: 3 inbounds, la más baja desde mayo, y no es señal de demanda",
-   "d": "Se juntaron los feriados del 18 y 19 y el cambio de definición de MQL del 16. Septiembre lleva 33 inbounds en 20 días (agosto cerró en 53) con 39,4% de pago (13 de 33), sobre la meta del 30%."
+   "t": "Primera semana completa con la regla de 51 empleados: 6 inbounds, 6 MQL y 24 leads",
+   "d": "Es la nueva línea base. Entraron 2 de pago (Anabática y Haras Don Alberto), 2 orgánicos (LBM Asesorías y Galilea), 1 directo (Mytilineos) y 1 por ChatGPT (Rencoret). Seis formularios de empresas de 50 o menos quedaron en la lista 1324 sin crear negocio; con la regla antigua habrían sido 12. Septiembre lleva 39 inbounds en 27 días con 38,5% de pago (15 de 39), sobre la meta del 30%."
   },
   {
-   "t": "Desde el 16 solo es MQL quien declara 51 empleados o más",
-   "d": "Los de 50 o menos quedan en Lead, entran a la lista 1324 de autoservicio (plan de 10 UF) y no generan negocio. La semana cerró con 4 MQL: 3 antes del cambio y 1 después. Las series de MQL, inbounds y conversiones de Ads no son comparables antes y después del 16; para reconstruir la serie antigua se suman MQL y entradas a la lista 1324."
+   "t": "Récord de SEO: 111 clics no-marca en la semana, posición 5,3",
+   "d": "Casi duplica los 57 de la semana de feriados y supera los 74 del 7 al 13. Septiembre lleva 295 clics, 19.167 impresiones y 103 palabras distintas con clics: ya superó agosto entero (198 clics, 76 palabras). «irl» sola puso 21 clics y las charlas de 5 minutos empezaron a traer clics."
   },
   {
-   "t": "Los Leads aguantaron: 18 únicos en la semana y 49 en septiembre",
-   "d": "Segunda mejor semana del año después de los 20 de la anterior. Septiembre ya cuadruplica agosto entero (11). Por recurso: Formato IRL 8, Matriz IPER 4, Mapa de riesgos 3, Checklist 2 y Calendario de charlas 1, que arrancó después de una semana en cero."
+   "t": "Los Leads tuvieron su mejor semana del año: 24 únicos y 73 en septiembre",
+   "d": "Formato IRL 10, Mapa de riesgos 6, Calendario de charlas 4, e-book DS 44 2, Matriz IPER 2 (lista 1212). Los recursos pusieron 27 envíos y 22 leads con 179 visitas; el mapa de riesgos y el calendario de charlas despegaron (7 y 4 leads). Septiembre ya multiplica por seis a agosto entero (11)."
   },
   {
-   "t": "SEO sostuvo la posición en semana de feriados",
-   "d": "57 clics, 4.163 impresiones y posición media 5,3 (5,5 la semana anterior). Septiembre lleva 184 clics no-marca, 12.906 impresiones y 81 palabras distintas con clics, contra una meta de 25. El panel de palabras clave nuevas quedó al día: 135 consultas nuevas en la semana."
+   "t": "Google Ads: 2 MQL con $191.787 en la semana, $95.894 por MQL, y el presupuesto vuelve a ser el tope",
+   "d": "Septiembre va en 17 MQL de pago con $782.141 ($46.008 por MQL, contra $34.090 en agosto). SST/HSEQ quedó en 30,9% de impression share con 57,2% perdido por presupuesto y solo 11,9% por ranking; el agregado de Google dice lo mismo (29,9% · 7,3% · 62,8%). Marca gastó $44.039 sin convertir. Recomendación: no tocar presupuestos hasta mediados de octubre."
   },
   {
-   "t": "La lista SEO de HubSpot se completó con 18 negocios perdidos antiguos",
-   "d": "Pasó de 192 a 210 negocios y de 126 a 144 Closed Lost. Los 18 son orgánicos de origen y estaban perdidos desde hace meses: la pérdida SEO de 68,6% es la cifra correcta y el 65,6% del corte anterior estaba subestimado."
+   "t": "Embudo acumulado: SEM convierte 63,3% (19 de 30) y SEO 39,2% (74 de 189)",
+   "d": "La pérdida subió en las dos listas por los cierres de la semana: SEO 71,2% (151 de 212) y SEM 62,7% (32 de 51). SEM agendó 2 reuniones (Anabática y Haras Don Alberto) y movió a MPM a oportunidad real; en SEO, FRC pasó a oportunidad real."
   },
   {
-   "t": "Dos correcciones de método que no cambian los totales",
-   "d": "Zicsa vale 59,1 UF (su monto está en dólares), no 2.700: septiembre baja a 268,3 UF. Y los ganados por mes vuelven al criterio de entrada a etapa, la decisión del 17-sep: may 3 · jun 2 · jul 3 · ago 2 · sep 2 (MAKRO y Habita). Total 12 ganados y 247,4 UF."
+   "t": "Canal IA: entró Rencoret y ya son 8 negocios con cero inversión",
+   "d": "Rencoret llegó por ChatGPT a la landing de control de contratistas y agendó reunión el 23. El negocio sin nombre del 9-sep se perdió el 21 (desarrollo específico). Siguen 94,48 UF entre lo ganado (SOFTYS) y lo vivo con monto (Digua, Cobra, Power Center). Google Ads lleva 47 inbounds de pago desde el 13 de julio con $2.263.970."
   },
   {
-   "t": "SST/HSEQ tuvo el mejor impression share desde que se mide, con una lectura doble",
-   "d": "Ponderado día a día: 33,2% de cuota, 38,2% perdido por ranking y 28,6% por presupuesto. Agregado por Google para la semana: 32,6%, 33,3% y 34,2%. Según Google se perdió algo más por presupuesto que por ranking; es diferencia de método y no cambia la decisión de dejar las pujas quietas hasta mediados de octubre."
+   "t": "Contenido: 528 visitas en la semana y septiembre ya supera a agosto en blog",
+   "d": "Blog 346, recursos 179, casos 3. Septiembre al día 27 lleva 1.665 visitas (blog 1.166 contra 1.136 de agosto entero), 87 envíos y 72 leads. Los recursos convierten 18,9% en el mes; el blog 0 envíos con 1.166 visitas."
   }
  ],
  "rojo": [
   {
-   "t": "La pérdida SEO sube a 68,6% y esa es la cifra real",
-   "d": "144 Closed Lost sobre 210 inbounds orgánicos del año, contra una meta de 60%. No empeoró esta semana: la lista incorporó 18 perdidos antiguos que le faltaban."
+   "t": "La semana con más cierres del año: 16 negocios perdidos y ninguno ganado",
+   "d": "8 en la lista SEO y 5 en SEM. Motivos: 6 sin contacto, 4 plata y timing, 3 competencia o desinterés, 2 clientes pidiendo soporte (ISiete y Galilea) y 1 fit. Septiembre ya es el mes de cierre más duro del año: 44 perdidos y 2 ganados. El año va en 12 ganados de 234 cerrados = 5,13%."
   },
   {
-   "t": "Pérdida SEM en 57,1% y conversión SEM en 64,3%",
-   "d": "28 Closed Lost sobre 49 inbounds de pago, con 3 perdidos nuevos en la semana (SITECMA, Bus Sur, Hospital Quellón). 18 oportunidades reales de 28 reuniones agendadas."
+   "t": "Diez negocios inbound cumplieron 30 días sin moverse: 25 detenidos y 565 UF/mes",
+   "d": "Entraron Valle Nevado, SSO Chile / Merck, Resimple, Interacid, Essbio, Rumasal, Transportes y Excavaciones, Tecnologías Cobra, Novofarma y Contenedores San Fernando; no salió ninguno de los 15 anteriores. Geologic lleva 119 días en Value Proposition (63 UF) y Lureye 97 en Negotiation. El congelador bajó de 35 a 29 negocios (483,9 UF): salió Constructora RIC a Closed Lost y volvió a entrar Nestlé (40 UF)."
   },
   {
-   "t": "El costo por MQL de pago de la semana no se compara: $104.813",
-   "d": "Con la regla nueva solo había 2 MQL posibles en la semana y el 18 y 19 fueron feriados. La referencia esperable pasa a rondar los $58.000 por MQL; leerlo desde mediados de octubre."
+   "t": "LinkedIn cayó a 2,5% de interacción: 1.329 impresiones y 33 interacciones",
+   "d": "La semana más baja de septiembre; viernes y sábado cerraron en cero interacciones. Septiembre va en 6.142 impresiones, 347 interacciones (5,6%) y +28 seguidores; la página llega a 5.186."
   },
   {
-   "t": "El puente de Lead a MQL sigue en cero",
-   "d": "Ningún contacto que descargó un recurso tiene fecha de MQL, y los 4 del newsletter siguen en Suscriptor. Con la regla de 51 empleados el puente se va a medir contra una base más chica."
+   "t": "Tres negocios salieron de Closed Lost a etapas vivas y dos reuniones antiguas se reagendaron",
+   "d": "Bupa, Tecton y Aconditermic aparecen hoy en Negotiation y Sheraton e Integral Service Mechanics en Frozen con fecha de pérdida cargada: junio y julio bajan un perdido cada uno. Grupo Grafton y Nestlé volvieron a Meeting Set el 23 y HubSpot guarda solo la última fecha, así que se movieron de marzo y mayo a septiembre en la tabla de oportunidades de SEO. Vale la pena revisar si esas reaperturas son reales."
   },
   {
-   "t": "Septiembre lleva 31 cierres en 20 días: 2 ganados y 29 perdidos",
-   "d": "Por fecha de entrada a etapa. 14 de los perdidos son de la camada de agosto. El año va 12 ganados de 221 cerrados = 5,43%."
+   "t": "Dos series históricas corregidas y el historial de Ads sin leer",
+   "d": "Al recalcular desde el CRM, la semana del 3 al 9 de agosto queda en 13 inbounds (antes 12) y las filas de MQL del 27 jul–2 ago y 17–23 ago estaban al revés (10 y 13); ningún mes cambia. El historial de cambios de Google Ads no se pudo leer con el conector: la bitácora registra solo los presupuestos vigentes ($24.000/día SST, $6.000/día Marca) sin cambios detectados."
   }
  ]
 }
