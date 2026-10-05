@@ -3231,6 +3231,232 @@
   "primer_envio": "growth-hub-2026-09-13.md, 13.737 bytes, https://drive.google.com/file/d/1XV7Z5H3Cnwm5xlS8byZNmNGH2_3nLgiS/view",
   "NO_CAMBIA_EL_INFORME": "El pedido fue explicito: no cambiar como se hace el informe, solo sumar el destinatario. La rutina de los lunes sigue igual."
  },
+ "_corte_plan_demanda_04_oct_2026": {
+  "fecha": "5-oct-2026 (rutina paso 1 de 2, disparada 12:20 UTC; corte domingo 4-oct, hora de Santiago). Septiembre cerrado completo, octubre abierto en todas las tablas.",
+  "bloques_actualizados": "Los 9 mas motivos, salud del pipeline, IA, KWNEW (extendido al 28 sep-4 oct y fila 21-27 recalculada) y bitacora (entrada 5 oct). Columna oct agregada en productividad, matriz, motivos, primera pagina, visitas, LinkedIn y metas (septiembre | octubre al 4).",
+  "revision_corte_anterior": "NO LLEGO: el Organizador no dejo revision-organizador-2026-09-27.md ni -ok.md en Drive (sesion en el Mac de Diego sin abrir). El corte del 27-sep quedo publicado sin revision cruzada; declarado en Estado de los datos, bitacora y resumen ejecutivo.",
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 53,
+   "sep": 44,
+   "oct_al_4": 3,
+   "sep_detalle": "organica 11 · pago 18 · directo 11 · otras 4",
+   "oct_detalle": "organica 1 · pago 2"
+  },
+  "inbounds_semana_28sep_4oct": {
+   "total": 8,
+   "pago": "18433351-1 (28, marca, directo a Frozen), famer (29), IMI Automatizacion (29, marca, MS), Calderas Valderrama (1-oct, perdido el 2 por <50), DIMARSA (2-oct, 1001-5000)",
+   "organica": "PRM (30, MS), BIOS (1-oct, MS)",
+   "directo": "Alriba (28)",
+   "uf": 0,
+   "lista_1324": "Gruas Jara (1-10), Colegio Arabe (11-50); Marcelo Benitez/The Optimal Partner (1001-5000) en Lead dentro de 1324: revisar; Calderas Valderrama 11-50 marcado MQL: revisar workflow"
+  },
+  "pago_pct": "sep 18 de 44 = 40,9% (ago 45,3%) · oct 2 de 3",
+  "uf": "may 615,7 -> 609,2 (un negocio corrigio monto); ago 516,0; sep 332,3; semana 21-27 0 -> 24",
+  "leads_lista_1212": {
+   "en_lista": 129,
+   "reales_unicos": 121,
+   "excluidos": "4 pruebas + 4 duplicados (Jennifer Iribarra, roberto mamani, Claudio Retamal, Jorge Rivera)",
+   "por_mes": "may 2 (incorporados a la lista despues) · jun 1 · jul 7 · ago 11 · sep 89 · oct 11",
+   "semana": "29 crudos, 27 unicos",
+   "por_recurso_semana": {
+    "Formato IRL": 10,
+    "Matriz IPER": 6,
+    "Charlas 5 min": 4,
+    "Mapa de riesgos": 3,
+    "Newsletter": 2,
+    "Checklist": 1,
+    "e-book DS 44": 1
+   }
+  },
+  "mql": {
+   "sep": 45,
+   "oct_al_4": 4,
+   "anio": 189,
+   "semana": 9,
+   "detalle": "Alriba, 18433351-1, famer, PRM, IMI, Holdconet (201-500, sin negocio), BIOS, DIMARSA (1001-5000) y Calderas Valderrama (11-50: excepcion a la regla)."
+  },
+  "embudo": {
+   "SEO": "214 inb · 191 MS · 74 opp · 153 lost = 38,7% · 71,5%",
+   "SEM": "56 · 33 · 19 · 34 = 57,6% · 60,7%",
+   "semana": "MS SEM 3 (famer, IMI, Calderas), SEO 2 (PRM, BIOS); opp 0; lost SEM 2 (Anabatica competencia, Calderas <50), SEO 2 (Nestle no contesta, Zicsa 59 UF no era lo que necesitaba)",
+   "OJO_MS": "semMS sep 11 / oct 2 con 3 MS nuevos: una reunion de septiembre se reagendo en octubre (ultima entrada). Lista 970 212 -> 214 (PRM, BIOS); 968 51 -> 56."
+  },
+  "camadas": {
+   "creados_2026": 324,
+   "ganados": 14,
+   "perdidos": 228,
+   "sin_cerrar": 82,
+   "conversion": "5,79% (14 de 242)",
+   "camadas_desde_abril": "7,5% (14 de 187)",
+   "uf_ganadas": "267,6",
+   "ganados_semana": "Constructora del Mar II (10,5 UF, 28-sep, camada ago) y Tecton Infraestructura (9,7 UF, 29-sep, camada ago; habia estado en Closed Lost el 9-sep)",
+   "sep": "48 perdidos y 4 ganados por entrada (7,7%); camada sep 23 perdidos de 44, 21 abiertos",
+   "oct": "2 perdidos (Nestle 1, Calderas 2), 0 ganados",
+   "semana_cierres": "8: 2 ganados + 6 perdidos (Power Center, Essbio, Anabatica, Zicsa, Nestle, Calderas)",
+   "reabiertos_vigentes": "Bupa, Aconditermic (Negotiation); Sheraton, Integral Service Mechanics (Frozen)",
+   "frozen": "35 · 528,9 UF (25 con monto); era 29 · 483,9; entraron 7: Odis 24, Digua 20, Sociedad Segura e Hijos 15, REDTEC 14, Tiendas Mass 12, 18433351-1 y LBM Asesorias sin monto; salio Nestle a lost"
+  },
+  "productividad_pct": "may 9,4 · jun 13,3 · jul 9,1 · ago 5,7 · sep 7,7 · oct 0,0 · total 5,79",
+  "sem_ranking_28sep_4oct": {
+   "ponderado_diario": {
+    "SST": "32,0% · ranking 12,7% · presupuesto 55,3%",
+    "Marca": "26,6% · 16,4% · 56,9%"
+   },
+   "agregado_google": {
+    "SST": "32,2% · 11,6% · 56,2%",
+    "Marca": "26,8% · 14,5% · 58,7%"
+   },
+   "lectura": "misma conclusion; lunes 28 dia mas caro del mes $59.107 (SST 429 impresiones, IS 30,7%)"
+  },
+  "ads": {
+   "sep": {
+    "gasto": 896483,
+    "sst": 729603,
+    "marca": 166880,
+    "mql": 20,
+    "sst_mql": 12,
+    "marca_mql": 8,
+    "costo_por_mql": 44824,
+    "impresiones": "SST 6980 · Marca 835",
+    "clics": "SST 455 · Marca 317"
+   },
+   "oct_al_4": {
+    "gasto": 107100,
+    "mql": 2,
+    "costo_por_mql": 53550,
+    "impresiones": "SST 364 · Marca 134"
+   },
+   "semana": {
+    "gasto": 221441,
+    "sst": 178723,
+    "marca": 42719,
+    "clics": 164,
+    "mql": 5,
+    "detalle": "SST: IMI 29, Calderas 1-oct, DIMARSA 2-oct; Marca: 18433351-1 28, famer 29",
+    "costo_por_mql": 44288
+   },
+   "acumulado_desde_13_jul": {
+    "gasto": 2485411,
+    "inbounds_pago": 52,
+    "costo_por_inbound_pago": 47796
+   },
+   "cambios_cuenta": "NO LEIDO (conector sin historial). Presupuestos $24.000/dia SST, $6.000/dia Marca."
+  },
+  "seo": {
+   "sep_cerrado": {
+    "clics": 358,
+    "impresiones": 22655,
+    "posicion": 5.5,
+    "palabras": 117,
+    "vs_ago": "198 · 19.452 · 6,2 · 76"
+   },
+   "oct_al_4": {
+    "clics": 49,
+    "impresiones": 2569,
+    "posicion": 6.0,
+    "palabras": 34
+   },
+   "semana_28sep_4oct": {
+    "clics": 111,
+    "impresiones": 6010,
+    "posicion": 5.7,
+    "palabras": 64,
+    "top": "matriz de riesgos excel descargar ds 44 13 clics pos 1; irl 10; irl ds 44 7; registro entrega de epp ds 44 5"
+   },
+   "semana_21_27_rellenada": {
+    "clics": 112,
+    "impresiones": 6278,
+    "posicion": 5.3,
+    "palabras": 58,
+    "antes": "111 · 6.231 · 58 · 5,3"
+   },
+   "control_junio": "14 / 5.947 / 8,4 EXACTO (corrida 28-sep; serie diaria sep identica)",
+   "kwnew": {
+    "28 sep-4 oct": "207 · 3 · 159 · 149 · 40 · 38",
+    "21-27 recalc": "214 · 8 · 195 · 93 · 43 · 22",
+    "control_3_9_ago": "EXACTO"
+   }
+  },
+  "contenido": {
+   "semana": {
+    "blog": 317,
+    "recursos": 224,
+    "casos": 8,
+    "total": 549,
+    "envios": 42,
+    "leads": 28,
+    "por_recurso": "IRL 88v/11L (15 env) · IPER 90/7 (10) · Mapa 16/4 · Charlas 16/3 · ebook 4/2 · Checklist 10/1"
+   },
+   "sep_cerrado": {
+    "blog": 1338,
+    "recursos": 599,
+    "casos": 44,
+    "total": 1981,
+    "envios": 113,
+    "leads": 89,
+    "metodo": "sep al 27 + TOTALS 28-30 sep"
+   },
+   "oct_al_4": {
+    "blog": 145,
+    "recursos": 85,
+    "casos": 3,
+    "total": 233,
+    "envios": 16,
+    "leads": 11
+   }
+  },
+  "linkedin": {
+   "semana": {
+    "impresiones": 1050,
+    "interacciones": 41,
+    "tasa": "3,9%",
+    "seguidores": "+4 (al 3; el 1-oct -1)"
+   },
+   "sep_cerrado": {
+    "impresiones": 6805,
+    "interacciones": 371,
+    "tasa": "5,5%",
+    "seguidores": "+33"
+   },
+   "oct_al_4": {
+    "impresiones": 387,
+    "interacciones": 17,
+    "tasa": "4,4%",
+    "seguidores": -1
+   },
+   "total": 5189
+  },
+  "motivos_may_oct": {
+   "criterio": "mes de entrada a Closed Lost, negocios hoy perdidos",
+   "Timing y presupuesto": 51,
+   "No hubo contacto": 40,
+   "Nunca fueron candidatos": 27,
+   "Fit del producto": 20,
+   "Competencia / alternativa": 17,
+   "total": 155,
+   "meses": "29 · 13 · 30 · 33 · 48 · 2"
+  },
+  "salud_pipeline": "19 detenidos +30 dias, 439,3 UF (era 25 / 564,7). Salieron 8: Odis, REDTEC, Tiendas Mass, Digua (Frozen), Essbio (lost), Superfruit, Salmones Aysen, Rumasal (cambio de etapa). Entraron Madariaga y Gonzalez (18) y Fullclean (30,8).",
+  "aeo": "8 negocios por IA: SOFTYS ganado 40,48; Cobra QP 20; Alginatos Reagendar; Rencoret MS; Digua Frozen 1-oct (20); perdidos Dinamo, sin nombre, Power Center (29-sep, no contesta, 14). Card 60,48 UF.",
+  "primera_pagina": {
+   "sep_cerrado": "home 9 · landing 17 · soluciones 6 · contenido 3 · contacto 4 · otras 5",
+   "oct": "home 1 · landing 2",
+   "semana": "landing 4 (DIMARSA, Calderas, IMI, 18433351-1) · home 3 (famer, PRM, BIOS) · contacto 1 (Alriba)"
+  },
+  "feriados": "ninguno",
+  "anomalias": {
+   "a_gasto": "No: 4-oct $33.339 vs promedio 7 previos $28.514 = 1,17x (el lunes 28 si fue 2,2x el promedio de la semana anterior; declarado en el bloque 4)",
+   "b_terminos": "No evaluado (historial/terminos de Ads no legibles con el conector)",
+   "c_mql": "No dispara: 9 MQL en la semana, 5 de pago",
+   "d_seo": "No: posicion 5,7 vs 5,3 (0,4 peor), impresiones -4%"
+  },
+  "entrega_drive": "growth-hub-2026-10-04.md en carpeta Reportes Growth Hub (1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f)",
+  "pdfs": "plan-generacion-demanda-4oct.pdf (2.346 KB) · plan-ejecutivo-4oct.pdf (1.341 KB)",
+  "plan_check": "OK 10 reglas, corte 2026-10-04"
+ },
  "_corte_plan_demanda_27_sep_2026": {
   "fecha": "28-sep-2026 (rutina paso 1 de 2, disparada 12:22 UTC; corte domingo 27-sep, hora de Santiago)",
   "bloques_actualizados": "Los 9 mas motivos, salud del pipeline, IA, KWNEW (extendido al 21-27 y fila 14-20 recalculada con la semana rellenada) y bitacora (entrada 28 sep). Primera semana completa con la regla de MQL de 51 empleados y sin feriados: es la nueva linea base.",
