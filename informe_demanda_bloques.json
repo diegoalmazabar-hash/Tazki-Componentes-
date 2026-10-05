@@ -3455,7 +3455,13 @@
   },
   "entrega_drive": "growth-hub-2026-10-04.md en carpeta Reportes Growth Hub (1h1Pdz787BjiXv2ksMV8oz8KAGCrKoO3f)",
   "pdfs": "plan-generacion-demanda-4oct.pdf (2.346 KB) · plan-ejecutivo-4oct.pdf (1.341 KB)",
-  "plan_check": "OK 10 reglas, corte 2026-10-04"
+  "plan_check": "OK 10 reglas, corte 2026-10-04",
+  "publicacion": {
+   "commit": "851b864",
+   "hora": "5-oct 12:33 UTC (09:33 Chile)",
+   "drive": "growth-hub-2026-10-04.md id 1TPuq4oaMC2xJ-qEOkvvvdJXaNb7n-K_4",
+   "organizador": "disparado 12:34 UTC (trigger efimero trig_01XGEDnZRjjAaL5GMp6KDn34, borrado); paso 2 a las 13:00 UTC lee revision-organizador-2026-10-04.md"
+  }
  },
  "_corte_plan_demanda_27_sep_2026": {
   "fecha": "28-sep-2026 (rutina paso 1 de 2, disparada 12:22 UTC; corte domingo 27-sep, hora de Santiago)",
