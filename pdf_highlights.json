@@ -1,52 +1,52 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica. REGLA (21-sep): si este archivo no se reescribe, el PDF ejecutivo sale con el resumen de la semana anterior; verificar la fecha antes de generar.",
- "fecha": "Semana del 28 de septiembre al 4 de octubre · corte domingo 4 · septiembre cerrado · octubre al día 4 · revisado el 5",
+ "fecha": "Semana del 5 al 11 de octubre · corte domingo 11 · septiembre cerrado · octubre al día 11 · revisado el 12",
  "highlights": [
   {
-   "t": "Septiembre cerró en 44 inbounds (40,9% de pago), 45 MQL y 89 leads",
-   "d": "Contra agosto: 53 inbounds, 54 MQL y 11 leads, con la regla de 51 empleados vigente desde el 16. La semana del 28 al 4 trajo 8 inbounds (5 de pago, 2 orgánicos, 1 directo), 9 MQL y 27 leads: la mejor semana desde la regla nueva. Octubre lleva 3 inbounds en 4 días."
+   "t": "La mejor semana de inbounds desde la regla de 51 empleados: 10 (4 de pago, 3 orgánicos, 3 directos) y 131 UF",
+   "d": "Hospital de Chillán (55 UF) y Slep Tamarugal (40 UF) ya están en Qualified Prospect, Arrigoni (21 UF) en Value Proposition y Serfoval (15 UF) en Qualified Prospect. Octubre lleva 13 inbounds en 11 días con 46,2% de pago (meta 30%), 12 MQL y 32 leads."
   },
   {
-   "t": "Mejor mes de SEO de la serie: 358 clics no-marca, 117 palabras, posición 5,5",
-   "d": "Septiembre superó a agosto en 81% de clics (198) y 16% de impresiones (22.655 contra 19.452). La semana repitió los 111 clics del récord; «matriz de riesgos excel descargar ds 44» puso 13 clics en posición 1. La posición media de la semana empeoró a 5,7."
+   "t": "SEM sumó 4 oportunidades reales en una semana y su conversión sube a 62,2% (23 de 37)",
+   "d": "Arrigoni a Value Proposition, Slep Tamarugal y Hospital de Chillán a Qualified Prospect y DIMARSA a Qualified Opportunity. SEO convierte 39,2% (76 de 194); en SEO entraron Serfoval y BIOS. Pérdida acumulada: SEM 58,3% (35 de 60), SEO 72,9% (159 de 218)."
   },
   {
-   "t": "Récord de leads desde recursos: 28 en la semana (42 envíos)",
-   "d": "Formato IRL 11, Matriz IPER 7 (despegó: tenía 2), Mapa de riesgos 4, Calendario de charlas 3, e-book DS 44 2, Checklist 1. Septiembre cerró en 1.981 visitas de contenido, 113 envíos y 89 leads; el blog superó a agosto en 18%."
+   "t": "SEO: la mejor posición media de la serie (5,1) con menos clics: 80 contra 111",
+   "d": "Las impresiones se mantuvieron (6.039 contra 6.057) y la tasa de clic bajó de 1,8% a 1,3%. Octubre lleva 129 clics, 8.655 impresiones y 64 palabras, un ritmo en línea con los 358 clics de septiembre. «matriz de riesgos excel descargar ds 44» sigue en posición 1 (5 clics)."
   },
   {
-   "t": "Google Ads: 5 MQL con $221.441 en la semana, $44.288 por MQL, la mitad de la anterior",
-   "d": "Septiembre cerró en 20 MQL de pago con $896.483 ($44.824 por MQL, contra $34.090 en agosto). SST/HSEQ quedó en 32,0% de impression share con 55,3% perdido por presupuesto y 12,7% por ranking; Marca recuperó a 26,6%. El lunes 28 fue el día más caro del mes ($59.107). Recomendación: no tocar presupuestos hasta mediados de octubre."
+   "t": "Recursos: 21 leads y 32 envíos; la Matriz IPER pasa por primera vez al primer lugar",
+   "d": "Matriz IPER 150 visitas y 10 leads (90 y 7 la semana anterior), Formato IRL 6 (bajó de 11), Mapa de riesgos 3, Checklist 1, e-book DS 44 1. La conversión sobre visitas bajó de 12,5% a 7,5% con más volumen (280 visitas). Octubre lleva 811 visitas de contenido, 48 envíos y 32 leads."
   },
   {
-   "t": "Dos ganados en la semana: Constructora del Mar II y Tecton Infraestructura",
-   "d": "10,5 y 9,7 UF, los dos de la camada de agosto, que queda en 11% (4 de 35). El año va en 14 ganados de 242 cerrados = 5,79%, con 267,6 UF ganadas. Tecton había pasado por Closed Lost el 9 de septiembre."
+   "t": "LinkedIn: la semana de mayor interacción de la serie, 226 interacciones (20,1%) sobre 1.126 impresiones",
+   "d": "El jueves 8 sumó 117 interacciones en un solo día sobre 360 impresiones; el conector no dice qué publicación fue, vale la pena mirarla y repetir el formato. El alcance sigue bajo. La página llega a 5.190 seguidores (+3 en la semana)."
   },
   {
-   "t": "Embudo acumulado: SEM convierte 57,6% (19 de 33) y SEO 38,7% (74 de 191)",
-   "d": "SEM bajó de 63,3% porque agendó 3 reuniones nuevas (famer, IMI Automatización, Calderas Valderrama) sin oportunidad todavía. Pérdida: SEM 60,7% (34 de 56), SEO 71,5% (153 de 214). En SEO agendaron PRM y BIOS."
+   "t": "Llegó la revisión del Organizador del corte del 4-oct: todo cuadró",
+   "d": "Google Ads, Search Console, LinkedIn y CRM sin diferencias (archivo revision-organizador-2026-10-04-ok.md, 5-oct). Confirma también que las cifras del 27-sep cuadraban; ese archivo no se pudo subir por los conectores caídos."
   }
  ],
  "rojo": [
   {
-   "t": "Septiembre cerró como el mes de cierre más duro del año: 48 perdidos y 4 ganados",
-   "d": "Por fecha de entrada a etapa. La semana perdió 6 negocios: Power Center (canal IA), Essbio (40,2 UF, congelado), Anabática (competencia), Zicsa (59 UF, no era lo que necesitaba), Nestlé (no contesta) y Calderas Valderrama (empresa de 11–50 que el workflow dejó pasar como MQL)."
+   "t": "Ningún ganado y ocho perdidos en la semana; octubre lleva 10 perdidos y 0 ganados",
+   "d": "Alriba, PRM y famer (sin presupuesto), Scania (detenidos sin proyectos), Tiendas Mass (competencia), Grupo Santa Victoria (no le interesa), Copec Voltex (cliente que buscaba soporte, orgánico del 8 perdido el 9) y Grupo Grafton (no contesta). El año va en 14 ganados de 250 cerrados = 5,60%."
   },
   {
-   "t": "Siete negocios entraron al congelador en una semana: Frozen sube de 29 a 35 (528,9 UF)",
-   "d": "Odis, Digua (canal IA), Sociedad Segura e Hijos, REDTEC, Tiendas Mass, 18433351-1 y LBM Asesorías (inbound del 23 de septiembre). Los detenidos +30 días bajan de 25 a 19 (439 UF) sobre todo porque se movieron al congelador, no porque se cerraran. Geologic lleva 126 días en Value Proposition y Lureye 104 en Negotiation."
+   "t": "Google Ads: desde el viernes 9 el presupuesto dejó de ser el tope y el costo por MQL subió a $64.576",
+   "d": "SST pasó de perder 47–65% por presupuesto de lunes a jueves a perder 64–70% por ranking con 0–3% por presupuesto desde el viernes, y el gasto diario cayó a $18.035, $10.876 y $15.264. El historial de cambios no se puede leer con el conector: revisar la cuenta. La semana cerró en 3 MQL de pago (todos SST) con $193.728; Marca lleva 11 días sin MQL."
   },
   {
-   "t": "El workflow de MQL dejó pasar dos casos para revisar",
-   "d": "Calderas Valderrama (11–50 empleados) fue marcado MQL, creó negocio y se perdió al día siguiente por tamaño. Marcelo Benítez, de The Optimal Partner (1.001–5.000), quedó en Lead dentro de la lista 1324 pese a su tamaño. Nicole Ortiz (1–10) sigue como MQL y en la lista 1324."
+   "t": "El workflow de MQL dejó pasar otro caso, esta vez para bien: Hospital de Chillán con 1–10 empleados",
+   "d": "El contacto se registró con 1–10 empleados y fue MQL igual; el negocio vale 55 UF. Siguen pendientes Calderas Valderrama (11–50, marcado MQL), Marcelo Benítez (1.001–5.000, dejado en Lead) y Nicole Ortiz (1–10, MQL y en la lista 1324). EVG Constructora e Ilumina (11–50) quedaron filtrados en la lista 1324."
   },
   {
-   "t": "LinkedIn: la semana más baja de la serie en alcance, 1.050 impresiones y 41 interacciones",
-   "d": "Septiembre cerró en 6.805 impresiones, 371 interacciones (5,5%) y +33 seguidores: menos alcance que agosto (7.306) y un tercio de su interacción (1.075). La página llega a 5.189 seguidores."
+   "t": "Detenidos +30 días suben de 19 a 20 (492 UF); nadie de la lista anterior cerró ni avanzó",
+   "d": "Entraron Compañía Cielo Azul (43 UF, Negotiation) y Zublin (22,4 UF, Value Proposition); salió Constructora Héctor Vega al congelador. Geologic lleva 133 días en Value Proposition y Lureye 111 en Negotiation. Frozen baja de 35 a 34 (497,8 UF): Tiendas Mass y Scania salieron directo a Closed Lost y Proteq volvió a Value Proposition."
   },
   {
-   "t": "El corte anterior (27-sep) quedó sin revisión cruzada",
-   "d": "El Organizador de Chats no dejó su archivo en Drive porque su sesión corre en el Mac de Diego y no se abrió. Este corte vuelve a dispararlo. El historial de cambios de Google Ads sigue sin poder leerse con el conector; presupuestos vigentes $24.000/día SST y $6.000/día Marca."
+   "t": "Leads: bajaron a 21 únicos después de dos semanas de récord (24 y 27)",
+   "d": "22 en la lista 1212 (Miguel Orellana con dos correos). Sigue siendo el tercer mejor registro de la serie y el motor es el mismo: 32 envíos desde recursos y 0 desde el blog (292 visitas). Los casos de éxito siguen apagados (6 visitas)."
   }
  ]
 }

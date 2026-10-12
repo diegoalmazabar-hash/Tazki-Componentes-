@@ -1,5 +1,5 @@
 {
- "corte": "2026-10-04",
+ "corte": "2026-10-11",
  "fuente": "HubSpot DEAL dealtype=Inbound AND pipeline=default AND createdate 2026; ganado = mes de hs_v2_date_entered_closedlost (etapa Closed Won); perdido = negocios HOY en Closed Lost (dealstage 1233212743) por mes de hs_v2_date_entered_1233212743; America/Santiago; excluye entradas posteriores al corte",
  "months": [
   "ene",
@@ -35,6 +35,6 @@
   30,
   33,
   48,
-  2
+  10
  ]
 }
