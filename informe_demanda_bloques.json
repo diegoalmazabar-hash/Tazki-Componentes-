@@ -3231,6 +3231,544 @@
   "primer_envio": "growth-hub-2026-09-13.md, 13.737 bytes, https://drive.google.com/file/d/1XV7Z5H3Cnwm5xlS8byZNmNGH2_3nLgiS/view",
   "NO_CAMBIA_EL_INFORME": "El pedido fue explicito: no cambiar como se hace el informe, solo sumar el destinatario. La rutina de los lunes sigue igual."
  },
+ "_corte_plan_demanda_18_oct_2026": {
+  "fecha": "Corte domingo 18-oct-2026 (semana 12-18 oct, lunes 12 feriado en Chile), publicado lunes 19-oct 12:28 UTC (09:28 Chile). Octubre al dia 18 en todas las tablas; septiembre sin cambios salvo UF (329,4 -> 344,4: Rencoret +15).",
+  "bloques_actualizados": "Metas, 1 inbounds mes/semana, 2 leads y MQL, 3 embudo/camadas/productividad, 4 SEM ranking, 5 Ads, 6 SEO + KWNEW, 7 contenido, 8 LinkedIn, 9 motivos, 10 salud, 11 IA, 12 bitacora (entrada 19 oct), Estado de los datos, cierres_por_entrada.json, pdf_highlights.json.",
+  "revision_corte_anterior": "Sin revision del Organizador para el corte 11-oct: su sesion sigue archivada desde el 11-oct (4 reintentos del paso 2 el 12-oct, sin archivo en Drive).",
+  "inbounds_mes": {
+   "may": 41,
+   "jun": 26,
+   "jul": 47,
+   "ago": 53,
+   "sep": 44,
+   "oct_al_18": 21,
+   "oct_detalle": {
+    "organica": 9,
+    "pago": 7,
+    "directo": 5,
+    "otras": 0
+   }
+  },
+  "inbounds_semana_12_18_oct": {
+   "total": 8,
+   "organica": [
+    "Newrest (13, 40 UF, Qualified Prospect)",
+    "Constructora Belmar y Ribba (13, 20 UF, Meeting Set)",
+    "10.900.178-3 (14, perdido el 15 sin presupuesto)",
+    "Universidad de los Andes (16, New MQL)",
+    "Humannet (17, New MQL)"
+   ],
+   "directo": [
+    "La Dominga (13, perdida el 14 no le interesa)",
+    "Revisiones Tecnicas San Damaso (13, Reagendar)"
+   ],
+   "pago": [
+    "negocio sin nombre (12, contacto Fernando Pino Torres 201-500, perdido el 13 desarrollo especifico)"
+   ],
+   "serie_semanal_desde_27_jul": [
+    13,
+    13,
+    16,
+    13,
+    9,
+    9,
+    22,
+    3,
+    6,
+    8,
+    10,
+    8
+   ]
+  },
+  "pago_pct": {
+   "oct_al_18": "33,3% (7 de 21)",
+   "sep": "40,9% (18 de 44)"
+  },
+  "uf": {
+   "meses_may_oct": [
+    609.2,
+    319.6,
+    568.7,
+    516.0,
+    344.4,
+    283.0
+   ],
+   "semanas": [
+    146.0,
+    171.0,
+    186.1,
+    68.5,
+    90.4,
+    37.4,
+    243.0,
+    25.0,
+    39.0,
+    62.0,
+    161.0,
+    60.0
+   ],
+   "nota": "Andes Logistic y DEGRAF +15 (5-11 oct 131 -> 161); Rencoret +15 (21-27 sep 24 -> 39, sep 329,4 -> 344,4)"
+  },
+  "leads_lista_1212": {
+   "semana": 22,
+   "en_lista": 23,
+   "duplicado": "Juan Merino (juanigna.merino@gmail.com y juanignamg00@gmail.com, 13-oct)",
+   "oct_al_18": 54,
+   "anio": 164,
+   "lista_bruta": 174,
+   "excluidos": "4 de prueba + 6 duplicados (Iribarra, mamani, Retamal, Rivera, Orellana, Merino)",
+   "por_recurso_semana": {
+    "Formato IRL": 14,
+    "Matriz IPER": 5,
+    "Checklist": 2,
+    "Charlas": 1
+   },
+   "serie_semanal": [
+    2,
+    2,
+    4,
+    2,
+    1,
+    13,
+    20,
+    18,
+    24,
+    27,
+    21,
+    22
+   ]
+  },
+  "mql": {
+   "semana": 9,
+   "oct_al_18": 21,
+   "anio": 206,
+   "serie_semanal": [
+    10,
+    14,
+    15,
+    13,
+    10,
+    9,
+    22,
+    4,
+    6,
+    9,
+    8,
+    9
+   ],
+   "semana_detalle": [
+    "Newrest (501-1000)",
+    "Constructora Belmar y Ribba (51-200)",
+    "10.900.178-3 (51-200)",
+    "Universidad de los Andes (501-1000)",
+    "Humannet (1001-5000)",
+    "La Dominga (51-200)",
+    "Revisiones Tecnicas San Damaso (201-500)",
+    "Fernando Pino Torres / negocio de pago sin nombre (201-500)",
+    "Ivan Cortes / Janssen (201-500, sin negocio)"
+   ],
+   "lista_1324_semana": [
+    "Asesoria Pro (11-50)",
+    "INGPREV (1-10)",
+    "Mundolab (11-50)",
+    "particular (11-50)"
+   ],
+   "workflow_pendiente": [
+    "Calderas Valderrama 11-50 marcado MQL",
+    "Marcelo Benitez 1001-5000 en Lead",
+    "Nicole Ortiz 1-10 MQL y en 1324"
+   ]
+  },
+  "embudo": {
+   "SEO": {
+    "inbounds": 223,
+    "meeting_set": 198,
+    "opp": 78,
+    "closed_lost": 162,
+    "conv": "39,4%",
+    "perdida": "72,6%"
+   },
+   "SEM": {
+    "inbounds": 62,
+    "meeting_set": 37,
+    "opp": 23,
+    "closed_lost": 36,
+    "conv": "62,2%",
+    "perdida": "58,1%"
+   },
+   "semana": {
+    "SEO_ms": [
+     "Newrest",
+     "10.900.178-3",
+     "Andes Logistic (reagendo; HubSpot guarda solo la ultima entrada)",
+     "Constructora Belmar y Ribba",
+     "Constructora Absalon"
+    ],
+    "SEO_opp": [
+     "Newrest",
+     "Andes Logistic"
+    ],
+    "SEO_lost": [
+     "Proteq SPA",
+     "10.900.178-3",
+     "Andes Logistic"
+    ],
+    "SEM_ms": [],
+    "SEM_opp": [],
+    "SEM_lost": [
+     "negocio de pago sin nombre"
+    ]
+   }
+  },
+  "camadas": {
+   "creados_2026": 342,
+   "created": [
+    4,
+    21,
+    39,
+    46,
+    40,
+    26,
+    47,
+    53,
+    44,
+    22
+   ],
+   "won_por_camada": [
+    0,
+    0,
+    0,
+    5,
+    3,
+    1,
+    1,
+    4,
+    0,
+    0
+   ],
+   "lost_por_camada": [
+    3,
+    21,
+    31,
+    35,
+    31,
+    20,
+    35,
+    32,
+    27,
+    7
+   ],
+   "open": [
+    1,
+    0,
+    8,
+    6,
+    6,
+    5,
+    11,
+    17,
+    17,
+    15
+   ]
+  },
+  "productividad_pct": {
+   "anio": "5,47% (14 de 256)",
+   "desde_abril": "7,0% (14 de 201)",
+   "cp_won": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    2,
+    3,
+    2,
+    4,
+    0
+   ],
+   "cp_lost": [
+    2,
+    13,
+    26,
+    32,
+    29,
+    13,
+    30,
+    33,
+    48,
+    16
+   ],
+   "semana": "0 ganados, 6 perdidos: La Dominga (no le interesa), Colegio (empresa idonea), Proteq (competencia), negocio de pago sin nombre (desarrollo especifico), 10.900.178-3 (sin presupuesto), Andes Logistic (competencia)"
+  },
+  "sem_ranking_12_18_oct": {
+   "SST": {
+    "is": 33.3,
+    "rank": 16.4,
+    "budget": 50.3,
+    "google_agregado": [
+     32.6,
+     13.1,
+     54.3
+    ]
+   },
+   "Marca": {
+    "is": 25.5,
+    "rank": 19.1,
+    "budget": 55.3,
+    "google_agregado": [
+     24.6,
+     14.8,
+     60.7
+    ]
+   },
+   "nota": "presupuesto de vuelta como tope (mar-vie 66-71% por presupuesto en SST); lunes 12 feriado como fin de semana; 13-oct dia mas caro del mes $55.485; historial no legible"
+  },
+  "ads": {
+   "semana": {
+    "gasto": 213037,
+    "clics": 140,
+    "impresiones": 1067,
+    "mql": 1,
+    "mql_detalle": "SST 1 (12 oct), Marca 0",
+    "costo_mql": 213037,
+    "SST": [
+     167178,
+     58,
+     856
+    ],
+    "Marca": [
+     45859,
+     82,
+     211
+    ]
+   },
+   "oct_al_18": {
+    "gasto": 513864,
+    "mql": 6,
+    "costo_mql": 85644,
+    "impr_SST": 2485,
+    "impr_Marca": 570,
+    "clics": 372
+   },
+   "acumulado_13_jul": {
+    "gasto": 2892175,
+    "inbounds_pago": 57,
+    "costo_inbound": 50740
+   }
+  },
+  "seo": {
+   "semana_12_18": {
+    "palabras": 66,
+    "clics": 134,
+    "impresiones": 5739,
+    "posicion": 5.2,
+    "nota": "record de clics de la serie; CTR 2,3%; mie 14 = 36 clics"
+   },
+   "oct_al_18": {
+    "palabras": 99,
+    "clics": 263,
+    "impresiones": 14406,
+    "posicion": 5.3
+   },
+   "relleno_5_11_oct": {
+    "palabras": 48,
+    "clics": 80,
+    "impresiones": 6051,
+    "posicion": 5.1,
+    "antes": "80 · 6039 · 48 · 5,1"
+   },
+   "kwnew": {
+    "5_11_oct_recalc": [
+     231,
+     2,
+     156,
+     164,
+     19,
+     38
+    ],
+    "12_18_oct": [
+     200,
+     6,
+     146,
+     176,
+     44,
+     23
+    ]
+   },
+   "top_clics": [
+    "irl 15",
+    "formato irl 11 (pos 1,8)",
+    "irl ds 44 9",
+    "matriz de riesgos excel descargar ds 44 9 (pos 1,0)",
+    "formato irl ds 44 gratis 5",
+    "irl que significa 4"
+   ]
+  },
+  "contenido": {
+   "semana": {
+    "blog": 294,
+    "recursos": 246,
+    "casos": 12,
+    "total": 552,
+    "envios": 27,
+    "leads": 23,
+    "por_recurso": {
+     "Formato IRL": [
+      100,
+      16,
+      14
+     ],
+     "Matriz IPER": [
+      92,
+      7,
+      6
+     ],
+     "Checklist": [
+      18,
+      3,
+      2
+     ],
+     "Charlas": [
+      21,
+      1,
+      1
+     ],
+     "Mapa de riesgos": [
+      15,
+      0,
+      0
+     ]
+    }
+   },
+   "oct_al_18": {
+    "blog": 731,
+    "recursos": 611,
+    "casos": 21,
+    "total": 1363,
+    "envios": 75,
+    "leads": 55
+   },
+   "metodo": "BLOG_POST por ruta de URL; mes = oct al 11 (corte anterior) + TOTALS 12-18"
+  },
+  "linkedin": {
+   "semana": {
+    "impresiones": 699,
+    "interacciones": 71,
+    "tasa": "10,2%",
+    "seguidores": "+3 (hasta el 17)"
+   },
+   "oct_al_18": {
+    "impresiones": 2204,
+    "interacciones": 314,
+    "seguidores": "+5"
+   },
+   "seguidores_total": 5194,
+   "nota": "LinkedIn corrigio -8 impresiones en los dias 5 y 8; fila 5-11 publicada se deja como estaba"
+  },
+  "motivos_may_oct": {
+   "Timing y presupuesto": [
+    12,
+    4,
+    9,
+    11,
+    15,
+    5
+   ],
+   "Nunca fueron candidatos": [
+    6,
+    3,
+    5,
+    5,
+    7,
+    3
+   ],
+   "No hubo contacto": [
+    4,
+    5,
+    7,
+    8,
+    15,
+    2
+   ],
+   "Fit del producto": [
+    4,
+    0,
+    4,
+    6,
+    6,
+    1
+   ],
+   "Competencia / alternativa": [
+    3,
+    1,
+    5,
+    3,
+    5,
+    5
+   ],
+   "total": 169
+  },
+  "salud_pipeline": {
+   "detenidos_30d": {
+    "n": 21,
+    "uf": 454.8,
+    "entraron": [
+     "Alginatos Chile (Reagendar, sin monto, Cristian, canal IA)",
+     "Ingemar (Reagendar, sin monto, Luciano)"
+    ],
+    "salieron": [
+     "Novofarma (37,5 UF, a Frozen el 13)"
+    ]
+   },
+   "frozen": {
+    "n": 35,
+    "uf": 535.3,
+    "con_monto": 25,
+    "entraron": [
+     "Novofarma 37,5 (13-oct)"
+    ],
+    "salieron": []
+   }
+  },
+  "aeo": "8 negocios IA. Rencoret paso a Qualified Prospect el 14-oct con 15 UF (segunda oportunidad real junto con Cobra). SOFTYS ganado 40,48; Alginatos Reagendar 33 dias; Digua Frozen; Dinamo, sin nombre y Power Center perdidos. Tarjeta 75,48 UF.",
+  "primera_pagina": {
+   "semana": {
+    "home": 4,
+    "landing_pago": 2,
+    "soluciones": 1,
+    "contenido": 0,
+    "contacto": 1,
+    "otras": 0
+   },
+   "oct_al_18": {
+    "home": 8,
+    "landing_pago": 9,
+    "soluciones": 2,
+    "contenido": 0,
+    "contacto": 2,
+    "otras": 0
+   },
+   "nota": "Newrest tiene dos contactos (uno sin pagina); se uso el que registra la landing HSEQ con utm. San Damaso llego por la landing de prevencion con utm aunque quedo como directo"
+  },
+  "feriados": "Lunes 12 de octubre feriado en Chile (dentro de la semana del corte).",
+  "anomalias": {
+   "a_gasto": "No: 18-oct $9.328 vs promedio 7 previos $31.000 aprox",
+   "b_terminos": "No evaluado (historial/terminos de Ads no legibles con el conector)",
+   "c_mql": "Dispara por costo: 1 MQL de pago en la semana con $213.037 (2,5x el promedio de octubre $85.644); no es 0 MQL. Declarado en bloques 4 y 5, bitacora y mensaje a Diego",
+   "d_seo": "No: posicion 5,2 vs 5,1; impresiones -5%; clics record"
+  },
+  "entrega_drive": "growth-hub-2026-10-18.md id 1uFoaEzMXWVkjYSUWhV7umWItH-zRGfln en Reportes Growth Hub",
+  "pdfs": "plan-generacion-demanda-18oct.pdf (2505 KB), plan-ejecutivo-18oct.pdf (1395 KB); _print_exec.html verificado con 'Semana del 12 al 18 de octubre'",
+  "plan_check": "OK 10 reglas, corte 2026-10-18, 307008 bytes (la bitacora del 12-oct se reescribio de 'octubre al dia 11' a 'octubre con 11 dias' para no chocar con la regla 3)",
+  "correo_felipe": "Borrador Gmail r-6371564972094308669 a felipe@tazki.cl, asunto 'Growth Hub · corte 18 de octubre (semana 12–18)'",
+  "publicacion": {
+   "commit": "ac076d2",
+   "hora": "19-oct 12:28 UTC (09:28 Chile)",
+   "drive": "growth-hub-2026-10-18.md id 1uFoaEzMXWVkjYSUWhV7umWItH-zRGfln",
+   "organizador": "NO disparado: session_01Qud6rUxyC3MBYemYLcVsX8 sigue archivada (get_session 19-oct 12:18 UTC). Si Diego la reactiva o abre otra sesion del Organizador, actualizar el id en _CIRCUITO_REVISION_ORGANIZADOR_21_sep_2026.",
+   "paso_2": "13:00 UTC buscara revision-organizador-2026-10-18.md; en cada reintento se revisa si la sesion volvio a estar activa para dispararle"
+  }
+ },
  "_corte_plan_demanda_11_oct_2026": {
   "fecha": "Corte domingo 11-oct-2026 (semana 5-11 oct), publicado lunes 12-oct 12:30 UTC (09:30 Chile). Octubre al dia 11 en todas las tablas; septiembre sin cambios salvo UF (332,3 -> 329,4 por correccion de monto de un negocio de la semana 7-13 sep).",
   "bloques_actualizados": "Metas, 1 inbounds mes/semana, 2 leads y MQL, 3 embudo/camadas/productividad, 4 SEM ranking, 5 Ads, 6 SEO + KWNEW, 7 contenido, 8 LinkedIn, 9 motivos, 10 salud, 11 IA, 12 bitacora (entrada 12 oct), Estado de los datos, cierres_por_entrada.json, pdf_highlights.json.",
