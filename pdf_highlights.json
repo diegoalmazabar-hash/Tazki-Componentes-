@@ -1,52 +1,52 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica. REGLA (21-sep): si este archivo no se reescribe, el PDF ejecutivo sale con el resumen de la semana anterior; verificar la fecha antes de generar.",
- "fecha": "Semana del 12 al 18 de octubre · corte domingo 18 · septiembre cerrado · octubre al día 18 · revisado el 19",
+ "fecha": "Semana del 19 al 25 de octubre · corte domingo 25 · septiembre cerrado · octubre al día 25 · revisado el 26",
  "highlights": [
   {
-   "t": "Récord de SEO: 134 clics no-marca en la semana, con menos impresiones y la tasa de clic en 2,3%",
-   "d": "Las semanas récord de septiembre habían dado 112 y 111. Impresiones 5.739 (8% menos) y posición media 5,2; el miércoles 14 fue el mejor día de la serie (36 clics). «formato irl» entró con 11 clics en posición 1,8. Octubre lleva 263 clics, 14.406 impresiones y 99 palabras en 18 días, a ritmo de superar los 358 de septiembre."
+   "t": "Ads se normalizó: 5 MQL de pago con $191.811 en la semana ($38.362 por MQL, contra $213.037 la anterior)",
+   "d": "SST puso 4 y Marca su primer MQL del mes el lunes 19. HubSpot cuenta 4 inbounds de pago (Mall Falabella, Agunsa, Empresa Pesquera Apiao y Grette Tobar) más OCA Global, que entró por la landing de software HSEQ pero quedó con Latest Source Offline. Octubre lleva 11 MQL de pago con $705.675: $64.152 por MQL. Costo por inbound pagado desde julio: $50.557 (61 inbounds, $3.083.986)."
   },
   {
-   "t": "8 inbounds en la semana (5 orgánicos, 2 directos, 1 de pago); octubre lleva 21 con 33,3% de pago",
-   "d": "Newrest (40 UF) ya está en Qualified Prospect y Constructora Belmar y Ribba (20 UF) en Meeting Set. 9 MQL y 22 leads únicos en la semana; octubre va en 21 MQL y 54 leads, y el año en 206 MQL. El lunes 12 fue feriado."
+   "t": "6 inbounds en la semana, 4 de pago y 2 «Otras»; octubre lleva 27 con 40,7% de pago",
+   "d": "Primera semana de la serie sin inbounds orgánicos ni directos. Empresa Pesquera Apiao (18 UF) ya está en Qualified Prospect y Grette Tobar en Meeting Set. 6 MQL y 23 leads únicos en la semana; octubre va en 27 MQL y 77 leads, y el año en 212 MQL."
   },
   {
-   "t": "Embudo acumulado: SEM convierte 62,2% (23 de 37) y SEO 39,4% (78 de 198)",
-   "d": "Todo el movimiento fue en SEO: 5 Meeting Set y 2 oportunidades (Newrest, y Andes Logistic, que luego se perdió). SEM no agendó ninguna reunión. Pérdida acumulada: SEM 58,1% (36 de 62), SEO 72,6% (162 de 223)."
+   "t": "SEM volvió a moverse: 3 Meeting Set y 2 oportunidades reales; SEO sumó 2 oportunidades",
+   "d": "Revisiones Técnicas San Dámaso (25 UF) y Apiao (18 UF) pasaron a Qualified Prospect el mismo día de la reunión. En SEO, Constructora Absalón a Value Proposition (22 UF) y Constructora Belmar y Ribba llegó a Verbal Commit en ocho días (12 UF). Acumulado: SEM convierte 62,5% (25 de 40) y SEO 40,4% (80 de 198)."
   },
   {
-   "t": "Recursos: 23 leads y 27 envíos; el Formato IRL vuelve al primer lugar con su mejor semana (14 leads)",
-   "d": "Formato IRL 100 visitas y 14 leads (récord anterior 11), Matriz IPER 92 y 6, Checklist 2, Calendario de charlas 1. Conversión sobre visitas 9,3% (7,5% la semana anterior). Octubre lleva 1.363 visitas de contenido, 75 envíos y 55 leads; los recursos ya superan septiembre entero en visitas."
+   "t": "Octubre ya superó los clics orgánicos de septiembre entero: 387 en 25 días (358 en septiembre)",
+   "d": "La semana dio 122 clics no-marca con 6.769 impresiones y posición 5,5: menos clics que el récord de la anterior (136, ya rellenada) y más impresiones, con la tasa de clic en 1,8%. «matriz de riesgos excel descargar ds 44» puso 11 clics con 34 impresiones; «irl» 16. Octubre: 21.228 impresiones y 113 palabras."
   },
   {
-   "t": "Canal IA: Rencoret pasó a Qualified Prospect con 15 UF",
-   "d": "Segunda oportunidad real del canal junto con Tecnologías Cobra (20 UF). Los ocho negocios por IA suman 75,48 UF entre lo ganado (SOFTYS 40,48) y lo vivo con monto, con cero inversión; Google Ads lleva 57 inbounds desde el 13 de julio con $2.892.175."
+   "t": "Los recursos repitieron 23 leads y 27 envíos (264 visitas, 8,7% de conversión)",
+   "d": "Formato IRL 13 leads con 115 visitas, Matriz IPER 6 con 111, y el primer lead del recurso nuevo «Pauta para elegir software de prevención». Octubre lleva 1.973 visitas de contenido, 102 envíos y 78 leads; los recursos ya superan en visitas a septiembre entero (875 contra 599)."
   },
   {
-   "t": "Google Ads volvió al patrón de siempre: el presupuesto es el tope (SST 33,3% de impression share, 50,3% perdido por presupuesto)",
-   "d": "De martes a viernes SST perdió entre 66% y 71% por presupuesto; la caída de gasto del fin de semana anterior no se repitió entre semana, así que lo más probable es que haya sido entrega de Google y no un cambio de puja. Marca subió a 25,5%. El historial de cambios sigue sin poder leerse con el conector."
+   "t": "Rencoret, del canal IA, pasó a Negotiation con 10 UF; DIMARSA (50 UF) y FRC también entraron a Negotiation",
+   "d": "Rencoret es el negocio del canal IA más cerca de cerrarse (bajó de 15 a 10 UF al negociar). El canal sigue en 8 negocios: 1 ganado, 2 vivos con monto, 1 en reunión, 1 congelado y 3 perdidos. LinkedIn: 928 impresiones y 35 interacciones (3,8%); la página llega a 5.199 seguidores."
   }
  ],
  "rojo": [
   {
-   "t": "Google Ads: 1 MQL de pago con $213.037 en la semana, la peor desde la regla de 51 empleados",
-   "d": "SST 1 MQL (lunes 12), Marca 0 y ya 18 días sin MQL con $100.522. Octubre va en 6 MQL con $513.864 ($85.644 por MQL, contra $44.824 en septiembre). HubSpot cuenta lo mismo: 1 inbound de pago en la semana, perdido al día siguiente. El costo por inbound pagado desde julio sube a $50.740."
+   "t": "Ningún ganado y 3 perdidos; octubre va en 19 perdidos y 0 ganados en 25 días",
+   "d": "Los tres perdidos salieron del congelador el lunes 19: INOLASA (22 UF, congelado desde el 20 de agosto), sociedad segura e hijos (15 UF) y 18433351-1. Si no cambia en los 6 días que quedan, octubre será el primer mes sin ganados desde marzo. El año va en 14 ganados de 259 cerrados (5,41%)."
   },
   {
-   "t": "Ningún ganado y seis perdidos; octubre lleva 16 perdidos y 0 ganados en 18 días",
-   "d": "Proteq y Andes Logistic (competencia), La Dominga (no le interesa), Colegio (empresa idónea), 10.900.178-3 (sin presupuesto) y el negocio de pago sin nombre (desarrollo específico). El año va en 14 ganados de 256 cerrados = 5,47%. Competencia ya suma 5 pérdidas en octubre, el máximo mensual del año."
+   "t": "La tabla de salud sube de 21 a 26 negocios parados más de 30 días: 571 UF mensuales",
+   "d": "Entraron Bupa Chile (50 UF) y Aconditermic (24) en Negotiation, ASTARA (17,1) en Negotiation, MPM (25 UF) en Qualified Prospect y La Cascada en Reagendar. Ninguno de los 21 anteriores cerró ni avanzó. Geologic lleva 147 días en Value Proposition (63 UF)."
   },
   {
-   "t": "LinkedIn: la semana más baja de la serie en alcance, 699 impresiones y 71 interacciones",
-   "d": "Después del pico del jueves 8 (1.126 y 226 la semana anterior). Octubre lleva 2.204 impresiones y 314 interacciones en 18 días, camino a la mitad del alcance de septiembre (6.805). La página llega a 5.194 seguidores (+3 en la semana)."
+   "t": "SST/HSEQ sigue con 35,1% de impression share, ahora con la pérdida repartida (38,2% ranking, 26,7% presupuesto)",
+   "d": "El lunes 19 fue el día más caro de octubre ($55.906) y aun así SST perdió 60% por ranking; martes y miércoles volvieron al tope de presupuesto (69% y 68%). Marca bajó a 23,6% con 65,6% perdido por presupuesto. El historial de cambios de Google Ads sigue sin poder leerse."
   },
   {
-   "t": "Detenidos +30 días suben de 20 a 21 (455 UF) y Frozen de 34 a 35 (535,3 UF)",
-   "d": "Entraron Alginatos (canal IA) e Ingemar, los dos en Reagendar sin monto; Novofarma (37,5 UF) pasó de Negotiation al congelador. Geologic lleva 140 días en Value Proposition y Lureye 118 en Negotiation. Ninguno de los otros detenidos cerró ni avanzó."
+   "t": "LinkedIn cayó a 3,8% de interacción (35 sobre 928 impresiones), contra 10,2% la semana anterior",
+   "d": "Octubre lleva 3.132 impresiones y 349 interacciones (11,1%), la mitad del alcance de septiembre. Los casos de éxito siguen apagados (6 visitas en la semana)."
   },
   {
-   "t": "Segundo corte seguido sin revisión cruzada: la sesión del Organizador sigue archivada",
-   "d": "Está archivada desde el 11 de octubre y el gatillo la rechaza. Hasta que Diego la reactive o abra una nueva sesión del Organizador, los cortes se publican con el verificador en verde pero sin contraste externo. Siguen pendientes en el workflow de MQL Calderas Valderrama, Marcelo Benítez y Nicole Ortiz."
+   "t": "Tercer corte seguido sin revisión cruzada y sin las bases de agosto del panel de palabras",
+   "d": "La sesión del Organizador de Chats sigue archivada desde el 11 de octubre. El entorno de trabajo se reinició y borró las bases semanales de Search Console de agosto y septiembre: el control del panel de palabras nuevas se hizo contra la fila del 5–11 de octubre (reproducida exacta) en vez de la del 3–9 de agosto."
   }
  ]
 }

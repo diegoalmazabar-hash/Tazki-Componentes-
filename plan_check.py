@@ -235,7 +235,7 @@ def main():
         errores.append("La leyenda de la matriz de camadas dice '(fecha de cierre)': el criterio vigente es entrada a etapa.")
 
     # 2. render headless
-    shells = glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell")
+    shells = (glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell") or glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"))
     if shells:
         dom = subprocess.run([shells[0], "--headless", "--disable-gpu", "--no-sandbox",
             "--dump-dom", "--virtual-time-budget=4000",

@@ -98,8 +98,8 @@ assert ancla, "no encontré dónde inyectar (ni </head> ni </style>)"
 i = src.index(ancla) + len(ancla)
 io.open(TMP, "w", encoding="utf-8").write(src[:i] + INYECCION + src[i:])
 
-shell = glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell")
-chrome = shell[0] if shell else "/opt/pw-browsers/chromium/chrome-linux/chrome"
+shell = (glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell") or glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"))
+chrome = shell[0] if shell else (glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome")+["/opt/pw-browsers/chromium/chrome-linux/chrome"])[0]
 subprocess.run([chrome, "--headless", "--disable-gpu", "--no-sandbox",
                 "--no-pdf-header-footer", "--virtual-time-budget=15000",
                 "--print-to-pdf=" + OUT, "file://" + TMP],
