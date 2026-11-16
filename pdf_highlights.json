@@ -1,52 +1,52 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica. REGLA (21-sep): si este archivo no se reescribe, el PDF ejecutivo sale con el resumen de la semana anterior; verificar la fecha antes de generar.",
- "fecha": "Semana del 2 al 8 de noviembre · corte domingo 8 · octubre cerrado · noviembre al día 8 · revisado el 9",
+ "fecha": "Semana del 9 al 15 de noviembre · corte domingo 15 · octubre cerrado · noviembre al día 15 · revisado el 16",
  "highlights": [
   {
-   "t": "Primer ganado de noviembre: SSO Chile / Merck (16,8 UF, camada de junio) el 6, tras 70 días en Verbal Commit",
-   "d": "El año va en 16 ganados de 272 cerrados (5,88%). Cinco perdidos en la semana: EGOS (sin presupuesto), azos (empresa idónea), DEGRAF (tiempo), SIGMA (prioridad a otros proyectos, desde el congelador) y Agunsa (no contesta); cuatro son de la camada de octubre. Villablanca (50 UF) pasó a Qualified Opportunity."
+   "t": "La semana trajo 4 inbounds (2 de pago, 1 orgánico, 1 directo), la mitad de la anterior; noviembre va en 41,7% de pago con 12",
+   "d": "Swanson Industries Chile (pago) ya está en Value Proposition con 12,4 UF a cuatro días de entrar; Toyota Chile y Alimentos el Belloto agendaron reunión; Dicsa quedó en New MQL. Noviembre lleva 12 inbounds, 53 leads únicos y 11 MQL en 15 días; la semana dio 27 leads y 4 MQL, todos de 51 empleados o más."
   },
   {
-   "t": "La semana trajo 8 inbounds (4 orgánicos, 3 de pago, 1 offline), la mejor desde el 5–11 de octubre; noviembre va en 37,5% de pago",
-   "d": "Tres ya están en etapa de oportunidad: Blumar (25,2 UF, Value Proposition), transportes ilzauspe (40, Qualified Prospect) y Quimetal (17, Qualified Prospect). La semana suma 82,2 UF cargadas. Noviembre lleva 8 inbounds en 8 días, 26 leads únicos y 7 MQL."
+   "t": "Sin ganados y 5 perdidos; Tarpulin (20 UF) volvió de Closed Lost al congelador",
+   "d": "Perdidos: Resimple (no le interesa), Tecnologías Cobra (no contesta, canal IA), Empresa Pesquera Apiao, Slep Tamarugal (no contesta) y The Optimal Partner (la persona ya no está). El año sigue en 16 ganados, ahora de 276 cerrados (5,80%). Cox Chile pasó a Value Proposition con 90 UF; Rencoret y los dos DIMARSA están en Verbal Commit."
   },
   {
-   "t": "SEO: 92 clics no-marca con 6.890 impresiones y posición 5,5 (la anterior: 100 · 6.436 · 5,4)",
-   "d": "Más impresiones y menos clics: «irl» bajó de 17 a 12 y «matriz de riesgos excel descargar ds 44» puso 10 clics en posición 1,1; las búsquedas de matriz de riesgos sumaron 20 clics y las del IRL 44. Noviembre lleva 96 clics, 7.362 impresiones y 55 palabras con clic."
+   "t": "Respuesta corta para Arturo, nueva en el bloque 2: 228 MQL desde mayo y 16 clientes de 368 negocios inbound creados en 2026",
+   "d": "Los 16 ganados suman 296,4 UF mensuales; 260 negocios se perdieron y 92 siguen vivos. Conversión a cliente: 5,8% de los cerrados en el año, 7,2% desde abril. Las dos series no se dividen entre sí: los MQL son contactos desde mayo y los clientes son negocios desde enero."
   },
   {
-   "t": "Recursos: 26 leads y 34 envíos en la semana (10,7% de conversión a lead sobre 244 visitas); 24 personas únicas en la lista 1212",
-   "d": "Formato IRL 11 leads con 81 visitas, Mapa de riesgos 6 (su mejor semana), Matriz IPER 5, Checklist 3, Charlas 1. Noviembre lleva 612 visitas de contenido, 37 envíos y 28 leads en 8 días. LinkedIn cayó a 433 impresiones y 14 interacciones, su semana más baja."
+   "t": "SEO: 102 clics no-marca con 6.713 impresiones y posición 5,6, pero 16 clics son typos de marca",
+   "d": "Search Console rellenó la semana 2–8 nov de 92 a 116 clics y 28 de ellos son typos («takzi», «tazski», «tszki»…) que la expresión regular no cubre; sin typos las dos semanas dan 86 y 88. «matriz de riesgos excel descargar ds 44» subió a 15 clics en posición 1,6. Noviembre lleva 223 clics, 14.136 impresiones y 92 palabras con clic."
   },
   {
-   "t": "Ads: 3 MQL de pago con $178.531 en la semana ($59.510 por MQL); noviembre arranca en $67.127 por MQL",
-   "d": "SST 33,1% de impression share (43,5% perdido por presupuesto, 23,3% por ranking); Marca 19,3% y sin impresiones ni gasto del viernes 6 al domingo 8. Desde el 13-jul: $3.474.853 y 67 inbounds de pago = $51.863 por inbound."
+   "t": "Ads: 2 MQL de pago con $197.990 en la semana ($98.995 por MQL), el costo más alto de la serie; Marca lleva diez días sin servir",
+   "d": "Noviembre va en $79.874 por MQL (5 MQL con $399.370). SST/HSEQ 33,6% de impression share y, por primera vez, el ranking (34,6%) pesa más que el presupuesto (31,7%). Marca no registra impresiones ni gasto desde el 6 de noviembre. Desde el 13-jul: $3.672.843 y 69 inbounds de pago = $53.230 por inbound."
   },
   {
-   "t": "Canal IA sin movimiento: Rencoret sigue en Negotiation (20 UF), Cobra en Qualified Prospect (73 días), Alginatos en Reagendar",
-   "d": "Ocho negocios inbound atribuibles a la IA: 1 ganado (SOFTYS, 40,48 UF), 3 vivos y 4 perdidos. Congelador en 32 negocios y 504,8 UF (entró BIOS SPA, salió SIGMA). Detenidos +30 días: 29 negocios y 608 UF."
+   "t": "Recursos: 26 leads y 30 envíos (11,7% de conversión a lead sobre 223 visitas); el Formato IRL hizo su mejor semana con 18",
+   "d": "Matriz IPER 6, Checklist 1, Mapa de riesgos 1. Noviembre lleva 1.137 visitas de contenido, 67 envíos y 54 leads en 15 días. LinkedIn se recuperó a medias: 567 impresiones y 29 interacciones (5,1%), +2 seguidores, página en 5.203. Congelador en 36 negocios y 593,7 UF; detenidos +30 días: 24 y 501 UF."
   }
  ],
  "rojo": [
   {
-   "t": "La regla de 51 empleados se volvió a romper",
-   "d": "Sagesse es un contacto de 1–10 empleados que el workflow marcó MQL el 3 y creó negocio de pago, hoy en Meeting Set. Entra como MQL e inbound de pago en todas las tablas; con la regla aplicada la semana habría dado 2 inbounds de pago y 6 MQL."
+   "t": "Marca lleva diez días sin servir anuncios",
+   "d": "Sin impresiones, clics ni gasto desde el 6 de noviembre; la semana 9–15 fue 100% SST/HSEQ y el conector no permite leer si fue pausa o límite. El historial de cambios de Google Ads sigue sin poder leerse."
   },
   {
-   "t": "Marca no sirvió anuncios del viernes 6 al domingo 8",
-   "d": "Cero impresiones, clics y gasto tres días seguidos; el historial de cambios de Google Ads sigue sin poder leerse con el conector. La semana de Marca quedó en $22.591 y 51 clics sin MQL."
+   "t": "Los typos de marca inflan la serie de clics no-marca desde noviembre",
+   "d": "La semana 2–8 nov quedó en 116 clics tras el relleno y 28 son typos; esta semana 16 de los 102. La expresión regular oficial no los cubre y se dejan tal cual para que el número calce con la pantalla de Search Console; la lista está en la nota de método del bloque 6."
   },
   {
-   "t": "Fila «Valor (UF/mes)» corregida en la tabla de inbounds",
-   "d": "Se leía de una serie que no se actualizaba desde el corte del 18 de octubre (octubre figuraba en 283,0 UF y faltaban tres semanas). Ahora toma los mismos montos que el texto: mayo 609,2 · junio 324,4 · julio 568,7 · agosto 513,3 · septiembre 357,5 · octubre 307,6 · noviembre 82,2."
+   "t": "Costo por MQL de pago fuera del rango declarado",
+   "d": "La semana cerró en $98.995 por MQL (2 MQL con $197.990) y noviembre va en $79.874, contra el rango de $45.000 a $65.000 y los $59.677 de octubre."
   },
   {
-   "t": "Junio subió de 319,6 a 324,4 UF",
-   "d": "Un negocio de la camada de junio recibió un monto corregido después del cierre del mes; septiembre (357,5) y octubre (307,6) quedan igual."
+   "t": "Proquimin: contacto de 11–50 en Lead, pero con negocio en Value Proposition",
+   "d": "El contacto quedó en la lista 1324 el 12 y ese mismo día apareció el negocio Proquimin con 10 UF, sin Latest Source; entra a las camadas pero no a la tabla de inbounds."
   },
   {
-   "t": "Noviembre lleva 8 días: sus columnas se leen con cuidado",
-   "d": "Con 8 inbounds, un negocio mueve el porcentaje de pago 12,5 puntos; el costo por MQL de pago del mes ($67.127) sale de una sola semana. El Organizador de Chats fue reactivado el 5 de noviembre: este corte vuelve a ir a revisión cruzada."
+   "t": "La semana 2–8 nov subió de 82,2 a 85,3 UF y la revisión cruzada sigue sin correr",
+   "d": "Quimetal pasó de 17 a 20,1 UF el 12 antes de ir al congelador. El envío al Organizador de Chats sigue bloqueado desde el 13-nov: la plataforma exige una autorización de Diego, desde Claude web o la app de escritorio, para que esta sesión despierte esa sesión."
   }
  ]
 }
