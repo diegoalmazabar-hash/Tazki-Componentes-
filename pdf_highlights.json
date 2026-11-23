@@ -1,52 +1,52 @@
 {
  "_que_es": "Resumen ejecutivo que abre el PDF del Plan (make_pdf_ejecutivo.py). La rutina de los lunes lo reescribe con los highlights de la semana ANTES de generar el PDF. Pedido de Diego 17-ago-2026: el PDF parte con lo importante y sin letra chica. REGLA (21-sep): si este archivo no se reescribe, el PDF ejecutivo sale con el resumen de la semana anterior; verificar la fecha antes de generar.",
- "fecha": "Semana del 9 al 15 de noviembre · corte domingo 15 · octubre cerrado · noviembre al día 15 · revisado el 16",
+ "fecha": "Semana del 16 al 22 de noviembre · corte domingo 22 · octubre cerrado · noviembre al día 22 · revisado el 23",
  "highlights": [
   {
-   "t": "La semana trajo 4 inbounds (2 de pago, 1 orgánico, 1 directo), la mitad de la anterior; noviembre va en 41,7% de pago con 12",
-   "d": "Swanson Industries Chile (pago) ya está en Value Proposition con 12,4 UF a cuatro días de entrar; Toyota Chile y Alimentos el Belloto agendaron reunión; Dicsa quedó en New MQL. Noviembre lleva 12 inbounds, 53 leads únicos y 11 MQL en 15 días; la semana dio 27 leads y 4 MQL, todos de 51 empleados o más."
+   "t": "La semana trajo 6 inbounds (2 orgánicos, 1 de pago, 1 directo, 2 offline) y dos entraron por un contenido, los primeros desde septiembre",
+   "d": "Factor Ambiental y distribuidora hidrotec nacieron en el artículo de inducciones laborales; hidrotec ya está en Qualified Prospect (12 UF) y Atlas Copco (offline) en Value Proposition (27,6 UF). Noviembre lleva 17 inbounds y 47,1% de pago, 67 leads únicos y 15 MQL en 22 días; la semana dio solo 14 leads nuevos, la primera bajo 20 desde septiembre."
   },
   {
-   "t": "Sin ganados y 5 perdidos; Tarpulin (20 UF) volvió de Closed Lost al congelador",
-   "d": "Perdidos: Resimple (no le interesa), Tecnologías Cobra (no contesta, canal IA), Empresa Pesquera Apiao, Slep Tamarugal (no contesta) y The Optimal Partner (la persona ya no está). El año sigue en 16 ganados, ahora de 276 cerrados (5,80%). Cox Chile pasó a Value Proposition con 90 UF; Rencoret y los dos DIMARSA están en Verbal Commit."
+   "t": "HubSpot re-atribuyó fuentes hacia atrás: agosto queda en 54 inbounds y octubre en 33 (17 de pago, 51,5%)",
+   "d": "Newrest, OCA Global, Mayekawa e INPROLEC pasaron a búsqueda de pago; Attors Glass y acuspro recibieron Latest Source y entran al universo; Servicios Falabella salió de él. El embudo SEM sube a 81 inbounds, 50 reuniones y 29 oportunidades; el costo por inbound pagado baja a $50.229 por el denominador (76). Montos movidos: Valle Nevado 25 a 21 UF, FRC 15 a 16,5, Godelius y Toyota reciben 10,9 y 16."
   },
   {
-   "t": "Respuesta corta para Arturo, nueva en el bloque 2: 228 MQL desde mayo y 16 clientes de 368 negocios inbound creados en 2026",
-   "d": "Los 16 ganados suman 296,4 UF mensuales; 260 negocios se perdieron y 92 siguen vivos. Conversión a cliente: 5,8% de los cerrados en el año, 7,2% desde abril. Las dos series no se dividen entre sí: los MQL son contactos desde mayo y los clientes son negocios desde enero."
+   "t": "Sin ganados y 2 perdidos: se fue Investigaciones Mineras Geologic, el monto más grande del pipeline (63 UF), por sin presupuesto",
+   "d": "Llevaba 168 días en Value Proposition. Ecologica se perdió por no contesta. El año sigue en 16 ganados de 278 cerrados (5,76%). Avances: Cox Chile (90 UF) a Negotiation; Valle Nevado y ASTARA a Verbal Commit; transportes ilzauspe, Atlas Copco, Tarpulin, Godelius y Amspec a Value Proposition. Detenidos +30 días: 23 negocios y 316 UF; congelador 37 y 651,7 UF."
   },
   {
-   "t": "SEO: 102 clics no-marca con 6.713 impresiones y posición 5,6, pero 16 clics son typos de marca",
-   "d": "Search Console rellenó la semana 2–8 nov de 92 a 116 clics y 28 de ellos son typos («takzi», «tazski», «tszki»…) que la expresión regular no cubre; sin typos las dos semanas dan 86 y 88. «matriz de riesgos excel descargar ds 44» subió a 15 clics en posición 1,6. Noviembre lleva 223 clics, 14.136 impresiones y 92 palabras con clic."
+   "t": "SEO: 108 clics no-marca con 6.975 impresiones y posición 5,9; «miper» entró con 409 impresiones en posición 2,7",
+   "d": "Son 14 clics de typos de marca («tszki» 7, «taxki» 4); sin ellos 94. «irl» 12 clics, «matriz de riesgos excel descargar ds 44» 8 en posición 1,3, «irl ds 44» 7. Noviembre lleva 331 clics, 21.124 impresiones y 112 palabras con clic en 22 días, a ritmo de cerrar cerca de 450."
   },
   {
-   "t": "Ads: 2 MQL de pago con $197.990 en la semana ($98.995 por MQL), el costo más alto de la serie; Marca lleva diez días sin servir",
-   "d": "Noviembre va en $79.874 por MQL (5 MQL con $399.370). SST/HSEQ 33,6% de impression share y, por primera vez, el ranking (34,6%) pesa más que el presupuesto (31,7%). Marca no registra impresiones ni gasto desde el 6 de noviembre. Desde el 13-jul: $3.672.843 y 69 inbounds de pago = $53.230 por inbound."
+   "t": "Ads: 1 MQL de pago con $144.594 en la semana ($144.594 por MQL, máximo de la serie); Marca lleva dos semanas sin servir",
+   "d": "Noviembre va en $90.661 por MQL (6 MQL con $543.964). SST/HSEQ 32,5% de impression share con el presupuesto otra vez como tope (54,4% perdido por presupuesto, 13,1% por ranking); 765 impresiones en la semana, el mínimo de la serie. Desde el 13-jul: $3.817.437 y 76 inbounds de pago."
   },
   {
-   "t": "Recursos: 26 leads y 30 envíos (11,7% de conversión a lead sobre 223 visitas); el Formato IRL hizo su mejor semana con 18",
-   "d": "Matriz IPER 6, Checklist 1, Mapa de riesgos 1. Noviembre lleva 1.137 visitas de contenido, 67 envíos y 54 leads en 15 días. LinkedIn se recuperó a medias: 567 impresiones y 29 interacciones (5,1%), +2 seguidores, página en 5.203. Congelador en 36 negocios y 593,7 UF; detenidos +30 días: 24 y 501 UF."
+   "t": "Recursos: 22 leads y 33 envíos en la analítica, 14 personas nuevas en la lista 1212; LinkedIn tocó su mínimo con 180 impresiones y 3 interacciones",
+   "d": "Formato IRL 8 leads con 93 visitas, Matriz IPER 8, Checklist 5, Mapa 1; los ocho de diferencia son contactos que ya existían. Noviembre lleva 1.741 visitas de contenido, 100 envíos y 76 leads. LinkedIn: +1 seguidor, página en 5.204; noviembre 1.213 impresiones y 55 interacciones."
   }
  ],
  "rojo": [
   {
-   "t": "Marca lleva diez días sin servir anuncios",
-   "d": "Sin impresiones, clics ni gasto desde el 6 de noviembre; la semana 9–15 fue 100% SST/HSEQ y el conector no permite leer si fue pausa o límite. El historial de cambios de Google Ads sigue sin poder leerse."
+   "t": "Los cortes anteriores ya no cuadran con este en agosto, octubre y noviembre",
+   "d": "HubSpot re-atribuyó siete negocios hacia atrás (cuatro cambiaron de fuente, dos entraron al universo, uno salió). Los PDF del 8 y del 15 de noviembre muestran octubre con 32 inbounds y 43,8% de pago; desde este corte octubre es 33 y 51,5%. Las series de mayo a julio no cambiaron."
   },
   {
-   "t": "Los typos de marca inflan la serie de clics no-marca desde noviembre",
-   "d": "La semana 2–8 nov quedó en 116 clics tras el relleno y 28 son typos; esta semana 16 de los 102. La expresión regular oficial no los cubre y se dejan tal cual para que el número calce con la pantalla de Search Console; la lista está en la nota de método del bloque 6."
+   "t": "Costo por MQL de pago en $144.594 y Marca dos semanas completas sin servir",
+   "d": "Tercera semana seguida fuera del rango de $45.000 a $65.000. SST perdió entre 56% y 81% por presupuesto de lunes a viernes; Marca no registra impresiones ni gasto desde el 6 de noviembre y el historial de cambios de Google Ads sigue sin poder leerse."
   },
   {
-   "t": "Costo por MQL de pago fuera del rango declarado",
-   "d": "La semana cerró en $98.995 por MQL (2 MQL con $197.990) y noviembre va en $79.874, contra el rango de $45.000 a $65.000 y los $59.677 de octubre."
+   "t": "Investigaciones Mineras Geologic (63 UF) perdido por sin presupuesto",
+   "d": "Era el monto más grande del pipeline vivo y llevaba 168 días en Value Proposition, siempre primero en la tabla de detenidos. Los detenidos +30 días bajan de 501 a 316 UF por esta pérdida y por dos congelamientos (Hospital de Chillán 55 UF, Superfruit 23), no por destrabes."
   },
   {
-   "t": "Proquimin: contacto de 11–50 en Lead, pero con negocio en Value Proposition",
-   "d": "El contacto quedó en la lista 1324 el 12 y ese mismo día apareció el negocio Proquimin con 10 UF, sin Latest Source; entra a las camadas pero no a la tabla de inbounds."
+   "t": "Leads de recursos en mínimo de dos meses: 14 personas nuevas en la lista 1212",
+   "d": "La analítica de contenido dice 22 leads, pero ocho son contactos que ya existían y volvieron a descargar. Es la primera semana bajo 20 desde la del 14 al 20 de septiembre."
   },
   {
-   "t": "La semana 2–8 nov subió de 82,2 a 85,3 UF y la revisión cruzada sigue sin correr",
-   "d": "Quimetal pasó de 17 a 20,1 UF el 12 antes de ir al congelador. El envío al Organizador de Chats sigue bloqueado desde el 13-nov: la plataforma exige una autorización de Diego, desde Claude web o la app de escritorio, para que esta sesión despierte esa sesión."
+   "t": "Amspec: otro contacto de 11–50 con negocio creado, y la revisión cruzada sigue sin correr",
+   "d": "Daniel Cipagauta quedó en Lead el 23 de octubre y el 17 de noviembre apareció un negocio Amspec Chile directo en Value Proposition con 10 UF, igual que Proquimin la semana pasada. El envío al Organizador de Chats sigue bloqueado desde el 13-nov: hace falta la autorización de Diego desde Claude web o la app de escritorio."
   }
  ]
 }
